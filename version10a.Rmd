@@ -12,8 +12,7 @@ output:
 ```{r include=FALSE}
 library(haven)
 library(data.table)
-#library(ggplot2)
-#library(descr)
+
 
 sav4 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_personleveldietarydata_uk_v2.sav"
 
