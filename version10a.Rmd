@@ -10,7 +10,7 @@ output:
 ---
 
 # Dissertation calculation and results
-# Salt and Hypertension in NDNS
+## Salt and Hypertension in NDNS
 
 ```{r include=FALSE}
 library(haven)
@@ -32,7 +32,7 @@ sav11r <- as.data.table(read_sav(sav11))
 sav11br <- as.data.table(read_sav(sav11b))
 
 ```
-## Data Source
+### Data Source
 
 The dataset is from NDNS. This is a rolling annual survey which aims to collect a sample spread between children and adults, across the four countries of the UK, and to maintain representative sizes when analysed by age sex and ethnicity.
 
@@ -82,7 +82,7 @@ measset11 <- sav11br[,c("seriali","htval2","wtval2","bmival2","bmivg5")]
 ageset11 <- sav11br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1")]
 ```
 
-## Data preparation
+### Data preparation
 
 The data is then arranged into a format which allows processing.
 This includes identifying continuous and categorical variables. 
@@ -488,7 +488,8 @@ sav11rp[, Country := factor(Country)]
 
 ```
 
-## removing exclusions eg hypertensives and pregnant/breastfeeding
+###  Exclusions 
+eg hypertensives and pregnant/breastfeeding
 
 I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs. There are no participants who are pregnant or breastfeeding. 
 I have included normotensive untreated individuals. 
@@ -593,7 +594,7 @@ keydataM
 
 
 
-## Confounding variables
+### Confounding variables
 are confounders consistent or are they different between the two datasets
 The NDNS dataset was weighted to keep many of these the same between datasets. 
 
@@ -823,8 +824,8 @@ catconfounders5
 ```
 
 
-# Comparison of key variables
-## comparing Na intake calculated from diet
+## Comparison of key variables
+### comparing Na intake calculated from diet
 
 
 
@@ -838,7 +839,7 @@ data.table("Var" = c("Na","TEMJ"),"statistic" = signif(c(ttestNa$statistic,ttest
 ```
 It seems that the EMJ intake change is not statistically significant though the sodium intake change is statistically significant
 
-## what about outcome?
+### what about outcome  BP?
 ```{r echo=FALSE}
 
 
@@ -858,7 +859,7 @@ Such a reduction in Na should be accompanied by a reduction if it has any affect
 
 
 
-## Linear regression
+### Linear regression
 
 Simple linear regression equations look for the relationship between the dependant variable, and the independant variable.
 ```{r echo=FALSE}
@@ -918,6 +919,8 @@ This is not indicative.
 
 There is a significant change to the data due to excluding those on antihypertensives 
 This makes it difficult to infer the meaning of the result of the comparison testing.
+
+In particular there are changes to sex, age, region, ethnicity on removing those treated with antihypertensives. This suggests there have been changes in the rate of prescribing. It also identifies that these differences have been applied differently across the groups.
 
 Linear regression identifies a mathematical model which fits to the data. 
 
