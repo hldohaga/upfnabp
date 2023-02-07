@@ -1,0 +1,105 @@
+---
+title: "upf salt content"
+author: "doh"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+library(data.table)
+library(readxl)
+library(haven)
+library(dplyr)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+UPFNOVA <- data.table(read_excel("altquant/UPFNOVA.xlsx"))
+#ndns_yr1_nutrientdatabank <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_yr1_nutrientdatabank.sav"))
+
+#ndns_yr11_nutrient <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_yr11_nutrientdatabank_2021-03-19.sav"))
+
+ ndns1_4a_foodleveldietarydata_uk_v2 <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_foodleveldietarydata_uk_v2.sav"))
+
+ ndns_rp_yr9a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_rp_yr9a_foodleveldietarydata_uk_20210831.sav"))
+ ndns_rp_yr10a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_rp_yr10a_foodleveldietarydata_uk_20210831.sav"))
+ ndns_rp_yr11a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_rp_yr11a_foodleveldietarydata_uk_20210831.sav") )
+```
+
+
+
+
+```{r}
+ UPFNOVA
+
+#labels = c("unprocessed","ingredients","processed","ultraprocessed","complex","supplements")
+UPFNOVA[,`Nova group`:= factor(`Nova group`,levels = 1:4)]
+UPFNOVA$FoodGroupCode <- UPFNOVA$`food group number`
+UPFNOVA[key(FoodGroupCode)]
+#plot(UPFNOVA$`Nova group`)
+
+```
+
+
+
+```{r}
+
+#taking data from diet diary
+#specifically coded food gorups
+
+ndns_yr1_nutrientdatabank <- read_sav("UKDA-6533-spss/spss/spss25/ndns_yr1_nutrientdatabank.sav")
+setDT(ndns_yr1_nutrientdatabank)
+setkey(ndns_yr1_nutrientdatabank,"FoodGroupCode")
+#combine with key for Nova Group
+
+ndns_yr1_nutrientdatabank <- ndns_yr1_nutrientdatabank[UPFNOVA, on= "FoodGroupCode"]
+#summarise(ndns_yr1_nutrientdatabank$`NA`)
+
+nasubset <- ndns_yr1_nutrientdatabank[,c("FoodNumber","FoodGroupCode", "FoodName","Nova group","NA","VITD")]
+nasubset$Sodium <- list(nasubset$`NA`)
+
+plot(nasubset$`Nova group`)
+plot(nasubset$`Nova group`,nasubset$Sodium)
+plot(nasubset$`Nova group`, nasubset$VITD)
+lmna <- lm(Sodium ~ `Nova group`, nasubset)
+lmna
+```
+
+
+
+
+```{r}
+#taking data from diet diary
+#specifically coded food gorups
+
+ndns_yr11_nutrientdatabank <- read_sav("UKDA-6533-spss/spss/spss25/ndns_yr11_nutrientdatabank_2021-03-19.sav")
+setDT(ndns_yr11_nutrientdatabank)
+setkey(ndns_yr11_nutrientdatabank,"FoodGroupCode")
+#combine with key for Nova Group
+
+ndns_yr11_nutrientdatabank <- ndns_yr11_nutrientdatabank[UPFNOVA, on= "FoodGroupCode"]
+#summarise(ndns_yr9_nutrientdatabank$`NA`)
+
+nasubset <- ndns_yr11_nutrientdatabank[,c("FoodNumber","FoodGroupCode", "FoodName","Nova group","NA","VITD")]
+nasubset$Sodium <- list(nasubset$`NA`)
+
+plot(nasubset$`Nova group`)
+
+lmna <- lm(Sodium ~ `Nova group`, nasubset)
+lmna
+plot(nasubset$`Nova group`,nasubset$Sodium)
+plot(nasubset$`Nova group`, nasubset$VITD)
+```

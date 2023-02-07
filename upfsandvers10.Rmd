@@ -1,0 +1,353 @@
+---
+title: "upf"
+author: "doh"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## UPF
+
+```{r cars}
+library(data.table)
+library(readxl)
+library(haven)
+```
+
+## upf database
+
+```{r pressure}
+UPFNOVA <- data.table(read_excel("altquant/UPFNOVA.xlsx"))
+#ndns_yr1_nutrientdatabank <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_yr1_nutrientdatabank.sav"))
+
+#ndns_yr11_nutrient <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_yr11_nutrientdatabank_2021-03-19.sav"))
+
+ ndns1_4a_foodleveldietarydata_uk_v2 <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_foodleveldietarydata_uk_v2.sav"))
+
+ ndns_rp_yr9a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_rp_yr9a_foodleveldietarydata_uk_20210831.sav"))
+ ndns_rp_yr10a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_rp_yr10a_foodleveldietarydata_uk_20210831.sav"))
+ ndns_rp_yr11a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_rp_yr11a_foodleveldietarydata_uk_20210831.sav") )
+```
+
+```{r}
+ UPFNOVA
+
+#labels = c("unprocessed","ingredients","processed","ultraprocessed","complex","supplements")
+UPFNOVA[,`Nova group`:= factor(`Nova group`,levels = 1:4)]
+UPFNOVA$SubFoodGroupCode <- UPFNOVA$`food group number`
+plot(UPFNOVA$`Nova group`)
+```
+
+```{r}
+
+#taking data from diet diary
+#specifically coded food gorups
+
+foodlevedat4s <- ndns1_4a_foodleveldietarydata_uk_v2[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
+summary(foodlevedat4s$seriali)
+#combine with key for Nova Group
+foodlevedat4s[ ,seriali  := factor(seriali)]
+foodlevedat4s<- foodlevedat4s[UPFNOVA, on= "SubFoodGroupCode"]
+summary(foodlevedat4s)
+
+foodlevedat4s<- foodlevedat4s[,c("seriali","TotalGrams","Nova group")]
+#identify total intake in grams by nova group
+weights <-foodlevedat4s[, sum(TotalGrams), by=`Nova group`]
+
+
+foodlevedat4s[plot(`Nova group`)]
+plot(weights, ylab = "Grams")
+#foodlevedat4s[plot(`Nova group`, TotalGrams)]
+```
+
+So there is a significant amount of UPF use. Has this has changed ?
+
+```{r}
+
+#taking data from diet diary
+#specifically coded food gorups
+
+foodlevedat9s <- ndns_rp_yr9a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
+foodlevedat10s <- ndns_rp_yr10a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
+foodlevedat11s <- ndns_rp_yr11a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
+
+#foodlevedat9s[ ,seriali  := factor(seriali)]
+#foodlevedat10s[ ,seriali  := factor(seriali)]
+#foodlevedat11s[ ,seriali  := factor(seriali)]
+
+
+summary(foodlevedat9s)
+summary(foodlevedat10s)
+summary(foodlevedat11s)
+```
+
+```{r}
+#combine with key for Nova Group
+
+foodlevedat9s<- foodlevedat9s[UPFNOVA, on= "SubFoodGroupCode"]
+foodlevedat10s<- foodlevedat10s[UPFNOVA, on= "SubFoodGroupCode"]
+foodlevedat11s<- foodlevedat11s[UPFNOVA, on= "SubFoodGroupCode"]
+
+
+
+foodlevedat9s<- foodlevedat9s[,c("seriali","TotalGrams","Nova group")]
+foodlevedat10s<- foodlevedat10s[,c("seriali","TotalGrams","Nova group")]
+foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group")]
+
+#identify total intake in grams by nova group
+weights9 <-foodlevedat9s[, sum(TotalGrams), by=`Nova group`]
+weights10 <-foodlevedat10s[, sum(TotalGrams), by=`Nova group`]
+weights11<-foodlevedat11s[, sum(TotalGrams), by=`Nova group`]
+
+
+summary(foodlevedat9s)
+summary(foodlevedat10s)
+summary(foodlevedat11s)
+
+
+#weights11
+```
+
+```{r}
+
+foodlevedat9s[plot(`Nova group`)]
+foodlevedat10s[plot(`Nova group`)]
+foodlevedat11s[plot(`Nova group`)]
+
+plot(weights9, ylab = "Grams")
+#foodlevedat9s[plot(`Nova group`, TotalGrams)]
+
+plot(weights10, ylab = "Grams")
+#foodlevedat10s[plot(`Nova group`, TotalGrams)]
+
+plot(weights11, ylab = "Grams")
+#foodlevedat11s[plot(`Nova group`, TotalGrams)]
+```
+
+```{r}
+Nova11 <- xtabs(~foodlevedat11s[,`Nova group`])
+Nova4 <- xtabs(~foodlevedat4s[,`Nova group`])
+chi411<-rbind(Nova4,Nova11)
+chisq.test(chi411)
+
+
+
+```
+
+
+
+
+
+```{r}
+individual_intake <- foodlevedat4s[, TotalGrams, by= .(seriali,`Nova group`)]
+individual_intake[ ,seriali  := factor(seriali)]
+summary(individual_intake)
+
+individual_intake[plot(TotalGrams,seriali)]
+
+```
+
+## how many grams from each nova group for each person? or subgroup nova 4 grams per person?
+
+## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
+
+```{r}
+
+
+
+
+IndividDiet <- function(DT,individ) {
+  pers <- DT[seriali==individ]
+pers
+oneweight<-pers[, round(sum(TotalGrams),2), by=`Nova group`][order(`Nova group`)]
+
+setnames( oneweight, 'V1','Totalg')
+ oneweight[,pcnt := round((Totalg/sum(Totalg)*100),2)]
+
+  return(na.exclude(oneweight))
+}
+
+
+```
+
+### This section uses the function designed above to process the table
+
+```{r}
+
+name <-foodlevedat9s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)  
+#nameu
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDiet(foodlevedat9s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat9sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
+foodleveldat9sp
+
+
+
+```
+
+```{r}
+
+name <-foodlevedat10s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)
+#summary(nameu)
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDiet(foodlevedat10s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat10sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
+foodleveldat10sp
+
+
+```
+
+
+```{r}
+
+name <-foodlevedat11s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)
+#summary(nameu)
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDiet(foodlevedat11s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat11sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
+foodleveldat11sp
+
+foodleveldat910sp <- rbind(foodleveldat9sp,foodleveldat10sp)
+foodleveldat911sp <- rbind(foodleveldat11sp, foodleveldat910sp)
+```
+
+
+```{r}
+
+name <-foodlevedat4s[,.(seriali)]  
+name <- (unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)
+#summary(nameu)
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDiet(foodlevedat4s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat4sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
+foodleveldat4sp
+
+
+
+```
+
+
+This data con now be joined with the other data
+
+```{r}
+# combine with data from version10a.rmd
+
+setkey(sav11rp,seriali)
+setkey(foodleveldat911sp, seriali)
+
+novasav11 <-sav11rp[foodleveldat911sp, by= seriali]
+
+setkey(sav4rp,seriali)
+setkey(foodleveldat4sp,seriali)
+
+novasav4 <-sav4rp[foodleveldat4sp, by= seriali]
+
+```
+
+
+```{r}
+
+summary(novasav11$pcnt_4)
+novasav11$pcnt_4<- as.double(novasav11$pcnt_4)
+#novasav11[hist( sqrt(pcnt_4))]
+
+
+summary(novasav4$pcnt_4)
+novasav4$pcnt_4<- as.double(novasav4$pcnt_4)
+novasav4[hist( sqrt(pcnt_4))]
+
+
+ttestpcnt <- t.test(novasav4$pcnt_4,novasav11$pcnt_4)
+ttestpcnt
+
+```
+
+```{r}
+novalm11 <- lm(omsysval ~ (sqrt(pcnt_4)) + sqrt(AgeR) +Sex +Sodiummg + TotalEMJ +ethgrp2 +VitaminDµg  ,novasav11)
+
+novalm11
+
+
+novalm4 <- lm(omsysval ~ (sqrt(pcnt_4)) + sqrt(Age) +Sex + ethgr2+Sodiummg + TotalEMJ +VitaminDµg  ,novasav4)
+
+novalm4
+
+#novaanova <- anova(novalm11,novalm4)
+
+```
+
+
+
+This means that in the earlier data for each unit increase in the square root of the percentage of nova 4 food there is a corresponding increase in mean systolic bp of 0.13. That is when the intake rises from 25% to 36% meaning that  there is an increase from 5 to 6 in the square root there is an increase of 0.13 in the BP. At 100% Nova 4 there might be an increase of 1.3mmHg. 
+
+ in 2004 increasing age from 25-36 leads to an increase in BP of 5.07 mmmHg; being female reduces the sys bp by 5.59 mmHg.
+
+
+
+
