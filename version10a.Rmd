@@ -1,8 +1,11 @@
 ---
 title: "version10"
 output:
-  html_document:
-    df_print: paged
+  html_document: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    keep_md: yes
   word_document: default
 ---
 
@@ -31,10 +34,13 @@ sav11br <- as.data.table(read_sav(sav11b))
 ```
 ## Data Source
 
-The dataset is from NDNS. 
-Provided in tables in various formats.
-The data include more categories than needed so subsets are taken.
-The data are weighted to ensure representative sizes based on sex and age groupings and response. 
+The dataset is from NDNS. This is a rolling annual survey which aims to collect a sample spread between children and adults, across the four countries of the UK, and to maintain representative sizes when analysed by age sex and ethnicity.
+
+
+Provided in tables in various formats. The dataset is large and covers a great deal. This study only requires a subset of the data.The data include more categories than needed so subsets are taken. I use all the samples, but only some of the data categories directly related to this project.
+
+
+The data are weighted by the research group to ensure representative sizes based on sex and age groupings and response. This allows for differences in uptake and dropout in each annual sample.
 
 
 ```{r include=FALSE}
