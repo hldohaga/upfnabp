@@ -334,7 +334,7 @@ novasav11$pcnt_4<- as.double(novasav11$pcnt_4)
 
 summary(novasav4$pcnt_4)
 novasav4$pcnt_4<- as.double(novasav4$pcnt_4)
-novasav4[hist( sqrt(pcnt_4))]
+#novasav4[hist( sqrt(pcnt_4))]
 
 
 ttestpcnt <- t.test(novasav4$pcnt_4,novasav11$pcnt_4)
