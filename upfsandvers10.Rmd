@@ -3,16 +3,16 @@ title: "upf"
 author: "doh"
 date: "`r Sys.Date()`"
 output: 
-  pdf_document: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    keep_tex: yes
   html_document: 
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
+  pdf_document: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    keep_tex: yes
   word_document: 
     toc: yes
     fig_caption: yes
