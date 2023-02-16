@@ -1,12 +1,14 @@
 ---
 title: "version10"
 output:
-  html_document: 
+  pdf_document:
+    toc: yes
+  word_document: default
+  html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
-  word_document: default
 ---
 
 # Dissertation calculation and results
