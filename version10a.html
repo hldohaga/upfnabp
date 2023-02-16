@@ -355,27 +355,28 @@ display: none;
 <div id="TOC">
 <ul>
 <li><a href="#dissertation-calculation-and-results" id="toc-dissertation-calculation-and-results"><span class="toc-section-number">1</span> Dissertation calculation and
-results</a></li>
-<li><a href="#salt-and-hypertension-in-ndns" id="toc-salt-and-hypertension-in-ndns"><span class="toc-section-number">2</span> Salt and Hypertension in NDNS</a>
+results</a>
 <ul>
-<li><a href="#data-source" id="toc-data-source"><span class="toc-section-number">2.1</span> Data Source</a></li>
-<li><a href="#data-preparation" id="toc-data-preparation"><span class="toc-section-number">2.2</span> Data preparation</a></li>
-<li><a href="#removing-exclusions-eg-hypertensives-and-pregnantbreastfeeding" id="toc-removing-exclusions-eg-hypertensives-and-pregnantbreastfeeding"><span class="toc-section-number">2.3</span> removing exclusions eg
-hypertensives and pregnant/breastfeeding</a></li>
-<li><a href="#descriptive-data-analysis" id="toc-descriptive-data-analysis"><span class="toc-section-number">2.4</span> Descriptive data analysis</a></li>
-<li><a href="#confounding-variables" id="toc-confounding-variables"><span class="toc-section-number">2.5</span> Confounding variables</a></li>
+<li><a href="#salt-and-hypertension-in-ndns" id="toc-salt-and-hypertension-in-ndns"><span class="toc-section-number">1.1</span> Salt and Hypertension in NDNS</a>
+<ul>
+<li><a href="#data-source" id="toc-data-source"><span class="toc-section-number">1.1.1</span> Data Source</a></li>
+<li><a href="#data-preparation" id="toc-data-preparation"><span class="toc-section-number">1.1.2</span> Data preparation</a></li>
+<li><a href="#exclusions" id="toc-exclusions"><span class="toc-section-number">1.1.3</span> Exclusions</a></li>
 </ul></li>
-<li><a href="#comparison-of-key-variables" id="toc-comparison-of-key-variables"><span class="toc-section-number">3</span> Comparison of key variables</a>
+<li><a href="#descriptive-data-analysis" id="toc-descriptive-data-analysis"><span class="toc-section-number">1.2</span> Descriptive data analysis</a>
 <ul>
-<li><a href="#comparing-na-intake-calculated-from-diet" id="toc-comparing-na-intake-calculated-from-diet"><span class="toc-section-number">3.1</span> comparing Na intake calculated
+<li><a href="#confounding-variables" id="toc-confounding-variables"><span class="toc-section-number">1.2.1</span> Confounding variables</a></li>
+</ul></li>
+<li><a href="#comparison-of-key-variables" id="toc-comparison-of-key-variables"><span class="toc-section-number">1.3</span> Comparison of key variables</a>
+<ul>
+<li><a href="#comparing-na-intake-calculated-from-diet" id="toc-comparing-na-intake-calculated-from-diet"><span class="toc-section-number">1.3.1</span> comparing Na intake calculated
 from diet</a></li>
-<li><a href="#what-about-outcome" id="toc-what-about-outcome"><span class="toc-section-number">3.2</span> what about outcome?</a></li>
-<li><a href="#linear-regression" id="toc-linear-regression"><span class="toc-section-number">3.3</span> Linear regression</a>
-<ul>
-<li><a href="#multi-variable-regression" id="toc-multi-variable-regression"><span class="toc-section-number">3.3.1</span> multi variable
+<li><a href="#what-about-outcome-bp" id="toc-what-about-outcome-bp"><span class="toc-section-number">1.3.2</span> what about outcome BP?</a></li>
+<li><a href="#linear-regression" id="toc-linear-regression"><span class="toc-section-number">1.3.3</span> Linear regression</a></li>
+<li><a href="#multi-variable-regression" id="toc-multi-variable-regression"><span class="toc-section-number">1.3.4</span> multi variable
 regression</a></li>
 </ul></li>
-<li><a href="#conclusion" id="toc-conclusion"><span class="toc-section-number">3.4</span> Conclusion</a></li>
+<li><a href="#conclusion" id="toc-conclusion"><span class="toc-section-number">1.4</span> Conclusion</a></li>
 </ul></li>
 </ul>
 </div>
@@ -383,16 +384,16 @@ regression</a></li>
 <div id="dissertation-calculation-and-results" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Dissertation
 calculation and results</h1>
-</div>
-<div id="salt-and-hypertension-in-ndns" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Salt and Hypertension
-in NDNS</h1>
-<div id="data-source" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Data Source</h2>
-<p>The dataset is from NDNS. This is a rolling annual survey which aims
-to collect a sample spread between children and adults, across the four
-countries of the UK, and to maintain representative sizes when analysed
-by age sex and ethnicity.</p>
+<div id="salt-and-hypertension-in-ndns" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Salt and Hypertension
+in NDNS</h2>
+<div id="data-source" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Data Source</h3>
+<p>The dataset is from NDNS <span class="citation">@universityofcambridgeNDNSRPNationalDiet2022</span>.
+This is a rolling annual survey which aims to collect a sample spread
+between children and adults, across the four countries of the UK, and to
+maintain representative sizes when analysed by age sex and
+ethnicity.</p>
 <p>Provided in tables in various formats. The dataset is large and
 covers a great deal. This study only requires a subset of the data.The
 data include more categories than needed so subsets are taken. I use all
@@ -402,23 +403,25 @@ this project.</p>
 sizes based on sex and age groupings and response. This allows for
 differences in uptake and dropout in each annual sample.</p>
 </div>
-<div id="data-preparation" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Data preparation</h2>
+<div id="data-preparation" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Data
+preparation</h3>
 <p>The data is then arranged into a format which allows processing. This
 includes identifying continuous and categorical variables. It also
 includes naming the categories of the categorical variables.</p>
 <p>The data is then combined into two comprehensive tables.</p>
 </div>
-<div id="removing-exclusions-eg-hypertensives-and-pregnantbreastfeeding" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> removing exclusions
-eg hypertensives and pregnant/breastfeeding</h2>
+<div id="exclusions" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Exclusions</h3>
+<p>eg hypertensives and pregnant/breastfeeding</p>
 <p>I have excluded those who are taking diuretics, bblockers, ace
 inhibitors, calcium channel blockers and other bp drugs. There are no
 participants who are pregnant or breastfeeding. I have included
 normotensive untreated individuals.</p>
 </div>
-<div id="descriptive-data-analysis" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Descriptive data
+</div>
+<div id="descriptive-data-analysis" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Descriptive data
 analysis</h2>
 <p>Here the data is summarised. Mean median, and range for continuous
 variables. Counts for categorical variables. First for years 1-4 then
@@ -455,10 +458,9 @@ energy intake, and BP Show the data. This is the whole dataset.</p>
 ## 6:  74.000  105.000  116.200  116.700  127.500  155.00 omsysval
 ## 7:  39.000   63.000   70.500   70.330   79.000   94.50 omdiaval
 ## 8:  41.500   59.000   66.000   67.150   75.000   93.50 omdiaval</code></pre>
-</div>
-<div id="confounding-variables" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Confounding
-variables</h2>
+<div id="confounding-variables" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Confounding
+variables</h3>
 <p>are confounders consistent or are they different between the two
 datasets The NDNS dataset was weighted to keep many of these the same
 between datasets.</p>
@@ -539,12 +541,12 @@ vegetarians</p>
 ## 8: PregNowB     NaN</code></pre>
 </div>
 </div>
-<div id="comparison-of-key-variables" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Comparison of key
-variables</h1>
-<div id="comparing-na-intake-calculated-from-diet" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> comparing Na intake
-calculated from diet</h2>
+<div id="comparison-of-key-variables" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Comparison of key
+variables</h2>
+<div id="comparing-na-intake-calculated-from-diet" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> comparing Na intake
+calculated from diet</h3>
 <p>So has there been a change in intake?</p>
 <pre><code>##     Var statistic   p.value
 ## 1:   Na    -6.902 6.859e-12
@@ -552,9 +554,9 @@ calculated from diet</h2>
 <p>It seems that the EMJ intake change is not statistically significant
 though the sodium intake change is statistically significant</p>
 </div>
-<div id="what-about-outcome" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> what about
-outcome?</h2>
+<div id="what-about-outcome-bp" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> what about outcome
+BP?</h3>
 <pre><code>##    Var statistic   p.value
 ## 1: Sys    -8.074 1.163e-15
 ## 2: Dia    -5.994 2.418e-09</code></pre>
@@ -567,9 +569,9 @@ EMJ change.</p>
 any affect on BP. Has something another factor affected the BP change
 ?</p>
 </div>
-<div id="linear-regression" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Linear
-regression</h2>
+<div id="linear-regression" class="section level3" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Linear
+regression</h3>
 <p>Simple linear regression equations look for the relationship between
 the dependant variable, and the independant variable.</p>
 <pre><code>## 
@@ -604,8 +606,9 @@ positive gradiant. This appears greater in the more recent data.</p>
 ##     102.353        1.703</code></pre>
 <p>There is a relationship between Total EMJ and omsysval. The positive
 gradiant appears stronger in 9-11.</p>
-<div id="multi-variable-regression" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> multi variable
+</div>
+<div id="multi-variable-regression" class="section level3" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> multi variable
 regression</h3>
 <p>This uses a model of variables. It can highlight the contributions of
 each.</p>
@@ -633,11 +636,15 @@ each.</p>
 is not indicative.</p>
 </div>
 </div>
-<div id="conclusion" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Conclusion</h2>
+<div id="conclusion" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Conclusion</h2>
 <p>There is a significant change to the data due to excluding those on
 antihypertensives This makes it difficult to infer the meaning of the
 result of the comparison testing.</p>
+<p>In particular there are changes to sex, age, region, ethnicity on
+removing those treated with antihypertensives. This suggests there have
+been changes in the rate of prescribing. It also identifies that these
+differences have been applied differently across the groups.</p>
 <p>Linear regression identifies a mathematical model which fits to the
 data.</p>
 </div>

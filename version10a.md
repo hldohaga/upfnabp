@@ -10,12 +10,12 @@ output:
 ---
 
 # Dissertation calculation and results
-# Salt and Hypertension in NDNS
+## Salt and Hypertension in NDNS
 
 
-## Data Source
+### Data Source
 
-The dataset is from NDNS. This is a rolling annual survey which aims to collect a sample spread between children and adults, across the four countries of the UK, and to maintain representative sizes when analysed by age sex and ethnicity.
+The dataset is from NDNS @universityofcambridgeNDNSRPNationalDiet2022. This is a rolling annual survey which aims to collect a sample spread between children and adults, across the four countries of the UK, and to maintain representative sizes when analysed by age sex and ethnicity.
 
 
 Provided in tables in various formats. The dataset is large and covers a great deal. This study only requires a subset of the data.The data include more categories than needed so subsets are taken. I use all the samples, but only some of the data categories directly related to this project.
@@ -33,7 +33,7 @@ The data are weighted by the research group to ensure representative sizes based
 
 
 
-## Data preparation
+### Data preparation
 
 The data is then arranged into a format which allows processing.
 This includes identifying continuous and categorical variables. 
@@ -66,7 +66,8 @@ The data is then combined into two comprehensive tables.
 
 
 
-## removing exclusions eg hypertensives and pregnant/breastfeeding
+###  Exclusions 
+eg hypertensives and pregnant/breastfeeding
 
 I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs. There are no participants who are pregnant or breastfeeding. 
 I have included normotensive untreated individuals. 
@@ -139,7 +140,7 @@ This is just Male participants
 
 
 
-## Confounding variables
+### Confounding variables
 are confounders consistent or are they different between the two datasets
 The NDNS dataset was weighted to keep many of these the same between datasets. 
 
@@ -245,8 +246,8 @@ The age groups sh w some discrepency
 ```
 
 
-# Comparison of key variables
-## comparing Na intake calculated from diet
+## Comparison of key variables
+### comparing Na intake calculated from diet
 
 
 
@@ -260,7 +261,7 @@ So has there been a change in intake?
 ```
 It seems that the EMJ intake change is not statistically significant though the sodium intake change is statistically significant
 
-## what about outcome?
+### what about outcome  BP?
 
 ```
 ##    Var statistic   p.value
@@ -278,7 +279,7 @@ Such a reduction in Na should be accompanied by a reduction if it has any affect
 
 
 
-## Linear regression
+### Linear regression
 
 Simple linear regression equations look for the relationship between the dependant variable, and the independant variable.
 
@@ -365,6 +366,8 @@ This is not indicative.
 
 There is a significant change to the data due to excluding those on antihypertensives 
 This makes it difficult to infer the meaning of the result of the comparison testing.
+
+In particular there are changes to sex, age, region, ethnicity on removing those treated with antihypertensives. This suggests there have been changes in the rate of prescribing. It also identifies that these differences have been applied differently across the groups.
 
 Linear regression identifies a mathematical model which fits to the data. 
 
