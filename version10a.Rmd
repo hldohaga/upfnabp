@@ -524,7 +524,8 @@ sav11rp <-sav11rp[obpdrug2 =="Not taking drug"]
 
 
 #summary(sav11rp)
-
+saveRDS(sav11rp, file ="sav11rp.rds")
+saveRDS(sav11rp, file ="sav4rp.rds")
 ```
  
 
@@ -838,6 +839,8 @@ So has there been a change in intake?
 ttestNa <- t.test(sav11rp[,"Sodiummg"], sav4rp[,"Sodiummg"])
 ttestTEMJ <-t.test(sav11rp[,"TotalEMJ"], sav4rp[,"TotalEMJ"])
 data.table("Var" = c("Na","TEMJ"),"statistic" = signif(c(ttestNa$statistic,ttestTEMJ$statistic), digits = 4), "p.value" = signif(c(ttestNa$p.value,ttestTEMJ$p.value), digits = 4))
+
+
 ```
 It seems that the EMJ intake change is not statistically significant though the sodium intake change is statistically significant
 

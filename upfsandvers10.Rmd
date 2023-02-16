@@ -309,10 +309,12 @@ foodleveldat4sp
 
 This data con now be joined with the other data
 
-```{r}
+```{r  adding to earlier data}
 # combine with data from version10a.rmd
 
-setkey(sav11rp,seriali)
+sav11rpb <- readRDS("sav11rp.rds")
+
+setkey(sav11rpb,seriali)
 setkey(foodleveldat911sp, seriali)
 
 novasav11 <-sav11rp[foodleveldat911sp, by= seriali]
@@ -326,7 +328,7 @@ novasav4 <-sav4rp[foodleveldat4sp, by= seriali]
 
 
 ```{r}
-
+sav4rp <- readRDS("sav4rp.rds")
 summary(novasav11$pcnt_4)
 novasav11$pcnt_4<- as.double(novasav11$pcnt_4)
 #novasav11[hist( sqrt(pcnt_4))]
