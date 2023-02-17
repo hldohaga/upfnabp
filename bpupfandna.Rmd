@@ -541,8 +541,10 @@ sav11rp <-sav11rp[obpdrug2 =="Not taking drug"]
 
 
 #summary(sav11rp)
+
+#This section exports these key datatables to use with the other script (not needed if combining all in one script!)
 saveRDS(sav11rp, file ="sav11rp.rds")
-saveRDS(sav11rp, file ="sav4rp.rds")
+saveRDS(sav4rp, file ="sav4rp.rds")
 ```
  
 
@@ -550,9 +552,21 @@ saveRDS(sav11rp, file ="sav4rp.rds")
 
 ## Descriptive data analysis
 
-Here the data is summarised. Mean median, and range for continuous variables. 
-Counts for categorical variables.
+This section will review the data which will be used for the statistical analysis.
+The data is summarised, with Mean median, and range for continuous variables. 
+Counts are available for categorical variables.
 First for years 1-4 then for 9-11.
+
+The key variables are omsysval which is the dependant variable, and UPF proportion intake and sodiummg. 
+These variables are the ones which most relate to the research question. 
+There are a number of related variables in the dataset. These were chosen for reliability and practicality.
+The omsysval is a validated measurement with significant quality assessment within the dataset. 
+Raw systolic values are present in the dataset but are made up of data with issues around quality. 
+In particular the systolic values are assessed for the effects of exercise, temperature and ill health. 
+
+The sodium value is one calculated from intake based on food diaries and standard food nutrient values.
+This is dependant on a lot of processing, but but only reflects standard foods. Serum sodium values are available for the early dataset, but not the later one. 
+There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of teh dataset, but again these are not found in both time periods.
 
 
 
@@ -588,7 +602,8 @@ boxplot(bpOD, main = "omdiaval 2010 vs 2019", xlab = "year", ylab = "omdiaval")
 
 
 
-This is just adults >18
+This is just adults >18. The range of values is different to the standard population.
+
 ```{r echo=FALSE, warning=FALSE}
 keydataA <- rbind(summary(sav4rp[Age >= 18 ,Sodiummg]), summary(sav11rp[AgeR >= 18,Sodiummg]),summary(sav4rp[Age >= 18,TotalEMJ]), summary(sav11rp[AgeR >= 18,TotalEMJ]),summary(sav4rp[Age >= 18,omsysval]), summary(sav11rp[AgeR >= 18,omsysval]), summary(sav4rp[Age >= 18,omdiaval]), summary(sav11rp[AgeR >= 18,omdiaval]))
 keydataA <- as.data.table(keydataA)
@@ -598,7 +613,9 @@ keydataA$names <- c("Sodiummg", "Sodiummg", "TotalEMJ", "TotalEMJ","omsysval","o
 keydataA
 ```
 
-This is just Male participants
+This is just Male participants again showing the changes from the overall population.
+
+
 ```{r echo=FALSE}
 keydataM <- rbind(summary(sav4rp[Sex == "Male" ,Sodiummg]), summary(sav11rp[Sex == "Male",Sodiummg]),summary(sav4rp[Sex == "Male" ,TotalEMJ]), summary(sav11rp[Sex == "Male" ,TotalEMJ]),summary(sav4rp[Sex == "Male" ,omsysval]), summary(sav11rp[Sex == "Male" ,omsysval]),summary(sav4rp[Sex == "Male" ,omdiaval]), summary(sav11rp[Sex == "Male" ,omdiaval]))
 
@@ -614,7 +631,7 @@ keydataM
 
 
 
-### Confounding variables
+### Statistical analysis of Confounding variables
 are confounders consistent or are they different between the two datasets
 The NDNS dataset was weighted to keep many of these the same between datasets. 
 
@@ -799,7 +816,7 @@ catconfounders4 <- data.table("name" = c("hyper1","hyper140","highbp1","hibp140"
 catconfounders4
 
 ```
-The age groups sh w some discrepency 
+The age groups show some discrepency 
 
 ```{r echo=FALSE, warning=FALSE}
 
@@ -844,12 +861,16 @@ catconfounders5
 ```
 
 
-## Comparison of key variables
+## Statistical Comparison of key variables
 ### comparing Na intake calculated from diet
 
 
 
-So has there been a change in intake?
+So has there been a change in intake? test 
+A t test is comparing the means of the two samples.
+This first compares the means of sodium in years 1-4 with sodium in years 9-11.
+The second compares the means of Total energy intake in Joules over the same periods.
+
 
 ```{r echo=FALSE}
 
@@ -859,9 +880,13 @@ data.table("Var" = c("Na","TEMJ"),"statistic" = signif(c(ttestNa$statistic,ttest
 
 
 ```
-It seems that the EMJ intake change is not statistically significant though the sodium intake change is statistically significant
+It seems that the EMJ intake change is not statistically significantat the level of p = 0.05. 
+The sodium intake change is statistically significant with a p value less than 0.05.
+
 
 ### what about outcome  BP?
+The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
+
 ```{r echo=FALSE}
 
 
@@ -873,15 +898,20 @@ data.table("Var" = c("Sys","Dia"),"statistic" = signif(c(ttestOS$statistic,ttest
 
 There is a reduction in systolic, with a less significant reduction in diastolic
 
-At first look it would seem that the reduction in sodium intake has resulted in a reduction in systolic blood pressure. Though it may be the EMJ change. 
+In summary there is a reduction in Na intake and a drop in both systolic and diastolic pressures. 
+The TEMJ has also dropped but does not have statistical significance.
+This cannot be described as causative, this analysis simply identifies several correlated variables.
 
-Such a reduction in Na should be accompanied by a reduction if it has any affect on BP. Has something another factor affected the BP change ?
+Has another factor affected the BP change ?
 
 
 
 
 
-### Linear regression
+###  Regression Analysis
+
+Firstly using linear regression I will look at the correlation between omsysval and sodiummg. 
+There are regressions for 1-4 and 9-11
 
 Simple linear regression equations look for the relationship between the dependant variable, and the independant variable.
 ```{r echo=FALSE}
