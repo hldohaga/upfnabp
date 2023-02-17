@@ -509,6 +509,7 @@ sav11rp[, Country := factor(Country)]
 
 ###  Exclusions 
 eg hypertensives and pregnant/breastfeeding
+possible future set with only England?
 
 I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs. There are no participants who are pregnant or breastfeeding. 
 I have included normotensive untreated individuals. 
@@ -928,7 +929,7 @@ lm1na11 <- lm(omsysval ~ Sodiummg, sav11rp)
 #plot(lm1na4)
 #plot(lm1na11)
 ```
-There is a  relationship between Na and omsysval. There is a weakly positive gradiant. This appears greater in the more recent data.
+There is a  relationship between Na and omsysval. There is a weakly positive gradiant. This appears greater in the more recent data starting from a lower intersection with the y axis.
 
 
 ```{r echo=FALSE}
@@ -963,16 +964,18 @@ lm11
 #anova(lm1,lm1a)
 ```
 There are differences in coefficients in the two sets of data. 
-This is not indicative.
+These models can be compared with others with different variables to understand how they help predict values more or less effectively.
 
 
 
 ## Conclusion
 
-There is a significant change to the data due to excluding those on antihypertensives 
+There is a significant change to the data due to excluding those on antihypertensives.
+Weighting the populations for these cahnges may improve teh comparability? 
+
 This makes it difficult to infer the meaning of the result of the comparison testing.
 
 In particular there are changes to sex, age, region, ethnicity on removing those treated with antihypertensives. This suggests there have been changes in the rate of prescribing. It also identifies that these differences have been applied differently across the groups.
 
-Linear regression identifies a mathematical model which fits to the data. 
+Linear regression identifies a mathematical model which fits to the data. Comparing these models can identify an optimmal model.
 
