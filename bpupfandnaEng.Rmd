@@ -560,6 +560,214 @@ saveRDS(sav4rp, file ="sav4rp.rds")
 ```
  
 
+```{r }
+UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/altquant/UPFNOVA.xlsx"))
+#ndns_yr1_nutrientdatabank <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_yr1_nutrientdatabank.sav"))
+
+#ndns_yr11_nutrient <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_yr11_nutrientdatabank_2021-03-19.sav"))
+
+ ndns1_4a_foodleveldietarydata_uk_v2 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_foodleveldietarydata_uk_v2.sav"))
+
+ ndns_rp_yr9a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr9a_foodleveldietarydata_uk_20210831.sav"))
+ ndns_rp_yr10a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr10a_foodleveldietarydata_uk_20210831.sav"))
+ ndns_rp_yr11a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr11a_foodleveldietarydata_uk_20210831.sav") )
+```
+
+
+
+```{r}
+#taking data from diet diary
+
+UPFNOVA[,`Nova group`:= factor(`Nova group`,levels = 1:4)]
+UPFNOVA$SubFoodGroupCode <- UPFNOVA$`food group number`
+
+#specifically coded food gorups
+
+#combine with key for Nova Group
+foodlevedat4s <- ndns1_4a_foodleveldietarydata_uk_v2[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
+foodlevedat4s[ ,seriali  := factor(seriali)]
+foodlevedat4s<- foodlevedat4s[UPFNOVA, on= "SubFoodGroupCode"]
+summary(foodlevedat4s)
+
+foodlevedat4s<- foodlevedat4s[,c("seriali","TotalGrams","Nova group")]
+
+foodlevedat9s <- ndns_rp_yr9a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
+foodlevedat10s <- ndns_rp_yr10a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
+foodlevedat11s <- ndns_rp_yr11a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
+
+#combine with key for Nova Group
+
+foodlevedat9s<- foodlevedat9s[UPFNOVA, on= "SubFoodGroupCode"]
+foodlevedat10s<- foodlevedat10s[UPFNOVA, on= "SubFoodGroupCode"]
+foodlevedat11s<- foodlevedat11s[UPFNOVA, on= "SubFoodGroupCode"]
+
+
+
+foodlevedat9s<- foodlevedat9s[,c("seriali","TotalGrams","Nova group")]
+foodlevedat10s<- foodlevedat10s[,c("seriali","TotalGrams","Nova group")]
+foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group")]
+
+```
+
+## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
+
+```{r}
+
+
+
+
+IndividDiet <- function(DT,individ) {
+  pers <- DT[seriali==individ]
+pers
+oneweight<-pers[, round(sum(TotalGrams),2), by=`Nova group`][order(`Nova group`)]
+
+setnames( oneweight, 'V1','Totalg')
+ oneweight[,pcnt := round((Totalg/sum(Totalg)*100),2)]
+
+  return(na.exclude(oneweight))
+}
+
+
+```
+
+### This section uses the function designed above to process the table
+
+```{r}
+
+name <-foodlevedat9s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)  
+#nameu
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDiet(foodlevedat9s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat9sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
+foodleveldat9sp
+
+
+
+```
+
+```{r}
+
+name <-foodlevedat10s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)
+#summary(nameu)
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDiet(foodlevedat10s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat10sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
+foodleveldat10sp
+
+
+```
+
+
+```{r}
+
+name <-foodlevedat11s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)
+#summary(nameu)
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDiet(foodlevedat11s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat11sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
+foodleveldat11sp
+
+foodleveldat910sp <- rbind(foodleveldat9sp,foodleveldat10sp)
+foodleveldat911sp <- rbind(foodleveldat11sp, foodleveldat910sp)
+```
+
+
+```{r}
+
+name <-foodlevedat4s[,.(seriali)]  
+name <- (unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)
+#summary(nameu)
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDiet(foodlevedat4s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat4sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
+foodleveldat4sp
+
+
+
+```
+
+```{r  adding to earlier data}
+# combine with data from version10a.rmd
+
+#sav11rpb <- readRDS("sav11rp.rds")
+
+setkey(sav11rp,seriali)
+setkey(foodleveldat911sp, seriali)
+
+sav11rp <-sav11rp[foodleveldat911sp, by= seriali]
+
+
+#sav4rp <- readRDS("sav4rp.rds")
+
+setkey(sav4rp,seriali)
+setkey(foodleveldat4sp,seriali)
+
+sav4rp <-sav4rp[foodleveldat4sp, by= seriali]
+
+```
 
 
 ## Descriptive data analysis
@@ -587,10 +795,10 @@ Show the data. This is the whole dataset.
 
 
 ```{r echo=FALSE, warning=FALSE}
-keydata <- rbind(summary(sav4rp[,Sodiummg]), summary(sav11rp[,Sodiummg]),summary(sav4rp[,TotalEMJ]), summary(sav11rp[,TotalEMJ]),summary(sav4rp[,omsysval]), summary(sav11rp[,omsysval]),summary(sav4rp[,omdiaval]), summary(sav11rp[,omdiaval]))
+keydata <- rbind(summary(sav4rp[,Sodiummg]), summary(sav11rp[,Sodiummg]),summary(sav4rp[,pcnt_4]), summary(sav11rp[,pcnt_4]),summary(sav4rp[,omsysval]), summary(sav11rp[,omsysval]),summary(sav4rp[,omdiaval]), summary(sav11rp[,omdiaval]))
 keydata <- as.data.table(keydata)
 keydata <- signif(keydata, digits = 4)
-keydata$names <- c("Sodiummg", "Sodiummg", "TotalEMJ", "TotalEMJ","omsysval","omsysval","omdiaval", "omdiaval")
+keydata$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4","omsysval","omsysval","omdiaval", "omdiaval")
  
 
 keydata
@@ -600,8 +808,8 @@ keydata
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 bpNa <- data.table("2010"=c(sav4rp[,Sodiummg]),"2019" =c(sav11rp[,Sodiummg]))
 boxplot(bpNa, main = "Sodiummg 2010 vs 2019", xlab = "year", ylab = "Sodium mg")
-bpEMJ <-data.table("2010" =c(sav4rp[,TotalEMJ]),"2019" = c(sav11rp[,TotalEMJ]))
-boxplot(bpEMJ, main = "Total EMJ 2010 vs 2019", xlab = "year", ylab = "Total EMJ")
+bpEMJ <-data.table("2010" =c(sav4rp[,pcnt_4]),"2019" = c(sav11rp[,pcnt_4]))
+boxplot(bpEMJ, main = "Percent UPF 2010 vs 2019", xlab = "year", ylab = "pcnt_4")
 
 bpOS <- data.table("2010" = c(sav4rp[,omsysval]),"2019"=c(sav11rp[,omsysval]))
 boxplot(bpOS,main = "omsysval 2010 vs 2019",xlab = "year", ylab = "omsysval")
@@ -617,10 +825,10 @@ boxplot(bpOD, main = "omdiaval 2010 vs 2019", xlab = "year", ylab = "omdiaval")
 This is just adults >18. The range of values is different to the standard population.
 
 ```{r echo=FALSE, warning=FALSE}
-keydataA <- rbind(summary(sav4rp[Age >= 18 ,Sodiummg]), summary(sav11rp[AgeR >= 18,Sodiummg]),summary(sav4rp[Age >= 18,TotalEMJ]), summary(sav11rp[AgeR >= 18,TotalEMJ]),summary(sav4rp[Age >= 18,omsysval]), summary(sav11rp[AgeR >= 18,omsysval]), summary(sav4rp[Age >= 18,omdiaval]), summary(sav11rp[AgeR >= 18,omdiaval]))
+keydataA <- rbind(summary(sav4rp[Age >= 18 ,Sodiummg]), summary(sav11rp[AgeR >= 18,Sodiummg]),summary(sav4rp[Age >= 18,pcnt_4]), summary(sav11rp[AgeR >= 18,pcnt_4]),summary(sav4rp[Age >= 18,omsysval]), summary(sav11rp[AgeR >= 18,omsysval]), summary(sav4rp[Age >= 18,omdiaval]), summary(sav11rp[AgeR >= 18,omdiaval]))
 keydataA <- as.data.table(keydataA)
 keydataA <- signif(keydataA, digits = 4)
-keydataA$names <- c("Sodiummg", "Sodiummg", "TotalEMJ", "TotalEMJ","omsysval","omsysval","omdiaval", "omdiaval")
+keydataA$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4","omsysval","omsysval","omdiaval", "omdiaval")
 
 keydataA
 ```
@@ -629,11 +837,11 @@ This is just Male participants again showing the changes from the overall popula
 
 
 ```{r echo=FALSE}
-keydataM <- rbind(summary(sav4rp[Sex == "Male" ,Sodiummg]), summary(sav11rp[Sex == "Male",Sodiummg]),summary(sav4rp[Sex == "Male" ,TotalEMJ]), summary(sav11rp[Sex == "Male" ,TotalEMJ]),summary(sav4rp[Sex == "Male" ,omsysval]), summary(sav11rp[Sex == "Male" ,omsysval]),summary(sav4rp[Sex == "Male" ,omdiaval]), summary(sav11rp[Sex == "Male" ,omdiaval]))
+keydataM <- rbind(summary(sav4rp[Sex == "Male" ,Sodiummg]), summary(sav11rp[Sex == "Male",Sodiummg]),summary(sav4rp[Sex == "Male" ,pcnt_4]), summary(sav11rp[Sex == "Male" ,pcnt_4]),summary(sav4rp[Sex == "Male" ,omsysval]), summary(sav11rp[Sex == "Male" ,omsysval]),summary(sav4rp[Sex == "Male" ,omdiaval]), summary(sav11rp[Sex == "Male" ,omdiaval]))
 
 keydataM <- as.data.table(keydataM)
 keydataM <- signif(keydataM, digits = 4)
-keydataM$names = c("Sodiummg", "Sodiummg", "TotalEMJ", "TotalEMJ","omsysval","omsysval","omdiaval", "omdiaval") 
+keydataM$names = c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4","omsysval","omsysval","omdiaval", "omdiaval") 
 keydataM
 
 ```
