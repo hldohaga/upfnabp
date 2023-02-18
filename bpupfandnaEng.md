@@ -91,6 +91,7 @@ possible future set with only England?
 
 I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs. There are no participants who are pregnant or breastfeeding. 
 I have included normotensive untreated individuals. 
+I have restricted the data set to England only.
 
 
  
@@ -203,9 +204,8 @@ There has been a change in the intake of soft drinks, tea coffee and water.
 
 
 ```
-##       name   pvalue
-## 1:     Sex 0.001513
-## 2: Country      NaN
+##    name   pvalue
+## 1:  Sex 0.001513
 ```
 
 ![](bpupfandnaEng_files/figure-html/unnamed-chunk-14-1.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-14-2.png)<!-- -->
@@ -248,24 +248,25 @@ These values identify a significant difference in the number of vegetarians
 ## 1: ethgrp5 0.01317
 ## 2: ethgrp2 0.01597
 ## 3:  nssec8     NaN
-## 4:     GOR     NaN
-## 5:  region     NaN
+```
+
+```
+##                  name p.value
+## 1: EIMD_2007_quintile 0.05195
+## 2: EIMD_2010_quintile 0.08485
+## 3: EIMD_2015_quintile 0.21530
 ```
 There are differences in ethnicity and regional makeup
 
 
 ```
-##        name p.value
-## 1:   hyper1     NaN
-## 2: hyper140     NaN
-## 3:  highbp1 0.00000
-## 4:  hibp140     NaN
-## 5:  agegad1 0.01671
-## 6:  agegad2 0.03427
-## 7:  agegch1 0.00162
-## 8:   agegr1     NaN
+##       name p.value
+## 1: agegad1 0.01671
+## 2: agegad2 0.03427
+## 3: agegch1 0.00162
+## 4:  agegr1     NaN
 ```
-The age groups show some discrepency 
+The age groups show some discrepancy with the p value significant only in the child agre groups.
 
 
 
@@ -373,26 +374,34 @@ This uses a model of variables. It can highlight the contributions of each.
 ## 
 ## Call:
 ## lm(formula = omsysval ~ Age + Sex + Sodiummg + TotalEMJ + ethgr2 + 
-##     VitaminDµg, data = sav4rp)
+##     VitaminDµg + EIMD_2010_quintile, data = sav4rp)
 ## 
 ## Coefficients:
-##     (Intercept)              Age        SexFemale         Sodiummg  
-##       1.070e+02        4.059e-01       -4.766e+00       -9.327e-04  
-##        TotalEMJ  ethgr2Non-white       VitaminDµg  
-##       4.039e-01       -3.341e+00       -2.062e-01
+##         (Intercept)                  Age            SexFemale  
+##           1.058e+02            4.152e-01           -4.948e+00  
+##            Sodiummg             TotalEMJ      ethgr2Non-white  
+##          -9.893e-04            4.025e-01           -3.543e+00  
+##          VitaminDµg  EIMD_2010_quintile2  EIMD_2010_quintile3  
+##          -1.794e-01           -1.986e-01            1.493e+00  
+## EIMD_2010_quintile4  EIMD_2010_quintile5  
+##           2.814e-01            3.089e+00
 ```
 
 ```
 ## 
 ## Call:
 ## lm(formula = omsysval ~ AgeR + Sex + Sodiummg + TotalEMJ + ethgrp2 + 
-##     VitaminDµg, data = sav11rp)
+##     VitaminDµg + EIMD_2010_quintile, data = sav11rp)
 ## 
 ## Coefficients:
-##      (Intercept)              AgeR         SexFemale          Sodiummg  
-##        99.274128          0.390912         -5.125441          0.001644  
-##         TotalEMJ  ethgrp2Non-white        VitaminDµg  
-##         0.390728          0.097282          0.035465
+##         (Intercept)                 AgeR            SexFemale  
+##           99.052975             0.388911            -5.011707  
+##            Sodiummg             TotalEMJ     ethgrp2Non-white  
+##            0.001518             0.434211             0.160355  
+##          VitaminDµg  EIMD_2010_quintile2  EIMD_2010_quintile3  
+##            0.040393             0.928627            -0.507772  
+## EIMD_2010_quintile4  EIMD_2010_quintile5  
+##           -0.139366             0.111822
 ```
 There are differences in coefficients in the two sets of data. 
 These models can be compared with others with different variables to understand how they help predict values more or less effectively.

@@ -779,13 +779,29 @@ rtable11 <- xtabs(~sav11rp[,region])
 rtable4 <- xtabs(~sav4rp[, region])
 rtabler <-chisq.test(rbind(rtable11 , rtable4))
 
+
+q07table11 <- xtabs(~sav11rp[,EIMD_2007_quintile])
+q07table4 <- xtabs(~sav4rp[, EIMD_2007_quintile])
+q07tabler <-chisq.test(rbind(q07table11 , q07table4))
+
+q10table11 <- xtabs(~sav11rp[,EIMD_2010_quintile])
+q10table4 <- xtabs(~sav4rp[, EIMD_2010_quintile])
+q10tabler <-chisq.test(rbind(q10table11 , q10table4))
+
+q15table11 <- xtabs(~sav11rp[,EIMD_2015_quintile])
+q15table4 <- xtabs(~sav4rp[, EIMD_2015_quintile])
+q15tabler <-chisq.test(rbind(q15table11 , q15table4))
+
+
 catconfounders3a <- data.table("name" = c("GOR","region"),"p.value" =signif(c( gtabler$p.value, rtabler$p.value ),digits = 4))
 
 catconfounders3b <- data.table("name" = c("ethgrp5","ethgrp2","nssec8"),"p.value" =signif(c(e5tabler$p.value, e2tabler$p.value, n8tabler$p.value),digits = 4))
 
+catconfounders3c <- data.table("name" = c("EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile"),"p.value" =signif(c(q07tabler$p.value, q10tabler$p.value, q15tabler$p.value),digits = 4))
 
 #catconfounders3a
 catconfounders3b
+catconfounders3c
 ```
 There are differences in ethnicity and regional makeup
 
@@ -969,11 +985,11 @@ There is a relationship between Total EMJ and omsysval. The positive gradiant ap
 This uses a model of variables. It can highlight the contributions of each.
 
 ```{r echo=FALSE}
-lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + TotalEMJ + ethgr2 + VitaminDµg, sav4rp)
+lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + TotalEMJ + ethgr2 + VitaminDµg + EIMD_2010_quintile , sav4rp)
 
 #plot(lm1)
 
-lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + TotalEMJ +ethgrp2 +VitaminDµg, sav11rp)
+lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + TotalEMJ +ethgrp2 +VitaminDµg + EIMD_2010_quintile, sav11rp)
 lm4
 lm11
 #plot(lm1m)

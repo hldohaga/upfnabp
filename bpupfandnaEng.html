@@ -437,7 +437,8 @@ only England?</p>
 <p>I have excluded those who are taking diuretics, bblockers, ace
 inhibitors, calcium channel blockers and other bp drugs. There are no
 participants who are pregnant or breastfeeding. I have included
-normotensive untreated individuals.</p>
+normotensive untreated individuals. I have restricted the data set to
+England only.</p>
 </div>
 </div>
 <div id="descriptive-data-analysis" class="section level2" number="1.2">
@@ -522,9 +523,8 @@ meds. or hypertension being diagnosed earlier</p>
 <p>There has been a change in the intake of total sugars sucrose,
 glucose and fructose. There has been a change in the intake of soft
 drinks, tea coffee and water.</p>
-<pre><code>##       name   pvalue
-## 1:     Sex 0.001513
-## 2: Country      NaN</code></pre>
+<pre><code>##    name   pvalue
+## 1:  Sex 0.001513</code></pre>
 <p><img src="data:image/png;base64,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tk3LwzfKb0BX4829K3J3ZT3Bmjoa6NEXP6Xx5h9ckptye+/MiS/V1fUZO4H+uGFvjJcufrIQ6KV3F46ct7L0BvzxLbcU/vHJ07OeYE0N3yTdOvLip1wWY39YHmNP+FldXZ+xE+jQW++JB5sffrL0GfSlp9Y13lB6A34Stuzfv39D2JP1DGtp+CZp18iLn/K5GF8tftPsD8U/jl0/12fsBBqvnR+/3Xa4GOiT78qd1XlW+Q34r+EVlx1Zz7CWKj/iR178lNuKgebLgdbT9RlDgW5u2Hf5FbEQ6EDj0sId/ezyG/BY2Jv13GqvEujIiz820Lq6PmMo0NfOvKOlpxjoI+GZGF85s/wG7G1aXzj9qYuynmBNVQIdefHHBlpX12cMBRqXvbnlUDHQ3zRetvmBWZMu3l+6S73pTbf23phbm/UEa+roXfzRF39soHV1fcZSoD8Kl8dioPGb502a+eBX224uvQFDt72z+R13Zz2/2joa6NEX/2efQevp+oyVQDFGESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESikESik/QnMEGj8lA6ruwAAAABJRU5ErkJggg==" /><!-- --><img src="data:image/png;base64,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q/zhb9tyn2BDDXxIun3wxc+6KsYd4YYYN4f/GlfXZ+IE2veue+L+lu9sr/4d9PVn7p12c/UN+HF4cs+ePQ+Gl3KfYSMNfEh6YfDFz/qnGA8VXzR3hOI/xx4/12fiBBqvXxS/OfPNItDtf9h0ypJT+t+Afx+YcXku9xk2Uu1b/OCLn7WqCLSrP9DxdH0mUKBPNL969bWxEujeacsqn+gv7H8DHguv5D63xqsFOvjihwY6rq7PBAq09+QvtW4uAn007IzxjZP734BXpt9XOfy5hblPsKFqgQ6++KGBjqvrM4ECjct/r/VAEegvpl31xKYFx3xwT/VT6qePun3Lp5pW5z7Bhjr8Kf7wix8a6Li6PhMp0O+Hq2MRaHzojGPmP/y1mbdU34C+Ve9pObsz9/k11uFAD7/4I/4OOp6uz0QJFBMUgUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagUIagULa/wNDBlC2zyjsPAAAAABJRU5ErkJggg==" /><!-- -->
 Again significant differences Are there time differences in diagnosis of
 hypertension/treatment between sexes ie are more women now on meds
@@ -553,20 +553,19 @@ vegetarians</p>
 <pre><code>##       name p.value
 ## 1: ethgrp5 0.01317
 ## 2: ethgrp2 0.01597
-## 3:  nssec8     NaN
-## 4:     GOR     NaN
-## 5:  region     NaN</code></pre>
+## 3:  nssec8     NaN</code></pre>
+<pre><code>##                  name p.value
+## 1: EIMD_2007_quintile 0.05195
+## 2: EIMD_2010_quintile 0.08485
+## 3: EIMD_2015_quintile 0.21530</code></pre>
 <p>There are differences in ethnicity and regional makeup</p>
-<pre><code>##        name p.value
-## 1:   hyper1     NaN
-## 2: hyper140     NaN
-## 3:  highbp1 0.00000
-## 4:  hibp140     NaN
-## 5:  agegad1 0.01671
-## 6:  agegad2 0.03427
-## 7:  agegch1 0.00162
-## 8:   agegr1     NaN</code></pre>
-<p>The age groups show some discrepency</p>
+<pre><code>##       name p.value
+## 1: agegad1 0.01671
+## 2: agegad2 0.03427
+## 3: agegch1 0.00162
+## 4:  agegr1     NaN</code></pre>
+<p>The age groups show some discrepancy with the p value significant
+only in the child agre groups.</p>
 </div>
 </div>
 <div id="statistical-comparison-of-key-variables" class="section level2" number="1.3">
@@ -652,23 +651,31 @@ each.</p>
 <pre><code>## 
 ## Call:
 ## lm(formula = omsysval ~ Age + Sex + Sodiummg + TotalEMJ + ethgr2 + 
-##     VitaminDµg, data = sav4rp)
+##     VitaminDµg + EIMD_2010_quintile, data = sav4rp)
 ## 
 ## Coefficients:
-##     (Intercept)              Age        SexFemale         Sodiummg  
-##       1.070e+02        4.059e-01       -4.766e+00       -9.327e-04  
-##        TotalEMJ  ethgr2Non-white       VitaminDµg  
-##       4.039e-01       -3.341e+00       -2.062e-01</code></pre>
+##         (Intercept)                  Age            SexFemale  
+##           1.058e+02            4.152e-01           -4.948e+00  
+##            Sodiummg             TotalEMJ      ethgr2Non-white  
+##          -9.893e-04            4.025e-01           -3.543e+00  
+##          VitaminDµg  EIMD_2010_quintile2  EIMD_2010_quintile3  
+##          -1.794e-01           -1.986e-01            1.493e+00  
+## EIMD_2010_quintile4  EIMD_2010_quintile5  
+##           2.814e-01            3.089e+00</code></pre>
 <pre><code>## 
 ## Call:
 ## lm(formula = omsysval ~ AgeR + Sex + Sodiummg + TotalEMJ + ethgrp2 + 
-##     VitaminDµg, data = sav11rp)
+##     VitaminDµg + EIMD_2010_quintile, data = sav11rp)
 ## 
 ## Coefficients:
-##      (Intercept)              AgeR         SexFemale          Sodiummg  
-##        99.274128          0.390912         -5.125441          0.001644  
-##         TotalEMJ  ethgrp2Non-white        VitaminDµg  
-##         0.390728          0.097282          0.035465</code></pre>
+##         (Intercept)                 AgeR            SexFemale  
+##           99.052975             0.388911            -5.011707  
+##            Sodiummg             TotalEMJ     ethgrp2Non-white  
+##            0.001518             0.434211             0.160355  
+##          VitaminDµg  EIMD_2010_quintile2  EIMD_2010_quintile3  
+##            0.040393             0.928627            -0.507772  
+## EIMD_2010_quintile4  EIMD_2010_quintile5  
+##           -0.139366             0.111822</code></pre>
 <p>There are differences in coefficients in the two sets of data. These
 models can be compared with others with different variables to
 understand how they help predict values more or less effectively.</p>
