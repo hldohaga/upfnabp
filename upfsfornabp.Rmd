@@ -33,7 +33,7 @@ library(haven)
 
 ## upf database
 
-```{r pressure}
+```{r }
 UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/altquant/UPFNOVA.xlsx"))
 #ndns_yr1_nutrientdatabank <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_yr1_nutrientdatabank.sav"))
 
@@ -46,14 +46,22 @@ UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPH
  ndns_rp_yr11a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr11a_foodleveldietarydata_uk_20210831.sav") )
 ```
 
+
+UPFNOVA indicates how many foods are labelled as group 4 or UPF. 
+These area all items for consumption which are significantly different to food. 
+The number of these foods possibly represents the inventiveness of food technologists and marketing organisations.
 ```{r}
- UPFNOVA
+# UPFNOVA
 
 #labels = c("unprocessed","ingredients","processed","ultraprocessed","complex","supplements")
 UPFNOVA[,`Nova group`:= factor(`Nova group`,levels = 1:4)]
 UPFNOVA$SubFoodGroupCode <- UPFNOVA$`food group number`
 plot(UPFNOVA$`Nova group`)
 ```
+
+Using the food level data from the food diaries all entry sub food group code total grams and recipe sub food group codes are identified.
+This list is then used to add the NOVA food group.
+The weight of food consumed is then plotted by NOVA food group.
 
 ```{r}
 

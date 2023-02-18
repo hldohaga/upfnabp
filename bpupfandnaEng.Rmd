@@ -11,8 +11,8 @@ output:
     toc: yes
 ---
 
-# Dissertation calculation and results
-## BP and UPF and Na in NDNS
+ 
+# BP and UPF and Na in NDNS Dissertation calculation and results
 
 ```{r include=FALSE}
 library(haven)
@@ -35,7 +35,7 @@ sav11r <- as.data.table(read_sav(sav11))
 sav11br <- as.data.table(read_sav(sav11b))
 
 ```
-###  Results
+##  Introduction to Results
 
 This section will show how the method has been applied and identify what the calculations show. 
 It will be laid out with a brief resume of the data source, followed by descriptive data analysis. 
@@ -610,10 +610,10 @@ foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group")]
 
 ```
 
-## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
+
 
 ```{r function defn, message=FALSE, warning=FALSE, include=FALSE}
-
+## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
 
 
 
@@ -631,10 +631,10 @@ setnames( oneweight, 'V1','Totalg')
 
 ```
 
-### This section uses the function designed above to process the table
+
 
 ```{r year 9 process, message=FALSE, warning=FALSE, include=FALSE}
-
+### This section uses the function designed above to process the table
 name <-foodlevedat9s[,.(seriali)]  
 name <- as.numeric(unlist(name))
 nameu <-c(unique(name))
@@ -685,7 +685,7 @@ output$seriali <- nameu[i]
 }
 
 foodleveldat10sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
-foodleveldat10sp
+#foodleveldat10sp
 
 
 ```
@@ -788,7 +788,7 @@ In particular the systolic values are assessed for the effects of exercise, temp
 
 The sodium value is one calculated from intake based on food diaries and standard food nutrient values.
 This is dependant on a lot of processing, but but only reflects standard foods. Serum sodium values are available for the early dataset, but not the later one. 
-There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of teh dataset, but again these are not found in both time periods.
+There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods.
 
 
 
@@ -810,8 +810,8 @@ keydata
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 bpNa <- data.table("2010"=c(sav4rp[,Sodiummg]),"2019" =c(sav11rp[,Sodiummg]))
 boxplot(bpNa, main = "Sodiummg 2010 vs 2019", xlab = "year", ylab = "Sodium mg")
-bpEMJ <-data.table("2010" =c(sav4rp[,pcnt_4]),"2019" = c(sav11rp[,pcnt_4]))
-boxplot(bpEMJ, main = "Percent UPF 2010 vs 2019", xlab = "year", ylab = "pcnt_4")
+bpEMJ <-data.table("2010" =c(sav4rp[,sqrt(pcnt_4)]),"2019" = c(sav11rp[,sqrt(pcnt_4)]))
+boxplot(bpEMJ, main = "square root of Percent UPF 2010 vs 2019", xlab = "year", ylab = "pcnt_4")
 
 bpOS <- data.table("2010" = c(sav4rp[,omsysval]),"2019"=c(sav11rp[,omsysval]))
 boxplot(bpOS,main = "omsysval 2010 vs 2019",xlab = "year", ylab = "omsysval")
@@ -821,34 +821,80 @@ boxplot(bpOD, main = "omdiaval 2010 vs 2019", xlab = "year", ylab = "omdiaval")
 
 ```
 
+I have used the square root of the percentage as this reduces the skew of the data leading to a closer approximation to the normal distribution.
 
 
 
-This is just adults >18. The range of values is different to the standard population.
 
 ```{r echo=FALSE, warning=FALSE}
+#This is just adults >18. The range of values is different to the standard population.
 keydataA <- rbind(summary(sav4rp[Age >= 18 ,Sodiummg]), summary(sav11rp[AgeR >= 18,Sodiummg]),summary(sav4rp[Age >= 18,pcnt_4]), summary(sav11rp[AgeR >= 18,pcnt_4]),summary(sav4rp[Age >= 18,omsysval]), summary(sav11rp[AgeR >= 18,omsysval]), summary(sav4rp[Age >= 18,omdiaval]), summary(sav11rp[AgeR >= 18,omdiaval]))
 keydataA <- as.data.table(keydataA)
 keydataA <- signif(keydataA, digits = 4)
 keydataA$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4","omsysval","omsysval","omdiaval", "omdiaval")
 
-keydataA
+#keydataA
 ```
 
-This is just Male participants again showing the changes from the overall population.
+
 
 
 ```{r echo=FALSE}
+#This is just Male participants again showing the changes from the overall population.
+
 keydataM <- rbind(summary(sav4rp[Sex == "Male" ,Sodiummg]), summary(sav11rp[Sex == "Male",Sodiummg]),summary(sav4rp[Sex == "Male" ,pcnt_4]), summary(sav11rp[Sex == "Male" ,pcnt_4]),summary(sav4rp[Sex == "Male" ,omsysval]), summary(sav11rp[Sex == "Male" ,omsysval]),summary(sav4rp[Sex == "Male" ,omdiaval]), summary(sav11rp[Sex == "Male" ,omdiaval]))
 
 keydataM <- as.data.table(keydataM)
 keydataM <- signif(keydataM, digits = 4)
 keydataM$names = c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4","omsysval","omsysval","omdiaval", "omdiaval") 
-keydataM
+#keydataM
 
 ```
 
 
+## Statistical Comparison of key variables
+### comparing UPF and Sodium intake calculated from diet
+
+
+
+So has there been a change in intake? test 
+A t test is comparing the means of the two samples.
+This first compares the means of sodium in years 1-4 with sodium in years 9-11.
+
+The second compares the means of pcnt UPF intake in over the same periods.
+
+```{r echo=FALSE}
+
+ttestNa <- t.test(sav11rp[,"Sodiummg"], sav4rp[,"Sodiummg"])
+ttestpcnt_4 <-t.test(sav11rp[,"pcnt_4"], sav4rp[,"pcnt_4"])
+data.table("Var" = c("Na","pcnt_4"),"statistic" = signif(c(ttestNa$statistic,ttestpcnt_4$statistic), digits = 4), "p.value" = signif(c(ttestNa$p.value,ttestpcnt_4$p.value), digits = 4))
+ttestpcnt_4
+ttestNa
+```
+
+It seems the mean percentage UPF intake is less by 13 % and this reduction is statistically significant.
+The sodium intake has changed by 5.5 mg and is also statistically significant with a p value less than 0.05.
+
+
+### what about outcome  BP?
+The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
+
+```{r echo=FALSE}
+
+
+
+ttestOS <- t.test(sav11rp[,"omsysval"], sav4rp[,"omsysval"])
+ttestOD <- t.test(sav11rp[,"omdiaval"], sav4rp[,"omdiaval"])
+data.table("Var" = c("Sys","Dia"),"statistic" = signif(c(ttestOS$statistic,ttestOD$statistic), digits= 4), "p.value" = signif(c(ttestOS$p.value,ttestOD$p.value), digits = 4))
+```
+
+There is a reduction in systolic, with a less significant reduction in diastolic
+
+In summary there is a reduction in Na intake and a drop in both systolic and diastolic pressures. 
+The TEMJ has also dropped but does not have statistical significance.
+This cannot be described as causative, this analysis simply identifies several correlated variables.
+
+Has another factor affected the BP change ?
 
 
 
@@ -1013,7 +1059,8 @@ catconfounders3c <- data.table("name" = c("EIMD_2007_quintile","EIMD_2010_quinti
 catconfounders3b
 catconfounders3c
 ```
-There are differences in ethnicity and regional makeup
+There are differences in ethnicity.
+The differences in qimd, using the 2010 definitions, are not statistically significant.
 
 ```{r echo=FALSE, warning=FALSE}
 
@@ -1106,55 +1153,13 @@ The age groups show some discrepancy with the p value significant only in the ch
 ```
 
 
-## Statistical Comparison of key variables
-### comparing Na intake calculated from diet
-
-
-
-So has there been a change in intake? test 
-A t test is comparing the means of the two samples.
-This first compares the means of sodium in years 1-4 with sodium in years 9-11.
-*The second compares the means of Total energy intake in Joules over the same periods.
-*The second compares the means of pcnt UPF intake in over the same periods.
-
-```{r echo=FALSE}
-
-ttestNa <- t.test(sav11rp[,"Sodiummg"], sav4rp[,"Sodiummg"])
-ttestpcnt_4 <-t.test(sav11rp[,"pcnt_4"], sav4rp[,"pcnt_4"])
-data.table("Var" = c("Na","pcnt_4"),"statistic" = signif(c(ttestNa$statistic,ttestpcnt_4$statistic), digits = 4), "p.value" = signif(c(ttestNa$p.value,ttestpcnt_4$p.value), digits = 4))
-
-
-```
-*It seems that the EMJ intake change is not statistically significantat the level of p = 0.05. 
-It seems teh mean percentage UPF intake is significantly less.
-The sodium intake change is statistically significant with a p value less than 0.05.
-
-
-### what about outcome  BP?
-The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
-
-```{r echo=FALSE}
-
-
-
-ttestOS <- t.test(sav11rp[,"omsysval"], sav4rp[,"omsysval"])
-ttestOD <- t.test(sav11rp[,"omdiaval"], sav4rp[,"omdiaval"])
-data.table("Var" = c("Sys","Dia"),"statistic" = signif(c(ttestOS$statistic,ttestOD$statistic), digits= 4), "p.value" = signif(c(ttestOS$p.value,ttestOD$p.value), digits = 4))
-```
-
-There is a reduction in systolic, with a less significant reduction in diastolic
-
-In summary there is a reduction in Na intake and a drop in both systolic and diastolic pressures. 
-The TEMJ has also dropped but does not have statistical significance.
-This cannot be described as causative, this analysis simply identifies several correlated variables.
-
-Has another factor affected the BP change ?
 
 
 
 
 
-###  Regression Analysis
+##  Regression Analysis
+###  linear regression
 
 Firstly using linear regression I will look at the correlation between omsysval and sodiummg. 
 There are regressions for 1-4 and 9-11
@@ -1180,10 +1185,10 @@ There is a  relationship between Na and omsysval. There is a weakly positive gra
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
-lm1E4 <- lm(omsysval ~ pcnt_4, sav4rp)
+lm1E4 <- lm(omsysval ~ sqrt(pcnt_4), sav4rp)
 
 
-lm1E11 <- lm(omsysval ~ pcnt_4, sav11rp)
+lm1E11 <- lm(omsysval ~ sqrt(pcnt_4), sav11rp)
 lm1E4
 lm1E11
 
@@ -1196,20 +1201,60 @@ There is a relationship between Total EMJ and omsysval. The positive gradiant ap
 This uses a model of variables. It can highlight the contributions of each.
 
 ```{r echo=FALSE}
-lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + pcnt_4 + ethgr2 + VitaminDµg + EIMD_2010_quintile , sav4rp)
+lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4) + ethgr2 + VitaminDµg + EIMD_2010_quintile , sav4rp,na.action = na.exclude)
 
 #plot(lm1)
 
-lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + pcnt_4 +ethgrp2 +VitaminDµg + EIMD_2010_quintile, sav11rp)
+lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + sqrt(pcnt_4) +ethgrp2 +VitaminDµg + EIMD_2010_quintile, sav11rp,na.action = na.exclude)
 lm4
 lm11
 #plot(lm1m)
 #lm1a$coefficients
 
-#anova(lm1,lm1a)
+
 ```
 There are differences in coefficients in the two sets of data. 
 These models can be compared with others with different variables to understand how they help predict values more or less effectively.
+
+```{r}
+lm4a <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4) , sav4rp,na.action =na.exclude)
+
+#plot(lm1)
+
+lm11a <- lm(omsysval ~ AgeR +Sex +Sodiummg + sqrt(pcnt_4) , sav11rp, na.action =na.exclude)
+lm4a
+lm11a
+
+```
+
+```{r}
+lm4b <- lm(omsysval ~ Age +Sex + sqrt(pcnt_4) , sav4rp)
+
+#plot(lm1)
+
+lm11b <- lm(omsysval ~ AgeR +Sex + sqrt(pcnt_4) , sav11rp)
+lm4b
+lm11b
+
+```
+
+```{r}
+lm4c <- lm(omsysval ~ Age +Sex +Sodiummg  , sav4rp)
+
+#plot(lm1)
+
+lm11c <- lm(omsysval ~ AgeR +Sex +Sodiummg  , sav11rp)
+lm4c
+lm11c
+
+```
+
+```{r}
+#anova(lm4,lm4a)
+
+
+```
+
 
 
 
