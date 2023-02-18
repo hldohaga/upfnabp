@@ -11,11 +11,11 @@ output:
     toc: yes
 ---
 
-# Dissertation calculation and results
-## BP and UPF and Na in NDNS
+ 
+# BP and UPF and Na in NDNS Dissertation calculation and results
 
 
-###  Results
+##  Introduction to Results
 
 This section will show how the method has been applied and identify what the calculations show. 
 It will be laid out with a brief resume of the data source, followed by descriptive data analysis. 
@@ -102,11 +102,11 @@ I have restricted the data set to England only.
 
 
 
-## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
 
 
 
-### This section uses the function designed above to process the table
+
+
 
 
 
@@ -137,7 +137,7 @@ In particular the systolic values are assessed for the effects of exercise, temp
 
 The sodium value is one calculated from intake based on food diaries and standard food nutrient values.
 This is dependant on a lot of processing, but but only reflects standard foods. Serum sodium values are available for the early dataset, but not the later one. 
-There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of teh dataset, but again these are not found in both time periods.
+There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods.
 
 
 
@@ -160,41 +160,86 @@ Show the data. This is the whole dataset.
 
 ![](bpupfandnaEng_files/figure-html/unnamed-chunk-10-1.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-10-2.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-10-3.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-10-4.png)<!-- -->
 
+I have used the square root of the percentage as this reduces the skew of the data leading to a closer approximation to the normal distribution.
 
 
 
-This is just adults >18. The range of values is different to the standard population.
+
+
+
+
+
+
+
+
+
+## Statistical Comparison of key variables
+### comparing UPF and Sodium intake calculated from diet
+
+
+
+So has there been a change in intake? test 
+A t test is comparing the means of the two samples.
+This first compares the means of sodium in years 1-4 with sodium in years 9-11.
+
+The second compares the means of pcnt UPF intake in over the same periods.
 
 
 ```
-##      Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    names
-## 1: 605.30 1629.00 2039.00 2134.00 2590.00 5027.00 Sodiummg
-## 2: 438.20 1456.00 1903.00 2009.00 2408.00 6854.00 Sodiummg
-## 3:   0.86   11.54   18.38   22.51   28.85   91.06   pcnt_4
-## 4:   1.29    9.51   15.26   19.62   24.42   86.70   pcnt_4
-## 5:  90.00  114.50  123.20  124.20  133.00  159.00 omsysval
-## 6:  87.50  110.50  120.00  120.90  129.50  159.00 omsysval
-## 7:  46.00   67.00   73.50   73.59   80.50   93.50 omdiaval
-## 8:  47.00   65.00   72.00   72.02   79.00   94.00 omdiaval
+##       Var statistic   p.value
+## 1:     Na     -5.51 4.528e-08
+## 2: pcnt_4    -13.09 9.912e-39
 ```
 
-This is just Male participants again showing the changes from the overall population.
+```
+## 
+## 	Welch Two Sample t-test
+## 
+## data:  sav11rp[, "pcnt_4"] and sav4rp[, "pcnt_4"]
+## t = -13.089, df = 7595.9, p-value < 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -5.721959 -4.231350
+## sample estimates:
+## mean of x mean of y 
+##  27.30923  32.28588
+```
 
+```
+## 
+## 	Welch Two Sample t-test
+## 
+## data:  sav11rp[, "Sodiummg"] and sav4rp[, "Sodiummg"]
+## t = -5.5099, df = 1036.8, p-value = 4.528e-08
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -302.1717 -143.4666
+## sample estimates:
+## mean of x mean of y 
+##  1896.175  2118.994
+```
+
+It seems the mean percentage UPF intake is less by 13 % and this reduction is statistically significant.
+The sodium intake has changed by 5.5 mg and is also statistically significant with a p value less than 0.05.
+
+
+### what about outcome  BP?
+The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
 
 
 ```
-##      Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    names
-## 1: 388.60 1950.00 2402.00 2446.00 2955.00 5027.00 Sodiummg
-## 2: 563.10 1590.00 1972.00 2099.00 2542.00 5166.00 Sodiummg
-## 3:   0.86   14.45   25.78   30.22   43.00   89.81   pcnt_4
-## 4:   1.65   14.08   24.08   28.29   37.61   78.36   pcnt_4
-## 5:  77.50  112.50  122.50  122.80  132.80  158.00 omsysval
-## 6:  83.50  105.50  117.00  117.30  127.50  155.00 omsysval
-## 7:  39.00   63.50   70.50   70.28   79.00   91.50 omdiaval
-## 8:  42.50   59.50   67.00   67.61   75.50   93.50 omdiaval
+##    Var statistic   p.value
+## 1: Sys    -6.286 4.782e-10
+## 2: Dia    -4.355 1.458e-05
 ```
 
+There is a reduction in systolic, with a less significant reduction in diastolic
 
+In summary there is a reduction in Na intake and a drop in both systolic and diastolic pressures. 
+The TEMJ has also dropped but does not have statistical significance.
+This cannot be described as causative, this analysis simply identifies several correlated variables.
+
+Has another factor affected the BP change ?
 
 
 
@@ -231,7 +276,7 @@ There has been a change in the intake of soft drinks, tea coffee and water.
 ## 1:  Sex 0.001513
 ```
 
-![](bpupfandnaEng_files/figure-html/unnamed-chunk-14-1.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-14-2.png)<!-- -->
+![](bpupfandnaEng_files/figure-html/unnamed-chunk-16-1.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-16-2.png)<!-- -->
 Again significant differences
 Are there time differences in diagnosis of hypertension/treatment between sexes 
 ie are more women now on meds compared with the number of men than previously?
@@ -275,7 +320,8 @@ These values identify a significant difference in the number of vegetarians
 ## 2: EIMD_2010_quintile 0.08485
 ## 3: EIMD_2015_quintile 0.21530
 ```
-There are differences in ethnicity and regional makeup
+There are differences in ethnicity.
+The differences in qimd, using the 2010 definitions, are not statistically significant.
 
 
 ```
@@ -289,51 +335,13 @@ The age groups show some discrepancy with the p value significant only in the ch
 
 
 
-## Statistical Comparison of key variables
-### comparing Na intake calculated from diet
-
-
-
-So has there been a change in intake? test 
-A t test is comparing the means of the two samples.
-This first compares the means of sodium in years 1-4 with sodium in years 9-11.
-*The second compares the means of Total energy intake in Joules over the same periods.
-*The second compares the means of pcnt UPF intake in over the same periods.
-
-
-```
-##       Var statistic   p.value
-## 1:     Na     -5.51 4.528e-08
-## 2: pcnt_4    -13.09 9.912e-39
-```
-*It seems that the EMJ intake change is not statistically significantat the level of p = 0.05. 
-It seems teh mean percentage UPF intake is significantly less.
-The sodium intake change is statistically significant with a p value less than 0.05.
-
-
-### what about outcome  BP?
-The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
-
-
-```
-##    Var statistic   p.value
-## 1: Sys    -6.286 4.782e-10
-## 2: Dia    -4.355 1.458e-05
-```
-
-There is a reduction in systolic, with a less significant reduction in diastolic
-
-In summary there is a reduction in Na intake and a drop in both systolic and diastolic pressures. 
-The TEMJ has also dropped but does not have statistical significance.
-This cannot be described as causative, this analysis simply identifies several correlated variables.
-
-Has another factor affected the BP change ?
 
 
 
 
 
-###  Regression Analysis
+##  Regression Analysis
+###  linear regression
 
 Firstly using linear regression I will look at the correlation between omsysval and sodiummg. 
 There are regressions for 1-4 and 9-11
@@ -366,21 +374,21 @@ There is a  relationship between Na and omsysval. There is a weakly positive gra
 ```
 ## 
 ## Call:
-## lm(formula = omsysval ~ pcnt_4, data = sav4rp)
+## lm(formula = omsysval ~ sqrt(pcnt_4), data = sav4rp)
 ## 
 ## Coefficients:
-## (Intercept)       pcnt_4  
-##    127.2191      -0.2612
+##  (Intercept)  sqrt(pcnt_4)  
+##      134.805        -2.973
 ```
 
 ```
 ## 
 ## Call:
-## lm(formula = omsysval ~ pcnt_4, data = sav11rp)
+## lm(formula = omsysval ~ sqrt(pcnt_4), data = sav11rp)
 ## 
 ## Coefficients:
-## (Intercept)       pcnt_4  
-##    119.5490      -0.1916
+##  (Intercept)  sqrt(pcnt_4)  
+##      124.616        -2.084
 ```
 There is a relationship between Total EMJ and omsysval. The positive gradiant appears stronger in 9-11.
 
@@ -392,49 +400,263 @@ This uses a model of variables. It can highlight the contributions of each.
 ```
 ## 
 ## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg + pcnt_4 + ethgr2 + 
-##     VitaminDµg + EIMD_2010_quintile, data = sav4rp)
+## lm(formula = omsysval ~ Age + Sex + Sodiummg + sqrt(pcnt_4) + 
+##     ethgr2 + VitaminDµg + EIMD_2010_quintile, data = sav4rp, 
+##     na.action = na.exclude)
 ## 
 ## Coefficients:
 ##         (Intercept)                  Age            SexFemale  
-##           1.066e+02            4.223e-01           -5.160e+00  
-##            Sodiummg               pcnt_4      ethgr2Non-white  
-##          -2.701e-04            1.424e-02           -3.474e+00  
+##           1.067e+02            4.194e-01           -5.165e+00  
+##            Sodiummg         sqrt(pcnt_4)      ethgr2Non-white  
+##          -2.385e-04            8.201e-02           -3.497e+00  
 ##          VitaminDµg  EIMD_2010_quintile2  EIMD_2010_quintile3  
-##          -1.144e-01           -2.819e-01            1.392e+00  
+##          -1.184e-01           -2.763e-01            1.390e+00  
 ## EIMD_2010_quintile4  EIMD_2010_quintile5  
-##           1.476e-01            2.965e+00
+##           1.526e-01            2.991e+00
 ```
 
 ```
 ## 
 ## Call:
-## lm(formula = omsysval ~ AgeR + Sex + Sodiummg + pcnt_4 + ethgrp2 + 
-##     VitaminDµg + EIMD_2010_quintile, data = sav11rp)
+## lm(formula = omsysval ~ AgeR + Sex + Sodiummg + sqrt(pcnt_4) + 
+##     ethgrp2 + VitaminDµg + EIMD_2010_quintile, data = sav11rp, 
+##     na.action = na.exclude)
 ## 
 ## Coefficients:
 ##         (Intercept)                 AgeR            SexFemale  
-##           99.559050             0.401979            -5.246490  
-##            Sodiummg               pcnt_4     ethgrp2Non-white  
-##            0.002273             0.024750             0.416710  
+##           98.389634             0.406170            -5.225006  
+##            Sodiummg         sqrt(pcnt_4)     ethgrp2Non-white  
+##            0.002219             0.357144             0.480169  
 ##          VitaminDµg  EIMD_2010_quintile2  EIMD_2010_quintile3  
-##            0.123897             0.973353            -0.469669  
+##            0.139146             0.996419            -0.461348  
 ## EIMD_2010_quintile4  EIMD_2010_quintile5  
-##           -0.178767            -0.042195
+##           -0.184625            -0.071050
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##                     Df Sum Sq Mean Sq  F value    Pr(>F)    
+## Age                  1  43146   43146 314.4100 < 2.2e-16 ***
+## Sex                  1   2840    2840  20.6940 6.789e-06 ***
+## Sodiummg             1      4       4   0.0270   0.86953    
+## sqrt(pcnt_4)         1     42      42   0.3076   0.57939    
+## ethgr2               1    481     481   3.5020   0.06189 .  
+## VitaminDµg           1     49      49   0.3564   0.55079    
+## EIMD_2010_quintile   4    723     181   1.3170   0.26254    
+## Residuals          494  67790     137                       
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##                     Df Sum Sq Mean Sq  F value    Pr(>F)    
+## AgeR                 1  59384   59384 465.7071 < 2.2e-16 ***
+## Sex                  1   7621    7621  59.7702 3.239e-14 ***
+## Sodiummg             1   2098    2098  16.4566 5.471e-05 ***
+## sqrt(pcnt_4)         1    134     134   1.0539    0.3049    
+## ethgrp2              1     14      14   0.1109    0.7392    
+## VitaminDµg           1     56      56   0.4370    0.5088    
+## EIMD_2010_quintile   4    205      51   0.4011    0.8079    
+## Residuals          791 100863     128                       
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 There are differences in coefficients in the two sets of data. 
 These models can be compared with others with different variables to understand how they help predict values more or less effectively.
 
 
+```
+## 
+## Call:
+## lm(formula = omsysval ~ Age + Sex + Sodiummg + sqrt(pcnt_4), 
+##     data = sav4rp, na.action = na.exclude)
+## 
+## Coefficients:
+##  (Intercept)           Age     SexFemale      Sodiummg  sqrt(pcnt_4)  
+##    1.063e+02     4.178e-01    -4.999e+00    -2.502e-04     1.932e-01
+```
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ AgeR + Sex + Sodiummg + sqrt(pcnt_4), 
+##     data = sav11rp, na.action = na.exclude)
+## 
+## Coefficients:
+##  (Intercept)          AgeR     SexFemale      Sodiummg  sqrt(pcnt_4)  
+##    99.148456      0.405971     -5.331584      0.002373      0.268439
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##               Df Sum Sq Mean Sq  F value    Pr(>F)    
+## Age            1  43084   43084 311.8673 < 2.2e-16 ***
+## Sex            1   2798    2798  20.2536 8.442e-06 ***
+## Sodiummg       1      6       6   0.0408    0.8401    
+## sqrt(pcnt_4)   1     34      34   0.2441    0.6215    
+## Residuals    501  69212     138                       
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##               Df Sum Sq Mean Sq  F value    Pr(>F)    
+## AgeR           1  59814   59814 471.9889 < 2.2e-16 ***
+## Sex            1   7891    7891  62.2698 9.784e-15 ***
+## Sodiummg       1   2170    2170  17.1257 3.868e-05 ***
+## sqrt(pcnt_4)   1    117     117   0.9265    0.3361    
+## Residuals    804 101889     127                       
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ Age + Sex + sqrt(pcnt_4), data = sav4rp)
+## 
+## Coefficients:
+##  (Intercept)           Age     SexFemale  sqrt(pcnt_4)  
+##     105.8675        0.4167       -4.8795        0.1628
+```
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ AgeR + Sex + sqrt(pcnt_4), data = sav11rp)
+## 
+## Coefficients:
+##  (Intercept)          AgeR     SexFemale  sqrt(pcnt_4)  
+##     102.7427        0.4226       -6.1822        0.4473
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##               Df Sum Sq Mean Sq  F value    Pr(>F)    
+## Age            1  43084   43084 312.4272 < 2.2e-16 ***
+## Sex            1   2798    2798  20.2899 8.285e-06 ***
+## sqrt(pcnt_4)   1     25      25   0.1848    0.6675    
+## Residuals    502  69226     138                       
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##               Df Sum Sq Mean Sq  F value    Pr(>F)    
+## AgeR           1  59814   59814 463.6888 < 2.2e-16 ***
+## Sex            1   7891    7891  61.1748 1.638e-14 ***
+## sqrt(pcnt_4)   1    335     335   2.5961    0.1075    
+## Residuals    805 103842     129                       
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ Age + Sex + Sodiummg, data = sav4rp)
+## 
+## Coefficients:
+## (Intercept)          Age    SexFemale     Sodiummg  
+##   1.074e+02    4.093e-01   -4.997e+00   -1.545e-04
+```
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ AgeR + Sex + Sodiummg, data = sav11rp)
+## 
+## Coefficients:
+## (Intercept)         AgeR    SexFemale     Sodiummg  
+##  100.612696     0.395475    -5.369487     0.002469
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##            Df Sum Sq Mean Sq  F value    Pr(>F)    
+## Age         1  43084   43084 312.3376 < 2.2e-16 ***
+## Sex         1   2798    2798  20.2841  8.31e-06 ***
+## Sodiummg    1      6       6   0.0408    0.8399    
+## Residuals 502  69245     138                       
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##            Df Sum Sq Mean Sq F value    Pr(>F)    
+## AgeR        1  59814   59814 472.032 < 2.2e-16 ***
+## Sex         1   7891    7891  62.276 9.744e-15 ***
+## Sodiummg    1   2170    2170  17.127 3.864e-05 ***
+## Residuals 805 102007     127                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+
+
+
+
+
+## Summary
+
+The data from 2008-11 and 2017-19 NDNS datasets have been downloaded and adapted into a form to approach the research question.
+
+The key variables of BP, 'omsysval' and 'omdiaval' are taken directly from the data.
+The percentage by weight of UPF intake is calculated. 
+The diary entries are identified by NOVA type. 
+The total weight of each nova type is calculated for each individual. 
+The percentage of the total food intake per person is then calculated. 
+This gives the derived value 'pcnt_4', which is the percentage of intake which is NOVA 4 or UPF.
+
+There is a table with summary values for theses variables across the dataset.
+
+Statistical analysis of the key variables shows that there is a reduction in all the variables between the two time periods. 
+
+Confounding variables are analysed and show that there has been a significant change in the sex balance of the populations. 
+Removing those with antihypertensive medications has removed more men in the earlier cohort compared to women. 
+
+Regression shows a degree of association between the BP and UPF intake
+It also shows the same for percentage UPF intake.
+
+Despite using different multi variable regression models 
+there is a limited validity experienced in the key variables. 
+Sodium intake shows the strongest association in the latter cohort.
+
+
+
+
+
 
 ## Conclusion
 
-There is a significant change to the data due to excluding those on anti hypertensives.
-Weighting the populations for these changes may improve the comparability? 
+The percentage by weight of NOVA group 4 foods has decreased from 2008 to 2019.
+The mean sodium intake in mg has reduced between the two time periods. 
+The systolic and diastolic BP have reduced between the two time periods.
 
-This makes it difficult to infer the meaning of the result of the comparison testing.
+In each period there is a correlation between systolic BP and sodium intake. 
+In each period there is a correlation between systolic BP and UPF intake. 
 
-In particular there are changes to sex, age, region, ethnicity on removing those treated with anti hypertensives. This suggests there have been changes in the rate of prescribing. It also identifies that these differences have been applied differently across the groups.
-
-Linear regression identifies a mathematical model which fits to the data. Comparing these models can identify an optimal model.
-
+The regression models identify that age and sex are statistically significant contributors to the BP.
+Only those models from the later time period show sodium as being statistically significant in importance.
