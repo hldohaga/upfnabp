@@ -82,7 +82,7 @@ ethnset4 <- sav4br[,c("seriali", "EthGrG","EthGrU" ,"ethgr5","ethgr2")]
 saltset4 <- sav4br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
 medsset4 <- sav4br[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug", "PregNowB")]
 hypset4 <- sav4br[,c("seriali", "hyper140", "hibp140", "hyper1", "highbp1")]
-incset4 <- sav4br[,c("seriali","eqvinc","nssec8","hhinc","gor","region")]
+incset4 <- sav4br[,c("seriali","eqvinc","nssec8","hhinc","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile")]
 measset4 <- sav4br[,c("seriali","htval","wtval","bmival")]
 ageset4 <- sav4br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
 ```
@@ -96,7 +96,7 @@ ethnset11 <- sav11br[,c("seriali" ,"ethgrp5","ethgrp2")]
 saltset11 <- sav11br[,c("seriali","SaltChk","SalHowC","SltSHow" , "vegetarn")]
 medsset11 <- sav11br[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
 hypset11 <- sav11br[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
-incset11 <- sav11br[,c("seriali","nssec8","GOR","region")]
+incset11 <- sav11br[,c("seriali","nssec8","GOR","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile")]
 measset11 <- sav11br[,c("seriali","htval2","wtval2","bmival2","bmivg5")]
 ageset11 <- sav11br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1")]
 ```
@@ -238,7 +238,11 @@ incset4[,gor := factor(gor, levels = 1:12, labels = c("North East","North West",
 
 incset4[,region := factor(region, levels = 1:6, labels = c("England: North","England: Central/Midlands","England: South(including London)","Scotland","Wales","Northern Ireland"))] 
   
- 
+incset4[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
+incset4[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5)] 
+incset4[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
+
+
 #bpset 
  bpset4[, CutIll := factor(CutIll, levels = 1:46, labels = cutillcat)]
  bpset4[, "omsysval" := as.numeric(omsysval)]
@@ -404,6 +408,10 @@ incset11[,GOR := factor(GOR, levels = 1:12, labels = c("North East","North West"
 
 incset11[,region := factor(region, levels = 1:6, labels = c("England: North","England: Central/Midlands","England: South(including London)","Scotland","Wales","Northern Ireland"))]
 
+incset11[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
+incset11[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5)] 
+incset11[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
+
  #hypeset
  hypset11[,hyper140_2 := factor(hyper140_2,levels = 1:9, labels = c(" Normotensive untreated",
 " Normotensive treated",
@@ -513,6 +521,7 @@ possible future set with only England?
 
 I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs. There are no participants who are pregnant or breastfeeding. 
 I have included normotensive untreated individuals. 
+I have restricted the data set to England only.
 
 ```{r echo=FALSE}
 #first remove from years 1-4
@@ -678,7 +687,7 @@ ctable11 <- xtabs(~sav11rp[,Country])
 ctable4 <- xtabs(~sav4rp[,Country])
 ctabler <- chisq.test(rbind(ctable4,ctable11))
 
-catconfounders <- data.table("name" = c("Sex","Country"),"pvalue" = signif(c(stabler$p.value,ctabler$p.value),digits = 4))
+catconfounders <- data.table("name" = c("Sex"),"pvalue" = signif(c(stabler$p.value),digits = 4))
 
 catconfounders
 
@@ -770,9 +779,13 @@ rtable11 <- xtabs(~sav11rp[,region])
 rtable4 <- xtabs(~sav4rp[, region])
 rtabler <-chisq.test(rbind(rtable11 , rtable4))
 
-catconfounders3 <- data.table("name" = c("ethgrp5","ethgrp2","nssec8","GOR","region"),"p.value" =signif(c(e5tabler$p.value, e2tabler$p.value, n8tabler$p.value, gtabler$p.value, rtabler$p.value ),digits = 4))
+catconfounders3a <- data.table("name" = c("GOR","region"),"p.value" =signif(c( gtabler$p.value, rtabler$p.value ),digits = 4))
 
-catconfounders3
+catconfounders3b <- data.table("name" = c("ethgrp5","ethgrp2","nssec8"),"p.value" =signif(c(e5tabler$p.value, e2tabler$p.value, n8tabler$p.value),digits = 4))
+
+
+#catconfounders3a
+catconfounders3b
 ```
 There are differences in ethnicity and regional makeup
 
@@ -814,12 +827,15 @@ ag1table11 <- xtabs(~sav11rp[, agegr1])
 ag1table4 <- xtabs(~sav4rp[, agegr1])
 ag1tabler <- chisq.test(rbind(ag1table11 , ag1table4))
 
-catconfounders4 <- data.table("name" = c("hyper1","hyper140","highbp1","hibp140","agegad1","agegad2","agegch1","agegr1"),"p.value" = signif( c(h1tabler$p.value, h14tabler$p.value, 0, hi14tabler$p.value, ad1tabler$p.value , ad2tabler$p.value, ch1tabler$p.value, ag1tabler$p.value), digits = 4))
+catconfounders4a <- data.table("name" = c("agegad1","agegad2","agegch1","agegr1"),"p.value" = signif( c( ad1tabler$p.value , ad2tabler$p.value, ch1tabler$p.value, ag1tabler$p.value), digits = 4))
 
-catconfounders4
+catconfounders4b <- data.table("name" = c("hyper1","hyper140","highbp1","hibp140"),"p.value" = signif( c(h1tabler$p.value, h14tabler$p.value, 0, hi14tabler$p.value), digits = 4))
 
+
+catconfounders4a
+#catconfounders4b
 ```
-The age groups show some discrepency 
+The age groups show some discrepancy with the p value significant only in the child agre groups.
 
 ```{r echo=FALSE, warning=FALSE}
 
