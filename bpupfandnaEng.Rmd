@@ -1201,7 +1201,7 @@ There is a relationship between Total EMJ and omsysval. The positive gradiant ap
 This uses a model of variables. It can highlight the contributions of each.
 
 ```{r echo=FALSE}
-lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4) + ethgr2 + VitaminDµg + EIMD_2010_quintile , sav4rp,na.action = na.exclude)
+lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ ethgr2 + VitaminDµg + EIMD_2010_quintile , sav4rp,na.action = na.exclude)
 
 #plot(lm1)
 
@@ -1210,13 +1210,14 @@ lm4
 lm11
 #plot(lm1m)
 #lm1a$coefficients
-
+anova(lm4)
+anova(lm11)
 
 ```
 There are differences in coefficients in the two sets of data. 
 These models can be compared with others with different variables to understand how they help predict values more or less effectively.
 
-```{r}
+```{r echo=FALSE}
 lm4a <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4) , sav4rp,na.action =na.exclude)
 
 #plot(lm1)
@@ -1225,9 +1226,12 @@ lm11a <- lm(omsysval ~ AgeR +Sex +Sodiummg + sqrt(pcnt_4) , sav11rp, na.action =
 lm4a
 lm11a
 
+anova(lm4a)
+anova(lm11a)
+
 ```
 
-```{r}
+```{r echo=FALSE}
 lm4b <- lm(omsysval ~ Age +Sex + sqrt(pcnt_4) , sav4rp)
 
 #plot(lm1)
@@ -1235,10 +1239,11 @@ lm4b <- lm(omsysval ~ Age +Sex + sqrt(pcnt_4) , sav4rp)
 lm11b <- lm(omsysval ~ AgeR +Sex + sqrt(pcnt_4) , sav11rp)
 lm4b
 lm11b
-
+anova(lm4b)
+anova(lm11b)
 ```
 
-```{r}
+```{r echo=FALSE}
 lm4c <- lm(omsysval ~ Age +Sex +Sodiummg  , sav4rp)
 
 #plot(lm1)
@@ -1247,25 +1252,53 @@ lm11c <- lm(omsysval ~ AgeR +Sex +Sodiummg  , sav11rp)
 lm4c
 lm11c
 
+anova(lm4c)
+anova(lm11c)
 ```
 
-```{r}
-#anova(lm4,lm4a)
 
 
-```
+
+
+
+## Summary
+
+The data from 2008-11 and 2017-19 NDNS datasets have been downloaded and adapted into a form to approach the research question.
+
+The key variables of BP, 'omsysval' and 'omdiaval' are taken directly from the data.
+The percentage by weight of UPF intake is calculated. 
+The diary entries are identified by NOVA type. 
+The total weight of each nova type is calculated for each individual. 
+The percentage of the total food intake per person is then calculated. 
+This gives the derived value 'pcnt_4', which is the percentage of intake which is NOVA 4 or UPF.
+
+There is a table with summary values for theses variables across the dataset.
+
+Statistical analysis of the key variables shows that there is a reduction in all the variables between the two time periods. 
+
+Confounding variables are analysed and show that there has been a significant change in the sex balance of the populations. 
+Removing those with antihypertensive medications has removed more men in the earlier cohort compared to women. 
+
+Regression shows a degree of association between the BP and UPF intake
+It also shows the same for percentage UPF intake.
+
+Despite using different multi variable regression models 
+there is a limited validity experienced in the key variables. 
+Sodium intake shows the strongest association in the latter cohort.
+
+
 
 
 
 
 ## Conclusion
 
-There is a significant change to the data due to excluding those on anti hypertensives.
-Weighting the populations for these changes may improve the comparability? 
+The percentage by weight of NOVA group 4 foods has decreased from 2008 to 2019.
+The mean sodium intake in mg has reduced between the two time periods. 
+The systolic and diastolic BP have reduced between the two time periods.
 
-This makes it difficult to infer the meaning of the result of the comparison testing.
+In each period there is a correlation between systolic BP and sodium intake. 
+In each period there is a correlation between systolic BP and UPF intake. 
 
-In particular there are changes to sex, age, region, ethnicity on removing those treated with anti hypertensives. This suggests there have been changes in the rate of prescribing. It also identifies that these differences have been applied differently across the groups.
-
-Linear regression identifies a mathematical model which fits to the data. Comparing these models can identify an optimal model.
-
+The regression models identify that age and sex are statistically significant contributors to the BP.
+Only those models from the later time period show sodium as being statistically significant in importance.
