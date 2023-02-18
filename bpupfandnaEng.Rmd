@@ -555,12 +555,12 @@ sav11rp <-sav11rp[Country == "England"]
 #summary(sav11rp)
 
 #This section exports these key datatables to use with the other script (not needed if combining all in one script!)
-saveRDS(sav11rp, file ="sav11rp.rds")
-saveRDS(sav4rp, file ="sav4rp.rds")
+#saveRDS(sav11rp, file ="sav11rp.rds")
+#saveRDS(sav4rp, file ="sav4rp.rds")
 ```
  
 
-```{r }
+```{r load food diary data, message=FALSE, warning=FALSE, include=FALSE}
 UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/altquant/UPFNOVA.xlsx"))
 #ndns_yr1_nutrientdatabank <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_yr1_nutrientdatabank.sav"))
 
@@ -575,7 +575,7 @@ UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPH
 
 
 
-```{r}
+```{r process food data into tables, message=FALSE, warning=FALSE, include=FALSE}
 #taking data from diet diary
 
 UPFNOVA[,`Nova group`:= factor(`Nova group`,levels = 1:4)]
@@ -587,7 +587,7 @@ UPFNOVA$SubFoodGroupCode <- UPFNOVA$`food group number`
 foodlevedat4s <- ndns1_4a_foodleveldietarydata_uk_v2[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
 foodlevedat4s[ ,seriali  := factor(seriali)]
 foodlevedat4s<- foodlevedat4s[UPFNOVA, on= "SubFoodGroupCode"]
-summary(foodlevedat4s)
+#summary(foodlevedat4s)
 
 foodlevedat4s<- foodlevedat4s[,c("seriali","TotalGrams","Nova group")]
 
@@ -611,7 +611,7 @@ foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group")]
 
 ## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
 
-```{r}
+```{r function defn, message=FALSE, warning=FALSE, include=FALSE}
 
 
 
@@ -632,7 +632,7 @@ setnames( oneweight, 'V1','Totalg')
 
 ### This section uses the function designed above to process the table
 
-```{r}
+```{r year 9 process, message=FALSE, warning=FALSE, include=FALSE}
 
 name <-foodlevedat9s[,.(seriali)]  
 name <- as.numeric(unlist(name))
@@ -655,13 +655,13 @@ output$seriali <- nameu[i]
 }
 
 foodleveldat9sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
-foodleveldat9sp
+#foodleveldat9sp
 
 
 
 ```
 
-```{r}
+```{r year 10 process, warning=FALSE, include=FALSE}
 
 name <-foodlevedat10s[,.(seriali)]  
 name <- as.numeric(unlist(name))
@@ -690,7 +690,7 @@ foodleveldat10sp
 ```
 
 
-```{r}
+```{r year 11 process, message=FALSE, warning=FALSE, include=FALSE}
 
 name <-foodlevedat11s[,.(seriali)]  
 name <- as.numeric(unlist(name))
@@ -713,14 +713,15 @@ output$seriali <- nameu[i]
 }
 
 foodleveldat11sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
-foodleveldat11sp
+#foodleveldat11sp
 
+#then combining the outputs 9-11
 foodleveldat910sp <- rbind(foodleveldat9sp,foodleveldat10sp)
 foodleveldat911sp <- rbind(foodleveldat11sp, foodleveldat910sp)
 ```
 
 
-```{r}
+```{r slow processing four years, echo=FALSE, warning=FALSE}
 
 name <-foodlevedat4s[,.(seriali)]  
 name <- (unlist(name))
@@ -743,13 +744,13 @@ output$seriali <- nameu[i]
 }
 
 foodleveldat4sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
-foodleveldat4sp
+#foodleveldat4sp
 
 
 
 ```
 
-```{r  adding to earlier data}
+```{r adding to earlier data, echo=FALSE, message=FALSE, warning=FALSE}
 # combine with data from version10a.rmd
 
 #sav11rpb <- readRDS("sav11rp.rds")
