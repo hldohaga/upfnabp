@@ -98,6 +98,29 @@ I have restricted the data set to England only.
 
 
 
+
+
+
+
+## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
+
+
+
+### This section uses the function designed above to process the table
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Descriptive data analysis
 
 This section will review the data which will be used for the statistical analysis.
@@ -124,15 +147,15 @@ Show the data. This is the whole dataset.
 
 
 ```
-##       Min.  1st Qu.   Median     Mean  3rd Qu.    Max.    names
-## 1: 388.600 1635.000 2032.000 2119.000 2532.000 5027.00 Sodiummg
-## 2: 438.200 1425.000 1808.000 1896.000 2255.000 6854.00 Sodiummg
-## 3:   2.421    5.917    7.040    7.339    8.625   16.17 TotalEMJ
-## 4:   1.886    5.644    7.014    7.163    8.300   15.82 TotalEMJ
-## 5:  77.500  108.500  119.500  119.800  130.000  159.00 omsysval
-## 6:  70.500  104.000  112.500  114.500  123.000  159.00 omsysval
-## 7:  39.000   63.500   70.500   70.420   78.500   93.50 omdiaval
-## 8:  41.000   60.000   67.500   67.820   75.000   94.00 omdiaval
+##      Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's    names
+## 1: 388.60 1635.00 2032.00 2119.00 2532.00 5027.00 6322.00 Sodiummg
+## 2: 438.20 1425.00 1808.00 1896.00 2255.00 6854.00 2749.00 Sodiummg
+## 3:   0.86   16.61   28.60   32.29   44.93   96.65    0.86   pcnt_4
+## 4:   0.14   13.29   22.64   27.31   38.00   94.96    0.14   pcnt_4
+## 5:  77.50  108.50  119.50  119.80  130.00  159.00 6322.00 omsysval
+## 6:  70.50  104.00  112.50  114.50  123.00  159.00 2749.00 omsysval
+## 7:  39.00   63.50   70.50   70.42   78.50   93.50 6322.00 omdiaval
+## 8:  41.00   60.00   67.50   67.82   75.00   94.00 2749.00 omdiaval
 ```
 
 ![](bpupfandnaEng_files/figure-html/unnamed-chunk-10-1.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-10-2.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-10-3.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-10-4.png)<!-- -->
@@ -144,15 +167,15 @@ This is just adults >18. The range of values is different to the standard popula
 
 
 ```
-##       Min.  1st Qu.   Median     Mean  3rd Qu.    Max.    names
-## 1: 605.300 1629.000 2039.000 2134.000 2590.000 5027.00 Sodiummg
-## 2: 438.200 1456.000 1903.000 2009.000 2408.000 6854.00 Sodiummg
-## 3:   2.421    6.022    7.058    7.432    8.848   16.17 TotalEMJ
-## 4:   1.886    6.062    7.339    7.541    8.765   15.82 TotalEMJ
-## 5:  90.000  114.500  123.200  124.200  133.000  159.00 omsysval
-## 6:  87.500  110.500  120.000  120.900  129.500  159.00 omsysval
-## 7:  46.000   67.000   73.500   73.590   80.500   93.50 omdiaval
-## 8:  47.000   65.000   72.000   72.020   79.000   94.00 omdiaval
+##      Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    names
+## 1: 605.30 1629.00 2039.00 2134.00 2590.00 5027.00 Sodiummg
+## 2: 438.20 1456.00 1903.00 2009.00 2408.00 6854.00 Sodiummg
+## 3:   0.86   11.54   18.38   22.51   28.85   91.06   pcnt_4
+## 4:   1.29    9.51   15.26   19.62   24.42   86.70   pcnt_4
+## 5:  90.00  114.50  123.20  124.20  133.00  159.00 omsysval
+## 6:  87.50  110.50  120.00  120.90  129.50  159.00 omsysval
+## 7:  46.00   67.00   73.50   73.59   80.50   93.50 omdiaval
+## 8:  47.00   65.00   72.00   72.02   79.00   94.00 omdiaval
 ```
 
 This is just Male participants again showing the changes from the overall population.
@@ -160,15 +183,15 @@ This is just Male participants again showing the changes from the overall popula
 
 
 ```
-##       Min.  1st Qu.   Median     Mean  3rd Qu.    Max.    names
-## 1: 388.600 1950.000 2402.000 2446.000 2955.000 5027.00 Sodiummg
-## 2: 563.100 1590.000 1972.000 2099.000 2542.000 5166.00 Sodiummg
-## 3:   2.421    6.923    8.336    8.390    9.895   16.17 TotalEMJ
-## 4:   3.345    6.393    7.588    7.907    9.350   15.82 TotalEMJ
-## 5:  77.500  112.500  122.500  122.800  132.800  158.00 omsysval
-## 6:  83.500  105.500  117.000  117.300  127.500  155.00 omsysval
-## 7:  39.000   63.500   70.500   70.280   79.000   91.50 omdiaval
-## 8:  42.500   59.500   67.000   67.610   75.500   93.50 omdiaval
+##      Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    names
+## 1: 388.60 1950.00 2402.00 2446.00 2955.00 5027.00 Sodiummg
+## 2: 563.10 1590.00 1972.00 2099.00 2542.00 5166.00 Sodiummg
+## 3:   0.86   14.45   25.78   30.22   43.00   89.81   pcnt_4
+## 4:   1.65   14.08   24.08   28.29   37.61   78.36   pcnt_4
+## 5:  77.50  112.50  122.50  122.80  132.80  158.00 omsysval
+## 6:  83.50  105.50  117.00  117.30  127.50  155.00 omsysval
+## 7:  39.00   63.50   70.50   70.28   79.00   91.50 omdiaval
+## 8:  42.50   59.50   67.00   67.61   75.50   93.50 omdiaval
 ```
 
 
@@ -236,9 +259,6 @@ This would also highlight a preferential detection of high BP in those overweigh
 ```
 ##        name  p.value
 ## 1: vegetarn 0.001157
-## 2:  SaltChk      NaN
-## 3:  SalHowC      NaN
-## 4:  SltShow      NaN
 ```
 These values identify a significant difference in the number of vegetarians
 
@@ -247,7 +267,6 @@ These values identify a significant difference in the number of vegetarians
 ##       name p.value
 ## 1: ethgrp5 0.01317
 ## 2: ethgrp2 0.01597
-## 3:  nssec8     NaN
 ```
 
 ```
@@ -264,7 +283,6 @@ There are differences in ethnicity and regional makeup
 ## 1: agegad1 0.01671
 ## 2: agegad2 0.03427
 ## 3: agegch1 0.00162
-## 4:  agegr1     NaN
 ```
 The age groups show some discrepancy with the p value significant only in the child agre groups.
 
@@ -279,16 +297,17 @@ The age groups show some discrepancy with the p value significant only in the ch
 So has there been a change in intake? test 
 A t test is comparing the means of the two samples.
 This first compares the means of sodium in years 1-4 with sodium in years 9-11.
-The second compares the means of Total energy intake in Joules over the same periods.
-
+*The second compares the means of Total energy intake in Joules over the same periods.
+*The second compares the means of pcnt UPF intake in over the same periods.
 
 
 ```
-##     Var statistic   p.value
-## 1:   Na     -5.51 4.528e-08
-## 2: TEMJ     -1.48 1.391e-01
+##       Var statistic   p.value
+## 1:     Na     -5.51 4.528e-08
+## 2: pcnt_4    -13.09 9.912e-39
 ```
-It seems that the EMJ intake change is not statistically significantat the level of p = 0.05. 
+*It seems that the EMJ intake change is not statistically significantat the level of p = 0.05. 
+It seems teh mean percentage UPF intake is significantly less.
 The sodium intake change is statistically significant with a p value less than 0.05.
 
 
@@ -347,21 +366,21 @@ There is a  relationship between Na and omsysval. There is a weakly positive gra
 ```
 ## 
 ## Call:
-## lm(formula = omsysval ~ TotalEMJ, data = sav4rp)
+## lm(formula = omsysval ~ pcnt_4, data = sav4rp)
 ## 
 ## Coefficients:
-## (Intercept)     TotalEMJ  
-##    114.9232       0.6699
+## (Intercept)       pcnt_4  
+##    127.2191      -0.2612
 ```
 
 ```
 ## 
 ## Call:
-## lm(formula = omsysval ~ TotalEMJ, data = sav11rp)
+## lm(formula = omsysval ~ pcnt_4, data = sav11rp)
 ## 
 ## Coefficients:
-## (Intercept)     TotalEMJ  
-##     100.860        1.908
+## (Intercept)       pcnt_4  
+##    119.5490      -0.1916
 ```
 There is a relationship between Total EMJ and omsysval. The positive gradiant appears stronger in 9-11.
 
@@ -373,35 +392,35 @@ This uses a model of variables. It can highlight the contributions of each.
 ```
 ## 
 ## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg + TotalEMJ + ethgr2 + 
+## lm(formula = omsysval ~ Age + Sex + Sodiummg + pcnt_4 + ethgr2 + 
 ##     VitaminDµg + EIMD_2010_quintile, data = sav4rp)
 ## 
 ## Coefficients:
 ##         (Intercept)                  Age            SexFemale  
-##           1.058e+02            4.152e-01           -4.948e+00  
-##            Sodiummg             TotalEMJ      ethgr2Non-white  
-##          -9.893e-04            4.025e-01           -3.543e+00  
+##           1.066e+02            4.223e-01           -5.160e+00  
+##            Sodiummg               pcnt_4      ethgr2Non-white  
+##          -2.701e-04            1.424e-02           -3.474e+00  
 ##          VitaminDµg  EIMD_2010_quintile2  EIMD_2010_quintile3  
-##          -1.794e-01           -1.986e-01            1.493e+00  
+##          -1.144e-01           -2.819e-01            1.392e+00  
 ## EIMD_2010_quintile4  EIMD_2010_quintile5  
-##           2.814e-01            3.089e+00
+##           1.476e-01            2.965e+00
 ```
 
 ```
 ## 
 ## Call:
-## lm(formula = omsysval ~ AgeR + Sex + Sodiummg + TotalEMJ + ethgrp2 + 
+## lm(formula = omsysval ~ AgeR + Sex + Sodiummg + pcnt_4 + ethgrp2 + 
 ##     VitaminDµg + EIMD_2010_quintile, data = sav11rp)
 ## 
 ## Coefficients:
 ##         (Intercept)                 AgeR            SexFemale  
-##           99.052975             0.388911            -5.011707  
-##            Sodiummg             TotalEMJ     ethgrp2Non-white  
-##            0.001518             0.434211             0.160355  
+##           99.559050             0.401979            -5.246490  
+##            Sodiummg               pcnt_4     ethgrp2Non-white  
+##            0.002273             0.024750             0.416710  
 ##          VitaminDµg  EIMD_2010_quintile2  EIMD_2010_quintile3  
-##            0.040393             0.928627            -0.507772  
+##            0.123897             0.973353            -0.469669  
 ## EIMD_2010_quintile4  EIMD_2010_quintile5  
-##           -0.139366             0.111822
+##           -0.178767            -0.042195
 ```
 There are differences in coefficients in the two sets of data. 
 These models can be compared with others with different variables to understand how they help predict values more or less effectively.

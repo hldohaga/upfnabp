@@ -17,6 +17,7 @@ output:
 ```{r include=FALSE}
 library(haven)
 library(data.table)
+library(readxl)
 
 
 sav4 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_personleveldietarydata_uk_v2.sav"
@@ -944,20 +945,20 @@ vtable11 <- xtabs(~sav11rp[,vegetarn])
 vtable4 <- xtabs(~sav4rp[, vegetarn])
 vtabler <- chisq.test(rbind(vtable11 , vtable4))
 
-cktable11 <- xtabs(~sav11rp[1:3,SaltChk])
-cktable4 <- xtabs(~sav4rp[1:3, SaltChk])
-cktabler <- chisq.test(rbind(cktable11 , cktable4))
+#cktable11 <- xtabs(~sav11rp[1:3,SaltChk])
+#cktable4 <- xtabs(~sav4rp[1:3, SaltChk])
+#cktabler <- chisq.test(rbind(cktable11 , cktable4))
 
-hwtable11 <- xtabs(~sav11rp[1:3,SalHowC])
-hwtable4 <- xtabs(~sav4rp[1:3, SalHowC])
-hwtabler <-chisq.test(rbind(hwtable11 , hwtable4))
+#hwtable11 <- xtabs(~sav11rp[1:3,SalHowC])
+#hwtable4 <- xtabs(~sav4rp[1:3, SalHowC])
+#hwtabler <-chisq.test(rbind(hwtable11 , hwtable4))
 
-swtable11 <- xtabs(~sav11rp[1:3,SltSHow])
-swtable4 <- xtabs(~sav4rp[1:3, SltSHow])
-swtabler <- chisq.test(rbind(swtable11 , swtable4))
+#swtable11 <- xtabs(~sav11rp[1:3,SltSHow])
+#swtable4 <- xtabs(~sav4rp[1:3, SltSHow])
+#swtabler <- chisq.test(rbind(swtable11 , swtable4))
 
-catconfounders2 <- data.table("name" = c("vegetarn","SaltChk","SalHowC","SltShow"),"p.value" = signif(c(vtabler$p.value,cktabler$p.value,hwtabler$p.value,swtabler$p.value ),digits = 4))
-
+#catconfounders2 <- data.table("name" = c("vegetarn","SaltChk","SalHowC","SltShow"),"p.value" = signif(c(vtabler$p.value,cktabler$p.value,hwtabler$p.value,swtabler$p.value ),digits = 4))
+catconfounders2 <- data.table("name" = c("vegetarn"),"p.value" = signif(c(vtabler$p.value ),digits = 4))
 catconfounders2
 
 ```
@@ -976,17 +977,17 @@ e2tabler <- chisq.test(rbind(e2table11 , e2table4))
 
 #incset
 
-n8table11 <- xtabs(~sav11rp[,nssec8])
-n8table4 <- xtabs(~sav4rp[, nssec8])
-n8tabler<- chisq.test(rbind(n8table11 , n8table4))
+#n8table11 <- xtabs(~sav11rp[,nssec8])
+#n8table4 <- xtabs(~sav4rp[, nssec8])
+#n8tabler<- chisq.test(rbind(n8table11 , n8table4))
 
-gtable11 <- xtabs(~sav11rp[,GOR])
-gtable4 <- xtabs(~sav4rp[,gor])
-gtabler <- chisq.test(rbind(gtable11 , gtable4))
+#gtable11 <- xtabs(~sav11rp[,GOR])
+#gtable4 <- xtabs(~sav4rp[,gor])
+#gtabler <- chisq.test(rbind(gtable11 , gtable4))
 
-rtable11 <- xtabs(~sav11rp[,region])
-rtable4 <- xtabs(~sav4rp[, region])
-rtabler <-chisq.test(rbind(rtable11 , rtable4))
+#rtable11 <- xtabs(~sav11rp[,region])
+#rtable4 <- xtabs(~sav4rp[, region])
+#rtabler <-chisq.test(rbind(rtable11 , rtable4))
 
 
 q07table11 <- xtabs(~sav11rp[,EIMD_2007_quintile])
@@ -1002,9 +1003,9 @@ q15table4 <- xtabs(~sav4rp[, EIMD_2015_quintile])
 q15tabler <-chisq.test(rbind(q15table11 , q15table4))
 
 
-catconfounders3a <- data.table("name" = c("GOR","region"),"p.value" =signif(c( gtabler$p.value, rtabler$p.value ),digits = 4))
+#catconfounders3a <- data.table("name" = c("GOR","region"),"p.value" =signif(c( gtabler$p.value, rtabler$p.value ),digits = 4))
 
-catconfounders3b <- data.table("name" = c("ethgrp5","ethgrp2","nssec8"),"p.value" =signif(c(e5tabler$p.value, e2tabler$p.value, n8tabler$p.value),digits = 4))
+catconfounders3b <- data.table("name" = c("ethgrp5","ethgrp2"),"p.value" =signif(c(e5tabler$p.value, e2tabler$p.value),digits = 4))
 
 catconfounders3c <- data.table("name" = c("EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile"),"p.value" =signif(c(q07tabler$p.value, q10tabler$p.value, q15tabler$p.value),digits = 4))
 
@@ -1048,11 +1049,11 @@ ch1table11 <- xtabs(~sav11rp[,agegch1])
 ch1table4 <- xtabs(~sav4rp[, agegch1 ])
 ch1tabler <-chisq.test(rbind(ch1table11 , ch1table4))
 
-ag1table11 <- xtabs(~sav11rp[, agegr1])
-ag1table4 <- xtabs(~sav4rp[, agegr1])
-ag1tabler <- chisq.test(rbind(ag1table11 , ag1table4))
+#ag1table11 <- xtabs(~sav11rp[, agegr1])
+#ag1table4 <- xtabs(~sav4rp[, agegr1])
+#ag1tabler <- chisq.test(rbind(ag1table11 , ag1table4))
 
-catconfounders4a <- data.table("name" = c("agegad1","agegad2","agegch1","agegr1"),"p.value" = signif( c( ad1tabler$p.value , ad2tabler$p.value, ch1tabler$p.value, ag1tabler$p.value), digits = 4))
+catconfounders4a <- data.table("name" = c("agegad1","agegad2","agegch1"),"p.value" = signif( c( ad1tabler$p.value , ad2tabler$p.value, ch1tabler$p.value), digits = 4))
 
 catconfounders4b <- data.table("name" = c("hyper1","hyper140","highbp1","hibp140"),"p.value" = signif( c(h1tabler$p.value, h14tabler$p.value, 0, hi14tabler$p.value), digits = 4))
 
@@ -1066,39 +1067,39 @@ The age groups show some discrepancy with the p value significant only in the ch
 
 #medset
 
-mctable11 <- xtabs(~sav11rp[,bpmedc2])
-mctable4 <- xtabs(~sav4rp[, bpmedc ])
-mctabler <- chisq.test(rbind(mctable11 , mctable4))
+#mctable11 <- xtabs(~sav11rp[,bpmedc2])
+#mctable4 <- xtabs(~sav4rp[, bpmedc ])
+#mctabler <- chisq.test(rbind(mctable11 , mctable4))
 
-mdtable11 <- xtabs(~sav11rp[, bpmedd2])
-mdtable4 <- xtabs(~sav4rp[, bpmedd])
-mdtabler <- chisq.test(rbind(mdtable11 , mdtable4))
+#mdtable11 <- xtabs(~sav11rp[, bpmedd2])
+#mdtable4 <- xtabs(~sav4rp[, bpmedd])
+#mdtabler <- chisq.test(rbind(mdtable11 , mdtable4))
 
-ditable11 <- xtabs(~sav11rp[,diur2])
-ditable4 <- xtabs(~sav4rp[, diur])
-ditabler <- chisq.test(rbind(ditable11 , ditable4))
+#ditable11 <- xtabs(~sav11rp[,diur2])
+#ditable4 <- xtabs(~sav4rp[, diur])
+#ditabler <- chisq.test(rbind(ditable11 , ditable4))
 
-betable11 <- xtabs(~sav11rp[,beta2])
-betable4 <- xtabs(~sav4rp[, beta])
-betabler <- chisq.test(rbind(betable11 , betable4))
+#betable11 <- xtabs(~sav11rp[,beta2])
+#betable4 <- xtabs(~sav4rp[, beta])
+#betabler <- chisq.test(rbind(betable11 , betable4))
 
-cbtable11 <- xtabs(~sav11rp[,calciumb2])
-cbtable4 <- xtabs(~sav4rp[, calciumb])
-cbtabler <-chisq.test(rbind(cbtable11 , cbtable4))
+#cbtable11 <- xtabs(~sav11rp[,calciumb2])
+#cbtable4 <- xtabs(~sav4rp[, calciumb])
+#cbtabler <-chisq.test(rbind(cbtable11 , cbtable4))
 
-acetable11 <- xtabs(~sav11rp[, aceinh2])
-acetable4 <- xtabs(~sav4rp[, aceinh])
-acetabler <- chisq.test(rbind(acetable11 , acetable4))
+#acetable11 <- xtabs(~sav11rp[, aceinh2])
+#acetable4 <- xtabs(~sav4rp[, aceinh])
+#acetabler <- chisq.test(rbind(acetable11 , acetable4))
 
-othtable11 <- xtabs(~sav11rp[,obpdrug2])
-othtable4 <- xtabs(~sav4rp[, obpdrug])
-othtabler <- chisq.test(rbind(othtable11 , othtable4))
+#othtable11 <- xtabs(~sav11rp[,obpdrug2])
+#othtable4 <- xtabs(~sav4rp[, obpdrug])
+#othtabler <- chisq.test(rbind(othtable11 , othtable4))
 
-prtable11 <- xtabs(~sav11rp[,PregNowB])
-prtable4 <- xtabs(~sav4rp[, PregNowB])
-prtabler <- chisq.test(rbind(prtable11 , prtable4))
+#prtable11 <- xtabs(~sav11rp[,PregNowB])
+#prtable4 <- xtabs(~sav4rp[, PregNowB])
+#prtabler <- chisq.test(rbind(prtable11 , prtable4))
 
-catconfounders5 <- data.table("name" = c("bpmedc","bpmedd","diur","beta","calciumb","aceinh","obpdrug","PregNowB"), "p.value" = signif(c(mctabler$p.value, mdtabler$p.value, ditabler$p.value, betabler$p.value, cbtabler$p.value, acetabler$p.value, othtabler$p.value, prtabler$p.value ),digits = 4))
+#catconfounders5 <- data.table("name" = c("bpmedc","bpmedd","diur","beta","calciumb","aceinh","obpdrug","PregNowB"), "p.value" = signif(c(mctabler$p.value, mdtabler$p.value, ditabler$p.value, betabler$p.value, cbtabler$p.value, acetabler$p.value, othtabler$p.value, prtabler$p.value ),digits = 4))
 
 #catconfounders5
 
