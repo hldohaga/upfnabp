@@ -1112,18 +1112,19 @@ catconfounders5 <- data.table("name" = c("bpmedc","bpmedd","diur","beta","calciu
 So has there been a change in intake? test 
 A t test is comparing the means of the two samples.
 This first compares the means of sodium in years 1-4 with sodium in years 9-11.
-The second compares the means of Total energy intake in Joules over the same periods.
-
+*The second compares the means of Total energy intake in Joules over the same periods.
+*The second compares the means of pcnt UPF intake in over the same periods.
 
 ```{r echo=FALSE}
 
 ttestNa <- t.test(sav11rp[,"Sodiummg"], sav4rp[,"Sodiummg"])
-ttestTEMJ <-t.test(sav11rp[,"TotalEMJ"], sav4rp[,"TotalEMJ"])
-data.table("Var" = c("Na","TEMJ"),"statistic" = signif(c(ttestNa$statistic,ttestTEMJ$statistic), digits = 4), "p.value" = signif(c(ttestNa$p.value,ttestTEMJ$p.value), digits = 4))
+ttestpcnt_4 <-t.test(sav11rp[,"pcnt_4"], sav4rp[,"pcnt_4"])
+data.table("Var" = c("Na","pcnt_4"),"statistic" = signif(c(ttestNa$statistic,ttestpcnt_4$statistic), digits = 4), "p.value" = signif(c(ttestNa$p.value,ttestpcnt_4$p.value), digits = 4))
 
 
 ```
-It seems that the EMJ intake change is not statistically significantat the level of p = 0.05. 
+*It seems that the EMJ intake change is not statistically significantat the level of p = 0.05. 
+It seems teh mean percentage UPF intake is significantly less.
 The sodium intake change is statistically significant with a p value less than 0.05.
 
 
@@ -1177,10 +1178,10 @@ There is a  relationship between Na and omsysval. There is a weakly positive gra
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
-lm1E4 <- lm(omsysval ~ TotalEMJ, sav4rp)
+lm1E4 <- lm(omsysval ~ pcnt_4, sav4rp)
 
 
-lm1E11 <- lm(omsysval ~ TotalEMJ, sav11rp)
+lm1E11 <- lm(omsysval ~ pcnt_4, sav11rp)
 lm1E4
 lm1E11
 
@@ -1193,11 +1194,11 @@ There is a relationship between Total EMJ and omsysval. The positive gradiant ap
 This uses a model of variables. It can highlight the contributions of each.
 
 ```{r echo=FALSE}
-lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + TotalEMJ + ethgr2 + VitaminDµg + EIMD_2010_quintile , sav4rp)
+lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + pcnt_4 + ethgr2 + VitaminDµg + EIMD_2010_quintile , sav4rp)
 
 #plot(lm1)
 
-lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + TotalEMJ +ethgrp2 +VitaminDµg + EIMD_2010_quintile, sav11rp)
+lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + pcnt_4 +ethgrp2 +VitaminDµg + EIMD_2010_quintile, sav11rp)
 lm4
 lm11
 #plot(lm1m)
