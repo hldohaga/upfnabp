@@ -519,50 +519,12 @@ sav11rp[, Country := factor(Country)]
 
 ```
 
-###  Exclusions 
-eg hypertensives and pregnant/breastfeeding
-possible future set with only England?
 
-I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs. There are no participants who are pregnant or breastfeeding. 
-I have included normotensive untreated individuals. 
-I have restricted the data set to England only.
-
-```{r echo=FALSE}
-#first remove from years 1-4
-sav4rp <- sav4rp[(hyper1 == " Normotensive untreated" ), ]
-
-#there are no pregnant or breast feeding participants
-#sav4rpn <- sav4rpn[(PregNowB != "preg or breastfeeding" ), ]
-
-
-#medication affecting bp
-sav4rp <- sav4rp[diur == "Not taking drug"]
-sav4rp <-sav4rp[beta == "Not taking drug"]
-sav4rp <-sav4rp[aceinh == "Not taking drug"]
-sav4rp <-sav4rp[calciumb =="Not taking drug"]
-sav4rp <- sav4rp[obpdrug == "Not taking drug"]
-
-sav4rp <- sav4rp[Country == "England"]
-
-#then remove from years 9-11
-sav11rp <- sav11rp[(hyper1_2 == " Normotensive untreated" ), ]
-
-#nil pregnant or breast feeding
-# medication affecting bp
-sav11rp <-sav11rp[diur2 == "Not taking drug"]
-sav11rp <-sav11rp[beta2 == "Not taking drug"]
-sav11rp <-sav11rp[aceinh2 == "Not taking drug"]
-sav11rp <-sav11rp[calciumb2 =="Not taking drug"]
-sav11rp <-sav11rp[obpdrug2 =="Not taking drug"]
-
-sav11rp <-sav11rp[Country == "England"]
-#summary(sav11rp)
-
-#This section exports these key datatables to use with the other script (not needed if combining all in one script!)
-#saveRDS(sav11rp, file ="sav11rp.rds")
-#saveRDS(sav4rp, file ="sav4rp.rds")
-```
  
+The food diary data needs more processing. In particular the NOVA categorisation is not in the data set. 
+I have derived UPFNOVA from a paper which had a data table identifying the NDNS sub food groups.
+
+
 
 ```{r load food diary data, message=FALSE, warning=FALSE, include=FALSE}
 UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/altquant/UPFNOVA.xlsx"))
@@ -577,7 +539,8 @@ UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPH
  ndns_rp_yr11a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr11a_foodleveldietarydata_uk_20210831.sav") )
 ```
 
-
+The Nova group is attached to the foods in the food diaries.
+The tables are reduced to the necessary variables.
 
 ```{r process food data into tables, message=FALSE, warning=FALSE, include=FALSE}
 #taking data from diet diary
@@ -585,7 +548,7 @@ UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPH
 UPFNOVA[,`Nova group`:= factor(`Nova group`,levels = 1:4)]
 UPFNOVA$SubFoodGroupCode <- UPFNOVA$`food group number`
 
-#specifically coded food gorups
+#specifically coded food groups
 
 #combine with key for Nova Group
 foodlevedat4s <- ndns1_4a_foodleveldietarydata_uk_v2[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
@@ -613,7 +576,8 @@ foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group")]
 
 ```
 
-
+To work out the amount of food intake by each individual, first the diary entries for each individual are totalled up.
+The total gram weight value of intake of each food is then worked out as a percentage of the total intake.
 
 ```{r function defn, message=FALSE, warning=FALSE, include=FALSE}
 ## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
@@ -634,6 +598,8 @@ setnames( oneweight, 'V1','Totalg')
 
 ```
 
+All these individual calculations are then built back up into tables. 
+This is done for years 9-11 and then 1-4.
 
 
 ```{r year 9 process, message=FALSE, warning=FALSE, include=FALSE}
@@ -754,6 +720,12 @@ foodleveldat4sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var 
 
 ```
 
+
+After that, this information is added to the other data.
+This gives us the nova group information by weight and weight percent for all participants.
+
+The data is now ready for analysis first by descriptive analysis.
+
 ```{r adding to earlier data, echo=FALSE, message=FALSE, warning=FALSE}
 # combine with data from version10a.rmd
 
@@ -772,6 +744,50 @@ setkey(foodleveldat4sp,seriali)
 
 sav4rp <-sav4rp[foodleveldat4sp, by= seriali]
 
+```
+
+###  Exclusions 
+eg hypertensives and pregnant/breastfeeding
+possible future set with only England?
+
+I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs. There are no participants who are pregnant or breastfeeding. 
+I have included normotensive untreated individuals. 
+I have restricted the data set to England only.
+
+```{r echo=FALSE}
+#first remove from years 1-4
+sav4rp <- sav4rp[(hyper1 == " Normotensive untreated" ), ]
+
+#there are no pregnant or breast feeding participants
+#sav4rpn <- sav4rpn[(PregNowB != "preg or breastfeeding" ), ]
+
+
+#medication affecting bp
+sav4rp <- sav4rp[diur == "Not taking drug"]
+sav4rp <-sav4rp[beta == "Not taking drug"]
+sav4rp <-sav4rp[aceinh == "Not taking drug"]
+sav4rp <-sav4rp[calciumb =="Not taking drug"]
+sav4rp <- sav4rp[obpdrug == "Not taking drug"]
+
+sav4rp <- sav4rp[Country == "England"]
+
+#then remove from years 9-11
+sav11rp <- sav11rp[(hyper1_2 == " Normotensive untreated" ), ]
+
+#nil pregnant or breast feeding
+# medication affecting bp
+sav11rp <-sav11rp[diur2 == "Not taking drug"]
+sav11rp <-sav11rp[beta2 == "Not taking drug"]
+sav11rp <-sav11rp[aceinh2 == "Not taking drug"]
+sav11rp <-sav11rp[calciumb2 =="Not taking drug"]
+sav11rp <-sav11rp[obpdrug2 =="Not taking drug"]
+
+sav11rp <-sav11rp[Country == "England"]
+#summary(sav11rp)
+
+#This section exports these key datatables to use with the other script (not needed if combining all in one script!)
+#saveRDS(sav11rp, file ="sav11rp.rds")
+#saveRDS(sav4rp, file ="sav4rp.rds")
 ```
 
 
@@ -860,8 +876,8 @@ keydataM$names = c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4","omsysval","omsysv
 
 
 
-So has there been a change in intake? test 
-A t test is comparing the means of the two samples.
+In order to confirm there has been a change in intake 
+a t.test compares the means of the two samples.
 This first compares the means of sodium in years 1-4 with sodium in years 9-11.
 
 The second compares the means of pcnt UPF intake in over the same periods.
@@ -875,7 +891,7 @@ ttestpcnt_4
 ttestNa
 ```
 
-It seems the mean percentage UPF intake is less by 13 % and this reduction is statistically significant.
+It seems the mean percentage UPF intake changes less by 2 % and this reduction is statistically significant.
 The sodium intake has changed by 5.5 mg and is also statistically significant with a p value less than 0.05.
 
 
@@ -893,9 +909,9 @@ data.table("Var" = c("Sys","Dia"),"statistic" = signif(c(ttestOS$statistic,ttest
 
 There is a reduction in systolic, with a less significant reduction in diastolic
 
-In summary there is a reduction in Na intake and a drop in both systolic and diastolic pressures. 
-The TEMJ has also dropped but does not have statistical significance.
-This cannot be described as causative, this analysis simply identifies several correlated variables.
+In summary there is a reduction in UPF and Na intake and a drop in both systolic and diastolic pressures. 
+
+
 
 Has another factor affected the BP change ?
 
@@ -903,7 +919,8 @@ Has another factor affected the BP change ?
 
 
 ### Statistical analysis of Confounding variables
-are confounders consistent or are they different between the two datasets
+
+How are confounding variables distributed between the two datasets
 The NDNS dataset was weighted to keep many of these the same between datasets. 
 
 
@@ -942,9 +959,9 @@ stable4 <- xtabs(~sav4rp[, Sex])
 stabler <- chisq.test(rbind(stable11 , stable4))
 
 
-ctable11 <- xtabs(~sav11rp[,Country])
-ctable4 <- xtabs(~sav4rp[,Country])
-ctabler <- chisq.test(rbind(ctable4,ctable11))
+#ctable11 <- xtabs(~sav11rp[,Country])
+#ctable4 <- xtabs(~sav4rp[,Country])
+#ctabler <- chisq.test(rbind(ctable4,ctable11))
 
 catconfounders <- data.table("name" = c("Sex"),"pvalue" = signif(c(stabler$p.value),digits = 4))
 
@@ -1197,7 +1214,7 @@ lm1E11
 
 
 ```
-There is a relationship between Total EMJ and omsysval. The positive gradiant appears stronger in 9-11.
+There is a relationship between Total EMJ and omsysval with a negative gradiant.
 
 ### multi variable regression 
 
