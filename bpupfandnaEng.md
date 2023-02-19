@@ -1,12 +1,15 @@
 ---
 title: "bp upf and na"
 output:
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
-  word_document: default
   pdf_document:
     toc: yes
 ---
@@ -158,7 +161,7 @@ Show the data. This is the whole dataset.
 ## 8:  41.00   60.00   67.50   67.82   75.00   94.00 2749.00 omdiaval
 ```
 
-![](bpupfandnaEng_files/figure-html/unnamed-chunk-10-1.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-10-2.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-10-3.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-10-4.png)<!-- -->
+![](bpupfandnaEng_files/figure-docx/unnamed-chunk-10-1.png)<!-- -->![](bpupfandnaEng_files/figure-docx/unnamed-chunk-10-2.png)<!-- -->![](bpupfandnaEng_files/figure-docx/unnamed-chunk-10-3.png)<!-- -->![](bpupfandnaEng_files/figure-docx/unnamed-chunk-10-4.png)<!-- -->
 
 I have used the square root of the percentage as this reduces the skew of the data leading to a closer approximation to the normal distribution.
 
@@ -276,7 +279,7 @@ There has been a change in the intake of soft drinks, tea coffee and water.
 ## 1:  Sex 0.001513
 ```
 
-![](bpupfandnaEng_files/figure-html/unnamed-chunk-16-1.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-16-2.png)<!-- -->
+![](bpupfandnaEng_files/figure-docx/unnamed-chunk-16-1.png)<!-- -->![](bpupfandnaEng_files/figure-docx/unnamed-chunk-16-2.png)<!-- -->
 Again significant differences
 Are there time differences in diagnosis of hypertension/treatment between sexes 
 ie are more women now on meds compared with the number of men than previously?
