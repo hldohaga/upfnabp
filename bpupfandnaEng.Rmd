@@ -1196,8 +1196,8 @@ lm1na4 <- lm(omsysval ~ Sodiummg, sav4rp)
 lm1na11 <- lm(omsysval ~ Sodiummg, sav11rp)
 (lm1na4)
 (lm1na11)
-#plot(lm1na4)
-#plot(lm1na11)
+anova(lm1na4)
+anova(lm1na11)
 ```
 There is a  relationship between Na and omsysval. There is a weakly positive gradiant. This appears greater in the more recent data starting from a lower intersection with the y axis.
 
@@ -1212,7 +1212,8 @@ lm1E11 <- lm(omsysval ~ sqrt(pcnt_4), sav11rp)
 lm1E4
 lm1E11
 
-
+anova(lm1E4)
+anova(lm1E11)
 ```
 There is a relationship between Total EMJ and omsysval with a negative gradiant.
 
@@ -1276,10 +1277,16 @@ anova(lm4c)
 anova(lm11c)
 ```
 
+```{r}
+sav11rp$Age <- sav11rp[,AgeR]
+lastfew11 <- sav11rp[,.(Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval)]
+lastfew4 <- sav4rp[,.(Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval)]
+alldata <- data.table(rbind(lastfew4,lastfew11))
 
-
-
-
+lmall <- lm(omsysval~ Age+ Sex + Sodiummg +pcnt_4, alldata)
+lmall
+anova(lmall)
+```
 
 ## Summary
 
