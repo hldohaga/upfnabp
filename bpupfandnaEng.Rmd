@@ -1,14 +1,14 @@
 ---
 title: "bp upf and na"
 output:
-  word_document: 
-    toc: yes
-    fig_caption: yes
-    keep_md: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
+    keep_md: yes
+  word_document: 
+    toc: yes
+    fig_caption: yes
     keep_md: yes
   pdf_document:
     toc: yes
@@ -1558,5 +1558,5 @@ In each period there is a correlation between systolic BP and UPF intake.
 
 The regression models identify that age and sex are statistically significant contributors to the BP.
 Only those models from the later time period show sodium as being statistically significant in importance.
-Combining the data shows teh energy percentage of UPF as being a statistically significant contributor.
+Combining the data shows the energy percentage of UPF as being a statistically significant contributor.
 
