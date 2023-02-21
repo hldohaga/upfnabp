@@ -551,16 +551,16 @@ UPFNOVA$SubFoodGroupCode <- UPFNOVA$`food group number`
 #specifically coded food groups
 
 #combine with key for Nova Group
-foodlevedat4s <- ndns1_4a_foodleveldietarydata_uk_v2[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
+foodlevedat4s <- ndns1_4a_foodleveldietarydata_uk_v2[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
 foodlevedat4s[ ,seriali  := factor(seriali)]
 foodlevedat4s<- foodlevedat4s[UPFNOVA, on= "SubFoodGroupCode"]
 #summary(foodlevedat4s)
 
-foodlevedat4s<- foodlevedat4s[,c("seriali","TotalGrams","Nova group")]
+foodlevedat4s<- foodlevedat4s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
 
-foodlevedat9s <- ndns_rp_yr9a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
-foodlevedat10s <- ndns_rp_yr10a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
-foodlevedat11s <- ndns_rp_yr11a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams")]
+foodlevedat9s <- ndns_rp_yr9a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
+foodlevedat10s <- ndns_rp_yr10a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
+foodlevedat11s <- ndns_rp_yr11a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
 
 #combine with key for Nova Group
 
@@ -570,9 +570,9 @@ foodlevedat11s<- foodlevedat11s[UPFNOVA, on= "SubFoodGroupCode"]
 
 
 
-foodlevedat9s<- foodlevedat9s[,c("seriali","TotalGrams","Nova group")]
-foodlevedat10s<- foodlevedat10s[,c("seriali","TotalGrams","Nova group")]
-foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group")]
+foodlevedat9s<- foodlevedat9s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
+foodlevedat10s<- foodlevedat10s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
+foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
 
 ```
 
