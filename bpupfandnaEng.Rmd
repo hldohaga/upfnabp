@@ -539,6 +539,7 @@ UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPH
  ndns_rp_yr11a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr11a_foodleveldietarydata_uk_20210831.sav") )
 ```
 
+####  Processing the food diaries
 The Nova group is attached to the foods in the food diaries.
 The tables are reduced to the necessary variables.
 
@@ -576,7 +577,7 @@ foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group","EnergykJ
 
 ```
 
-To work out the amount of food intake by each individual, first the diary entries for each individual are totalled up.
+To work out the gram weight amount of food intake by each individual, first the diary entries for each individual are totalled up.
 The total gram weight value of intake of each food is then worked out as a percentage of the total intake.
 
 ```{r function defn, message=FALSE, warning=FALSE, include=FALSE}
@@ -720,6 +721,146 @@ foodleveldat4sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var 
 
 ```
 
+The process can be done for food level energy intake also.
+```{r energy function defn, message=FALSE, warning=FALSE, include=FALSE}
+## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
+
+
+
+IndividDietE <- function(DT,individ) {
+  pers <- DT[seriali==individ]
+pers
+oneweight<-pers[, round(sum(EnergykJ),2), by=`Nova group`][order(`Nova group`)]
+
+setnames( oneweight, 'V1','EnergykJ')
+ oneweight[,Epcnt := round((EnergykJ/sum(EnergykJ)*100),2)]
+
+  return(na.exclude(oneweight))
+}
+
+
+```
+
+```{r Eyear 9 process, message=FALSE, warning=FALSE, include=FALSE}
+### This section uses the function designed above to process the table
+name <-foodlevedat9s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)  
+#nameu
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDietE(foodlevedat9s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat9spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
+foodleveldat9spE
+
+
+
+```
+
+```{r Eyear 10 process, message=FALSE, warning=FALSE, include=FALSE}
+### This section uses the function designed above to process the table
+name <-foodlevedat10s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)  
+#nameu
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDietE(foodlevedat10s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat10spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
+foodleveldat10spE
+
+
+
+```
+
+
+```{r Eyear 11 process, message=FALSE, warning=FALSE, include=FALSE}
+### This section uses the function designed above to process the table
+name <-foodlevedat11s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)  
+#nameu
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDietE(foodlevedat11s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat11spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
+foodleveldat11spE
+
+
+#then combining the outputs 9-11
+foodleveldat910spE <- rbind(foodleveldat9spE,foodleveldat10spE)
+foodleveldat911spE <- rbind(foodleveldat11spE, foodleveldat910spE)
+```
+
+
+```{r Eslow processing four years, echo=FALSE, warning=FALSE}
+
+name <-foodlevedat4s[,.(seriali)]  
+name <- (unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)
+#summary(nameu)
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDietE(foodlevedat4s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat4spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
+foodleveldat4spE
+
+
+
+```
+
 
 After that, this information is added to the other data.
 This gives us the nova group information by weight and weight percent for all participants.
@@ -733,17 +874,18 @@ The data is now ready for analysis first by descriptive analysis.
 
 setkey(sav11rp,seriali)
 setkey(foodleveldat911sp, seriali)
+setkey(foodleveldat911spE, seriali)
 
 sav11rp <-sav11rp[foodleveldat911sp, by= seriali]
-
+sav11rp <-sav11rp[foodleveldat911spE, by= seriali]
 
 #sav4rp <- readRDS("sav4rp.rds")
 
 setkey(sav4rp,seriali)
 setkey(foodleveldat4sp,seriali)
-
+setkey(foodleveldat4spE,seriali)
 sav4rp <-sav4rp[foodleveldat4sp, by= seriali]
-
+sav4rp <-sav4rp[foodleveldat4spE, by= seriali]
 ```
 
 ###  Exclusions 
@@ -816,10 +958,10 @@ Show the data. This is the whole dataset.
 
 
 ```{r echo=FALSE, warning=FALSE}
-keydata <- rbind(summary(sav4rp[,Sodiummg]), summary(sav11rp[,Sodiummg]),summary(sav4rp[,pcnt_4]), summary(sav11rp[,pcnt_4]),summary(sav4rp[,omsysval]), summary(sav11rp[,omsysval]),summary(sav4rp[,omdiaval]), summary(sav11rp[,omdiaval]))
+keydata <- rbind(summary(sav4rp[,Sodiummg]), summary(sav11rp[,Sodiummg]),summary(sav4rp[,pcnt_4]), summary(sav11rp[,pcnt_4]),summary(sav4rp[,Epcnt_4]), summary(sav11rp[,Epcnt_4]),summary(sav4rp[,omsysval]), summary(sav11rp[,omsysval]),summary(sav4rp[,omdiaval]), summary(sav11rp[,omdiaval]))
 keydata <- as.data.table(keydata)
 keydata <- signif(keydata, digits = 4)
-keydata$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4","omsysval","omsysval","omdiaval", "omdiaval")
+keydata$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4", "Epcnt_4", "Epcnt_4","omsysval","omsysval","omdiaval", "omdiaval")
  
 
 keydata
@@ -829,8 +971,11 @@ keydata
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 bpNa <- data.table("2010"=c(sav4rp[,Sodiummg]),"2019" =c(sav11rp[,Sodiummg]))
 boxplot(bpNa, main = "Sodiummg 2010 vs 2019", xlab = "year", ylab = "Sodium mg")
-bpEMJ <-data.table("2010" =c(sav4rp[,sqrt(pcnt_4)]),"2019" = c(sav11rp[,sqrt(pcnt_4)]))
-boxplot(bpEMJ, main = "square root of Percent UPF 2010 vs 2019", xlab = "year", ylab = "pcnt_4")
+bpgram <-data.table("2010" =c(sav4rp[,sqrt(pcnt_4)]),"2019" = c(sav11rp[,sqrt(pcnt_4)]))
+boxplot(bpgram, main = "square root of Weight Percent UPF 2010 vs 2019", xlab = "year", ylab = "pcnt_4")
+bpE <-data.table("2010" =c(sav4rp[,Epcnt_4]),"2019" = c(sav11rp[,Epcnt_4]))
+boxplot(bpE, main = " Energy Percent UPF 2010 vs 2019", xlab = "year", ylab = "Epcnt_4")
+
 
 bpOS <- data.table("2010" = c(sav4rp[,omsysval]),"2019"=c(sav11rp[,omsysval]))
 boxplot(bpOS,main = "omsysval 2010 vs 2019",xlab = "year", ylab = "omsysval")
@@ -886,8 +1031,10 @@ The second compares the means of pcnt UPF intake in over the same periods.
 
 ttestNa <- t.test(sav11rp[,"Sodiummg"], sav4rp[,"Sodiummg"])
 ttestpcnt_4 <-t.test(sav11rp[,"pcnt_4"], sav4rp[,"pcnt_4"])
-data.table("Var" = c("Na","pcnt_4"),"statistic" = signif(c(ttestNa$statistic,ttestpcnt_4$statistic), digits = 4), "p.value" = signif(c(ttestNa$p.value,ttestpcnt_4$p.value), digits = 4))
+ttestEpcnt_4 <-t.test(sav11rp[,"Epcnt_4"], sav4rp[,"Epcnt_4"])
+data.table("Var" = c("Epcnt_4","pcnt_4","Na"),"statistic" = signif(c(ttestEpcnt_4$statistic,ttestpcnt_4$statistic,ttestNa$statistic), digits = 4), "p.value" = signif(c(ttestEpcnt_4$p.value,ttestpcnt_4$p.value,ttestNa$p.value), digits = 4))
 ttestpcnt_4
+ttestEpcnt_4
 ttestNa
 ```
 
@@ -1205,17 +1352,33 @@ There is a  relationship between Na and omsysval. There is a weakly positive gra
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
-lm1E4 <- lm(omsysval ~ sqrt(pcnt_4), sav4rp)
+lm1g4 <- lm(omsysval ~ sqrt(pcnt_4), sav4rp)
 
 
-lm1E11 <- lm(omsysval ~ sqrt(pcnt_4), sav11rp)
+lm1g11 <- lm(omsysval ~ sqrt(pcnt_4), sav11rp)
+lm1g4
+lm1g11
+
+anova(lm1g4)
+anova(lm1g11)
+```
+
+```{r echo=FALSE}
+#linear regression models
+#sodium only
+lm1E4 <- lm(omsysval ~ Epcnt_4, sav4rp)
+
+
+lm1E11 <- lm(omsysval ~ Epcnt_4, sav11rp)
 lm1E4
 lm1E11
 
 anova(lm1E4)
 anova(lm1E11)
 ```
-There is a relationship between Total EMJ and omsysval with a negative gradiant.
+
+
+There is a relationship between Na and g pcnt as well as E pcnt and omsysval with a negative gradiant.
 
 ### multi variable regression 
 
@@ -1238,6 +1401,26 @@ anova(lm11)
 There are differences in coefficients in the two sets of data. 
 These models can be compared with others with different variables to understand how they help predict values more or less effectively.
 
+
+```{r echo=FALSE}
+lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ ethgr2 + VitaminDµg + EIMD_2010_quintile , sav4rp,na.action = na.exclude)
+
+#plot(lm1)
+
+lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + Epcnt_4 +ethgrp2 +VitaminDµg + EIMD_2010_quintile, sav11rp,na.action = na.exclude)
+lm4
+lm11
+#plot(lm1m)
+#lm1a$coefficients
+anova(lm4)
+anova(lm11)
+
+```
+
+
+
+
+
 ```{r echo=FALSE}
 lm4a <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4) , sav4rp,na.action =na.exclude)
 
@@ -1253,6 +1436,21 @@ anova(lm11a)
 ```
 
 ```{r echo=FALSE}
+lm4a <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4 , sav4rp,na.action =na.exclude)
+
+#plot(lm1)
+
+lm11a <- lm(omsysval ~ AgeR +Sex +Sodiummg + Epcnt_4 , sav11rp, na.action =na.exclude)
+lm4a
+lm11a
+
+anova(lm4a)
+anova(lm11a)
+
+```
+
+
+```{r echo=FALSE}
 lm4b <- lm(omsysval ~ Age +Sex + sqrt(pcnt_4) , sav4rp)
 
 #plot(lm1)
@@ -1263,6 +1461,19 @@ lm11b
 anova(lm4b)
 anova(lm11b)
 ```
+
+```{r echo=FALSE}
+lm4b <- lm(omsysval ~ Age +Sex + Epcnt_4 , sav4rp)
+
+#plot(lm1)
+
+lm11b <- lm(omsysval ~ AgeR +Sex + Epcnt_4 , sav11rp)
+lm4b
+lm11b
+anova(lm4b)
+anova(lm11b)
+```
+
 
 ```{r echo=FALSE}
 lm4c <- lm(omsysval ~ Age +Sex +Sodiummg  , sav4rp)
@@ -1277,27 +1488,44 @@ anova(lm4c)
 anova(lm11c)
 ```
 
+
+
+## This final set analyses the whole dataset together across teh key variables
 ```{r}
 sav11rp$Age <- sav11rp[,AgeR]
-lastfew11 <- sav11rp[,.(Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval)]
-lastfew4 <- sav4rp[,.(Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval)]
+lastfew11 <- sav11rp[,.(Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval,Epcnt_4)]
+lastfew4 <- sav4rp[,.(Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval,Epcnt_4)]
 alldata <- data.table(rbind(lastfew4,lastfew11))
 
-lmall <- lm(omsysval~ Age+ Sex + Sodiummg +pcnt_4, alldata)
-lmall
-anova(lmall)
+lmallg <- lm(omsysval~ Age+ Sex + Sodiummg +pcnt_4, alldata)
+lmallg
+anova(lmallg)
+
+lmallE <- lm(omsysval~ Age+ Sex + Sodiummg +Epcnt_4, alldata)
+lmallE
+anova(lmallE)
+
 ```
+
+
+
+
+
 
 ## Summary
 
 The data from 2008-11 and 2017-19 NDNS datasets have been downloaded and adapted into a form to approach the research question.
 
 The key variables of BP, 'omsysval' and 'omdiaval' are taken directly from the data.
-The percentage by weight of UPF intake is calculated. 
+The percentage by weight of UPF intake is calculated.
+The percentage by energy of UPF intake is also calculated.
 The diary entries are identified by NOVA type. 
 The total weight of each nova type is calculated for each individual. 
-The percentage of the total food intake per person is then calculated. 
+The percentage of the total weight food intake per person is then calculated. 
 This gives the derived value 'pcnt_4', which is the percentage of intake which is NOVA 4 or UPF.
+The total energy in kJ of each nova type is calculated for each individual. 
+The percentage of the total energy food intake per person is then calculated. 
+This gives the derived value 'Epcnt_4', which is the percentage of intake which is NOVA 4 or UPF.
 
 There is a table with summary values for theses variables across the dataset.
 
@@ -1306,12 +1534,12 @@ Statistical analysis of the key variables shows that there is a reduction in all
 Confounding variables are analysed and show that there has been a significant change in the sex balance of the populations. 
 Removing those with antihypertensive medications has removed more men in the earlier cohort compared to women. 
 
-Regression shows a degree of association between the BP and UPF intake
-It also shows the same for percentage UPF intake.
+Regression shows a degree of association between the BP and UPF intake by weight and by energy.
+It also shows the same for sodium intake.
 
-Despite using different multi variable regression models 
-there is a limited validity experienced in the key variables. 
-Sodium intake shows the strongest association in the latter cohort.
+Using Anova analysis of different multi variable regression models 
+ the key variables are significant for sodium in several models, and sometimes for energy percentage. 
+Sodium intake shows the strongest association in the latter 9-11 cohort.
 
 
 
@@ -1321,6 +1549,7 @@ Sodium intake shows the strongest association in the latter cohort.
 ## Conclusion
 
 The percentage by weight of NOVA group 4 foods has decreased from 2008 to 2019.
+The percentage by energy of NOVA group 4 foods has decreased from 2008 to 2019.
 The mean sodium intake in mg has reduced between the two time periods. 
 The systolic and diastolic BP have reduced between the two time periods.
 
@@ -1329,3 +1558,5 @@ In each period there is a correlation between systolic BP and UPF intake.
 
 The regression models identify that age and sex are statistically significant contributors to the BP.
 Only those models from the later time period show sodium as being statistically significant in importance.
+Combining the data shows teh energy percentage of UPF as being a statistically significant contributor.
+
