@@ -1569,9 +1569,10 @@ lmallE
 anova(lmallE)
 AIC(lmallE)
 
-sensemakr(lmallE, treatment = "Epcnt_4")
-sensemakr(lmallg, treatment = "pcnt_4")
-
+SmallE <- sensemakr(lmallE, treatment = "Epcnt_4")
+Smallg <- sensemakr(lmallg, treatment = "pcnt_4")
+summary(SmallE)
+ovb_minimal_reporting(SmallE)
 
 ```
 
