@@ -134,32 +134,6 @@ The process can be done for food level energy intake also.
 
 
 
-```
-##        seriali EnergykJ_1 EnergykJ_2 EnergykJ_3 EnergykJ_4 Epcnt_1 Epcnt_2
-##    1: 10101032     382.58      62.83         NA   23112.92    1.15    0.19
-##    2: 10101042     664.25     406.56         NA    5638.87    4.39    2.69
-##    3: 10101111     386.06         NA    2540.00   22091.13    1.03      NA
-##    4: 10101151     781.24     103.30    5903.45   18658.93    1.95    0.26
-##    5: 10101161    2334.30         NA         NA   12268.45    8.31      NA
-##   ---                                                                     
-## 6824: 90305032    7968.24         NA    1760.56    4129.01   44.78      NA
-## 6825: 90305071    2505.40     351.12    1192.75   12849.41    7.59    1.06
-## 6826: 90305072     880.98     203.28      20.94   12425.21    4.17    0.96
-## 6827: 90305251    1552.40         NA     668.40   15331.27    4.99      NA
-## 6828: 90305261         NA         NA    3895.72   17703.85      NA      NA
-##       Epcnt_3 Epcnt_4
-##    1:      NA   69.55
-##    2:      NA   37.28
-##    3:    6.78   58.97
-##    4:   14.76   46.64
-##    5:      NA   43.69
-##   ---                
-## 6824:    9.89   23.20
-## 6825:    3.62   38.95
-## 6826:    0.10   58.86
-## 6827:    2.15   49.24
-## 6828:   10.25   46.56
-```
 
 
 After that, this information is added to the other data.
@@ -397,6 +371,11 @@ These values identify a significant difference in the number of vegetarians
 ## 2: EIMD_2010_quintile 0.08485
 ## 3: EIMD_2015_quintile 0.21530
 ```
+
+```
+##       name   p.value
+## 1: educfin 1.968e-21
+```
 There are differences in ethnicity.
 The differences in qimd, using the 2010 definitions, are not statistically significant.
 
@@ -424,6 +403,102 @@ Firstly using linear regression I will look at the correlation between omsysval 
 There are regressions for 1-4 and 9-11
 
 Simple linear regression equations look for the relationship between the dependant variable, and the independant variable.
+
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ Age + Sex, data = sav4rp)
+## 
+## Coefficients:
+## (Intercept)          Age    SexFemale  
+##    106.9945       0.4095      -4.9186
+```
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ AgeR + Sex, data = sav11rp)
+## 
+## Coefficients:
+## (Intercept)         AgeR    SexFemale  
+##    105.4956       0.4058      -6.3054
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##            Df Sum Sq Mean Sq F value    Pr(>F)    
+## Age         1  43084   43084 312.934 < 2.2e-16 ***
+## Sex         1   2798    2798  20.323 8.146e-06 ***
+## Residuals 503  69251     138                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 3932.958
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##            Df Sum Sq Mean Sq F value    Pr(>F)    
+## AgeR        1  59814   59814 462.772 < 2.2e-16 ***
+## Sex         1   7891    7891  61.054 1.732e-14 ***
+## Residuals 806 104177     129                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 6234.003
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Age + Sex
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Age ':
+##   Coef. estimate: 0.40948 
+##   Standard Error: 0.02307 
+##   t-value: 17.75218 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.38519 
+##   Robustness Value, q = 1 : 0.53801 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.49846 
+## 
+## For more information, check summary.
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ AgeR + Sex
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' AgeR ':
+##   Coef. estimate: 0.40578 
+##   Standard Error: 0.0184 
+##   t-value: 22.05399 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.37634 
+##   Robustness Value, q = 1 : 0.53163 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.50025 
+## 
+## For more information, check summary.
+```
+
+
+
 
 ```
 ## 
@@ -455,6 +530,10 @@ Simple linear regression equations look for the relationship between the dependa
 ```
 
 ```
+## [1] 4187.881
+```
+
+```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
@@ -463,6 +542,50 @@ Simple linear regression equations look for the relationship between the dependa
 ## Residuals 807 162762   201.7                      
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 6592.979
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Sodiummg
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Sodiummg ':
+##   Coef. estimate: 0.00051 
+##   Standard Error: 0.00093 
+##   t-value: 0.54669 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.00059 
+##   Robustness Value, q = 1 : 0.02406 
+##   Robustness Value, q = 1 alpha = 0.05 : 0 
+## 
+## For more information, check summary.
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Sodiummg
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Sodiummg ':
+##   Coef. estimate: 0.00484 
+##   Standard Error: 0.00072 
+##   t-value: 6.72453 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.05306 
+##   Robustness Value, q = 1 : 0.21035 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.15412 
+## 
+## For more information, check summary.
 ```
 There is a  relationship between Na and omsysval. There is a weakly positive gradiant. This appears greater in the more recent data starting from a lower intersection with the y axis.
 
@@ -500,6 +623,10 @@ There is a  relationship between Na and omsysval. There is a weakly positive gra
 ```
 
 ```
+## [1] 4127.2
+```
+
+```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
@@ -508,6 +635,50 @@ There is a  relationship between Na and omsysval. There is a weakly positive gra
 ## Residuals    807 162122   200.9                      
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 6589.791
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ sqrt(pcnt_4)
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' sqrt(pcnt_4) ':
+##   Coef. estimate: -2.97323 
+##   Standard Error: 0.37006 
+##   t-value: -8.0344 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.11354 
+##   Robustness Value, q = 1 : 0.29953 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.23621 
+## 
+## For more information, check summary.
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ sqrt(pcnt_4)
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' sqrt(pcnt_4) ':
+##   Coef. estimate: -2.08412 
+##   Standard Error: 0.299 
+##   t-value: -6.9702 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.05678 
+##   Robustness Value, q = 1 : 0.2171 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.16138 
+## 
+## For more information, check summary.
 ```
 
 
@@ -543,6 +714,10 @@ There is a  relationship between Na and omsysval. There is a weakly positive gra
 ```
 
 ```
+## [1] 4152.282
+```
+
+```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
@@ -551,6 +726,50 @@ There is a  relationship between Na and omsysval. There is a weakly positive gra
 ## Residuals 807 165943   205.6                      
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 6608.634
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Epcnt_4
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Epcnt_4 ':
+##   Coef. estimate: -0.26027 
+##   Standard Error: 0.04276 
+##   t-value: -6.08734 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.06849 
+##   Robustness Value, q = 1 : 0.23687 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.16748 
+## 
+## For more information, check summary.
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Epcnt_4
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Epcnt_4 ':
+##   Coef. estimate: -0.18289 
+##   Standard Error: 0.03403 
+##   t-value: -5.37463 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.03456 
+##   Robustness Value, q = 1 : 0.17214 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.11306 
+## 
+## For more information, check summary.
 ```
 
 
@@ -565,36 +784,44 @@ This uses a model of variables. It can highlight the contributions of each.
 ## 
 ## Call:
 ## lm(formula = omsysval ~ Age + Sex + Sodiummg + sqrt(pcnt_4) + 
-##     ethgr2 + VitaminDµg + EIMD_2010_quintile, data = sav4rp, 
+##     ethgr2 + VitaminDµg + EducFin + EIMD_2010_quintile, data = sav4rp, 
 ##     na.action = na.exclude)
 ## 
 ## Coefficients:
 ##         (Intercept)                  Age            SexFemale  
-##           1.067e+02            4.194e-01           -5.165e+00  
+##          116.029448             0.386573            -6.903808  
 ##            Sodiummg         sqrt(pcnt_4)      ethgr2Non-white  
-##          -2.385e-04            8.201e-02           -3.497e+00  
-##          VitaminDµg  EIMD_2010_quintile2  EIMD_2010_quintile3  
-##          -1.184e-01           -2.763e-01            1.390e+00  
+##           -0.001096            -0.035378            -5.177046  
+##          VitaminDµg             EducFin3             EducFin4  
+##           -0.007994            -5.738639            -3.845221  
+##            EducFin5             EducFin6             EducFin7  
+##           -4.287668            -4.881260            -2.032417  
+##            EducFin8  EIMD_2010_quintile2  EIMD_2010_quintile3  
+##           -5.375936            -0.617806             0.687538  
 ## EIMD_2010_quintile4  EIMD_2010_quintile5  
-##           1.526e-01            2.991e+00
+##            0.014237             3.321154
 ```
 
 ```
 ## 
 ## Call:
 ## lm(formula = omsysval ~ AgeR + Sex + Sodiummg + sqrt(pcnt_4) + 
-##     ethgrp2 + VitaminDµg + EIMD_2010_quintile, data = sav11rp, 
+##     ethgrp2 + VitaminDµg + educfinh + EIMD_2010_quintile, data = sav11rp, 
 ##     na.action = na.exclude)
 ## 
 ## Coefficients:
 ##         (Intercept)                 AgeR            SexFemale  
-##           98.389634             0.406170            -5.225006  
+##           99.516146             0.396642            -5.179271  
 ##            Sodiummg         sqrt(pcnt_4)     ethgrp2Non-white  
-##            0.002219             0.357144             0.480169  
-##          VitaminDµg  EIMD_2010_quintile2  EIMD_2010_quintile3  
-##            0.139146             0.996419            -0.461348  
-## EIMD_2010_quintile4  EIMD_2010_quintile5  
-##           -0.184625            -0.071050
+##            0.002222             0.263583             0.703924  
+##          VitaminDµg            educfinh2            educfinh3  
+##            0.155445            -0.348581             1.252899  
+##           educfinh4            educfinh5            educfinh6  
+##            1.144184            -0.455836             1.882924  
+##           educfinh7            educfinh8  EIMD_2010_quintile2  
+##           -0.761727            -0.675437             0.863915  
+## EIMD_2010_quintile3  EIMD_2010_quintile4  EIMD_2010_quintile5  
+##           -0.660497            -0.452698            -0.259395
 ```
 
 ```
@@ -602,16 +829,21 @@ This uses a model of variables. It can highlight the contributions of each.
 ## 
 ## Response: omsysval
 ##                     Df Sum Sq Mean Sq  F value    Pr(>F)    
-## Age                  1  43146   43146 314.4100 < 2.2e-16 ***
-## Sex                  1   2840    2840  20.6940 6.789e-06 ***
-## Sodiummg             1      4       4   0.0270   0.86953    
-## sqrt(pcnt_4)         1     42      42   0.3076   0.57939    
-## ethgr2               1    481     481   3.5020   0.06189 .  
-## VitaminDµg           1     49      49   0.3564   0.55079    
-## EIMD_2010_quintile   4    723     181   1.3170   0.26254    
-## Residuals          494  67790     137                       
+## Age                  1  18402 18401.5 129.7164 < 2.2e-16 ***
+## Sex                  1   3113  3112.7  21.9423 3.946e-06 ***
+## Sodiummg             1    297   297.2   2.0954   0.14859    
+## sqrt(pcnt_4)         1     19    18.7   0.1317   0.71687    
+## ethgr2               1    725   724.8   5.1096   0.02437 *  
+## VitaminDµg           1      0     0.1   0.0005   0.98201    
+## EducFin              6    754   125.7   0.8863   0.50488    
+## EIMD_2010_quintile   4    623   155.8   1.0985   0.35704    
+## Residuals          372  52772   141.9                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 3049.984
 ```
 
 ```
@@ -619,16 +851,63 @@ This uses a model of variables. It can highlight the contributions of each.
 ## 
 ## Response: omsysval
 ##                     Df Sum Sq Mean Sq  F value    Pr(>F)    
-## AgeR                 1  59384   59384 465.7071 < 2.2e-16 ***
-## Sex                  1   7621    7621  59.7702 3.239e-14 ***
-## Sodiummg             1   2098    2098  16.4566 5.471e-05 ***
-## sqrt(pcnt_4)         1    134     134   1.0539    0.3049    
-## ethgrp2              1     14      14   0.1109    0.7392    
-## VitaminDµg           1     56      56   0.4370    0.5088    
-## EIMD_2010_quintile   4    205      51   0.4011    0.8079    
-## Residuals          791 100863     128                       
+## AgeR                 1  59445   59445 466.1614 < 2.2e-16 ***
+## Sex                  1   7493    7493  58.7580  5.31e-14 ***
+## Sodiummg             1   1908    1908  14.9585 0.0001191 ***
+## sqrt(pcnt_4)         1    109     109   0.8532 0.3559427    
+## ethgrp2              1     14      14   0.1124 0.7375684    
+## VitaminDµg           1     71      71   0.5531 0.4572883    
+## educfinh             7    447      64   0.5005 0.8344781    
+## EIMD_2010_quintile   4    225      56   0.4415 0.7786305    
+## Residuals          779  99338     128                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 6145.655
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Age + Sex + Sodiummg + sqrt(pcnt_4) + ethgr2 + VitaminDµg + 
+##     EducFin + EIMD_2010_quintile
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Age ':
+##   Coef. estimate: 0.38657 
+##   Standard Error: 0.0491 
+##   t-value: 7.87303 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.14283 
+##   Robustness Value, q = 1 : 0.3333 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.26282 
+## 
+## For more information, check summary.
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ AgeR + Sex + Sodiummg + sqrt(pcnt_4) + ethgrp2 + VitaminDµg + 
+##     educfinh + EIMD_2010_quintile
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' AgeR ':
+##   Coef. estimate: 0.39664 
+##   Standard Error: 0.02326 
+##   t-value: 17.05406 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.27185 
+##   Robustness Value, q = 1 : 0.45223 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.4139 
+## 
+## For more information, check summary.
 ```
 There are differences in coefficients in the two sets of data. 
 These models can be compared with others with different variables to understand how they help predict values more or less effectively.
@@ -639,34 +918,44 @@ These models can be compared with others with different variables to understand 
 ## 
 ## Call:
 ## lm(formula = omsysval ~ Age + Sex + Sodiummg + Epcnt_4 + ethgr2 + 
-##     VitaminDµg + EIMD_2010_quintile, data = sav4rp, na.action = na.exclude)
+##     VitaminDµg + EducFin + EIMD_2010_quintile, data = sav4rp, 
+##     na.action = na.exclude)
 ## 
 ## Coefficients:
 ##         (Intercept)                  Age            SexFemale  
-##           1.068e+02            4.179e-01           -5.175e+00  
+##          117.155845             0.381119            -6.887829  
 ##            Sodiummg              Epcnt_4      ethgr2Non-white  
-##          -2.248e-04            7.018e-03           -3.497e+00  
-##          VitaminDµg  EIMD_2010_quintile2  EIMD_2010_quintile3  
-##          -1.174e-01           -2.650e-01            1.388e+00  
+##           -0.001043            -0.022822            -5.252508  
+##          VitaminDµg             EducFin3             EducFin4  
+##           -0.023298            -5.770574            -3.792276  
+##            EducFin5             EducFin6             EducFin7  
+##           -4.262103            -4.937232            -2.023954  
+##            EducFin8  EIMD_2010_quintile2  EIMD_2010_quintile3  
+##           -5.425165            -0.630593             0.686627  
 ## EIMD_2010_quintile4  EIMD_2010_quintile5  
-##           1.490e-01            2.993e+00
+##            0.018051             3.381384
 ```
 
 ```
 ## 
 ## Call:
 ## lm(formula = omsysval ~ AgeR + Sex + Sodiummg + Epcnt_4 + ethgrp2 + 
-##     VitaminDµg + EIMD_2010_quintile, data = sav11rp, na.action = na.exclude)
+##     VitaminDµg + educfinh + EIMD_2010_quintile, data = sav11rp, 
+##     na.action = na.exclude)
 ## 
 ## Coefficients:
 ##         (Intercept)                 AgeR            SexFemale  
-##           96.991698             0.409765            -5.233236  
+##           98.158987             0.401642            -5.187864  
 ##            Sodiummg              Epcnt_4     ethgrp2Non-white  
-##            0.002165             0.061819             0.635127  
-##          VitaminDµg  EIMD_2010_quintile2  EIMD_2010_quintile3  
-##            0.187439             1.028459            -0.555535  
-## EIMD_2010_quintile4  EIMD_2010_quintile5  
-##           -0.176340            -0.091850
+##            0.002157             0.052000             0.813904  
+##          VitaminDµg            educfinh2            educfinh3  
+##            0.199005            -0.316968             1.081674  
+##           educfinh4            educfinh5            educfinh6  
+##            0.925229            -0.528011             1.806677  
+##           educfinh7            educfinh8  EIMD_2010_quintile2  
+##           -0.778792            -0.652086             0.902891  
+## EIMD_2010_quintile3  EIMD_2010_quintile4  EIMD_2010_quintile5  
+##           -0.707040            -0.420598            -0.264361
 ```
 
 ```
@@ -674,16 +963,21 @@ These models can be compared with others with different variables to understand 
 ## 
 ## Response: omsysval
 ##                     Df Sum Sq Mean Sq  F value    Pr(>F)    
-## Age                  1  43146   43146 314.4021 < 2.2e-16 ***
-## Sex                  1   2840    2840  20.6935  6.79e-06 ***
-## Sodiummg             1      4       4   0.0270    0.8695    
-## Epcnt_4              1     51      51   0.3715    0.5425    
-## ethgr2               1    476     476   3.4721    0.0630 .  
-## VitaminDµg           1     46      46   0.3342    0.5634    
-## EIMD_2010_quintile   4    720     180   1.3109    0.2649    
-## Residuals          494  67792     137                       
+## Age                  1  18402 18401.5 129.7950 < 2.2e-16 ***
+## Sex                  1   3113  3112.7  21.9556  3.92e-06 ***
+## Sodiummg             1    297   297.2   2.0966    0.1485    
+## Epcnt_4              1      2     2.5   0.0175    0.8949    
+## ethgr2               1    727   727.2   5.1291    0.0241 *  
+## VitaminDµg           1      0     0.5   0.0032    0.9551    
+## EducFin              6    779   129.9   0.9161    0.4832    
+## EIMD_2010_quintile   4    644   161.0   1.1355    0.3394    
+## Residuals          372  52740   141.8                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 3049.748
 ```
 
 ```
@@ -691,16 +985,21 @@ These models can be compared with others with different variables to understand 
 ## 
 ## Response: omsysval
 ##                     Df Sum Sq Mean Sq  F value    Pr(>F)    
-## AgeR                 1  59384   59384 467.1118 < 2.2e-16 ***
-## Sex                  1   7621    7621  59.9505 2.975e-14 ***
-## Sodiummg             1   2098    2098  16.5062 5.333e-05 ***
-## Epcnt_4              1    360     360   2.8305   0.09289 .  
-## ethgrp2              1     26      26   0.2016   0.65359    
-## VitaminDµg           1     97      97   0.7595   0.38373    
-## EIMD_2010_quintile   4    230      58   0.4526   0.77057    
-## Residuals          791 100559     127                       
+## AgeR                 1  59445   59445 467.2611 < 2.2e-16 ***
+## Sex                  1   7493    7493  58.8966 4.974e-14 ***
+## Sodiummg             1   1908    1908  14.9938 0.0001169 ***
+## Epcnt_4              1    319     319   2.5039 0.1139731    
+## ethgrp2              1     25      25   0.1974 0.6569215    
+## VitaminDµg           1    115     115   0.9030 0.3422605    
+## educfinh             7    399      57   0.4478 0.8719221    
+## EIMD_2010_quintile   4    242      61   0.4758 0.7535300    
+## Residuals          779  99104     127                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 6143.777
 ```
 
 
@@ -745,6 +1044,10 @@ These models can be compared with others with different variables to understand 
 ```
 
 ```
+## [1] 3936.67
+```
+
+```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
@@ -756,6 +1059,10 @@ These models can be compared with others with different variables to understand 
 ## Residuals    804 101889     127                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 6220.04
 ```
 
 
@@ -796,6 +1103,10 @@ These models can be compared with others with different variables to understand 
 ```
 
 ```
+## [1] 3936.615
+```
+
+```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
@@ -807,6 +1118,10 @@ These models can be compared with others with different variables to understand 
 ## Residuals 804 101654     126                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 3936.615
 ```
 
 
@@ -845,6 +1160,10 @@ These models can be compared with others with different variables to understand 
 ```
 
 ```
+## [1] 3934.772
+```
+
+```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
@@ -855,6 +1174,10 @@ These models can be compared with others with different variables to understand 
 ## Residuals    805 103842     129                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 6233.398
 ```
 
 
@@ -892,6 +1215,10 @@ These models can be compared with others with different variables to understand 
 ```
 
 ```
+## [1] 3934.706
+```
+
+```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
@@ -902,6 +1229,50 @@ These models can be compared with others with different variables to understand 
 ## Residuals 805 103587     129                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 6231.405
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Age + Sex + Epcnt_4
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Epcnt_4 ':
+##   Coef. estimate: 0.0193 
+##   Standard Error: 0.03863 
+##   t-value: 0.49957 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 5e-04 
+##   Robustness Value, q = 1 : 0.02205 
+##   Robustness Value, q = 1 alpha = 0.05 : 0 
+## 
+## For more information, check summary.
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ AgeR + Sex + Epcnt_4
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Epcnt_4 ':
+##   Coef. estimate: 0.06371 
+##   Standard Error: 0.02974 
+##   t-value: 2.14211 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.00567 
+##   Robustness Value, q = 1 : 0.0727 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.00625 
+## 
+## For more information, check summary.
 ```
 
 
@@ -940,6 +1311,10 @@ These models can be compared with others with different variables to understand 
 ```
 
 ```
+## [1] 3934.917
+```
+
+```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
@@ -952,15 +1327,64 @@ These models can be compared with others with different variables to understand 
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
+```
+## [1] 6218.971
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Age + Sex + Sodiummg
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Sodiummg ':
+##   Coef. estimate: -0.00015 
+##   Standard Error: 0.00076 
+##   t-value: -0.20207 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 8e-05 
+##   Robustness Value, q = 1 : 0.00898 
+##   Robustness Value, q = 1 alpha = 0.05 : 0 
+## 
+## For more information, check summary.
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ AgeR + Sex + Sodiummg
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Sodiummg ':
+##   Coef. estimate: 0.00247 
+##   Standard Error: 6e-04 
+##   t-value: 4.13851 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.02083 
+##   Robustness Value, q = 1 : 0.13561 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.07376 
+## 
+## For more information, check summary.
+```
+
 
 
 ## This final set analyses the whole dataset together across teh key variables
 
 ```r
 sav11rp$Age <- sav11rp[,AgeR]
-lastfew11 <- sav11rp[,.(Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval,Epcnt_4)]
-lastfew4 <- sav4rp[,.(Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval,Epcnt_4)]
+#sav11rp[, seriali := factor(seriali)]
+lastfew11 <- sav11rp[,.(seriali,Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval,Epcnt_4)]
+lastfew4 <- sav4rp[,.(seriali,Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval,Epcnt_4)]
 alldata <- data.table(rbind(lastfew4,lastfew11))
+ZCNova <- data.table(read_excel("data/NOVA_ForDavid.xlsx"))
+setkey(ZCNova, "seriali")
+setkey(alldata, "seriali")
+alldata <- alldata[ZCNova, on = "seriali"]
 
 lmallg <- lm(omsysval~ Age+ Sex + Sodiummg +pcnt_4, alldata)
 lmallg
@@ -1025,6 +1449,128 @@ anova(lmallE)
 ## Residuals 1310 173203     132                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```r
+AIC(lmallE)
+```
+
+```
+## [1] 10161.84
+```
+
+```r
+lmallgz <- lm(omsysval~ Age+ Sex + Sodiummg +NOVA_Gpct_opti_4, alldata)
+lmallgz
+```
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ Age + Sex + Sodiummg + NOVA_Gpct_opti_4, 
+##     data = alldata)
+## 
+## Coefficients:
+##      (Intercept)               Age         SexFemale          Sodiummg  
+##       101.749325          0.416830         -4.944525          0.001576  
+## NOVA_Gpct_opti_4  
+##         0.013342
+```
+
+```r
+anova(lmallgz)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##                    Df Sum Sq Mean Sq  F value    Pr(>F)    
+## Age                 1 110416  110416 832.6699 < 2.2e-16 ***
+## Sex                 1   9952    9952  75.0488 < 2.2e-16 ***
+## Sodiummg            1   1649    1649  12.4346  0.000436 ***
+## NOVA_Gpct_opti_4    1     62      62   0.4667  0.494610    
+## Residuals        1310 173712     133                       
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```r
+lmallEz <- lm(omsysval~ Age+ Sex + Sodiummg +NOVA_Epct_opti_4, alldata)
+lmallEz
+```
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ Age + Sex + Sodiummg + NOVA_Epct_opti_4, 
+##     data = alldata)
+## 
+## Coefficients:
+##      (Intercept)               Age         SexFemale          Sodiummg  
+##       100.526240          0.419566         -4.950944          0.001532  
+## NOVA_Epct_opti_4  
+##         0.028662
+```
+
+```r
+anova(lmallEz)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##                    Df Sum Sq Mean Sq  F value    Pr(>F)    
+## Age                 1 110416  110416 833.4286 < 2.2e-16 ***
+## Sex                 1   9952    9952  75.1172 < 2.2e-16 ***
+## Sodiummg            1   1649    1649  12.4459 0.0004334 ***
+## NOVA_Epct_opti_4    1    220     220   1.6608 0.1977252    
+## Residuals        1310 173554     132                       
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```r
+AIC(lmallEz)
+```
+
+```
+## [1] 10164.5
+```
+
+```r
+SmallE <- sensemakr(lmallE, treatment = "Epcnt_4")
+Smallg <- sensemakr(lmallg, treatment = "pcnt_4")
+summary(SmallE)
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Age + Sex + Sodiummg + Epcnt_4
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## -- This means we are considering biases that reduce the absolute value of the current estimate.
+## -- The null hypothesis deemed problematic is H0:tau = 0 
+## 
+## Unadjusted Estimates of 'Epcnt_4': 
+##   Coef. estimate: 0.0488 
+##   Standard Error: 0.0235 
+##   t-value (H0:tau = 0): 2.0781 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.0033 
+##   Robustness Value, q = 1: 0.0558 
+##   Robustness Value, q = 1, alpha = 0.05: 0.0032 
+## 
+## Verbal interpretation of sensitivity statistics:
+## 
+## -- Partial R2 of the treatment with the outcome: an extreme confounder (orthogonal to the covariates) that explains 100% of the residual variance of the outcome, would need to explain at least 0.33% of the residual variance of the treatment to fully account for the observed estimated effect.
+## 
+## -- Robustness Value, q = 1: unobserved confounders (orthogonal to the covariates) that explain more than 5.58% of the residual variance of both the treatment and the outcome are strong enough to bring the point estimate to 0 (a bias of 100% of the original estimate). Conversely, unobserved confounders that do not explain more than 5.58% of the residual variance of both the treatment and the outcome are not strong enough to bring the point estimate to 0.
+## 
+## -- Robustness Value, q = 1, alpha = 0.05: unobserved confounders (orthogonal to the covariates) that explain more than 0.32% of the residual variance of both the treatment and the outcome are strong enough to bring the estimate to a range where it is no longer 'statistically different' from 0 (a bias of 100% of the original estimate), at the significance level of alpha = 0.05. Conversely, unobserved confounders that do not explain more than 0.32% of the residual variance of both the treatment and the outcome are not strong enough to bring the estimate to a range where it is no longer 'statistically different' from 0, at the significance level of alpha = 0.05.
 ```
 
 
