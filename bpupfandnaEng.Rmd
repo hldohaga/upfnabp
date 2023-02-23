@@ -21,7 +21,7 @@ output:
 library(haven)
 library(data.table)
 library(readxl)
-
+library(sensemakr)
 
 sav4 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_personleveldietarydata_uk_v2.sav"
 
@@ -764,7 +764,7 @@ output$seriali <- nameu[i]
 }
 
 foodleveldat9spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
-foodleveldat9spE
+#foodleveldat9spE
 
 
 
@@ -793,7 +793,7 @@ output$seriali <- nameu[i]
 }
 
 foodleveldat10spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
-foodleveldat10spE
+#foodleveldat10spE
 
 
 
@@ -855,7 +855,7 @@ output$seriali <- nameu[i]
 }
 
 foodleveldat4spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
-foodleveldat4spE
+#foodleveldat4spE
 
 
 
@@ -1332,6 +1332,28 @@ Firstly using linear regression I will look at the correlation between omsysval 
 There are regressions for 1-4 and 9-11
 
 Simple linear regression equations look for the relationship between the dependant variable, and the independant variable.
+
+```{r echo=FALSE}
+#linear regression models
+#sodium only
+lm1AS4 <- lm(omsysval ~ Age + Sex, sav4rp)
+
+
+
+
+lm1AS11 <- lm(omsysval ~ AgeR + Sex, sav11rp)
+(lm1AS4)
+(lm1AS11)
+anova(lm1AS4)
+AIC(lm1AS4)
+anova(lm1AS11)
+AIC(lm1AS11)
+sensemakr(lm1AS4, treatment = "Age")
+sensemakr(lm1AS11, treatment = "AgeR")
+```
+
+
+
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
@@ -1347,6 +1369,10 @@ anova(lm1na4)
 AIC(lm1na4)
 anova(lm1na11)
 AIC(lm1na11)
+
+sensemakr(lm1na4, treatment = "Sodiummg")
+sensemakr(lm1na11, treatment = "Sodiummg")
+
 ```
 There is a  relationship between Na and omsysval. There is a weakly positive gradiant. This appears greater in the more recent data starting from a lower intersection with the y axis.
 
@@ -1365,6 +1391,9 @@ anova(lm1g4)
 AIC(lm1g4)
 anova(lm1g11)
 AIC(lm1g11)
+
+sensemakr(lm1g4, treatment = "sqrt(pcnt_4)")
+sensemakr(lm1g11, treatment = "sqrt(pcnt_4)")
 ```
 
 ```{r echo=FALSE}
@@ -1381,6 +1410,9 @@ anova(lm1E4)
 AIC(lm1E4)
 anova(lm1E11)
 AIC(lm1E11)
+
+sensemakr(lm1E4, treatment = "Epcnt_4")
+sensemakr(lm1E11, treatment = "Epcnt_4")
 ```
 
 
@@ -1404,6 +1436,11 @@ anova(lm4)
 AIC(lm4)
 anova(lm11)
 AIC(lm11)
+
+sensemakr(lm4, treatment = "Age")
+sensemakr(lm11, treatment = "AgeR")
+
+
 ```
 There are differences in coefficients in the two sets of data. 
 These models can be compared with others with different variables to understand how they help predict values more or less effectively.
@@ -1486,6 +1523,11 @@ anova(lm4b)
 AIC(lm4b)
 anova(lm11b)
 AIC(lm11b)
+
+sensemakr(lm4b, treatment = "Epcnt_4")
+sensemakr(lm11b, treatment = "Epcnt_4")
+
+
 ```
 
 
@@ -1502,6 +1544,11 @@ anova(lm4c)
 AIC(lm4c)
 anova(lm11c)
 AIC(lm11c)
+
+sensemakr(lm4c, treatment = "Sodiummg")
+sensemakr(lm11c, treatment = "Sodiummg")
+
+
 ```
 
 
@@ -1521,6 +1568,11 @@ lmallE <- lm(omsysval~ Age+ Sex + Sodiummg +Epcnt_4, alldata)
 lmallE
 anova(lmallE)
 AIC(lmallE)
+
+sensemakr(lmallE, treatment = "Epcnt_4")
+sensemakr(lmallg, treatment = "pcnt_4")
+
+
 ```
 
 
