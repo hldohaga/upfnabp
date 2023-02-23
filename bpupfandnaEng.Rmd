@@ -86,7 +86,7 @@ ethnset4 <- sav4br[,c("seriali", "EthGrG","EthGrU" ,"ethgr5","ethgr2")]
 saltset4 <- sav4br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
 medsset4 <- sav4br[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug", "PregNowB")]
 hypset4 <- sav4br[,c("seriali", "hyper140", "hibp140", "hyper1", "highbp1")]
-incset4 <- sav4br[,c("seriali","eqvinc","nssec8","hhinc","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile")]
+incset4 <- sav4br[,c("seriali","eqvinc","nssec8","hhinc","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","EducFin")]
 measset4 <- sav4br[,c("seriali","htval","wtval","bmival")]
 ageset4 <- sav4br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
 ```
@@ -100,7 +100,7 @@ ethnset11 <- sav11br[,c("seriali" ,"ethgrp5","ethgrp2")]
 saltset11 <- sav11br[,c("seriali","SaltChk","SalHowC","SltSHow" , "vegetarn")]
 medsset11 <- sav11br[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
 hypset11 <- sav11br[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
-incset11 <- sav11br[,c("seriali","nssec8","GOR","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile")]
+incset11 <- sav11br[,c("seriali","nssec8","GOR","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
 measset11 <- sav11br[,c("seriali","htval2","wtval2","bmival2","bmivg5")]
 ageset11 <- sav11br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1")]
 ```
@@ -245,7 +245,7 @@ incset4[,region := factor(region, levels = 1:6, labels = c("England: North","Eng
 incset4[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
 incset4[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5)] 
 incset4[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
-
+incset4[,EducFin := factor(EducFin, levels = 1:8)] 
 
 #bpset 
  bpset4[, CutIll := factor(CutIll, levels = 1:46, labels = cutillcat)]
@@ -415,6 +415,7 @@ incset11[,region := factor(region, levels = 1:6, labels = c("England: North","En
 incset11[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
 incset11[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5)] 
 incset11[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
+incset11[,educfinh := factor(educfinh, levels = 1:8)] 
 
  #hypeset
  hypset11[,hyper140_2 := factor(hyper140_2,levels = 1:9, labels = c(" Normotensive untreated",
