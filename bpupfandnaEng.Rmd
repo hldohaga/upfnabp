@@ -1004,7 +1004,7 @@ keydataA$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4","omsysval","omsys
 
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning=FALSE}
 #This is just Male participants again showing the changes from the overall population.
 
 keydataM <- rbind(summary(sav4rp[Sex == "Male" ,Sodiummg]), summary(sav11rp[Sex == "Male",Sodiummg]),summary(sav4rp[Sex == "Male" ,pcnt_4]), summary(sav11rp[Sex == "Male" ,pcnt_4]),summary(sav4rp[Sex == "Male" ,omsysval]), summary(sav11rp[Sex == "Male" ,omsysval]),summary(sav4rp[Sex == "Male" ,omdiaval]), summary(sav11rp[Sex == "Male" ,omdiaval]))
@@ -1216,6 +1216,10 @@ q15table11 <- xtabs(~sav11rp[,EIMD_2015_quintile])
 q15table4 <- xtabs(~sav4rp[, EIMD_2015_quintile])
 q15tabler <-chisq.test(rbind(q15table11 , q15table4))
 
+edutable11 <- xtabs(~sav11rp[,educfinh])
+edutable4 <- xtabs(~sav4rp[, EducFin])
+edutabler <-chisq.test(rbind(edutable11 , edutable4))
+
 
 #catconfounders3a <- data.table("name" = c("GOR","region"),"p.value" =signif(c( gtabler$p.value, rtabler$p.value ),digits = 4))
 
@@ -1223,9 +1227,12 @@ catconfounders3b <- data.table("name" = c("ethgrp5","ethgrp2"),"p.value" =signif
 
 catconfounders3c <- data.table("name" = c("EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile"),"p.value" =signif(c(q07tabler$p.value, q10tabler$p.value, q15tabler$p.value),digits = 4))
 
+catconfounders3d <- data.table("name" = c("educfin"),"p.value" =signif(c(edutabler$p.value),digits = 4))
+
 #catconfounders3a
 catconfounders3b
 catconfounders3c
+catconfounders3d
 ```
 There are differences in ethnicity.
 The differences in qimd, using the 2010 definitions, are not statistically significant.
@@ -1424,11 +1431,11 @@ There is a relationship between Na and g pcnt as well as E pcnt and omsysval wit
 This uses a model of variables. It can highlight the contributions of each.
 
 ```{r echo=FALSE}
-lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ ethgr2 + VitaminDµg + EIMD_2010_quintile , sav4rp,na.action = na.exclude)
+lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ ethgr2 + VitaminDµg + EducFin+ EIMD_2010_quintile , sav4rp,na.action = na.exclude)
 
 #plot(lm1)
 
-lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + sqrt(pcnt_4) +ethgrp2 +VitaminDµg + EIMD_2010_quintile, sav11rp,na.action = na.exclude)
+lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + sqrt(pcnt_4) +ethgrp2 +VitaminDµg + educfinh +EIMD_2010_quintile, sav11rp,na.action = na.exclude)
 lm4
 lm11
 #plot(lm1m)
@@ -1448,11 +1455,11 @@ These models can be compared with others with different variables to understand 
 
 
 ```{r echo=FALSE}
-lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ ethgr2 + VitaminDµg + EIMD_2010_quintile , sav4rp,na.action = na.exclude)
+lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ ethgr2 + VitaminDµg +EducFin+ EIMD_2010_quintile , sav4rp,na.action = na.exclude)
 
 #plot(lm1)
 
-lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + Epcnt_4 +ethgrp2 +VitaminDµg + EIMD_2010_quintile, sav11rp,na.action = na.exclude)
+lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + Epcnt_4 +ethgrp2 +VitaminDµg + educfinh+ EIMD_2010_quintile, sav11rp,na.action = na.exclude)
 lm4
 lm11
 #plot(lm1m)
