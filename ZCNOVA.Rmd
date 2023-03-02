@@ -1,0 +1,44 @@
+---
+title: "zcnova"
+author: "doh"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## ZC nova
+
+
+
+```{r load data}
+library(readxl)
+library(data.table)
+NOVA_ForDavid <- as.data.table(read_excel("data/NOVA_ForDavid.xlsx"))
+
+NOVA_ForDavid[, Sex := factor(Sex, levels = 1:2)]
+NOVA_ForDavid[, Country := factor(Country)]
+
+
+
+summary(NOVA_ForDavid)
+
+hist(NOVA_ForDavid$NOVA_Epct_opti_4)
+hist(NOVA_ForDavid$NOVA_Gpct_opti_4)
+```
+
+## regression
+
+
+
+```{r regression, echo=FALSE}
+lm( NOVA_ForDavid$NOVA_Epct_opti_4~ Age +Sex + Country, NOVA_ForDavid)
+
+lm( NOVA_ForDavid$NOVA_Gpct_opti_4~ Age +Sex + Country, NOVA_ForDavid)
+
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
