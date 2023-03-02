@@ -25,8 +25,13 @@ NOVA_ForDavid[, Country := factor(Country)]
 
 summary(NOVA_ForDavid)
 
-hist(NOVA_ForDavid$NOVA_Epct_opti_4)
-hist(NOVA_ForDavid$NOVA_Gpct_opti_4)
+Adult_NOVA_ForDavid <- NOVA_ForDavid[Age > 18]
+
+hist(Adult_NOVA_ForDavid$Age)
+hist(Adult_NOVA_ForDavid$NOVA_Epct_opti_4)
+hist(Adult_NOVA_ForDavid$NOVA_Gpct_opti_4)
+
+
 ```
 
 ## regression
@@ -34,9 +39,9 @@ hist(NOVA_ForDavid$NOVA_Gpct_opti_4)
 
 
 ```{r regression, echo=FALSE}
-lm( NOVA_ForDavid$NOVA_Epct_opti_4~ Age +Sex + Country, NOVA_ForDavid)
+lm( Adult_NOVA_ForDavid$NOVA_Epct_opti_4~ Age +Sex + Country, Adult_NOVA_ForDavid)
 
-lm( NOVA_ForDavid$NOVA_Gpct_opti_4~ Age +Sex + Country, NOVA_ForDavid)
+lm( Adult_NOVA_ForDavid$NOVA_Gpct_opti_4~ Age +Sex + Country, Adult_NOVA_ForDavid)
 
 
 ```
