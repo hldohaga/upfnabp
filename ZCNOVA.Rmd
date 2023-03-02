@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-```{r load data}
+```{r load data, echo=FALSE}
 library(readxl)
 library(data.table)
 NOVA_ForDavid <- as.data.table(read_excel("data/NOVA_ForDavid.xlsx"))
@@ -41,4 +41,4 @@ lm( NOVA_ForDavid$NOVA_Gpct_opti_4~ Age +Sex + Country, NOVA_ForDavid)
 
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
