@@ -41,17 +41,17 @@ sav11 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alt
 
 sav11b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_indiv_20211020.sav"
 
-#sav4r <- as.data.table(read_sav(sav4))
+sav4r <- as.data.table(read_sav(sav4))
 sav4br <-as.data.table(read_sav(sav4b))
 
-#sav6r <- as.data.table(read_sav(sav6))
+sav6r <- as.data.table(read_sav(sav6))
 sav6br <-as.data.table(read_sav(sav6b))
 
-#sav8r <- as.data.table(read_sav(sav8))
+sav8r <- as.data.table(read_sav(sav8))
 sav8br <-as.data.table(read_sav(sav8b))
 
 
-#sav11r <- as.data.table(read_sav(sav11))
+sav11r <- as.data.table(read_sav(sav11))
 sav11br <- as.data.table(read_sav(sav11b))
 ```
 
@@ -61,6 +61,10 @@ sav11br <- as.data.table(read_sav(sav11b))
 #this identifies the variables wanted from the person level data sets
 #perslevdat4 <- c("seriali","Age", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
 
+perslevdat4 <- c("seriali","Sodiummg","Calciummg","VitaminDµg","TotalEMJ")
+perslevdat6 <- c("seriali","Sodiummg","Calciummg","VitaminDµg","TotalEMJ")
+perslevdat8 <- c("seriali","Sodiummg","Calciummg","VitaminDµg","TotalEMJ")
+perslevdat11 <- c("seriali","Sodiummg","Calciummg","VitaminDµg","TotalEMJ")
 #perslevdat6 <- c("seriali","Age", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
 
 #perslevdat8 <- c("seriali","Age", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
@@ -68,13 +72,13 @@ sav11br <- as.data.table(read_sav(sav11b))
 
 #perslevdat11 <- c("seriali","AgeR", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
 
-#sav4rp <- sav4r[, ..perslevdat4]
-#sav6rp <- sav6r[, ..perslevdat6]
-#sav8rp <- sav8r[, ..perslevdat8]
-#sav11rp <- sav11r[, ..perslevdat11]
+sav4rp <- sav4r[, ..perslevdat4]
+sav6rp <- sav6r[, ..perslevdat6]
+sav8rp <- sav8r[, ..perslevdat8]
+sav11rp <- sav11r[, ..perslevdat11]
 
-#earlyrp <- rbind(sav4rp,sav6rp)
-#earlyrp#<- rbind(earlyrp,sav8rp)
+earlyrp <- rbind(c(sav4rp,sav6rp,sav8rp,sav11rp))
+earlyrp
 
 NOVA_ForDavid <- as.data.table(read_excel("data/NOVA_ForDavid.xlsx"))
 
@@ -88,7 +92,7 @@ NOVA_ForDavid[, SurveyYear := factor(SurveyYear)]
 ```{r 4setup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr1-4a_indiv_uk 
 #subsets of the table to identify grouped information
-bpset4 <- sav4br[,c("seriali","omsysval","omdiaval")]
+bpset4 <- sav4br[,c("seriali","omsysval","omdiaval","bpmedc","bpmedd", "diur","beta","aceinh", "calciumb","obpdrug","PregNowB")]
 ethnset4 <- sav4br[,c("seriali","ethgr2")]
 saltset4 <- sav4br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
 medsset4 <- sav4br[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug")]
@@ -101,7 +105,7 @@ ageset4 <- sav4br[,c("seriali","age")]
 ```{r 4setup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr1-4a_indiv_uk 
 #subsets of the table to identify grouped information
-bpset6 <- sav6br[,c("seriali","omsysval","omdiaval")]
+bpset6 <- sav6br[,c("seriali","omsysval","omdiaval","bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
 #ethnset6 <- sav6br[,c("seriali","ethgr2")]
 saltset6 <- sav6br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
 #medsset6 <- sav6br[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug")]
@@ -115,7 +119,7 @@ ageset6 <- sav6br[,c("seriali","age")]
 ```{r 4setup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr1-4a_indiv_uk 
 #subsets of the table to identify grouped information
-bpset8 <- sav8br[,c("seriali","omsysval","omdiaval")]
+bpset8 <- sav8br[,c("seriali","omsysval","omdiaval","bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
 #ethnset6 <- sav6br[,c("seriali","ethgr2")]
 saltset8 <- sav8br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
 #medsset6 <- sav6br[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug")]
@@ -129,7 +133,7 @@ ageset8 <- sav8br[,c("seriali","age")]
 ```{r 11setup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr9-11a_indiv_uk 
 #subsets of the table to identify grouped information
-bpset11 <- sav11br[,c("seriali","omsysval","omdiaval")]
+bpset11 <- sav11br[,c("seriali","omsysval","omdiaval","bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
 ethnset11 <- sav11br[,c("seriali" ,"ethgrp5","ethgrp2")]
 saltset11 <- sav11br[,c("seriali","SaltChk","SalHowC","SltSHow" , "vegetarn")]
 medsset11 <- sav11br[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
@@ -175,12 +179,12 @@ bpset6
 bpset8 
 bpset11 
 
-bpsetall <- data.table(rbind(bpset4,bpset6))
-bpsetall <- data.table(rbind(bpsetall,bpset8))
-bpsetall <- data.table(rbind(bpsetall,bpset11))
+bpsetall <- data.table(rbind(c(bpset4,bpset6,bpset8,bpset11)))
+
 setkey(bpsetall, seriali)
 
 bpsetall <- bpsetall[NOVA_ForDavid, on = "seriali"]
+bpsetall
 
 
 

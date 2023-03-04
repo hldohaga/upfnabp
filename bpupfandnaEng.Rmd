@@ -50,7 +50,7 @@ Comparison of models will enable an understanding of the importance of including
 This will give an opportunity to understand whether the role of salt affects the model predictions significantly.
 
 
-
+The difference between the two datasets will be described. The correlations between the key variables will be demonstrated. Sensitivity analysis will demonstrate how changes in statistical models relate to inclusion of specific variables.
 
 
 
@@ -541,7 +541,7 @@ UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPH
 ```
 
 ####  Processing the food diaries
-The Nova group is attached to the foods in the food diaries.
+The Nova group is attached to the foods in the food diaries from Rauber et al @rauberUltraprocessedFoodsExcessive2019b.
 The tables are reduced to the necessary variables.
 
 ```{r process food data into tables, message=FALSE, warning=FALSE, include=FALSE}
@@ -864,7 +864,7 @@ foodleveldat4spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var
 
 
 After that, this information is added to the other data.
-This gives us the nova group information by weight and weight percent for all participants.
+This gives us the nova group information by weight and weight percent for all participants .
 
 The data is now ready for analysis first by descriptive analysis.
 
@@ -879,6 +879,7 @@ setkey(foodleveldat911spE, seriali)
 
 sav11rp <-sav11rp[foodleveldat911sp, by= seriali]
 sav11rp <-sav11rp[foodleveldat911spE, by= seriali]
+#sav11rp$ED <- sav11rp[,.("Epcnt_4"/"pcnt_4")]
 
 #sav4rp <- readRDS("sav4rp.rds")
 
@@ -1033,6 +1034,8 @@ The second compares the means of pcnt UPF intake in over the same periods.
 ttestNa <- t.test(sav11rp[,"Sodiummg"], sav4rp[,"Sodiummg"])
 ttestpcnt_4 <-t.test(sav11rp[,"pcnt_4"], sav4rp[,"pcnt_4"])
 ttestEpcnt_4 <-t.test(sav11rp[,"Epcnt_4"], sav4rp[,"Epcnt_4"])
+
+
 data.table("Var" = c("Epcnt_4","pcnt_4","Na"),"statistic" = signif(c(ttestEpcnt_4$statistic,ttestpcnt_4$statistic,ttestNa$statistic), digits = 4), "p.value" = signif(c(ttestEpcnt_4$p.value,ttestpcnt_4$p.value,ttestNa$p.value), digits = 4))
 ttestpcnt_4
 ttestEpcnt_4
