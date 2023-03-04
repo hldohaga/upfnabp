@@ -913,7 +913,7 @@ sav4rp <-sav4rp[calciumb =="Not taking drug"]
 sav4rp <- sav4rp[obpdrug == "Not taking drug"]
 
 sav4rp <- sav4rp[Country == "England"]
-
+sav4rp <- sav4rp[Age >18]
 #then remove from years 9-11
 sav11rp <- sav11rp[(hyper1_2 == " Normotensive untreated" ), ]
 
@@ -927,7 +927,7 @@ sav11rp <-sav11rp[obpdrug2 =="Not taking drug"]
 
 sav11rp <-sav11rp[Country == "England"]
 #summary(sav11rp)
-
+sav11rp <- sav11rp[AgeR >18]
 #This section exports these key datatables to use with the other script (not needed if combining all in one script!)
 #saveRDS(sav11rp, file ="sav11rp.rds")
 #saveRDS(sav4rp, file ="sav4rp.rds")
@@ -1267,15 +1267,15 @@ ad2table11 <- xtabs(~sav11rp[,agegad2])
 ad2table4 <- xtabs(~sav4rp[, agegad2])
 ad2tabler <- chisq.test(rbind(ad2table11 , ad2table4))
 
-ch1table11 <- xtabs(~sav11rp[,agegch1])
-ch1table4 <- xtabs(~sav4rp[, agegch1 ])
-ch1tabler <-chisq.test(rbind(ch1table11 , ch1table4))
+#ch1table11 <- xtabs(~sav11rp[,agegch1])
+#ch1table4 <- xtabs(~sav4rp[, agegch1 ])
+#ch1tabler <-chisq.test(rbind(ch1table11 , ch1table4))
 
 #ag1table11 <- xtabs(~sav11rp[, agegr1])
 #ag1table4 <- xtabs(~sav4rp[, agegr1])
 #ag1tabler <- chisq.test(rbind(ag1table11 , ag1table4))
 
-catconfounders4a <- data.table("name" = c("agegad1","agegad2","agegch1"),"p.value" = signif( c( ad1tabler$p.value , ad2tabler$p.value, ch1tabler$p.value), digits = 4))
+catconfounders4a <- data.table("name" = c("agegad1","agegad2"),"p.value" = signif( c( ad1tabler$p.value , ad2tabler$p.value), digits = 4))
 
 catconfounders4b <- data.table("name" = c("hyper1","hyper140","highbp1","hibp140"),"p.value" = signif( c(h1tabler$p.value, h14tabler$p.value, 0, hi14tabler$p.value), digits = 4))
 

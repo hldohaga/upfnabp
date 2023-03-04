@@ -20,18 +20,22 @@ NOVA_ForDavid <- as.data.table(read_excel("data/NOVA_ForDavid.xlsx"))
 
 NOVA_ForDavid[, Sex := factor(Sex, levels = 1:2)]
 NOVA_ForDavid[, Country := factor(Country)]
-
+NOVA_ForDavid[, Country := factor(SurveyYear)]
 
 
 summary(NOVA_ForDavid)
 
 Adult_NOVA_ForDavid <- NOVA_ForDavid[Age > 18]
-
+summary(Adult_NOVA_ForDavid)
 hist(Adult_NOVA_ForDavid$Age)
 hist(Adult_NOVA_ForDavid$NOVA_Epct_opti_4)
 hist(Adult_NOVA_ForDavid$NOVA_Gpct_opti_4)
 
 
+boxplot(Adult_NOVA_ForDavid$NOVA_Epct_opti_4~
+          Adult_NOVA_ForDavid$SurveyYear)
+boxplot(Adult_NOVA_ForDavid$NOVA_Epct_opti_4~
+          Adult_NOVA_ForDavid$Sex)
 ```
 
 ## regression
@@ -39,10 +43,11 @@ hist(Adult_NOVA_ForDavid$NOVA_Gpct_opti_4)
 
 
 ```{r regression, echo=FALSE}
-lm( Adult_NOVA_ForDavid$NOVA_Epct_opti_4~ Age +Sex + Country, Adult_NOVA_ForDavid)
+lm( Adult_NOVA_ForDavid$NOVA_Epct_opti_4~ Age +Sex + Country +SurveyYear, Adult_NOVA_ForDavid)
+AIC
 
-lm( Adult_NOVA_ForDavid$NOVA_Gpct_opti_4~ Age +Sex + Country, Adult_NOVA_ForDavid)
-
+lm( Adult_NOVA_ForDavid$NOVA_Gpct_opti_4~ Age +Sex + Country+SurveyYear, Adult_NOVA_ForDavid)
+AIC
 
 ```
 

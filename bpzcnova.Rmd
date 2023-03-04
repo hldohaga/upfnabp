@@ -1,0 +1,220 @@
+---
+title: "dataprep"
+author: "doh"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data
+
+
+```{r cars}
+library(haven)
+library(data.table)
+library(readxl)
+```
+
+## Including Plots
+
+
+
+```{r pressure, echo=FALSE}
+sav4 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_personleveldietarydata_uk_v2.sav"
+
+sav4b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_indiv_uk.sav"
+
+sav6 <-"/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr5-6a_personleveldietarydata_v2.sav"
+
+sav6b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr5-6a_indiv.sav"
+
+sav8 <-"/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr7-8a_personleveldietarydata.sav"
+
+sav8b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr7-8a_indiv.sav"
+
+
+
+sav11 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_personleveldietarydata_uk_20210831.sav"
+
+sav11b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_indiv_20211020.sav"
+
+#sav4r <- as.data.table(read_sav(sav4))
+sav4br <-as.data.table(read_sav(sav4b))
+
+#sav6r <- as.data.table(read_sav(sav6))
+sav6br <-as.data.table(read_sav(sav6b))
+
+#sav8r <- as.data.table(read_sav(sav8))
+sav8br <-as.data.table(read_sav(sav8b))
+
+
+#sav11r <- as.data.table(read_sav(sav11))
+sav11br <- as.data.table(read_sav(sav11b))
+```
+
+
+
+```{r include=FALSE}
+#this identifies the variables wanted from the person level data sets
+#perslevdat4 <- c("seriali","Age", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
+
+#perslevdat6 <- c("seriali","Age", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
+
+#perslevdat8 <- c("seriali","Age", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
+
+
+#perslevdat11 <- c("seriali","AgeR", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
+
+#sav4rp <- sav4r[, ..perslevdat4]
+#sav6rp <- sav6r[, ..perslevdat6]
+#sav8rp <- sav8r[, ..perslevdat8]
+#sav11rp <- sav11r[, ..perslevdat11]
+
+#earlyrp <- rbind(sav4rp,sav6rp)
+#earlyrp#<- rbind(earlyrp,sav8rp)
+
+NOVA_ForDavid <- as.data.table(read_excel("data/NOVA_ForDavid.xlsx"))
+
+NOVA_ForDavid[, Sex := factor(Sex, levels = 1:2)]
+NOVA_ForDavid[, Country := factor(Country)]
+NOVA_ForDavid[, SurveyYear := factor(SurveyYear)]
+
+```
+
+
+```{r 4setup variables, message=FALSE, warning=FALSE, include=FALSE}
+ #measured and recorded data yr1-4a_indiv_uk 
+#subsets of the table to identify grouped information
+bpset4 <- sav4br[,c("seriali","omsysval","omdiaval")]
+ethnset4 <- sav4br[,c("seriali","ethgr2")]
+saltset4 <- sav4br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
+medsset4 <- sav4br[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug")]
+hypset4 <- sav4br[,c("seriali", "hyper140", "hibp140", "hyper1", "highbp1")]
+incset4 <- sav4br[,c("seriali","eqvinc","nssec8","hhinc","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","EducFin")]
+measset4 <- sav4br[,c("seriali","htval","wtval","bmival")]
+ageset4 <- sav4br[,c("seriali","age")]
+```
+
+```{r 4setup variables, message=FALSE, warning=FALSE, include=FALSE}
+ #measured and recorded data yr1-4a_indiv_uk 
+#subsets of the table to identify grouped information
+bpset6 <- sav6br[,c("seriali","omsysval","omdiaval")]
+#ethnset6 <- sav6br[,c("seriali","ethgr2")]
+saltset6 <- sav6br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
+#medsset6 <- sav6br[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug")]
+#hypset6 <- sav6br[,c("seriali", "hyper140", "hibp140", "hyper1", "highbp1")]
+incset6 <- sav6br[,c("seriali","eqvinc","nssec8","hhinc","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","EducFin")]
+measset6 <- sav6br[,c("seriali","htval","wtval","bmival")]
+ageset6 <- sav6br[,c("seriali","age")]
+```
+
+
+```{r 4setup variables, message=FALSE, warning=FALSE, include=FALSE}
+ #measured and recorded data yr1-4a_indiv_uk 
+#subsets of the table to identify grouped information
+bpset8 <- sav8br[,c("seriali","omsysval","omdiaval")]
+#ethnset6 <- sav6br[,c("seriali","ethgr2")]
+saltset8 <- sav8br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
+#medsset6 <- sav6br[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug")]
+#hypset6 <- sav6br[,c("seriali", "hyper140", "hibp140", "hyper1", "highbp1")]
+#incset8 <- sav8br[,c("seriali","eqvinc","nssec8","hhinc","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","EducFin")]
+measset8 <- sav8br[,c("seriali","htval","wtval","bmival")]
+ageset8 <- sav8br[,c("seriali","age")]
+```
+
+
+```{r 11setup variables, message=FALSE, warning=FALSE, include=FALSE}
+ #measured and recorded data yr9-11a_indiv_uk 
+#subsets of the table to identify grouped information
+bpset11 <- sav11br[,c("seriali","omsysval","omdiaval")]
+ethnset11 <- sav11br[,c("seriali" ,"ethgrp5","ethgrp2")]
+saltset11 <- sav11br[,c("seriali","SaltChk","SalHowC","SltSHow" , "vegetarn")]
+medsset11 <- sav11br[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
+hypset11 <- sav11br[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
+incset11 <- sav11br[,c("seriali","nssec8","GOR","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
+measset11 <- sav11br[,c("seriali","htval2","wtval2","bmival2","bmivg5")]
+ageset11 <- sav11br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","AgeR")]
+```
+
+
+
+```{r}
+bpset4[, "omsysval" := as.numeric(omsysval)]
+bpset6[, "omsysval" := as.numeric(omsysval)]
+bpset8[, "omsysval" := as.numeric(omsysval)]
+bpset11[, "omsysval" := as.numeric(omsysval)]
+
+bpset4[, "omdiaval" := as.numeric(omdiaval)]
+bpset6[, "omdiaval" := as.numeric(omdiaval)]
+bpset8[, "omdiaval" := as.numeric(omdiaval)]
+bpset11[, "omdiaval" := as.numeric(omdiaval)]
+
+
+bpset4[, "seriali" := as.numeric(seriali)]
+bpset6[, "seriali" := as.numeric(seriali)]
+bpset8[, "seriali" := as.numeric(seriali)]
+bpset11[, "seriali" := as.numeric(seriali)]
+
+
+
+```
+
+
+```{r}
+bpset4 <- data.table(bpset4)
+bpset6 <-data.table(bpset6)
+bpset8 <- data.table(bpset8)
+bpset11 <-data.table(bpset11)
+
+
+bpset4 
+bpset6 
+bpset8 
+bpset11 
+
+bpsetall <- data.table(rbind(bpset4,bpset6))
+bpsetall <- data.table(rbind(bpsetall,bpset8))
+bpsetall <- data.table(rbind(bpsetall,bpset11))
+setkey(bpsetall, seriali)
+
+bpsetall <- bpsetall[NOVA_ForDavid, on = "seriali"]
+
+
+
+```
+
+
+```{r}
+summary(bpsetall)
+
+Adult_bpsetall <- bpsetall[Age > 18]
+summary(Adult_bpsetall)
+hist(Adult_bpsetall$Age)
+hist(Adult_bpsetall$NOVA_Epct_opti_4)
+hist(Adult_bpsetall$NOVA_Gpct_opti_4)
+
+
+boxplot(Adult_bpsetall$NOVA_Epct_opti_4~
+          Adult_bpsetall$SurveyYear)
+boxplot(Adult_bpsetall$NOVA_Epct_opti_4~
+          Adult_bpsetall$Sex)
+plot(Adult_bpsetall$omsysval,Adult_bpsetall$NOVA_Epct_opti_4)
+plot(Adult_bpsetall$omsysval,Adult_bpsetall$NOVA_Gpct_opti_4)
+```
+
+
+
+```{r}
+lm1 <-lm(omsysval ~ NOVA_Epct_opti_4+ Age +Sex   , Adult_bpsetall)
+lm1
+AIC(lm1)
+plot(lm1)
+
+lm2 <- lm(omsysval~ NOVA_Gpct_opti_4+ Age +Sex , Adult_bpsetall)
+lm2
+AIC(lm2)
+
+```
