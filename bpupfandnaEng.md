@@ -30,7 +30,7 @@ Comparison of models will enable an understanding of the importance of including
 This will give an opportunity to understand whether the role of salt affects the model predictions significantly.
 
 
-
+The difference between the two datasets will be described. The correlations between the key variables will be demonstrated. Sensitivity analysis will demonstrate how changes in statistical models relate to inclusion of specific variables.
 
 
 
@@ -98,7 +98,7 @@ I have derived UPFNOVA from a paper which had a data table identifying the NDNS 
 
 
 ####  Processing the food diaries
-The Nova group is attached to the foods in the food diaries.
+The Nova group is attached to the foods in the food diaries from Rauber et al @rauberUltraprocessedFoodsExcessive2019b.
 The tables are reduced to the necessary variables.
 
 
@@ -137,7 +137,7 @@ The process can be done for food level energy intake also.
 
 
 After that, this information is added to the other data.
-This gives us the nova group information by weight and weight percent for all participants.
+This gives us the nova group information by weight and weight percent for all participants .
 
 The data is now ready for analysis first by descriptive analysis.
 
@@ -150,6 +150,7 @@ possible future set with only England?
 I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs. There are no participants who are pregnant or breastfeeding. 
 I have included normotensive untreated individuals. 
 I have restricted the data set to England only.
+Over 18s only
 
 
 
@@ -316,9 +317,9 @@ The NDNS dataset was weighted to keep many of these the same between datasets.
 ```
 They seem to all be significantly different between the datasets! (except calciummg, and lactose)
 
-There is a difference of 9 years in the mean ages. The change in Age might be explained by more younger people being on anti-hypertensive meds. or hypertension being diagnosed earlier
+There is a difference of 5 years in the mean ages. The change in Age might be explained by more younger people being on anti-hypertensive meds. or hypertension being diagnosed earlier
 
-There has been a change in the intake of total sugars sucrose, glucose and fructose. 
+
 There has been a change in the intake of soft drinks, tea coffee and water.
 
 
@@ -328,6 +329,7 @@ There has been a change in the intake of soft drinks, tea coffee and water.
 ```
 
 ![](bpupfandnaEng_files/figure-html/unnamed-chunk-16-1.png)<!-- -->![](bpupfandnaEng_files/figure-html/unnamed-chunk-16-2.png)<!-- -->
+
 Again significant differences
 Are there time differences in diagnosis of hypertension/treatment between sexes 
 ie are more women now on meds compared with the number of men than previously?
@@ -344,7 +346,7 @@ comparing individual data sets looking for similarity in two
 ## 2:  wtval 7.592e-01
 ## 3: bmival 2.917e-03
 ```
-This table suggests that there is a significant difference between the height, weight, and bmi of the groups.
+This table suggests that there is a significant difference between the height, and bmi of the groups.
 The 11 population is shorter by 4 cm and 7 kilos lighter 
 The mean bmi has dropped from 25.86 which is overweight. 
 It is now 23.48 which is in the normal range. 
@@ -376,8 +378,9 @@ These values identify a significant difference in the number of vegetarians
 ##       name   p.value
 ## 1: educfin 0.0007784
 ```
-There are differences in ethnicity.
+There are differences in ethnicity as divided into 5 subgroups.
 The differences in qimd, using the 2010 definitions, are not statistically significant.
+There is a difference in the age of finishing education.
 
 
 ```
@@ -398,194 +401,50 @@ The age groups show some discrepancy with the p value significant only in the ch
 ##  Regression Analysis
 ###  linear regression
 
+
+
+Simple linear regression equations look for the relationship between the dependant variable, and the independent variable.
+
 Firstly using linear regression I will look at the correlation between omsysval and sodiummg. 
 There are regressions for 1-4 and 9-11
 
-Simple linear regression equations look for the relationship between the dependant variable, and the independant variable.
 
-
-```
-## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex, data = sav4rp)
-## 
-## Coefficients:
-## (Intercept)          Age    SexFemale  
-##    109.3932       0.3707      -5.4063
+```r
+plot(sav4rp$omsysval, sav4rp$Sodiummg)
 ```
 
-```
-## 
-## Call:
-## lm(formula = omsysval ~ AgeR + Sex, data = sav11rp)
-## 
-## Coefficients:
-## (Intercept)         AgeR    SexFemale  
-##    110.8486       0.3424      -9.8541
+![](bpupfandnaEng_files/figure-html/unnamed-chunk-22-1.png)<!-- -->
+
+```r
+plot(sav4rp$omsysval, sav4rp$Epcnt_4)
 ```
 
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##            Df Sum Sq Mean Sq F value    Pr(>F)    
-## Age         1  14427   14427  96.810 < 2.2e-16 ***
-## Sex         1   2151    2151  14.435 0.0001716 ***
-## Residuals 343  51113     149                      
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+![](bpupfandnaEng_files/figure-html/unnamed-chunk-22-2.png)<!-- -->
+
+```r
+plot(sav4rp$omsysval, sav4rp$pcnt_4)
 ```
 
-```
-## [1] 2718.301
+![](bpupfandnaEng_files/figure-html/unnamed-chunk-22-3.png)<!-- -->
+
+```r
+plot(sav11rp$omsysval, sav11rp$Sodiummg)
 ```
 
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##            Df Sum Sq Mean Sq F value    Pr(>F)    
-## AgeR        1  13161 13161.1  88.869 < 2.2e-16 ***
-## Sex         1  10364 10363.8  69.981 7.873e-16 ***
-## Residuals 443  65606   148.1                      
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+![](bpupfandnaEng_files/figure-html/unnamed-chunk-22-4.png)<!-- -->
+
+```r
+plot(sav11rp$omsysval, sav11rp$Epcnt_4)
 ```
 
-```
-## [1] 3499.726
+![](bpupfandnaEng_files/figure-html/unnamed-chunk-22-5.png)<!-- -->
+
+```r
+plot(sav11rp$omsysval, sav11rp$pcnt_4)
 ```
 
-```
-## Sensitivity Analysis to Unobserved Confounding
-## 
-## Model Formula: omsysval ~ Age + Sex
-## 
-## Null hypothesis: q = 1 and reduce = TRUE 
-## 
-## Unadjusted Estimates of ' Age ':
-##   Coef. estimate: 0.37074 
-##   Standard Error: 0.04058 
-##   t-value: 9.1351 
-## 
-## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.19569 
-##   Robustness Value, q = 1 : 0.38638 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.31922 
-## 
-## For more information, check summary.
-```
+![](bpupfandnaEng_files/figure-html/unnamed-chunk-22-6.png)<!-- -->
 
-```
-## Sensitivity Analysis to Unobserved Confounding
-## 
-## Model Formula: omsysval ~ AgeR + Sex
-## 
-## Null hypothesis: q = 1 and reduce = TRUE 
-## 
-## Unadjusted Estimates of ' AgeR ':
-##   Coef. estimate: 0.34236 
-##   Standard Error: 0.03684 
-##   t-value: 9.2943 
-## 
-## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.16318 
-##   Robustness Value, q = 1 : 0.35472 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.29275 
-## 
-## For more information, check summary.
-```
-
-
-
-
-```
-## 
-## Call:
-## lm(formula = omsysval ~ Sodiummg, data = sav4rp)
-## 
-## Coefficients:
-## (Intercept)     Sodiummg  
-##  127.619064    -0.001334
-```
-
-```
-## 
-## Call:
-## lm(formula = omsysval ~ Sodiummg, data = sav11rp)
-## 
-## Coefficients:
-## (Intercept)     Sodiummg  
-##   1.160e+02    2.536e-03
-```
-
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##            Df Sum Sq Mean Sq F value Pr(>F)
-## Sodiummg    1    324  323.99  1.6544 0.1992
-## Residuals 344  67367  195.83
-```
-
-```
-## [1] 2811.835
-```
-
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##            Df Sum Sq Mean Sq F value   Pr(>F)   
-## Sodiummg    1   1508 1508.40  7.6434 0.005935 **
-## Residuals 444  87623  197.35                    
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-```
-## [1] 3626.785
-```
-
-```
-## Sensitivity Analysis to Unobserved Confounding
-## 
-## Model Formula: omsysval ~ Sodiummg
-## 
-## Null hypothesis: q = 1 and reduce = TRUE 
-## 
-## Unadjusted Estimates of ' Sodiummg ':
-##   Coef. estimate: -0.00133 
-##   Standard Error: 0.00104 
-##   t-value: -1.28624 
-## 
-## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.00479 
-##   Robustness Value, q = 1 : 0.06699 
-##   Robustness Value, q = 1 alpha = 0.05 : 0 
-## 
-## For more information, check summary.
-```
-
-```
-## Sensitivity Analysis to Unobserved Confounding
-## 
-## Model Formula: omsysval ~ Sodiummg
-## 
-## Null hypothesis: q = 1 and reduce = TRUE 
-## 
-## Unadjusted Estimates of ' Sodiummg ':
-##   Coef. estimate: 0.00254 
-##   Standard Error: 0.00092 
-##   t-value: 2.76466 
-## 
-## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.01692 
-##   Robustness Value, q = 1 : 0.12288 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.03712 
-## 
-## For more information, check summary.
-```
 There is a  relationship between Na and omsysval. There is a weakly positive gradiant. This appears greater in the more recent data starting from a lower intersection with the y axis.
 
 
@@ -768,11 +627,200 @@ There is a  relationship between Na and omsysval. There is a weakly positive gra
 ```
 
 
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ Sodiummg, data = sav4rp)
+## 
+## Coefficients:
+## (Intercept)     Sodiummg  
+##  127.619064    -0.001334
+```
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ Sodiummg, data = sav11rp)
+## 
+## Coefficients:
+## (Intercept)     Sodiummg  
+##   1.160e+02    2.536e-03
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##            Df Sum Sq Mean Sq F value Pr(>F)
+## Sodiummg    1    324  323.99  1.6544 0.1992
+## Residuals 344  67367  195.83
+```
+
+```
+## [1] 2811.835
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##            Df Sum Sq Mean Sq F value   Pr(>F)   
+## Sodiummg    1   1508 1508.40  7.6434 0.005935 **
+## Residuals 444  87623  197.35                    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 3626.785
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Sodiummg
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Sodiummg ':
+##   Coef. estimate: -0.00133 
+##   Standard Error: 0.00104 
+##   t-value: -1.28624 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.00479 
+##   Robustness Value, q = 1 : 0.06699 
+##   Robustness Value, q = 1 alpha = 0.05 : 0 
+## 
+## For more information, check summary.
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Sodiummg
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Sodiummg ':
+##   Coef. estimate: 0.00254 
+##   Standard Error: 0.00092 
+##   t-value: 2.76466 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.01692 
+##   Robustness Value, q = 1 : 0.12288 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.03712 
+## 
+## For more information, check summary.
+```
+
+
 There is a relationship between Na and g pcnt as well as E pcnt and omsysval with a negative gradiant.
 
 ### multi variable regression 
 
 This uses a model of variables. It can highlight the contributions of each.
+
+This first model looks at the relationships between BP and Age and Sex first in years 1-4 then 9-11
+
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ Age + Sex, data = sav4rp)
+## 
+## Coefficients:
+## (Intercept)          Age    SexFemale  
+##    109.3932       0.3707      -5.4063
+```
+
+```
+## 
+## Call:
+## lm(formula = omsysval ~ AgeR + Sex, data = sav11rp)
+## 
+## Coefficients:
+## (Intercept)         AgeR    SexFemale  
+##    110.8486       0.3424      -9.8541
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##            Df Sum Sq Mean Sq F value    Pr(>F)    
+## Age         1  14427   14427  96.810 < 2.2e-16 ***
+## Sex         1   2151    2151  14.435 0.0001716 ***
+## Residuals 343  51113     149                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 2718.301
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: omsysval
+##            Df Sum Sq Mean Sq F value    Pr(>F)    
+## AgeR        1  13161 13161.1  88.869 < 2.2e-16 ***
+## Sex         1  10364 10363.8  69.981 7.873e-16 ***
+## Residuals 443  65606   148.1                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## [1] 3499.726
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Age + Sex
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Age ':
+##   Coef. estimate: 0.37074 
+##   Standard Error: 0.04058 
+##   t-value: 9.1351 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.19569 
+##   Robustness Value, q = 1 : 0.38638 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.31922 
+## 
+## For more information, check summary.
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ AgeR + Sex
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' AgeR ':
+##   Coef. estimate: 0.34236 
+##   Standard Error: 0.03684 
+##   t-value: 9.2943 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.16318 
+##   Robustness Value, q = 1 : 0.35472 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.29275 
+## 
+## For more information, check summary.
+```
+
+
+
+
 
 
 ```
@@ -1368,7 +1416,7 @@ These models can be compared with others with different variables to understand 
 
 
 
-## This final set analyses the whole dataset together across teh key variables
+## This final set analyses the whole dataset together across the key variables
 
 ```r
 sav11rp$Age <- sav11rp[,AgeR]
@@ -1564,6 +1612,38 @@ summary(SmallE)
 ## -- Partial R2 of the treatment with the outcome: an extreme confounder (orthogonal to the covariates) that explains 100% of the residual variance of the outcome, would need to explain at least 0.28% of the residual variance of the treatment to fully account for the observed estimated effect.
 ## 
 ## -- Robustness Value, q = 1: unobserved confounders (orthogonal to the covariates) that explain more than 5.19% of the residual variance of both the treatment and the outcome are strong enough to bring the point estimate to 0 (a bias of 100% of the original estimate). Conversely, unobserved confounders that do not explain more than 5.19% of the residual variance of both the treatment and the outcome are not strong enough to bring the point estimate to 0.
+## 
+## -- Robustness Value, q = 1, alpha = 0.05: unobserved confounders (orthogonal to the covariates) that explain more than 0% of the residual variance of both the treatment and the outcome are strong enough to bring the estimate to a range where it is no longer 'statistically different' from 0 (a bias of 100% of the original estimate), at the significance level of alpha = 0.05. Conversely, unobserved confounders that do not explain more than 0% of the residual variance of both the treatment and the outcome are not strong enough to bring the estimate to a range where it is no longer 'statistically different' from 0, at the significance level of alpha = 0.05.
+```
+
+```r
+summary(Smallg)
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Age + Sex + Sodiummg + pcnt_4
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## -- This means we are considering biases that reduce the absolute value of the current estimate.
+## -- The null hypothesis deemed problematic is H0:tau = 0 
+## 
+## Unadjusted Estimates of 'pcnt_4': 
+##   Coef. estimate: 0.0495 
+##   Standard Error: 0.0329 
+##   t-value (H0:tau = 0): 1.5033 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.0029 
+##   Robustness Value, q = 1: 0.0522 
+##   Robustness Value, q = 1, alpha = 0.05: 0 
+## 
+## Verbal interpretation of sensitivity statistics:
+## 
+## -- Partial R2 of the treatment with the outcome: an extreme confounder (orthogonal to the covariates) that explains 100% of the residual variance of the outcome, would need to explain at least 0.29% of the residual variance of the treatment to fully account for the observed estimated effect.
+## 
+## -- Robustness Value, q = 1: unobserved confounders (orthogonal to the covariates) that explain more than 5.22% of the residual variance of both the treatment and the outcome are strong enough to bring the point estimate to 0 (a bias of 100% of the original estimate). Conversely, unobserved confounders that do not explain more than 5.22% of the residual variance of both the treatment and the outcome are not strong enough to bring the point estimate to 0.
 ## 
 ## -- Robustness Value, q = 1, alpha = 0.05: unobserved confounders (orthogonal to the covariates) that explain more than 0% of the residual variance of both the treatment and the outcome are strong enough to bring the estimate to a range where it is no longer 'statistically different' from 0 (a bias of 100% of the original estimate), at the significance level of alpha = 0.05. Conversely, unobserved confounders that do not explain more than 0% of the residual variance of both the treatment and the outcome are not strong enough to bring the estimate to a range where it is no longer 'statistically different' from 0, at the significance level of alpha = 0.05.
 ```

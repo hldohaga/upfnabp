@@ -897,6 +897,7 @@ possible future set with only England?
 I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs. There are no participants who are pregnant or breastfeeding. 
 I have included normotensive untreated individuals. 
 I have restricted the data set to England only.
+Over 18s only
 
 ```{r echo=FALSE}
 #first remove from years 1-4
@@ -1097,9 +1098,9 @@ confounders
 ```
 They seem to all be significantly different between the datasets! (except calciummg, and lactose)
 
-There is a difference of 9 years in the mean ages. The change in Age might be explained by more younger people being on anti-hypertensive meds. or hypertension being diagnosed earlier
+There is a difference of 5 years in the mean ages. The change in Age might be explained by more younger people being on anti-hypertensive meds. or hypertension being diagnosed earlier
 
-There has been a change in the intake of total sugars sucrose, glucose and fructose. 
+
 There has been a change in the intake of soft drinks, tea coffee and water.
 
 ```{r echo=FALSE, warning=FALSE}
@@ -1125,6 +1126,7 @@ plot(sav4rp[,Sex], main = "2010")
 #plot(sav4rp[,Country], main = "2010")
 
 ```
+
 Again significant differences
 Are there time differences in diagnosis of hypertension/treatment between sexes 
 ie are more women now on meds compared with the number of men than previously?
@@ -1147,7 +1149,7 @@ confounders2
 
 
 ```
-This table suggests that there is a significant difference between the height, weight, and bmi of the groups.
+This table suggests that there is a significant difference between the height, and bmi of the groups.
 The 11 population is shorter by 4 cm and 7 kilos lighter 
 The mean bmi has dropped from 25.86 which is overweight. 
 It is now 23.48 which is in the normal range. 
@@ -1237,8 +1239,9 @@ catconfounders3b
 catconfounders3c
 catconfounders3d
 ```
-There are differences in ethnicity.
+There are differences in ethnicity as divided into 5 subgroups.
 The differences in qimd, using the 2010 definitions, are not statistically significant.
+There is a difference in the age of finishing education.
 
 ```{r echo=FALSE, warning=FALSE}
 
@@ -1339,30 +1342,62 @@ The age groups show some discrepancy with the p value significant only in the ch
 ##  Regression Analysis
 ###  linear regression
 
+
+
+Simple linear regression equations look for the relationship between the dependant variable, and the independent variable.
+
 Firstly using linear regression I will look at the correlation between omsysval and sodiummg. 
 There are regressions for 1-4 and 9-11
 
-Simple linear regression equations look for the relationship between the dependant variable, and the independant variable.
+```{r}
+plot(sav4rp$omsysval, sav4rp$Sodiummg)
+plot(sav4rp$omsysval, sav4rp$Epcnt_4)
+plot(sav4rp$omsysval, sav4rp$pcnt_4)
+plot(sav11rp$omsysval, sav11rp$Sodiummg)
+plot(sav11rp$omsysval, sav11rp$Epcnt_4)
+plot(sav11rp$omsysval, sav11rp$pcnt_4)
+```
+
+There is a  relationship between Na and omsysval. There is a weakly positive gradiant. This appears greater in the more recent data starting from a lower intersection with the y axis.
+
 
 ```{r echo=FALSE}
 #linear regression models
-#sodium only
-lm1AS4 <- lm(omsysval ~ Age + Sex, sav4rp)
+#UPF gram % only
+lm1g4 <- lm(omsysval ~ sqrt(pcnt_4), sav4rp)
 
 
+lm1g11 <- lm(omsysval ~ sqrt(pcnt_4), sav11rp)
+lm1g4
+lm1g11
 
+anova(lm1g4)
+AIC(lm1g4)
+anova(lm1g11)
+AIC(lm1g11)
 
-lm1AS11 <- lm(omsysval ~ AgeR + Sex, sav11rp)
-(lm1AS4)
-(lm1AS11)
-anova(lm1AS4)
-AIC(lm1AS4)
-anova(lm1AS11)
-AIC(lm1AS11)
-sensemakr(lm1AS4, treatment = "Age")
-sensemakr(lm1AS11, treatment = "AgeR")
+sensemakr(lm1g4, treatment = "sqrt(pcnt_4)")
+sensemakr(lm1g11, treatment = "sqrt(pcnt_4)")
 ```
 
+```{r echo=FALSE}
+#linear regression models
+#UPF Energy % only
+lm1E4 <- lm(omsysval ~ Epcnt_4, sav4rp)
+
+
+lm1E11 <- lm(omsysval ~ Epcnt_4, sav11rp)
+lm1E4
+lm1E11
+
+anova(lm1E4)
+AIC(lm1E4)
+anova(lm1E11)
+AIC(lm1E11)
+
+sensemakr(lm1E4, treatment = "Epcnt_4")
+sensemakr(lm1E11, treatment = "Epcnt_4")
+```
 
 
 ```{r echo=FALSE}
@@ -1385,46 +1420,6 @@ sensemakr(lm1na4, treatment = "Sodiummg")
 sensemakr(lm1na11, treatment = "Sodiummg")
 
 ```
-There is a  relationship between Na and omsysval. There is a weakly positive gradiant. This appears greater in the more recent data starting from a lower intersection with the y axis.
-
-
-```{r echo=FALSE}
-#linear regression models
-#sodium only
-lm1g4 <- lm(omsysval ~ sqrt(pcnt_4), sav4rp)
-
-
-lm1g11 <- lm(omsysval ~ sqrt(pcnt_4), sav11rp)
-lm1g4
-lm1g11
-
-anova(lm1g4)
-AIC(lm1g4)
-anova(lm1g11)
-AIC(lm1g11)
-
-sensemakr(lm1g4, treatment = "sqrt(pcnt_4)")
-sensemakr(lm1g11, treatment = "sqrt(pcnt_4)")
-```
-
-```{r echo=FALSE}
-#linear regression models
-#sodium only
-lm1E4 <- lm(omsysval ~ Epcnt_4, sav4rp)
-
-
-lm1E11 <- lm(omsysval ~ Epcnt_4, sav11rp)
-lm1E4
-lm1E11
-
-anova(lm1E4)
-AIC(lm1E4)
-anova(lm1E11)
-AIC(lm1E11)
-
-sensemakr(lm1E4, treatment = "Epcnt_4")
-sensemakr(lm1E11, treatment = "Epcnt_4")
-```
 
 
 There is a relationship between Na and g pcnt as well as E pcnt and omsysval with a negative gradiant.
@@ -1432,6 +1427,33 @@ There is a relationship between Na and g pcnt as well as E pcnt and omsysval wit
 ### multi variable regression 
 
 This uses a model of variables. It can highlight the contributions of each.
+
+This first model looks at the relationships between BP and Age and Sex first in years 1-4 then 9-11
+
+```{r echo=FALSE}
+#linear regression models
+#sodium only
+lm1AS4 <- lm(omsysval ~ Age + Sex, sav4rp)
+
+
+
+
+lm1AS11 <- lm(omsysval ~ AgeR + Sex, sav11rp)
+(lm1AS4)
+(lm1AS11)
+anova(lm1AS4)
+AIC(lm1AS4)
+anova(lm1AS11)
+AIC(lm1AS11)
+sensemakr(lm1AS4, treatment = "Age")
+sensemakr(lm1AS11, treatment = "AgeR")
+#sensemakr(lm1AS4, treatment = "Sex")
+#sensemakr(lm1AS11, treatment = "Sex")
+```
+
+
+
+
 
 ```{r echo=FALSE}
 lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ ethgr2 + VitaminDµg + EducFin+ EIMD_2010_quintile , sav4rp,na.action = na.exclude)
@@ -1450,7 +1472,8 @@ AIC(lm11)
 
 sensemakr(lm4, treatment = "Age")
 sensemakr(lm11, treatment = "AgeR")
-
+#sensemakr(lm4, treatment = "Sex")
+#sensemakr(lm11, treatment = "Sex")
 
 ```
 There are differences in coefficients in the two sets of data. 
@@ -1564,7 +1587,7 @@ sensemakr(lm11c, treatment = "Sodiummg")
 
 
 
-## This final set analyses the whole dataset together across teh key variables
+## This final set analyses the whole dataset together across the key variables
 ```{r}
 sav11rp$Age <- sav11rp[,AgeR]
 #sav11rp[, seriali := factor(seriali)]
@@ -1599,7 +1622,7 @@ AIC(lmallEz)
 SmallE <- sensemakr(lmallE, treatment = "Epcnt_4")
 Smallg <- sensemakr(lmallg, treatment = "pcnt_4")
 summary(SmallE)
-
+summary(Smallg)
 
 ```
 
