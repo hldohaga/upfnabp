@@ -25,6 +25,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(haven)
 library(data.table)
 library(readxl)
+library(sensemakr)
 ```
 
 ## Including Plots
@@ -230,13 +231,25 @@ lm1
 AIC(lm1)
 anova(lm1)
 plot(lm1)
+sensemakr(lm1, treatment ="NOVA_Epct_opti_4")
+```
 
+
+```{r}
 lm2 <- lm(omsysval~ NOVA_Gpct_opti_4+ Age +Sex , Adult_bpsetall)
 lm2
 AIC(lm2)
 anova(lm2)
+plot(lm2)
+sensemakr(lm2, treatment ="NOVA_Gpct_opti_4")
+```
+
+
+```{r}
 lm3 <- lm(omsysval~ Sodiummg+ Age +Sex , Adult_bpsetall)
 lm3
 AIC(lm3)
 anova(lm3)
+plot(lm3)
+sensemakr(lm3, treatment ="Sodiummg")
 ```

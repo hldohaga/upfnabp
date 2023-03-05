@@ -24,6 +24,15 @@ output:
 library(haven)
 library(data.table)
 library(readxl)
+library(sensemakr)
+```
+
+```
+## See details in:
+```
+
+```
+## Carlos Cinelli and Chad Hazlett (2020). Making Sense of Sensitivity: Extending Omitted Variable Bias. Journal of the Royal Statistical Society, Series B (Statistical Methodology).
 ```
 
 ## Including Plots
@@ -378,6 +387,32 @@ plot(lm1)
 ![](bpzcnova_files/figure-html/unnamed-chunk-5-1.png)<!-- -->![](bpzcnova_files/figure-html/unnamed-chunk-5-2.png)<!-- -->![](bpzcnova_files/figure-html/unnamed-chunk-5-3.png)<!-- -->![](bpzcnova_files/figure-html/unnamed-chunk-5-4.png)<!-- -->
 
 ```r
+sensemakr(lm1, treatment ="NOVA_Epct_opti_4")
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ NOVA_Epct_opti_4 + Age + Sex
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' NOVA_Epct_opti_4 ':
+##   Coef. estimate: 0.00864 
+##   Standard Error: 0.04646 
+##   t-value: 0.18587 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 1e-05 
+##   Robustness Value, q = 1 : 0.00251 
+##   Robustness Value, q = 1 alpha = 0.05 : 0 
+## 
+## For more information, check summary.
+```
+
+
+
+```r
 lm2 <- lm(omsysval~ NOVA_Gpct_opti_4+ Age +Sex , Adult_bpsetall)
 lm2
 ```
@@ -418,6 +453,38 @@ anova(lm2)
 ```
 
 ```r
+plot(lm2)
+```
+
+![](bpzcnova_files/figure-html/unnamed-chunk-6-1.png)<!-- -->![](bpzcnova_files/figure-html/unnamed-chunk-6-2.png)<!-- -->![](bpzcnova_files/figure-html/unnamed-chunk-6-3.png)<!-- -->![](bpzcnova_files/figure-html/unnamed-chunk-6-4.png)<!-- -->
+
+```r
+sensemakr(lm2, treatment ="NOVA_Gpct_opti_4")
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ NOVA_Gpct_opti_4 + Age + Sex
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' NOVA_Gpct_opti_4 ':
+##   Coef. estimate: -0.05017 
+##   Standard Error: 0.04807 
+##   t-value: -1.04387 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 2e-04 
+##   Robustness Value, q = 1 : 0.01401 
+##   Robustness Value, q = 1 alpha = 0.05 : 0 
+## 
+## For more information, check summary.
+```
+
+
+
+```r
 lm3 <- lm(omsysval~ Sodiummg+ Age +Sex , Adult_bpsetall)
 lm3
 ```
@@ -455,4 +522,34 @@ anova(lm3)
 ## Residuals 5471 14491860    2649                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```r
+plot(lm3)
+```
+
+![](bpzcnova_files/figure-html/unnamed-chunk-7-1.png)<!-- -->![](bpzcnova_files/figure-html/unnamed-chunk-7-2.png)<!-- -->![](bpzcnova_files/figure-html/unnamed-chunk-7-3.png)<!-- -->![](bpzcnova_files/figure-html/unnamed-chunk-7-4.png)<!-- -->
+
+```r
+sensemakr(lm3, treatment ="Sodiummg")
+```
+
+```
+## Sensitivity Analysis to Unobserved Confounding
+## 
+## Model Formula: omsysval ~ Sodiummg + Age + Sex
+## 
+## Null hypothesis: q = 1 and reduce = TRUE 
+## 
+## Unadjusted Estimates of ' Sodiummg ':
+##   Coef. estimate: 0.00432 
+##   Standard Error: 0.00095 
+##   t-value: 4.51946 
+## 
+## Sensitivity Statistics:
+##   Partial R2 of treatment with outcome: 0.00372 
+##   Robustness Value, q = 1 : 0.05926 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.034 
+## 
+## For more information, check summary.
 ```
