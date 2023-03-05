@@ -111,7 +111,7 @@ measset4z <- sav4br[,c("seriali","htval","wtval","bmival")]
 ageset4z <- sav4br[,c("seriali","age")]
 ```
 
-```{r 4setup variables, message=FALSE, warning=FALSE, include=FALSE}
+```{r 6setup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr1-4a_indiv_uk 
 #subsets of the table to identify grouped information
 bpset6z <- sav6br[,c("seriali","omsysval","omdiaval")]
@@ -125,7 +125,7 @@ ageset6z <- sav6br[,c("seriali","age")]
 ```
 
 
-```{r 4setup variables, message=FALSE, warning=FALSE, include=FALSE}
+```{r 8setup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr1-4a_indiv_uk 
 #subsets of the table to identify grouped information
 bpset8z <- sav8br[,c("seriali","omsysval","omdiaval")]
