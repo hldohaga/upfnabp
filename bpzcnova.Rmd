@@ -218,7 +218,7 @@ boxplot(Adult_bpsetall$Sodiummg~
           Adult_bpsetall$SurveyYear)
 boxplot(Adult_bpsetall$NOVA_Epct_opti_4~
           Adult_bpsetall$Sex)
-plot(Adult_bpsetall$omsysval,Adult_bpsetall$NOVA_Epct_opti_4)
+plot(Adult_bpsetall$omsysval,Adult_bpsetall$NOVA_Epct_opti_4 )
 plot(Adult_bpsetall$omsysval,Adult_bpsetall$NOVA_Gpct_opti_4)
 plot(Adult_bpsetall$omsysval,Adult_bpsetall$Sodiummg)
 ```
@@ -246,10 +246,20 @@ sensemakr(lm2, treatment ="NOVA_Gpct_opti_4")
 
 
 ```{r}
-lm3 <- lm(omsysval~ Sodiummg+ Age +Sex , Adult_bpsetall)
+lm3 <- lm(omsysval~ Sodiummg+ Age +Sex, Adult_bpsetall)
 lm3
 AIC(lm3)
 anova(lm3)
 plot(lm3)
 sensemakr(lm3, treatment ="Sodiummg")
+```
+
+
+```{r}
+lm4z <- lm(omsysval~ Sodiummg+ Age +Sex  + NOVA_Epct_opti_4, Adult_bpsetall)
+lm4z
+AIC(lm4z)
+anova(lm4z)
+plot(lm4z)
+sensemakr(lm4z, treatment ="Sodiummg")
 ```
