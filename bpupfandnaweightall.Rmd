@@ -1,0 +1,1798 @@
+---
+title: "bp upf and na"
+output:
+  html_document:
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    keep_md: yes
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
+  pdf_document:
+    toc: yes
+---
+
+ 
+# BP and UPF and Na in NDNS Dissertation calculation and results
+
+```{r include=FALSE}
+library(haven)
+library(data.table)
+library(readxl)
+library(sensemakr)
+```
+
+
+```{r read data}
+
+sav4 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_personleveldietarydata_uk_v2.sav"
+
+sav4b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_indiv_uk.sav"
+
+sav6 <-"/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr5-6a_personleveldietarydata_v2.sav"
+
+sav6b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr5-6a_indiv.sav"
+
+sav8 <-"/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr7-8a_personleveldietarydata.sav"
+
+sav8b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr7-8a_indiv.sav"
+
+
+
+sav11 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_personleveldietarydata_uk_20210831.sav"
+
+sav11b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_indiv_20211020.sav"
+
+sav4r <- as.data.table(read_sav(sav4))
+sav4br <-as.data.table(read_sav(sav4b))
+
+sav6r <- as.data.table(read_sav(sav6))
+sav6br <-as.data.table(read_sav(sav6b))
+
+sav8r <- as.data.table(read_sav(sav8))
+sav8br <-as.data.table(read_sav(sav8b))
+
+
+sav11r <- as.data.table(read_sav(sav11))
+sav11br <- as.data.table(read_sav(sav11b))
+sav11br$area <- sav11br$Area
+```
+
+```{r}
+NOVA_ForDavid <- as.data.table(read_excel("data/NOVA_ForDavid.xlsx"))
+
+NOVA_ForDavid[, Sex := factor(Sex, levels = 1:2)]
+NOVA_ForDavid[, Country := factor(Country)]
+NOVA_ForDavid[, SurveyYear := factor(SurveyYear)]
+NOVA_ForDavid[, Age := as.numeric(Age)]
+```
+
+
+
+
+```{r weight, echo=FALSE}
+#Doing the weighting correction, as explain in the PDF "6533_ndns_yrs9-11_weights_guide"
+
+n1 = sum(sav4br$wti_UKY1234)  #Should be 6828
+
+n2 = sum(sav6br$wti_Y56)         #Should be 2546
+
+n3 = sum(sav8br$wti_Y78)         #Should be 2723
+
+n4 = sum(sav11br$wti_Y911)       #Should be 3558
+
+N <- sum(n1, n2, n3, n4) #Should be 15655
+```
+
+
+now the proportion weight for each is calculated
+
+```{r}
+sav4br$wti_UKY1to11 <- ((sav4br$wti_UKY1234/n1) * N)  * (4/11)
+
+sav6br$wti_UKY1to11 <- ((sav6br$wti_Y56/n2) * N) * (2/11)
+
+sav8br$wti_UKY1to11 <- ((sav8br$wti_Y78/n3) * N) * (2/11)
+
+sav11br$wti_UKY1to11 <- ((sav11br$wti_Y911/n4) * N) * (3/11)
+
+```
+
+
+```{r include=FALSE}
+#this identifies the variables wanted from the person level data sets
+perslevdat4 <- c("seriali","Age", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
+
+perslevdat6 <- c("seriali","Age", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
+
+perslevdat8 <- c("seriali","Age", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
+
+
+
+perslevdat11 <- c("seriali","AgeR", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
+
+
+
+```
+
+
+
+```{r 4setup variables, message=FALSE, warning=FALSE, include=FALSE}
+ #measured and recorded data yr1-4a_indiv_uk 
+#subsets of the table to identify grouped information
+bpset4 <- sav4br[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval","CutIll")]
+ethnset4 <- sav4br[,c("seriali", "EthGrG","EthGrU" ,"ethgr5","ethgr2")]
+saltset4 <- sav4br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
+medsset4 <- sav4br[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug", "PregNowB")]
+hypset4 <- sav4br[,c("seriali", "hyper140", "hibp140", "hyper1", "highbp1")]
+incset4 <- sav4br[,c("seriali","eqvinc","nssec8","hhinc","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","EducFin")]
+measset4 <- sav4br[,c("seriali","htval","wtval","bmival")]
+ageset4 <- sav4br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
+weightset4 <- sav4br[,c("seriali","wti_UKY1to11","astrata1","area")]
+```
+
+
+```{r 6setup variables, message=FALSE, warning=FALSE, include=FALSE}
+ #measured and recorded data yr1-4a_indiv_uk 
+#subsets of the table to identify grouped information
+bpset6 <- sav6br[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval","CutIll")]
+ethnset6 <- sav6br[,c("seriali", "ethgrp5","ethgrp2")]
+saltset6 <- sav6br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
+medsset6 <- sav6br[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
+hypset6 <- sav6br[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
+incset6 <-sav6br[,c("seriali","nssec8","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
+measset6 <- sav6br[,c("seriali","htval","wtval","bmival")]
+ageset6 <- sav6br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
+weightset6 <- sav6br[,c("seriali","wti_UKY1to11","astrata1","area")]
+```
+
+
+```{r 8setup variables, message=FALSE, warning=FALSE, include=FALSE}
+ #measured and recorded data yr1-4a_indiv_uk 
+#subsets of the table to identify grouped information
+bpset8 <- sav8br[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval")]
+ethnset8 <- sav8br[,c("seriali", "ethgrp5","ethgrp2")]
+saltset8 <- sav8br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
+medsset8<- sav8br[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
+hypset8 <- sav8br[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
+incset8 <-sav8br[,c("seriali","nssec8","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
+measset8 <- sav8br[,c("seriali","htval","wtval","bmival")]
+ageset8 <- sav8br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
+weightset8 <- sav8br[,c("seriali","wti_UKY1to11","astrata1","area")]
+```
+
+```{r 11setup variables, message=FALSE, warning=FALSE, include=FALSE}
+ #measured and recorded data yr9-11a_indiv_uk 
+#subsets of the table to identify grouped information
+bpset11 <- sav11br[,c("seriali","omsysval","omdiaval")]
+ethnset11 <- sav11br[,c("seriali" ,"ethgrp5","ethgrp2")]
+saltset11 <- sav11br[,c("seriali","SaltChk","SalHowC","SltSHow" , "vegetarn")]
+medsset11 <- sav11br[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
+hypset11 <- sav11br[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
+incset11 <- sav11br[,c("seriali","nssec8","GOR","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
+measset11 <- sav11br[,c("seriali","htval2","wtval2","bmival2","bmivg5")]
+ageset11 <- sav11br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1")]
+weightset11 <- sav11br[,c("seriali","wti_UKY1to11","astrata1","area")]
+```
+
+### Data preparation
+
+The data is then arranged into a format which allows processing.
+This includes identifying continuous and categorical variables. 
+It also includes naming the categories of the categorical variables.
+
+ 
+ 
+ 
+```{r include=FALSE}
+ #define factors for 1-4 
+#saltset
+ saltset4[, SaltChk := factor(SaltChk, levels = 1:8, labels = c("Salt",
+	"Salt substitute",
+	"Neither",
+	"Item not applicable",
+	"No answer/refused",
+	"Don't know",
+	"Qn not applicable to survey year",
+	"Schedule not applicable"))]
+ saltset4[, SalHowC := factor(SalHowC, levels = 1:8,labels = c("Always",
+"Usually",
+"Sometimes",
+	",Item not applicable",
+	"No answer/refused",
+	" Don't know",
+"Qn not applicable to survey year",
+"Schedule not applicable"))]
+ saltset4[, SltSHow := factor(SltSHow,levels = 1:8,labels = c("Always",
+                                                            "Usually",
+                                                            "Sometimes",
+                                                            ",Item not applicable",
+                                                            "No answer/refused",
+                                                            " Don't know",
+                                                            "Qn not applicable to survey year",
+                                                            "Schedule not applicable"))]
+ 
+ saltset4[, vegetarn := factor(vegetarn, levels = 1:3, labels = c("vegetarian","vegan","not vegetarian"))]
+```
+ 
+ 
+```{r include=FALSE}
+#medset
+  medsset4[, bpmedc := factor(bpmedc,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+ medsset4[, bpmedd := factor(bpmedd,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+  medsset4[, diur := factor(diur,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+ medsset4[, beta := factor(beta,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+  medsset4[, aceinh := factor(aceinh,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+ medsset4[, calciumb := factor(calciumb,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+  medsset4[, obpdrug := factor(obpdrug,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+ medsset4[, PregNowB := factor(PregNowB,levels = 1:2,	labels = c("preg or breastfeeding"
+	,"not preg or Bfeed"))]
+ 
+ 
+
+
+ 
+ 
+ cutillcat <- c("Cancer (neoplasm) including lumps, masses, tumours and growths and benign (non-malignant) lumps and cysts"
+                ,"Diabetes. Incl. Hyperglycemia"
+                , "Other endocrine/metabolic"
+                ,"Mental illness/anxiety/depression/nerves (nes)"
+                ,"Mental handicap"
+                , "Epilepsy/fits/convulsions"
+                ,"Migraine/headaches
+                "," Other problems of nervous system
+                "," Cataract/poor eye sight/blindness
+                ","Other eye complaints
+                ","Poor hearing/deafness
+                ","Tinnitus/noises in the ear
+                ","Menieres disease/ear complaints causing balance problems
+"," Other ear complaints
+	"," Stroke/cerebral haemorrhage/cerebral thrombosis
+	","Heart attack/angina
+","Hypertension/high blood pressure/blood pressure (nes)
+	"," Other heart problems
+	","Piles/haemorrhoids incl. Varicose Veins in anus
+	"," Varicose veins/phlebitis in lower extremities
+","Other blood vessels/embolic
+	","Bronchitis/emphysema
+	","Asthma
+	"," Hayfever
+	","Other respiratory complaints
+	","Stomach ulcer/ulcer (nes)/abdominal hernia/rupture
+	","Other digestive complaints (stomach, liver, pancreas, bile ducts, small intestine)
+	","Complaints of bowel/colon (large intestine, caecum, bowel, colon, rectum)
+	","Complaints of teeth/mouth/tongue
+	","Kidney complaints
+	","Urinary tract infection
+	","Other bladder problems/incontinence
+	","Reproductive system disorders
+	","Arthritis/rheumatism/fibrositis
+	","Back problems/slipped disc/spine/neck
+","Other problems of bones/joints/muscles
+"," Infectious and parasitic disease
+","Disorders of blood and blood forming organs and immunity disorders
+	","Skin complaints
+	","Other complaints
+","Unclassifiable (no other codable complaint)
+	","Complaint no longer present
+","No answer/refused
+	","Dont know"
+                ,"Qn not applicable to survey year"
+                ,"Item not applicable")
+ 
+#incset
+  
+ hhinccat <- c("Under £5,000","
+	£5,000 - £9,999","
+	£10,000 - £14,999","
+	£15,000 - £19,999","
+	 £20,000 - £24,999","
+	 £25,000 - £29,999","
+	 £30,000 - £34,999","
+	 £35,000 - £39,999","
+	 £40,000 - £44,999","
+	£45,000 - £49,999","
+£50,000 - £74,999","
+	£75,000 - £99,999","
+£100,000 or more","
+	No answer/refused","
+	 Dont know","
+Qn not applicable to survey year","
+Item not applicable")
+
+incset4[,gor := factor(gor, levels = 1:12, labels = c("North East","North West","Yorkshire & The Humber","East Midlands","West Midlands","East of England","London","South East","South West","Wales","Scotland","Northern Ireland"))]
+
+
+incset4[,region := factor(region, levels = 1:6, labels = c("England: North","England: Central/Midlands","England: South(including London)","Scotland","Wales","Northern Ireland"))] 
+  
+incset4[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
+incset4[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5)] 
+incset4[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
+incset4[,EducFin := factor(EducFin, levels = 1:8)] 
+
+#bpset 
+ bpset4[, CutIll := factor(CutIll, levels = 1:46, labels = cutillcat)]
+ bpset4[, "omsysval" := as.numeric(omsysval)]
+ bpset4[,Sys := as.numeric(Sys)]
+
+ #hypeset
+ hypset4[,hyper140 := factor(hyper140,levels = 1:9, labels = c(" Normotensive untreated",
+" Normotensive treated",
+	"Hypertensive treated",
+"Hypertensive untreated",
+"No answer/refused",
+	"Don't know",
+"Refused, attempted but not obtained, not attempted",
+	 "Qn not applicable to survey year",
+"Item not applicable")) ]
+ hypset4[, hibp140 := factor(hibp140, levels = 1:7, labels = c("Not high BP",
+"High BP",
+	"No answer/refused",
+	"Don't know",
+	"Refused, attempted but not obtained, not attempted",
+	"Qn not applicable to survey year",
+	"Item not applicable")) ]
+ hypset4[, hyper1 := factor(hyper1,levels = 1:9, labels = c(" Normotensive untreated",
+                                                          " Normotensive treated",
+                                                          "Hypertensive treated",
+                                                          "Hypertensive untreated",
+                                                          "No answer/refused",
+                                                          "Don't know",
+                                                          "Refused, attempted but not obtained, not attempted",
+                                                          "Qn not applicable to survey year",
+                                                          "Item not applicable"))]
+ hypset4[, highbp1 := factor(highbp1, levels = 1:7, labels = c("Not high BP",
+                                                              "High BP",
+                                                              "No answer/refused",
+                                                              "Don't know",
+                                                              "Refused, attempted but not obtained, not attempted",
+                                                              "Qn not applicable to survey year",
+                                                              "Item not applicable")) ]
+ 
+ 
+ 
+ 
+  
+#ethnset  
+ethnset4[ , EthGrG := factor(EthGrG)]
+ethnset4[ , EthGrU := factor(EthGrU)]
+ethnset4[ , ethgr5 := factor(ethgr5, levels = 1:5, labels = c( 'White'
+                                                             , 'Mixed ethnic group'
+                                                             , 'Black or Black British'
+                                                             , 'Asian or asian British'
+                                                             , 'Any other group'))]
+ethnset4[ , ethgr2 := factor(ethgr2, levels = 1:2, labels = c( 'White'
+                                                             , 'Non-white'))]
+
+#incset
+incset4[ , nssec8 := factor(nssec8, levels = 1:9, labels = c(  "Higher managerial and professional occupations", "Lower managerial and professional occupations"
+               , "Intermediate occupations"
+                           , "Small employers and own account workers"
+                           , "Lower supervisory and technical occupations"
+                           , "Semi-routine occupations"
+                           , "Routine occupations"
+                           , "Never worked"
+                           , "Other"))]
+incset4[ , hhinc := factor (hhinc, levels = 1:17,labels = hhinccat)]
+
+
+#ageset
+ageset4[,agegad1 := factor(agegad1, levels = 1:4 ,labels = c("16-24","25-49","50-64","65+ years"))]
+ageset4[,agegad2 := factor(agegad2, levels = 1:5, labels = c("16-18","19-34","35-49","50-64","65+ years"))]
+ageset4[,agegch1 := factor(agegch1, levels = 1:3, labels = c("8-10","11-12","13-15"))]
+ageset4[,agegr1 := factor(agegr1, levels = 1:5, labels = c("1.5-3 years","4-10 years","11-18 years","19-64 years","65+ years"))]
+ 
+#add columns for g equivalent of mmol for sodium
+saltset4$Na_g_Corrected <- saltset4$Na_mmol_Corrected/17.1
+saltset4$Na_g <- saltset4$Na_mmol/17.1
+saltset4$Na_g_24h_4_10CLAIM <- saltset4$Na_mmol_24h_4_10CLAIM/17.1
+saltset4$Na_g_24h_4_10CLAIM_Corrected <- saltset4$Na_mmol_24h_4_10CLAIM_Corrected/17.1
+
+
+
+ 
+```
+
+
+
+```{r rearrange 11, message=FALSE, warning=FALSE, include=FALSE}
+
+ 
+ #define factors for 9-11
+ #saltset
+ saltset11[, SaltChk := factor(SaltChk, levels = 1:8, labels = c("Salt",
+	"Salt substitute",
+	"Neither",
+	"Item not applicable",
+	"No answer/refused",
+	"Don't know",
+	"Qn not applicable to survey year",
+	"Schedule not applicable"))]
+ saltset11[, SalHowC := factor(SalHowC, levels = 1:8,labels = c("Always",
+"Usually",
+"Sometimes",
+	",Item not applicable",
+	"No answer/refused",
+	" Don't know",
+"Qn not applicable to survey year",
+"Schedule not applicable"))]
+ saltset11[, SltSHow := factor(SltSHow,levels = 1:8,labels = c("Always",
+                                                            "Usually",
+                                                            "Sometimes",
+                                                            ",Item not applicable",
+                                                            "No answer/refused",
+                                                            " Don't know",
+                                                            "Qn not applicable to survey year",
+                                                            "Schedule not applicable"))]
+ 
+  saltset11[, vegetarn := factor(vegetarn, levels = 1:3, labels = c("vegetarian","vegan","not vegetarian"))]
+ 
+#ethnset
+ethnset11[ , ethgrp5 := factor(ethgrp5, levels = 1:5, labels = c( 'White'
+                                                             , 'Mixed ethnic group'
+                                                             , 'Black or Black British'
+                                                             , 'Asian or asian British'
+                                                             , 'Any other group'))]
+ethnset11[ , ethgrp2 := factor(ethgrp2, levels = 1:2, labels = c( 'White'
+                                                             , 'Non-white'))]
+
+ 
+ 
+#bpset 
+ 
+ bpset11[, "omsysval" := as.numeric(omsysval)]
+ #bpset[,Sys := as.numeric(Sys)]
+
+#medset
+  medsset11[, bpmedc2 := factor(bpmedc2,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+ medsset11[, bpmedd2 := factor(bpmedd2, levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))] 
+ medsset11[, diur2 := factor(diur2,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+ medsset11[, beta2 := factor(beta2,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+  medsset11[, aceinh2 := factor(aceinh2,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+ medsset11[, calciumb2 := factor(calciumb2,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+  medsset11[, obpdrug2 := factor(obpdrug2,levels = 0:1,	labels = c("Not taking drug"
+	,"Taking drug"))]
+  medsset11[, PregNowB := factor(PregNowB,levels = 1:2,	labels = c("preg or breastfeeding"
+	,"not preg or Bfeed"))]
+  
+#incset
+incset11[ , nssec8 := factor(nssec8, levels = 1:9, labels = c(  "Higher managerial and professional occupations", "Lower managerial and professional occupations"
+               , "Intermediate occupations"
+                           , "Small employers and own account workers"
+                           , "Lower supervisory and technical occupations"
+                           , "Semi-routine occupations"
+                           , "Routine occupations"
+                           , "Never worked"
+                           , "Other"))]
+
+incset11[,GOR := factor(GOR, levels = 1:12, labels = c("North East","North West","Yorkshire & The Humber","East Midlands","West Midlands","East of England","London","South East","South West","Wales","Scotland","Northern Ireland"))]
+
+incset11[,region := factor(region, levels = 1:6, labels = c("England: North","England: Central/Midlands","England: South(including London)","Scotland","Wales","Northern Ireland"))]
+
+incset11[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
+incset11[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5)] 
+incset11[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
+incset11[,educfinh := factor(educfinh, levels = 1:8)] 
+
+ #hypeset
+ hypset11[,hyper140_2 := factor(hyper140_2,levels = 1:9, labels = c(" Normotensive untreated",
+" Normotensive treated",
+	"Hypertensive treated",
+"Hypertensive untreated",
+"No answer/refused",
+	"Don't know",
+"Refused, attempted but not obtained, not attempted",
+	 "Qn not applicable to survey year",
+"Item not applicable")) ]
+ hypset11[, hibp140_2 := factor(hibp140_2, levels = 1:7, labels = c("Not high BP",
+"High BP",
+	"No answer/refused",
+	"Don't know",
+	"Refused, attempted but not obtained, not attempted",
+	"Qn not applicable to survey year",
+	"Item not applicable")) ]
+ hypset11[, hyper1_2 := factor(hyper1_2,levels = 1:9, labels = c(" Normotensive untreated",
+                                                          " Normotensive treated",
+                                                          "Hypertensive treated",
+                                                          "Hypertensive untreated",
+                                                          "No answer/refused",
+                                                          "Don't know",
+                                                          "Refused, attempted but not obtained, not attempted",
+                                                          "Qn not applicable to survey year",
+                                                          "Item not applicable"))]
+ hypset11[, highbp1_2 := factor(highbp1_2, levels = 1:7, labels = c("Not high BP",
+                                                              "High BP",
+                                                              "No answer/refused",
+                                                              "Don't know",
+                                                              "Refused, attempted but not obtained, not attempted",
+                                                              "Qn not applicable to survey year",
+                                                              "Item not applicable")) ]
+
+ 
+ #ageset
+ageset11[,agegad1 := factor(agegad1, levels = 1:4 ,labels = c("16-24","25-49","50-64","65+ years"))]
+ageset11[,agegad2 := factor(agegad2, levels = 1:5, labels = c("16-18","19-34","35-49","50-64","65+ years"))]
+ageset11[,agegch1 := factor(agegch1, levels = 1:3, labels = c("8-10","11-12","13-15"))]
+ageset11[,agegr1 := factor(agegr1, levels = 1:5, labels = c("1.5-3 years","4-10 years","11-18 years","19-64 years","65+ years"))]
+ 
+ 
+ 
+#measset
+ 
+ measset11[,bmivg5 := factor(bmivg5, levels = 1:10, labels = c("Under 18.5", "18.5 and below 25","25 and below 30","30 and below 40","Over 40","Refused","Don't know","Different variable this survey year","Not applicable to survey year","Not applicable"))]
+
+
+
+```
+
+
+
+The data is then combined into two comprehensive tables.
+
+
+```{r echo=FALSE}
+#building the tables
+sav4rp <- sav4r[, ..perslevdat4]
+sav4rp <- sav4rp[ bpset4, on = "seriali"]
+sav4rp <- sav4rp[ measset4, on = "seriali"]
+sav4rp <- sav4rp[ saltset4, on = "seriali"]
+sav4rp <- sav4rp[ hypset4, on = "seriali"]
+sav4rp <- sav4rp[ ethnset4, on = "seriali"]
+sav4rp <- sav4rp[ incset4, on = "seriali"]
+sav4rp <- sav4rp[ ageset4, on = "seriali"]
+sav4rp <- sav4rp[ medsset4, on = "seriali"]
+
+
+```
+
+```{r echo=FALSE}
+#building the tables
+sav6rp <- as.data.table(sav6r[, ..perslevdat6])
+sav6rp <- sav6rp[ bpset6, on = "seriali"]
+sav6rp <- sav6rp[ measset6, on = "seriali"]
+sav6rp <- sav6rp[ saltset6, on = "seriali"]
+sav6rp <- sav6rp[ hypset6, on = "seriali"]
+sav6rp <- sav6rp[ ethnset6, on = "seriali"]
+sav6rp <- sav6rp[ incset6, on = "seriali"]
+sav6rp <- sav6rp[ ageset6, on = "seriali"]
+sav6rp <- sav6rp[ medsset6, on = "seriali"]
+sav6rp <- sav6rp[ medsset6, on = "seriali"]
+sav6rp <- sav6rp[ weightset6, on = "seriali"]
+```
+
+```{r echo=FALSE}
+#building the tables
+sav8rp <- as.data.table(sav8r[, ..perslevdat8])
+sav8rp <- sav8rp[ bpset8, on = "seriali"]
+sav8rp <- sav8rp[ measset8, on = "seriali"]
+sav8rp <- sav8rp[ saltset8, on = "seriali"]
+sav8rp <- sav8rp[ hypset8, on = "seriali"]
+sav8rp <- sav8rp[ ethnset8, on = "seriali"]
+sav8rp <- sav8rp[ incset8, on = "seriali"]
+sav8rp <- sav8rp[ ageset8, on = "seriali"]
+sav8rp <- sav8rp[ medsset8, on = "seriali"]
+sav8rp <- sav8rp[ weightset8, on = "seriali"]
+```
+
+
+
+```{r include=FALSE}
+
+sav11rp <- sav11r[,..perslevdat11]
+sav11rp <- sav11rp[ bpset11, on = "seriali"]
+sav11rp <- sav11rp[ measset11, on = "seriali"]
+sav11rp <- sav11rp[ saltset11, on = "seriali"]
+sav11rp <- sav11rp[ hypset11, on = "seriali"]
+sav11rp <- sav11rp[ ethnset11, on = "seriali"]
+sav11rp <- sav11rp[ incset11, on = "seriali"]
+sav11rp <- sav11rp[ ageset11, on = "seriali"]
+sav11rp <- sav11rp[ medsset11, on = "seriali"]
+
+
+
+```
+
+
+```{r echo=FALSE}
+
+sav4rp[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
+sav4rp[, Country := factor(Country)]
+
+sav6rp[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
+sav6rp[, Country := factor(Country)]
+
+sav8rp[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
+sav8rp[, Country := factor(Country)]
+
+sav11rp[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
+sav11rp[, Country := factor(Country)]
+
+```
+
+
+ 
+The food diary data needs more processing. In particular the NOVA categorisation is not in the data set. 
+I have derived UPFNOVA from a paper which had a data table identifying the NDNS sub food groups by Rauber et al.
+
+
+
+```{r load food diary data, message=FALSE, warning=FALSE, include=FALSE}
+UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/altquant/UPFNOVA.xlsx"))
+#ndns_yr1_nutrientdatabank <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_yr1_nutrientdatabank.sav"))
+
+#ndns_yr11_nutrient <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_yr11_nutrientdatabank_2021-03-19.sav"))
+
+ ndns1_4a_foodleveldietarydata_uk_v2 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_foodleveldietarydata_uk_v2.sav"))
+
+ndns5_6a_foodleveldietarydata_v2 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr5-6a_foodleveldietarydata_v2.sav"))
+ 
+ndns7_8a_foodleveldietarydata_v2 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr7-8a_foodleveldietarydata.sav"))
+
+
+
+ ndns_rp_yr9a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr9a_foodleveldietarydata_uk_20210831.sav"))
+ ndns_rp_yr10a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr10a_foodleveldietarydata_uk_20210831.sav"))
+ ndns_rp_yr11a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr11a_foodleveldietarydata_uk_20210831.sav") )
+```
+
+####  Processing the food diaries
+The Nova group is attached to the foods in the food diaries from Rauber et al @rauberUltraprocessedFoodsExcessive2019b.
+The tables are reduced to the necessary variables.
+
+```{r process food data into tables, message=FALSE, warning=FALSE, include=FALSE}
+#taking data from diet diary
+
+UPFNOVA[,`Nova group`:= factor(`Nova group`,levels = 1:4)]
+UPFNOVA$SubFoodGroupCode <- UPFNOVA$`food group number`
+
+#specifically coded food groups
+
+#combine with key for Nova Group
+foodlevedat4s <- ndns1_4a_foodleveldietarydata_uk_v2[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
+#foodlevedat4s[ ,seriali  := factor(seriali)]
+foodlevedat4s<- foodlevedat4s[UPFNOVA, on= "SubFoodGroupCode"]
+#summary(foodlevedat4s)
+
+foodlevedat4s<- foodlevedat4s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
+
+foodlevedat9s <- ndns_rp_yr9a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
+foodlevedat10s <- ndns_rp_yr10a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
+foodlevedat11s <- ndns_rp_yr11a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
+
+#combine with key for Nova Group
+
+foodlevedat9s<- foodlevedat9s[UPFNOVA, on= "SubFoodGroupCode"]
+foodlevedat10s<- foodlevedat10s[UPFNOVA, on= "SubFoodGroupCode"]
+foodlevedat11s<- foodlevedat11s[UPFNOVA, on= "SubFoodGroupCode"]
+
+
+
+foodlevedat9s<- foodlevedat9s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
+foodlevedat10s<- foodlevedat10s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
+foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
+
+```
+
+```{r}
+#heatmap(foodlevedat9s, Colv = "TotalGrams")
+
+```
+
+
+To work out the gram weight amount of food intake by each individual, first the diary entries for each individual are totalled up.
+The total gram weight value of intake of each food is then worked out as a percentage of the total intake.
+
+```{r function defn, message=FALSE, warning=FALSE, include=FALSE}
+## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
+
+
+
+IndividDiet <- function(DT,individ) {
+  pers <- DT[seriali==individ]
+pers
+oneweight<-pers[, round(sum(TotalGrams),2), by=`Nova group`][order(`Nova group`)]
+
+setnames( oneweight, 'V1','Totalg')
+ oneweight[,pcnt := round((Totalg/sum(Totalg)*100),2)]
+
+  return(na.exclude(oneweight))
+}
+
+
+```
+
+All these individual calculations are then built back up into tables. 
+This is done for years 9-11 and then 1-4.
+
+
+```{r year 9 process, message=FALSE, warning=FALSE, include=FALSE}
+### This section uses the function designed above to process the table
+name <-foodlevedat9s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)  
+#nameu
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDiet(foodlevedat9s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat9sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
+#foodleveldat9sp
+
+
+
+```
+
+```{r year 10 process, warning=FALSE, include=FALSE}
+
+name <-foodlevedat10s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)
+#summary(nameu)
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDiet(foodlevedat10s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat10sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
+#foodleveldat10sp
+
+
+```
+
+
+```{r year 11 process, message=FALSE, warning=FALSE, include=FALSE}
+
+name <-foodlevedat11s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)
+#summary(nameu)
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDiet(foodlevedat11s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat11sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
+#foodleveldat11sp
+
+#then combining the outputs 9-11
+foodleveldat910sp <- rbind(foodleveldat9sp,foodleveldat10sp)
+foodleveldat911sp <- rbind(foodleveldat11sp, foodleveldat910sp)
+```
+
+
+```{r slow processing four years, echo=FALSE, warning=FALSE}
+
+name <-foodlevedat4s[,.(seriali)]  
+name <- (unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)
+#summary(nameu)
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDiet(foodlevedat4s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat4sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
+#foodleveldat4sp
+
+
+
+```
+
+The process can be done for food level energy intake also.
+```{r energy function defn, message=FALSE, warning=FALSE, include=FALSE}
+## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
+
+
+
+IndividDietE <- function(DT,individ) {
+  pers <- DT[seriali==individ]
+pers
+oneweight<-pers[, round(sum(EnergykJ),2), by=`Nova group`][order(`Nova group`)]
+
+setnames( oneweight, 'V1','EnergykJ')
+ oneweight[,Epcnt := round((EnergykJ/sum(EnergykJ)*100),2)]
+
+  return(na.exclude(oneweight))
+}
+
+
+```
+
+```{r Eyear 9 process, message=FALSE, warning=FALSE, include=FALSE}
+### This section uses the function designed above to process the table
+name <-foodlevedat9s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)  
+#nameu
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDietE(foodlevedat9s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat9spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
+#foodleveldat9spE
+
+
+
+```
+
+```{r Eyear 10 process, message=FALSE, warning=FALSE, include=FALSE}
+### This section uses the function designed above to process the table
+name <-foodlevedat10s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)  
+#nameu
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDietE(foodlevedat10s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat10spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
+#foodleveldat10spE
+
+
+
+```
+
+
+```{r Eyear 11 process, message=FALSE, warning=FALSE, include=FALSE}
+### This section uses the function designed above to process the table
+name <-foodlevedat11s[,.(seriali)]  
+name <- as.numeric(unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)  
+#nameu
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDietE(foodlevedat11s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat11spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
+foodleveldat11spE
+
+
+#then combining the outputs 9-11
+foodleveldat910spE <- rbind(foodleveldat9spE,foodleveldat10spE)
+foodleveldat911spE <- rbind(foodleveldat11spE, foodleveldat910spE)
+```
+
+
+```{r Eslow processing four years, echo=FALSE, warning=FALSE}
+
+name <-foodlevedat4s[,.(seriali)]  
+name <- (unlist(name))
+nameu <-c(unique(name))
+x <- length(nameu)
+#summary(nameu)
+outcome <- data.table()
+
+for (i in 1:x){
+  
+
+
+output<- IndividDietE(foodlevedat4s,nameu[i])  
+
+output$seriali <- nameu[i]
+
+ outcome <-rbind(outcome,output) 
+ 
+ 
+}
+
+foodleveldat4spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
+#foodleveldat4spE
+
+
+
+```
+
+
+After that, this information is added to the other data.
+This gives us the nova group information by weight and weight percent for all participants .
+
+The data is now ready for analysis first by descriptive analysis.
+
+```{r adding to earlier data, echo=FALSE, message=FALSE, warning=FALSE}
+# combine with data from version10a.rmd
+
+#sav11rpb <- readRDS("sav11rp.rds")
+
+setkey(sav11rp,seriali)
+setkey(foodleveldat911sp, seriali)
+setkey(foodleveldat911spE, seriali)
+
+sav11rp <-sav11rp[foodleveldat911sp, by= seriali]
+sav11rp <-sav11rp[foodleveldat911spE, by= seriali]
+#sav11rp$ED <- sav11rp[,.("Epcnt_4"/"pcnt_4")]
+
+#sav4rp <- readRDS("sav4rp.rds")
+
+setkey(sav4rp,seriali)
+setkey(foodleveldat4sp,seriali)
+setkey(foodleveldat4spE,seriali)
+sav4rp <-sav4rp[foodleveldat4sp, by= seriali]
+sav4rp <-sav4rp[foodleveldat4spE, by= seriali]
+```
+
+###  Exclusions 
+eg hypertensives and pregnant/breastfeeding
+possible future set with only England?
+
+I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs. There are no participants who are pregnant or breastfeeding. 
+I have included normotensive untreated individuals. 
+I have restricted the data set to England only.
+Over 18s only
+
+```{r echo=FALSE}
+#first remove from years 1-4
+sav4rp <- sav4rp[(hyper1 == " Normotensive untreated" ), ]
+
+#there are no pregnant or breast feeding participants
+#sav4rpn <- sav4rpn[(PregNowB != "preg or breastfeeding" ), ]
+
+
+#medication affecting bp
+sav4rp <- sav4rp[diur == "Not taking drug"]
+sav4rp <-sav4rp[beta == "Not taking drug"]
+sav4rp <-sav4rp[aceinh == "Not taking drug"]
+sav4rp <-sav4rp[calciumb =="Not taking drug"]
+sav4rp <- sav4rp[obpdrug == "Not taking drug"]
+
+sav4rp <- sav4rp[Country == "England"]
+sav4rp <- sav4rp[Age >18]
+#then remove from years 9-11
+sav11rp <- sav11rp[(hyper1_2 == " Normotensive untreated" ), ]
+
+#nil pregnant or breast feeding
+# medication affecting bp
+sav11rp <-sav11rp[diur2 == "Not taking drug"]
+sav11rp <-sav11rp[beta2 == "Not taking drug"]
+sav11rp <-sav11rp[aceinh2 == "Not taking drug"]
+sav11rp <-sav11rp[calciumb2 =="Not taking drug"]
+sav11rp <-sav11rp[obpdrug2 =="Not taking drug"]
+
+sav11rp <-sav11rp[Country == "England"]
+#summary(sav11rp)
+sav11rp <- sav11rp[AgeR >18]
+#This section exports these key datatables to use with the other script (not needed if combining all in one script!)
+#saveRDS(sav11rp, file ="sav11rp.rds")
+#saveRDS(sav4rp, file ="sav4rp.rds")
+```
+
+
+## Descriptive data analysis
+
+This section will review the data which will be used for the statistical analysis.
+The data is summarised, with Mean median, and range for continuous variables. 
+Counts are available for categorical variables.
+First for years 1-4 then for 9-11.
+
+The key variables are omsysval which is the dependant variable, and UPF proportion intake and sodiummg. 
+These variables are the ones which most relate to the research question. 
+There are a number of related variables in the dataset. These were chosen for reliability and practicality.
+The omsysval is a validated measurement with significant quality assessment within the dataset. 
+Raw systolic values are present in the dataset but are made up of data with issues around quality. 
+In particular the systolic values are assessed for the effects of exercise, temperature and ill health. 
+
+The sodium value is one calculated from intake based on food diaries and standard food nutrient values.
+This is dependant on a lot of processing, but but only reflects standard foods. Serum sodium values are available for the early dataset, but not the later one. 
+There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods.
+
+
+
+Summary Description of the key variables of sodium intake, Total energy intake, and BP
+Show the data. This is the whole dataset.
+
+
+```{r echo=FALSE, warning=FALSE}
+keydata <- rbind(summary(sav4rp[,Sodiummg]), summary(sav11rp[,Sodiummg]),summary(sav4rp[,pcnt_4]), summary(sav11rp[,pcnt_4]),summary(sav4rp[,Epcnt_4]), summary(sav11rp[,Epcnt_4]),summary(sav4rp[,omsysval]), summary(sav11rp[,omsysval]),summary(sav4rp[,omdiaval]), summary(sav11rp[,omdiaval]))
+keydata <- as.data.table(keydata)
+keydata <- signif(keydata, digits = 4)
+keydata$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4", "Epcnt_4", "Epcnt_4","omsysval","omsysval","omdiaval", "omdiaval")
+ 
+
+keydata
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+bpNa <- data.table("2010"=c(sav4rp[,Sodiummg]),"2019" =c(sav11rp[,Sodiummg]))
+boxplot(bpNa, main = "Sodiummg 2010 vs 2019", xlab = "year", ylab = "Sodium mg")
+bpgram <-data.table("2010" =c(sav4rp[,sqrt(pcnt_4)]),"2019" = c(sav11rp[,sqrt(pcnt_4)]))
+boxplot(bpgram, main = "square root of Weight Percent UPF 2010 vs 2019", xlab = "year", ylab = "pcnt_4")
+bpE <-data.table("2010" =c(sav4rp[,Epcnt_4]),"2019" = c(sav11rp[,Epcnt_4]))
+boxplot(bpE, main = " Energy Percent UPF 2010 vs 2019", xlab = "year", ylab = "Epcnt_4")
+
+
+bpOS <- data.table("2010" = c(sav4rp[,omsysval]),"2019"=c(sav11rp[,omsysval]))
+boxplot(bpOS,main = "omsysval 2010 vs 2019",xlab = "year", ylab = "omsysval")
+bpOD <-data.table("2010" = c(sav4rp[,omdiaval]),"2019" = c(sav11rp[,omdiaval]))
+boxplot(bpOD, main = "omdiaval 2010 vs 2019", xlab = "year", ylab = "omdiaval")
+
+
+```
+
+I have used the square root of the percentage as this reduces the skew of the data leading to a closer approximation to the normal distribution.
+
+
+
+
+```{r echo=FALSE, warning=FALSE}
+#This is just adults >18. The range of values is different to the standard population.
+keydataA <- rbind(summary(sav4rp[Age >= 18 ,Sodiummg]), summary(sav11rp[AgeR >= 18,Sodiummg]),summary(sav4rp[Age >= 18,pcnt_4]), summary(sav11rp[AgeR >= 18,pcnt_4]),summary(sav4rp[Age >= 18,omsysval]), summary(sav11rp[AgeR >= 18,omsysval]), summary(sav4rp[Age >= 18,omdiaval]), summary(sav11rp[AgeR >= 18,omdiaval]))
+keydataA <- as.data.table(keydataA)
+keydataA <- signif(keydataA, digits = 4)
+keydataA$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4","omsysval","omsysval","omdiaval", "omdiaval")
+
+#keydataA
+```
+
+
+
+
+```{r echo=FALSE, warning=FALSE}
+#This is just Male participants again showing the changes from the overall population.
+
+keydataM <- rbind(summary(sav4rp[Sex == "Male" ,Sodiummg]), summary(sav11rp[Sex == "Male",Sodiummg]),summary(sav4rp[Sex == "Male" ,pcnt_4]), summary(sav11rp[Sex == "Male" ,pcnt_4]),summary(sav4rp[Sex == "Male" ,omsysval]), summary(sav11rp[Sex == "Male" ,omsysval]),summary(sav4rp[Sex == "Male" ,omdiaval]), summary(sav11rp[Sex == "Male" ,omdiaval]))
+
+keydataM <- as.data.table(keydataM)
+keydataM <- signif(keydataM, digits = 4)
+keydataM$names = c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4","omsysval","omsysval","omdiaval", "omdiaval") 
+#keydataM
+
+```
+
+
+## Statistical Comparison of key variables
+### comparing UPF and Sodium intake calculated from diet
+
+
+
+In order to confirm there has been a change in intake 
+a t.test compares the means of the two samples.
+This first compares the means of sodium in years 1-4 with sodium in years 9-11.
+
+The second compares the means of pcnt UPF intake in over the same periods.
+
+```{r echo=FALSE}
+
+ttestNa <- t.test(sav11rp[,"Sodiummg"], sav4rp[,"Sodiummg"])
+ttestpcnt_4 <-t.test(sav11rp[,"pcnt_4"], sav4rp[,"pcnt_4"])
+ttestEpcnt_4 <-t.test(sav11rp[,"Epcnt_4"], sav4rp[,"Epcnt_4"])
+
+
+data.table("Var" = c("Epcnt_4","pcnt_4","Na"),"statistic" = signif(c(ttestEpcnt_4$statistic,ttestpcnt_4$statistic,ttestNa$statistic), digits = 4), "p.value" = signif(c(ttestEpcnt_4$p.value,ttestpcnt_4$p.value,ttestNa$p.value), digits = 4))
+ttestpcnt_4
+ttestEpcnt_4
+ttestNa
+```
+
+It seems the mean percentage UPF intake changes less by 2 % and this reduction is statistically significant.
+The sodium intake has changed by 5.5 mg and is also statistically significant with a p value less than 0.05.
+
+
+### what about outcome  BP?
+The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
+
+```{r echo=FALSE}
+
+
+
+ttestOS <- t.test(sav11rp[,"omsysval"], sav4rp[,"omsysval"])
+ttestOD <- t.test(sav11rp[,"omdiaval"], sav4rp[,"omdiaval"])
+data.table("Var" = c("Sys","Dia"),"statistic" = signif(c(ttestOS$statistic,ttestOD$statistic), digits= 4), "p.value" = signif(c(ttestOS$p.value,ttestOD$p.value), digits = 4))
+```
+
+There is a reduction in systolic, with a less significant reduction in diastolic
+
+In summary there is a reduction in UPF and Na intake and a drop in both systolic and diastolic pressures. 
+
+
+
+Has another factor affected the BP change ?
+
+
+
+
+### Statistical analysis of Confounding variables
+
+How are confounding variables distributed between the two datasets
+The NDNS dataset was weighted to keep many of these the same between datasets. 
+
+
+```{r echo=FALSE}
+#from pers data
+#continuous data
+ttestage <-t.test(sav11rp[,"AgeR"], sav4rp[,"Age"])
+ttestca <- t.test(sav11rp[,Calciummg], sav4rp[,"Calciummg"])
+ttestts <-t.test(sav11rp[,Totalsugarsg], sav4rp[,"Totalsugarsg"])
+ttestgl <-t.test(sav11rp[,Glucoseg], sav4rp[,"Glucoseg"])
+ttestfr <- t.test(sav11rp[,Fructoseg], sav4rp[,"Fructoseg"])
+ttestsu <-t.test(sav11rp[,Sucroseg], sav4rp[,"Sucroseg"])
+ttestla <-t.test(sav11rp[,Lactoseg], sav4rp[,"Lactoseg"])
+ttestlo <-t.test(sav11rp[,SOFTDRINKSLOWCALORIE], sav4rp[,"SOFTDRINKSLOWCALORIE"])
+ttestnlo <-t.test(sav11rp[,SOFTDRINKSNOTLOWCALORIE], sav4rp[,"SOFTDRINKSNOTLOWCALORIE"])
+ttesttc<- t.test(sav11rp[,TEACOFFEEANDWATER], sav4rp[,"TEACOFFEEANDWATER"])
+
+confounders <- data.table("name" = c("Age","Calciummg","Totalsugarsg","Glucoseg","Fructoseg","Sucroseg", "Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE","TEACOFFEEANDWATER"), 
+ "pvalue" = signif(c(ttestage$p.value, ttestca$p.value,ttestts$p.value,ttestgl$p.value,ttestfr$p.value,ttestsu$p.value,ttestla$p.value,
+    ttestlo$p.value,ttestnlo$p.value,ttesttc$p.value), digits = 4))
+confounders
+
+```
+They seem to all be significantly different between the datasets! (except calciummg, and lactose)
+
+There is a difference of 5 years in the mean ages. The change in Age might be explained by more younger people being on anti-hypertensive meds. or hypertension being diagnosed earlier
+
+
+There has been a change in the intake of soft drinks, tea coffee and water.
+
+```{r echo=FALSE, warning=FALSE}
+
+#categorical data
+stable11 <- xtabs(~sav11rp[,Sex])
+stable4 <- xtabs(~sav4rp[, Sex])
+stabler <- chisq.test(rbind(stable11 , stable4))
+
+
+#ctable11 <- xtabs(~sav11rp[,Country])
+#ctable4 <- xtabs(~sav4rp[,Country])
+#ctabler <- chisq.test(rbind(ctable4,ctable11))
+
+catconfounders <- data.table("name" = c("Sex"),"pvalue" = signif(c(stabler$p.value),digits = 4))
+
+catconfounders
+
+
+plot(sav11rp[,Sex], main = "2019", caption = "Bar Plot of Sex in 2019 cohort")
+plot(sav4rp[,Sex], main = "2010",caption = "Bar Plot of Sex in 2019 cohort")
+#plot(sav11rp[,Country], main = "2019")
+#plot(sav4rp[,Country], main = "2010")
+
+```
+
+Again significant differences
+Are there time differences in diagnosis of hypertension/treatment between sexes 
+ie are more women now on meds compared with the number of men than previously?
+There appears to be more men excluded in the 1-4 population compared to females, when this is compared to the 2017-19 population. This supports the idea of greater equality in prescribing more recently.
+
+
+
+
+comparing individual data sets looking for similarity in two
+```{r echo=FALSE}
+#ttests for continuous data
+ttestht <- t.test(sav11rp[,"htval2"],sav4rp[,"htval"])
+ttestwt <- t.test(sav11rp[,"wtval2"],sav4rp[,"wtval"])
+ttestbmi <- t.test(sav11rp[,"bmival2"],sav4rp[,"bmival"])
+
+confounders2 <- data.table("name" = c("htval","wtval","bmival"),"pvalue" = signif(c(ttestht$p.value,ttestwt$p.value,ttestbmi$p.value),digits = 4))
+confounders2
+
+
+
+
+```
+This table suggests that there is a significant difference between the height, and bmi of the groups.
+The 11 population is shorter by 4 cm and 7 kilos lighter 
+The mean bmi has dropped from 25.86 which is overweight. 
+It is now 23.48 which is in the normal range. 
+This would also highlight a preferential detection of high BP in those overweight.
+
+
+```{r echo=FALSE, warning=FALSE}
+
+#chisquared for categorical data
+#saltset
+vtable11 <- xtabs(~sav11rp[,vegetarn])
+vtable4 <- xtabs(~sav4rp[, vegetarn])
+vtabler <- chisq.test(rbind(vtable11 , vtable4))
+
+#cktable11 <- xtabs(~sav11rp[1:3,SaltChk])
+#cktable4 <- xtabs(~sav4rp[1:3, SaltChk])
+#cktabler <- chisq.test(rbind(cktable11 , cktable4))
+
+#hwtable11 <- xtabs(~sav11rp[1:3,SalHowC])
+#hwtable4 <- xtabs(~sav4rp[1:3, SalHowC])
+#hwtabler <-chisq.test(rbind(hwtable11 , hwtable4))
+
+#swtable11 <- xtabs(~sav11rp[1:3,SltSHow])
+#swtable4 <- xtabs(~sav4rp[1:3, SltSHow])
+#swtabler <- chisq.test(rbind(swtable11 , swtable4))
+
+#catconfounders2 <- data.table("name" = c("vegetarn","SaltChk","SalHowC","SltShow"),"p.value" = signif(c(vtabler$p.value,cktabler$p.value,hwtabler$p.value,swtabler$p.value ),digits = 4))
+catconfounders2 <- data.table("name" = c("vegetarn"),"p.value" = signif(c(vtabler$p.value ),digits = 4))
+catconfounders2
+
+```
+These values identify a significant difference in the number of vegetarians
+
+```{r echo=FALSE, warning=FALSE}
+
+#ethnset
+e5table11 <- xtabs(~sav11rp[,ethgrp5])
+e5table4 <- xtabs(~sav4rp[, ethgr5])
+e5tabler <- chisq.test(rbind(e5table11 , e5table4))
+
+e2table11 <- xtabs(~sav11rp[,ethgrp2])
+e2table4 <- xtabs(~sav4rp[, ethgr2])
+e2tabler <- chisq.test(rbind(e2table11 , e2table4))
+
+#incset
+
+#n8table11 <- xtabs(~sav11rp[,nssec8])
+#n8table4 <- xtabs(~sav4rp[, nssec8])
+#n8tabler<- chisq.test(rbind(n8table11 , n8table4))
+
+#gtable11 <- xtabs(~sav11rp[,GOR])
+#gtable4 <- xtabs(~sav4rp[,gor])
+#gtabler <- chisq.test(rbind(gtable11 , gtable4))
+
+#rtable11 <- xtabs(~sav11rp[,region])
+#rtable4 <- xtabs(~sav4rp[, region])
+#rtabler <-chisq.test(rbind(rtable11 , rtable4))
+
+
+q07table11 <- xtabs(~sav11rp[,EIMD_2007_quintile])
+q07table4 <- xtabs(~sav4rp[, EIMD_2007_quintile])
+q07tabler <-chisq.test(rbind(q07table11 , q07table4))
+
+q10table11 <- xtabs(~sav11rp[,EIMD_2010_quintile])
+q10table4 <- xtabs(~sav4rp[, EIMD_2010_quintile])
+q10tabler <-chisq.test(rbind(q10table11 , q10table4))
+
+q15table11 <- xtabs(~sav11rp[,EIMD_2015_quintile])
+q15table4 <- xtabs(~sav4rp[, EIMD_2015_quintile])
+q15tabler <-chisq.test(rbind(q15table11 , q15table4))
+
+edutable11 <- xtabs(~sav11rp[,educfinh])
+edutable4 <- xtabs(~sav4rp[, EducFin])
+edutabler <-chisq.test(rbind(edutable11 , edutable4))
+
+
+#catconfounders3a <- data.table("name" = c("GOR","region"),"p.value" =signif(c( gtabler$p.value, rtabler$p.value ),digits = 4))
+
+catconfounders3b <- data.table("name" = c("ethgrp5","ethgrp2"),"p.value" =signif(c(e5tabler$p.value, e2tabler$p.value),digits = 4))
+
+catconfounders3c <- data.table("name" = c("EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile"),"p.value" =signif(c(q07tabler$p.value, q10tabler$p.value, q15tabler$p.value),digits = 4))
+
+catconfounders3d <- data.table("name" = c("educfin"),"p.value" =signif(c(edutabler$p.value),digits = 4))
+
+#catconfounders3a
+catconfounders3b
+catconfounders3c
+catconfounders3d
+```
+There are differences in ethnicity as divided into 5 subgroups.
+The differences in qimd, using the 2010 definitions, are not statistically significant.
+There is a difference in the age of finishing education.
+
+```{r echo=FALSE, warning=FALSE}
+
+#hypeset
+
+h1table11 <- xtabs(~sav11rp[,hyper1_2])
+h1table4 <- xtabs(~sav4rp[, hyper1])
+h1tabler <- chisq.test(rbind(h1table11 , h1table4))
+
+h14table11 <- xtabs(~sav11rp[,hyper140_2])
+h14table4 <- xtabs(~sav4rp[, hyper140])
+h14tabler <- chisq.test(rbind(h14table11 , h14table4))
+
+#hi1table11 <- xtabs(~sav11rp[,highbp1_2])
+#hi1table4 <- xtabs(~sav4rp[, highbp1 ])
+#hi1tabler <- chisq.test(rbind(hi1table11 , hi1table4))
+
+hi14table11 <- xtabs(~sav11rp[,hibp140_2])
+hi14table4 <- xtabs(~sav4rp[, hibp140])
+hi14tabler <- chisq.test(rbind(hi14table11 , hi14table4))
+
+#ageset
+
+ad1table11 <- xtabs(~sav11rp[,agegad1])
+ad1table4 <- xtabs(~sav4rp[, agegad1])
+ad1tabler <- chisq.test(rbind(ad1table11 , ad1table4))
+
+ad2table11 <- xtabs(~sav11rp[,agegad2])
+ad2table4 <- xtabs(~sav4rp[, agegad2])
+ad2tabler <- chisq.test(rbind(ad2table11 , ad2table4))
+
+#ch1table11 <- xtabs(~sav11rp[,agegch1])
+#ch1table4 <- xtabs(~sav4rp[, agegch1 ])
+#ch1tabler <-chisq.test(rbind(ch1table11 , ch1table4))
+
+#ag1table11 <- xtabs(~sav11rp[, agegr1])
+#ag1table4 <- xtabs(~sav4rp[, agegr1])
+#ag1tabler <- chisq.test(rbind(ag1table11 , ag1table4))
+
+catconfounders4a <- data.table("name" = c("agegad1","agegad2"),"p.value" = signif( c( ad1tabler$p.value , ad2tabler$p.value), digits = 4))
+
+catconfounders4b <- data.table("name" = c("hyper1","hyper140","highbp1","hibp140"),"p.value" = signif( c(h1tabler$p.value, h14tabler$p.value, 0, hi14tabler$p.value), digits = 4))
+
+
+catconfounders4a
+#catconfounders4b
+```
+The age groups show some discrepancy with the p value significant only in the child age groups.
+
+```{r echo=FALSE, warning=FALSE}
+
+#medset
+
+#mctable11 <- xtabs(~sav11rp[,bpmedc2])
+#mctable4 <- xtabs(~sav4rp[, bpmedc ])
+#mctabler <- chisq.test(rbind(mctable11 , mctable4))
+
+#mdtable11 <- xtabs(~sav11rp[, bpmedd2])
+#mdtable4 <- xtabs(~sav4rp[, bpmedd])
+#mdtabler <- chisq.test(rbind(mdtable11 , mdtable4))
+
+#ditable11 <- xtabs(~sav11rp[,diur2])
+#ditable4 <- xtabs(~sav4rp[, diur])
+#ditabler <- chisq.test(rbind(ditable11 , ditable4))
+
+#betable11 <- xtabs(~sav11rp[,beta2])
+#betable4 <- xtabs(~sav4rp[, beta])
+#betabler <- chisq.test(rbind(betable11 , betable4))
+
+#cbtable11 <- xtabs(~sav11rp[,calciumb2])
+#cbtable4 <- xtabs(~sav4rp[, calciumb])
+#cbtabler <-chisq.test(rbind(cbtable11 , cbtable4))
+
+#acetable11 <- xtabs(~sav11rp[, aceinh2])
+#acetable4 <- xtabs(~sav4rp[, aceinh])
+#acetabler <- chisq.test(rbind(acetable11 , acetable4))
+
+#othtable11 <- xtabs(~sav11rp[,obpdrug2])
+#othtable4 <- xtabs(~sav4rp[, obpdrug])
+#othtabler <- chisq.test(rbind(othtable11 , othtable4))
+
+#prtable11 <- xtabs(~sav11rp[,PregNowB])
+#prtable4 <- xtabs(~sav4rp[, PregNowB])
+#prtabler <- chisq.test(rbind(prtable11 , prtable4))
+
+#catconfounders5 <- data.table("name" = c("bpmedc","bpmedd","diur","beta","calciumb","aceinh","obpdrug","PregNowB"), "p.value" = signif(c(mctabler$p.value, mdtabler$p.value, ditabler$p.value, betabler$p.value, cbtabler$p.value, acetabler$p.value, othtabler$p.value, prtabler$p.value ),digits = 4))
+
+#catconfounders5
+
+```
+
+
+
+
+
+
+
+##  Regression Analysis
+###  linear regression
+
+
+
+Simple linear regression equations look for the relationship between the dependant variable, and the independent variable.
+
+Firstly using linear regression I will look at the correlation between omsysval and sodiummg. 
+There are regressions for 1-4 and 9-11
+
+```{r}
+plot(sav4rp$omsysval, sav4rp$Sodiummg)
+plot(sav4rp$omsysval, sav4rp$Epcnt_4)
+plot(sav4rp$omsysval, sav4rp$pcnt_4)
+plot(sav11rp$omsysval, sav11rp$Sodiummg)
+plot(sav11rp$omsysval, sav11rp$Epcnt_4)
+plot(sav11rp$omsysval, sav11rp$pcnt_4)
+```
+
+There is a  relationship between Na and omsysval. There is a weakly positive gradiant. This appears greater in the more recent data starting from a lower intersection with the y axis.
+
+
+```{r echo=FALSE}
+#linear regression models
+#UPF gram % only
+lm1g4 <- lm(omsysval ~ sqrt(pcnt_4), sav4rp)
+
+
+lm1g11 <- lm(omsysval ~ sqrt(pcnt_4), sav11rp)
+lm1g4
+lm1g11
+
+anova(lm1g4)
+AIC(lm1g4)
+anova(lm1g11)
+AIC(lm1g11)
+
+sensemakr(lm1g4, treatment = "sqrt(pcnt_4)")
+sensemakr(lm1g11, treatment = "sqrt(pcnt_4)")
+```
+
+```{r echo=FALSE}
+#linear regression models
+#UPF Energy % only
+lm1E4 <- lm(omsysval ~ Epcnt_4, sav4rp)
+
+
+lm1E11 <- lm(omsysval ~ Epcnt_4, sav11rp)
+lm1E4
+lm1E11
+
+anova(lm1E4)
+AIC(lm1E4)
+anova(lm1E11)
+AIC(lm1E11)
+
+sensemakr(lm1E4, treatment = "Epcnt_4")
+sensemakr(lm1E11, treatment = "Epcnt_4")
+```
+
+
+```{r echo=FALSE}
+#linear regression models
+#sodium only
+lm1na4 <- lm(omsysval ~ Sodiummg, sav4rp)
+
+
+
+
+lm1na11 <- lm(omsysval ~ Sodiummg, sav11rp)
+(lm1na4)
+(lm1na11)
+anova(lm1na4)
+AIC(lm1na4)
+anova(lm1na11)
+AIC(lm1na11)
+
+sensemakr(lm1na4, treatment = "Sodiummg")
+sensemakr(lm1na11, treatment = "Sodiummg")
+
+```
+
+
+There is a relationship between Na and g pcnt as well as E pcnt and omsysval with a negative gradiant.
+
+### multi variable regression 
+
+This uses a model of variables. It can highlight the contributions of each.
+
+This first model looks at the relationships between BP and Age and Sex first in years 1-4 then 9-11
+
+```{r echo=FALSE}
+#linear regression models
+#sodium only
+lm1AS4 <- lm(omsysval ~ Age + Sex, sav4rp)
+
+
+
+
+lm1AS11 <- lm(omsysval ~ AgeR + Sex, sav11rp)
+(lm1AS4)
+(lm1AS11)
+anova(lm1AS4)
+AIC(lm1AS4)
+anova(lm1AS11)
+AIC(lm1AS11)
+sensemakr(lm1AS4, treatment = "Age")
+sensemakr(lm1AS11, treatment = "AgeR")
+#sensemakr(lm1AS4, treatment = "Sex")
+#sensemakr(lm1AS11, treatment = "Sex")
+```
+
+
+
+
+
+```{r echo=FALSE}
+lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ ethgr2 + VitaminDµg + EducFin+ EIMD_2010_quintile , sav4rp,na.action = na.exclude)
+
+#plot(lm1)
+
+lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + sqrt(pcnt_4) +ethgrp2 +VitaminDµg + educfinh +EIMD_2010_quintile, sav11rp,na.action = na.exclude)
+lm4
+lm11
+#plot(lm1m)
+#lm1a$coefficients
+anova(lm4)
+AIC(lm4)
+anova(lm11)
+AIC(lm11)
+
+sensemakr(lm4, treatment = "Age")
+sensemakr(lm11, treatment = "AgeR")
+#sensemakr(lm4, treatment = "Sex")
+#sensemakr(lm11, treatment = "Sex")
+
+```
+There are differences in coefficients in the two sets of data. 
+These models can be compared with others with different variables to understand how they help predict values more or less effectively.
+
+
+```{r echo=FALSE}
+lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ ethgr2 + VitaminDµg +EducFin+ EIMD_2010_quintile , sav4rp,na.action = na.exclude)
+
+#plot(lm1)
+
+lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + Epcnt_4 +ethgrp2 +VitaminDµg + educfinh+ EIMD_2010_quintile, sav11rp,na.action = na.exclude)
+lm4
+lm11
+#plot(lm1m)
+#lm1a$coefficients
+anova(lm4)
+AIC(lm4)
+anova(lm11)
+AIC(lm11)
+```
+
+
+
+
+
+```{r echo=FALSE}
+lm4a <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4) , sav4rp,na.action =na.exclude)
+
+#plot(lm1)
+
+lm11a <- lm(omsysval ~ AgeR +Sex +Sodiummg + sqrt(pcnt_4) , sav11rp, na.action =na.exclude)
+lm4a
+lm11a
+
+anova(lm4a)
+AIC(lm4a)
+anova(lm11a)
+AIC(lm11a)
+```
+
+```{r echo=FALSE}
+lm4a <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4 , sav4rp,na.action =na.exclude)
+
+#plot(lm1)
+
+lm11a <- lm(omsysval ~ AgeR +Sex +Sodiummg + Epcnt_4 , sav11rp, na.action =na.exclude)
+lm4a
+lm11a
+
+anova(lm4a)
+AIC(lm4a)
+anova(lm11a)
+AIC(lm4a)
+```
+
+
+```{r echo=FALSE}
+lm4b <- lm(omsysval ~ Age +Sex + sqrt(pcnt_4) , sav4rp)
+
+#plot(lm1)
+
+lm11b <- lm(omsysval ~ AgeR +Sex + sqrt(pcnt_4) , sav11rp)
+lm4b
+lm11b
+anova(lm4b)
+AIC(lm4b)
+anova(lm11b)
+AIC(lm11b)
+```
+
+```{r echo=FALSE}
+lm4b <- lm(omsysval ~ Age +Sex + Epcnt_4 , sav4rp)
+
+#plot(lm1)
+
+lm11b <- lm(omsysval ~ AgeR +Sex + Epcnt_4 , sav11rp)
+lm4b
+lm11b
+anova(lm4b)
+AIC(lm4b)
+anova(lm11b)
+AIC(lm11b)
+
+sensemakr(lm4b, treatment = "Epcnt_4")
+sensemakr(lm11b, treatment = "Epcnt_4")
+
+
+```
+
+
+```{r echo=FALSE}
+lm4c <- lm(omsysval ~ Age +Sex +Sodiummg  , sav4rp)
+
+#plot(lm1)
+
+lm11c <- lm(omsysval ~ AgeR +Sex +Sodiummg  , sav11rp)
+lm4c
+lm11c
+
+anova(lm4c)
+AIC(lm4c)
+anova(lm11c)
+AIC(lm11c)
+
+sensemakr(lm4c, treatment = "Sodiummg")
+sensemakr(lm11c, treatment = "Sodiummg")
+
+
+```
+
+
+
+## This final set analyses the whole dataset together across the key variables
+Then tests them across two sets of UPF data one calculated using Rauber, the other from ZC.
+```{r}
+sav11rp$Age <- sav11rp[,AgeR]
+#sav11rp[, seriali := factor(seriali)]
+lastfew11 <- sav11rp[,.(seriali,Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval,Epcnt_4)]
+lastfew4 <- sav4rp[,.(seriali,Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval,Epcnt_4)]
+alldata <- data.table(rbind(lastfew4,lastfew11))
+#ZCNova <- data.table(read_excel("data/NOVA_ForDavid.xlsx"))
+setkey(NOVA_ForDavid, "seriali")
+setkey(alldata, "seriali")
+alldata <- alldata[NOVA_ForDavid, on = "seriali"]
+
+lmallg <- lm(omsysval~ Age+ Sex + Sodiummg +pcnt_4, alldata)
+lmallg
+anova(lmallg)
+
+lmallE <- lm(omsysval~ Age+ Sex + Sodiummg +Epcnt_4, alldata)
+lmallE
+anova(lmallE)
+AIC(lmallE)
+
+lmallgz <- lm(omsysval~ Age+ Sex + Sodiummg +NOVA_Gpct_opti_4, alldata)
+lmallgz
+anova(lmallgz)
+
+lmallEz <- lm(omsysval~ Age+ Sex + Sodiummg +NOVA_Epct_opti_4, alldata)
+lmallEz
+anova(lmallEz)
+AIC(lmallEz)
+
+
+
+SmallE <- sensemakr(lmallE, treatment = "Epcnt_4")
+Smallg <- sensemakr(lmallg, treatment = "pcnt_4")
+summary(SmallE)
+summary(Smallg)
+
+```
+
+
+
+
+
+
+## Summary
+
+The data from 2008-11 and 2017-19 NDNS datasets have been downloaded and adapted into a form to approach the research question.
+
+The key variables of BP, 'omsysval' and 'omdiaval' are taken directly from the data.
+The percentage by weight of UPF intake is calculated.
+The percentage by energy of UPF intake is also calculated.
+The diary entries are identified by NOVA type. 
+The total weight of each nova type is calculated for each individual. 
+The percentage of the total weight food intake per person is then calculated. 
+This gives the derived value 'pcnt_4', which is the percentage of intake which is NOVA 4 or UPF.
+The total energy in kJ of each nova type is calculated for each individual. 
+The percentage of the total energy food intake per person is then calculated. 
+This gives the derived value 'Epcnt_4', which is the percentage of intake which is NOVA 4 or UPF.
+
+There is a table with summary values for theses variables across the dataset.
+
+Statistical analysis of the key variables shows that there is a reduction in all the variables between the two time periods. 
+
+Confounding variables are analysed and show that there has been a significant change in the sex balance of the populations. 
+Removing those with antihypertensive medications has removed more men in the earlier cohort compared to women. 
+
+Regression shows a degree of association between the BP and UPF intake by weight and by energy.
+It also shows the same for sodium intake.
+
+Using Anova analysis of different multi variable regression models 
+ the key variables are significant for sodium in several models, and sometimes for energy percentage. 
+Sodium intake shows the strongest association in the latter 9-11 cohort.
+
+
+
+
+
+
+## Conclusion
+
+The percentage by weight of NOVA group 4 foods has decreased from 2008 to 2019.
+The percentage by energy of NOVA group 4 foods has decreased from 2008 to 2019.
+The mean sodium intake in mg has reduced between the two time periods. 
+The systolic and diastolic BP have reduced between the two time periods.
+
+In each period there is a correlation between systolic BP and sodium intake. 
+In each period there is a correlation between systolic BP and UPF intake. 
+
+The regression models identify that age and sex are statistically significant contributors to the BP.
+Only those models from the later time period show sodium as being statistically significant in importance.
+Combining the data shows the energy percentage of UPF as being a statistically significant contributor.
+

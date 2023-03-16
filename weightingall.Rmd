@@ -9,6 +9,38 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# BP and UPF and Na in NDNS Dissertation calculation and results
+
+##  Introduction to Results
+
+This section will show how the method has been applied and identify what the calculations show. 
+It will be laid out with a brief resume of the data source, followed by descriptive data analysis. 
+This will identify relevant variables and their relationships within the data. 
+This will be followed by a statistical analysis section. This will involve statistical tests of key variables, but also of confounding variables.
+The next section will include regression analysis with simple linear regressions of the key variables.
+It will also include multi variable models which will also use regression to develop more sophisticated models.
+Comparison of models will enable an understanding of the importance of including particular variables. 
+This will give an opportunity to understand whether the role of salt affects the model predictions significantly.
+
+
+The difference between the two datasets will be described. The correlations between the key variables will be demonstrated. Sensitivity analysis will demonstrate how changes in statistical models relate to inclusion of specific variables.
+
+
+
+
+### Data Source
+
+The dataset is from NDNS @universityofcambridgeNDNSRPNationalDiet2022. This is a rolling annual survey which aims to collect a sample spread between children and adults, across the four countries of the UK, and to maintain representative sizes when analysed by age sex and ethnicity.
+
+
+Provided in tables in various formats. The dataset is large and covers a great deal. This study only requires a subset of the data.The data include more categories than needed so subsets are taken. I use all the samples, but only some of the data categories directly related to this project.
+
+
+The data are weighted by the research group to ensure representative sizes based on sex and age groupings and response. This allows for differences in uptake and dropout in each annual sample.
+
+
+
+
 ## weighting ndns
 
 This doc intends to develop a weighted sample for analysis
@@ -20,18 +52,22 @@ library(data.table)
 
 #Individual data
 
-ndns_rp_yr1_4a_indiv_uk <- read_sav("data/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_indiv_uk.sav")
+ndns_rp_yr1_4a_indiv_uk <- as.data.table( read_sav("data/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_indiv_uk.sav"))
 
-ndns_rp_yr5_6a_indiv <- read_sav("data/UKDA-6533-spss/spss/spss25/ndns_rp_yr5-6a_indiv.sav")
+ndns_rp_yr5_6a_indiv <-as.data.table( read_sav("data/UKDA-6533-spss/spss/spss25/ndns_rp_yr5-6a_indiv.sav"))
 
-ndns_rp_yr7_8a_indiv <- read_sav("data/UKDA-6533-spss/spss/spss25/ndns_rp_yr7-8a_indiv.sav")
+ndns_rp_yr7_8a_indiv <-as.data.table( read_sav("data/UKDA-6533-spss/spss/spss25/ndns_rp_yr7-8a_indiv.sav"))
 
-ndns_rp_yr9_11a_indiv <- read_sav("data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_indiv_20211020.sav")
+ndns_rp_yr9_11a_indiv <-as.data.table( read_sav("data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_indiv_20211020.sav"))
 
  #Uniformizing the name
 
 ndns_rp_yr9_11a_indiv$area <- ndns_rp_yr9_11a_indiv$Area
 ```
+
+## weighting ndns
+
+This doc intends to develop a weighted sample for analysis
 
 ## normalising to weighted vals
 
@@ -68,60 +104,105 @@ ndns_rp_yr9_11a_indiv$wti_UKY1to11 <- ((ndns_rp_yr9_11a_indiv$wti_Y911/n4) * N) 
 ```{r 4setup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr1-4a_indiv_uk 
 #subsets of the table to identify grouped information
-bpset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval","CutIll")]
-ethnset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali", "ethgr5","ethgr2")]
-saltset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
-medsset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug", "PregNowB")]
-hypset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali", "hyper140", "hibp140", "hyper1", "highbp1")]
-incset4 <-ndns_rp_yr1_4a_indiv_uk[,c("seriali","eqvinc","nssec8","hhinc","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","EducFin")]
-measset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali","htval","wtval","bmival")]
-ageset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
-weightset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali","wti_UKY1to11","astrata1","area")]
+bpset4w <- ndns_rp_yr1_4a_indiv_uk[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval","CutIll")]
+ethnset4w <- ndns_rp_yr1_4a_indiv_uk[,c("seriali", "ethgr5","ethgr2")]
+saltset4w <- ndns_rp_yr1_4a_indiv_uk[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
+medsset4w <- ndns_rp_yr1_4a_indiv_uk[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug", "PregNowB")]
+hypset4w <- ndns_rp_yr1_4a_indiv_uk[,c("seriali", "hyper140", "hibp140", "hyper1", "highbp1")]
+incset4w <-ndns_rp_yr1_4a_indiv_uk[,c("seriali","eqvinc","nssec8","hhinc","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","EducFin")]
+measset4w <- ndns_rp_yr1_4a_indiv_uk[,c("seriali","htval","wtval","bmival")]
+ageset4w <- ndns_rp_yr1_4a_indiv_uk[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
+weightset4w <- ndns_rp_yr1_4a_indiv_uk[,c("seriali","wti_UKY1to11","astrata1","area")]
 ```
 
 
 ```{r 6setup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr1-4a_indiv_uk 
 #subsets of the table to identify grouped information
-bpset6 <- ndns_rp_yr5_6a_indiv[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval","CutIll")]
-ethnset6 <- ndns_rp_yr5_6a_indiv[,c("seriali", "ethgrp5","ethgrp2")]
-saltset6 <- ndns_rp_yr5_6a_indiv[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
-medsset6 <- ndns_rp_yr5_6a_indiv[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
-hypset6 <- ndns_rp_yr5_6a_indiv[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
-incset6 <-ndns_rp_yr5_6a_indiv[,c("seriali","nssec8","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
-measset6 <- ndns_rp_yr5_6a_indiv[,c("seriali","htval","wtval","bmival")]
-ageset6 <- ndns_rp_yr5_6a_indiv[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
-weightset6 <- ndns_rp_yr5_6a_indiv[,c("seriali","wti_UKY1to11","astrata1","area")]
+bpset6w <- ndns_rp_yr5_6a_indiv[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval","CutIll")]
+ethnset6w <- ndns_rp_yr5_6a_indiv[,c("seriali", "ethgrp5","ethgrp2")]
+saltset6w <- ndns_rp_yr5_6a_indiv[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
+medsset6w <- ndns_rp_yr5_6a_indiv[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
+hypset6w <- ndns_rp_yr5_6a_indiv[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
+incset6w <-ndns_rp_yr5_6a_indiv[,c("seriali","nssec8","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
+measset6w <- ndns_rp_yr5_6a_indiv[,c("seriali","htval","wtval","bmival")]
+ageset6w <- ndns_rp_yr5_6a_indiv[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
+weightset6w <- ndns_rp_yr5_6a_indiv[,c("seriali","wti_UKY1to11","astrata1","area")]
 ```
 
 
 ```{r 8setup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr1-4a_indiv_uk 
 #subsets of the table to identify grouped information
-bpset8 <- ndns_rp_yr5_6a_indiv[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval","CutIll")]
-ethnset8 <- ndns_rp_yr5_6a_indiv[,c("seriali", "ethgrp5","ethgrp2")]
-saltset8 <- ndns_rp_yr5_6a_indiv[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
-medsset8 <- ndns_rp_yr5_6a_indiv[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
-hypset8 <- ndns_rp_yr5_6a_indiv[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
-incset8 <-ndns_rp_yr5_6a_indiv[,c("seriali","nssec8","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
-measset8 <- ndns_rp_yr5_6a_indiv[,c("seriali","htval","wtval","bmival")]
-ageset8 <- ndns_rp_yr5_6a_indiv[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
-weightset8 <- ndns_rp_yr5_6a_indiv[,c("seriali","wti_UKY1to11","astrata1","area")]
+bpset8w <- ndns_rp_yr5_6a_indiv[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval","CutIll")]
+ethnset8w <- ndns_rp_yr5_6a_indiv[,c("seriali", "ethgrp5","ethgrp2")]
+saltset8w <- ndns_rp_yr5_6a_indiv[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
+medsset8w <- ndns_rp_yr5_6a_indiv[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
+hypset8w <- ndns_rp_yr5_6a_indiv[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
+incset8w <-ndns_rp_yr5_6a_indiv[,c("seriali","nssec8","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
+measset8w <- ndns_rp_yr5_6a_indiv[,c("seriali","htval","wtval","bmival")]
+ageset8w <- ndns_rp_yr5_6a_indiv[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
+weightset8w <- ndns_rp_yr5_6a_indiv[,c("seriali","wti_UKY1to11","astrata1","area")]
 ```
 
 ```{r 11setup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr9-11a_indiv_uk 
 #subsets of the table to identify grouped information
-bpset11 <- ndns_rp_yr9_11a_indiv[,c("seriali","omsysval","omdiaval")]
-ethnset11 <- ndns_rp_yr9_11a_indiv[,c("seriali" ,"ethgrp5","ethgrp2")]
-saltset11 <- ndns_rp_yr9_11a_indiv[,c("seriali","SaltChk","SalHowC","SltSHow" , "vegetarn")]
-medsset11 <- ndns_rp_yr9_11a_indiv[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
-hypset11 <- ndns_rp_yr9_11a_indiv[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
-incset11 <- ndns_rp_yr9_11a_indiv[,c("seriali","nssec8","GOR","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
-measset11 <- ndns_rp_yr9_11a_indiv[,c("seriali","htval2","wtval2","bmival2","bmivg5")]
-ageset11 <- ndns_rp_yr9_11a_indiv[,c("seriali","agegad1", "agegad2", "agegch1","agegr1")]
-weightset11 <- ndns_rp_yr9_11a_indiv[,c("seriali","wti_UKY1to11","astrata1","area")]
+bpset11w <- ndns_rp_yr9_11a_indiv[,c("seriali","omsysval","omdiaval")]
+ethnset11w <- ndns_rp_yr9_11a_indiv[,c("seriali" ,"ethgrp5","ethgrp2")]
+saltset11w <- ndns_rp_yr9_11a_indiv[,c("seriali","SaltChk","SalHowC","SltSHow" , "vegetarn")]
+medsset11w <- ndns_rp_yr9_11a_indiv[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
+hypset11w <- ndns_rp_yr9_11a_indiv[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
+incset11w <- ndns_rp_yr9_11a_indiv[,c("seriali","nssec8","GOR","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
+measset11w <- ndns_rp_yr9_11a_indiv[,c("seriali","htval2","wtval2","bmival2","bmivg5")]
+ageset11w <- ndns_rp_yr9_11a_indiv[,c("seriali","agegad1", "agegad2", "agegch1","agegr1")]
+weightset11w <- ndns_rp_yr9_11a_indiv[,c("seriali","wti_UKY1to11","astrata1","area")]
 ```
+
+
+
+
+
+```{r}
+bpset4w[, "omsysval" := as.numeric(omsysval)]
+bpset6w[, "omsysval" := as.numeric(omsysval)]
+bpset8w[, "omsysval" := as.numeric(omsysval)]
+bpset11w[, "omsysval" := as.numeric(omsysval)]
+
+bpset4w[, "omdiaval" := as.numeric(omdiaval)]
+bpset6w[, "omdiaval" := as.numeric(omdiaval)]
+bpset8w[, "omdiaval" := as.numeric(omdiaval)]
+bpset11w[, "omdiaval" := as.numeric(omdiaval)]
+
+
+bpset4w[, "seriali" := as.numeric(seriali)]
+bpset6w[, "seriali" := as.numeric(seriali)]
+bpset8w[, "seriali" := as.numeric(seriali)]
+bpset11w[, "seriali" := as.numeric(seriali)]
+
+
+
+```
+
+
+```{r}
+bpset4w <- data.table(bpset4w)
+bpset6w <-data.table(bpset6w)
+bpset8w <- data.table(bpset8w)
+bpset11w <-data.table(bpset11w)
+
+
+#bpset4z 
+#bpset6z 
+#bpset8z
+#bpset11z
+
+bpsetallw <- rbindlist(list(bpset4w,bpset6w,bpset8w,bpset11w), fill = TRUE)
+
+setkey(bpsetallw, seriali)
+```
+
+
 
 ```{r}
 
