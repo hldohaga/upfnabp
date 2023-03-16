@@ -69,7 +69,7 @@ ndns_rp_yr9_11a_indiv$wti_UKY1to11 <- ((ndns_rp_yr9_11a_indiv$wti_Y911/n4) * N) 
  #measured and recorded data yr1-4a_indiv_uk 
 #subsets of the table to identify grouped information
 bpset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval","CutIll")]
-ethnset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali", "EthGrG","EthGrU" ,"ethgr5","ethgr2")]
+ethnset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali", "ethgr5","ethgr2")]
 saltset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
 medsset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug", "PregNowB")]
 hypset4 <- ndns_rp_yr1_4a_indiv_uk[,c("seriali", "hyper140", "hibp140", "hyper1", "highbp1")]
