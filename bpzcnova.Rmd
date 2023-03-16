@@ -184,10 +184,10 @@ bpset8z <- data.table(bpset8z)
 bpset11z <-data.table(bpset11z)
 
 
-bpset4z 
-bpset6z 
-bpset8z
-bpset11z
+#bpset4z 
+#bpset6z 
+#bpset8z
+#bpset11z
 
 bpsetall <- rbindlist(list(bpset4z,bpset6z,bpset8z,bpset11z))
 
@@ -210,7 +210,10 @@ hist(Adult_bpsetall$Age)
 hist(Adult_bpsetall$NOVA_Epct_opti_4)
 hist(Adult_bpsetall$NOVA_Gpct_opti_4)
 hist(Adult_bpsetall$Sodiummg)
+```
 
+
+```{r}
 
 boxplot(Adult_bpsetall$NOVA_Epct_opti_4~
           Adult_bpsetall$SurveyYear)
@@ -218,6 +221,10 @@ boxplot(Adult_bpsetall$Sodiummg~
           Adult_bpsetall$SurveyYear)
 boxplot(Adult_bpsetall$NOVA_Epct_opti_4~
           Adult_bpsetall$Sex)
+```
+
+
+```{r}
 plot(Adult_bpsetall$omsysval,Adult_bpsetall$NOVA_Epct_opti_4 )
 plot(Adult_bpsetall$omsysval,Adult_bpsetall$NOVA_Gpct_opti_4)
 plot(Adult_bpsetall$omsysval,Adult_bpsetall$Sodiummg)

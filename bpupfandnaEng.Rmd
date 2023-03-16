@@ -523,7 +523,7 @@ sav11rp[, Country := factor(Country)]
 
  
 The food diary data needs more processing. In particular the NOVA categorisation is not in the data set. 
-I have derived UPFNOVA from a paper which had a data table identifying the NDNS sub food groups.
+I have derived UPFNOVA from a paper which had a data table identifying the NDNS sub food groups by Rauber.
 
 
 
@@ -577,6 +577,12 @@ foodlevedat10s<- foodlevedat10s[,c("seriali","TotalGrams","Nova group","EnergykJ
 foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
 
 ```
+
+```{r}
+#heatmap(foodlevedat9s, Colv = "TotalGrams")
+
+```
+
 
 To work out the gram weight amount of food intake by each individual, first the diary entries for each individual are totalled up.
 The total gram weight value of intake of each food is then worked out as a percentage of the total intake.
@@ -1120,8 +1126,8 @@ catconfounders <- data.table("name" = c("Sex"),"pvalue" = signif(c(stabler$p.val
 catconfounders
 
 
-plot(sav11rp[,Sex], main = "2019")
-plot(sav4rp[,Sex], main = "2010")
+plot(sav11rp[,Sex], main = "2019", caption = "Bar Plot of Sex in 2019 cohort")
+plot(sav4rp[,Sex], main = "2010",caption = "Bar Plot of Sex in 2019 cohort")
 #plot(sav11rp[,Country], main = "2019")
 #plot(sav4rp[,Country], main = "2010")
 
@@ -1289,7 +1295,7 @@ catconfounders4b <- data.table("name" = c("hyper1","hyper140","highbp1","hibp140
 catconfounders4a
 #catconfounders4b
 ```
-The age groups show some discrepancy with the p value significant only in the child agre groups.
+The age groups show some discrepancy with the p value significant only in the child age groups.
 
 ```{r echo=FALSE, warning=FALSE}
 
@@ -1588,6 +1594,7 @@ sensemakr(lm11c, treatment = "Sodiummg")
 
 
 ## This final set analyses the whole dataset together across the key variables
+Then tests them across two sets of UPF data one calculated using Rauber, the other from ZC.
 ```{r}
 sav11rp$Age <- sav11rp[,AgeR]
 #sav11rp[, seriali := factor(seriali)]
