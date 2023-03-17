@@ -103,15 +103,15 @@ sav11br$wti_UKY1to11 <- ((sav11br$wti_Y911/n4) * N) * (3/11)
 
 ```{r include=FALSE}
 #this identifies the variables wanted from the person level data sets
-perslevdat4 <- c("seriali","Age", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
+perslevdat4 <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
 
-perslevdat6 <- c("seriali","Age", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
+perslevdat6 <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
 
-perslevdat8 <- c("seriali","Age", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
+perslevdat8 <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
 
 
 
-perslevdat11 <- c("seriali","AgeR", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
+perslevdat11 <- c("seriali","AgeR","SurveyYear", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
 
 
 
@@ -142,7 +142,7 @@ ethnset6 <- sav6br[,c("seriali", "ethgrp5","ethgrp2")]
 saltset6 <- sav6br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
 medsset6 <- sav6br[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
 hypset6 <- sav6br[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
-incset6 <-sav6br[,c("seriali","nssec8","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
+incset6 <-sav6br[,c("seriali","nssec8","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
 measset6 <- sav6br[,c("seriali","htval","wtval","bmival")]
 ageset6 <- sav6br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
 weightset6 <- sav6br[,c("seriali","wti_UKY1to11","astrata1","area")]
@@ -157,7 +157,7 @@ ethnset8 <- sav8br[,c("seriali", "ethgrp5","ethgrp2")]
 saltset8 <- sav8br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
 medsset8<- sav8br[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
 hypset8 <- sav8br[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
-incset8 <-sav8br[,c("seriali","nssec8","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
+incset8 <-sav8br[,c("seriali","nssec8","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
 measset8 <- sav8br[,c("seriali","htval","wtval","bmival")]
 ageset8 <- sav8br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
 weightset8 <- sav8br[,c("seriali","wti_UKY1to11","astrata1","area")]
