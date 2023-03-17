@@ -47,7 +47,7 @@ sav11 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alt
 sav11b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_indiv_20211020.sav"
 
 sav4r <- as.data.table(read_sav(sav4))
-ndns_1_11 <-as.data.table(read_sav(sav4b))
+sav4br <-as.data.table(read_sav(sav4b))
 
 sav6r <- as.data.table(read_sav(sav6))
 sav6br <-as.data.table(read_sav(sav6b))
@@ -872,45 +872,58 @@ foodleveldat6spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var
 After that, this information is added to the other data.
 This gives us the nova group information by weight and weight percent for all participants .
 
-The data is now ready for analysis first by descriptive analysis.
-
 ```{r adding to earlier data, echo=FALSE, message=FALSE, warning=FALSE}
 # combine with data from version10a.rmd
 
 #sav11rpb <- readRDS("sav11rp.rds")
 
-setkey(sav11rp,seriali)
+
 setkey(foodleveldat911sp, seriali)
 setkey(foodleveldat911spE, seriali)
 
-sav11rp <-sav11rp[foodleveldat911sp, by= seriali]
-sav11rp <-sav11rp[foodleveldat911spE, by= seriali]
+foodleveldat911spE <-foodleveldat911spE[foodleveldat911sp, by= seriali]
+#sav11rp <-sav11rp[foodleveldat911spE, by= seriali]
 #sav11rp$ED <- sav11rp[,.("Epcnt_4"/"pcnt_4")]
 
 #sav4rp <- readRDS("sav4rp.rds")
 
-setkey(sav4rp,seriali)
+#setkey(sav4rp,seriali)
 setkey(foodleveldat4sp,seriali)
 setkey(foodleveldat4spE,seriali)
-sav4rp <-sav4rp[foodleveldat4sp, by= seriali]
-sav4rp <-sav4rp[foodleveldat4spE, by= seriali]
+foodleveldat4spE<-foodleveldat4spE[foodleveldat4sp, by= seriali]
+#sav4rp <-sav4rp[foodleveldat4spE, by= seriali]
 
 
-setkey(sav6rp,seriali)
+#setkey(sav6rp,seriali)
 setkey(foodleveldat6sp,seriali)
 setkey(foodleveldat6spE,seriali)
-sav6rp <-sav6rp[foodleveldat6sp, by= seriali]
-sav6rp <-sav6rp[foodleveldat6spE, by= seriali]
+foodleveldat6spE <-foodleveldat6spE[foodleveldat6sp, by= seriali]
+#sav6rp <-sav6rp[foodleveldat6spE, by= seriali]
 
 
 
-setkey(sav8rp,seriali)
+#setkey(sav8rp,seriali)
 setkey(foodleveldat8sp,seriali)
 setkey(foodleveldat8spE,seriali)
-sav8rp <-sav8rp[foodleveldat8sp, by= seriali]
-sav8rp <-sav8rp[foodleveldat8spE, by= seriali]
+foodleveldat8spE <-foodleveldat8spE[foodleveldat8sp, by= seriali]
+#sav8rp <-sav8rp[foodleveldat8spE, by= seriali]
+
+ndns_1_11food <- rbindlist(list(foodleveldat8spE,foodleveldat4spE,foodleveldat6spE,foodleveldat911spE))
+```
 
 
+
+The data is now ready for analysis first by descriptive analysis.
+
+
+
+
+
+```{r adding to earlier data, echo=FALSE, message=FALSE, warning=FALSE}
+# combine with data from version10a.rmd
+setkey(ndns_1_11food, seriali)
+setkey(ndns_1_11, seriali)
+ndns_1_11 <- ndns_1_11[ndns_1_11food, by= seriali]
 ```
 
 ###  Exclusions 
@@ -924,85 +937,24 @@ Over 18s only
 
 ```{r echo=FALSE}
 #first remove from years 1-4
-sav4rp <- sav4rp[(hyper1 == " Normotensive untreated" ), ]
+ndns_1_11 <-ndns_1_11[(hyper1_2 == " Normotensive untreated" ), ]
 
 #there are no pregnant or breast feeding participants
-#sav4rpn <- sav4rpn[(PregNowB != "preg or breastfeeding" ), ]
+#ndns_1_11n <- ndns_1_11n[(PregNowB != "preg or breastfeeding" ), ]
 
 
 #medication affecting bp
-sav4rp <- sav4rp[diur == "Not taking drug"]
-sav4rp <-sav4rp[beta == "Not taking drug"]
-sav4rp <-sav4rp[aceinh == "Not taking drug"]
-sav4rp <-sav4rp[calciumb =="Not taking drug"]
-sav4rp <- sav4rp[obpdrug == "Not taking drug"]
+ndns_1_11 <- ndns_1_11[diur2 == "Not taking drug"]
+ndns_1_11 <-ndns_1_11[beta2 == "Not taking drug"]
+ndns_1_11 <-ndns_1_11[aceinh2 == "Not taking drug"]
+ndns_1_11 <-ndns_1_11[calciumb2 =="Not taking drug"]
+ndns_1_11 <- ndns_1_11[obpdrug2 == "Not taking drug"]
 
-sav4rp <- sav4rp[Country == "England"]
-sav4rp <- sav4rp[Age >18]
-
-```
-
-```{r echo=FALSE}
-#first remove from years 5-6
-sav6rp <- sav6rp[(hyper1_2 == " Normotensive untreated" ), ]
-
-#there are no pregnant or breast feeding participants
-#sav4rpn <- sav4rpn[(PregNowB != "preg or breastfeeding" ), ]
-
-
-#medication affecting bp
-sav6rp <- sav6rp[diur2 == "Not taking drug"]
-sav6rp <-sav6rp[beta2 == "Not taking drug"]
-sav6rp <-sav6rp[aceinh2 == "Not taking drug"]
-sav6rp <-sav6rp[calciumb2 =="Not taking drug"]
-sav6rp <- sav6rp[obpdrug2 == "Not taking drug"]
-
-sav6rp <- sav6rp[Country == "England"]
-sav6rp <- sav6rp[Age >18]
+ndns_1_11 <- ndns_1_11[Country == "England"]
+ndns_1_11 <- ndns_1_11[Age >18]
 
 ```
 
-
-```{r echo=FALSE}
-#first remove from years 7-8
-sav8rp <- sav8rp[(hyper1_2 == " Normotensive untreated" ), ]
-
-#there are no pregnant or breast feeding participants
-#sav4rpn <- sav4rpn[(PregNowB != "preg or breastfeeding" ), ]
-
-
-#medication affecting bp
-sav8rp <- sav8rp[diur2 == "Not taking drug"]
-sav8rp <-sav8rp[beta2 == "Not taking drug"]
-sav8rp <-sav8rp[aceinh2 == "Not taking drug"]
-sav8rp <-sav8rp[calciumb2 =="Not taking drug"]
-sav8rp <- sav8rp[obpdrug2 == "Not taking drug"]
-
-sav8rp <- sav8rp[Country == "England"]
-sav8rp <- sav8rp[Age >18]
-
-```
-
-
-```{r}
-#then remove from years 9-11
-sav11rp <- sav11rp[(hyper1_2 == " Normotensive untreated" ), ]
-
-#nil pregnant or breast feeding
-# medication affecting bp
-sav11rp <-sav11rp[diur2 == "Not taking drug"]
-sav11rp <-sav11rp[beta2 == "Not taking drug"]
-sav11rp <-sav11rp[aceinh2 == "Not taking drug"]
-sav11rp <-sav11rp[calciumb2 =="Not taking drug"]
-sav11rp <-sav11rp[obpdrug2 =="Not taking drug"]
-
-sav11rp <-sav11rp[Country == "England"]
-#summary(sav11rp)
-sav11rp <- sav11rp[AgeR >18]
-#This section exports these key datatables to use with the other script (not needed if combining all in one script!)
-#saveRDS(sav11rp, file ="sav11rp.rds")
-#saveRDS(sav4rp, file ="sav4rp.rds")
-```
 
 
 ## Descriptive data analysis
