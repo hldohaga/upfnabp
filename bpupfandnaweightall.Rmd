@@ -22,6 +22,7 @@ library(haven)
 library(data.table)
 library(readxl)
 library(sensemakr)
+library(labelled)
 ```
 
 
@@ -46,7 +47,7 @@ sav11 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alt
 sav11b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_indiv_20211020.sav"
 
 sav4r <- as.data.table(read_sav(sav4))
-sav4br <-as.data.table(read_sav(sav4b))
+ndns_1_11 <-as.data.table(read_sav(sav4b))
 
 sav6r <- as.data.table(read_sav(sav6))
 sav6br <-as.data.table(read_sav(sav6b))
@@ -59,6 +60,40 @@ sav11r <- as.data.table(read_sav(sav11))
 sav11br <- as.data.table(read_sav(sav11b))
 sav11br$area <- sav11br$Area
 ```
+
+
+```{r std names4, message=FALSE, warning=FALSE, include=FALSE}
+#standardise the variable names for grp 1-4 
+sav4br$bpmedc2 <- sav4br$bpmedc
+sav4br$bpmedd2 <- sav4br$bpmedd
+sav4br$diur2 <- sav4br$diur
+sav4br$beta2 <- sav4br$beta
+sav4br$aceinh2 <- sav4br$aceinh
+sav4br$calciumb2 <- sav4br$calciumb
+sav4br$obpdrug2 <- sav4br$obpdrug
+
+sav4br$ethgrp5 <- sav4br$ethgr5
+sav4br$ethgrp2 <- sav4br$ethgr2
+
+sav4br$hyper140_2 <- sav4br$hyper140
+sav4br$hibp140_2 <- sav4br$hibp140
+sav4br$hyper1_2 <- sav4br$hyper1
+sav4br$highbp1_2 <- sav4br$highbp1
+
+sav4br$educfinh <- sav4br$EducFin
+sav6r$SurveyYear <- sav6r$Surveyyear
+```
+
+```{r stdnames11, message=FALSE, warning=FALSE, include=FALSE}
+sav11br$htval <- sav11br$htval2
+sav11br$wtval <- sav11br$wtval2
+sav11br$bmival <- sav11br$bmival2
+
+sav11br$gor <- sav11br$GOR
+sav11br$age <- sav11br$AgeR
+sav11r$Age <- sav11r$AgeR
+```
+
 
 ```{r}
 NOVA_ForDavid <- as.data.table(read_excel("data/NOVA_ForDavid.xlsx"))
@@ -101,95 +136,53 @@ sav11br$wti_UKY1to11 <- ((sav11br$wti_Y911/n4) * N) * (3/11)
 ```
 
 
-```{r include=FALSE}
-#this identifies the variables wanted from the person level data sets
-perslevdat4 <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
-
-perslevdat6 <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
-
-perslevdat8 <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
-
-
-
-perslevdat11 <- c("seriali","AgeR","SurveyYear", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
-
-
-
-```
-
-
-
-```{r 4setup variables, message=FALSE, warning=FALSE, include=FALSE}
+```{r allsetup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr1-4a_indiv_uk 
 #subsets of the table to identify grouped information
-bpset4 <- sav4br[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval","CutIll")]
-ethnset4 <- sav4br[,c("seriali", "EthGrG","EthGrU" ,"ethgr5","ethgr2")]
-saltset4 <- sav4br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
-medsset4 <- sav4br[,c("seriali", "bpmedc","bpmedd","diur","beta","aceinh", "calciumb","obpdrug", "PregNowB")]
-hypset4 <- sav4br[,c("seriali", "hyper140", "hibp140", "hyper1", "highbp1")]
-incset4 <- sav4br[,c("seriali","eqvinc","nssec8","hhinc","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","EducFin")]
-measset4 <- sav4br[,c("seriali","htval","wtval","bmival")]
-ageset4 <- sav4br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
-weightset4 <- sav4br[,c("seriali","wti_UKY1to11","astrata1","area")]
+bpset <- c("seriali","omsysval","omdiaval")
+ethnset <- c("seriali" ,"ethgrp5","ethgrp2")
+saltset <- c("seriali","SaltChk","SalHowC","SltSHow" ,"vegetarn")
+medsset <- c("seriali", "bpmedc2","bpmedd2","diur2","beta2","aceinh2", "calciumb2","obpdrug2", "PregNowB")
+hypset <- c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")
+incset <-c("seriali","nssec8","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")
+measset <- c("seriali","htval","wtval","bmival")
+ageset <- c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")
+weightset <- c("seriali","wti_UKY1to11","astrata1","area")
+
+indiv_data <- c(bpset,ethnset,saltset,medsset,hypset,incset,measset,ageset,weightset)
+```
+
+```{r}
+sav11br <- sav11br[,..indiv_data]
+sav4br <- sav4br[,..indiv_data]
+sav6br <- sav6br[,..indiv_data]
+sav8br <- sav8br[,..indiv_data]
+
+val_labels(sav8br) <- NULL
+val_labels(sav6br) <- NULL
+val_labels(sav4br) <- NULL
+val_labels(sav11br) <- NULL
+#sav8br$seriali <- as.double(sav8br$seriali)
+#sav8br$ethgrp5 <- as.double(sav8br$ethgrp5)
 ```
 
 
-```{r 6setup variables, message=FALSE, warning=FALSE, include=FALSE}
- #measured and recorded data yr1-4a_indiv_uk 
-#subsets of the table to identify grouped information
-bpset6 <- sav6br[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval","CutIll")]
-ethnset6 <- sav6br[,c("seriali", "ethgrp5","ethgrp2")]
-saltset6 <- sav6br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
-medsset6 <- sav6br[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
-hypset6 <- sav6br[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
-incset6 <-sav6br[,c("seriali","nssec8","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
-measset6 <- sav6br[,c("seriali","htval","wtval","bmival")]
-ageset6 <- sav6br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
-weightset6 <- sav6br[,c("seriali","wti_UKY1to11","astrata1","area")]
+```{r}
+#this creates the whole table
+ndns_1_11 <- rbindlist(list(sav4br,sav6br,sav8br,sav11br),fill = TRUE, use.names = TRUE)
+dw <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1, data = ndns_1_11)
 ```
 
 
-```{r 8setup variables, message=FALSE, warning=FALSE, include=FALSE}
- #measured and recorded data yr1-4a_indiv_uk 
-#subsets of the table to identify grouped information
-bpset8 <- sav8br[,c("seriali","Sys", "Dias", "Sys2", "Dias2","omsysval","omdiaval")]
-ethnset8 <- sav8br[,c("seriali", "ethgrp5","ethgrp2")]
-saltset8 <- sav8br[,c("seriali","SaltChk","SalHowC","SltSHow", "Na_mmol", "Na_mmol_Corrected" ,"Na_mmol_24h_4_10CLAIM", "Na_mmol_24h_4_10CLAIM_Corrected" ,"vegetarn")]
-medsset8<- sav8br[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
-hypset8 <- sav8br[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
-incset8 <-sav8br[,c("seriali","nssec8","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
-measset8 <- sav8br[,c("seriali","htval","wtval","bmival")]
-ageset8 <- sav8br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
-weightset8 <- sav8br[,c("seriali","wti_UKY1to11","astrata1","area")]
-```
 
-```{r 11setup variables, message=FALSE, warning=FALSE, include=FALSE}
- #measured and recorded data yr9-11a_indiv_uk 
-#subsets of the table to identify grouped information
-bpset11 <- sav11br[,c("seriali","omsysval","omdiaval")]
-ethnset11 <- sav11br[,c("seriali" ,"ethgrp5","ethgrp2")]
-saltset11 <- sav11br[,c("seriali","SaltChk","SalHowC","SltSHow" , "vegetarn")]
-medsset11 <- sav11br[,c("seriali", "bpmedc2","bpmedd2", "diur2","beta2","aceinh2", "calciumb2","obpdrug2","PregNowB")]
-hypset11 <- sav11br[,c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")]
-incset11 <- sav11br[,c("seriali","nssec8","GOR","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")]
-measset11 <- sav11br[,c("seriali","htval2","wtval2","bmival2","bmivg5")]
-ageset11 <- sav11br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1")]
-weightset11 <- sav11br[,c("seriali","wti_UKY1to11","astrata1","area")]
-```
 
-### Data preparation
 
-The data is then arranged into a format which allows processing.
-This includes identifying continuous and categorical variables. 
-It also includes naming the categories of the categorical variables.
 
- 
- 
- 
+
 ```{r include=FALSE}
  #define factors for 1-4 
 #saltset
- saltset4[, SaltChk := factor(SaltChk, levels = 1:8, labels = c("Salt",
+ndns_1_11[, SaltChk := factor(SaltChk, levels = 1:8, labels = c("Salt",
 	"Salt substitute",
 	"Neither",
 	"Item not applicable",
@@ -197,7 +190,7 @@ It also includes naming the categories of the categorical variables.
 	"Don't know",
 	"Qn not applicable to survey year",
 	"Schedule not applicable"))]
- saltset4[, SalHowC := factor(SalHowC, levels = 1:8,labels = c("Always",
+ ndns_1_11[, SalHowC := factor(SalHowC, levels = 1:8,labels = c("Always",
 "Usually",
 "Sometimes",
 	",Item not applicable",
@@ -205,7 +198,7 @@ It also includes naming the categories of the categorical variables.
 	" Don't know",
 "Qn not applicable to survey year",
 "Schedule not applicable"))]
- saltset4[, SltSHow := factor(SltSHow,levels = 1:8,labels = c("Always",
+ ndns_1_11[, SltSHow := factor(SltSHow,levels = 1:8,labels = c("Always",
                                                             "Usually",
                                                             "Sometimes",
                                                             ",Item not applicable",
@@ -214,27 +207,27 @@ It also includes naming the categories of the categorical variables.
                                                             "Qn not applicable to survey year",
                                                             "Schedule not applicable"))]
  
- saltset4[, vegetarn := factor(vegetarn, levels = 1:3, labels = c("vegetarian","vegan","not vegetarian"))]
+ ndns_1_11[, vegetarn := factor(vegetarn, levels = 1:3, labels = c("vegetarian","vegan","not vegetarian"))]
 ```
  
  
 ```{r include=FALSE}
 #medset
-  medsset4[, bpmedc := factor(bpmedc,levels = 0:1,	labels = c("Not taking drug"
+ ndns_1_11[, bpmedc2 := factor(bpmedc2,levels = 0:1,	labels = c("Not taking drug"
 	,"Taking drug"))]
- medsset4[, bpmedd := factor(bpmedd,levels = 0:1,	labels = c("Not taking drug"
+ ndns_1_11[, bpmedd2 := factor(bpmedd2,levels = 0:1,	labels = c("Not taking drug"
 	,"Taking drug"))]
-  medsset4[, diur := factor(diur,levels = 0:1,	labels = c("Not taking drug"
+  ndns_1_11[, diur2 := factor(diur2,levels = 0:1,	labels = c("Not taking drug"
 	,"Taking drug"))]
- medsset4[, beta := factor(beta,levels = 0:1,	labels = c("Not taking drug"
+ndns_1_11[, beta2 := factor(beta2,levels = 0:1,	labels = c("Not taking drug"
 	,"Taking drug"))]
-  medsset4[, aceinh := factor(aceinh,levels = 0:1,	labels = c("Not taking drug"
+  ndns_1_11[, aceinh2 := factor(aceinh2,levels = 0:1,	labels = c("Not taking drug"
 	,"Taking drug"))]
- medsset4[, calciumb := factor(calciumb,levels = 0:1,	labels = c("Not taking drug"
+ndns_1_11[, calciumb2 := factor(calciumb2,levels = 0:1,	labels = c("Not taking drug"
 	,"Taking drug"))]
-  medsset4[, obpdrug := factor(obpdrug,levels = 0:1,	labels = c("Not taking drug"
+  ndns_1_11[, obpdrug2 := factor(obpdrug2,levels = 0:1,	labels = c("Not taking drug"
 	,"Taking drug"))]
- medsset4[, PregNowB := factor(PregNowB,levels = 1:2,	labels = c("preg or breastfeeding"
+ndns_1_11[, PregNowB := factor(PregNowB,levels = 1:2,	labels = c("preg or breastfeeding"
 	,"not preg or Bfeed"))]
  
  
@@ -242,90 +235,27 @@ It also includes naming the categories of the categorical variables.
 
  
  
- cutillcat <- c("Cancer (neoplasm) including lumps, masses, tumours and growths and benign (non-malignant) lumps and cysts"
-                ,"Diabetes. Incl. Hyperglycemia"
-                , "Other endocrine/metabolic"
-                ,"Mental illness/anxiety/depression/nerves (nes)"
-                ,"Mental handicap"
-                , "Epilepsy/fits/convulsions"
-                ,"Migraine/headaches
-                "," Other problems of nervous system
-                "," Cataract/poor eye sight/blindness
-                ","Other eye complaints
-                ","Poor hearing/deafness
-                ","Tinnitus/noises in the ear
-                ","Menieres disease/ear complaints causing balance problems
-"," Other ear complaints
-	"," Stroke/cerebral haemorrhage/cerebral thrombosis
-	","Heart attack/angina
-","Hypertension/high blood pressure/blood pressure (nes)
-	"," Other heart problems
-	","Piles/haemorrhoids incl. Varicose Veins in anus
-	"," Varicose veins/phlebitis in lower extremities
-","Other blood vessels/embolic
-	","Bronchitis/emphysema
-	","Asthma
-	"," Hayfever
-	","Other respiratory complaints
-	","Stomach ulcer/ulcer (nes)/abdominal hernia/rupture
-	","Other digestive complaints (stomach, liver, pancreas, bile ducts, small intestine)
-	","Complaints of bowel/colon (large intestine, caecum, bowel, colon, rectum)
-	","Complaints of teeth/mouth/tongue
-	","Kidney complaints
-	","Urinary tract infection
-	","Other bladder problems/incontinence
-	","Reproductive system disorders
-	","Arthritis/rheumatism/fibrositis
-	","Back problems/slipped disc/spine/neck
-","Other problems of bones/joints/muscles
-"," Infectious and parasitic disease
-","Disorders of blood and blood forming organs and immunity disorders
-	","Skin complaints
-	","Other complaints
-","Unclassifiable (no other codable complaint)
-	","Complaint no longer present
-","No answer/refused
-	","Dont know"
-                ,"Qn not applicable to survey year"
-                ,"Item not applicable")
  
 #incset
   
- hhinccat <- c("Under £5,000","
-	£5,000 - £9,999","
-	£10,000 - £14,999","
-	£15,000 - £19,999","
-	 £20,000 - £24,999","
-	 £25,000 - £29,999","
-	 £30,000 - £34,999","
-	 £35,000 - £39,999","
-	 £40,000 - £44,999","
-	£45,000 - £49,999","
-£50,000 - £74,999","
-	£75,000 - £99,999","
-£100,000 or more","
-	No answer/refused","
-	 Dont know","
-Qn not applicable to survey year","
-Item not applicable")
-
-incset4[,gor := factor(gor, levels = 1:12, labels = c("North East","North West","Yorkshire & The Humber","East Midlands","West Midlands","East of England","London","South East","South West","Wales","Scotland","Northern Ireland"))]
+ 
+ndns_1_11[,gor := factor(gor, levels = 1:12, labels = c("North East","North West","Yorkshire & The Humber","East Midlands","West Midlands","East of England","London","South East","South West","Wales","Scotland","Northern Ireland"))]
 
 
-incset4[,region := factor(region, levels = 1:6, labels = c("England: North","England: Central/Midlands","England: South(including London)","Scotland","Wales","Northern Ireland"))] 
+ndns_1_11[,region := factor(region, levels = 1:6, labels = c("England: North","England: Central/Midlands","England: South(including London)","Scotland","Wales","Northern Ireland"))] 
   
-incset4[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
-incset4[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5)] 
-incset4[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
-incset4[,EducFin := factor(EducFin, levels = 1:8)] 
+ndns_1_11[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
+ndns_1_11[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5)] 
+ndns_1_11[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
+ndns_1_11[,educfinh := factor(educfinh, levels = 1:8)] 
 
 #bpset 
- bpset4[, CutIll := factor(CutIll, levels = 1:46, labels = cutillcat)]
- bpset4[, "omsysval" := as.numeric(omsysval)]
- bpset4[,Sys := as.numeric(Sys)]
+ 
+ndns_1_11[, "omsysval" := as.numeric(omsysval)]
+
 
  #hypeset
- hypset4[,hyper140 := factor(hyper140,levels = 1:9, labels = c(" Normotensive untreated",
+ndns_1_11[,hyper140_2 := factor(hyper140_2,levels = 1:9, labels = c(" Normotensive untreated",
 " Normotensive treated",
 	"Hypertensive treated",
 "Hypertensive untreated",
@@ -334,14 +264,14 @@ incset4[,EducFin := factor(EducFin, levels = 1:8)]
 "Refused, attempted but not obtained, not attempted",
 	 "Qn not applicable to survey year",
 "Item not applicable")) ]
- hypset4[, hibp140 := factor(hibp140, levels = 1:7, labels = c("Not high BP",
+ ndns_1_11[, hibp140_2 := factor(hibp140_2, levels = 1:7, labels = c("Not high BP",
 "High BP",
 	"No answer/refused",
 	"Don't know",
 	"Refused, attempted but not obtained, not attempted",
 	"Qn not applicable to survey year",
 	"Item not applicable")) ]
- hypset4[, hyper1 := factor(hyper1,levels = 1:9, labels = c(" Normotensive untreated",
+ndns_1_11[, hyper1_2 := factor(hyper1_2,levels = 1:9, labels = c(" Normotensive untreated",
                                                           " Normotensive treated",
                                                           "Hypertensive treated",
                                                           "Hypertensive untreated",
@@ -350,7 +280,7 @@ incset4[,EducFin := factor(EducFin, levels = 1:8)]
                                                           "Refused, attempted but not obtained, not attempted",
                                                           "Qn not applicable to survey year",
                                                           "Item not applicable"))]
- hypset4[, highbp1 := factor(highbp1, levels = 1:7, labels = c("Not high BP",
+ ndns_1_11[, highbp1_2 := factor(highbp1_2, levels = 1:7, labels = c("Not high BP",
                                                               "High BP",
                                                               "No answer/refused",
                                                               "Don't know",
@@ -363,39 +293,25 @@ incset4[,EducFin := factor(EducFin, levels = 1:8)]
  
   
 #ethnset  
-ethnset4[ , EthGrG := factor(EthGrG)]
-ethnset4[ , EthGrU := factor(EthGrU)]
-ethnset4[ , ethgr5 := factor(ethgr5, levels = 1:5, labels = c( 'White'
+
+ndns_1_11[ , ethgrp5 := factor(ethgrp5, levels = 1:5, labels = c( 'White'
                                                              , 'Mixed ethnic group'
                                                              , 'Black or Black British'
                                                              , 'Asian or asian British'
                                                              , 'Any other group'))]
-ethnset4[ , ethgr2 := factor(ethgr2, levels = 1:2, labels = c( 'White'
+ndns_1_11[ , ethgrp2 := factor(ethgrp2, levels = 1:2, labels = c( 'White'
                                                              , 'Non-white'))]
 
-#incset
-incset4[ , nssec8 := factor(nssec8, levels = 1:9, labels = c(  "Higher managerial and professional occupations", "Lower managerial and professional occupations"
-               , "Intermediate occupations"
-                           , "Small employers and own account workers"
-                           , "Lower supervisory and technical occupations"
-                           , "Semi-routine occupations"
-                           , "Routine occupations"
-                           , "Never worked"
-                           , "Other"))]
-incset4[ , hhinc := factor (hhinc, levels = 1:17,labels = hhinccat)]
+
 
 
 #ageset
-ageset4[,agegad1 := factor(agegad1, levels = 1:4 ,labels = c("16-24","25-49","50-64","65+ years"))]
-ageset4[,agegad2 := factor(agegad2, levels = 1:5, labels = c("16-18","19-34","35-49","50-64","65+ years"))]
-ageset4[,agegch1 := factor(agegch1, levels = 1:3, labels = c("8-10","11-12","13-15"))]
-ageset4[,agegr1 := factor(agegr1, levels = 1:5, labels = c("1.5-3 years","4-10 years","11-18 years","19-64 years","65+ years"))]
+ndns_1_11[,agegad1 := factor(agegad1, levels = 1:4 ,labels = c("16-24","25-49","50-64","65+ years"))]
+ndns_1_11[,agegad2 := factor(agegad2, levels = 1:5, labels = c("16-18","19-34","35-49","50-64","65+ years"))]
+ndns_1_11[,agegch1 := factor(agegch1, levels = 1:3, labels = c("8-10","11-12","13-15"))]
+ndns_1_11[,agegr1 := factor(agegr1, levels = 1:5, labels = c("1.5-3 years","4-10 years","11-18 years","19-64 years","65+ years"))]
  
-#add columns for g equivalent of mmol for sodium
-saltset4$Na_g_Corrected <- saltset4$Na_mmol_Corrected/17.1
-saltset4$Na_g <- saltset4$Na_mmol/17.1
-saltset4$Na_g_24h_4_10CLAIM <- saltset4$Na_mmol_24h_4_10CLAIM/17.1
-saltset4$Na_g_24h_4_10CLAIM_Corrected <- saltset4$Na_mmol_24h_4_10CLAIM_Corrected/17.1
+
 
 
 
@@ -403,496 +319,70 @@ saltset4$Na_g_24h_4_10CLAIM_Corrected <- saltset4$Na_mmol_24h_4_10CLAIM_Correcte
 ```
 
 
-```{r rearrange 6, message=FALSE, warning=FALSE, include=FALSE}
 
- 
- #define factors for 9-11
- #saltset
- saltset6[, SaltChk := factor(SaltChk, levels = 1:8, labels = c("Salt",
-	"Salt substitute",
-	"Neither",
-	"Item not applicable",
-	"No answer/refused",
-	"Don't know",
-	"Qn not applicable to survey year",
-	"Schedule not applicable"))]
- saltset6[, SalHowC := factor(SalHowC, levels = 1:8,labels = c("Always",
-"Usually",
-"Sometimes",
-	",Item not applicable",
-	"No answer/refused",
-	" Don't know",
-"Qn not applicable to survey year",
-"Schedule not applicable"))]
- saltset6[, SltSHow := factor(SltSHow,levels = 1:8,labels = c("Always",
-                                                            "Usually",
-                                                            "Sometimes",
-                                                            ",Item not applicable",
-                                                            "No answer/refused",
-                                                            " Don't know",
-                                                            "Qn not applicable to survey year",
-                                                            "Schedule not applicable"))]
- 
-  saltset6[, vegetarn := factor(vegetarn, levels = 1:3, labels = c("vegetarian","vegan","not vegetarian"))]
- 
-#ethnset
-ethnset6[ , ethgrp5 := factor(ethgrp5, levels = 1:5, labels = c( 'White'
-                                                             , 'Mixed ethnic group'
-                                                             , 'Black or Black British'
-                                                             , 'Asian or asian British'
-                                                             , 'Any other group'))]
-ethnset6[ , ethgrp2 := factor(ethgrp2, levels = 1:2, labels = c( 'White'
-                                                             , 'Non-white'))]
+
+
+
+
+
+
+
+### Data preparation
+
+The data is then arranged into a format which allows processing.
+This includes identifying continuous and categorical variables. 
+It also includes naming the categories of the categorical variables.
 
  
  
-#bpset 
  
- bpset6[, "omsysval" := as.numeric(omsysval)]
- #bpset[,Sys := as.numeric(Sys)]
-
-#medset
-  medsset6[, bpmedc2 := factor(bpmedc2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
- medsset6[, bpmedd2 := factor(bpmedd2, levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))] 
- medsset6[, diur2 := factor(diur2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
- medsset6[, beta2 := factor(beta2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
-  medsset6[, aceinh2 := factor(aceinh2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
- medsset6[, calciumb2 := factor(calciumb2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
-  medsset6[, obpdrug2 := factor(obpdrug2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
-  medsset6[, PregNowB := factor(PregNowB,levels = 1:2,	labels = c("preg or breastfeeding"
-	,"not preg or Bfeed"))]
-  
-#incset
-incset6[ , nssec8 := factor(nssec8, levels = 1:9, labels = c(  "Higher managerial and professional occupations", "Lower managerial and professional occupations"
-               , "Intermediate occupations"
-                           , "Small employers and own account workers"
-                           , "Lower supervisory and technical occupations"
-                           , "Semi-routine occupations"
-                           , "Routine occupations"
-                           , "Never worked"
-                           , "Other"))]
-
-#incset6[,GOR := factor(GOR, levels = 1:12, labels = c("North East","North West","Yorkshire & The Humber","East Midlands","West Midlands","East of England","London","South East","South West","Wales","Scotland","Northern Ireland"))]
-
-incset6[,region := factor(region, levels = 1:6, labels = c("England: North","England: Central/Midlands","England: South(including London)","Scotland","Wales","Northern Ireland"))]
-
-incset6[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
-incset6[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5)] 
-incset6[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
-incset6[,educfinh := factor(educfinh, levels = 1:8)] 
-
- #hypeset
- hypset6[,hyper140_2 := factor(hyper140_2,levels = 1:9, labels = c(" Normotensive untreated",
-" Normotensive treated",
-	"Hypertensive treated",
-"Hypertensive untreated",
-"No answer/refused",
-	"Don't know",
-"Refused, attempted but not obtained, not attempted",
-	 "Qn not applicable to survey year",
-"Item not applicable")) ]
- hypset6[, hibp140_2 := factor(hibp140_2, levels = 1:7, labels = c("Not high BP",
-"High BP",
-	"No answer/refused",
-	"Don't know",
-	"Refused, attempted but not obtained, not attempted",
-	"Qn not applicable to survey year",
-	"Item not applicable")) ]
- hypset6[, hyper1_2 := factor(hyper1_2,levels = 1:9, labels = c(" Normotensive untreated",
-                                                          " Normotensive treated",
-                                                          "Hypertensive treated",
-                                                          "Hypertensive untreated",
-                                                          "No answer/refused",
-                                                          "Don't know",
-                                                          "Refused, attempted but not obtained, not attempted",
-                                                          "Qn not applicable to survey year",
-                                                          "Item not applicable"))]
- hypset6[, highbp1_2 := factor(highbp1_2, levels = 1:7, labels = c("Not high BP",
-                                                              "High BP",
-                                                              "No answer/refused",
-                                                              "Don't know",
-                                                              "Refused, attempted but not obtained, not attempted",
-                                                              "Qn not applicable to survey year",
-                                                              "Item not applicable")) ]
-
- 
- #ageset
-ageset6[,agegad1 := factor(agegad1, levels = 1:4 ,labels = c("16-24","25-49","50-64","65+ years"))]
-ageset6[,agegad2 := factor(agegad2, levels = 1:5, labels = c("16-18","19-34","35-49","50-64","65+ years"))]
-ageset6[,agegch1 := factor(agegch1, levels = 1:3, labels = c("8-10","11-12","13-15"))]
-ageset6[,agegr1 := factor(agegr1, levels = 1:5, labels = c("1.5-3 years","4-10 years","11-18 years","19-64 years","65+ years"))]
- 
- 
- 
-#measset
- 
-# measset6[,bmivg5 := factor(bmivg5, levels = 1:10, labels = c("Under 18.5", "18.5 and below 25","25 and below 30","30 and below 40","Over 40","Refused","Don't know","Different variable this survey year","Not applicable to survey year","Not applicable"))]
+```{r include=FALSE}
+#this identifies the variables wanted from the person level data sets
+perslevdat <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
 
 
 
 ```
 
 
-```{r rearrange 8, message=FALSE, warning=FALSE, include=FALSE}
-
- 
- #define factors for 9-11
- #saltset
- saltset8[, SaltChk := factor(SaltChk, levels = 1:8, labels = c("Salt",
-	"Salt substitute",
-	"Neither",
-	"Item not applicable",
-	"No answer/refused",
-	"Don't know",
-	"Qn not applicable to survey year",
-	"Schedule not applicable"))]
- saltset8[, SalHowC := factor(SalHowC, levels = 1:8,labels = c("Always",
-"Usually",
-"Sometimes",
-	",Item not applicable",
-	"No answer/refused",
-	" Don't know",
-"Qn not applicable to survey year",
-"Schedule not applicable"))]
- saltset8[, SltSHow := factor(SltSHow,levels = 1:8,labels = c("Always",
-                                                            "Usually",
-                                                            "Sometimes",
-                                                            ",Item not applicable",
-                                                            "No answer/refused",
-                                                            " Don't know",
-                                                            "Qn not applicable to survey year",
-                                                            "Schedule not applicable"))]
- 
-  saltset8[, vegetarn := factor(vegetarn, levels = 1:3, labels = c("vegetarian","vegan","not vegetarian"))]
- 
-#ethnset
-ethnset8[ , ethgrp5 := factor(ethgrp5, levels = 1:5, labels = c( 'White'
-                                                             , 'Mixed ethnic group'
-                                                             , 'Black or Black British'
-                                                             , 'Asian or asian British'
-                                                             , 'Any other group'))]
-ethnset8[ , ethgrp2 := factor(ethgrp2, levels = 1:2, labels = c( 'White'
-                                                             , 'Non-white'))]
-
- 
- 
-#bpset 
- 
- bpset8[, "omsysval" := as.numeric(omsysval)]
- #bpset[,Sys := as.numeric(Sys)]
-
-#medset
-  medsset8[, bpmedc2 := factor(bpmedc2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
- medsset8[, bpmedd2 := factor(bpmedd2, levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))] 
- medsset8[, diur2 := factor(diur2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
- medsset8[, beta2 := factor(beta2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
-  medsset8[, aceinh2 := factor(aceinh2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
- medsset8[, calciumb2 := factor(calciumb2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
-  medsset8[, obpdrug2 := factor(obpdrug2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
-  medsset8[, PregNowB := factor(PregNowB,levels = 1:2,	labels = c("preg or breastfeeding"
-	,"not preg or Bfeed"))]
-  
-#incset
-incset8[ , nssec8 := factor(nssec8, levels = 1:9, labels = c(  "Higher managerial and professional occupations", "Lower managerial and professional occupations"
-               , "Intermediate occupations"
-                           , "Small employers and own account workers"
-                           , "Lower supervisory and technical occupations"
-                           , "Semi-routine occupations"
-                           , "Routine occupations"
-                           , "Never worked"
-                           , "Other"))]
-
-#incset8[,GOR := factor(GOR, levels = 1:12, labels = c("North East","North West","Yorkshire & The Humber","East Midlands","West Midlands","East of England","London","South East","South West","Wales","Scotland","Northern Ireland"))]
-
-incset8[,region := factor(region, levels = 1:6, labels = c("England: North","England: Central/Midlands","England: South(including London)","Scotland","Wales","Northern Ireland"))]
-
-incset8[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
-incset8[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5)] 
-incset8[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
-incset8[,educfinh := factor(educfinh, levels = 1:8)] 
-
- #hypeset
- hypset8[,hyper140_2 := factor(hyper140_2,levels = 1:9, labels = c(" Normotensive untreated",
-" Normotensive treated",
-	"Hypertensive treated",
-"Hypertensive untreated",
-"No answer/refused",
-	"Don't know",
-"Refused, attempted but not obtained, not attempted",
-	 "Qn not applicable to survey year",
-"Item not applicable")) ]
- hypset8[, hibp140_2 := factor(hibp140_2, levels = 1:7, labels = c("Not high BP",
-"High BP",
-	"No answer/refused",
-	"Don't know",
-	"Refused, attempted but not obtained, not attempted",
-	"Qn not applicable to survey year",
-	"Item not applicable")) ]
- hypset8[, hyper1_2 := factor(hyper1_2,levels = 1:9, labels = c(" Normotensive untreated",
-                                                          " Normotensive treated",
-                                                          "Hypertensive treated",
-                                                          "Hypertensive untreated",
-                                                          "No answer/refused",
-                                                          "Don't know",
-                                                          "Refused, attempted but not obtained, not attempted",
-                                                          "Qn not applicable to survey year",
-                                                          "Item not applicable"))]
- hypset8[, highbp1_2 := factor(highbp1_2, levels = 1:7, labels = c("Not high BP",
-                                                              "High BP",
-                                                              "No answer/refused",
-                                                              "Don't know",
-                                                              "Refused, attempted but not obtained, not attempted",
-                                                              "Qn not applicable to survey year",
-                                                              "Item not applicable")) ]
-
- 
- #ageset
-ageset8[,agegad1 := factor(agegad1, levels = 1:4 ,labels = c("16-24","25-49","50-64","65+ years"))]
-ageset8[,agegad2 := factor(agegad2, levels = 1:5, labels = c("16-18","19-34","35-49","50-64","65+ years"))]
-ageset8[,agegch1 := factor(agegch1, levels = 1:3, labels = c("8-10","11-12","13-15"))]
-ageset8[,agegr1 := factor(agegr1, levels = 1:5, labels = c("1.5-3 years","4-10 years","11-18 years","19-64 years","65+ years"))]
- 
- 
- 
-#measset
- 
- #measset8[,bmivg5 := factor(bmivg5, levels = 1:10, labels = c("Under 18.5", "18.5 and below 25","25 and below 30","30 and below 40","Over 40","Refused","Don't know","Different variable this survey year","Not applicable to survey year","Not applicable"))]
 
 
 
-```
-
-```{r rearrange 11, message=FALSE, warning=FALSE, include=FALSE}
-
- 
- #define factors for 9-11
- #saltset
- saltset11[, SaltChk := factor(SaltChk, levels = 1:8, labels = c("Salt",
-	"Salt substitute",
-	"Neither",
-	"Item not applicable",
-	"No answer/refused",
-	"Don't know",
-	"Qn not applicable to survey year",
-	"Schedule not applicable"))]
- saltset11[, SalHowC := factor(SalHowC, levels = 1:8,labels = c("Always",
-"Usually",
-"Sometimes",
-	",Item not applicable",
-	"No answer/refused",
-	" Don't know",
-"Qn not applicable to survey year",
-"Schedule not applicable"))]
- saltset11[, SltSHow := factor(SltSHow,levels = 1:8,labels = c("Always",
-                                                            "Usually",
-                                                            "Sometimes",
-                                                            ",Item not applicable",
-                                                            "No answer/refused",
-                                                            " Don't know",
-                                                            "Qn not applicable to survey year",
-                                                            "Schedule not applicable"))]
- 
-  saltset11[, vegetarn := factor(vegetarn, levels = 1:3, labels = c("vegetarian","vegan","not vegetarian"))]
- 
-#ethnset
-ethnset11[ , ethgrp5 := factor(ethgrp5, levels = 1:5, labels = c( 'White'
-                                                             , 'Mixed ethnic group'
-                                                             , 'Black or Black British'
-                                                             , 'Asian or asian British'
-                                                             , 'Any other group'))]
-ethnset11[ , ethgrp2 := factor(ethgrp2, levels = 1:2, labels = c( 'White'
-                                                             , 'Non-white'))]
-
- 
- 
-#bpset 
- 
- bpset11[, "omsysval" := as.numeric(omsysval)]
- #bpset[,Sys := as.numeric(Sys)]
-
-#medset
-  medsset11[, bpmedc2 := factor(bpmedc2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
- medsset11[, bpmedd2 := factor(bpmedd2, levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))] 
- medsset11[, diur2 := factor(diur2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
- medsset11[, beta2 := factor(beta2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
-  medsset11[, aceinh2 := factor(aceinh2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
- medsset11[, calciumb2 := factor(calciumb2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
-  medsset11[, obpdrug2 := factor(obpdrug2,levels = 0:1,	labels = c("Not taking drug"
-	,"Taking drug"))]
-  medsset11[, PregNowB := factor(PregNowB,levels = 1:2,	labels = c("preg or breastfeeding"
-	,"not preg or Bfeed"))]
-  
-#incset
-incset11[ , nssec8 := factor(nssec8, levels = 1:9, labels = c(  "Higher managerial and professional occupations", "Lower managerial and professional occupations"
-               , "Intermediate occupations"
-                           , "Small employers and own account workers"
-                           , "Lower supervisory and technical occupations"
-                           , "Semi-routine occupations"
-                           , "Routine occupations"
-                           , "Never worked"
-                           , "Other"))]
-
-incset11[,GOR := factor(GOR, levels = 1:12, labels = c("North East","North West","Yorkshire & The Humber","East Midlands","West Midlands","East of England","London","South East","South West","Wales","Scotland","Northern Ireland"))]
-
-incset11[,region := factor(region, levels = 1:6, labels = c("England: North","England: Central/Midlands","England: South(including London)","Scotland","Wales","Northern Ireland"))]
-
-incset11[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
-incset11[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5)] 
-incset11[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
-incset11[,educfinh := factor(educfinh, levels = 1:8)] 
-
- #hypeset
- hypset11[,hyper140_2 := factor(hyper140_2,levels = 1:9, labels = c(" Normotensive untreated",
-" Normotensive treated",
-	"Hypertensive treated",
-"Hypertensive untreated",
-"No answer/refused",
-	"Don't know",
-"Refused, attempted but not obtained, not attempted",
-	 "Qn not applicable to survey year",
-"Item not applicable")) ]
- hypset11[, hibp140_2 := factor(hibp140_2, levels = 1:7, labels = c("Not high BP",
-"High BP",
-	"No answer/refused",
-	"Don't know",
-	"Refused, attempted but not obtained, not attempted",
-	"Qn not applicable to survey year",
-	"Item not applicable")) ]
- hypset11[, hyper1_2 := factor(hyper1_2,levels = 1:9, labels = c(" Normotensive untreated",
-                                                          " Normotensive treated",
-                                                          "Hypertensive treated",
-                                                          "Hypertensive untreated",
-                                                          "No answer/refused",
-                                                          "Don't know",
-                                                          "Refused, attempted but not obtained, not attempted",
-                                                          "Qn not applicable to survey year",
-                                                          "Item not applicable"))]
- hypset11[, highbp1_2 := factor(highbp1_2, levels = 1:7, labels = c("Not high BP",
-                                                              "High BP",
-                                                              "No answer/refused",
-                                                              "Don't know",
-                                                              "Refused, attempted but not obtained, not attempted",
-                                                              "Qn not applicable to survey year",
-                                                              "Item not applicable")) ]
-
- 
- #ageset
-ageset11[,agegad1 := factor(agegad1, levels = 1:4 ,labels = c("16-24","25-49","50-64","65+ years"))]
-ageset11[,agegad2 := factor(agegad2, levels = 1:5, labels = c("16-18","19-34","35-49","50-64","65+ years"))]
-ageset11[,agegch1 := factor(agegch1, levels = 1:3, labels = c("8-10","11-12","13-15"))]
-ageset11[,agegr1 := factor(agegr1, levels = 1:5, labels = c("1.5-3 years","4-10 years","11-18 years","19-64 years","65+ years"))]
- 
- 
- 
-#measset
- 
- measset11[,bmivg5 := factor(bmivg5, levels = 1:10, labels = c("Under 18.5", "18.5 and below 25","25 and below 30","30 and below 40","Over 40","Refused","Don't know","Different variable this survey year","Not applicable to survey year","Not applicable"))]
-
-
-
-```
 
 
 
 The data is then combined into two comprehensive tables.
-
-
 ```{r echo=FALSE}
 #building the tables
-sav4rp <- sav4r[, ..perslevdat4]
-sav4rp <- sav4rp[ bpset4, on = "seriali"]
-sav4rp <- sav4rp[ measset4, on = "seriali"]
-sav4rp <- sav4rp[ saltset4, on = "seriali"]
-sav4rp <- sav4rp[ hypset4, on = "seriali"]
-sav4rp <- sav4rp[ ethnset4, on = "seriali"]
-sav4rp <- sav4rp[ incset4, on = "seriali"]
-sav4rp <- sav4rp[ ageset4, on = "seriali"]
-sav4rp <- sav4rp[ medsset4, on = "seriali"]
+sav4r <- sav4r[, ..perslevdat]
+sav6r <- as.data.table(sav6r[, ..perslevdat])
+sav8r <- as.data.table(sav8r[, ..perslevdat])
+sav11r <- sav11r[,..perslevdat]
 
 
-```
+val_labels(sav8r) <- NULL
+val_labels(sav6r) <- NULL
+val_labels(sav4r) <- NULL
+val_labels(sav11r) <- NULL
 
-```{r echo=FALSE}
-#building the tables
-sav6rp <- as.data.table(sav6r[, ..perslevdat6])
-sav6rp <- sav6rp[ bpset6, on = "seriali"]
-sav6rp <- sav6rp[ measset6, on = "seriali"]
-sav6rp <- sav6rp[ saltset6, on = "seriali"]
-sav6rp <- sav6rp[ hypset6, on = "seriali"]
-sav6rp <- sav6rp[ ethnset6, on = "seriali"]
-sav6rp <- sav6rp[ incset6, on = "seriali"]
-sav6rp <- sav6rp[ ageset6, on = "seriali"]
-sav6rp <- sav6rp[ medsset6, on = "seriali"]
-sav6rp <- sav6rp[ medsset6, on = "seriali"]
-sav6rp <- sav6rp[ weightset6, on = "seriali"]
-```
+ndns_1_11r <- rbindlist(list(sav4r,sav6r,sav8r,sav11r),fill = TRUE, use.names = TRUE)
 
-```{r echo=FALSE}
-#building the tables
-sav8rp <- as.data.table(sav8r[, ..perslevdat8])
-sav8rp <- sav8rp[ bpset8, on = "seriali"]
-sav8rp <- sav8rp[ measset8, on = "seriali"]
-sav8rp <- sav8rp[ saltset8, on = "seriali"]
-sav8rp <- sav8rp[ hypset8, on = "seriali"]
-sav8rp <- sav8rp[ ethnset8, on = "seriali"]
-sav8rp <- sav8rp[ incset8, on = "seriali"]
-sav8rp <- sav8rp[ ageset8, on = "seriali"]
-sav8rp <- sav8rp[ medsset8, on = "seriali"]
-sav8rp <- sav8rp[ weightset8, on = "seriali"]
-```
-
-
-
-```{r include=FALSE}
-
-sav11rp <- sav11r[,..perslevdat11]
-sav11rp <- sav11rp[ bpset11, on = "seriali"]
-sav11rp <- sav11rp[ measset11, on = "seriali"]
-sav11rp <- sav11rp[ saltset11, on = "seriali"]
-sav11rp <- sav11rp[ hypset11, on = "seriali"]
-sav11rp <- sav11rp[ ethnset11, on = "seriali"]
-sav11rp <- sav11rp[ incset11, on = "seriali"]
-sav11rp <- sav11rp[ ageset11, on = "seriali"]
-sav11rp <- sav11rp[ medsset11, on = "seriali"]
+ndns_1_11 <- ndns_1_11[ ndns_1_11r, on = "seriali"]
 
 
 
 ```
+
+
+
 
 
 ```{r echo=FALSE}
 
-sav4rp[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
-sav4rp[, Country := factor(Country)]
+ndns_1_11[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
+ndns_1_11[, Country := factor(Country)]
 
-sav6rp[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
-sav6rp[, Country := factor(Country)]
 
-sav8rp[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
-sav8rp[, Country := factor(Country)]
-
-sav11rp[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
-sav11rp[, Country := factor(Country)]
 
 ```
 
