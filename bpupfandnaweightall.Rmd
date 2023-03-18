@@ -1353,9 +1353,9 @@ The age groups show some discrepancy with the p value significant only in the ch
 
 
 Simple linear regression equations look for the relationship between the dependant variable, and the independent variable.
+For these I am looking at the whole dataset
+Firstly I will plot  omsysval and sodiummg, then omsysval and Epcnt, then omsysval and pcnt.
 
-Firstly using linear regression I will look at the correlation between omsysval and sodiummg. 
-There are regressions for 1-4 and 9-11
 
 ```{r}
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Sodiummg*wti_UKY1to11])
@@ -1364,229 +1364,197 @@ plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,pcnt_4*wti_UKY1to11])
 
 ```
 
-There is a  relationship between Na and omsysval. There is a weakly positive gradiant. This appears greater in the more recent data starting from a lower intersection with the y axis.
+The regression models for teh individual variables against omsysval
+pcnt_4
 
 
 ```{r echo=FALSE}
 #linear regression models
 #UPF gram % only
-lm1g4 <- lm(omsysval ~ sqrt(pcnt_4), sav4rp)
+
 lm1g <- lm((omsysval*wti_UKY1to11) ~ (pcnt_4*wti_UKY1to11), ndns_1_11)
 
-lm1g11 <- lm(omsysval ~ sqrt(pcnt_4), sav11rp)
-lm1g4
-lm1g11
+
+
 lm1g
-anova(lm1g4)
-AIC(lm1g4)
-anova(lm1g11)
-AIC(lm1g11)
+anova(lm1g)
+AIC(lm1g)
 
-sensemakr(lm1g4, treatment = "sqrt(pcnt_4)")
-sensemakr(lm1g11, treatment = "sqrt(pcnt_4)")
+
+sensemakr(lm1g, treatment = "sqrt(pcnt_4)")
+
 ```
-
+Epcnt_4
 ```{r echo=FALSE}
 #linear regression models
 #UPF Energy % only
-lm1E4 <- lm(omsysval ~ Epcnt_4, sav4rp)
+lm1E <- lm(omsysval ~ Epcnt_4, ndns_1_11)
 
 
-lm1E11 <- lm(omsysval ~ Epcnt_4, sav11rp)
-lm1E4
-lm1E11
 
-anova(lm1E4)
-AIC(lm1E4)
-anova(lm1E11)
-AIC(lm1E11)
+lm1E
 
-sensemakr(lm1E4, treatment = "Epcnt_4")
-sensemakr(lm1E11, treatment = "Epcnt_4")
+
+anova(lm1E)
+AIC(lm1E)
+
+
+sensemakr(lm1E, treatment = "Epcnt_4")
+
 ```
-
+sodiummg
 
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
-lm1na4 <- lm(omsysval ~ Sodiummg, sav4rp)
+lm1na <- lm(omsysval ~ Sodiummg, ndns_1_11)
 
 
 
 
-lm1na11 <- lm(omsysval ~ Sodiummg, sav11rp)
-(lm1na4)
-(lm1na11)
-anova(lm1na4)
-AIC(lm1na4)
-anova(lm1na11)
-AIC(lm1na11)
 
-sensemakr(lm1na4, treatment = "Sodiummg")
-sensemakr(lm1na11, treatment = "Sodiummg")
+(lm1na)
+
+anova(lm1na)
+AIC(lm1na)
+
+
+sensemakr(lm1na, treatment = "Sodiummg")
+
 
 ```
 
 
-There is a relationship between Na and g pcnt as well as E pcnt and omsysval with a negative gradiant.
+There are relationships between Na and g pcnt as well as E pcnt and omsysval .
 
 ### multi variable regression 
 
 This uses a model of variables. It can highlight the contributions of each.
 
-This first model looks at the relationships between BP and Age and Sex first in years 1-4 then 9-11
+This first model looks at the relationships between BP and Age and Sex 
 
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
-lm1AS4 <- lm(omsysval ~ Age + Sex, sav4rp)
+lm1AS <- lm(omsysval ~ Age + Sex, ndns_1_11)
 
 
 
 
-lm1AS11 <- lm(omsysval ~ AgeR + Sex, sav11rp)
-(lm1AS4)
-(lm1AS11)
-anova(lm1AS4)
-AIC(lm1AS4)
-anova(lm1AS11)
-AIC(lm1AS11)
-sensemakr(lm1AS4, treatment = "Age")
-sensemakr(lm1AS11, treatment = "AgeR")
-#sensemakr(lm1AS4, treatment = "Sex")
-#sensemakr(lm1AS11, treatment = "Sex")
+
+(lm1AS)
+
+anova(lm1AS)
+AIC(lm1AS)
+
+sensemakr(lm1AS, treatment = "Age")
+
+#sensemakr(lm1AS, treatment = "Sex")
+
 ```
-
-
-
+The next model looks at a large number of variables
 
 
 ```{r echo=FALSE}
-lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ ethgr2 + VitaminDµg + EducFin+ EIMD_2010_quintile , sav4rp,na.action = na.exclude)
+lmM <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ ethgr2 + VitaminDµg + EducFin+ EIMD_2010_quintile , ndns_1_11,na.action = na.exclude)
 
-#plot(lm1)
+lmM
 
-lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + sqrt(pcnt_4) +ethgrp2 +VitaminDµg + educfinh +EIMD_2010_quintile, sav11rp,na.action = na.exclude)
-lm4
-lm11
-#plot(lm1m)
-#lm1a$coefficients
-anova(lm4)
-AIC(lm4)
-anova(lm11)
-AIC(lm11)
 
-sensemakr(lm4, treatment = "Age")
-sensemakr(lm11, treatment = "AgeR")
-#sensemakr(lm4, treatment = "Sex")
-#sensemakr(lm11, treatment = "Sex")
+anova(lmM)
+AIC(lmM)
+
+
+#sensemakr(lmM, treatment = "Age")
+
 
 ```
-There are differences in coefficients in the two sets of data. 
+
 These models can be compared with others with different variables to understand how they help predict values more or less effectively.
 
 
 ```{r echo=FALSE}
-lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ ethgr2 + VitaminDµg +EducFin+ EIMD_2010_quintile , sav4rp,na.action = na.exclude)
+lmM2 <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ ethgr2 + VitaminDµg +EducFin+ EIMD_2010_quintile , ndns_1_11,na.action = na.exclude)
 
-#plot(lm1)
 
-lm11 <- lm(omsysval ~ AgeR +Sex +Sodiummg + Epcnt_4 +ethgrp2 +VitaminDµg + educfinh+ EIMD_2010_quintile, sav11rp,na.action = na.exclude)
-lm4
-lm11
-#plot(lm1m)
-#lm1a$coefficients
-anova(lm4)
-AIC(lm4)
-anova(lm11)
-AIC(lm11)
+
+lmM2
+
+anova(lmM2)
+AIC(lmM2)
+
 ```
 
-
+this model has sodium and gram percent
 
 
 
 ```{r echo=FALSE}
-lm4a <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4) , sav4rp,na.action =na.exclude)
+lmMna <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4) , ndns_1_11,na.action =na.exclude)
 
-#plot(lm1)
 
-lm11a <- lm(omsysval ~ AgeR +Sex +Sodiummg + sqrt(pcnt_4) , sav11rp, na.action =na.exclude)
-lm4a
-lm11a
 
-anova(lm4a)
-AIC(lm4a)
-anova(lm11a)
-AIC(lm11a)
+lmMna
+
+
+anova(lmMna)
+AIC(lmMna)
+
+```
+This model has Sodium and energy pcnt
+```{r echo=FALSE}
+lmMnaE <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4 , ndns_1_11,na.action =na.exclude)
+
+lmMnaE
+
+
+anova(lmMnaE)
+AIC(lmMnaE)
+
+```
+this model has Age sex and g pcnt only
+
+```{r echo=FALSE}
+lmMg <- lm(omsysval ~ Age +Sex + sqrt(pcnt_4) , ndns_1_11)
+
+
+lmMg
+
+anova(lmMg)
+AIC(lmMg)
+
 ```
 
 ```{r echo=FALSE}
-lm4a <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4 , sav4rp,na.action =na.exclude)
+lm4b <- lm(omsysval ~ Age +Sex + Epcnt_4 , ndns_1_11)
 
-#plot(lm1)
-
-lm11a <- lm(omsysval ~ AgeR +Sex +Sodiummg + Epcnt_4 , sav11rp, na.action =na.exclude)
-lm4a
-lm11a
-
-anova(lm4a)
-AIC(lm4a)
-anova(lm11a)
-AIC(lm4a)
-```
-
-
-```{r echo=FALSE}
-lm4b <- lm(omsysval ~ Age +Sex + sqrt(pcnt_4) , sav4rp)
-
-#plot(lm1)
-
-lm11b <- lm(omsysval ~ AgeR +Sex + sqrt(pcnt_4) , sav11rp)
 lm4b
-lm11b
+
 anova(lm4b)
 AIC(lm4b)
-anova(lm11b)
-AIC(lm11b)
-```
 
-```{r echo=FALSE}
-lm4b <- lm(omsysval ~ Age +Sex + Epcnt_4 , sav4rp)
-
-#plot(lm1)
-
-lm11b <- lm(omsysval ~ AgeR +Sex + Epcnt_4 , sav11rp)
-lm4b
-lm11b
-anova(lm4b)
-AIC(lm4b)
-anova(lm11b)
-AIC(lm11b)
 
 sensemakr(lm4b, treatment = "Epcnt_4")
-sensemakr(lm11b, treatment = "Epcnt_4")
+
 
 
 ```
+What has removing the sodium done to anova and AIC?
 
+This last model is just sodium with Age and sex
 
 ```{r echo=FALSE}
-lm4c <- lm(omsysval ~ Age +Sex +Sodiummg  , sav4rp)
+lm4c <- lm(omsysval ~ Age +Sex +Sodiummg  , ndns_1_11)
 
-#plot(lm1)
-
-lm11c <- lm(omsysval ~ AgeR +Sex +Sodiummg  , sav11rp)
 lm4c
-lm11c
+
 
 anova(lm4c)
 AIC(lm4c)
-anova(lm11c)
-AIC(lm11c)
+
 
 sensemakr(lm4c, treatment = "Sodiummg")
-sensemakr(lm11c, treatment = "Sodiummg")
+
 
 
 ```
@@ -1595,29 +1563,32 @@ sensemakr(lm11c, treatment = "Sodiummg")
 
 ## This final set analyses the whole dataset together across the key variables
 Then tests them across two sets of UPF data one calculated using Rauber, the other from ZC.
+First for gram percent UPF 4
 ```{r}
-sav11rp$Age <- sav11rp[,AgeR]
-#sav11rp[, seriali := factor(seriali)]
-lastfew11 <- sav11rp[,.(seriali,Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval,Epcnt_4)]
-lastfew4 <- sav4rp[,.(seriali,Age, Sex,Sodiummg,pcnt_4, omsysval, omdiaval,Epcnt_4)]
-alldata <- data.table(rbind(lastfew4,lastfew11))
-#ZCNova <- data.table(read_excel("data/NOVA_ForDavid.xlsx"))
+
+
 setkey(NOVA_ForDavid, "seriali")
-setkey(alldata, "seriali")
-alldata <- alldata[NOVA_ForDavid, on = "seriali"]
+setkey(ndns_1_11, "seriali")
+alldata <- ndns_1_11[NOVA_ForDavid, on = "seriali"]
 
 lmallg <- lm(omsysval~ Age+ Sex + Sodiummg +pcnt_4, alldata)
 lmallg
 anova(lmallg)
 
+lmallgz <- lm(omsysval~ Age+ Sex + Sodiummg +NOVA_Gpct_opti_4, alldata)
+lmallgz
+anova(lmallgz)
+```
+
+
+the second set compares Energy percent upf between the two datasets
+```{r}
 lmallE <- lm(omsysval~ Age+ Sex + Sodiummg +Epcnt_4, alldata)
 lmallE
 anova(lmallE)
 AIC(lmallE)
 
-lmallgz <- lm(omsysval~ Age+ Sex + Sodiummg +NOVA_Gpct_opti_4, alldata)
-lmallgz
-anova(lmallgz)
+
 
 lmallEz <- lm(omsysval~ Age+ Sex + Sodiummg +NOVA_Epct_opti_4, alldata)
 lmallEz
@@ -1643,8 +1614,6 @@ summary(Smallg)
 The data from 2008-11 and 2017-19 NDNS datasets have been downloaded and adapted into a form to approach the research question.
 
 The key variables of BP, 'omsysval' and 'omdiaval' are taken directly from the data.
-The percentage by weight of UPF intake is calculated.
-The percentage by energy of UPF intake is also calculated.
 The diary entries are identified by NOVA type. 
 The total weight of each nova type is calculated for each individual. 
 The percentage of the total weight food intake per person is then calculated. 
@@ -1655,10 +1624,10 @@ This gives the derived value 'Epcnt_4', which is the percentage of intake which 
 
 There is a table with summary values for theses variables across the dataset.
 
-Statistical analysis of the key variables shows that there is a reduction in all the variables between the two time periods. 
+Statistical analysis of the key variables shows the change in all the variables between the two time periods. 
 
-Confounding variables are analysed and show that there has been a significant change in the sex balance of the populations. 
-Removing those with antihypertensive medications has removed more men in the earlier cohort compared to women. 
+Confounding variables are analysed and show if there has been a significant change in the balance of the populations. 
+#Removing those with antihypertensive medications has removed more men in the earlier cohort compared to women. 
 
 Regression shows a degree of association between the BP and UPF intake by weight and by energy.
 It also shows the same for sodium intake.
