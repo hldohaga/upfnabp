@@ -1146,9 +1146,9 @@ There appears to be more men excluded in the 1-4 population compared to females,
 comparing individual data sets looking for similarity in two
 ```{r echo=FALSE}
 #ttests for continuous data
-ttestht <- t.test(ndns_1_11[SurveyYear >= 9,htval2*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,htval2*wti_UKY1to11])
-ttestwt <- t.test(ndns_1_11[SurveyYear >= 9,wtval2*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,wtval2*wti_UKY1to11])
-ttestbmi <- t.test(ndns_1_11[SurveyYear >= 9,bmival2*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,bmival2*wti_UKY1to11])
+ttestht <- t.test(ndns_1_11[SurveyYear >= 9,htval*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,htval*wti_UKY1to11])
+ttestwt <- t.test(ndns_1_11[SurveyYear >= 9,wtval*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,wtval*wti_UKY1to11])
+ttestbmi <- t.test(ndns_1_11[SurveyYear >= 9,bmival*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,bmival*wti_UKY1to11])
 
 confounders2 <- data.table("name" = c("htval","wtval","bmival"),"pvalue" = signif(c(ttestht$p.value,ttestwt$p.value,ttestbmi$p.value),digits = 4))
 confounders2
@@ -1381,7 +1381,7 @@ anova(lm1g)
 AIC(lm1g)
 
 
-sensemakr(lm1g, treatment = "sqrt(pcnt_4)")
+sensemakr(lm1g, treatment = "pcnt_4")
 
 ```
 Epcnt_4
@@ -1456,7 +1456,7 @@ The next model looks at a large number of variables
 
 
 ```{r echo=FALSE}
-lmM <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ ethgr2 + VitaminDµg + EducFin+ EIMD_2010_quintile ,weight = wti_UKY1to11, ndns_1_11,na.action = na.exclude)
+lmM <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ ethgrp2 + VitaminDµg + educfinh+ EIMD_2010_quintile ,weight = wti_UKY1to11, ndns_1_11,na.action = na.exclude)
 
 lmM
 
@@ -1474,7 +1474,7 @@ These models can be compared with others with different variables to understand 
 
 
 ```{r echo=FALSE}
-lmM2 <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ ethgr2 + VitaminDµg +EducFin+ EIMD_2010_quintile ,weight = wti_UKY1to11, ndns_1_11,na.action = na.exclude)
+lmM2 <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ ethgrp2 + VitaminDµg +educfinh+ EIMD_2010_quintile ,weight = wti_UKY1to11, ndns_1_11,na.action = na.exclude)
 
 
 
