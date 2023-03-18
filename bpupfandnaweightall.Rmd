@@ -95,7 +95,7 @@ sav11r$Age <- sav11r$AgeR
 ```
 
 
-```{r}
+```{r novafile, message=FALSE, warning=FALSE, include=FALSE }
 NOVA_ForDavid <- as.data.table(read_excel("data/NOVA_ForDavid.xlsx"))
 
 NOVA_ForDavid[, Sex := factor(Sex, levels = 1:2)]
@@ -964,21 +964,22 @@ The data is summarised, with Mean median, and range for continuous variables.
 Counts are available for categorical variables.
 First for years 1-4 then for 9-11.
 
-The key variables are omsysval which is the dependant variable, and UPF proportion intake and sodiummg. 
+The key variables are omsysval which is the dependant variable, and UPF energy proportion intake and sodiummg. 
 These variables are the ones which most relate to the research question. 
-There are a number of related variables in the dataset. These were chosen for reliability and practicality.
+There are a number of related variables in the dataset. These were chosen for reliability and practicality. These variables are ones whch can also influence BP.
 The omsysval is a validated measurement with significant quality assessment within the dataset. 
 Raw systolic values are present in the dataset but are made up of data with issues around quality. 
 In particular the systolic values are assessed for the effects of exercise, temperature and ill health. 
 
 The sodium value is one calculated from intake based on food diaries and standard food nutrient values.
-This is dependant on a lot of processing, but but only reflects standard foods. Serum sodium values are available for the early dataset, but not the later one. 
+This only reflects standard foods and is the result of assumptions about the content being consistent. Serum sodium values are available for the early dataset, but not the later one. 
 There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods.
 
 
 
 Summary Description of the key variables of sodium intake, Total energy intake, and BP
-Show the data. This is the whole dataset.
+Show the data. This is the whole dataset without exclusions.
+The means show the change between the time periods.
 
 
 ```{r echo=FALSE, warning=FALSE}
@@ -1004,6 +1005,8 @@ boxplot((ndns_1_11$Sodiummg*ndns_1_11$wti_UKY1to11)~
 boxplot((ndns_1_11$omsysval*ndns_1_11$wti_UKY1to11)~
           ndns_1_11$SurveyYear)
 ```
+These boxplots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changeed over the years.
+
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 bpNa <- data.table("2010"=c(ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11]),"2019" =c(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11]))
@@ -1021,24 +1024,18 @@ boxplot(bpOD, main = "omdiaval 2010 vs 2019", xlab = "year", ylab = "omdiaval")
 
 
 ```
-
-I have used the square root of the percentage as this reduces the skew of the data leading to a closer approximation to the normal distribution.
-
-
-
-
-
-
 ## Statistical Comparison of key variables
+## Comparison of key variables
 ### comparing UPF and Sodium intake calculated from diet
 
 
 
 In order to confirm there has been a change in intake 
 a t.test compares the means of the two samples.
-This first compares the means of sodium in years 1-4 with sodium in years 9-11.
+One compares the means of sodium in years 1-4 with sodium in years 9-11.
 
 The second compares the means of pcnt UPF intake in over the same periods.
+A third compares the percentage energy provided by UPF.
 
 ```{r echo=FALSE}
 
@@ -1089,16 +1086,16 @@ The NDNS dataset was weighted to keep many of these the same between datasets.
 ```{r echo=FALSE}
 #from pers data
 #continuous data
-ttestage <-t.test(sav11rp[,"AgeR"], sav4rp[,"Age"])
-ttestca <- t.test(sav11rp[,Calciummg], sav4rp[,"Calciummg"])
-ttestts <-t.test(sav11rp[,Totalsugarsg], sav4rp[,"Totalsugarsg"])
-ttestgl <-t.test(sav11rp[,Glucoseg], sav4rp[,"Glucoseg"])
-ttestfr <- t.test(sav11rp[,Fructoseg], sav4rp[,"Fructoseg"])
-ttestsu <-t.test(sav11rp[,Sucroseg], sav4rp[,"Sucroseg"])
-ttestla <-t.test(sav11rp[,Lactoseg], sav4rp[,"Lactoseg"])
-ttestlo <-t.test(sav11rp[,SOFTDRINKSLOWCALORIE], sav4rp[,"SOFTDRINKSLOWCALORIE"])
-ttestnlo <-t.test(sav11rp[,SOFTDRINKSNOTLOWCALORIE], sav4rp[,"SOFTDRINKSNOTLOWCALORIE"])
-ttesttc<- t.test(sav11rp[,TEACOFFEEANDWATER], sav4rp[,"TEACOFFEEANDWATER"])
+ttestage <-t.test(ndns_1_11[SurveyYear >= 9,Age*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Age*wti_UKY1to11])
+ttestca <- t.test(ndns_1_11[SurveyYear >= 9,Calciummg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Calciummg*wti_UKY1to11])
+ttestts <-t.test(ndns_1_11[SurveyYear >= 9,Totalsugarsg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Totalsugarsg*wti_UKY1to11])
+ttestgl <-t.test(ndns_1_11[SurveyYear >= 9,Glucoseg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Glucoseg*wti_UKY1to11])
+ttestfr <- t.test(ndns_1_11[SurveyYear >= 9,Fructoseg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Fructoseg*wti_UKY1to11])
+ttestsu <-t.test(ndns_1_11[SurveyYear >= 9,Sucroseg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Sucroseg*wti_UKY1to11])
+ttestla <-t.test(ndns_1_11[SurveyYear >= 9,Lactoseg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Lactoseg*wti_UKY1to11])
+ttestlo <-t.test(ndns_1_11[SurveyYear >= 9,SOFTDRINKSLOWCALORIE*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,SOFTDRINKSLOWCALORIE*wti_UKY1to11])
+ttestnlo <-t.test(ndns_1_11[SurveyYear >= 9,SOFTDRINKSNOTLOWCALORIE*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,SOFTDRINKSNOTLOWCALORIE*wti_UKY1to11])
+ttesttc<- t.test(ndns_1_11[SurveyYear >= 9,TEACOFFEEANDWATER*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,TEACOFFEEANDWATER*wti_UKY1to11])
 
 confounders <- data.table("name" = c("Age","Calciummg","Totalsugarsg","Glucoseg","Fructoseg","Sucroseg", "Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE","TEACOFFEEANDWATER"), 
  "pvalue" = signif(c(ttestage$p.value, ttestca$p.value,ttestts$p.value,ttestgl$p.value,ttestfr$p.value,ttestsu$p.value,ttestla$p.value,
@@ -1116,13 +1113,13 @@ There has been a change in the intake of soft drinks, tea coffee and water.
 ```{r echo=FALSE, warning=FALSE}
 
 #categorical data
-stable11 <- xtabs(~sav11rp[,Sex])
-stable4 <- xtabs(~sav4rp[, Sex])
+stable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,Sex*wti_UKY1to11])
+stable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,Sex*wti_UKY1to11])
 stabler <- chisq.test(rbind(stable11 , stable4))
 
 
-#ctable11 <- xtabs(~sav11rp[,Country])
-#ctable4 <- xtabs(~sav4rp[,Country])
+#ctable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,Country*wti_UKY1to11])
+#ctable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,Country*wti_UKY1to11])
 #ctabler <- chisq.test(rbind(ctable4,ctable11))
 
 catconfounders <- data.table("name" = c("Sex"),"pvalue" = signif(c(stabler$p.value),digits = 4))
@@ -1130,8 +1127,9 @@ catconfounders <- data.table("name" = c("Sex"),"pvalue" = signif(c(stabler$p.val
 catconfounders
 
 
-plot(sav11rp[,Sex], main = "2019", caption = "Bar Plot of Sex in 2019 cohort")
-plot(sav4rp[,Sex], main = "2010",caption = "Bar Plot of Sex in 2019 cohort")
+plot(ndns_1_11[SurveyYear >= 9,Sex*wti_UKY1to11], main = "2019", caption = "Bar Plot of Sex in 2019 cohort")
+plot( ndns_1_11[SurveyYear <= 4,Sex*wti_UKY1to11], main = "2010",caption = "Bar Plot of Sex in 2019 cohort")
+boxplot(ndns_1_11[,Sex*wti_UKY1to11], ndns_1_11[,SurveyYear])
 #plot(sav11rp[,Country], main = "2019")
 #plot(sav4rp[,Country], main = "2010")
 
@@ -1148,9 +1146,9 @@ There appears to be more men excluded in the 1-4 population compared to females,
 comparing individual data sets looking for similarity in two
 ```{r echo=FALSE}
 #ttests for continuous data
-ttestht <- t.test(sav11rp[,"htval2"],sav4rp[,"htval"])
-ttestwt <- t.test(sav11rp[,"wtval2"],sav4rp[,"wtval"])
-ttestbmi <- t.test(sav11rp[,"bmival2"],sav4rp[,"bmival"])
+ttestht <- t.test(ndns_1_11[SurveyYear >= 9,htval2*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,htval2*wti_UKY1to11])
+ttestwt <- t.test(ndns_1_11[SurveyYear >= 9,wtval2*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,wtval2*wti_UKY1to11])
+ttestbmi <- t.test(ndns_1_11[SurveyYear >= 9,bmival2*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,bmival2*wti_UKY1to11])
 
 confounders2 <- data.table("name" = c("htval","wtval","bmival"),"pvalue" = signif(c(ttestht$p.value,ttestwt$p.value,ttestbmi$p.value),digits = 4))
 confounders2
@@ -1170,20 +1168,20 @@ This would also highlight a preferential detection of high BP in those overweigh
 
 #chisquared for categorical data
 #saltset
-vtable11 <- xtabs(~sav11rp[,vegetarn])
-vtable4 <- xtabs(~sav4rp[, vegetarn])
+vtable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,vegetarn*wti_UKY1to11])
+vtable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,vegetarn*wti_UKY1to11])
 vtabler <- chisq.test(rbind(vtable11 , vtable4))
 
-#cktable11 <- xtabs(~sav11rp[1:3,SaltChk])
-#cktable4 <- xtabs(~sav4rp[1:3, SaltChk])
+#cktable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,SaltChk*wti_UKY1to11])
+#cktable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,SaltChk*wti_UKY1to11])
 #cktabler <- chisq.test(rbind(cktable11 , cktable4))
 
-#hwtable11 <- xtabs(~sav11rp[1:3,SalHowC])
-#hwtable4 <- xtabs(~sav4rp[1:3, SalHowC])
+#hwtable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,SaltHowC*wti_UKY1to11])
+#hwtable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,SaltHowC*wti_UKY1to11])
 #hwtabler <-chisq.test(rbind(hwtable11 , hwtable4))
 
-#swtable11 <- xtabs(~sav11rp[1:3,SltSHow])
-#swtable4 <- xtabs(~sav4rp[1:3, SltSHow])
+#swtable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,SltSHow*wti_UKY1to11])
+#swtable4 <- xtabs(~nndns_1_11[SurveyYear <= 4,SltSHow*wti_UKY1to11])
 #swtabler <- chisq.test(rbind(swtable11 , swtable4))
 
 #catconfounders2 <- data.table("name" = c("vegetarn","SaltChk","SalHowC","SltShow"),"p.value" = signif(c(vtabler$p.value,cktabler$p.value,hwtabler$p.value,swtabler$p.value ),digits = 4))
@@ -1360,12 +1358,10 @@ Firstly using linear regression I will look at the correlation between omsysval 
 There are regressions for 1-4 and 9-11
 
 ```{r}
-plot(sav4rp$omsysval, sav4rp$Sodiummg)
-plot(sav4rp$omsysval, sav4rp$Epcnt_4)
-plot(sav4rp$omsysval, sav4rp$pcnt_4)
-plot(sav11rp$omsysval, sav11rp$Sodiummg)
-plot(sav11rp$omsysval, sav11rp$Epcnt_4)
-plot(sav11rp$omsysval, sav11rp$pcnt_4)
+plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Sodiummg*wti_UKY1to11])
+plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Epcnt_4*wti_UKY1to11])
+plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,pcnt_4*wti_UKY1to11])
+
 ```
 
 There is a  relationship between Na and omsysval. There is a weakly positive gradiant. This appears greater in the more recent data starting from a lower intersection with the y axis.
