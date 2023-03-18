@@ -65,6 +65,15 @@ ndns_rp_yr9_11a_indiv <-as.data.table( read_sav("data/UKDA-6533-spss/spss/spss25
 ndns_rp_yr9_11a_indiv$area <- ndns_rp_yr9_11a_indiv$Area
 ```
 
+```{r novazc}
+NOVA_ForDavid <- as.data.table(read_excel("data/NOVA_ForDavid.xlsx"))
+
+NOVA_ForDavid[, Sex := factor(Sex, levels = 1:2)]
+NOVA_ForDavid[, Country := factor(Country)]
+NOVA_ForDavid[, SurveyYear := factor(SurveyYear)]
+NOVA_ForDavid[, Age := as.numeric(Age)]
+```
+
 ## weighting ndns
 
 This doc intends to develop a weighted sample for analysis
@@ -200,6 +209,12 @@ bpset11w <-data.table(bpset11w)
 bpsetallw <- rbindlist(list(bpset4w,bpset6w,bpset8w,bpset11w), fill = TRUE)
 
 setkey(bpsetallw, seriali)
+
+bpsetall <- bpsetall[NOVA_ForDavid, on = "seriali"]
+bpsetall
+
+bpsetall <- earlyrp[bpsetall, on = "seriali"] 
+
 ```
 
 

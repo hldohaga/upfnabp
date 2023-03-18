@@ -1,17 +1,17 @@
 ---
 title: "bp upf and na"
 output:
+  pdf_document:
+    toc: yes
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
-  word_document: 
-    toc: yes
-    fig_caption: yes
-    keep_md: yes
-  pdf_document:
-    toc: yes
 ---
 
  
@@ -26,7 +26,7 @@ library(labelled)
 ```
 
 
-```{r read data}
+```{r read data, message=FALSE, warning=FALSE, include=FALSE}
 
 sav4 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_personleveldietarydata_uk_v2.sav"
 
@@ -140,19 +140,19 @@ sav11br$wti_UKY1to11 <- ((sav11br$wti_Y911/n4) * N) * (3/11)
  #measured and recorded data yr1-4a_indiv_uk 
 #subsets of the table to identify grouped information
 bpset <- c("seriali","omsysval","omdiaval")
-ethnset <- c("seriali" ,"ethgrp5","ethgrp2")
-saltset <- c("seriali","SaltChk","SalHowC","SltSHow" ,"vegetarn")
-medsset <- c("seriali", "bpmedc2","bpmedd2","diur2","beta2","aceinh2", "calciumb2","obpdrug2", "PregNowB")
-hypset <- c("seriali", "hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")
-incset <-c("seriali","nssec8","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")
-measset <- c("seriali","htval","wtval","bmival")
-ageset <- c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")
-weightset <- c("seriali","wti_UKY1to11","astrata1","area")
+ethnset <- c("ethgrp5","ethgrp2")
+saltset <- c("SaltChk","SalHowC","SltSHow" ,"vegetarn")
+medsset <- c( "bpmedc2","bpmedd2","diur2","beta2","aceinh2", "calciumb2","obpdrug2", "PregNowB")
+hypset <- c("hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")
+incset <-c("nssec8","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")
+measset <- c("htval","wtval","bmival")
+ageset <- c("agegad1", "agegad2", "agegch1","agegr1","age")
+weightset <- c("wti_UKY1to11","astrata1","area")
 
 indiv_data <- c(bpset,ethnset,saltset,medsset,hypset,incset,measset,ageset,weightset)
 ```
 
-```{r}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 sav11br <- sav11br[,..indiv_data]
 sav4br <- sav4br[,..indiv_data]
 sav6br <- sav6br[,..indiv_data]
@@ -167,10 +167,10 @@ val_labels(sav11br) <- NULL
 ```
 
 
-```{r}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 #this creates the whole table
 ndns_1_11 <- rbindlist(list(sav4br,sav6br,sav8br,sav11br),fill = TRUE, use.names = TRUE)
-dw <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1, data = ndns_1_11)
+
 ```
 
 
@@ -352,7 +352,7 @@ perslevdat <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciu
 
 
 The data is then combined into two comprehensive tables.
-```{r echo=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 #building the tables
 sav4r <- sav4r[, ..perslevdat]
 sav6r <- as.data.table(sav6r[, ..perslevdat])
@@ -872,7 +872,7 @@ foodleveldat6spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var
 After that, this information is added to the other data.
 This gives us the nova group information by weight and weight percent for all participants .
 
-```{r adding to earlier data, echo=FALSE, message=FALSE, warning=FALSE}
+```{r adding to earlier data2, echo=FALSE, message=FALSE, warning=FALSE}
 # combine with data from version10a.rmd
 
 #sav11rpb <- readRDS("sav11rp.rds")
@@ -937,21 +937,21 @@ Over 18s only
 
 ```{r echo=FALSE}
 #first remove from years 1-4
-ndns_1_11 <-ndns_1_11[(hyper1_2 == " Normotensive untreated" ), ]
+#ndns_1_11 <-ndns_1_11[(hyper1_2 == " Normotensive untreated" ), ]
 
 #there are no pregnant or breast feeding participants
 #ndns_1_11n <- ndns_1_11n[(PregNowB != "preg or breastfeeding" ), ]
 
 
 #medication affecting bp
-ndns_1_11 <- ndns_1_11[diur2 == "Not taking drug"]
-ndns_1_11 <-ndns_1_11[beta2 == "Not taking drug"]
-ndns_1_11 <-ndns_1_11[aceinh2 == "Not taking drug"]
-ndns_1_11 <-ndns_1_11[calciumb2 =="Not taking drug"]
-ndns_1_11 <- ndns_1_11[obpdrug2 == "Not taking drug"]
+#ndns_1_11 <- ndns_1_11[diur2 == "Not taking drug"]
+#ndns_1_11 <-ndns_1_11[beta2 == "Not taking drug"]
+#ndns_1_11 <-ndns_1_11[aceinh2 == "Not taking drug"]
+#ndns_1_11 <-ndns_1_11[calciumb2 =="Not taking drug"]
+#ndns_1_11 <- ndns_1_11[obpdrug2 == "Not taking drug"]
 
-ndns_1_11 <- ndns_1_11[Country == "England"]
-ndns_1_11 <- ndns_1_11[Age >18]
+#ndns_1_11 <- ndns_1_11[Country == "England"]
+#ndns_1_11 <- ndns_1_11[Age >18]
 
 ```
 
@@ -982,7 +982,14 @@ Show the data. This is the whole dataset.
 
 
 ```{r echo=FALSE, warning=FALSE}
-keydata <- rbind(summary(sav4rp[,Sodiummg]), summary(sav11rp[,Sodiummg]),summary(sav4rp[,pcnt_4]), summary(sav11rp[,pcnt_4]),summary(sav4rp[,Epcnt_4]), summary(sav11rp[,Epcnt_4]),summary(sav4rp[,omsysval]), summary(sav11rp[,omsysval]),summary(sav4rp[,omdiaval]), summary(sav11rp[,omdiaval]))
+data(ndns_1_11)
+dw <- svydesign(ids = ~seriali, weights = ~ wti_UKY1to11, strata=~astrata1, data = ndns_1_11)
+
+summary(ndns_1_11)
+#sysMeandw <- svymean(~omsysval, dw)
+#sysMeandw
+
+keydata <- rbind(summary(ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11]), summary(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11]),summary(ndns_1_11[SurveyYear <= 4,pcnt_4*wti_UKY1to11]), summary(ndns_1_11[SurveyYear >= 9,pcnt_4*wti_UKY1to11]),summary(ndns_1_11[SurveyYear <= 4,Epcnt_4*wti_UKY1to11]), summary(ndns_1_11[SurveyYear >=9,Epcnt_4*wti_UKY1to11]),summary(ndns_1_11[SurveyYear <=4,omsysval*wti_UKY1to11]), summary(ndns_1_11[SurveyYear >=9,omsysval*wti_UKY1to11]),summary(ndns_1_11[SurveyYear <=4,omdiaval*wti_UKY1to11]), summary(ndns_1_11[SurveyYear >=9,omdiaval*wti_UKY1to11]))
 keydata <- as.data.table(keydata)
 keydata <- signif(keydata, digits = 4)
 keydata$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4", "Epcnt_4", "Epcnt_4","omsysval","omsysval","omdiaval", "omdiaval")
@@ -990,20 +997,26 @@ keydata$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4", "Epcnt_4", "Epcnt
 
 keydata
 
+boxplot((ndns_1_11$Epcnt_4*ndns_1_11$wti_UKY1to11)~
+          ndns_1_11$SurveyYear)
+boxplot((ndns_1_11$Sodiummg*ndns_1_11$wti_UKY1to11)~
+         ndns_1_11$SurveyYear)
+boxplot((ndns_1_11$omsysval*ndns_1_11$wti_UKY1to11)~
+          ndns_1_11$SurveyYear)
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-bpNa <- data.table("2010"=c(sav4rp[,Sodiummg]),"2019" =c(sav11rp[,Sodiummg]))
+bpNa <- data.table("2010"=c(ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11]),"2019" =c(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11]))
 boxplot(bpNa, main = "Sodiummg 2010 vs 2019", xlab = "year", ylab = "Sodium mg")
-bpgram <-data.table("2010" =c(sav4rp[,sqrt(pcnt_4)]),"2019" = c(sav11rp[,sqrt(pcnt_4)]))
-boxplot(bpgram, main = "square root of Weight Percent UPF 2010 vs 2019", xlab = "year", ylab = "pcnt_4")
-bpE <-data.table("2010" =c(sav4rp[,Epcnt_4]),"2019" = c(sav11rp[,Epcnt_4]))
+bpgram <-data.table("2010" =c(ndns_1_11[SurveyYear <= 4,pcnt_4*wti_UKY1to11]),"2019" = c(ndns_1_11[SurveyYear >= 9,pcnt_4*wti_UKY1to11]))
+boxplot(bpgram, main = "Weight Percent UPF 2010 vs 2019", xlab = "year", ylab = "pcnt_4")
+bpE <-data.table("2010" =c(ndns_1_11[SurveyYear <= 4,Epcnt_4*wti_UKY1to11]),"2019" = c(ndns_1_11[SurveyYear >= 9,Epcnt_4*wti_UKY1to11]))
 boxplot(bpE, main = " Energy Percent UPF 2010 vs 2019", xlab = "year", ylab = "Epcnt_4")
 
 
-bpOS <- data.table("2010" = c(sav4rp[,omsysval]),"2019"=c(sav11rp[,omsysval]))
+bpOS <- data.table("2010" = c(ndns_1_11[SurveyYear <=4,omsysval*wti_UKY1to11]),"2019"=c(ndns_1_11[SurveyYear >=9,omsysval*wti_UKY1to11]))
 boxplot(bpOS,main = "omsysval 2010 vs 2019",xlab = "year", ylab = "omsysval")
-bpOD <-data.table("2010" = c(sav4rp[,omdiaval]),"2019" = c(sav11rp[,omdiaval]))
+bpOD <-data.table("2010" = c(ndns_1_11[SurveyYear <=4,omdiaval*wti_UKY1to11]),"2019" = c(ndns_1_11[SurveyYear >=9,omdiaval*wti_UKY1to11]))
 boxplot(bpOD, main = "omdiaval 2010 vs 2019", xlab = "year", ylab = "omdiaval")
 
 
@@ -1014,30 +1027,6 @@ I have used the square root of the percentage as this reduces the skew of the da
 
 
 
-```{r echo=FALSE, warning=FALSE}
-#This is just adults >18. The range of values is different to the standard population.
-keydataA <- rbind(summary(sav4rp[Age >= 18 ,Sodiummg]), summary(sav11rp[AgeR >= 18,Sodiummg]),summary(sav4rp[Age >= 18,pcnt_4]), summary(sav11rp[AgeR >= 18,pcnt_4]),summary(sav4rp[Age >= 18,omsysval]), summary(sav11rp[AgeR >= 18,omsysval]), summary(sav4rp[Age >= 18,omdiaval]), summary(sav11rp[AgeR >= 18,omdiaval]))
-keydataA <- as.data.table(keydataA)
-keydataA <- signif(keydataA, digits = 4)
-keydataA$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4","omsysval","omsysval","omdiaval", "omdiaval")
-
-#keydataA
-```
-
-
-
-
-```{r echo=FALSE, warning=FALSE}
-#This is just Male participants again showing the changes from the overall population.
-
-keydataM <- rbind(summary(sav4rp[Sex == "Male" ,Sodiummg]), summary(sav11rp[Sex == "Male",Sodiummg]),summary(sav4rp[Sex == "Male" ,pcnt_4]), summary(sav11rp[Sex == "Male" ,pcnt_4]),summary(sav4rp[Sex == "Male" ,omsysval]), summary(sav11rp[Sex == "Male" ,omsysval]),summary(sav4rp[Sex == "Male" ,omdiaval]), summary(sav11rp[Sex == "Male" ,omdiaval]))
-
-keydataM <- as.data.table(keydataM)
-keydataM <- signif(keydataM, digits = 4)
-keydataM$names = c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4","omsysval","omsysval","omdiaval", "omdiaval") 
-#keydataM
-
-```
 
 
 ## Statistical Comparison of key variables
@@ -1053,9 +1042,9 @@ The second compares the means of pcnt UPF intake in over the same periods.
 
 ```{r echo=FALSE}
 
-ttestNa <- t.test(sav11rp[,"Sodiummg"], sav4rp[,"Sodiummg"])
-ttestpcnt_4 <-t.test(sav11rp[,"pcnt_4"], sav4rp[,"pcnt_4"])
-ttestEpcnt_4 <-t.test(sav11rp[,"Epcnt_4"], sav4rp[,"Epcnt_4"])
+ttestNa <- t.test(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11])
+ttestpcnt_4 <-t.test(ndns_1_11[SurveyYear >= 9,pcnt_4*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,pcnt_4*wti_UKY1to11])
+ttestEpcnt_4 <-t.test(ndns_1_11[SurveyYear >= 9,Epcnt_4*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Epcnt_4*wti_UKY1to11])
 
 
 data.table("Var" = c("Epcnt_4","pcnt_4","Na"),"statistic" = signif(c(ttestEpcnt_4$statistic,ttestpcnt_4$statistic,ttestNa$statistic), digits = 4), "p.value" = signif(c(ttestEpcnt_4$p.value,ttestpcnt_4$p.value,ttestNa$p.value), digits = 4))
@@ -1075,8 +1064,8 @@ The next t tests compare mean systolic values in the two time periods and then t
 
 
 
-ttestOS <- t.test(sav11rp[,"omsysval"], sav4rp[,"omsysval"])
-ttestOD <- t.test(sav11rp[,"omdiaval"], sav4rp[,"omdiaval"])
+ttestOS <- t.test(ndns_1_11[SurveyYear >=9,omsysval*wti_UKY1to11], ndns_1_11[SurveyYear <=4,omsysval*wti_UKY1to11])
+ttestOD <- t.test(ndns_1_11[SurveyYear >=9,omdiaval*wti_UKY1to11], ndns_1_11[SurveyYear <=4,omdiaval*wti_UKY1to11])
 data.table("Var" = c("Sys","Dia"),"statistic" = signif(c(ttestOS$statistic,ttestOD$statistic), digits= 4), "p.value" = signif(c(ttestOS$p.value,ttestOD$p.value), digits = 4))
 ```
 
@@ -1386,12 +1375,12 @@ There is a  relationship between Na and omsysval. There is a weakly positive gra
 #linear regression models
 #UPF gram % only
 lm1g4 <- lm(omsysval ~ sqrt(pcnt_4), sav4rp)
-
+lm1g <- lm((omsysval*wti_UKY1to11) ~ (pcnt_4*wti_UKY1to11), ndns_1_11)
 
 lm1g11 <- lm(omsysval ~ sqrt(pcnt_4), sav11rp)
 lm1g4
 lm1g11
-
+lm1g
 anova(lm1g4)
 AIC(lm1g4)
 anova(lm1g11)
