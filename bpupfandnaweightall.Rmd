@@ -1,17 +1,17 @@
 ---
 title: "bp upf and na"
 output:
-  pdf_document:
-    toc: yes
-  word_document: 
-    toc: yes
-    fig_caption: yes
-    keep_md: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
+  pdf_document:
+    toc: yes
 ---
 
  
@@ -23,6 +23,7 @@ library(data.table)
 library(readxl)
 library(sensemakr)
 library(labelled)
+library(survey)
 ```
 
 
@@ -1098,8 +1099,7 @@ ttestnlo <-t.test(ndns_1_11[SurveyYear >= 9,SOFTDRINKSNOTLOWCALORIE*wti_UKY1to11
 ttesttc<- t.test(ndns_1_11[SurveyYear >= 9,TEACOFFEEANDWATER*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,TEACOFFEEANDWATER*wti_UKY1to11])
 
 confounders <- data.table("name" = c("Age","Calciummg","Totalsugarsg","Glucoseg","Fructoseg","Sucroseg", "Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE","TEACOFFEEANDWATER"), 
- "pvalue" = signif(c(ttestage$p.value, ttestca$p.value,ttestts$p.value,ttestgl$p.value,ttestfr$p.value,ttestsu$p.value,ttestla$p.value,
-    ttestlo$p.value,ttestnlo$p.value,ttesttc$p.value), digits = 4))
+ "pvalue" = signif(c(ttestage$p.value, ttestca$p.value,ttestts$p.value,ttestgl$p.value,ttestfr$p.value,ttestsu$p.value,ttestla$p.value,ttestlo$p.value,ttestnlo$p.value,ttesttc$p.value), digits = 4), "statistic" = signif(c(ttestage$statistic, ttestca$statistic,ttestts$statistic,ttestgl$statistic,ttestfr$statistic,ttestsu$statistic,ttestla$statistic,ttestlo$statistic,ttestnlo$statistic,ttesttc$statistic), digits = 4))
 confounders
 
 ```
@@ -1113,8 +1113,8 @@ There has been a change in the intake of soft drinks, tea coffee and water.
 ```{r echo=FALSE, warning=FALSE}
 
 #categorical data
-stable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,Sex*wti_UKY1to11])
-stable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,Sex*wti_UKY1to11])
+stable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,Sex])
+stable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,Sex])
 stabler <- chisq.test(rbind(stable11 , stable4))
 
 
@@ -1127,9 +1127,9 @@ catconfounders <- data.table("name" = c("Sex"),"pvalue" = signif(c(stabler$p.val
 catconfounders
 
 
-plot(ndns_1_11[SurveyYear >= 9,Sex*wti_UKY1to11], main = "2019", caption = "Bar Plot of Sex in 2019 cohort")
-plot( ndns_1_11[SurveyYear <= 4,Sex*wti_UKY1to11], main = "2010",caption = "Bar Plot of Sex in 2019 cohort")
-boxplot(ndns_1_11[,Sex*wti_UKY1to11], ndns_1_11[,SurveyYear])
+plot(ndns_1_11[SurveyYear >= 9,Sex], main = "2019", caption = "Bar Plot of Sex in 2019 cohort")
+plot( ndns_1_11[SurveyYear <= 4,Sex], main = "2010",caption = "Bar Plot of Sex in 2019 cohort")
+#boxplot(ndns_1_11[,Sex], ndns_1_11[,SurveyYear])
 #plot(sav11rp[,Country], main = "2019")
 #plot(sav4rp[,Country], main = "2010")
 
@@ -1150,7 +1150,7 @@ ttestht <- t.test(ndns_1_11[SurveyYear >= 9,htval*wti_UKY1to11], ndns_1_11[Surve
 ttestwt <- t.test(ndns_1_11[SurveyYear >= 9,wtval*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,wtval*wti_UKY1to11])
 ttestbmi <- t.test(ndns_1_11[SurveyYear >= 9,bmival*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,bmival*wti_UKY1to11])
 
-confounders2 <- data.table("name" = c("htval","wtval","bmival"),"pvalue" = signif(c(ttestht$p.value,ttestwt$p.value,ttestbmi$p.value),digits = 4))
+confounders2 <- data.table("name" = c("htval","wtval","bmival"),"pvalue" = signif(c(ttestht$p.value,ttestwt$p.value,ttestbmi$p.value),digits = 4),"pvalue" = signif(c(ttestht$statistic,ttestwt$statistic,ttestbmi$statistic),digits = 4))
 confounders2
 
 
@@ -1168,8 +1168,8 @@ This would also highlight a preferential detection of high BP in those overweigh
 
 #chisquared for categorical data
 #saltset
-vtable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,vegetarn*wti_UKY1to11])
-vtable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,vegetarn*wti_UKY1to11])
+vtable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,vegetarn])
+vtable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,vegetarn])
 vtabler <- chisq.test(rbind(vtable11 , vtable4))
 
 #cktable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,SaltChk*wti_UKY1to11])
@@ -1185,7 +1185,7 @@ vtabler <- chisq.test(rbind(vtable11 , vtable4))
 #swtabler <- chisq.test(rbind(swtable11 , swtable4))
 
 #catconfounders2 <- data.table("name" = c("vegetarn","SaltChk","SalHowC","SltShow"),"p.value" = signif(c(vtabler$p.value,cktabler$p.value,hwtabler$p.value,swtabler$p.value ),digits = 4))
-catconfounders2 <- data.table("name" = c("vegetarn"),"p.value" = signif(c(vtabler$p.value ),digits = 4))
+catconfounders2 <- data.table("name" = c("vegetarn"),"p.value" = signif(c(vtabler$p.value ),digits = 4),"statistic" = signif(c(vtabler$statistic ),digits = 4))
 catconfounders2
 
 ```
@@ -1194,12 +1194,12 @@ These values identify a significant difference in the number of vegetarians
 ```{r echo=FALSE, warning=FALSE}
 
 #ethnset
-e5table11 <- xtabs(~sav11rp[,ethgrp5])
-e5table4 <- xtabs(~sav4rp[, ethgr5])
+e5table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,ethgrp5])
+e5table4 <- xtabs(~ndns_1_11[SurveyYear <=4,ethgrp5])
 e5tabler <- chisq.test(rbind(e5table11 , e5table4))
 
-e2table11 <- xtabs(~sav11rp[,ethgrp2])
-e2table4 <- xtabs(~sav4rp[, ethgr2])
+e2table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,ethgrp2])
+e2table4 <- xtabs(~ndns_1_11[SurveyYear <=4,ethgrp5])
 e2tabler <- chisq.test(rbind(e2table11 , e2table4))
 
 #incset
@@ -1217,30 +1217,30 @@ e2tabler <- chisq.test(rbind(e2table11 , e2table4))
 #rtabler <-chisq.test(rbind(rtable11 , rtable4))
 
 
-q07table11 <- xtabs(~sav11rp[,EIMD_2007_quintile])
-q07table4 <- xtabs(~sav4rp[, EIMD_2007_quintile])
+q07table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,EIMD_2007_quintile])
+q07table4 <- xtabs(~ndns_1_11[SurveyYear<=4,EIMD_2007_quintile])
 q07tabler <-chisq.test(rbind(q07table11 , q07table4))
 
-q10table11 <- xtabs(~sav11rp[,EIMD_2010_quintile])
-q10table4 <- xtabs(~sav4rp[, EIMD_2010_quintile])
+q10table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,EIMD_2010_quintile])
+q10table4 <- xtabs(~ndns_1_11[SurveyYear <=4,EIMD_2007_quintile])
 q10tabler <-chisq.test(rbind(q10table11 , q10table4))
 
-q15table11 <- xtabs(~sav11rp[,EIMD_2015_quintile])
-q15table4 <- xtabs(~sav4rp[, EIMD_2015_quintile])
+q15table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,EIMD_2007_quintile])
+q15table4 <- xtabs(~ndns_1_11[SurveyYear <=4,EIMD_2007_quintile])
 q15tabler <-chisq.test(rbind(q15table11 , q15table4))
 
-edutable11 <- xtabs(~sav11rp[,educfinh])
-edutable4 <- xtabs(~sav4rp[, EducFin])
+edutable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,educfinh])
+edutable4 <- xtabs(~ndns_1_11[SurveyYear <=4,educfinh])
 edutabler <-chisq.test(rbind(edutable11 , edutable4))
 
 
 #catconfounders3a <- data.table("name" = c("GOR","region"),"p.value" =signif(c( gtabler$p.value, rtabler$p.value ),digits = 4))
 
-catconfounders3b <- data.table("name" = c("ethgrp5","ethgrp2"),"p.value" =signif(c(e5tabler$p.value, e2tabler$p.value),digits = 4))
+catconfounders3b <- data.table("name" = c("ethgrp5","ethgrp2"),"statistic" =signif(c(e5tabler$statistic, e2tabler$statistic),digits = 4),"p.value" =signif(c(e5tabler$p.value, e2tabler$p.value),digits = 4))
 
-catconfounders3c <- data.table("name" = c("EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile"),"p.value" =signif(c(q07tabler$p.value, q10tabler$p.value, q15tabler$p.value),digits = 4))
+catconfounders3c <- data.table("name" = c("EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile"),"statistic" =signif(c(q07tabler$statistic, q10tabler$statistic, q15tabler$statistic),digits = 4),"p.value" =signif(c(q07tabler$p.value, q10tabler$p.value, q15tabler$p.value),digits = 4))
 
-catconfounders3d <- data.table("name" = c("educfin"),"p.value" =signif(c(edutabler$p.value),digits = 4))
+catconfounders3d <- data.table("name" = c("educfin"),"statistic" =signif(c(edutabler$statistic),digits = 4),"p.value" =signif(c(edutabler$p.value),digits = 4))
 
 #catconfounders3a
 catconfounders3b
@@ -1255,30 +1255,30 @@ There is a difference in the age of finishing education.
 
 #hypeset
 
-h1table11 <- xtabs(~sav11rp[,hyper1_2])
-h1table4 <- xtabs(~sav4rp[, hyper1])
+h1table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,hyper1_2])
+h1table4 <- xtabs(~ndns_1_11[SurveyYear <=4,hyper1_2])
 h1tabler <- chisq.test(rbind(h1table11 , h1table4))
 
-h14table11 <- xtabs(~sav11rp[,hyper140_2])
-h14table4 <- xtabs(~sav4rp[, hyper140])
+h14table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,hyper140_2])
+h14table4 <- xtabs(~ndns_1_11[SurveyYear <=4,hyper140_2])
 h14tabler <- chisq.test(rbind(h14table11 , h14table4))
 
 #hi1table11 <- xtabs(~sav11rp[,highbp1_2])
 #hi1table4 <- xtabs(~sav4rp[, highbp1 ])
 #hi1tabler <- chisq.test(rbind(hi1table11 , hi1table4))
 
-hi14table11 <- xtabs(~sav11rp[,hibp140_2])
-hi14table4 <- xtabs(~sav4rp[, hibp140])
+hi14table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,hibp140_2])
+hi14table4 <- xtabs(~ndns_1_11[SurveyYear <=4,hibp140_2])
 hi14tabler <- chisq.test(rbind(hi14table11 , hi14table4))
 
 #ageset
 
-ad1table11 <- xtabs(~sav11rp[,agegad1])
-ad1table4 <- xtabs(~sav4rp[, agegad1])
+ad1table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,agegad1])
+ad1table4 <- xtabs(~ndns_1_11[SurveyYear <=4,agegad1])
 ad1tabler <- chisq.test(rbind(ad1table11 , ad1table4))
 
-ad2table11 <- xtabs(~sav11rp[,agegad2])
-ad2table4 <- xtabs(~sav4rp[, agegad2])
+ad2table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,agegad2])
+ad2table4 <- xtabs(~ndns_1_11[SurveyYear <=4,agegad2])
 ad2tabler <- chisq.test(rbind(ad2table11 , ad2table4))
 
 #ch1table11 <- xtabs(~sav11rp[,agegch1])
