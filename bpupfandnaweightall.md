@@ -53,6 +53,13 @@ sav11br$wti_UKY1to11 <- ((sav11br$wti_Y911/n4) * N) * (3/11)
 
 
 
+now the proportion weight for each is calculated
+
+
+
+
+
+
 
 
 
@@ -120,9 +127,6 @@ The tables are reduced to the necessary variables.
 
 
 
-```r
-#heatmap(foodlevedat9s, Colv = "TotalGrams")
-```
 
 
 To work out the gram weight amount of food intake by each individual, first the diary entries for each individual are totalled up.
@@ -224,193 +228,6 @@ The means show the change between the time periods.
 
 
 ```
-##     seriali             omsysval         omdiaval     
-##  Min.   : 10101032   Min.   : -8.00   Min.   : -8.00  
-##  1st Qu.: 30603092   1st Qu.: 88.50   1st Qu.: 46.75  
-##  Median : 51111271   Median :109.50   Median : 63.50  
-##  Mean   :121748607   Mean   : 89.78   Mean   : 52.15  
-##  3rd Qu.: 81005161   3rd Qu.:124.00   3rd Qu.: 73.50  
-##  Max.   :901212133   Max.   :220.00   Max.   :130.00  
-##                      NA's   :5548     NA's   :5548    
-##                    ethgrp5           ethgrp2                     SaltChk    
-##  White                 :14026   White    :14026   Salt               :7906  
-##  Mixed ethnic group    :  296   Non-white: 1613   Neither            :7455  
-##  Black or Black British:  373   NA's     :   16   Salt substitute    : 289  
-##  Asian or asian British:  721                     Item not applicable:   0  
-##  Any other group       :  223                     No answer/refused  :   0  
-##  NA's                  :   16                     (Other)            :   0  
-##                                                   NA's               :   5  
-##                  SalHowC                     SltSHow     
-##  Always              :4160   Always              :  119  
-##  Sometimes           :2004   Usually             :   86  
-##  Usually             :1740   Sometimes           :   84  
-##  ,Item not applicable:   0   ,Item not applicable:    0  
-##  No answer/refused   :   0   No answer/refused   :    0  
-##  (Other)             :   0   (Other)             :    0  
-##  NA's                :7751   NA's                :15366  
-##            vegetarn                bpmedc2                bpmedd2    
-##  vegetarian    :  334   Not taking drug:6959   Not taking drug:7275  
-##  vegan         :   26   Taking drug    :1155   Taking drug    : 839  
-##  not vegetarian:15294   NA's           :7541   NA's           :7541  
-##  NA's          :    1                                                
-##                                                                      
-##                                                                      
-##                                                                      
-##              diur2                  beta2                 aceinh2    
-##  Not taking drug:7666   Not taking drug:7703   Not taking drug:7708  
-##  Taking drug    : 448   Taking drug    : 411   Taking drug    : 406  
-##  NA's           :7541   NA's           :7541   NA's           :7541  
-##                                                                      
-##                                                                      
-##                                                                      
-##                                                                      
-##            calciumb2               obpdrug2                     PregNowB    
-##  Not taking drug:7668   Not taking drug:8029   preg or breastfeeding:    0  
-##  Taking drug    : 446   Taking drug    :  85   not preg or Bfeed    : 3108  
-##  NA's           :7541   NA's           :7541   NA's                 :12547  
-##                                                                             
-##                                                                             
-##                                                                             
-##                                                                             
-##                    hyper140_2  
-##   Normotensive untreated:6281  
-##  Hypertensive untreated : 740  
-##   Normotensive treated  : 420  
-##  Hypertensive treated   : 256  
-##  No answer/refused      :   0  
-##  (Other)                :   0  
-##  NA's                   :7958  
-##                                               hibp140_2    
-##  Not high BP                                       : 1416  
-##  High BP                                           :    0  
-##  No answer/refused                                 :    0  
-##  Don't know                                        :    0  
-##  Refused, attempted but not obtained, not attempted:    0  
-##  (Other)                                           :    0  
-##  NA's                                              :14239  
-##                     hyper1_2   
-##   Normotensive untreated:6808  
-##   Normotensive treated  : 597  
-##  Hypertensive untreated : 213  
-##  Hypertensive treated   :  79  
-##  No answer/refused      :   0  
-##  (Other)                :   0  
-##  NA's                   :7958  
-##                                               highbp1_2         nssec8      
-##  Not high BP                                       :  889   Min.   :-9.000  
-##  High BP                                           :    0   1st Qu.: 2.000  
-##  No answer/refused                                 :    0   Median : 3.000  
-##  Don't know                                        :    0   Mean   : 4.968  
-##  Refused, attempted but not obtained, not attempted:    0   3rd Qu.: 6.000  
-##  (Other)                                           :    0   Max.   :99.000  
-##  NA's                                              :14766   NA's   :48      
-##                gor                                    region    
-##  Scotland        :2234   England: North                  :2762  
-##  Northern Ireland:2176   England: Central/Midlands       :1948  
-##  Wales           :1855   England: South(including London):4680  
-##  South East      :1541   Scotland                        :2234  
-##  North West      :1305   Wales                           :1855  
-##  London          :1126   Northern Ireland                :2176  
-##  (Other)         :5418                                          
-##  EIMD_2007_quintile EIMD_2010_quintile EIMD_2015_quintile    educfinh   
-##  1   :2065          1   :1996          1   :1915          8      :3460  
-##  2   :1820          2   :1882          2   :1868          5      :3208  
-##  3   :1702          3   :1645          3   :1690          7      :1441  
-##  4   :1829          4   :1899          4   :1903          4      :1365  
-##  5   :1869          5   :1883          5   :2002          6      :1043  
-##  NA's:6370          NA's:6350          NA's:6277          (Other): 983  
-##                                                           NA's   :4155  
-##      htval           wtval            bmival           agegad1    
-##  Min.   : -1.0   Min.   : -1.00   Min.   :-1.00   16-24    :1792  
-##  1st Qu.:140.6   1st Qu.: 32.80   1st Qu.:17.78   25-49    :3572  
-##  Median :160.9   Median : 61.00   Median :22.71   50-64    :2027  
-##  Mean   :150.9   Mean   : 57.68   Mean   :23.08   65+ years:1863  
-##  3rd Qu.:170.1   3rd Qu.: 77.80   3rd Qu.:27.55   NA's     :6401  
-##  Max.   :199.3   Max.   :159.20   Max.   :52.94                   
-##  NA's   :1050    NA's   :798      NA's   :1074                    
-##       agegad2      agegch1              agegr1          age       
-##  16-18    :1255   8-10 : 1238   1.5-3 years:1375   Min.   : 1.00  
-##  19-34    :1783   11-12:  770   4-10 years :3011   1st Qu.: 9.00  
-##  35-49    :2326   13-15: 1245   11-18 years:3270   Median :21.00  
-##  50-64    :2027   NA's :12402   19-64 years:6136   Mean   :30.12  
-##  65+ years:1863                 65+ years  :1863   3rd Qu.:49.00  
-##  NA's     :6401                                    Max.   :96.00  
-##                                                                   
-##   wti_UKY1to11        astrata1          area             Age       
-##  Min.   :0.01954   Min.   : 1002   Min.   : 10101   Min.   : 1.00  
-##  1st Qu.:0.28406   1st Qu.: 3141   1st Qu.: 30603   1st Qu.: 9.00  
-##  Median :0.61127   Median : 5056   Median : 51111   Median :21.00  
-##  Mean   :1.00000   Mean   : 5689   Mean   :121748   Mean   :30.12  
-##  3rd Qu.:1.40036   3rd Qu.: 8061   3rd Qu.: 81005   3rd Qu.:49.00  
-##  Max.   :8.53324   Max.   :11074   Max.   :901212   Max.   :96.00  
-##                                                                    
-##    SurveyYear         Sex                   Country        Sodiummg      
-##  Min.   : 1.000   Male  :7207   England         :9390   Min.   :  91.87  
-##  1st Qu.: 3.000   Female:8448   NI              :1194   1st Qu.:1399.06  
-##  Median : 5.000                 Northern Ireland: 982   Median :1828.33  
-##  Mean   : 5.583                 Scotland        :2234   Mean   :1931.26  
-##  3rd Qu.: 8.000                 Wales           :1855   3rd Qu.:2337.99  
-##  Max.   :11.000                                         Max.   :9227.36  
-##                                                                          
-##    Calciummg         VitaminDµg        TotalEMJ        Totalsugarsg    
-##  Min.   :  80.69   Min.   : 0.000   Min.   : 0.4161   Min.   :  3.607  
-##  1st Qu.: 572.92   1st Qu.: 1.300   1st Qu.: 5.3699   1st Qu.: 62.145  
-##  Median : 748.38   Median : 2.058   Median : 6.6431   Median : 84.120  
-##  Mean   : 786.12   Mean   : 2.509   Mean   : 6.9139   Mean   : 89.882  
-##  3rd Qu.: 949.78   3rd Qu.: 3.169   3rd Qu.: 8.1531   3rd Qu.:110.931  
-##  Max.   :3348.82   Max.   :27.954   Max.   :22.3664   Max.   :407.990  
-##                                                                        
-##     Glucoseg          Sucroseg          Fructoseg          Lactoseg      
-##  Min.   :  0.000   Min.   :  0.2567   Min.   :  0.000   Min.   :  0.000  
-##  1st Qu.:  8.868   1st Qu.: 23.8206   1st Qu.:  8.568   1st Qu.:  6.055  
-##  Median : 13.450   Median : 36.1476   Median : 13.582   Median : 10.342  
-##  Mean   : 15.244   Mean   : 40.1872   Mean   : 15.371   Mean   : 11.994  
-##  3rd Qu.: 19.369   3rd Qu.: 51.4926   3rd Qu.: 19.971   3rd Qu.: 16.092  
-##  Max.   :148.306   Max.   :283.2085   Max.   :166.589   Max.   :123.081  
-##                                                                          
-##  SOFTDRINKSLOWCALORIE SOFTDRINKSNOTLOWCALORIE TEACOFFEEANDWATER
-##  Min.   :   0.0       Min.   :   0.0          Min.   :   0.0   
-##  1st Qu.:   0.0       1st Qu.:   0.0          1st Qu.: 243.8   
-##  Median :   0.0       Median :   0.0          Median : 628.5   
-##  Mean   : 156.9       Mean   : 119.7          Mean   : 774.9   
-##  3rd Qu.: 213.0       3rd Qu.: 150.0          3rd Qu.:1152.0   
-##  Max.   :6175.0       Max.   :2875.0          Max.   :6385.0   
-##                                                                
-##    EnergykJ_1        EnergykJ_2         EnergykJ_3         EnergykJ_4     
-##  Min.   :    0.0   Min.   :    0.37   Min.   :    0.01   Min.   :  134.8  
-##  1st Qu.:  544.2   1st Qu.:  221.76   1st Qu.:  431.25   1st Qu.: 9646.7  
-##  Median : 1161.3   Median :  609.84   Median : 1035.00   Median :13282.3  
-##  Mean   : 1544.2   Mean   : 1003.90   Mean   : 1855.66   Mean   :14152.4  
-##  3rd Qu.: 2079.5   3rd Qu.: 1386.14   3rd Qu.: 2228.70   3rd Qu.:17686.7  
-##  Max.   :19185.0   Max.   :14918.58   Max.   :63879.84   Max.   :60526.9  
-##  NA's   :150       NA's   :4077       NA's   :4650                        
-##     Epcnt_1          Epcnt_2          Epcnt_3          Epcnt_4      
-##  Min.   : 0.000   Min.   : 0.000   Min.   : 0.000   Min.   :  0.55  
-##  1st Qu.: 2.030   1st Qu.: 0.850   1st Qu.: 1.730   1st Qu.: 40.82  
-##  Median : 4.380   Median : 2.300   Median : 3.940   Median : 51.68  
-##  Mean   : 6.024   Mean   : 3.544   Mean   : 6.114   Mean   : 51.25  
-##  3rd Qu.: 7.870   3rd Qu.: 5.040   3rd Qu.: 8.000   3rd Qu.: 61.92  
-##  Max.   :57.890   Max.   :34.670   Max.   :90.930   Max.   :100.00  
-##  NA's   :150      NA's   :4077     NA's   :4650                     
-##     Totalg_1          Totalg_2         Totalg_3           Totalg_4       
-##  Min.   :    1.3   Min.   :  0.01   Min.   :    0.01   Min.   :   13.95  
-##  1st Qu.:  868.0   1st Qu.:  6.25   1st Qu.:   32.00   1st Qu.: 1294.13  
-##  Median : 1605.7   Median : 18.23   Median :   88.00   Median : 2044.62  
-##  Mean   : 2095.4   Mean   : 31.21   Mean   :  597.94   Mean   : 2444.58  
-##  3rd Qu.: 2741.0   3rd Qu.: 43.17   3rd Qu.:  480.00   3rd Qu.: 3158.34  
-##  Max.   :19863.0   Max.   :492.20   Max.   :40176.00   Max.   :27522.85  
-##  NA's   :150       NA's   :4077     NA's   :4650                         
-##      pcnt_1          pcnt_2          pcnt_3           pcnt_4      
-##  Min.   : 0.02   Min.   :0.000   Min.   : 0.000   Min.   :  0.14  
-##  1st Qu.:11.02   1st Qu.:0.080   1st Qu.: 0.450   1st Qu.: 15.04  
-##  Median :20.62   Median :0.210   Median : 1.130   Median : 25.95  
-##  Mean   :23.53   Mean   :0.364   Mean   : 4.914   Mean   : 30.25  
-##  3rd Qu.:33.44   3rd Qu.:0.500   3rd Qu.: 4.610   3rd Qu.: 42.44  
-##  Max.   :90.10   Max.   :5.950   Max.   :94.980   Max.   :100.00  
-##  NA's   :150     NA's   :4077    NA's   :4650
-```
-
-```
 ##        Min. 1st Qu.  Median    Mean 3rd Qu.    Max.      NA's    names
 ##  1: 19.9900 320.100  856.80 1819.00 2217.00 48740.0   19.9900 Sodiummg
 ##  2: 30.5900 582.600 1343.00 2297.00 3124.00 31250.0   30.5900 Sodiummg
@@ -418,17 +235,17 @@ The means show the change between the time periods.
 ##  4:  0.1502   8.486   18.22   28.04   34.29   392.1    0.1502   pcnt_4
 ##  5:  0.6781   9.127   22.80   40.98   54.16   534.5    0.6781  Epcnt_4
 ##  6:  0.4185  18.800   40.23   55.10   74.46   581.1    0.4185  Epcnt_4
-##  7:  1.9610  23.900   60.44  112.80  154.60  1092.0 3321.0000 omsysval
-##  8:  3.5690  58.650  124.00  167.50  249.10  1020.0 2227.0000 omsysval
-##  9:  1.0090  14.000   35.55   65.45   90.23   635.7 3321.0000 omdiaval
-## 10:  2.2530  33.470   72.82   98.00  147.60   549.2 2227.0000 omdiaval
+##  7:      NA      NA      NA     NaN      NA      NA 6828.0000 omsysval
+##  8:      NA      NA      NA     NaN      NA      NA 3558.0000 omsysval
+##  9:      NA      NA      NA     NaN      NA      NA 6828.0000 omdiaval
+## 10:      NA      NA      NA     NaN      NA      NA 3558.0000 omdiaval
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-12-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-12-2.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-12-3.png)<!-- -->
+![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-2.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-3.png)<!-- -->
 These boxplots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changeed over the years.
 
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-2.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-3.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-4.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-5.png)<!-- -->
+![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-2.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-3.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-4.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-5.png)<!-- -->
 ## Statistical Comparison of key variables
 ## Comparison of key variables
 ### comparing UPF and Sodium intake calculated from diet
@@ -550,7 +367,7 @@ There has been a change in the intake of soft drinks, tea coffee and water.
 ## 1:  Sex 0.8205
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-17-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-17-2.png)<!-- -->
+![](bpupfandnaweightall_files/figure-html/unnamed-chunk-18-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-18-2.png)<!-- -->
 
 Again significant differences
 Are there time differences in diagnosis of hypertension/treatment between sexes 
@@ -613,6 +430,17 @@ There is a difference in the age of finishing education.
 The age groups show some discrepancy with the p value significant only in the child age groups.
 
 
+```
+##        name   p.value
+## 1:   bpmedc 1.132e-27
+## 2:   bpmedd 1.915e-16
+## 3:     diur 5.526e-32
+## 4:     beta 2.006e-15
+## 5: calciumb 4.713e-09
+## 6:   aceinh 2.601e-29
+## 7:  obpdrug 1.212e-04
+## 8: PregNowB       NaN
+```
 
 
 
@@ -635,19 +463,19 @@ Firstly I will plot  omsysval and sodiummg, then omsysval and Epcnt, then omsysv
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Sodiummg*wti_UKY1to11])
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-23-1.png)<!-- -->
+![](bpupfandnaweightall_files/figure-html/unnamed-chunk-24-1.png)<!-- -->
 
 ```r
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Epcnt_4*wti_UKY1to11])
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-23-2.png)<!-- -->
+![](bpupfandnaweightall_files/figure-html/unnamed-chunk-24-2.png)<!-- -->
 
 ```r
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,pcnt_4*wti_UKY1to11])
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-23-3.png)<!-- -->
+![](bpupfandnaweightall_files/figure-html/unnamed-chunk-24-3.png)<!-- -->
 
 The regression models for teh individual variables against omsysval
 pcnt_4
