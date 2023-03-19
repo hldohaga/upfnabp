@@ -944,5 +944,5 @@ The data is now ready for analysis first by descriptive analysis.
 setkey(ndns_1_11food, seriali)
 setkey(ndns_1_11, seriali)
 ndns_1_11 <- ndns_1_11[ndns_1_11food, by= seriali]
-write(,"ndns_1_11")
+write(ndns_1_11,"ndns_1_11")
 ```

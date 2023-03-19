@@ -1,14 +1,14 @@
 ---
 title: "bp upf and na"
 output:
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
-    keep_md: yes
-  word_document: 
-    toc: yes
-    fig_caption: yes
     keep_md: yes
   pdf_document:
     toc: yes
@@ -39,15 +39,6 @@ output:
 now the proportion weight for each is calculated
 
 
-```r
-sav4br$wti_UKY1to11 <- ((sav4br$wti_UKY1234/n1) * N)  * (4/11)
-
-sav6br$wti_UKY1to11 <- ((sav6br$wti_Y56/n2) * N) * (2/11)
-
-sav8br$wti_UKY1to11 <- ((sav8br$wti_Y78/n3) * N) * (2/11)
-
-sav11br$wti_UKY1to11 <- ((sav11br$wti_Y911/n4) * N) * (3/11)
-```
 
 
 
@@ -241,11 +232,11 @@ The means show the change between the time periods.
 ## 10:      NA      NA      NA     NaN      NA      NA 3558.0000 omdiaval
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-2.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-3.png)<!-- -->
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-13-1.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-13-2.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-13-3.png)<!-- -->
 These boxplots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changeed over the years.
 
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-2.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-3.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-4.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-5.png)<!-- -->
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-14-1.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-14-2.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-14-3.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-14-4.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-14-5.png)<!-- -->
 ## Statistical Comparison of key variables
 ## Comparison of key variables
 ### comparing UPF and Sodium intake calculated from diet
@@ -367,7 +358,7 @@ There has been a change in the intake of soft drinks, tea coffee and water.
 ## 1:  Sex 0.8205
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-18-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-18-2.png)<!-- -->
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-18-1.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-18-2.png)<!-- -->
 
 Again significant differences
 Are there time differences in diagnosis of hypertension/treatment between sexes 
@@ -463,19 +454,19 @@ Firstly I will plot  omsysval and sodiummg, then omsysval and Epcnt, then omsysv
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Sodiummg*wti_UKY1to11])
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-24-1.png)<!-- -->
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-24-1.png)<!-- -->
 
 ```r
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Epcnt_4*wti_UKY1to11])
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-24-2.png)<!-- -->
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-24-2.png)<!-- -->
 
 ```r
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,pcnt_4*wti_UKY1to11])
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-24-3.png)<!-- -->
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-24-3.png)<!-- -->
 
 The regression models for teh individual variables against omsysval
 pcnt_4
@@ -972,234 +963,10 @@ This last model is just sodium with Age and sex
 Then tests them across two sets of UPF data one calculated using Rauber, the other from ZC.
 First for gram percent UPF 4
 
-```r
-setkey(NOVA_ForDavid, "seriali")
-setkey(ndns_1_11, "seriali")
-alldata <- ndns_1_11[NOVA_ForDavid, on = "seriali"]
-
-lmallg <- lm(omsysval~ Age+ Sex + Sodiummg +pcnt_4,weight = wti_UKY1to11, alldata)
-lmallg
-```
-
-```
-## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg + pcnt_4, data = alldata, 
-##     weights = wti_UKY1to11)
-## 
-## Coefficients:
-## (Intercept)          Age    SexFemale     Sodiummg       pcnt_4  
-##   65.562800     0.550068    -2.346836     0.005499    -0.079871
-```
-
-```r
-anova(lmallg)
-```
-
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##              Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age           1  1769230 1769230 641.0485 < 2.2e-16 ***
-## Sex           1    66818   66818  24.2103 8.773e-07 ***
-## Sodiummg      1   168043  168043  60.8872 6.642e-15 ***
-## pcnt_4        1    15302   15302   5.5445   0.01856 *  
-## Residuals 10102 27880512    2760                       
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-```r
-lmallgz <- lm(omsysval~ Age+ Sex + Sodiummg +NOVA_Gpct_opti_4,weight = wti_UKY1to11, alldata)
-lmallgz
-```
-
-```
-## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg + NOVA_Gpct_opti_4, 
-##     data = alldata, weights = wti_UKY1to11)
-## 
-## Coefficients:
-##      (Intercept)               Age         SexFemale          Sodiummg  
-##        66.082486          0.546653         -2.312006          0.005538  
-## NOVA_Gpct_opti_4  
-##        -0.084684
-```
-
-```r
-anova(lmallgz)
-```
-
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##                     Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age                  1  1769230 1769230 641.1331 < 2.2e-16 ***
-## Sex                  1    66818   66818  24.2135 8.759e-07 ***
-## Sodiummg             1   168043  168043  60.8952 6.615e-15 ***
-## NOVA_Gpct_opti_4     1    18980   18980   6.8779   0.00874 ** 
-## Residuals        10102 27876835    2760                       
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
 
 
 the second set compares Energy percent upf between the two datasets
 
-```r
-lmallE <- lm(omsysval~ Age+ Sex + Sodiummg +Epcnt_4,weight = wti_UKY1to11, alldata)
-lmallE
-```
-
-```
-## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg + Epcnt_4, data = alldata, 
-##     weights = wti_UKY1to11)
-## 
-## Coefficients:
-## (Intercept)          Age    SexFemale     Sodiummg      Epcnt_4  
-##   65.562212     0.567038    -2.310931     0.005395    -0.051931
-```
-
-```r
-anova(lmallE)
-```
-
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##              Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age           1  1769230 1769230 640.8299 < 2.2e-16 ***
-## Sex           1    66818   66818  24.2021 8.811e-07 ***
-## Sodiummg      1   168043  168043  60.8664 6.712e-15 ***
-## Epcnt_4       1     5792    5792   2.0978    0.1475    
-## Residuals 10102 27890023    2761                       
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-```r
-AIC(lmallE)
-```
-
-```
-## [1] 113643.4
-```
-
-```r
-lmallEz <- lm(omsysval~ Age+ Sex + Sodiummg +NOVA_Epct_opti_4,weight = wti_UKY1to11, alldata)
-lmallEz
-```
-
-```
-## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg + NOVA_Epct_opti_4, 
-##     data = alldata, weights = wti_UKY1to11)
-## 
-## Coefficients:
-##      (Intercept)               Age         SexFemale          Sodiummg  
-##        66.240598          0.565012         -2.305806          0.005457  
-## NOVA_Epct_opti_4  
-##        -0.058064
-```
-
-```r
-anova(lmallEz)
-```
-
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##                     Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age                  1  1769230 1769230 640.8821 < 2.2e-16 ***
-## Sex                  1    66818   66818  24.2040 8.802e-07 ***
-## Sodiummg             1   168043  168043  60.8714 6.695e-15 ***
-## NOVA_Epct_opti_4     1     8064    8064   2.9211   0.08746 .  
-## Residuals        10102 27887751    2761                       
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-```r
-AIC(lmallEz)
-```
-
-```
-## [1] 113642.6
-```
-
-```r
-SmallE <- sensemakr(lmallE, treatment = "Epcnt_4")
-Smallg <- sensemakr(lmallg, treatment = "pcnt_4")
-summary(SmallE)
-```
-
-```
-## Sensitivity Analysis to Unobserved Confounding
-## 
-## Model Formula: omsysval ~ Age + Sex + Sodiummg + Epcnt_4
-## 
-## Null hypothesis: q = 1 and reduce = TRUE 
-## -- This means we are considering biases that reduce the absolute value of the current estimate.
-## -- The null hypothesis deemed problematic is H0:tau = 0 
-## 
-## Unadjusted Estimates of 'Epcnt_4': 
-##   Coef. estimate: -0.0519 
-##   Standard Error: 0.0359 
-##   t-value (H0:tau = 0): -1.4484 
-## 
-## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 2e-04 
-##   Robustness Value, q = 1: 0.0143 
-##   Robustness Value, q = 1, alpha = 0.05: 0 
-## 
-## Verbal interpretation of sensitivity statistics:
-## 
-## -- Partial R2 of the treatment with the outcome: an extreme confounder (orthogonal to the covariates) that explains 100% of the residual variance of the outcome, would need to explain at least 0.02% of the residual variance of the treatment to fully account for the observed estimated effect.
-## 
-## -- Robustness Value, q = 1: unobserved confounders (orthogonal to the covariates) that explain more than 1.43% of the residual variance of both the treatment and the outcome are strong enough to bring the point estimate to 0 (a bias of 100% of the original estimate). Conversely, unobserved confounders that do not explain more than 1.43% of the residual variance of both the treatment and the outcome are not strong enough to bring the point estimate to 0.
-## 
-## -- Robustness Value, q = 1, alpha = 0.05: unobserved confounders (orthogonal to the covariates) that explain more than 0% of the residual variance of both the treatment and the outcome are strong enough to bring the estimate to a range where it is no longer 'statistically different' from 0 (a bias of 100% of the original estimate), at the significance level of alpha = 0.05. Conversely, unobserved confounders that do not explain more than 0% of the residual variance of both the treatment and the outcome are not strong enough to bring the estimate to a range where it is no longer 'statistically different' from 0, at the significance level of alpha = 0.05.
-```
-
-```r
-summary(Smallg)
-```
-
-```
-## Sensitivity Analysis to Unobserved Confounding
-## 
-## Model Formula: omsysval ~ Age + Sex + Sodiummg + pcnt_4
-## 
-## Null hypothesis: q = 1 and reduce = TRUE 
-## -- This means we are considering biases that reduce the absolute value of the current estimate.
-## -- The null hypothesis deemed problematic is H0:tau = 0 
-## 
-## Unadjusted Estimates of 'pcnt_4': 
-##   Coef. estimate: -0.0799 
-##   Standard Error: 0.0339 
-##   t-value (H0:tau = 0): -2.3547 
-## 
-## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 5e-04 
-##   Robustness Value, q = 1: 0.0232 
-##   Robustness Value, q = 1, alpha = 0.05: 0.0039 
-## 
-## Verbal interpretation of sensitivity statistics:
-## 
-## -- Partial R2 of the treatment with the outcome: an extreme confounder (orthogonal to the covariates) that explains 100% of the residual variance of the outcome, would need to explain at least 0.05% of the residual variance of the treatment to fully account for the observed estimated effect.
-## 
-## -- Robustness Value, q = 1: unobserved confounders (orthogonal to the covariates) that explain more than 2.32% of the residual variance of both the treatment and the outcome are strong enough to bring the point estimate to 0 (a bias of 100% of the original estimate). Conversely, unobserved confounders that do not explain more than 2.32% of the residual variance of both the treatment and the outcome are not strong enough to bring the point estimate to 0.
-## 
-## -- Robustness Value, q = 1, alpha = 0.05: unobserved confounders (orthogonal to the covariates) that explain more than 0.39% of the residual variance of both the treatment and the outcome are strong enough to bring the estimate to a range where it is no longer 'statistically different' from 0 (a bias of 100% of the original estimate), at the significance level of alpha = 0.05. Conversely, unobserved confounders that do not explain more than 0.39% of the residual variance of both the treatment and the outcome are not strong enough to bring the estimate to a range where it is no longer 'statistically different' from 0, at the significance level of alpha = 0.05.
-```
 
 
 

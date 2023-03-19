@@ -1,14 +1,14 @@
 ---
 title: "bp upf and na"
 output:
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
-    keep_md: yes
-  word_document: 
-    toc: yes
-    fig_caption: yes
     keep_md: yes
   pdf_document:
     toc: yes
@@ -125,7 +125,7 @@ N <- sum(n1, n2, n3, n4) #Should be 15655
 
 now the proportion weight for each is calculated
 
-```{r}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 sav4br$wti_UKY1to11 <- ((sav4br$wti_UKY1234/n1) * N)  * (4/11)
 
 sav6br$wti_UKY1to11 <- ((sav6br$wti_Y56/n2) * N) * (2/11)
@@ -1592,7 +1592,7 @@ sensemakr(lm4c, treatment = "Sodiummg")
 ## This final set analyses the whole dataset together across the key variables
 Then tests them across two sets of UPF data one calculated using Rauber, the other from ZC.
 First for gram percent UPF 4
-```{r}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 
 
 setkey(NOVA_ForDavid, "seriali")
@@ -1610,7 +1610,7 @@ anova(lmallgz)
 
 
 the second set compares Energy percent upf between the two datasets
-```{r}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 lmallE <- lm(omsysval~ Age+ Sex + Sodiummg +Epcnt_4,weight = wti_UKY1to11, alldata)
 lmallE
 anova(lmallE)
