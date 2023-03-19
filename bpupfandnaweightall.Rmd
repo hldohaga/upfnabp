@@ -1031,7 +1031,7 @@ boxplot((ndns_1_11$Epcnt_4*ndns_1_11$wti_UKY1to11)~
           ndns_1_11$SurveyYear)
 boxplot((ndns_1_11$Sodiummg*ndns_1_11$wti_UKY1to11)~
          ndns_1_11$SurveyYear)
-boxplot((ndns_1_11$omsysval*ndns_1_11$wtn_UKY1to11)~
+boxplot((ndns_1_11$omsysval*ndns_1_11$wti_UKY1to11)~
           ndns_1_11$SurveyYear)
 ```
 These boxplots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changeed over the years.
