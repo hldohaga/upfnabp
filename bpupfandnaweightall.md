@@ -220,16 +220,16 @@ The means show the change between the time periods.
 
 ```
 ##        Min. 1st Qu.  Median    Mean 3rd Qu.    Max.      NA's    names
-##  1: 19.9900 320.100  856.80 1819.00 2217.00 48740.0   19.9900 Sodiummg
-##  2: 30.5900 582.600 1343.00 2297.00 3124.00 31250.0   30.5900 Sodiummg
-##  3:  0.2045   4.827   11.98   21.85   27.58   426.0    0.2045   pcnt_4
-##  4:  0.1502   8.486   18.22   28.04   34.29   392.1    0.1502   pcnt_4
-##  5:  0.6781   9.127   22.80   40.98   54.16   534.5    0.6781  Epcnt_4
-##  6:  0.4185  18.800   40.23   55.10   74.46   581.1    0.4185  Epcnt_4
-##  7:      NA      NA      NA     NaN      NA      NA 6828.0000 omsysval
-##  8:      NA      NA      NA     NaN      NA      NA 3558.0000 omsysval
-##  9:      NA      NA      NA     NaN      NA      NA 6828.0000 omdiaval
-## 10:      NA      NA      NA     NaN      NA      NA 3558.0000 omdiaval
+##  1: 36.2700 430.200 1200.00 2156.00 3007.00 17920.0   36.2700 Sodiummg
+##  2: 43.8400 754.300 1550.00 2574.00 3433.00 31250.0   43.8400 Sodiummg
+##  3:  0.2686   5.026   14.00   24.58   31.58   280.4    0.2686   pcnt_4
+##  4:  0.4734  10.170   19.00   30.33   34.93   392.1    0.4734   pcnt_4
+##  5:  1.1880  11.680   28.69   48.85   69.51   377.2    1.1880  Epcnt_4
+##  6:  1.3270  22.770   43.31   59.17   76.75   415.8    1.3270  Epcnt_4
+##  7:      NA      NA      NA     NaN      NA      NA  945.0000 omsysval
+##  8:      NA      NA      NA     NaN      NA      NA 1121.0000 omsysval
+##  9:      NA      NA      NA     NaN      NA      NA  945.0000 omdiaval
+## 10:      NA      NA      NA     NaN      NA      NA 1121.0000 omdiaval
 ```
 
 ![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-13-1.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-13-2.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-13-3.png)<!-- -->
@@ -252,10 +252,10 @@ A third compares the percentage energy provided by UPF.
 
 
 ```
-##        Var statistic  p.value
-## 1: Epcnt_4    13.230 1.78e-39
-## 2:  pcnt_4     9.062 1.68e-19
-## 3:      Na     8.863 9.70e-19
+##        Var statistic   p.value
+## 1: Epcnt_4     4.353 1.412e-05
+## 2:  pcnt_4     3.709 2.137e-04
+## 3:      Na     3.542 4.056e-04
 ```
 
 ```
@@ -263,13 +263,13 @@ A third compares the percentage energy provided by UPF.
 ## 	Welch Two Sample t-test
 ## 
 ## data:  ndns_1_11[SurveyYear >= 9, pcnt_4 * wti_UKY1to11] and ndns_1_11[SurveyYear <= 4, pcnt_4 * wti_UKY1to11]
-## t = 9.0624, df = 6233.9, p-value < 2.2e-16
+## t = 3.7088, df = 2058.4, p-value = 0.0002137
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  4.849281 7.526345
+##  2.708111 8.785751
 ## sample estimates:
 ## mean of x mean of y 
-##  28.04142  21.85361
+##  30.32624  24.57931
 ```
 
 ```
@@ -277,13 +277,13 @@ A third compares the percentage energy provided by UPF.
 ## 	Welch Two Sample t-test
 ## 
 ## data:  ndns_1_11[SurveyYear >= 9, Epcnt_4 * wti_UKY1to11] and ndns_1_11[SurveyYear <= 4, Epcnt_4 * wti_UKY1to11]
-## t = 13.231, df = 6796.4, p-value < 2.2e-16
+## t = 4.3527, df = 2021.6, p-value = 1.412e-05
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  12.03483 16.22122
+##   5.672926 14.976654
 ## sample estimates:
 ## mean of x mean of y 
-##  55.10377  40.97575
+##  59.17273  48.84794
 ```
 
 ```
@@ -291,13 +291,13 @@ A third compares the percentage energy provided by UPF.
 ## 	Welch Two Sample t-test
 ## 
 ## data:  ndns_1_11[SurveyYear >= 9, Sodiummg * wti_UKY1to11] and ndns_1_11[SurveyYear <= 4, Sodiummg * wti_UKY1to11]
-## t = 8.8635, df = 7012.8, p-value < 2.2e-16
+## t = 3.5422, df = 2063.9, p-value = 0.0004056
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  372.3000 583.7443
+##  186.5892 649.4641
 ## sample estimates:
 ## mean of x mean of y 
-##  2297.148  1819.126
+##  2574.327  2156.300
 ```
 
 It seems the mean percentage UPF intake changes less by 2 % and this reduction is statistically significant.
@@ -310,8 +310,8 @@ The next t tests compare mean systolic values in the two time periods and then t
 
 ```
 ##    Var statistic   p.value
-## 1: Sys     12.06 1.830e-32
-## 2: Dia     12.42 2.892e-34
+## 1: Sys     5.134 3.112e-07
+## 2: Dia     5.205 2.130e-07
 ```
 
 There is a reduction in systolic, with a less significant reduction in diastolic
@@ -334,16 +334,16 @@ The NDNS dataset was weighted to keep many of these the same between datasets.
 
 ```
 ##                        name    pvalue statistic
-##  1:                     Age 4.323e-38   12.9900
-##  2:               Calciummg 6.929e-40   13.3100
-##  3:            Totalsugarsg 1.966e-18    8.7840
-##  4:                Glucoseg 1.444e-16    8.2840
-##  5:               Fructoseg 2.055e-20    9.2910
-##  6:                Sucroseg 3.788e-10    6.2710
-##  7:                Lactoseg 6.278e-32   11.8300
-##  8:    SOFTDRINKSLOWCALORIE 1.063e-23   10.0900
-##  9: SOFTDRINKSNOTLOWCALORIE 7.123e-01   -0.3688
-## 10:       TEACOFFEEANDWATER 3.623e-53   15.5200
+##  1:                     Age 1.836e-01   1.33000
+##  2:               Calciummg 1.128e-07   5.32400
+##  3:            Totalsugarsg 3.621e-04   3.57200
+##  4:                Glucoseg 2.839e-03   2.98800
+##  5:               Fructoseg 5.978e-04   3.43800
+##  6:                Sucroseg 3.907e-03   2.88900
+##  7:                Lactoseg 1.024e-05   4.42300
+##  8:    SOFTDRINKSLOWCALORIE 4.325e-08   5.50300
+##  9: SOFTDRINKSNOTLOWCALORIE 9.719e-01   0.03524
+## 10:       TEACOFFEEANDWATER 3.895e-10   6.29000
 ```
 They seem to all be significantly different between the datasets! (except calciummg, and lactose)
 
@@ -354,8 +354,8 @@ There has been a change in the intake of soft drinks, tea coffee and water.
 
 
 ```
-##    name pvalue
-## 1:  Sex 0.8205
+##    name    pvalue
+## 1:  Sex 2.266e-06
 ```
 
 ![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-18-1.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-18-2.png)<!-- -->
@@ -372,9 +372,9 @@ comparing individual data sets looking for similarity in two
 
 ```
 ##      name    pvalue pvalue
-## 1:  htval 9.325e-58  16.20
-## 2:  wtval 7.901e-44  14.00
-## 3: bmival 2.238e-50  15.07
+## 1:  htval 2.094e-09  6.018
+## 2:  wtval 9.372e-06  4.443
+## 3: bmival 1.636e-05  4.320
 ```
 This table suggests that there is a significant difference between the height, and bmi of the groups.
 The 11 population is shorter by 4 cm and 7 kilos lighter 
@@ -386,27 +386,27 @@ This would also highlight a preferential detection of high BP in those overweigh
 
 ```
 ##        name   p.value statistic
-## 1: vegetarn 7.709e-06     23.55
+## 1: vegetarn 0.0007869     14.29
 ```
 These values identify a significant difference in the number of vegetarians
 
 
 ```
-##       name statistic   p.value
-## 1: ethgrp5     68.41 4.919e-14
-## 2: ethgrp2   6494.00 0.000e+00
+##       name statistic    p.value
+## 1: ethgrp5     31.41  2.527e-06
+## 2: ethgrp2   1199.00 3.131e-258
 ```
 
 ```
 ##                  name statistic p.value
-## 1: EIMD_2007_quintile     6.968  0.1376
-## 2: EIMD_2010_quintile     5.139  0.2733
-## 3: EIMD_2015_quintile     6.968  0.1376
+## 1: EIMD_2007_quintile     8.671 0.06986
+## 2: EIMD_2010_quintile     7.688 0.10370
+## 3: EIMD_2015_quintile     8.671 0.06986
 ```
 
 ```
-##       name statistic    p.value
-## 1: educfin     695.9 5.287e-146
+##       name statistic   p.value
+## 1: educfin       181 1.216e-35
 ```
 There are differences in ethnicity as divided into 5 subgroups.
 The differences in qimd, using the 2010 definitions, are not statistically significant.
@@ -414,23 +414,23 @@ There is a difference in the age of finishing education.
 
 
 ```
-##       name   p.value
-## 1: agegad1 0.0002328
-## 2: agegad2 0.0021990
+##       name  p.value
+## 1: agegad1 0.003718
+## 2: agegad2 0.009063
 ```
 The age groups show some discrepancy with the p value significant only in the child age groups.
 
 
 ```
-##        name   p.value
-## 1:   bpmedc 1.132e-27
-## 2:   bpmedd 1.915e-16
-## 3:     diur 5.526e-32
-## 4:     beta 2.006e-15
-## 5: calciumb 4.713e-09
-## 6:   aceinh 2.601e-29
-## 7:  obpdrug 1.212e-04
-## 8: PregNowB       NaN
+##        name p.value
+## 1:   bpmedc     NaN
+## 2:   bpmedd     NaN
+## 3:     diur     NaN
+## 4:     beta     NaN
+## 5: calciumb     NaN
+## 6:   aceinh     NaN
+## 7:  obpdrug     NaN
+## 8: PregNowB     NaN
 ```
 
 
@@ -480,22 +480,22 @@ pcnt_4
 ## 
 ## Coefficients:
 ## (Intercept)       pcnt_4  
-##    105.4761      -0.3656
+##    110.1335      -0.3177
 ```
 
 ```
 ## Analysis of Variance Table
 ## 
 ## Response: (omsysval)
-##              Df   Sum Sq Mean Sq F value    Pr(>F)    
-## pcnt_4        1   422912  422912  144.98 < 2.2e-16 ***
-## Residuals 10105 29476994    2917                      
+##             Df   Sum Sq Mean Sq F value    Pr(>F)    
+## pcnt_4       1   185836  185836  94.703 < 2.2e-16 ***
+## Residuals 5454 10702347    1962                      
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```
-## [1] 114196.7
+## [1] 59206.46
 ```
 
 ```
@@ -506,14 +506,14 @@ pcnt_4
 ## Null hypothesis: q = 1 and reduce = TRUE 
 ## 
 ## Unadjusted Estimates of ' pcnt_4 ':
-##   Coef. estimate: -0.36564 
-##   Standard Error: 0.03037 
-##   t-value: -12.04069 
+##   Coef. estimate: -0.31772 
+##   Standard Error: 0.03265 
+##   t-value: -9.73156 
 ## 
 ## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.01414 
-##   Robustness Value, q = 1 : 0.11282 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.09538 
+##   Partial R2 of treatment with outcome: 0.01707 
+##   Robustness Value, q = 1 : 0.12338 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.09983 
 ## 
 ## For more information, check summary.
 ```
@@ -526,22 +526,22 @@ Epcnt_4
 ## 
 ## Coefficients:
 ## (Intercept)      Epcnt_4  
-##    109.4494      -0.2724
+##    112.6456      -0.2203
 ```
 
 ```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
-##              Df   Sum Sq Mean Sq F value    Pr(>F)    
-## Epcnt_4       1   183990  183990  62.566 2.846e-15 ***
-## Residuals 10105 29715916    2941                      
+##             Df   Sum Sq Mean Sq F value    Pr(>F)    
+## Epcnt_4      1    67524   67524  34.034 5.726e-09 ***
+## Residuals 5454 10820659    1984                      
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```
-## [1] 114278.3
+## [1] 59266.44
 ```
 
 ```
@@ -552,14 +552,14 @@ Epcnt_4
 ## Null hypothesis: q = 1 and reduce = TRUE 
 ## 
 ## Unadjusted Estimates of ' Epcnt_4 ':
-##   Coef. estimate: -0.27245 
-##   Standard Error: 0.03444 
-##   t-value: -7.90989 
+##   Coef. estimate: -0.22033 
+##   Standard Error: 0.03777 
+##   t-value: -5.8339 
 ## 
 ## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.00615 
-##   Robustness Value, q = 1 : 0.07565 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.05746 
+##   Partial R2 of treatment with outcome: 0.0062 
+##   Robustness Value, q = 1 : 0.07594 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.05109 
 ## 
 ## For more information, check summary.
 ```
@@ -573,22 +573,22 @@ sodiummg
 ## 
 ## Coefficients:
 ## (Intercept)     Sodiummg  
-##   85.078412     0.005583
+##   93.500167     0.004256
 ```
 
 ```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
-##              Df   Sum Sq Mean Sq F value    Pr(>F)    
-## Sodiummg      1   213171  213171  72.561 < 2.2e-16 ***
-## Residuals 10105 29686735    2938                      
+##             Df   Sum Sq Mean Sq F value    Pr(>F)    
+## Sodiummg     1    62790   62790  31.634 1.954e-08 ***
+## Residuals 5454 10825393    1985                      
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```
-## [1] 114268.4
+## [1] 59268.83
 ```
 
 ```
@@ -599,14 +599,14 @@ sodiummg
 ## Null hypothesis: q = 1 and reduce = TRUE 
 ## 
 ## Unadjusted Estimates of ' Sodiummg ':
-##   Coef. estimate: 0.00558 
-##   Standard Error: 0.00066 
-##   t-value: 8.51825 
+##   Coef. estimate: 0.00426 
+##   Standard Error: 0.00076 
+##   t-value: 5.62446 
 ## 
 ## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.00713 
-##   Robustness Value, q = 1 : 0.08122 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.06314 
+##   Partial R2 of treatment with outcome: 0.00577 
+##   Robustness Value, q = 1 : 0.07331 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.0484 
 ## 
 ## For more information, check summary.
 ```
@@ -628,23 +628,23 @@ This first model looks at the relationships between BP and Age and Sex
 ## 
 ## Coefficients:
 ## (Intercept)          Age    SexFemale  
-##     75.0673       0.5791      -4.9983
+##     81.6225       0.5849      -2.4562
 ```
 
 ```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
-##              Df   Sum Sq Mean Sq F value    Pr(>F)    
-## Age           1  1769230 1769230 636.986 < 2.2e-16 ***
-## Sex           1    66818   66818  24.057 9.499e-07 ***
-## Residuals 10104 28063857    2777                      
+##             Df   Sum Sq Mean Sq  F value  Pr(>F)    
+## Age          1   842158  842158 457.5280 < 2e-16 ***
+## Sex          1     8856    8856   4.8114 0.02831 *  
+## Residuals 5453 10037169    1841                     
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```
-## [1] 113702.2
+## [1] 58858.36
 ```
 
 ```
@@ -655,14 +655,14 @@ This first model looks at the relationships between BP and Age and Sex
 ## Null hypothesis: q = 1 and reduce = TRUE 
 ## 
 ## Unadjusted Estimates of ' Age ':
-##   Coef. estimate: 0.5791 
-##   Standard Error: 0.02282 
-##   t-value: 25.37882 
+##   Coef. estimate: 0.58487 
+##   Standard Error: 0.02724 
+##   t-value: 21.46904 
 ## 
 ## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.05993 
-##   Robustness Value, q = 1 : 0.22261 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.20741 
+##   Partial R2 of treatment with outcome: 0.07794 
+##   Robustness Value, q = 1 : 0.25153 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.23158 
 ## 
 ## For more information, check summary.
 ```
@@ -674,44 +674,48 @@ The next model looks at a large number of variables
 ## 
 ## Call:
 ## lm(formula = omsysval ~ Age + Sex + Sodiummg + sqrt(pcnt_4) + 
-##     ethgrp2 + VitaminDµg + educfinh + EIMD_2010_quintile, data = ndns_1_11, 
-##     weights = wti_UKY1to11, na.action = na.exclude)
+##     wtval + TotalEMJ + ethgrp2 + VitaminDµg + educfinh + EIMD_2010_quintile, 
+##     data = ndns_1_11, weights = wti_UKY1to11, na.action = na.exclude)
 ## 
 ## Coefficients:
 ##         (Intercept)                  Age            SexFemale  
-##           88.557116             0.706411            -4.538339  
-##            Sodiummg         sqrt(pcnt_4)     ethgrp2Non-white  
-##            0.005084            -0.850576            -4.062843  
-##          VitaminDµg            educfinh2            educfinh3  
-##            0.061692             2.334624           -27.906156  
-##           educfinh4            educfinh5            educfinh6  
-##          -24.012858           -21.896943           -30.151416  
-##           educfinh7            educfinh8  EIMD_2010_quintile2  
-##          -18.825992           -20.297516             1.347304  
-## EIMD_2010_quintile3  EIMD_2010_quintile4  EIMD_2010_quintile5  
-##           -1.860396            -3.458201            -1.521799
+##           69.847616             0.385109             2.503620  
+##            Sodiummg         sqrt(pcnt_4)                wtval  
+##           -0.001216             0.026429             0.368138  
+##            TotalEMJ     ethgrp2Non-white           VitaminDµg  
+##            0.698362             0.649504             0.683179  
+##           educfinh2            educfinh3            educfinh4  
+##           14.027519            -9.059706            -9.917399  
+##           educfinh5            educfinh6            educfinh7  
+##          -10.740833           -15.242392            -9.539394  
+##           educfinh8  EIMD_2010_quintile2  EIMD_2010_quintile3  
+##           -9.421504            -1.832457            -0.794902  
+## EIMD_2010_quintile4  EIMD_2010_quintile5  
+##           -2.824420            -2.914142
 ```
 
 ```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
-##                      Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age                   1  1559649 1559649 427.7233 < 2.2e-16 ***
-## Sex                   1    82259   82259  22.5589 2.101e-06 ***
-## Sodiummg              1   117498  117498  32.2230 1.460e-08 ***
-## sqrt(pcnt_4)          1    12302   12302   3.3738   0.06631 .  
-## ethgrp2               1     8338    8338   2.2866   0.13057    
-## VitaminDµg            1      462     462   0.1268   0.72181    
-## educfinh              7   158105   22586   6.1942 3.082e-07 ***
-## EIMD_2010_quintile    4    19303    4826   1.3234   0.25866    
-## Residuals          4553 16602047    3646                       
+##                      Df  Sum Sq Mean Sq  F value    Pr(>F)    
+## Age                   1  579247  579247 277.3863 < 2.2e-16 ***
+## Sex                   1    7570    7570   3.6250 0.0570255 .  
+## Sodiummg              1   25074   25074  12.0071 0.0005383 ***
+## sqrt(pcnt_4)          1      88      88   0.0423 0.8371440    
+## wtval                 1  204826  204826  98.0857 < 2.2e-16 ***
+## TotalEMJ              1    6793    6793   3.2532 0.0713975 .  
+## ethgrp2               1     323     323   0.1547 0.6941361    
+## VitaminDµg            1    6941    6941   3.3241 0.0683833 .  
+## educfinh              7   24205    3458   1.6559 0.1153540    
+## EIMD_2010_quintile    4    4605    1151   0.5513 0.6981006    
+## Residuals          2698 5634052    2088                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```
-## [1] 49677.65
+## [1] 28341.61
 ```
 
 These models can be compared with others with different variables to understand how they help predict values more or less effectively.
@@ -721,45 +725,48 @@ These models can be compared with others with different variables to understand 
 ```
 ## 
 ## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg + Epcnt_4 + ethgrp2 + 
-##     VitaminDµg + educfinh + EIMD_2010_quintile, data = ndns_1_11, 
+## lm(formula = omsysval ~ Age + Sex + Sodiummg + Epcnt_4 + bmival + 
+##     ethgrp2 + VitaminDµg + educfinh + EIMD_2010_quintile, data = ndns_1_11, 
 ##     weights = wti_UKY1to11, na.action = na.exclude)
 ## 
 ## Coefficients:
 ##         (Intercept)                  Age            SexFemale  
-##           86.610656             0.722447            -4.495471  
-##            Sodiummg              Epcnt_4     ethgrp2Non-white  
-##            0.004918            -0.054007            -3.964023  
-##          VitaminDµg            educfinh2            educfinh3  
-##            0.079276             2.248365           -27.848157  
-##           educfinh4            educfinh5            educfinh6  
-##          -23.844388           -21.783289           -30.052146  
-##           educfinh7            educfinh8  EIMD_2010_quintile2  
-##          -18.582150           -20.029629             1.325492  
-## EIMD_2010_quintile3  EIMD_2010_quintile4  EIMD_2010_quintile5  
-##           -1.858827            -3.506289            -1.581726
+##           67.893153             0.478153            -1.573087  
+##            Sodiummg              Epcnt_4               bmival  
+##            0.001093             0.075204             0.991683  
+##    ethgrp2Non-white           VitaminDµg            educfinh2  
+##            0.011396             0.751497            12.167776  
+##           educfinh3            educfinh4            educfinh5  
+##          -13.281820           -12.559376           -12.865655  
+##           educfinh6            educfinh7            educfinh8  
+##          -17.634303           -11.120282           -10.484127  
+## EIMD_2010_quintile2  EIMD_2010_quintile3  EIMD_2010_quintile4  
+##           -1.575845            -0.683227            -2.792052  
+## EIMD_2010_quintile5  
+##           -2.673494
 ```
 
 ```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
-##                      Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age                   1  1559649 1559649 427.5777 < 2.2e-16 ***
-## Sex                   1    82259   82259  22.5512 2.109e-06 ***
-## Sodiummg              1   117498  117498  32.2121 1.468e-08 ***
-## Epcnt_4               1     6487    6487   1.7783    0.1824    
-## ethgrp2               1     8064    8064   2.2107    0.1371    
-## VitaminDµg            1      523     523   0.1435    0.7049    
-## educfinh              7   158255   22608   6.1979 3.047e-07 ***
-## EIMD_2010_quintile    4    19527    4882   1.3383    0.2531    
-## Residuals          4553 16607702    3648                       
+##                      Df  Sum Sq Mean Sq  F value    Pr(>F)    
+## Age                   1  554444  554444 262.3753 < 2.2e-16 ***
+## Sex                   1    9207    9207   4.3569  0.036955 *  
+## Sodiummg              1   20129   20129   9.5254  0.002047 ** 
+## Epcnt_4               1    1755    1755   0.8303  0.362259    
+## bmival                1  127911  127911  60.5305 1.026e-14 ***
+## ethgrp2               1      66      66   0.0313  0.859476    
+## VitaminDµg            1    8760    8760   4.1456  0.041841 *  
+## educfinh              7   32003    4572   2.1635  0.034542 *  
+## EIMD_2010_quintile    4    4209    1052   0.4980  0.737264    
+## Residuals          2677 5656965    2113                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```
-## [1] 49679.2
+## [1] 28143.16
 ```
 
 this model has sodium and gram percent
@@ -770,30 +777,33 @@ this model has sodium and gram percent
 ```
 ## 
 ## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg + sqrt(pcnt_4), 
-##     data = ndns_1_11, weights = wti_UKY1to11, na.action = na.exclude)
+## lm(formula = omsysval ~ Age + Sex + Sodiummg + sqrt(pcnt_4) + 
+##     bmival, data = ndns_1_11, weights = wti_UKY1to11, na.action = na.exclude)
 ## 
 ## Coefficients:
 ##  (Intercept)           Age     SexFemale      Sodiummg  sqrt(pcnt_4)  
-##    68.055024      0.545971     -2.372123      0.005581     -0.950488
+##    62.911122      0.402169     -1.444537      0.001905     -0.627627  
+##       bmival  
+##     0.974467
 ```
 
 ```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
-##                 Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age              1  1769230 1769230 641.1453 < 2.2e-16 ***
-## Sex              1    66818   66818  24.2140 8.757e-07 ***
-## Sodiummg         1   168043  168043  60.8964 6.611e-15 ***
-## sqrt(pcnt_4)     1    19512   19512   7.0708  0.007847 ** 
-## Residuals    10102 27876303    2759                       
+##                Df  Sum Sq Mean Sq  F value    Pr(>F)    
+## Age             1  750614  750614 413.9073 < 2.2e-16 ***
+## Sex             1    9191    9191   5.0684 0.0244068 *  
+## Sodiummg        1   23617   23617  13.0228 0.0003106 ***
+## sqrt(pcnt_4)    1    1784    1784   0.9836 0.3213491    
+## bmival          1  188681  188681 104.0436 < 2.2e-16 ***
+## Residuals    5294 9600579    1813                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```
-## [1] 113638.4
+## [1] 57091.46
 ```
 This model has Sodium and energy pcnt
 
@@ -805,25 +815,25 @@ This model has Sodium and energy pcnt
 ## 
 ## Coefficients:
 ## (Intercept)          Age    SexFemale     Sodiummg      Epcnt_4  
-##   65.562212     0.567038    -2.310931     0.005395    -0.051931
+##   73.950180     0.579049    -0.834323     0.003251     0.009189
 ```
 
 ```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
-##              Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age           1  1769230 1769230 640.8299 < 2.2e-16 ***
-## Sex           1    66818   66818  24.2021 8.811e-07 ***
-## Sodiummg      1   168043  168043  60.8664 6.712e-15 ***
-## Epcnt_4       1     5792    5792   2.0978    0.1475    
-## Residuals 10102 27890023    2761                       
+##             Df   Sum Sq Mean Sq  F value    Pr(>F)    
+## Age          1   842158  842158 458.8942 < 2.2e-16 ***
+## Sex          1     8856    8856   4.8258   0.02808 *  
+## Sodiummg     1    33451   33451  18.2276 1.993e-05 ***
+## Epcnt_4      1      100     100   0.0547   0.81504    
+## Residuals 5451 10003617    1835                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```
-## [1] 113643.4
+## [1] 58844.09
 ```
 this model has Age sex and g pcnt only
 
@@ -836,24 +846,24 @@ this model has Age sex and g pcnt only
 ## 
 ## Coefficients:
 ##  (Intercept)           Age     SexFemale  sqrt(pcnt_4)  
-##      77.5194        0.5656       -5.1000       -0.3948
+##     81.88159       0.58329      -2.46709      -0.04109
 ```
 
 ```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
-##                 Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age              1  1769230 1769230 637.0028 < 2.2e-16 ***
-## Sex              1    66818   66818  24.0575 9.496e-07 ***
-## sqrt(pcnt_4)     1     3492    3492   1.2574    0.2622    
-## Residuals    10103 28060365    2777                       
+##                Df   Sum Sq Mean Sq  F value  Pr(>F)    
+## Age             1   842158  842158 457.4451 < 2e-16 ***
+## Sex             1     8856    8856   4.8105 0.02833 *  
+## sqrt(pcnt_4)    1       22      22   0.0117 0.91374    
+## Residuals    5452 10037147    1841                     
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```
-## [1] 113703
+## [1] 58860.35
 ```
 
 
@@ -865,24 +875,24 @@ this model has Age sex and g pcnt only
 ## 
 ## Coefficients:
 ## (Intercept)          Age    SexFemale      Epcnt_4  
-##   75.398635     0.577815    -5.008067    -0.005773
+##    79.35795      0.59455     -2.38325      0.03909
 ```
 
 ```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
-##              Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age           1  1769230 1769230 636.9252 < 2.2e-16 ***
-## Sex           1    66818   66818  24.0546  9.51e-07 ***
-## Epcnt_4       1       74      74   0.0265    0.8708    
-## Residuals 10103 28063784    2778                       
+##             Df   Sum Sq Mean Sq  F value  Pr(>F)    
+## Age          1   842158  842158 457.5299 < 2e-16 ***
+## Sex          1     8856    8856   4.8114 0.02831 *  
+## Epcnt_4      1     1881    1881   1.0220 0.31208    
+## Residuals 5452 10035287    1841                     
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```
-## [1] 113704.2
+## [1] 58859.34
 ```
 
 ```
@@ -893,13 +903,13 @@ this model has Age sex and g pcnt only
 ## Null hypothesis: q = 1 and reduce = TRUE 
 ## 
 ## Unadjusted Estimates of ' Epcnt_4 ':
-##   Coef. estimate: -0.00577 
-##   Standard Error: 0.03549 
-##   t-value: -0.16269 
+##   Coef. estimate: 0.03909 
+##   Standard Error: 0.03867 
+##   t-value: 1.01095 
 ## 
 ## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0 
-##   Robustness Value, q = 1 : 0.00162 
+##   Partial R2 of treatment with outcome: 0.00019 
+##   Robustness Value, q = 1 : 0.0136 
 ##   Robustness Value, q = 1 alpha = 0.05 : 0 
 ## 
 ## For more information, check summary.
@@ -917,24 +927,24 @@ This last model is just sodium with Age and sex
 ## 
 ## Coefficients:
 ## (Intercept)          Age    SexFemale     Sodiummg  
-##   62.951602     0.578571    -2.305097     0.005235
+##   74.408750     0.576690    -0.834906     0.003285
 ```
 
 ```
 ## Analysis of Variance Table
 ## 
 ## Response: omsysval
-##              Df   Sum Sq Mean Sq F value    Pr(>F)    
-## Age           1  1769230 1769230 640.760 < 2.2e-16 ***
-## Sex           1    66818   66818  24.199 8.823e-07 ***
-## Sodiummg      1   168043  168043  60.860 6.735e-15 ***
-## Residuals 10103 27895815    2761                      
+##             Df   Sum Sq Mean Sq  F value    Pr(>F)    
+## Age          1   842158  842158 458.9737 < 2.2e-16 ***
+## Sex          1     8856    8856   4.8266   0.02807 *  
+## Sodiummg     1    33451   33451  18.2307  1.99e-05 ***
+## Residuals 5452 10003718    1835                       
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```
-## [1] 113643.5
+## [1] 58842.14
 ```
 
 ```
@@ -945,14 +955,14 @@ This last model is just sodium with Age and sex
 ## Null hypothesis: q = 1 and reduce = TRUE 
 ## 
 ## Unadjusted Estimates of ' Sodiummg ':
-##   Coef. estimate: 0.00524 
-##   Standard Error: 0.00067 
-##   t-value: 7.80127 
+##   Coef. estimate: 0.00328 
+##   Standard Error: 0.00077 
+##   t-value: 4.26975 
 ## 
 ## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.00599 
-##   Robustness Value, q = 1 : 0.07466 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.05645 
+##   Partial R2 of treatment with outcome: 0.00333 
+##   Robustness Value, q = 1 : 0.05618 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.03079 
 ## 
 ## For more information, check summary.
 ```
@@ -971,6 +981,105 @@ the second set compares Energy percent upf between the two datasets
 
 
 
+```r
+library(AICcmodavg)
+Cand.models = list("no sodium no epcnt"= lm1AS, "sodium"= lm4c,"sodium epcnt" = lmallE,"Epcnt" = lm4b)
+selectionTable <- aictab(cand.set = Cand.models)
+selectionTable
+```
+
+```
+## 
+## Model selection based on AICc:
+## 
+##                    K     AICc Delta_AICc AICcWt Cum.Wt        LL
+## sodium             5 58842.16       0.00   0.73   0.73 -29416.07
+## sodium epcnt       6 58844.10       1.95   0.27   1.00 -29416.04
+## no sodium no epcnt 4 58858.37      16.21   0.00   1.00 -29425.18
+## Epcnt              5 58859.35      17.19   0.00   1.00 -29424.67
+```
+
+```r
+confint(lm4c)
+```
+
+```
+##                    2.5 %       97.5 %
+## (Intercept) 70.257062777 78.560436864
+## Age          0.523236243  0.630144624
+## SexFemale   -3.149589552  1.479778434
+## Sodiummg     0.001776581  0.004792852
+```
+
+```r
+confset(cand.set = Cand.models)
+```
+
+```
+## 
+## Confidence set for the best model
+## 
+## Method:	 raw sum of model probabilities
+## 
+## 95% confidence set:
+##              K     AICc Delta_AICc AICcWt
+## sodium       5 58842.16       0.00   0.73
+## sodium epcnt 6 58844.10       1.95   0.27
+## 
+## Model probabilities sum to 1
+```
+
+```r
+evidence(aic.table = selectionTable)
+```
+
+```
+## 
+## Evidence ratio between models 'sodium' and 'sodium epcnt':
+## 2.65
+```
+
+```r
+evidence(selectionTable, model.high = "sodium",
+         model.low = "no sodium no epcnt")
+```
+
+```
+## 
+## Evidence ratio between models 'sodium' and 'no sodium no epcnt':
+## 3310.99
+```
+
+```r
+modavg(Cand.models,parm = "Sodiummg")
+```
+
+```
+## 
+## Multimodel inference on "Sodiummg" based on AICc
+## 
+## AICc table used to obtain model-averaged estimate:
+## 
+##              K     AICc Delta_AICc AICcWt Estimate SE
+## sodium       5 58842.16       0.00   0.73        0  0
+## sodium epcnt 6 58844.10       1.95   0.27        0  0
+## 
+## Model-averaged estimate: 0 
+## Unconditional SE: 0 
+## 95% Unconditional confidence interval: 0, 0
+```
+
+```r
+importance(cand.set = Cand.models, parm = "Sodiummg", second.ord = TRUE,nobs = NULL)
+```
+
+```
+## 
+## Importance values of 'Sodiummg':
+## 
+## w+ (models including parameter): 1 
+## w- (models excluding parameter): 0
+```
 
 
 ## Summary

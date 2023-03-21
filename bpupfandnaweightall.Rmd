@@ -967,17 +967,18 @@ Over 18s only
 ```{r echo=FALSE}
 #first remove from years 1-4
 #ndns_1_11 <-ndns_1_11[(hyper1_2 == " Normotensive untreated" ), ]
+ndns_1_11 <- ndns_1_11[omsysval <= 150,]
 
 #there are no pregnant or breast feeding participants
 #ndns_1_11n <- ndns_1_11n[(PregNowB != "preg or breastfeeding" ), ]
 
 
 #medication affecting bp
-#ndns_1_11 <- ndns_1_11[diur2 == "Not taking drug"]
-#ndns_1_11 <-ndns_1_11[beta2 == "Not taking drug"]
-#ndns_1_11 <-ndns_1_11[aceinh2 == "Not taking drug"]
-#ndns_1_11 <-ndns_1_11[calciumb2 =="Not taking drug"]
-#ndns_1_11 <- ndns_1_11[obpdrug2 == "Not taking drug"]
+ndns_1_11 <- ndns_1_11[diur2 == "Not taking drug"]
+ndns_1_11 <-ndns_1_11[beta2 == "Not taking drug"]
+ndns_1_11 <-ndns_1_11[aceinh2 == "Not taking drug"]
+ndns_1_11 <-ndns_1_11[calciumb2 =="Not taking drug"]
+ndns_1_11 <- ndns_1_11[obpdrug2 == "Not taking drug"]
 
 #ndns_1_11 <- ndns_1_11[Country == "England"]
 #ndns_1_11 <- ndns_1_11[Age >18]
@@ -1484,7 +1485,7 @@ The next model looks at a large number of variables
 
 
 ```{r echo=FALSE}
-lmM <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ ethgrp2 + VitaminDµg + educfinh+ EIMD_2010_quintile ,weight = wti_UKY1to11, ndns_1_11,na.action = na.exclude)
+lmM <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ wtval+TotalEMJ +ethgrp2 + VitaminDµg + educfinh+ EIMD_2010_quintile ,weight = wti_UKY1to11, ndns_1_11,na.action = na.exclude)
 
 lmM
 
@@ -1502,7 +1503,7 @@ These models can be compared with others with different variables to understand 
 
 
 ```{r echo=FALSE}
-lmM2 <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ ethgrp2 + VitaminDµg +educfinh+ EIMD_2010_quintile ,weight = wti_UKY1to11, ndns_1_11,na.action = na.exclude)
+lmM2 <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ bmival +ethgrp2 + VitaminDµg +educfinh+ EIMD_2010_quintile ,weight = wti_UKY1to11, ndns_1_11,na.action = na.exclude)
 
 
 
@@ -1518,7 +1519,7 @@ this model has sodium and gram percent
 
 
 ```{r echo=FALSE}
-lmMna <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4) ,weight = wti_UKY1to11, ndns_1_11,na.action =na.exclude)
+lmMna <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+bmival ,weight = wti_UKY1to11, ndns_1_11,na.action =na.exclude)
 
 
 
@@ -1634,7 +1635,19 @@ summary(Smallg)
 
 
 
-
+```{r}
+library(AICcmodavg)
+Cand.models = list("no sodium no epcnt"= lm1AS, "sodium"= lm4c,"sodium epcnt" = lmallE,"Epcnt" = lm4b)
+selectionTable <- aictab(cand.set = Cand.models)
+selectionTable
+confint(lm4c)
+confset(cand.set = Cand.models)
+evidence(aic.table = selectionTable)
+evidence(selectionTable, model.high = "sodium",
+         model.low = "no sodium no epcnt")
+modavg(Cand.models,parm = "Sodiummg")
+importance(cand.set = Cand.models, parm = "Sodiummg", second.ord = TRUE,nobs = NULL)
+```
 
 
 ## Summary
