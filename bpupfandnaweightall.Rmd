@@ -97,7 +97,15 @@ Once the data labels are made consistent across the batches, weighting recalcula
 This generates values which account for differences in population balance across the annual cohorts. 
 These result from differences in compliance and uptake within and across the years.
 
-The years are amalgamated and the nature of the variables is specified.The
+The years are amalgamated and the nature of the variables is specified.
+
+The food diaries need processing to identifiy the UPF intake.
+Each persons food diary entries are assessed against the Nova food classification from Rauber. 
+Then the weight and energy content of the days food is calcualted by Nova group. 
+This is added to the intake for the other 3 days and the total intake by nova group established.
+
+The percentage of the total intake by weight and by energy is then calculated for each of the 4 nova categories.
+Nova group 4 or UPF intake is used for the study.
 
 
 
