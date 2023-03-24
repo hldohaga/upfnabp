@@ -1096,6 +1096,12 @@ ndns_1_11 <- ndns_1_11[obpdrug2 == "Not taking drug"]
 #ndns_1_11 <- ndns_1_11[Age >18]
 
 ```
+##Results Section
+### Results Intrduction
+
+The results dervie from the method outlined above and foolow the pattern described. 
+I will try to discuss teh results having already described the method.
+
 
 ## Descriptive data analysis
 
@@ -1146,6 +1152,7 @@ boxplot((ndns_1_11$omsysval*ndns_1_11$wti_UKY1to11)~
 ```
 
 These boxplots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changeed over the years.
+The graphs show that there is not a visible difference between the years. STatistical analysis will follow.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 bpNa <- data.table("2010"=c(ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11]),"2019" =c(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11]))
