@@ -157,7 +157,14 @@ Assessment techniques try to understand the importance of including particualar 
 
 ### AIC and sensitivty Anaylsis
 
-This section compares models side by side using assessment techniques to identify the 
+This section compares models side by side using assessment techniques to identify the best way of describing the data. 
+The 'best' in part is determined by the wether a mode is needed to predict more data, or just to understand the data available.
+Here it is about how best to describe the relationship between Na, UPF, and BP.
+
+##Method Conclusion
+
+This section has highlighted how the material for the study is brought together and how the governance and ethics fit with the data collection, processing and analysis to help us to derive the results which will be presented in the next section.
+
 
 
 
