@@ -115,12 +115,35 @@ Nova group 4 or UPF intake is used for the study.
 
 ## Method for Data Analysis
 
+### Descriptive data analysis
+
+
+The data is summarised, with Mean median, and range for the key continuous variables.
+The key variables are omsysval, UPF intake and sodiummg.
+These variables are the ones which most relate to the research question.
+First for years 1-4 then for 9-11.
+
+There are a number of related variables in the dataset.
+These were chosen for reliability and practicality.
+These variables are ones which can also influence BP.
+They include Age, Sex, BMI, height and weight.
+The population for years 1-4 are compared with those for years 9-11.
+
+The omsysval is a validated measurement with significant quality assessment within the dataset.
+Raw systolic values are present in the dataset but are made up of data with issues around quality.
+In particular the systolic values are assessed for the effects of exercise, temperature and ill health.
+The variable omsysval is a quality assured mean value which is reliable across the dataset.
+
+The sodium value is one calculated from intake based on food diaries and standard food nutrient values.
+This only reflects standard foods and is the result of assumptions about the content being consistent.
+Serum sodium values are available for the early dataset, but not the later one.
+There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods.
 The Data is displayed in table x with minimum, mean, median, and maximum values. 
 The exposure variables are sodium intake (Sodiummg), and ultra processed food intake (UPF_4).
 The outcome variable are the mean systolic blood pressure (omsysval). 
 
 
-Key additional variables are considered in the later section looking at how they cahnge across the populations.
+Key additional variables are considered in the later section looking at how they change across the populations.
 Age, sex, and bmi are important contributors. Education, NSSEC and IMD are also looked at.
 
 ### Exclusions 
@@ -1014,10 +1037,9 @@ foodleveldat6spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var
 
 ```
 
-After that, this information is added to the other data.
-This gives us the nova group information by weight and weight percent for all participants .
 
 ```{r adding to earlier data2, echo=FALSE, message=FALSE, warning=FALSE}
+
 # combine with data from version10a.rmd
 
 #sav11rpb <- readRDS("sav11rp.rds")
@@ -1056,7 +1078,7 @@ foodleveldat8spE <-foodleveldat8spE[foodleveldat8sp, by= seriali]
 ndns_1_11food <- rbindlist(list(foodleveldat8spE,foodleveldat4spE,foodleveldat6spE,foodleveldat911spE))
 ```
 
-The data is now ready for analysis first by descriptive analysis once those categories of participant who should be excluded has been.
+
 
 ```{r adding to earlier data, echo=FALSE, message=FALSE, warning=FALSE}
 # combine with data from version10a.rmd
@@ -1065,14 +1087,7 @@ setkey(ndns_1_11, seriali)
 ndns_1_11 <- ndns_1_11[ndns_1_11food, by= seriali]
 ```
 
-### Exclusions
 
-The Sample contains participants who are on treatment for hypertension ( diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs).
-This should be affecting the relationship between diet and BP so these are excluded.
-
-Patients with hypertension may have an abnormal relationship between diet and BP those with a systolic BP over 150 mmHg have been excluded.
-
-There are no participants who are pregnant or breastfeeding.
 
 ```{r echo=FALSE}
 #first remove from years 1-4
@@ -1097,33 +1112,11 @@ ndns_1_11 <- ndns_1_11[obpdrug2 == "Not taking drug"]
 ##Results Section
 ### Results Intrduction
 
-The results dervie from the method outlined above and foolow the pattern described. 
-I will try to discuss teh results having already described the method.
+The results derive from the method outlined above and follow the pattern described. 
+I will try to discuss the results having already described the method.
 
 
-## Descriptive data analysis
 
-This section will review the data.
-The data is summarised, with Mean median, and range for the key continuous variables.
-The key variables are omsysval, UPF intake and sodiummg.
-These variables are the ones which most relate to the research question.
-First for years 1-4 then for 9-11.
-
-There are a number of related variables in the dataset.
-These were chosen for reliability and practicality.
-These variables are ones which can also influence BP.
-They include Age, Sex, BMI, height and weight.
-The population for years 1-4 are compared with those for years 9-11.
-
-The omsysval is a validated measurement with significant quality assessment within the dataset.
-Raw systolic values are present in the dataset but are made up of data with issues around quality.
-In particular the systolic values are assessed for the effects of exercise, temperature and ill health.
-The variable omsysval is a quality assured mean value which is reliable across the dataset.
-
-The sodium value is one calculated from intake based on food diaries and standard food nutrient values.
-This only reflects standard foods and is the result of assumptions about the content being consistent.
-Serum sodium values are available for the early dataset, but not the later one.
-There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods.
 
 ```{r echo=FALSE, warning=FALSE}
 #data(ndns_1_11)
@@ -1132,42 +1125,55 @@ There are also values for 24 urinary sodium which is probably a better indicator
 #summary(ndns_1_11)
 #sysMeandw <- svymean(~omsysval, dw)
 #sysMeandw
+keydata4 <- summary(ndns_1_11[SurveyYear <= 4, .(Sodiummg,pcnt_4,Epcnt_4,omsysval)])
 
-keydata <- rbind(summary(ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11]), summary(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11]),summary(ndns_1_11[SurveyYear <= 4,pcnt_4*wti_UKY1to11]), summary(ndns_1_11[SurveyYear >= 9,pcnt_4*wti_UKY1to11]),summary(ndns_1_11[SurveyYear <= 4,Epcnt_4*wti_UKY1to11]), summary(ndns_1_11[SurveyYear >=9,Epcnt_4*wti_UKY1to11]),summary(ndns_1_11[SurveyYear <=4,omsysval*wtn_UKY1to11]), summary(ndns_1_11[SurveyYear >=9,omsysval*wtn_UKY1to11]),summary(ndns_1_11[SurveyYear <=4,omdiaval*wtn_UKY1to11]), summary(ndns_1_11[SurveyYear >=9,omdiaval*wtn_UKY1to11]))
+keydata4
+
+keydata9 <- summary(ndns_1_11[SurveyYear <=9 , .(Sodiummg,pcnt_4,Epcnt_4,omsysval)])
+keydata9
+
+keydata <- rbind(summary(ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11]), summary(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11]),summary(ndns_1_11[SurveyYear <= 4,pcnt_4*wti_UKY1to11]), summary(ndns_1_11[SurveyYear >= 9,pcnt_4*wti_UKY1to11]),summary(ndns_1_11[SurveyYear <= 4,Epcnt_4*wti_UKY1to11/4]), summary(ndns_1_11[SurveyYear >=9,Epcnt_4*wti_UKY1to11/4]),summary(ndns_1_11[SurveyYear <=4,omsysval*wtn_UKY1to11]), summary(ndns_1_11[SurveyYear >=9,omsysval*wtn_UKY1to11]),summary(ndns_1_11[SurveyYear <=4,omdiaval*wtn_UKY1to11]), summary(ndns_1_11[SurveyYear >=9,omdiaval*wtn_UKY1to11]))
 keydata <- as.data.table(keydata)
 keydata <- signif(keydata, digits = 4)
 keydata$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4", "Epcnt_4", "Epcnt_4","omsysval","omsysval","omdiaval", "omdiaval")
- 
+```
+These tables show that there has been a change between the two cohorts.
+The boxplots show this graphically.
 
-keydata
 
-boxplot((ndns_1_11$Epcnt_4*ndns_1_11$wti_UKY1to11)~
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+bpNa <- data.table("2010"=c(ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11]),"2019" =c(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11]))
+boxplot(bpNa, main = "Sodiummg 2010 vs 2019", xlab = "year", ylab = "Sodium mg")
+bpgram <-data.table("2010" =c(ndns_1_11[SurveyYear <= 4,pcnt_4*wti_UKY1to11]),"2019" = c(ndns_1_11[SurveyYear >= 9,pcnt_4*wti_UKY1to11]))
+#boxplot(bpgram, main = "Weight Percent UPF 2010 vs 2019", xlab = "year", ylab = "pcnt_4")
+bpE <-data.table("2010" =c(ndns_1_11[SurveyYear <= 4,Epcnt_4*wti_UKY1to11/4]),"2019" = c(ndns_1_11[SurveyYear >= 9,Epcnt_4*wti_UKY1to11/4]))
+boxplot(bpE, main = " Energy Percent UPF 2010 vs 2019", xlab = "year", ylab = "Epcnt_4")
+
+
+bpOS <- data.table("2010" = c(ndns_1_11[SurveyYear <=4,omsysval*wti_UKY1to11]),"2019"=c(ndns_1_11[SurveyYear >=9,omsysval*wti_UKY1to11]))
+boxplot(bpOS,main = "omsysval 2010 vs 2019",xlab = "year", ylab = "omsysval")
+#bpOD <-data.table("2010" = c(ndns_1_11[SurveyYear <=4,omdiaval*wti_UKY1to11]),"2019" = c(ndns_1_11[SurveyYear >=9,omdiaval*wti_UKY1to11]))
+#boxplot(bpOD, main = "omdiaval 2010 vs 2019", xlab = "year", ylab = "omdiaval")
+
+
+```
+
+```{r}
+
+#keydata
+
+boxplot((ndns_1_11$Epcnt_4*ndns_1_11$wti_UKY1to11/4)~
           ndns_1_11$SurveyYear)
 boxplot((ndns_1_11$Sodiummg*ndns_1_11$wti_UKY1to11)~
          ndns_1_11$SurveyYear)
 boxplot((ndns_1_11$omsysval*ndns_1_11$wti_UKY1to11)~
           ndns_1_11$SurveyYear)
 ```
+These box plots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changed over the years.
+The graphs show that there is not a visible difference between the years. Statistical analysis will follow.
 
-These boxplots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changeed over the years.
-The graphs show that there is not a visible difference between the years. STatistical analysis will follow.
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-bpNa <- data.table("2010"=c(ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11]),"2019" =c(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11]))
-boxplot(bpNa, main = "Sodiummg 2010 vs 2019", xlab = "year", ylab = "Sodium mg")
-bpgram <-data.table("2010" =c(ndns_1_11[SurveyYear <= 4,pcnt_4*wti_UKY1to11]),"2019" = c(ndns_1_11[SurveyYear >= 9,pcnt_4*wti_UKY1to11]))
-boxplot(bpgram, main = "Weight Percent UPF 2010 vs 2019", xlab = "year", ylab = "pcnt_4")
-bpE <-data.table("2010" =c(ndns_1_11[SurveyYear <= 4,Epcnt_4*wti_UKY1to11]),"2019" = c(ndns_1_11[SurveyYear >= 9,Epcnt_4*wti_UKY1to11]))
-boxplot(bpE, main = " Energy Percent UPF 2010 vs 2019", xlab = "year", ylab = "Epcnt_4")
-
-
-bpOS <- data.table("2010" = c(ndns_1_11[SurveyYear <=4,omsysval*wti_UKY1to11]),"2019"=c(ndns_1_11[SurveyYear >=9,omsysval*wti_UKY1to11]))
-boxplot(bpOS,main = "omsysval 2010 vs 2019",xlab = "year", ylab = "omsysval")
-bpOD <-data.table("2010" = c(ndns_1_11[SurveyYear <=4,omdiaval*wti_UKY1to11]),"2019" = c(ndns_1_11[SurveyYear >=9,omdiaval*wti_UKY1to11]))
-boxplot(bpOD, main = "omdiaval 2010 vs 2019", xlab = "year", ylab = "omdiaval")
-
-
-```
 
 ## Statistical Comparison of key variables
 
