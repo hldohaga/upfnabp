@@ -17,7 +17,151 @@ editor_options:
     wrap: sentence
 ---
 
-# BP and UPF and Na in NDNS Dissertation calculation and results
+
+ 
+# BP and UPF and Na in NDNS Dissertation
+# Method
+## Introduction
+This section will take the research question and explain how the data will be used to answer the question.
+
+There will be a description of the study and how the data collection happened.
+This will be followed by a consideration of the process governing ethics in this research.
+
+The data will be loaded and the relevant variables identified and extracted. 
+Some data may need to be recalculated or to be processed to make a more useable form.
+The population will be reviewed and any groups which might influence the results removed.
+Once the data set has been prepared, analysis begins with description of the data.
+The second analysis section involves using linear regression to identify if there is a correlation
+between the BP and each of the key variables. 
+Multivariable regression models are then generated.
+These models are finally examined to identify the relative importance of the different variables in 
+developing an optimal model. 
+
+
+## Research Question
+
+What proportion of the association between blood pressure (SBP/DBP) and UPF intake can be explained by the changes in salt intake in England between 2008-2012 and 2015-2019? 
+
+The question can be split into parts, 
+What was intake of salt between 2008 and 2019?
+What was intake of UPF between 2008 and 2019?
+What was BP between 2008 and 2019?
+Did each of these change over that time and how?
+Did the changes in any one affect any other?
+What are the sizes of the changes?
+
+All of these questions look for numbers as answers. 
+
+Answering the question starts with counting.
+
+## National Dietary and Nutritional Survey
+
+This survey is a collaboration between government departments responsible for health and for food production.
+They have engaged academic partners to deliver reports on diet and nutrition across the United Kingdom.
+The study is designed to be representative across the whole area.
+
+### Study design
+
+This is a rolling cohort study which each year selects a new cohort of participants. 
+The sample is approximately 1000 per year with 50% adults. 
+The design has a random selection across potal units. 
+
+Having taken up the study participants complete a 4 day food diary, and have an interview with a nurse which includes taking several measurements.
+
+### NDNS Dataset
+
+The data from the NDNS study contains items about each individual,and their household.
+It contains a table with each item of food as recorded in their diary.
+There is a table with the overall intake of each of a large range of nutrients for the whole period.
+This is calculated from the diary using nutritional tables which are published as part of the dataset.
+The dataset is available via the UK national Data service for research purposes.
+
+
+NDNS began before Monteiro's processing based classification was developed. 
+There is no record of Nova food type in NDNS. This has bee calculated from the food descriptions. 
+I have used a table from Rauber et al., but also one from Colombet (personal communication)
+
+### University Research Governance and Ethical Review
+
+The research has beencarried out under the Universtiy governance. A proposal was discussed and agreed within the department. 
+The need for ethical review was considered using the university research tool. 
+The fact that the data is anonymised and there was no contact with participants means that there is minimal risk of hram to research participants.
+
+Other ethical issues include data custodianship ensurign that the the rights of the owners of the data and of the participants are still considered as part of the process of analysis and dissemination of the research.
+
+Issues around the power structures which lead to privelage one research project or proposal over another are considered more in the positionality section.
+
+## Data Processing
+
+The storage of the data is in keeping with the research governance agreements of the University and the Data set owners.
+The data is read from its files using 'r-studio' with the processing being carried out using packages available from CRAN.
+I have used files which had been amalgamated into four batches. These are 2008-2012, 2013-2014, 2015-2016, 2017-2019.
+
+Once the data labels are made consistent across the batches, weighting recalculation is done.
+This generates values which account for differences in population balance across the annual cohorts. 
+These result from differences in compliance and uptake within and across the years.
+
+The years are amalgamated and the nature of the variables is specified.
+
+The food diaries need processing to identifiy the UPF intake.
+Each persons food diary entries are assessed against the Nova food classification from Rauber. 
+Then the weight and energy content of the days food is calcualted by Nova group. 
+This is added to the intake for the other 3 days and the total intake by nova group established.
+
+The percentage of the total intake by weight and by energy is then calculated for each of the 4 nova categories.
+Nova group 4 or UPF intake is used for the study.
+
+
+
+## Method for Data Analysis
+
+The Data is displayed in table x with minimum, mean, median, and maximum values. 
+The exposure variables are sodium intake (Sodiummg), and ultra processed food intake (UPF_4).
+The outcome variable are the mean systolic blood pressure (omsysval). 
+
+
+Key additional variables are considered in the later section looking at how they cahnge across the populations.
+Age, sex, and bmi are important contributors. Education, NSSEC and IMD are also looked at.
+
+### Exclusions 
+
+The relationship between salt and systolic blood pressure may be different in individuals with pathologically high BP. 
+Those taking BP controlling medications may have a different relationship to sodium and UPF.
+These patients were excluded from the main analysis.
+Analysis was done with them included and this produced results in line with those presented, but of greater magnitude.
+This additional analysis is not presented here.
+
+### Comparative Analysis
+
+The second phase of analysis uses standard techniques to compare the means of the populations. 
+A student's t test is used as the populations are normally distributed continuous variables. 
+The t tests compare the sodium, UPF, and systolic BP in the cohort from 2008-2012 with that from 2017-2019.
+This will show how the intake has changed, and the same for the outcome.
+These are not the same participants so matched analysis, or time series analysis is not directly applicable.
+
+Plots will be given to show the values in each of the available eleven cohorts.
+
+### Linear Regression
+
+Analysis of the correlation between BP and sodium intake, and then UPF intake is done using linear regression. 
+This will give an indicator of the direction, and strength of any relationship between the variables.
+There is also anova analysis to understand the statistical significance of these results.
+
+### Multiple Repgresion
+
+Multivariable regression models are then developed to understand the interactions between variables and to develop a mathematical model. 
+The optimal model is one whch best explains the pattern of data, but which also makes practical sense for the wider understanding of relationships.
+Assessment techniques try to understand the importance of including particualar variables, and the form in which they are best included. 
+
+### AIC and sensitivty Anaylsis
+
+This section compares models side by side using assessment techniques to identify the best way of describing the data. 
+The 'best' in part is determined by the wether a mode is needed to predict more data, or just to understand the data available.
+Here it is about how best to describe the relationship between Na, UPF, and BP.
+
+##Method Conclusion
+
+This section has highlighted how the material for the study is brought together and how the governance and ethics fit with the data collection, processing and analysis to help us to derive the results which will be presented in the next section.
 
 
 
@@ -31,13 +175,32 @@ editor_options:
 
 
 
-now the proportion weight for each is calculated
 
 
 
 
 
-now the proportion weight for each is calculated
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -135,6 +298,12 @@ Patients with hypertension may have an abnormal relationship between diet and BP
 There are no participants who are pregnant or breastfeeding.
 
 
+##Results Section
+### Results Intrduction
+
+The results dervie from the method outlined above and foolow the pattern described. 
+I will try to discuss teh results having already described the method.
+
 
 ## Descriptive data analysis
 
@@ -178,6 +347,7 @@ There are also values for 24 urinary sodium which is probably a better indicator
 ![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-2.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-3.png)<!-- -->
 
 These boxplots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changeed over the years.
+The graphs show that there is not a visible difference between the years. STatistical analysis will follow.
 
 ![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-2.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-3.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-4.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-5.png)<!-- -->
 

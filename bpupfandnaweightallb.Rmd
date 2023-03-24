@@ -17,9 +17,6 @@ editor_options:
     wrap: sentence
 ---
 
-
-# BP and UPF and Na in NDNS Dissertation calculation and results
-=======
  
 # BP and UPF and Na in NDNS Dissertation
 # Method

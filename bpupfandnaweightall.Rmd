@@ -1783,7 +1783,7 @@ There is a table with summary values for these variables across the dataset.
 Statistical analysis of the key variables shows the change in all the variables between the two time periods.
 
 Confounding variables are analysed and show if there has been a significant change in the balance of the populations.
-#Removing those with antihypertensive medications has removed more men in the earlier cohort compared to women.
+
 
 Regression shows a degree of association between the BP and UPF intake by weight and by energy.
 It also shows the same for sodium intake.
