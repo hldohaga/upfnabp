@@ -1200,8 +1200,8 @@ ttestEpcnt_4
 ttestNa
 ```
 
-It seems the mean percentage UPF intake changes 3.7 % on weight and 4.4% in energy and this reduction is statistically significant.
-The sodium intake has changed by 3.5 mg and is also statistically significant with a p value less than 0.05.
+It seems the mean percentage UPF intake changes from 48.8% to 59.2% energy and this increase is statistically significant.
+The mean sodium intake has changed from  2156.30 mg to 2574.33 mg and is also statistically significant with a p value less than 0.05.
 
 ### what about outcome BP?
 
@@ -1214,9 +1214,11 @@ The next t tests compare mean systolic values in the two time periods and then t
 ttestOS <- t.test(ndns_1_11[SurveyYear >=9,omsysval*wti_UKY1to11], ndns_1_11[SurveyYear <=4,omsysval*wti_UKY1to11])
 ttestOD <- t.test(ndns_1_11[SurveyYear >=9,omdiaval*wti_UKY1to11], ndns_1_11[SurveyYear <=4,omdiaval*wti_UKY1to11])
 data.table("Var" = c("Sys","Dia"),"statistic" = signif(c(ttestOS$statistic,ttestOD$statistic), digits= 4), "p.value" = signif(c(ttestOS$p.value,ttestOD$p.value), digits = 4))
+
+ttestOS
 ```
 
-There is a change in systolic of 5.1 mmHg and a similar diastolic reduction.
+There is a change in mean systolic from 122-152 mmHg with a p value of 3.112e -7.
 
 In summary there is statistically significant change in UPF and Na intake and also in both systolic and diastolic pressures.
 
