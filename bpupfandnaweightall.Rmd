@@ -113,6 +113,56 @@ Nova group 4 or UPF intake is used for the study.
 
 
 
+## Method for Data Analysis
+
+The Data is displayed in table x with minimum, mean, median, and maximum values. 
+The exposure variables are sodium intake (Sodiummg), and ultra processed food intake (UPF_4).
+The outcome variable are the mean systolic blood pressure (omsysval). 
+
+
+Key additional variables are considered in the later section looking at how they cahnge across the populations.
+Age, sex, and bmi are important contributors. Education, NSSEC and IMD are also looked at.
+
+### Exclusions 
+
+The relationship between salt and systolic blood pressure may be different in individuals with pathologically high BP. 
+Those taking BP controlling medications may have a different relationship to sodium and UPF.
+These patients were excluded from the main analysis.
+Analysis was done with them included and this produced results in line with those presented, but of greater magnitude.
+This additional analysis is not presented here.
+
+### Comparative Analysis
+
+The second phase of analysis uses standard techniques to compare the means of the populations. 
+A student's t test is used as the populations are normally distributed continuous variables. 
+The t tests compare the sodium, UPF, and systolic BP in the cohort from 2008-2012 with that from 2017-2019.
+This will show how the intake has changed, and the same for the outcome.
+These are not the same participants so matched analysis, or time series analysis is not directly applicable.
+
+Plots will be given to show the values in each of the available eleven cohorts.
+
+### Linear Regression
+
+Analysis of the correlation between BP and sodium intake, and then UPF intake is done using linear regression. 
+This will give an indicator of the direction, and strength of any relationship between the variables.
+There is also anova analysis to understand the statistical significance of these results.
+
+### Multiple Repgresion
+
+Multivariable regression models are then developed to understand the interactions between variables and to develop a mathematical model. 
+The optimal model is one whch best explains the pattern of data, but which also makes practical sense for the wider understanding of relationships.
+Assessment techniques try to understand the importance of including particualar variables, and the form in which they are best included. 
+
+### AIC and sensitivty Anaylsis
+
+This section compares models side by side using assessment techniques to identify the best way of describing the data. 
+The 'best' in part is determined by the wether a mode is needed to predict more data, or just to understand the data available.
+Here it is about how best to describe the relationship between Na, UPF, and BP.
+
+##Method Conclusion
+
+This section has highlighted how the material for the study is brought together and how the governance and ethics fit with the data collection, processing and analysis to help us to derive the results which will be presented in the next section.
+
 
 
 
@@ -1044,6 +1094,12 @@ ndns_1_11 <- ndns_1_11[obpdrug2 == "Not taking drug"]
 #ndns_1_11 <- ndns_1_11[Age >18]
 
 ```
+##Results Section
+### Results Intrduction
+
+The results dervie from the method outlined above and foolow the pattern described. 
+I will try to discuss teh results having already described the method.
+
 
 ## Descriptive data analysis
 
@@ -1094,6 +1150,7 @@ boxplot((ndns_1_11$omsysval*ndns_1_11$wti_UKY1to11)~
 ```
 
 These boxplots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changeed over the years.
+The graphs show that there is not a visible difference between the years. STatistical analysis will follow.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 bpNa <- data.table("2010"=c(ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11]),"2019" =c(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11]))
