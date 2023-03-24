@@ -1,25 +1,19 @@
 ---
 title: "bp upf and na"
 output:
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
-  word_document: 
-    toc: yes
-    fig_caption: yes
-    keep_md: yes
   pdf_document:
     toc: yes
-editor_options: 
-  markdown: 
-    wrap: sentence
 ---
 
-
-# BP and UPF and Na in NDNS Dissertation calculation and results
-=======
  
 # BP and UPF and Na in NDNS Dissertation
 # Method
@@ -133,7 +127,6 @@ Nova group 4 or UPF intake is used for the study.
 
 
 
-
 ```{r include=FALSE}
 library(haven)
 library(data.table)
@@ -142,6 +135,7 @@ library(sensemakr)
 library(labelled)
 library(survey)
 ```
+
 
 ```{r read data, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -178,6 +172,7 @@ sav11br <- as.data.table(read_sav(sav11b))
 sav11br$area <- sav11br$Area
 ```
 
+
 ```{r std names4, message=FALSE, warning=FALSE, include=FALSE}
 #standardise the variable names for grp 1-4 
 sav4br$bpmedc2 <- sav4br$bpmedc
@@ -210,6 +205,7 @@ sav11br$age <- sav11br$AgeR
 sav11r$Age <- sav11r$AgeR
 ```
 
+
 ```{r novafile, message=FALSE, warning=FALSE, include=FALSE }
 NOVA_ForDavid <- as.data.table(read_excel("data/NOVA_ForDavid.xlsx"))
 
@@ -218,6 +214,9 @@ NOVA_ForDavid[, Country := factor(Country)]
 NOVA_ForDavid[, SurveyYear := factor(SurveyYear)]
 NOVA_ForDavid[, Age := as.numeric(Age)]
 ```
+
+
+
 
 ```{r weight, echo=FALSE}
 #Doing the weighting correction, as explain in the PDF "6533_ndns_yrs9-11_weights_guide"
@@ -235,6 +234,7 @@ N <- sum(n1, n2, n3, n4) #Should be 15655
 
 
 
+
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 #now the proportion weight for each is calculated
 sav4br$wti_UKY1to11 <- ((sav4br$wti_UKY1234/n1) * N)  * (4/11)
@@ -246,6 +246,7 @@ sav8br$wti_UKY1to11 <- ((sav8br$wti_Y78/n3) * N) * (2/11)
 sav11br$wti_UKY1to11 <- ((sav11br$wti_Y911/n4) * N) * (3/11)
 
 ```
+
 
 ```{r weightn, include=FALSE}
 #Doing the weighting correction, as explain in the PDF "6533_ndns_yrs9-11_weights_guide"
@@ -304,11 +305,18 @@ val_labels(sav11br) <- NULL
 #sav8br$ethgrp5 <- as.double(sav8br$ethgrp5)
 ```
 
+
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 #this creates the whole table
 ndns_1_11 <- rbindlist(list(sav4br,sav6br,sav8br,sav11br),fill = TRUE, use.names = TRUE)
 
 ```
+
+
+
+
+
+
 
 ```{r include=FALSE}
  #define factors for 1-4 
@@ -340,7 +348,8 @@ ndns_1_11[, SaltChk := factor(SaltChk, levels = 1:8, labels = c("Salt",
  
  ndns_1_11[, vegetarn := factor(vegetarn, levels = 1:3, labels = c("vegetarian","vegan","not vegetarian"))]
 ```
-
+ 
+ 
 ```{r include=FALSE}
 #medset
  ndns_1_11[, bpmedc2 := factor(bpmedc2,levels = 0:1,	labels = c("Not taking drug"
@@ -448,12 +457,24 @@ ndns_1_11[,agegr1 := factor(agegr1, levels = 1:5, labels = c("1.5-3 years","4-10
  
 ```
 
+
+
+
+
+
+
+
+
+
 ### Data preparation
 
 The data is then arranged into a format which allows processing.
-This includes identifying continuous and categorical variables.
+This includes identifying continuous and categorical variables. 
 It also includes naming the categories of the categorical variables.
 
+ 
+ 
+ 
 ```{r include=FALSE}
 #this identifies the variables wanted from the person level data sets
 perslevdat <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
@@ -462,8 +483,14 @@ perslevdat <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciu
 
 ```
 
-The data is then combined into two comprehensive tables.
 
+
+
+
+
+
+
+The data is then combined into two comprehensive tables.
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 #building the tables
 sav4r <- sav4r[, ..perslevdat]
@@ -485,6 +512,10 @@ ndns_1_11 <- ndns_1_11[ ndns_1_11r, on = "seriali"]
 
 ```
 
+
+
+
+
 ```{r echo=FALSE}
 
 ndns_1_11[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
@@ -494,9 +525,12 @@ ndns_1_11[, Country := factor(Country)]
 
 ```
 
-The food diary data needs more processing.
-In particular the NOVA categorisation is not in the data set.
+
+ 
+The food diary data needs more processing. In particular the NOVA categorisation is not in the data set. 
 I have derived UPFNOVA from a paper which had a data table identifying the NDNS sub food groups by Rauber et al.
+
+
 
 ```{r load food diary data, message=FALSE, warning=FALSE, include=FALSE}
 UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/altquant/UPFNOVA.xlsx"))
@@ -517,8 +551,7 @@ ndns7_8a_foodleveldietarydata_v2 <- data.table(read_sav("/media/david/Elements1/
  ndns_rp_yr11a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr11a_foodleveldietarydata_uk_20210831.sav") )
 ```
 
-#### Processing the food diaries
-
+####  Processing the food diaries
 The Nova group is attached to the foods in the food diaries from Rauber et al @rauberUltraprocessedFoodsExcessive2019b.
 The tables are reduced to the necessary variables.
 
@@ -572,6 +605,7 @@ foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group","EnergykJ
 
 ```
 
+
 To work out the gram weight amount of food intake by each individual, first the diary entries for each individual are totalled up.
 The total gram weight value of intake of each food is then worked out as a percentage of the total intake.
 
@@ -594,8 +628,9 @@ setnames( oneweight, 'V1','Totalg')
 
 ```
 
-All these individual calculations are then built back up into tables.
+All these individual calculations are then built back up into tables. 
 This is done for years 9-11 and then 1-4.
+
 
 ```{r year 9 process, message=FALSE, warning=FALSE, include=FALSE}
 ### This section uses the function designed above to process the table
@@ -654,6 +689,7 @@ foodleveldat10sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var
 
 ```
 
+
 ```{r year 11 process, message=FALSE, warning=FALSE, include=FALSE}
 
 name <-foodlevedat11s[,.(seriali)]  
@@ -684,6 +720,7 @@ foodleveldat910sp <- rbind(foodleveldat9sp,foodleveldat10sp)
 foodleveldat911sp <- rbind(foodleveldat11sp, foodleveldat910sp)
 ```
 
+
 ```{r year 5-6 process, warning=FALSE, include=FALSE}
 
 name <-foodlevedat6s[,.(seriali)]  
@@ -712,6 +749,7 @@ foodleveldat6sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var 
 
 ```
 
+
 ```{r year 7-8 process, warning=FALSE, include=FALSE}
 
 name <-foodlevedat8s[,.(seriali)]  
@@ -739,6 +777,7 @@ foodleveldat8sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var 
 
 
 ```
+
 
 ```{r slow processing four years, echo=FALSE, warning=FALSE}
 
@@ -770,7 +809,6 @@ foodleveldat4sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var 
 ```
 
 The process can be done for food level energy intake also.
-
 ```{r energy function defn, message=FALSE, warning=FALSE, include=FALSE}
 ## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
 
@@ -848,6 +886,7 @@ foodleveldat10spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.va
 
 ```
 
+
 ```{r Eyear 11 process, message=FALSE, warning=FALSE, include=FALSE}
 ### This section uses the function designed above to process the table
 name <-foodlevedat11s[,.(seriali)]  
@@ -879,6 +918,7 @@ foodleveldat910spE <- rbind(foodleveldat9spE,foodleveldat10spE)
 foodleveldat911spE <- rbind(foodleveldat11spE, foodleveldat910spE)
 ```
 
+
 ```{r Eslow processing four years, echo=FALSE, warning=FALSE}
 
 name <-foodlevedat4s[,.(seriali)]  
@@ -907,6 +947,7 @@ foodleveldat4spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var
 
 
 ```
+
 
 ```{r E8 processing four years, echo=FALSE, warning=FALSE}
 
@@ -966,6 +1007,7 @@ foodleveldat6spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var
 
 ```
 
+
 After that, this information is added to the other data.
 This gives us the nova group information by weight and weight percent for all participants .
 
@@ -1008,7 +1050,13 @@ foodleveldat8spE <-foodleveldat8spE[foodleveldat8sp, by= seriali]
 ndns_1_11food <- rbindlist(list(foodleveldat8spE,foodleveldat4spE,foodleveldat6spE,foodleveldat911spE))
 ```
 
-The data is now ready for analysis first by descriptive analysis once those categories of participant who should be excluded has been.
+
+
+The data is now ready for analysis first by descriptive analysis.
+
+
+
+
 
 ```{r adding to earlier data, echo=FALSE, message=FALSE, warning=FALSE}
 # combine with data from version10a.rmd
@@ -1017,14 +1065,14 @@ setkey(ndns_1_11, seriali)
 ndns_1_11 <- ndns_1_11[ndns_1_11food, by= seriali]
 ```
 
-### Exclusions
+###  Exclusions 
+eg hypertensives and pregnant/breastfeeding
+possible future set with only England?
 
-The Sample contains participants who are on treatment for hypertension ( diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs).
-This should be affecting the relationship between diet and BP so these are excluded.
-
-Patients with hypertension may have an abnormal relationship between diet and BP those with a systolic BP over 150 mmHg have been excluded.
-
-There are no participants who are pregnant or breastfeeding.
+I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs. There are no participants who are pregnant or breastfeeding. 
+I have included normotensive untreated individuals. 
+I have restricted the data set to England only.
+Over 18s only
 
 ```{r echo=FALSE}
 #first remove from years 1-4
@@ -1047,29 +1095,32 @@ ndns_1_11 <- ndns_1_11[obpdrug2 == "Not taking drug"]
 
 ```
 
+
+
 ## Descriptive data analysis
 
-This section will review the data.
-The data is summarised, with Mean median, and range for the key continuous variables.
-The key variables are omsysval, UPF intake and sodiummg.
-These variables are the ones which most relate to the research question.
+This section will review the data which will be used for the statistical analysis.
+The data is summarised, with Mean median, and range for continuous variables. 
+Counts are available for categorical variables.
 First for years 1-4 then for 9-11.
 
-There are a number of related variables in the dataset.
-These were chosen for reliability and practicality.
-These variables are ones which can also influence BP.
-They include Age, Sex, BMI, height and weight.
-The population for years 1-4 are compared with those for years 9-11.
-
-The omsysval is a validated measurement with significant quality assessment within the dataset.
-Raw systolic values are present in the dataset but are made up of data with issues around quality.
-In particular the systolic values are assessed for the effects of exercise, temperature and ill health.
-The variable omsysval is a quality assured mean value which is reliable across the dataset.
+The key variables are omsysval which is the dependant variable, and UPF energy proportion intake and sodiummg. 
+These variables are the ones which most relate to the research question. 
+There are a number of related variables in the dataset. These were chosen for reliability and practicality. These variables are ones whch can also influence BP.
+The omsysval is a validated measurement with significant quality assessment within the dataset. 
+Raw systolic values are present in the dataset but are made up of data with issues around quality. 
+In particular the systolic values are assessed for the effects of exercise, temperature and ill health. 
 
 The sodium value is one calculated from intake based on food diaries and standard food nutrient values.
-This only reflects standard foods and is the result of assumptions about the content being consistent.
-Serum sodium values are available for the early dataset, but not the later one.
+This only reflects standard foods and is the result of assumptions about the content being consistent. Serum sodium values are available for the early dataset, but not the later one. 
 There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods.
+
+
+
+Summary Description of the key variables of sodium intake, Total energy intake, and BP
+Show the data. This is the whole dataset without exclusions.
+The means show the change between the time periods.
+
 
 ```{r echo=FALSE, warning=FALSE}
 #data(ndns_1_11)
@@ -1094,8 +1145,8 @@ boxplot((ndns_1_11$Sodiummg*ndns_1_11$wti_UKY1to11)~
 boxplot((ndns_1_11$omsysval*ndns_1_11$wti_UKY1to11)~
           ndns_1_11$SurveyYear)
 ```
-
 These boxplots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changeed over the years.
+
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 bpNa <- data.table("2010"=c(ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11]),"2019" =c(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11]))
@@ -1113,14 +1164,14 @@ boxplot(bpOD, main = "omdiaval 2010 vs 2019", xlab = "year", ylab = "omdiaval")
 
 
 ```
-
 ## Statistical Comparison of key variables
-
 ## Comparison of key variables
-
 ### comparing UPF and Sodium intake calculated from diet
 
-In order to confirm there has been a change in intake a t.test compares the means of the two samples.
+
+
+In order to confirm there has been a change in intake 
+a t.test compares the means of the two samples.
 One compares the means of sodium in years 1-4 with sodium in years 9-11.
 
 The second compares the means of pcnt UPF intake in over the same periods.
@@ -1139,11 +1190,11 @@ ttestEpcnt_4
 ttestNa
 ```
 
-It seems the mean percentage UPF intake changes 3.7 % on weight and 4.4% in energy and this reduction is statistically significant.
-The sodium intake has changed by 3.5 mg and is also statistically significant with a p value less than 0.05.
+It seems the mean percentage UPF intake changes less by 2 % and this reduction is statistically significant.
+The sodium intake has changed by 5.5 mg and is also statistically significant with a p value less than 0.05.
 
-### what about outcome BP?
 
+### what about outcome  BP?
 The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
 
 ```{r echo=FALSE}
@@ -1155,15 +1206,22 @@ ttestOD <- t.test(ndns_1_11[SurveyYear >=9,omdiaval*wti_UKY1to11], ndns_1_11[Sur
 data.table("Var" = c("Sys","Dia"),"statistic" = signif(c(ttestOS$statistic,ttestOD$statistic), digits= 4), "p.value" = signif(c(ttestOS$p.value,ttestOD$p.value), digits = 4))
 ```
 
-There is a change in systolic of 5.1 mmHg and a similar diastolic reduction.
+There is a reduction in systolic, with a less significant reduction in diastolic
 
-In summary there is statistically significant change in UPF and Na intake and also in both systolic and diastolic pressures.
+In summary there is a reduction in UPF and Na intake and a drop in both systolic and diastolic pressures. 
+
+
 
 Has another factor affected the BP change ?
 
+
+
+
 ### Statistical analysis of Confounding variables
 
-How are confounding variables distributed between the two datasets The NDNS dataset was weighted to keep many of these the same between datasets.
+How are confounding variables distributed between the two datasets
+The NDNS dataset was weighted to keep many of these the same between datasets. 
+
 
 ```{r echo=FALSE}
 #from pers data
@@ -1184,11 +1242,12 @@ confounders <- data.table("name" = c("Age","Calciummg","Totalsugarsg","Glucoseg"
 confounders
 
 ```
+They seem to all be significantly different between the datasets! (except calciummg, and lactose)
 
-The age of the two datasets has changed but not in a statistically significant way.
-Intake seems to be significantly different between the datasets.
+There is a difference of 5 years in the mean ages. The change in Age might be explained by more younger people being on anti-hypertensive meds. or hypertension being diagnosed earlier
 
-There has been a change in the intake of soft drinks,not low calorie.
+
+There has been a change in the intake of soft drinks, tea coffee and water.
 
 ```{r echo=FALSE, warning=FALSE}
 
@@ -1215,25 +1274,34 @@ plot( ndns_1_11[SurveyYear <= 4,Sex], main = "2010",caption = "Bar Plot of Sex i
 
 ```
 
-There is a statistically significant change in the sex distribution of the two groups.
-This might be due to differences in the numbers of excluded participants.
-In particular there may be more younger people and women taking e.g. bblockers in one group.
+Again significant differences
+Are there time differences in diagnosis of hypertension/treatment between sexes 
+ie are more women now on meds compared with the number of men than previously?
+There appears to be more men excluded in the 1-4 population compared to females, when this is compared to the 2017-19 population. This supports the idea of greater equality in prescribing more recently.
 
+
+
+
+comparing individual data sets looking for similarity in two
 ```{r echo=FALSE}
 #ttests for continuous data
 ttestht <- t.test(ndns_1_11[SurveyYear >= 9,htval*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,htval*wti_UKY1to11])
 ttestwt <- t.test(ndns_1_11[SurveyYear >= 9,wtval*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,wtval*wti_UKY1to11])
 ttestbmi <- t.test(ndns_1_11[SurveyYear >= 9,bmival*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,bmival*wti_UKY1to11])
 
-confounders2 <- data.table("name" = c("htval","wtval","bmival"),"pvalue" = signif(c(ttestht$p.value,ttestwt$p.value,ttestbmi$p.value),digits = 4),"statistic" = signif(c(ttestht$statistic,ttestwt$statistic,ttestbmi$statistic),digits = 4))
+confounders2 <- data.table("name" = c("htval","wtval","bmival"),"pvalue" = signif(c(ttestht$p.value,ttestwt$p.value,ttestbmi$p.value),digits = 4),"pvalue" = signif(c(ttestht$statistic,ttestwt$statistic,ttestbmi$statistic),digits = 4))
 confounders2
 
 
 
 
 ```
-
 This table suggests that there is a significant difference between the height, and bmi of the groups.
+The 11 population is shorter by 4 cm and 7 kilos lighter 
+The mean bmi has dropped from 25.86 which is overweight. 
+It is now 23.48 which is in the normal range. 
+This would also highlight a preferential detection of high BP in those overweight.
+
 
 ```{r echo=FALSE, warning=FALSE}
 
@@ -1260,7 +1328,6 @@ catconfounders2 <- data.table("name" = c("vegetarn"),"p.value" = signif(c(vtable
 catconfounders2
 
 ```
-
 These values identify a significant difference in the number of vegetarians
 
 ```{r echo=FALSE, warning=FALSE}
@@ -1319,9 +1386,8 @@ catconfounders3b
 catconfounders3c
 catconfounders3d
 ```
-
 There are differences in ethnicity as divided into 5 subgroups.
-The differences in qimd, are not statistically significant.
+The differences in qimd, using the 2010 definitions, are not statistically significant.
 There is a difference in the age of finishing education.
 
 ```{r echo=FALSE, warning=FALSE}
@@ -1370,7 +1436,6 @@ catconfounders4b <- data.table("name" = c("hyper1","hyper140","highbp1","hibp140
 catconfounders4a
 #catconfounders4b
 ```
-
 The age groups show some discrepancy with the p value significant only in the child age groups.
 
 ```{r echo=FALSE, warning=FALSE}
@@ -1411,28 +1476,36 @@ prtabler <- chisq.test(rbind(prtable11 , prtable4))
 
 catconfounders5 <- data.table("name" = c("bpmedc","bpmedd","diur","beta","calciumb","aceinh","obpdrug","PregNowB"), "p.value" = signif(c(mctabler$p.value, mdtabler$p.value, ditabler$p.value, betabler$p.value, cbtabler$p.value, acetabler$p.value, othtabler$p.value, prtabler$p.value ),digits = 4))
 
-#catconfounders5
+catconfounders5
 
 ```
 
-## Regression Analysis
 
-### linear regression
+
+
+
+
+
+##  Regression Analysis
+###  linear regression
+
+
 
 Simple linear regression equations look for the relationship between the dependant variable, and the independent variable.
-For these I am looking at the whole dataset Firstly I will plot omsysval and sodiummg, then omsysval and Epcnt, then omsysval and pcnt.
-These graphs show a patterned distribution.
+For these I am looking at the whole dataset
+Firstly I will plot  omsysval and sodiummg, then omsysval and Epcnt, then omsysval and pcnt.
+
 
 ```{r}
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Sodiummg*wti_UKY1to11])
-
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Epcnt_4*wti_UKY1to11])
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,pcnt_4*wti_UKY1to11])
 
 ```
 
-The regression models are examined for specific variables.
-First omsysval against pcnt_4.
+The regression models for teh individual variables against omsysval
+pcnt_4
+
 
 ```{r echo=FALSE}
 #linear regression models
@@ -1450,9 +1523,7 @@ AIC(lm1g)
 sensemakr(lm1g, treatment = "pcnt_4")
 
 ```
-
-Then omsysval is compared to Epcnt_4 showing a positive result which is statistically significant.
-
+Epcnt_4
 ```{r echo=FALSE}
 #linear regression models
 #UPF Energy % only
@@ -1470,7 +1541,6 @@ AIC(lm1E)
 sensemakr(lm1E, treatment = "Epcnt_4")
 
 ```
-
 sodiummg
 
 ```{r echo=FALSE}
@@ -1493,30 +1563,19 @@ sensemakr(lm1na, treatment = "Sodiummg")
 
 ```
 
+
 There are relationships between Na and g pcnt as well as E pcnt and omsysval .
 
-#### Conclusion
+### multi variable regression 
 
-The linear regression models show that there are statistically significant positive correlations between the systolic BP and each of the key variables.
+This uses a model of variables. It can highlight the contributions of each.
 
-### multi variable regression
-
-This uses a model of variables.
-It can highlight the contributions of each variable.
-The
-
-intention is to develop an optimal model which mathematically describes the situation.
-
-In particular the research question asks about the relationship between Sodium and UPF intake with BP.
-The models will reflect this question with models looking to include or exclude particular variables.
-Comparisons between these models are then made using sensitivity analysis, identifying how sensitive the model is to sodium, or other factors
-
-This first model looks at the relationships between BP and Age and Sex
+This first model looks at the relationships between BP and Age and Sex 
 
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
-lm1AS <- lm(omsysval ~ Age + Sex +bmival ,weight = wti_UKY1to11, ndns_1_11)
+lm1AS <- lm(omsysval ~ Age + Sex,weight = wti_UKY1to11, ndns_1_11)
 
 
 
@@ -1532,8 +1591,8 @@ sensemakr(lm1AS, treatment = "Age")
 #sensemakr(lm1AS, treatment = "Sex")
 
 ```
-
 The next model looks at a large number of variables
+
 
 ```{r echo=FALSE}
 lmM <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ wtval+TotalEMJ +ethgrp2 + VitaminDµg + educfinh+ EIMD_2010_quintile ,weight = wti_UKY1to11, ndns_1_11,na.action = na.exclude)
@@ -1552,6 +1611,7 @@ AIC(lmM)
 
 These models can be compared with others with different variables to understand how they help predict values more or less effectively.
 
+
 ```{r echo=FALSE}
 lmM2 <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ bmival +ethgrp2 + VitaminDµg +educfinh+ EIMD_2010_quintile ,weight = wti_UKY1to11, ndns_1_11,na.action = na.exclude)
 
@@ -1566,6 +1626,8 @@ AIC(lmM2)
 
 this model has sodium and gram percent
 
+
+
 ```{r echo=FALSE}
 lmMna <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+bmival ,weight = wti_UKY1to11, ndns_1_11,na.action =na.exclude)
 
@@ -1578,9 +1640,7 @@ anova(lmMna)
 AIC(lmMna)
 
 ```
-
 This model has Sodium and energy pcnt
-
 ```{r echo=FALSE}
 lmMnaE <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4 ,weight = wti_UKY1to11, ndns_1_11,na.action =na.exclude)
 
@@ -1591,7 +1651,6 @@ anova(lmMnaE)
 AIC(lmMnaE)
 
 ```
-
 this model has Age sex and g pcnt only
 
 ```{r echo=FALSE}
@@ -1604,8 +1663,6 @@ anova(lmMg)
 AIC(lmMg)
 
 ```
-
-the pcnt_4 is not statistically significant
 
 ```{r echo=FALSE}
 lm4b <- lm(omsysval ~ Age +Sex + Epcnt_4 ,weight = wti_UKY1to11, ndns_1_11)
@@ -1621,9 +1678,6 @@ sensemakr(lm4b, treatment = "Epcnt_4")
 
 
 ```
-
-In this model Epcnt is not statistically significant.
-
 What has removing the sodium done to anova and AIC?
 
 This last model is just sodium with Age and sex
@@ -1644,14 +1698,11 @@ sensemakr(lm4c, treatment = "Sodiummg")
 
 ```
 
-This model shows age and sodium mg as being statistically significant.
-Sex appears less significant.
+
 
 ## This final set analyses the whole dataset together across the key variables
-
 Then tests them across two sets of UPF data one calculated using Rauber, the other from ZC.
 First for gram percent UPF 4
-
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 
 
@@ -1668,8 +1719,8 @@ lmallgz
 anova(lmallgz)
 ```
 
-the second set compares Energy percent upf between the two datasets
 
+the second set compares Energy percent upf between the two datasets
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 lmallE <- lm(omsysval~ Age+ Sex + Sodiummg +Epcnt_4,weight = wti_UKY1to11, alldata)
 lmallE
@@ -1692,7 +1743,7 @@ summary(Smallg)
 
 ```
 
-the next section compares the AIC values for the given models from above
+
 
 ```{r}
 library(AICcmodavg)
@@ -1708,46 +1759,50 @@ modavg(Cand.models,parm = "Sodiummg")
 importance(cand.set = Cand.models, parm = "Sodiummg", second.ord = TRUE,nobs = NULL)
 ```
 
+
 ## Summary
 
-NDNS datasets have been downloaded and adapted into a form to approach the research question.
+The data from 2008-11 and 2017-19 NDNS datasets have been downloaded and adapted into a form to approach the research question.
 
 The key variables of BP, 'omsysval' and 'omdiaval' are taken directly from the data.
-The diary entries are identified by NOVA type.
-
-The total weight of each nova type is calculated for each individual.
-The percentage of the total weight food intake per person is then calculated.
-This gives the derived value 'pcnt_4', which is the percentage by weight of intake which is NOVA 4 or UPF.
-
-The total energy in kJ of each nova type is calculated for each individual.
-The percentage of the total energy food intake per person is then calculated.
+The diary entries are identified by NOVA type. 
+The total weight of each nova type is calculated for each individual. 
+The percentage of the total weight food intake per person is then calculated. 
+This gives the derived value 'pcnt_4', which is the percentage of intake which is NOVA 4 or UPF.
+The total energy in kJ of each nova type is calculated for each individual. 
+The percentage of the total energy food intake per person is then calculated. 
 This gives the derived value 'Epcnt_4', which is the percentage of intake which is NOVA 4 or UPF.
 
-There is a table with summary values for these variables across the dataset.
+There is a table with summary values for theses variables across the dataset.
 
-Statistical analysis of the key variables shows the change in all the variables between the two time periods.
+Statistical analysis of the key variables shows the change in all the variables between the two time periods. 
 
-Confounding variables are analysed and show if there has been a significant change in the balance of the populations.
-#Removing those with antihypertensive medications has removed more men in the earlier cohort compared to women.
+Confounding variables are analysed and show if there has been a significant change in the balance of the populations. 
+#Removing those with antihypertensive medications has removed more men in the earlier cohort compared to women. 
 
 Regression shows a degree of association between the BP and UPF intake by weight and by energy.
 It also shows the same for sodium intake.
 
-Using Anova analysis of different multi variable regression models the key variables are significant for sodium in several models, and sometimes for energy percentage.
+Using Anova analysis of different multi variable regression models 
+ the key variables are significant for sodium in several models, and sometimes for energy percentage. 
 Sodium intake shows the strongest association in the latter 9-11 cohort.
 
-Of the other variables bmi and educfinh can also be statistically significant at times.
+
+
+
+
 
 ## Conclusion
 
-The percentage by weight of NOVA group 4 foods increased from 2008 to 2019.
-The percentage by energy of NOVA group 4 foods increased from 2008 to 2019.
-The mean sodium intake in mg increased between the two time periods.
-The systolic and diastolic BP have increased between the two time periods.
+The percentage by weight of NOVA group 4 foods has decreased from 2008 to 2019.
+The percentage by energy of NOVA group 4 foods has decreased from 2008 to 2019.
+The mean sodium intake in mg has reduced between the two time periods. 
+The systolic and diastolic BP have reduced between the two time periods.
 
-In each period there is a correlation between systolic BP and sodium intake.
-In each period there is a correlation between systolic BP and UPF intake.
+In each period there is a correlation between systolic BP and sodium intake. 
+In each period there is a correlation between systolic BP and UPF intake. 
 
 The regression models identify that age and sex are statistically significant contributors to the BP.
 Only those models from the later time period show sodium as being statistically significant in importance.
 Combining the data shows the energy percentage of UPF as being a statistically significant contributor.
+

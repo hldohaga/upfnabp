@@ -132,7 +132,7 @@ Nova group 4 or UPF intake is used for the study.
 
 
 
-
+>>>>>>> 9ff67cb440e7115fb1f59aec835fe2dd043d3b94
 
 ```{r include=FALSE}
 library(haven)
@@ -233,7 +233,12 @@ n4 = sum(sav11br$wti_Y911)       #Should be 3558
 N <- sum(n1, n2, n3, n4) #Should be 15655
 ```
 
+<<<<<<< HEAD
+now the proportion weight for each is calculated
+=======
 
+
+>>>>>>> 9ff67cb440e7115fb1f59aec835fe2dd043d3b94
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 #now the proportion weight for each is calculated
@@ -261,7 +266,11 @@ n4 = sum(sav11br$wtn_Y911)       #Should be 3558
 N <- sum(n1, n2, n3, n4) #Should be 15655
 ```
 
+<<<<<<< HEAD
+now the proportion weight for each is calculated
+=======
 
+>>>>>>> 9ff67cb440e7115fb1f59aec835fe2dd043d3b94
 
 ```{r include=FALSE}
 sav4br$wtn_UKY1to11 <- ((sav4br$wtn_UKY1234/n1) * N)  * (4/11)
