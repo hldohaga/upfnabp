@@ -1,14 +1,14 @@
 ---
 title: "bp upf and na"
 output:
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
-    keep_md: yes
-  word_document: 
-    toc: yes
-    fig_caption: yes
     keep_md: yes
   pdf_document:
     toc: yes
@@ -115,12 +115,35 @@ Nova group 4 or UPF intake is used for the study.
 
 ## Method for Data Analysis
 
+### Descriptive data analysis
+
+
+The data is summarised, with Mean median, and range for the key continuous variables.
+The key variables are omsysval, UPF intake and sodiummg.
+These variables are the ones which most relate to the research question.
+First for years 1-4 then for 9-11.
+
+There are a number of related variables in the dataset.
+These were chosen for reliability and practicality.
+These variables are ones which can also influence BP.
+They include Age, Sex, BMI, height and weight.
+The population for years 1-4 are compared with those for years 9-11.
+
+The omsysval is a validated measurement with significant quality assessment within the dataset.
+Raw systolic values are present in the dataset but are made up of data with issues around quality.
+In particular the systolic values are assessed for the effects of exercise, temperature and ill health.
+The variable omsysval is a quality assured mean value which is reliable across the dataset.
+
+The sodium value is one calculated from intake based on food diaries and standard food nutrient values.
+This only reflects standard foods and is the result of assumptions about the content being consistent.
+Serum sodium values are available for the early dataset, but not the later one.
+There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods.
 The Data is displayed in table x with minimum, mean, median, and maximum values. 
 The exposure variables are sodium intake (Sodiummg), and ultra processed food intake (UPF_4).
 The outcome variable are the mean systolic blood pressure (omsysval). 
 
 
-Key additional variables are considered in the later section looking at how they cahnge across the populations.
+Key additional variables are considered in the later section looking at how they change across the populations.
 Age, sex, and bmi are important contributors. Education, NSSEC and IMD are also looked at.
 
 ### Exclusions 
@@ -279,77 +302,79 @@ The process can be done for food level energy intake also.
 
 
 
-After that, this information is added to the other data.
-This gives us the nova group information by weight and weight percent for all participants .
 
 
 
-The data is now ready for analysis first by descriptive analysis once those categories of participant who should be excluded has been.
 
 
 
-### Exclusions
 
-The Sample contains participants who are on treatment for hypertension ( diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs).
-This should be affecting the relationship between diet and BP so these are excluded.
 
-Patients with hypertension may have an abnormal relationship between diet and BP those with a systolic BP over 150 mmHg have been excluded.
-
-There are no participants who are pregnant or breastfeeding.
 
 
 ##Results Section
 ### Results Intrduction
 
-The results dervie from the method outlined above and foolow the pattern described. 
-I will try to discuss teh results having already described the method.
+The results derive from the method outlined above and follow the pattern described. 
+I will try to discuss the results having already described the method.
 
 
-## Descriptive data analysis
 
-This section will review the data.
-The data is summarised, with Mean median, and range for the key continuous variables.
-The key variables are omsysval, UPF intake and sodiummg.
-These variables are the ones which most relate to the research question.
-First for years 1-4 then for 9-11.
-
-There are a number of related variables in the dataset.
-These were chosen for reliability and practicality.
-These variables are ones which can also influence BP.
-They include Age, Sex, BMI, height and weight.
-The population for years 1-4 are compared with those for years 9-11.
-
-The omsysval is a validated measurement with significant quality assessment within the dataset.
-Raw systolic values are present in the dataset but are made up of data with issues around quality.
-In particular the systolic values are assessed for the effects of exercise, temperature and ill health.
-The variable omsysval is a quality assured mean value which is reliable across the dataset.
-
-The sodium value is one calculated from intake based on food diaries and standard food nutrient values.
-This only reflects standard foods and is the result of assumptions about the content being consistent.
-Serum sodium values are available for the early dataset, but not the later one.
-There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods.
 
 
 ```
-##        Min. 1st Qu.  Median    Mean 3rd Qu.    Max.      NA's    names
-##  1: 36.2700 430.200 1200.00 2156.00 3007.00 17920.0   36.2700 Sodiummg
-##  2: 43.8400 754.300 1550.00 2574.00 3433.00 31250.0   43.8400 Sodiummg
-##  3:  0.2686   5.026   14.00   24.58   31.58   280.4    0.2686   pcnt_4
-##  4:  0.4734  10.170   19.00   30.33   34.93   392.1    0.4734   pcnt_4
-##  5:  1.1880  11.680   28.69   48.85   69.51   377.2    1.1880  Epcnt_4
-##  6:  1.3270  22.770   43.31   59.17   76.75   415.8    1.3270  Epcnt_4
-##  7:      NA      NA      NA     NaN      NA      NA  945.0000 omsysval
-##  8:      NA      NA      NA     NaN      NA      NA 1121.0000 omsysval
-##  9:      NA      NA      NA     NaN      NA      NA  945.0000 omdiaval
-## 10:      NA      NA      NA     NaN      NA      NA 1121.0000 omdiaval
+##     Sodiummg          pcnt_4         Epcnt_4         omsysval    
+##  Min.   : 388.6   Min.   : 0.86   Min.   : 9.00   Min.   : 77.5  
+##  1st Qu.:1628.2   1st Qu.:14.14   1st Qu.:41.70   1st Qu.:108.0  
+##  Median :2041.1   Median :24.21   Median :52.40   Median :118.5  
+##  Mean   :2122.2   Mean   :28.81   Mean   :51.88   Mean   :118.8  
+##  3rd Qu.:2540.2   3rd Qu.:40.36   3rd Qu.:61.95   3rd Qu.:129.0  
+##  Max.   :6494.1   Max.   :94.20   Max.   :99.45   Max.   :150.0
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-2.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-13-3.png)<!-- -->
+```
+##     Sodiummg           pcnt_4          Epcnt_4          omsysval     
+##  Min.   :  91.87   Min.   :  0.21   Min.   :  2.54   Min.   : -8.00  
+##  1st Qu.:1390.89   1st Qu.: 15.11   1st Qu.: 40.88   1st Qu.: 94.50  
+##  Median :1826.90   Median : 25.78   Median : 51.91   Median :109.00  
+##  Mean   :1912.91   Mean   : 30.07   Mean   : 51.40   Mean   : 90.95  
+##  3rd Qu.:2324.24   3rd Qu.: 41.76   3rd Qu.: 61.91   3rd Qu.:121.00  
+##  Max.   :7487.94   Max.   :100.00   Max.   :100.00   Max.   :150.00
+```
+These tables show that there has been a change between the two cohorts.
+The boxplots show this graphically.
 
-These boxplots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changeed over the years.
-The graphs show that there is not a visible difference between the years. STatistical analysis will follow.
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-2.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-3.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-4.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-14-5.png)<!-- -->
+
+
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-14-1.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-14-2.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-14-3.png)<!-- -->
+
+
+```r
+#keydata
+
+boxplot((ndns_1_11$Epcnt_4*ndns_1_11$wti_UKY1to11/4)~
+          ndns_1_11$SurveyYear)
+```
+
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-15-1.png)<!-- -->
+
+```r
+boxplot((ndns_1_11$Sodiummg*ndns_1_11$wti_UKY1to11)~
+         ndns_1_11$SurveyYear)
+```
+
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-15-2.png)<!-- -->
+
+```r
+boxplot((ndns_1_11$omsysval*ndns_1_11$wti_UKY1to11)~
+          ndns_1_11$SurveyYear)
+```
+
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-15-3.png)<!-- -->
+These box plots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changed over the years.
+The graphs show that there is not a visible difference between the years. Statistical analysis will follow.
+
 
 ## Statistical Comparison of key variables
 
@@ -413,8 +438,8 @@ A third compares the percentage energy provided by UPF.
 ##  2574.327  2156.300
 ```
 
-It seems the mean percentage UPF intake changes 3.7 % on weight and 4.4% in energy and this reduction is statistically significant.
-The sodium intake has changed by 3.5 mg and is also statistically significant with a p value less than 0.05.
+It seems the mean percentage UPF intake changes from 48.8% to 59.2% energy and this increase is statistically significant.
+The mean sodium intake has changed from  2156.30 mg to 2574.33 mg and is also statistically significant with a p value less than 0.05.
 
 ### what about outcome BP?
 
@@ -427,7 +452,21 @@ The next t tests compare mean systolic values in the two time periods and then t
 ## 2: Dia     5.205 2.130e-07
 ```
 
-There is a change in systolic of 5.1 mmHg and a similar diastolic reduction.
+```
+## 
+## 	Welch Two Sample t-test
+## 
+## data:  ndns_1_11[SurveyYear >= 9, omsysval * wti_UKY1to11] and ndns_1_11[SurveyYear <= 4, omsysval * wti_UKY1to11]
+## t = 5.1336, df = 2048.3, p-value = 3.112e-07
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  18.73190 41.89111
+## sample estimates:
+## mean of x mean of y 
+##  151.9482  121.6367
+```
+
+There is a change in mean systolic from 122-152 mmHg with a p value of 3.112e -7.
 
 In summary there is statistically significant change in UPF and Na intake and also in both systolic and diastolic pressures.
 
@@ -463,7 +502,7 @@ There has been a change in the intake of soft drinks,not low calorie.
 ## 1:  Sex 2.266e-06
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-18-1.png)<!-- -->![](bpupfandnaweightall_files/figure-html/unnamed-chunk-18-2.png)<!-- -->
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-19-1.png)<!-- -->![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-19-2.png)<!-- -->
 
 There is a statistically significant change in the sex distribution of the two groups.
 This might be due to differences in the numbers of excluded participants.
@@ -534,19 +573,19 @@ These graphs show a patterned distribution.
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Sodiummg*wti_UKY1to11])
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-24-1.png)<!-- -->
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-25-1.png)<!-- -->
 
 ```r
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Epcnt_4*wti_UKY1to11])
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-24-2.png)<!-- -->
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-25-2.png)<!-- -->
 
 ```r
 plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,pcnt_4*wti_UKY1to11])
 ```
 
-![](bpupfandnaweightall_files/figure-html/unnamed-chunk-24-3.png)<!-- -->
+![](bpupfandnaweightall_files/figure-docx/unnamed-chunk-25-3.png)<!-- -->
 
 The regression models are examined for specific variables.
 First omsysval against pcnt_4.
@@ -1203,7 +1242,7 @@ There is a table with summary values for these variables across the dataset.
 Statistical analysis of the key variables shows the change in all the variables between the two time periods.
 
 Confounding variables are analysed and show if there has been a significant change in the balance of the populations.
-#Removing those with antihypertensive medications has removed more men in the earlier cohort compared to women.
+
 
 Regression shows a degree of association between the BP and UPF intake by weight and by energy.
 It also shows the same for sodium intake.
