@@ -402,12 +402,12 @@ This first table highlights the data from the years 2008-2012 at the beginning o
 ```
 
 ```{=html}
-<div id="benhgclamn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="lzowsunuok" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#benhgclamn .gt_table {
+#lzowsunuok .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -432,7 +432,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-left-color: #D3D3D3;
 }
 
-#benhgclamn .gt_heading {
+#lzowsunuok .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -444,12 +444,12 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#benhgclamn .gt_caption {
+#lzowsunuok .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#benhgclamn .gt_title {
+#lzowsunuok .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -461,7 +461,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-width: 0;
 }
 
-#benhgclamn .gt_subtitle {
+#lzowsunuok .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -473,13 +473,13 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-top-width: 0;
 }
 
-#benhgclamn .gt_bottom_border {
+#lzowsunuok .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#benhgclamn .gt_col_headings {
+#lzowsunuok .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -494,7 +494,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#benhgclamn .gt_col_heading {
+#lzowsunuok .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -514,7 +514,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   overflow-x: hidden;
 }
 
-#benhgclamn .gt_column_spanner_outer {
+#lzowsunuok .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -526,15 +526,15 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 4px;
 }
 
-#benhgclamn .gt_column_spanner_outer:first-child {
+#lzowsunuok .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#benhgclamn .gt_column_spanner_outer:last-child {
+#lzowsunuok .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#benhgclamn .gt_column_spanner {
+#lzowsunuok .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -546,7 +546,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   width: 100%;
 }
 
-#benhgclamn .gt_group_heading {
+#lzowsunuok .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -572,7 +572,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   text-align: left;
 }
 
-#benhgclamn .gt_empty_group_heading {
+#lzowsunuok .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -587,15 +587,15 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   vertical-align: middle;
 }
 
-#benhgclamn .gt_from_md > :first-child {
+#lzowsunuok .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#benhgclamn .gt_from_md > :last-child {
+#lzowsunuok .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#benhgclamn .gt_row {
+#lzowsunuok .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -614,7 +614,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   overflow-x: hidden;
 }
 
-#benhgclamn .gt_stub {
+#lzowsunuok .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -627,7 +627,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#benhgclamn .gt_stub_row_group {
+#lzowsunuok .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -641,11 +641,11 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   vertical-align: top;
 }
 
-#benhgclamn .gt_row_group_first td {
+#lzowsunuok .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#benhgclamn .gt_summary_row {
+#lzowsunuok .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -655,16 +655,16 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#benhgclamn .gt_first_summary_row {
+#lzowsunuok .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#benhgclamn .gt_first_summary_row.thick {
+#lzowsunuok .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#benhgclamn .gt_last_summary_row {
+#lzowsunuok .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -674,7 +674,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-color: #D3D3D3;
 }
 
-#benhgclamn .gt_grand_summary_row {
+#lzowsunuok .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -684,7 +684,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#benhgclamn .gt_first_grand_summary_row {
+#lzowsunuok .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -694,11 +694,11 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-top-color: #D3D3D3;
 }
 
-#benhgclamn .gt_striped {
+#lzowsunuok .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#benhgclamn .gt_table_body {
+#lzowsunuok .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -707,7 +707,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-color: #D3D3D3;
 }
 
-#benhgclamn .gt_footnotes {
+#lzowsunuok .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -721,7 +721,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#benhgclamn .gt_footnote {
+#lzowsunuok .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -730,7 +730,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#benhgclamn .gt_sourcenotes {
+#lzowsunuok .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -744,7 +744,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#benhgclamn .gt_sourcenote {
+#lzowsunuok .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -752,64 +752,64 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#benhgclamn .gt_left {
+#lzowsunuok .gt_left {
   text-align: left;
 }
 
-#benhgclamn .gt_center {
+#lzowsunuok .gt_center {
   text-align: center;
 }
 
-#benhgclamn .gt_right {
+#lzowsunuok .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#benhgclamn .gt_font_normal {
+#lzowsunuok .gt_font_normal {
   font-weight: normal;
 }
 
-#benhgclamn .gt_font_bold {
+#lzowsunuok .gt_font_bold {
   font-weight: bold;
 }
 
-#benhgclamn .gt_font_italic {
+#lzowsunuok .gt_font_italic {
   font-style: italic;
 }
 
-#benhgclamn .gt_super {
+#lzowsunuok .gt_super {
   font-size: 65%;
 }
 
-#benhgclamn .gt_footnote_marks {
+#lzowsunuok .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#benhgclamn .gt_asterisk {
+#lzowsunuok .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#benhgclamn .gt_indent_1 {
+#lzowsunuok .gt_indent_1 {
   text-indent: 5px;
 }
 
-#benhgclamn .gt_indent_2 {
+#lzowsunuok .gt_indent_2 {
   text-indent: 10px;
 }
 
-#benhgclamn .gt_indent_3 {
+#lzowsunuok .gt_indent_3 {
   text-indent: 15px;
 }
 
-#benhgclamn .gt_indent_4 {
+#lzowsunuok .gt_indent_4 {
   text-indent: 20px;
 }
 
-#benhgclamn .gt_indent_5 {
+#lzowsunuok .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -844,12 +844,12 @@ This first table highlights the data from the years 2008-2012 at the beginning o
 ```
 
 ```{=html}
-<div id="cieslandvn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qroghyouwf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#cieslandvn .gt_table {
+#qroghyouwf .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -874,7 +874,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-left-color: #D3D3D3;
 }
 
-#cieslandvn .gt_heading {
+#qroghyouwf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -886,12 +886,12 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#cieslandvn .gt_caption {
+#qroghyouwf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cieslandvn .gt_title {
+#qroghyouwf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -903,7 +903,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-width: 0;
 }
 
-#cieslandvn .gt_subtitle {
+#qroghyouwf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -915,13 +915,13 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-top-width: 0;
 }
 
-#cieslandvn .gt_bottom_border {
+#qroghyouwf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cieslandvn .gt_col_headings {
+#qroghyouwf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -936,7 +936,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#cieslandvn .gt_col_heading {
+#qroghyouwf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -956,7 +956,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   overflow-x: hidden;
 }
 
-#cieslandvn .gt_column_spanner_outer {
+#qroghyouwf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -968,15 +968,15 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 4px;
 }
 
-#cieslandvn .gt_column_spanner_outer:first-child {
+#qroghyouwf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cieslandvn .gt_column_spanner_outer:last-child {
+#qroghyouwf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cieslandvn .gt_column_spanner {
+#qroghyouwf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -988,7 +988,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   width: 100%;
 }
 
-#cieslandvn .gt_group_heading {
+#qroghyouwf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1014,7 +1014,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   text-align: left;
 }
 
-#cieslandvn .gt_empty_group_heading {
+#qroghyouwf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1029,15 +1029,15 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   vertical-align: middle;
 }
 
-#cieslandvn .gt_from_md > :first-child {
+#qroghyouwf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cieslandvn .gt_from_md > :last-child {
+#qroghyouwf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cieslandvn .gt_row {
+#qroghyouwf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1056,7 +1056,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   overflow-x: hidden;
 }
 
-#cieslandvn .gt_stub {
+#qroghyouwf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1069,7 +1069,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#cieslandvn .gt_stub_row_group {
+#qroghyouwf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1083,11 +1083,11 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   vertical-align: top;
 }
 
-#cieslandvn .gt_row_group_first td {
+#qroghyouwf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cieslandvn .gt_summary_row {
+#qroghyouwf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1097,16 +1097,16 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#cieslandvn .gt_first_summary_row {
+#qroghyouwf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cieslandvn .gt_first_summary_row.thick {
+#qroghyouwf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cieslandvn .gt_last_summary_row {
+#qroghyouwf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1116,7 +1116,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-color: #D3D3D3;
 }
 
-#cieslandvn .gt_grand_summary_row {
+#qroghyouwf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1126,7 +1126,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#cieslandvn .gt_first_grand_summary_row {
+#qroghyouwf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1136,11 +1136,11 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-top-color: #D3D3D3;
 }
 
-#cieslandvn .gt_striped {
+#qroghyouwf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cieslandvn .gt_table_body {
+#qroghyouwf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1149,7 +1149,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-color: #D3D3D3;
 }
 
-#cieslandvn .gt_footnotes {
+#qroghyouwf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1163,7 +1163,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#cieslandvn .gt_footnote {
+#qroghyouwf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1172,7 +1172,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#cieslandvn .gt_sourcenotes {
+#qroghyouwf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1186,7 +1186,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#cieslandvn .gt_sourcenote {
+#qroghyouwf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1194,64 +1194,64 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#cieslandvn .gt_left {
+#qroghyouwf .gt_left {
   text-align: left;
 }
 
-#cieslandvn .gt_center {
+#qroghyouwf .gt_center {
   text-align: center;
 }
 
-#cieslandvn .gt_right {
+#qroghyouwf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cieslandvn .gt_font_normal {
+#qroghyouwf .gt_font_normal {
   font-weight: normal;
 }
 
-#cieslandvn .gt_font_bold {
+#qroghyouwf .gt_font_bold {
   font-weight: bold;
 }
 
-#cieslandvn .gt_font_italic {
+#qroghyouwf .gt_font_italic {
   font-style: italic;
 }
 
-#cieslandvn .gt_super {
+#qroghyouwf .gt_super {
   font-size: 65%;
 }
 
-#cieslandvn .gt_footnote_marks {
+#qroghyouwf .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#cieslandvn .gt_asterisk {
+#qroghyouwf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cieslandvn .gt_indent_1 {
+#qroghyouwf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cieslandvn .gt_indent_2 {
+#qroghyouwf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cieslandvn .gt_indent_3 {
+#qroghyouwf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cieslandvn .gt_indent_4 {
+#qroghyouwf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cieslandvn .gt_indent_5 {
+#qroghyouwf .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1333,12 +1333,12 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
 ```
 
 ```{=html}
-<div id="uncvzixonu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="faxfiepaqu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#uncvzixonu .gt_table {
+#faxfiepaqu .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1363,7 +1363,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   border-left-color: #D3D3D3;
 }
 
-#uncvzixonu .gt_heading {
+#faxfiepaqu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1375,12 +1375,12 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   border-right-color: #D3D3D3;
 }
 
-#uncvzixonu .gt_caption {
+#faxfiepaqu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#uncvzixonu .gt_title {
+#faxfiepaqu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1392,7 +1392,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   border-bottom-width: 0;
 }
 
-#uncvzixonu .gt_subtitle {
+#faxfiepaqu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1404,13 +1404,13 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   border-top-width: 0;
 }
 
-#uncvzixonu .gt_bottom_border {
+#faxfiepaqu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#uncvzixonu .gt_col_headings {
+#faxfiepaqu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1425,7 +1425,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   border-right-color: #D3D3D3;
 }
 
-#uncvzixonu .gt_col_heading {
+#faxfiepaqu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1445,7 +1445,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   overflow-x: hidden;
 }
 
-#uncvzixonu .gt_column_spanner_outer {
+#faxfiepaqu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1457,15 +1457,15 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   padding-right: 4px;
 }
 
-#uncvzixonu .gt_column_spanner_outer:first-child {
+#faxfiepaqu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#uncvzixonu .gt_column_spanner_outer:last-child {
+#faxfiepaqu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#uncvzixonu .gt_column_spanner {
+#faxfiepaqu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1477,7 +1477,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   width: 100%;
 }
 
-#uncvzixonu .gt_group_heading {
+#faxfiepaqu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1503,7 +1503,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   text-align: left;
 }
 
-#uncvzixonu .gt_empty_group_heading {
+#faxfiepaqu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1518,15 +1518,15 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   vertical-align: middle;
 }
 
-#uncvzixonu .gt_from_md > :first-child {
+#faxfiepaqu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#uncvzixonu .gt_from_md > :last-child {
+#faxfiepaqu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#uncvzixonu .gt_row {
+#faxfiepaqu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1545,7 +1545,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   overflow-x: hidden;
 }
 
-#uncvzixonu .gt_stub {
+#faxfiepaqu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1558,7 +1558,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   padding-right: 5px;
 }
 
-#uncvzixonu .gt_stub_row_group {
+#faxfiepaqu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1572,11 +1572,11 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   vertical-align: top;
 }
 
-#uncvzixonu .gt_row_group_first td {
+#faxfiepaqu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#uncvzixonu .gt_summary_row {
+#faxfiepaqu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1586,16 +1586,16 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   padding-right: 5px;
 }
 
-#uncvzixonu .gt_first_summary_row {
+#faxfiepaqu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#uncvzixonu .gt_first_summary_row.thick {
+#faxfiepaqu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#uncvzixonu .gt_last_summary_row {
+#faxfiepaqu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1605,7 +1605,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   border-bottom-color: #D3D3D3;
 }
 
-#uncvzixonu .gt_grand_summary_row {
+#faxfiepaqu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1615,7 +1615,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   padding-right: 5px;
 }
 
-#uncvzixonu .gt_first_grand_summary_row {
+#faxfiepaqu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1625,11 +1625,11 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   border-top-color: #D3D3D3;
 }
 
-#uncvzixonu .gt_striped {
+#faxfiepaqu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#uncvzixonu .gt_table_body {
+#faxfiepaqu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1638,7 +1638,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   border-bottom-color: #D3D3D3;
 }
 
-#uncvzixonu .gt_footnotes {
+#faxfiepaqu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1652,7 +1652,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   border-right-color: #D3D3D3;
 }
 
-#uncvzixonu .gt_footnote {
+#faxfiepaqu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1661,7 +1661,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   padding-right: 5px;
 }
 
-#uncvzixonu .gt_sourcenotes {
+#faxfiepaqu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1675,7 +1675,7 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   border-right-color: #D3D3D3;
 }
 
-#uncvzixonu .gt_sourcenote {
+#faxfiepaqu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1683,64 +1683,64 @@ subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,
   padding-right: 5px;
 }
 
-#uncvzixonu .gt_left {
+#faxfiepaqu .gt_left {
   text-align: left;
 }
 
-#uncvzixonu .gt_center {
+#faxfiepaqu .gt_center {
   text-align: center;
 }
 
-#uncvzixonu .gt_right {
+#faxfiepaqu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#uncvzixonu .gt_font_normal {
+#faxfiepaqu .gt_font_normal {
   font-weight: normal;
 }
 
-#uncvzixonu .gt_font_bold {
+#faxfiepaqu .gt_font_bold {
   font-weight: bold;
 }
 
-#uncvzixonu .gt_font_italic {
+#faxfiepaqu .gt_font_italic {
   font-style: italic;
 }
 
-#uncvzixonu .gt_super {
+#faxfiepaqu .gt_super {
   font-size: 65%;
 }
 
-#uncvzixonu .gt_footnote_marks {
+#faxfiepaqu .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#uncvzixonu .gt_asterisk {
+#faxfiepaqu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#uncvzixonu .gt_indent_1 {
+#faxfiepaqu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#uncvzixonu .gt_indent_2 {
+#faxfiepaqu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#uncvzixonu .gt_indent_3 {
+#faxfiepaqu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#uncvzixonu .gt_indent_4 {
+#faxfiepaqu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#uncvzixonu .gt_indent_5 {
+#faxfiepaqu .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1778,12 +1778,12 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
 ```
 
 ```{=html}
-<div id="xxchfcxrpz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ixxpywwdkb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#xxchfcxrpz .gt_table {
+#ixxpywwdkb .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1808,7 +1808,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   border-left-color: #D3D3D3;
 }
 
-#xxchfcxrpz .gt_heading {
+#ixxpywwdkb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1820,12 +1820,12 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   border-right-color: #D3D3D3;
 }
 
-#xxchfcxrpz .gt_caption {
+#ixxpywwdkb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xxchfcxrpz .gt_title {
+#ixxpywwdkb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1837,7 +1837,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   border-bottom-width: 0;
 }
 
-#xxchfcxrpz .gt_subtitle {
+#ixxpywwdkb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1849,13 +1849,13 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   border-top-width: 0;
 }
 
-#xxchfcxrpz .gt_bottom_border {
+#ixxpywwdkb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xxchfcxrpz .gt_col_headings {
+#ixxpywwdkb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1870,7 +1870,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   border-right-color: #D3D3D3;
 }
 
-#xxchfcxrpz .gt_col_heading {
+#ixxpywwdkb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1890,7 +1890,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   overflow-x: hidden;
 }
 
-#xxchfcxrpz .gt_column_spanner_outer {
+#ixxpywwdkb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1902,15 +1902,15 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   padding-right: 4px;
 }
 
-#xxchfcxrpz .gt_column_spanner_outer:first-child {
+#ixxpywwdkb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xxchfcxrpz .gt_column_spanner_outer:last-child {
+#ixxpywwdkb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xxchfcxrpz .gt_column_spanner {
+#ixxpywwdkb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1922,7 +1922,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   width: 100%;
 }
 
-#xxchfcxrpz .gt_group_heading {
+#ixxpywwdkb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1948,7 +1948,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   text-align: left;
 }
 
-#xxchfcxrpz .gt_empty_group_heading {
+#ixxpywwdkb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1963,15 +1963,15 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   vertical-align: middle;
 }
 
-#xxchfcxrpz .gt_from_md > :first-child {
+#ixxpywwdkb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xxchfcxrpz .gt_from_md > :last-child {
+#ixxpywwdkb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xxchfcxrpz .gt_row {
+#ixxpywwdkb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1990,7 +1990,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   overflow-x: hidden;
 }
 
-#xxchfcxrpz .gt_stub {
+#ixxpywwdkb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2003,7 +2003,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   padding-right: 5px;
 }
 
-#xxchfcxrpz .gt_stub_row_group {
+#ixxpywwdkb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2017,11 +2017,11 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   vertical-align: top;
 }
 
-#xxchfcxrpz .gt_row_group_first td {
+#ixxpywwdkb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xxchfcxrpz .gt_summary_row {
+#ixxpywwdkb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2031,16 +2031,16 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   padding-right: 5px;
 }
 
-#xxchfcxrpz .gt_first_summary_row {
+#ixxpywwdkb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xxchfcxrpz .gt_first_summary_row.thick {
+#ixxpywwdkb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xxchfcxrpz .gt_last_summary_row {
+#ixxpywwdkb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2050,7 +2050,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   border-bottom-color: #D3D3D3;
 }
 
-#xxchfcxrpz .gt_grand_summary_row {
+#ixxpywwdkb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2060,7 +2060,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   padding-right: 5px;
 }
 
-#xxchfcxrpz .gt_first_grand_summary_row {
+#ixxpywwdkb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2070,11 +2070,11 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   border-top-color: #D3D3D3;
 }
 
-#xxchfcxrpz .gt_striped {
+#ixxpywwdkb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xxchfcxrpz .gt_table_body {
+#ixxpywwdkb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2083,7 +2083,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   border-bottom-color: #D3D3D3;
 }
 
-#xxchfcxrpz .gt_footnotes {
+#ixxpywwdkb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2097,7 +2097,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   border-right-color: #D3D3D3;
 }
 
-#xxchfcxrpz .gt_footnote {
+#ixxpywwdkb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2106,7 +2106,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   padding-right: 5px;
 }
 
-#xxchfcxrpz .gt_sourcenotes {
+#ixxpywwdkb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2120,7 +2120,7 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   border-right-color: #D3D3D3;
 }
 
-#xxchfcxrpz .gt_sourcenote {
+#ixxpywwdkb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2128,64 +2128,64 @@ last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
   padding-right: 5px;
 }
 
-#xxchfcxrpz .gt_left {
+#ixxpywwdkb .gt_left {
   text-align: left;
 }
 
-#xxchfcxrpz .gt_center {
+#ixxpywwdkb .gt_center {
   text-align: center;
 }
 
-#xxchfcxrpz .gt_right {
+#ixxpywwdkb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xxchfcxrpz .gt_font_normal {
+#ixxpywwdkb .gt_font_normal {
   font-weight: normal;
 }
 
-#xxchfcxrpz .gt_font_bold {
+#ixxpywwdkb .gt_font_bold {
   font-weight: bold;
 }
 
-#xxchfcxrpz .gt_font_italic {
+#ixxpywwdkb .gt_font_italic {
   font-style: italic;
 }
 
-#xxchfcxrpz .gt_super {
+#ixxpywwdkb .gt_super {
   font-size: 65%;
 }
 
-#xxchfcxrpz .gt_footnote_marks {
+#ixxpywwdkb .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#xxchfcxrpz .gt_asterisk {
+#ixxpywwdkb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xxchfcxrpz .gt_indent_1 {
+#ixxpywwdkb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xxchfcxrpz .gt_indent_2 {
+#ixxpywwdkb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xxchfcxrpz .gt_indent_3 {
+#ixxpywwdkb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xxchfcxrpz .gt_indent_4 {
+#ixxpywwdkb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xxchfcxrpz .gt_indent_5 {
+#ixxpywwdkb .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2445,146 +2445,77 @@ These graphs show a patterned distribution.
 
 
 ```r
-plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Sodiummg*wti_UKY1to11])
+svyplot(omsysval~Sodiummg, ndns_1_11e )
 ```
 
 ![](methodandresults_files/figure-html/unnamed-chunk-26-1.png)<!-- -->
 
 ```r
-plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Epcnt_4*wti_UKY1to11])
+svyplot(omsysval~EnergykJ_4, ndns_1_11e)
 ```
 
 ![](methodandresults_files/figure-html/unnamed-chunk-26-2.png)<!-- -->
 
 ```r
-plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,pcnt_4*wti_UKY1to11])
+svyplot(omsysval~pcnt_4, ndns_1_11e)
 ```
 
 ![](methodandresults_files/figure-html/unnamed-chunk-26-3.png)<!-- -->
 
 The regression models are examined for specific variables.
-First omsysval against pcnt_4.
+
+
+
+
+Then omsysval is compared to EnergykJ showing a positive result which is statistically significant.
 
 
 ```
+## Stratified 1 - level Cluster Sampling design (with replacement)
+## With (1695) clusters.
+## svydesign(ids = ~area, weights = ~wti_UKY1to11, strata = ~astrata1, 
+##     data = ndns_1_11, nest = TRUE)
 ## 
-## Call:
-## lm(formula = (omsysval) ~ (pcnt_4), data = ndns_1_11, weights = wti_UKY1to11)
+## Call:  svyglm(formula = omsysval ~ EnergykJ_4, design = ndns_1_11e)
 ## 
 ## Coefficients:
-## (Intercept)       pcnt_4  
-##    105.4761      -0.3656
-```
-
-```
-## Analysis of Variance Table
+## (Intercept)   EnergykJ_4  
+##   9.417e+01    1.691e-04  
 ## 
-## Response: (omsysval)
-##              Df   Sum Sq Mean Sq F value    Pr(>F)    
-## pcnt_4        1   422912  422912  144.98 < 2.2e-16 ***
-## Residuals 10105 29476994    2917                      
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-```
-## [1] 114196.7
-```
-
-```
-## Sensitivity Analysis to Unobserved Confounding
-## 
-## Model Formula: (omsysval) ~ (pcnt_4)
-## 
-## Null hypothesis: q = 1 and reduce = TRUE 
-## 
-## Unadjusted Estimates of ' pcnt_4 ':
-##   Coef. estimate: -0.36564 
-##   Standard Error: 0.03037 
-##   t-value: -12.04069 
-## 
-## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.01414 
-##   Robustness Value, q = 1 : 0.11282 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.09538 
-## 
-## For more information, check summary.
-```
-
-Then omsysval is compared to Epcnt_4 showing a positive result which is statistically significant.
-
-
-```
-## 
-## Call:
-## lm(formula = omsysval ~ Epcnt_4, data = ndns_1_11, weights = wti_UKY1to11)
-## 
-## Coefficients:
-## (Intercept)      Epcnt_4  
-##    109.4494      -0.2724
-```
-
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##              Df   Sum Sq Mean Sq F value    Pr(>F)    
-## Epcnt_4       1   183990  183990  62.566 2.846e-15 ***
-## Residuals 10105 29715916    2941                      
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-```
-## [1] 114278.3
-```
-
-```
-## Sensitivity Analysis to Unobserved Confounding
-## 
-## Model Formula: omsysval ~ Epcnt_4
-## 
-## Null hypothesis: q = 1 and reduce = TRUE 
-## 
-## Unadjusted Estimates of ' Epcnt_4 ':
-##   Coef. estimate: -0.27245 
-##   Standard Error: 0.03444 
-##   t-value: -7.90989 
-## 
-## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.00615 
-##   Robustness Value, q = 1 : 0.07565 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.05746 
-## 
-## For more information, check summary.
+## Degrees of Freedom: 10106 Total (i.e. Null);  856 Residual
+##   (5548 observations deleted due to missingness)
+## Null Deviance:	    29900000 
+## Residual Deviance: 29890000 	AIC: 114300
 ```
 
 sodiummg
 
 
 ```
+## Stratified 1 - level Cluster Sampling design (with replacement)
+## With (1695) clusters.
+## svydesign(ids = ~area, weights = ~wti_UKY1to11, strata = ~astrata1, 
+##     data = ndns_1_11, nest = TRUE)
 ## 
-## Call:
-## lm(formula = omsysval ~ Sodiummg, data = ndns_1_11, weights = wti_UKY1to11)
+## Call:  svyglm(formula = omsysval ~ Sodiummg, design = ndns_1_11e)
 ## 
 ## Coefficients:
 ## (Intercept)     Sodiummg  
-##   85.078412     0.005583
-```
-
-```
-## Analysis of Variance Table
+##   85.078412     0.005583  
 ## 
-## Response: omsysval
-##              Df   Sum Sq Mean Sq F value    Pr(>F)    
-## Sodiummg      1   213171  213171  72.561 < 2.2e-16 ***
-## Residuals 10105 29686735    2938                      
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Degrees of Freedom: 10106 Total (i.e. Null);  856 Residual
+##   (5548 observations deleted due to missingness)
+## Null Deviance:	    29900000 
+## Residual Deviance: 29690000 	AIC: 114300
 ```
 
 ```
-## [1] 114268.4
+## NULL
+```
+
+```
+##     eff.p       AIC  deltabar 
+##  2.636406 44.744433  1.318203
 ```
 
 ```
@@ -2596,13 +2527,13 @@ sodiummg
 ## 
 ## Unadjusted Estimates of ' Sodiummg ':
 ##   Coef. estimate: 0.00558 
-##   Standard Error: 0.00066 
-##   t-value: 8.51825 
+##   Standard Error: 0.00106 
+##   t-value: 5.24672 
 ## 
 ## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.00713 
-##   Robustness Value, q = 1 : 0.08122 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.06314 
+##   Partial R2 of treatment with outcome: 0.03116 
+##   Robustness Value, q = 1 : 0.16397 
+##   Robustness Value, q = 1 alpha = 0.05 : 0.10609 
 ## 
 ## For more information, check summary.
 ```
@@ -2617,485 +2548,239 @@ The linear regression models show that there are statistically significant posit
 
 This uses a model of variables.
 It can highlight the contributions of each variable.
-The
-
-intention is to develop an optimal model which mathematically describes the situation.
+The intention is to develop an optimal model which mathematically describes the situation.
 
 In particular the research question asks about the relationship between Sodium and UPF intake with BP.
 The models will reflect this question with models looking to include or exclude particular variables.
 Comparisons between these models are then made using sensitivity analysis, identifying how sensitive the model is to sodium, or other factors
 
-This first model looks at the relationships between BP and Age and Sex
+This first model looks at the relationships between BP and Age and Sex education and IMD all of which may have an effect on BP. This model excludes UPF and Na.
 
 
 ```
+## Stratified 1 - level Cluster Sampling design (with replacement)
+## With (879) clusters.
+## svydesign(ids = ~area, weights = ~wti_UKY1to11, strata = ~astrata1, 
+##     data = ndns_1_11, nest = TRUE)
 ## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex + bmival, data = ndns_1_11, 
-##     weights = wti_UKY1to11)
+## Call:  svyglm(formula = omsysval ~ Age + Sex + bmival + educfinh + EIMD_2010_quintile, 
+##     design = ndns_1_11d, na.action = na.exclude)
 ## 
 ## Coefficients:
-## (Intercept)          Age    SexFemale       bmival  
-##      49.392        0.431       -4.410        1.262
+##         (Intercept)                  Age            SexFemale  
+##             63.8630               0.5685              -6.1558  
+##              bmival            educfinh2            educfinh3  
+##              1.4457               1.9234             -23.0252  
+##           educfinh4            educfinh5            educfinh6  
+##            -22.6198             -21.2258             -29.1864  
+##           educfinh7            educfinh8  EIMD_2010_quintile2  
+##            -18.3646             -18.7862               1.8094  
+## EIMD_2010_quintile3  EIMD_2010_quintile4  EIMD_2010_quintile5  
+##             -0.9827              -4.9714              -3.9077  
+## 
+## Degrees of Freedom: 4428 Total (i.e. Null);  429 Residual
+##   (11226 observations deleted due to missingness)
+## Null Deviance:	    1.8e+07 
+## Residual Deviance: 15610000 	AIC: 48010
 ```
 
 ```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##             Df   Sum Sq Mean Sq F value    Pr(>F)    
-## Age          1  1681873 1681873 627.997 < 2.2e-16 ***
-## Sex          1    66063   66063  24.667 6.928e-07 ***
-## bmival       1   729331  729331 272.326 < 2.2e-16 ***
-## Residuals 9744 26095926    2678                      
+## Anova table:  (Rao-Scott LRT)
+## svyglm(formula = omsysval ~ Age, design = ndns_1_11d, na.action = na.exclude)
+##                      stats      DEff        df ddf         p    
+## Age                1769230    5152.1       1.0 856 < 2.2e-16 ***
+## Sex                  66818    5415.5       1.0 855 0.0004998 ***
+## bmival             1967932    7601.7       1.0 848 < 2.2e-16 ***
+## educfinh           6865959    4810.8       7.0 741 < 2.2e-16 ***
+## EIMD_2010_quintile 3619401    6794.8       4.0 429 < 2.2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```
-## [1] 109334.3
+## [1] 48008.04
 ```
+This first model shows that all these variables, Age, Sex, education, IMD,  and bmi, give statistically significant coefficients for the model which suggests that they do have an important part to play in any optimal model.
 
-```
-## Sensitivity Analysis to Unobserved Confounding
-## 
-## Model Formula: omsysval ~ Age + Sex + bmival
-## 
-## Null hypothesis: q = 1 and reduce = TRUE 
-## 
-## Unadjusted Estimates of ' Age ':
-##   Coef. estimate: 0.43104 
-##   Standard Error: 0.02479 
-##   t-value: 17.3885 
-## 
-## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.0301 
-##   Robustness Value, q = 1 : 0.16132 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.14456 
-## 
-## For more information, check summary.
-```
-
-The next model looks at a large number of variables
+The next model adds Sodiummg.
 
 
 ```
+## Stratified 1 - level Cluster Sampling design (with replacement)
+## With (879) clusters.
+## svydesign(ids = ~area, weights = ~wti_UKY1to11, strata = ~astrata1, 
+##     data = ndns_1_11, nest = TRUE)
 ## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg + sqrt(pcnt_4) + 
-##     wtval + TotalEMJ + ethgrp2 + VitaminDµg + educfinh + EIMD_2010_quintile, 
-##     data = ndns_1_11, weights = wti_UKY1to11, na.action = na.exclude)
+## Call:  svyglm(formula = omsysval ~ Age + Sex + Sodiummg + bmival + educfinh + 
+##     EIMD_2010_quintile, design = ndns_1_11d, na.action = na.exclude)
 ## 
 ## Coefficients:
 ##         (Intercept)                  Age            SexFemale  
-##           6.265e+01            5.182e-01            2.208e-01  
-##            Sodiummg         sqrt(pcnt_4)                wtval  
-##           8.758e-04           -4.939e-01            4.332e-01  
-##            TotalEMJ     ethgrp2Non-white           VitaminDµg  
-##           5.978e-01           -2.675e+00            2.112e-02  
-##           educfinh2            educfinh3            educfinh4  
-##           8.564e+00           -1.869e+01           -1.940e+01  
-##           educfinh5            educfinh6            educfinh7  
-##          -1.924e+01           -2.651e+01           -1.630e+01  
-##           educfinh8  EIMD_2010_quintile2  EIMD_2010_quintile3  
-##          -1.724e+01            1.187e+00           -1.259e+00  
-## EIMD_2010_quintile4  EIMD_2010_quintile5  
-##          -4.515e+00           -2.789e+00
-```
-
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##                      Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age                   1  1499793 1499793 424.2954 < 2.2e-16 ***
-## Sex                   1    85751   85751  24.2591 8.726e-07 ***
-## Sodiummg              1    99795   99795  28.2322 1.129e-07 ***
-## sqrt(pcnt_4)          1     7328    7328   2.0730    0.1500    
-## wtval                 1   592618  592618 167.6533 < 2.2e-16 ***
-## TotalEMJ              1     7967    7967   2.2538    0.1334    
-## ethgrp2               1     3417    3417   0.9668    0.3255    
-## VitaminDµg            1      109     109   0.0308    0.8606    
-## educfinh              7   125621   17946   5.0769 9.335e-06 ***
-## EIMD_2010_quintile    4    27198    6799   1.9236    0.1036    
-## Residuals          4445 15712116    3535                       
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-```
-## [1] 48400.9
-```
-
-These models can be compared with others with different variables to understand how they help predict values more or less effectively.
-
-
-```
-## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg + Epcnt_4 + bmival + 
-##     ethgrp2 + VitaminDµg + educfinh + EIMD_2010_quintile, data = ndns_1_11, 
-##     weights = wti_UKY1to11, na.action = na.exclude)
-## 
-## Coefficients:
-##         (Intercept)                  Age            SexFemale  
-##           59.726225             0.560146            -4.612772  
-##            Sodiummg              Epcnt_4               bmival  
-##            0.002838            -0.023022             1.406490  
-##    ethgrp2Non-white           VitaminDµg            educfinh2  
-##           -3.388193             0.004190             5.529142  
+##           57.676434             0.570174            -4.612795  
+##            Sodiummg               bmival            educfinh2  
+##            0.002946             1.406515             3.624975  
 ##           educfinh3            educfinh4            educfinh5  
-##          -22.061696           -22.414214           -21.262924  
+##          -21.989210           -22.047254           -20.906646  
 ##           educfinh6            educfinh7            educfinh8  
-##          -28.870765           -18.173730           -18.441547  
+##          -28.635031           -18.152873           -18.510535  
 ## EIMD_2010_quintile2  EIMD_2010_quintile3  EIMD_2010_quintile4  
-##            1.772901            -1.235629            -4.724211  
+##            1.693260            -1.376258            -5.140956  
 ## EIMD_2010_quintile5  
-##           -3.145912
+##           -3.964199  
+## 
+## Degrees of Freedom: 4428 Total (i.e. Null);  428 Residual
+##   (11226 observations deleted due to missingness)
+## Null Deviance:	    1.8e+07 
+## Residual Deviance: 15580000 	AIC: 48000
 ```
 
 ```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##                      Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age                   1  1463284 1463284 414.2811 < 2.2e-16 ***
-## Sex                   1    89285   89285  25.2781 5.160e-07 ***
-## Sodiummg              1    87350   87350  24.7303 6.845e-07 ***
-## Epcnt_4               1     2594    2594   0.7343   0.39153    
-## bmival                1   597307  597307 169.1078 < 2.2e-16 ***
-## ethgrp2               1     6161    6161   1.7443   0.18667    
-## VitaminDµg            1      150     150   0.0425   0.83673    
-## educfinh              7   148264   21181   5.9966 5.679e-07 ***
-## EIMD_2010_quintile    4    34608    8652   2.4495   0.04413 *  
-## Residuals          4407 15565988    3532                       
+## Anova table:  (Rao-Scott LRT)
+## svyglm(formula = omsysval ~ Age, design = ndns_1_11d, na.action = na.exclude)
+##                      stats      DEff        df ddf         p    
+## Age                1769230    5152.1       1.0 856 < 2.2e-16 ***
+## Sex                  66818    5415.5       1.0 855 0.0004998 ***
+## Sodiummg            168043    7128.3       1.0 854  1.56e-06 ***
+## bmival             1860042    7607.8       1.0 847 < 2.2e-16 ***
+## educfinh           6862697    4779.8       7.0 740 < 2.2e-16 ***
+## EIMD_2010_quintile 3597547    6707.6       4.0 428 < 2.2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
+This second model gives Sodiummg, educfinh, and IMD statistical significance. VitaminD shows no statistical significance, TotalEMJ and sqrt(pcnt) and ethgrp2 all have limited significance.
+
+
+
+Now we add UPF as total energy from nova 4 or UPF
+
 
 ```
-## [1] 47974.58
-```
-
-this model has sodium and gram percent
-
-
-```
+## Stratified 1 - level Cluster Sampling design (with replacement)
+## With (879) clusters.
+## svydesign(ids = ~area, weights = ~wti_UKY1to11, strata = ~astrata1, 
+##     data = ndns_1_11, nest = TRUE)
 ## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg + sqrt(pcnt_4) + 
-##     bmival, data = ndns_1_11, weights = wti_UKY1to11, na.action = na.exclude)
+## Call:  svyglm(formula = omsysval ~ Age + Sex + Sodiummg + EnergykJ_4 + 
+##     bmival + educfinh + EIMD_2010_quintile, design = ndns_1_11d, 
+##     na.action = na.exclude)
 ## 
 ## Coefficients:
-##  (Intercept)           Age     SexFemale      Sodiummg  sqrt(pcnt_4)  
-##    46.586304      0.411895     -2.816771      0.003472     -0.689436  
-##       bmival  
-##     1.215540
+##         (Intercept)                  Age            SexFemale  
+##           5.624e+01            5.804e-01           -4.413e+00  
+##            Sodiummg           EnergykJ_4               bmival  
+##           2.104e-03            1.662e-04            1.410e+00  
+##           educfinh2            educfinh3            educfinh4  
+##           3.957e+00           -2.196e+01           -2.198e+01  
+##           educfinh5            educfinh6            educfinh7  
+##          -2.076e+01           -2.852e+01           -1.784e+01  
+##           educfinh8  EIMD_2010_quintile2  EIMD_2010_quintile3  
+##          -1.817e+01            1.714e+00           -1.330e+00  
+## EIMD_2010_quintile4  EIMD_2010_quintile5  
+##          -5.130e+00           -3.962e+00  
+## 
+## Degrees of Freedom: 4428 Total (i.e. Null);  427 Residual
+##   (11226 observations deleted due to missingness)
+## Null Deviance:	    1.8e+07 
+## Residual Deviance: 15570000 	AIC: 48000
 ```
 
 ```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##                Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age             1  1681873 1681873 629.5575 < 2.2e-16 ***
-## Sex             1    66063   66063  24.7287 6.712e-07 ***
-## Sodiummg        1   125107  125107  46.8299 8.209e-12 ***
-## sqrt(pcnt_4)    1     8624    8624   3.2282   0.07241 .  
-## bmival          1   665612  665612 249.1512 < 2.2e-16 ***
-## Residuals    9742 26025914    2672                       
+## Anova table:  (Rao-Scott LRT)
+## svyglm(formula = omsysval ~ Age, design = ndns_1_11d, na.action = na.exclude)
+##                      stats      DEff        df ddf         p    
+## Age                1769230    5152.1       1.0 856 < 2.2e-16 ***
+## Sex                  66818    5415.5       1.0 855 0.0004998 ***
+## Sodiummg            168043    7128.3       1.0 854  1.56e-06 ***
+## EnergykJ_4           10540    6501.8       1.0 853 0.2058373    
+## bmival             1866294    7578.6       1.0 846 < 2.2e-16 ***
+## educfinh           6854647    4774.7       7.0 739 < 2.2e-16 ***
+## EIMD_2010_quintile 3593502    6701.1       4.0 427 < 2.2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
-```
-## [1] 109312.1
-```
+UPF does not seem significant...
 
-This model has Sodium and energy pcnt
+but when removing sodiummg
 
 
 ```
+## Stratified 1 - level Cluster Sampling design (with replacement)
+## With (879) clusters.
+## svydesign(ids = ~area, weights = ~wti_UKY1to11, strata = ~astrata1, 
+##     data = ndns_1_11, nest = TRUE)
 ## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg + Epcnt_4, data = ndns_1_11, 
-##     weights = wti_UKY1to11, na.action = na.exclude)
+## Call:  svyglm(formula = omsysval ~ Age + Sex + EnergykJ_4 + bmival + 
+##     educfinh + EIMD_2010_quintile, design = ndns_1_11d, na.action = na.exclude)
 ## 
 ## Coefficients:
-## (Intercept)          Age    SexFemale     Sodiummg      Epcnt_4  
-##   65.562212     0.567038    -2.310931     0.005395    -0.051931
+##         (Intercept)                  Age            SexFemale  
+##           5.763e+01            5.893e-01           -4.908e+00  
+##          EnergykJ_4               bmival            educfinh2  
+##           3.235e-04            1.430e+00            3.517e+00  
+##           educfinh3            educfinh4            educfinh5  
+##          -2.239e+01           -2.217e+01           -2.077e+01  
+##           educfinh6            educfinh7            educfinh8  
+##          -2.866e+01           -1.765e+01           -1.797e+01  
+## EIMD_2010_quintile2  EIMD_2010_quintile3  EIMD_2010_quintile4  
+##           1.785e+00           -1.111e+00           -5.044e+00  
+## EIMD_2010_quintile5  
+##          -3.936e+00  
+## 
+## Degrees of Freedom: 4428 Total (i.e. Null);  428 Residual
+##   (11226 observations deleted due to missingness)
+## Null Deviance:	    1.8e+07 
+## Residual Deviance: 15580000 	AIC: 48000
 ```
 
 ```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##              Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age           1  1769230 1769230 640.8299 < 2.2e-16 ***
-## Sex           1    66818   66818  24.2021 8.811e-07 ***
-## Sodiummg      1   168043  168043  60.8664 6.712e-15 ***
-## Epcnt_4       1     5792    5792   2.0978    0.1475    
-## Residuals 10102 27890023    2761                       
+## Anova table:  (Rao-Scott LRT)
+## svyglm(formula = omsysval ~ Age, design = ndns_1_11d, na.action = na.exclude)
+##                      stats      DEff        df ddf         p    
+## Age                1769230    5152.1       1.0 856 < 2.2e-16 ***
+## Sex                  66818    5415.5       1.0 855 0.0004998 ***
+## EnergykJ_4          108159    6443.9       1.0 854 4.954e-05 ***
+## bmival             1922691    7598.4       1.0 847 < 2.2e-16 ***
+## educfinh           6850386    4791.3       7.0 740 < 2.2e-16 ***
+## EIMD_2010_quintile 3600686    6759.3       4.0 428 < 2.2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
+the UPF becomes significant! 
+This suggests that the effect of UPF is mediated by Sodium!!
 
-```
-## [1] 113643.4
-```
-
-this model has Age sex and g pcnt only
-
-
-```
-## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex + sqrt(pcnt_4), data = ndns_1_11, 
-##     weights = wti_UKY1to11)
-## 
-## Coefficients:
-##  (Intercept)           Age     SexFemale  sqrt(pcnt_4)  
-##      77.5194        0.5656       -5.1000       -0.3948
-```
-
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##                 Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age              1  1769230 1769230 637.0028 < 2.2e-16 ***
-## Sex              1    66818   66818  24.0575 9.496e-07 ***
-## sqrt(pcnt_4)     1     3492    3492   1.2574    0.2622    
-## Residuals    10103 28060365    2777                       
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-```
-## [1] 113703
-```
-
-the pcnt_4 is not statistically significant
-
-
-```
-## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex + Epcnt_4, data = ndns_1_11, 
-##     weights = wti_UKY1to11)
-## 
-## Coefficients:
-## (Intercept)          Age    SexFemale      Epcnt_4  
-##   75.398635     0.577815    -5.008067    -0.005773
-```
-
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##              Df   Sum Sq Mean Sq  F value    Pr(>F)    
-## Age           1  1769230 1769230 636.9252 < 2.2e-16 ***
-## Sex           1    66818   66818  24.0546  9.51e-07 ***
-## Epcnt_4       1       74      74   0.0265    0.8708    
-## Residuals 10103 28063784    2778                       
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-```
-## [1] 113704.2
-```
-
-```
-## Sensitivity Analysis to Unobserved Confounding
-## 
-## Model Formula: omsysval ~ Age + Sex + Epcnt_4
-## 
-## Null hypothesis: q = 1 and reduce = TRUE 
-## 
-## Unadjusted Estimates of ' Epcnt_4 ':
-##   Coef. estimate: -0.00577 
-##   Standard Error: 0.03549 
-##   t-value: -0.16269 
-## 
-## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0 
-##   Robustness Value, q = 1 : 0.00162 
-##   Robustness Value, q = 1 alpha = 0.05 : 0 
-## 
-## For more information, check summary.
-```
-
-In this model Epcnt is not statistically significant.
-
-What has removing the sodium done to anova and AIC?
-
-This last model is just sodium with Age and sex
-
-
-```
-## 
-## Call:
-## lm(formula = omsysval ~ Age + Sex + Sodiummg, data = ndns_1_11, 
-##     weights = wti_UKY1to11)
-## 
-## Coefficients:
-## (Intercept)          Age    SexFemale     Sodiummg  
-##   62.951602     0.578571    -2.305097     0.005235
-```
-
-```
-## Analysis of Variance Table
-## 
-## Response: omsysval
-##              Df   Sum Sq Mean Sq F value    Pr(>F)    
-## Age           1  1769230 1769230 640.760 < 2.2e-16 ***
-## Sex           1    66818   66818  24.199 8.823e-07 ***
-## Sodiummg      1   168043  168043  60.860 6.735e-15 ***
-## Residuals 10103 27895815    2761                      
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-```
-## [1] 113643.5
-```
-
-```
-## Sensitivity Analysis to Unobserved Confounding
-## 
-## Model Formula: omsysval ~ Age + Sex + Sodiummg
-## 
-## Null hypothesis: q = 1 and reduce = TRUE 
-## 
-## Unadjusted Estimates of ' Sodiummg ':
-##   Coef. estimate: 0.00524 
-##   Standard Error: 0.00067 
-##   t-value: 7.80127 
-## 
-## Sensitivity Statistics:
-##   Partial R2 of treatment with outcome: 0.00599 
-##   Robustness Value, q = 1 : 0.07466 
-##   Robustness Value, q = 1 alpha = 0.05 : 0.05645 
-## 
-## For more information, check summary.
-```
-
-This model shows age and sodium mg as being statistically significant.
-Sex appears less significant.
-
-## This final set analyses the whole dataset together across the key variables
-
-Then tests them across two sets of UPF data one calculated using Rauber, the other from ZC.
-First for gram percent UPF 4
-
-
-
-the second set compares Energy percent upf between the two datasets
-
-
-
-the next section compares the AIC values for the given models from above
+comparing AIC for tghese three models 
 
 
 ```r
-library(AICcmodavg)
-Cand.models = list("no sodium no epcnt"= lm1AS, "sodium"= lm4c,"sodium epcnt" = lmallE,"Epcnt" = lm4b)
-selectionTable <- aictab(cand.set = Cand.models)
-selectionTable
+lmM$aic
 ```
 
 ```
-## 
-## Model selection based on AICc:
-## 
-##                    K     AICc Delta_AICc AICcWt Cum.Wt        LL
-## no sodium no epcnt 5 109334.3       0.00      1      1 -54662.17
-## sodium epcnt       6 113643.4    4309.08      0      1 -56815.70
-## sodium             5 113643.5    4309.17      0      1 -56816.75
-## Epcnt              5 113704.2    4369.85      0      1 -56847.09
+## [1] 48000.08
 ```
 
 ```r
-confint(lm4c)
+lmMna$aic
 ```
 
 ```
-##                    2.5 %       97.5 %
-## (Intercept) 59.130540271 66.772663111
-## Age          0.533974732  0.623167172
-## SexFemale   -4.408591156 -0.201602378
-## Sodiummg     0.003919736  0.006550576
+## [1] 48001.91
 ```
 
 ```r
-confset(cand.set = Cand.models)
+lmM2$aic
 ```
 
 ```
-## 
-## Confidence set for the best model
-## 
-## Method:	 raw sum of model probabilities
-## 
-## 95% confidence set:
-##                    K     AICc Delta_AICc AICcWt
-## no sodium no epcnt 5 109334.3          0      1
-## 
-## Model probabilities sum to 1
+## [1] 48000.75
 ```
 
 ```r
-evidence(aic.table = selectionTable)
+#AIC(lmM,lmMna,lmM2)
 ```
-
-```
-## 
-## Evidence ratio between models 'no sodium no epcnt' and 'sodium epcnt':
-## Inf
-```
-
-```r
-evidence(selectionTable, model.high = "sodium",
-         model.low = "no sodium no epcnt")
-```
-
-```
-## 
-## Evidence ratio between models 'sodium' and 'no sodium no epcnt':
-## 0
-```
-
-```r
-modavg(Cand.models,parm = "Sodiummg")
-```
-
-```
-## 
-## Multimodel inference on "Sodiummg" based on AICc
-## 
-## AICc table used to obtain model-averaged estimate:
-## 
-##              K     AICc Delta_AICc AICcWt Estimate SE
-## sodium       5 113643.5        0.1   0.49     0.01  0
-## sodium epcnt 6 113643.4        0.0   0.51     0.01  0
-## 
-## Model-averaged estimate: 0.01 
-## Unconditional SE: 0 
-## 95% Unconditional confidence interval: 0, 0.01
-```
-
-```r
-importance(cand.set = Cand.models, parm = "Sodiummg", second.ord = TRUE,nobs = NULL)
-```
-
-```
-## 
-## Importance values of 'Sodiummg':
-## 
-## w+ (models including parameter): 0 
-## w- (models excluding parameter): 1
-```
+we find that the lowest AIC is given by the model without UPF!!
+Though all the models with UPF have a lower aic than the model without.
 
 ## Summary
 
@@ -3138,5 +2823,4 @@ In each period there is a correlation between systolic BP and sodium intake.
 In each period there is a correlation between systolic BP and UPF intake.
 
 The regression models identify that age and sex are statistically significant contributors to the BP.
-Only those models from the later time period show sodium as being statistically significant in importance.
-Combining the data shows the energy percentage of UPF as being a statistically significant contributor.
+
