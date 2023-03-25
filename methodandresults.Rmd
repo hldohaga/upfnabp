@@ -1682,7 +1682,7 @@ AIC(lmMna)
 
 This model has Sodium and energy pcnt
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 lmMnaE <- svyglm(omsysval ~ Age +Sex +Sodiummg + EnergykJ_4 , ndns_1_11e,na.action =na.exclude)
 
 lmMnaE
