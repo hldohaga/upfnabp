@@ -1527,32 +1527,17 @@ These graphs show a patterned distribution.
 ```{r}
 svyplot(omsysval~Sodiummg, ndns_1_11e )
 
-svyplot(omsysval~Epcnt_4, ndns_1_11e)
+svyplot(omsysval~EnergykJ_4, ndns_1_11e)
 svyplot(omsysval~pcnt_4, ndns_1_11e)
 
 ```
 
 The regression models are examined for specific variables.
-First omsysval against pcnt_4.
-
-```{r echo=FALSE}
-#linear regression models
-#UPF gram % only
-
-lm1g <- svyglm(omsysval ~ pcnt_4,ndns_1_11e)
 
 
 
-lm1g
-anova(lm1g)
-AIC(lm1g)
 
-
-sensemakr(lm1g, treatment = "pcnt_4")
-
-```
-
-Then omsysval is compared to Epcnt_4 showing a positive result which is statistically significant.
+Then omsysval is compared to EnergykJ showing a positive result which is statistically significant.
 
 ```{r echo=FALSE}
 #linear regression models
@@ -1563,12 +1548,11 @@ lm1E <- svyglm(omsysval ~ EnergykJ_4, ndns_1_11e)
 
 lm1E
 
+#anova(lm1E)
+#AIC(lm1E)
 
-anova(lm1E)
-AIC(lm1E)
 
-
-sensemakr(lm1E, treatment = "EnergykJ_4")
+#sensemakr(lm1E, treatment = "EnergykJ_4")
 
 ```
 
@@ -1604,20 +1588,18 @@ The linear regression models show that there are statistically significant posit
 
 This uses a model of variables.
 It can highlight the contributions of each variable.
-The
-
-intention is to develop an optimal model which mathematically describes the situation.
+The intention is to develop an optimal model which mathematically describes the situation.
 
 In particular the research question asks about the relationship between Sodium and UPF intake with BP.
 The models will reflect this question with models looking to include or exclude particular variables.
 Comparisons between these models are then made using sensitivity analysis, identifying how sensitive the model is to sodium, or other factors
 
-This first model looks at the relationships between BP and Age and Sex
+This first model looks at the relationships between BP and Age and Sex education and IMD all of which may have an effect on BP. This model excludes UPF and Na.
 
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
-lm1AS <- svyglm(omsysval ~ Age + Sex +bmival , ndns_1_11e)
+lm1AS <- svyglm(omsysval ~ Age + Sex +bmival +educfinh + EIMD_2010_quintile , ndns_1_11d, na.action = na.exclude)
 
 
 
@@ -1626,188 +1608,81 @@ lm1AS <- svyglm(omsysval ~ Age + Sex +bmival , ndns_1_11e)
 (lm1AS)
 
 anova(lm1AS)
-AIC(lm1AS)
-
-sensemakr(lm1AS, treatment = "Age")
+#AIC(lm1AS)
+lm1AS$aic
+#sensemakr(lm1AS, treatment = "Age")
 
 #sensemakr(lm1AS, treatment = "Sex")
 
 ```
+This first model shows that all these variables, Age, Sex, education, IMD,  and bmi, give statistically significant coefficients for the model which suggests that they do have an important part to play in any optimal model.
 
-The next model looks at a large number of variables
+The next model adds Sodiummg.
 
 ```{r echo=FALSE}
-lmM <- svyglm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ wtval+TotalEMJ +ethgrp2 + VitaminDµg + educfinh+ EIMD_2010_quintile , ndns_1_11e,na.action = na.exclude)
+lmM <- svyglm(omsysval ~ Age +Sex +Sodiummg + bmival+ educfinh+ EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
 
 lmM
 
 
 anova(lmM)
-AIC(lmM)
+#AIC(lmM)
 
 
-sensemakr(lmM, treatment = "Age")
+#sensemakr(lmM, treatment = "Age")
 
 
 ```
+This second model gives Sodiummg, educfinh, and IMD statistical significance. VitaminD shows no statistical significance, TotalEMJ and sqrt(pcnt) and ethgrp2 all have limited significance.
 
-These models can be compared with others with different variables to understand how they help predict values more or less effectively.
+
+
+Now we add UPF as total energy from nova 4 or UPF
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-lmM2 <- svyglm(omsysval ~ Age +Sex +Sodiummg + EnergykJ_4+ bmival +ethgrp2 + VitaminDµg +educfinh+ EIMD_2010_quintile , ndns_1_11e,na.action = na.exclude)
+lmM2 <- svyglm(omsysval ~ Age +Sex +Sodiummg + EnergykJ_4+ bmival  +educfinh+ EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
 
 
 
 lmM2
 
 anova(lmM2)
-AIC(lmM2)
+#AIC(lmM2)
 
 ```
 
-this model has sodium and gram percent
+UPF does not seem significant...
+
+but when removing sodiummg
 
 ```{r echo=FALSE, warning=FALSE}
-lmMna <- svyglm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+bmival , ndns_1_11e,na.action =na.exclude)
+lmMna <- svyglm(omsysval ~ Age +Sex + EnergykJ_4+ bmival  +educfinh+ EIMD_2010_quintile  , ndns_1_11d,na.action =na.exclude)
 
 
 
 lmMna
 
 
-anova(lmMna)
-AIC(lmMna)
-
+Am1 <-anova(lmMna)
+#AIC(lmMna)
+Am1
 ```
+the UPF becomes significant! 
+This suggests that the effect of UPF is mediated by Sodium!!
 
-This model has Sodium and energy pcnt
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-lmMnaE <- svyglm(omsysval ~ Age +Sex +Sodiummg + EnergykJ_4 , ndns_1_11e,na.action =na.exclude)
-
-lmMnaE
-
-
-anova(lmMnaE)
-AIC(lmMnaE)
-
-```
-
-this model has Age sex and g pcnt only
-
-```{r echo=FALSE}
-lmMg <- svyglm(omsysval ~ Age +Sex + sqrt(pcnt_4) , ndns_1_11e)
-
-
-lmMg
-
-anova(lmMg)
-AIC(lmMg)
-
-```
-
-the pcnt_4 is not statistically significant
-
-```{r echo=FALSE}
-lm4b <- svyglm(omsysval ~ Age +Sex + EnergykJ_4 , ndns_1_11e)
-
-lm4b
-
-anova(lm4b)
-AIC(lm4b)
-
-
-sensemakr(lm4b, treatment = "EnergykJ_4")
-
-
-
-```
-
-In this model Epcnt is not statistically significant.
-
-What has removing the sodium done to anova and AIC?
-
-This last model is just sodium with Age and sex
-
-```{r echo=FALSE}
-lm4c <- svyglm(omsysval ~ Age +Sex +Sodiummg  , ndns_1_11e)
-
-lm4c
-
-
-anova(lm4c)
-AIC(lm4c)
-
-
-sensemakr(lm4c, treatment = "Sodiummg")
-
-
-
-```
-
-This model shows age and sodium mg as being statistically significant.
-Sex appears less significant.
-
-## This final set analyses the whole dataset together across the key variables
-
-Then tests them across two sets of UPF data one calculated using Rauber, the other from ZC.
-First for gram percent UPF 4
-
-```{r message=FALSE, warning=FALSE, include=FALSE}
-
-
-setkey(NOVA_ForDavid, "seriali")
-setkey(ndns_1_11, "seriali")
-alldata <- ndns_1_11[NOVA_ForDavid, on = "seriali"]
-
-lmallg <- svyglm(omsysval~ Age+ Sex + Sodiummg +pcnt_4, ndns_1_11e)
-lmallg
-anova(lmallg)
-
-lmallgz <- lm(omsysval~ Age+ Sex + Sodiummg +NOVA_Gpct_opti_4,weight = wti_UKY1to11, alldata)
-lmallgz
-anova(lmallgz)
-```
-
-the second set compares Energy percent upf between the two datasets
-
-```{r message=FALSE, warning=FALSE, include=FALSE}
-lmallE <- svyglm(omsysval~ Age+ Sex + Sodiummg +Epcnt_4, ndns_1_11e)
-lmallE
-anova(lmallE)
-AIC(lmallE)
-
-
-
-lmallEz <- lm(omsysval~ Age+ Sex + Sodiummg +NOVA_Epct_opti_4,weight = wti_UKY1to11, alldata)
-lmallEz
-anova(lmallEz)
-AIC(lmallEz)
-
-
-
-SmallE <- sensemakr(lmallE, treatment = "Epcnt_4")
-Smallg <- sensemakr(lmallg, treatment = "pcnt_4")
-summary(SmallE)
-summary(Smallg)
-
-```
-
-the next section compares the AIC values for the given models from above
+comparing AIC for tghese three models 
 
 ```{r}
-library(AICcmodavg)
-#Cand.models = list("no sodium no epcnt"= lm1AS, "sodium"= lm4c,"sodium epcnt" = lmallE,"Epcnt" = lm4b)
-#selectionTable <- aictab(cand.set = Cand.models)
-#selectionTable
-#confint(lm4c)
-#confset(cand.set = Cand.models)
-#evidence(aic.table = selectionTable)
-#evidence(selectionTable, model.high = "sodium",
-         model.low = "no sodium no epcnt")
-#modavg(Cand.models,parm = "Sodiummg")
-#importance(cand.set = Cand.models, parm = "Sodiummg", second.ord = TRUE,nobs = NULL)
+lmM$aic
+lmMna$aic
+lmM2$aic
+
+#AIC(lmM,lmMna,lmM2)
+
+
 ```
+we find that the lowest AIC is given by the model without UPF!!
+Though all the models with UPF have a lower aic than the model without.
 
 ## Summary
 
@@ -1850,5 +1725,4 @@ In each period there is a correlation between systolic BP and sodium intake.
 In each period there is a correlation between systolic BP and UPF intake.
 
 The regression models identify that age and sex are statistically significant contributors to the BP.
-Only those models from the later time period show sodium as being statistically significant in importance.
-Combining the data shows the energy percentage of UPF as being a statistically significant contributor.
+
