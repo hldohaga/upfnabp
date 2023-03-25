@@ -1525,10 +1525,10 @@ For these I am looking at the whole dataset Firstly I will plot omsysval and sod
 These graphs show a patterned distribution.
 
 ```{r}
-plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Sodiummg*wti_UKY1to11])
+svyplot(omsysval~Sodiummg, ndns_1_11e )
 
-plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,Epcnt_4*wti_UKY1to11])
-plot(ndns_1_11[,omsysval*wti_UKY1to11], ndns_1_11[,pcnt_4*wti_UKY1to11])
+svyplot(omsysval~Epcnt_4, ndns_1_11e)
+svyplot(omsysval~pcnt_4, ndns_1_11e)
 
 ```
 
@@ -1539,7 +1539,7 @@ First omsysval against pcnt_4.
 #linear regression models
 #UPF gram % only
 
-lm1g <- lm((omsysval) ~ (pcnt_4), weight = wti_UKY1to11,ndns_1_11)
+lm1g <- svyglm(omsysval ~ pcnt_4,ndns_1_11e)
 
 
 
@@ -1557,7 +1557,7 @@ Then omsysval is compared to Epcnt_4 showing a positive result which is statisti
 ```{r echo=FALSE}
 #linear regression models
 #UPF Energy % only
-lm1E <- lm(omsysval ~ Epcnt_4,weight = wti_UKY1to11, ndns_1_11)
+lm1E <- svyglm(omsysval ~ EnergykJ_4, ndns_1_11e)
 
 
 
@@ -1568,7 +1568,7 @@ anova(lm1E)
 AIC(lm1E)
 
 
-sensemakr(lm1E, treatment = "Epcnt_4")
+sensemakr(lm1E, treatment = "EnergykJ_4")
 
 ```
 
@@ -1577,7 +1577,7 @@ sodiummg
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
-lm1na <- lm(omsysval ~ Sodiummg,weight = wti_UKY1to11, ndns_1_11)
+lm1na <- svyglm(omsysval ~ Sodiummg, ndns_1_11e)
 
 
 
@@ -1617,7 +1617,7 @@ This first model looks at the relationships between BP and Age and Sex
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
-lm1AS <- lm(omsysval ~ Age + Sex +bmival ,weight = wti_UKY1to11, ndns_1_11)
+lm1AS <- svyglm(omsysval ~ Age + Sex +bmival , ndns_1_11e)
 
 
 
@@ -1637,7 +1637,7 @@ sensemakr(lm1AS, treatment = "Age")
 The next model looks at a large number of variables
 
 ```{r echo=FALSE}
-lmM <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ wtval+TotalEMJ +ethgrp2 + VitaminDµg + educfinh+ EIMD_2010_quintile ,weight = wti_UKY1to11, ndns_1_11,na.action = na.exclude)
+lmM <- svyglm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+ wtval+TotalEMJ +ethgrp2 + VitaminDµg + educfinh+ EIMD_2010_quintile , ndns_1_11e,na.action = na.exclude)
 
 lmM
 
@@ -1646,15 +1646,15 @@ anova(lmM)
 AIC(lmM)
 
 
-#sensemakr(lmM, treatment = "Age")
+sensemakr(lmM, treatment = "Age")
 
 
 ```
 
 These models can be compared with others with different variables to understand how they help predict values more or less effectively.
 
-```{r echo=FALSE}
-lmM2 <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ bmival +ethgrp2 + VitaminDµg +educfinh+ EIMD_2010_quintile ,weight = wti_UKY1to11, ndns_1_11,na.action = na.exclude)
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+lmM2 <- svyglm(omsysval ~ Age +Sex +Sodiummg + EnergykJ_4+ bmival +ethgrp2 + VitaminDµg +educfinh+ EIMD_2010_quintile , ndns_1_11e,na.action = na.exclude)
 
 
 
@@ -1667,8 +1667,8 @@ AIC(lmM2)
 
 this model has sodium and gram percent
 
-```{r echo=FALSE}
-lmMna <- lm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+bmival ,weight = wti_UKY1to11, ndns_1_11,na.action =na.exclude)
+```{r echo=FALSE, warning=FALSE}
+lmMna <- svyglm(omsysval ~ Age +Sex +Sodiummg + sqrt(pcnt_4)+bmival , ndns_1_11e,na.action =na.exclude)
 
 
 
@@ -1683,7 +1683,7 @@ AIC(lmMna)
 This model has Sodium and energy pcnt
 
 ```{r echo=FALSE}
-lmMnaE <- lm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4 ,weight = wti_UKY1to11, ndns_1_11,na.action =na.exclude)
+lmMnaE <- svyglm(omsysval ~ Age +Sex +Sodiummg + EnergykJ_4 , ndns_1_11e,na.action =na.exclude)
 
 lmMnaE
 
@@ -1696,7 +1696,7 @@ AIC(lmMnaE)
 this model has Age sex and g pcnt only
 
 ```{r echo=FALSE}
-lmMg <- lm(omsysval ~ Age +Sex + sqrt(pcnt_4) ,weight = wti_UKY1to11, ndns_1_11)
+lmMg <- svyglm(omsysval ~ Age +Sex + sqrt(pcnt_4) , ndns_1_11e)
 
 
 lmMg
@@ -1709,7 +1709,7 @@ AIC(lmMg)
 the pcnt_4 is not statistically significant
 
 ```{r echo=FALSE}
-lm4b <- lm(omsysval ~ Age +Sex + Epcnt_4 ,weight = wti_UKY1to11, ndns_1_11)
+lm4b <- svyglm(omsysval ~ Age +Sex + EnergykJ_4 , ndns_1_11e)
 
 lm4b
 
@@ -1717,7 +1717,7 @@ anova(lm4b)
 AIC(lm4b)
 
 
-sensemakr(lm4b, treatment = "Epcnt_4")
+sensemakr(lm4b, treatment = "EnergykJ_4")
 
 
 
@@ -1730,7 +1730,7 @@ What has removing the sodium done to anova and AIC?
 This last model is just sodium with Age and sex
 
 ```{r echo=FALSE}
-lm4c <- lm(omsysval ~ Age +Sex +Sodiummg  ,weight = wti_UKY1to11, ndns_1_11)
+lm4c <- svyglm(omsysval ~ Age +Sex +Sodiummg  , ndns_1_11e)
 
 lm4c
 
@@ -1760,7 +1760,7 @@ setkey(NOVA_ForDavid, "seriali")
 setkey(ndns_1_11, "seriali")
 alldata <- ndns_1_11[NOVA_ForDavid, on = "seriali"]
 
-lmallg <- lm(omsysval~ Age+ Sex + Sodiummg +pcnt_4,weight = wti_UKY1to11, alldata)
+lmallg <- svyglm(omsysval~ Age+ Sex + Sodiummg +pcnt_4, ndns_1_11e)
 lmallg
 anova(lmallg)
 
@@ -1772,7 +1772,7 @@ anova(lmallgz)
 the second set compares Energy percent upf between the two datasets
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-lmallE <- lm(omsysval~ Age+ Sex + Sodiummg +Epcnt_4,weight = wti_UKY1to11, alldata)
+lmallE <- svyglm(omsysval~ Age+ Sex + Sodiummg +Epcnt_4, ndns_1_11e)
 lmallE
 anova(lmallE)
 AIC(lmallE)
@@ -1797,16 +1797,16 @@ the next section compares the AIC values for the given models from above
 
 ```{r}
 library(AICcmodavg)
-Cand.models = list("no sodium no epcnt"= lm1AS, "sodium"= lm4c,"sodium epcnt" = lmallE,"Epcnt" = lm4b)
-selectionTable <- aictab(cand.set = Cand.models)
-selectionTable
-confint(lm4c)
-confset(cand.set = Cand.models)
-evidence(aic.table = selectionTable)
-evidence(selectionTable, model.high = "sodium",
+#Cand.models = list("no sodium no epcnt"= lm1AS, "sodium"= lm4c,"sodium epcnt" = lmallE,"Epcnt" = lm4b)
+#selectionTable <- aictab(cand.set = Cand.models)
+#selectionTable
+#confint(lm4c)
+#confset(cand.set = Cand.models)
+#evidence(aic.table = selectionTable)
+#evidence(selectionTable, model.high = "sodium",
          model.low = "no sodium no epcnt")
-modavg(Cand.models,parm = "Sodiummg")
-importance(cand.set = Cand.models, parm = "Sodiummg", second.ord = TRUE,nobs = NULL)
+#modavg(Cand.models,parm = "Sodiummg")
+#importance(cand.set = Cand.models, parm = "Sodiummg", second.ord = TRUE,nobs = NULL)
 ```
 
 ## Summary
