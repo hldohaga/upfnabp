@@ -1,14 +1,14 @@
 ---
 title: "bp upf and na"
 output:
-  word_document: 
-    toc: yes
-    fig_caption: yes
-    keep_md: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
+    keep_md: yes
+  word_document: 
+    toc: yes
+    fig_caption: yes
     keep_md: yes
   pdf_document:
     toc: yes
@@ -164,6 +164,9 @@ These are not the same participants so matched analysis, or time series analysis
 
 Plots will be given to show the values in each of the available eleven cohorts.
 
+Other variables in the data are compared across to assess how the data changes. 
+t tests are again used for continuous data, and chi squared tests are used for categorical data.
+
 ### Linear Regression
 
 Analysis of the correlation between BP and sodium intake, and then UPF intake is done using linear regression. 
@@ -212,6 +215,8 @@ library(readxl)
 library(sensemakr)
 library(labelled)
 library(survey)
+library(srvyr)
+library(gtsummary)
 ```
 
 ```{r read data, message=FALSE, warning=FALSE, include=FALSE}
@@ -318,32 +323,10 @@ sav11br$wti_UKY1to11 <- ((sav11br$wti_Y911/n4) * N) * (3/11)
 
 ```
 
-```{r weightn, include=FALSE}
-#Doing the weighting correction, as explain in the PDF "6533_ndns_yrs9-11_weights_guide"
-
-n1 = sum(sav4br$wtn_UKY1234)  #Should be 6828
-
-n2 = sum(sav6br$wtn_Y56)         #Should be 2546
-
-n3 = sum(sav8br$wtn_Y78)         #Should be 2723
-
-n4 = sum(sav11br$wtn_Y911)       #Should be 3558
-
-N <- sum(n1, n2, n3, n4) #Should be 15655
-```
 
 
 
-```{r include=FALSE}
-sav4br$wtn_UKY1to11 <- ((sav4br$wtn_UKY1234/n1) * N)  * (4/11)
 
-sav6br$wtn_UKY1to11 <- ((sav6br$wtn_Y56/n2) * N) * (2/11)
-
-sav8br$wtn_UKY1to11 <- ((sav8br$wtn_Y78/n3) * N) * (2/11)
-
-sav11br$wtn_UKY1to11 <- ((sav11br$wtn_Y911/n4) * N) * (3/11)
-
-```
 
 ```{r allsetup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr1-4a_indiv_uk 
@@ -356,7 +339,7 @@ hypset <- c("hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")
 incset <-c("nssec8","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")
 measset <- c("htval","wtval","bmival")
 ageset <- c("agegad1", "agegad2", "agegch1","agegr1","age")
-weightset <- c("wti_UKY1to11","wtn_UKY1to11","astrata1","area")
+weightset <- c("wti_UKY1to11","astrata1","area")
 
 indiv_data <- c(bpset,ethnset,saltset,medsset,hypset,incset,measset,ageset,weightset)
 ```
@@ -519,11 +502,7 @@ ndns_1_11[,agegr1 := factor(agegr1, levels = 1:5, labels = c("1.5-3 years","4-10
  
 ```
 
-### Data preparation
 
-The data is then arranged into a format which allows processing.
-This includes identifying continuous and categorical variables.
-It also includes naming the categories of the categorical variables.
 
 ```{r include=FALSE}
 #this identifies the variables wanted from the person level data sets
@@ -533,7 +512,7 @@ perslevdat <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciu
 
 ```
 
-The data is then combined into two comprehensive tables.
+
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 #building the tables
@@ -565,9 +544,7 @@ ndns_1_11[, Country := factor(Country)]
 
 ```
 
-The food diary data needs more processing.
-In particular the NOVA categorisation is not in the data set.
-I have derived UPFNOVA from a paper which had a data table identifying the NDNS sub food groups by Rauber et al.
+
 
 ```{r load food diary data, message=FALSE, warning=FALSE, include=FALSE}
 UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/altquant/UPFNOVA.xlsx"))
@@ -588,10 +565,13 @@ ndns7_8a_foodleveldietarydata_v2 <- data.table(read_sav("/media/david/Elements1/
  ndns_rp_yr11a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr11a_foodleveldietarydata_uk_20210831.sav") )
 ```
 
-#### Processing the food diaries
 
-The Nova group is attached to the foods in the food diaries from Rauber et al @rauberUltraprocessedFoodsExcessive2019b.
-The tables are reduced to the necessary variables.
+
+
+
+
+
+
 
 ```{r process food data into tables, message=FALSE, warning=FALSE, include=FALSE}
 #taking data from diet diary
@@ -643,10 +623,14 @@ foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group","EnergykJ
 
 ```
 
-To work out the gram weight amount of food intake by each individual, first the diary entries for each individual are totalled up.
-The total gram weight value of intake of each food is then worked out as a percentage of the total intake.
+
 
 ```{r function defn, message=FALSE, warning=FALSE, include=FALSE}
+#To work out the gram weight amount of food intake by each individual, first the diary entries for each individual are totalled up.
+#The total gram weight value of intake of each food is then worked out as a percentage of the total intake.
+
+
+
 ## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
 
 
@@ -665,10 +649,12 @@ setnames( oneweight, 'V1','Totalg')
 
 ```
 
-All these individual calculations are then built back up into tables.
-This is done for years 9-11 and then 1-4.
+
 
 ```{r year 9 process, message=FALSE, warning=FALSE, include=FALSE}
+#All these individual calculations are then built back up into tables.
+#This is done for years 9-11 and then 1-4.
+
 ### This section uses the function designed above to process the table
 name <-foodlevedat9s[,.(seriali)]  
 name <- as.numeric(unlist(name))
@@ -840,9 +826,11 @@ foodleveldat4sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var 
 
 ```
 
-The process can be done for food level energy intake also.
+
 
 ```{r energy function defn, message=FALSE, warning=FALSE, include=FALSE}
+#The process can be done for food level energy intake also.
+
 ## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
 
 
@@ -1089,53 +1077,100 @@ ndns_1_11 <- ndns_1_11[ndns_1_11food, by= seriali]
 
 
 
+```{r}
+#data(ndns_1_11)
+
+
+ndns_1_11d <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1, data = ndns_1_11, nest = TRUE)
+
+#summary(ndns_1_11d)
+sysMean <- svymean(~omsysval, ndns_1_11d, na.rm = TRUE)
+sysMean
+Agemean <- svymean(~Age, ndns_1_11d, na.rm = TRUE)
+Agemean
+sexmean <- svymean(~Sex, ndns_1_11d, na.rm = TRUE)
+sexmean
+Namean <-  svymean(~Sodiummg, ndns_1_11d, na.rm = TRUE)
+Namean
+Epmean <- svymean(~Epcnt_4, ndns_1_11d, na.rm = TRUE)
+Epmean
+
+
+```
+
+
+
+
 ```{r echo=FALSE}
-#first remove from years 1-4
+#Exclusions
+
+
 #ndns_1_11 <-ndns_1_11[(hyper1_2 == " Normotensive untreated" ), ]
-ndns_1_11 <- ndns_1_11[omsysval <= 150,]
+ndns_1_11e <- ndns_1_11[omsysval <= 150]
+#ndns_1_11hypo <- subset(ndns_1_11, ndns_1_11$omsysval <= 150)
 
 #there are no pregnant or breast feeding participants
 #ndns_1_11n <- ndns_1_11n[(PregNowB != "preg or breastfeeding" ), ]
 
 
 #medication affecting bp
-ndns_1_11 <- ndns_1_11[diur2 == "Not taking drug"]
-ndns_1_11 <-ndns_1_11[beta2 == "Not taking drug"]
-ndns_1_11 <-ndns_1_11[aceinh2 == "Not taking drug"]
-ndns_1_11 <-ndns_1_11[calciumb2 =="Not taking drug"]
-ndns_1_11 <- ndns_1_11[obpdrug2 == "Not taking drug"]
+ndns_1_11e <- ndns_1_11e[diur2 == "Not taking drug"]
+ndns_1_11e <-ndns_1_11e[beta2 == "Not taking drug"]
+ndns_1_11e <-ndns_1_11e[aceinh2 == "Not taking drug"]
+ndns_1_11e <-ndns_1_11e[calciumb2 =="Not taking drug"]
+ndns_1_11e <- ndns_1_11e[obpdrug2 == "Not taking drug"]
 
 #ndns_1_11 <- ndns_1_11[Country == "England"]
-#ndns_1_11 <- ndns_1_11[Age >18]
-
+ndns_1_11e <- ndns_1_11e[Age >18]
+ndns_1_11e <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1, data = ndns_1_11, nest = TRUE)
 ```
-##Results Section
-### Results Intrduction
+##  Results Section
+###  Results Introduction
 
 The results derive from the method outlined above and follow the pattern described. 
 I will try to discuss the results having already described the method.
 
 
 
+# Descriptive Data Analysis
 
+This first table highlights the data from the years 2008-2012 at the beginning of the data collection.
 ```{r echo=FALSE, warning=FALSE}
-#data(ndns_1_11)
-#dw <- svydesign(ids = ~seriali, weights = ~ wti_UKY1to11, strata=~astrata1, data = ndns_1_11)
+first4 <- subset(ndns_1_11d,SurveyYear <= 4 )
+Na4Mean <- svymean(~Sodiummg, first4, na.rm = TRUE)
+Na4Mean
+Sys4mean <- svymean(~omsysval, first4, na.rm = TRUE)
+Sys4mean
+Ep4mean <- svymean(~Epcnt_4, first4, na.rm = TRUE)
+Ep4mean
+#svytable(~Sodiummg+Epcnt_4+omsysval, first4, Ntotal =NULL, round = FALSE)
 
-#summary(ndns_1_11)
-#sysMeandw <- svymean(~omsysval, dw)
-#sysMeandw
-keydata4 <- summary(ndns_1_11[SurveyYear <= 4, .(Sodiummg,pcnt_4,Epcnt_4,omsysval)])
+first4_d <- as_survey(first4)
+class(first4_d)
+subset(ndns_1_11,SurveyYear <=4 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
+                 statistic = list(all_continuous() ~"{mean} ({sd})"))
+first4_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
+                 statistic = list(all_continuous() ~"{mean} ({sd})"))
 
-keydata4
+```
+The second table show the data from the second cohort 2017-19.
 
-keydata9 <- summary(ndns_1_11[SurveyYear <=9 , .(Sodiummg,pcnt_4,Epcnt_4,omsysval)])
-keydata9
+```{r}
+last3 <- subset(ndns_1_11d,SurveyYear >= 9 )
+Na9Mean <- svymean(~Sodiummg, last3, na.rm = TRUE)
+Na9Mean
+sys9mean <- svymean(~omsysval, last3, na.rm = TRUE)
+sys9mean
+Ep9mean <- svymean(~Epcnt_4, last3, na.rm = TRUE)
+Ep9mean
 
-keydata <- rbind(summary(ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11]), summary(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11]),summary(ndns_1_11[SurveyYear <= 4,pcnt_4*wti_UKY1to11]), summary(ndns_1_11[SurveyYear >= 9,pcnt_4*wti_UKY1to11]),summary(ndns_1_11[SurveyYear <= 4,Epcnt_4*wti_UKY1to11/4]), summary(ndns_1_11[SurveyYear >=9,Epcnt_4*wti_UKY1to11/4]),summary(ndns_1_11[SurveyYear <=4,omsysval*wtn_UKY1to11]), summary(ndns_1_11[SurveyYear >=9,omsysval*wtn_UKY1to11]),summary(ndns_1_11[SurveyYear <=4,omdiaval*wtn_UKY1to11]), summary(ndns_1_11[SurveyYear >=9,omdiaval*wtn_UKY1to11]))
-keydata <- as.data.table(keydata)
-keydata <- signif(keydata, digits = 4)
-keydata$names <- c("Sodiummg", "Sodiummg", "pcnt_4", "pcnt_4", "Epcnt_4", "Epcnt_4","omsysval","omsysval","omdiaval", "omdiaval")
+last3_d <- as_survey(last3)
+class(last3_d)
+
+subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,omsysval),
+                 statistic = list(all_continuous() ~"{mean} ({sd})"))
+last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
+                 statistic = list(all_continuous() ~"{mean} ({sd})"))
 ```
 These tables show that there has been a change between the two cohorts.
 The boxplots show this graphically.
@@ -1144,16 +1179,16 @@ The boxplots show this graphically.
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-bpNa <- data.table("2010"=c(ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11]),"2019" =c(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11]))
-boxplot(bpNa, main = "Sodiummg 2010 vs 2019", xlab = "year", ylab = "Sodium mg")
-bpgram <-data.table("2010" =c(ndns_1_11[SurveyYear <= 4,pcnt_4*wti_UKY1to11]),"2019" = c(ndns_1_11[SurveyYear >= 9,pcnt_4*wti_UKY1to11]))
+#bpNa <- data.table("2010"=c(ndns_1_11d[SurveyYear <= 4,Sodiummg*wti_UKY1to11]),"2019" =c(ndns_1_11d[SurveyYear >= 9,Sodiummg*wti_UKY1to11]))
+#boxplot(bpNa, main = "Sodiummg 2010 vs 2019", xlab = "year", ylab = "Sodium mg")
+#bpgram <-data.table("2010" =c(ndns_1_11d[SurveyYear <= 4,pcnt_4*wti_UKY1to11]),"2019" = c(ndns_1_11d[SurveyYear >= 9,pcnt_4*wti_UKY1to11]))
 #boxplot(bpgram, main = "Weight Percent UPF 2010 vs 2019", xlab = "year", ylab = "pcnt_4")
-bpE <-data.table("2010" =c(ndns_1_11[SurveyYear <= 4,Epcnt_4*wti_UKY1to11/4]),"2019" = c(ndns_1_11[SurveyYear >= 9,Epcnt_4*wti_UKY1to11/4]))
-boxplot(bpE, main = " Energy Percent UPF 2010 vs 2019", xlab = "year", ylab = "Epcnt_4")
+#bpE <-data.table("2010" =c(ndns_1_11d[SurveyYear <= 4,Epcnt_4*wti_UKY1to11/4]),"2019" = c(ndns_1_11d[SurveyYear >= 9,Epcnt_4*wti_UKY1to11/4]))
+#boxplot(bpE, main = " Energy Percent UPF 2010 vs 2019", xlab = "year", ylab = "Epcnt_4")
 
 
-bpOS <- data.table("2010" = c(ndns_1_11[SurveyYear <=4,omsysval*wti_UKY1to11]),"2019"=c(ndns_1_11[SurveyYear >=9,omsysval*wti_UKY1to11]))
-boxplot(bpOS,main = "omsysval 2010 vs 2019",xlab = "year", ylab = "omsysval")
+#bpOS <- data.table("2010" = c(ndns_1_11[SurveyYear <=4,omsysval*wti_UKY1to11]),"2019"=c(ndns_1_11[SurveyYear >=9,omsysval*wti_UKY1to11]))
+#boxplot(bpOS,main = "omsysval 2010 vs 2019",xlab = "year", ylab = "omsysval")
 #bpOD <-data.table("2010" = c(ndns_1_11[SurveyYear <=4,omdiaval*wti_UKY1to11]),"2019" = c(ndns_1_11[SurveyYear >=9,omdiaval*wti_UKY1to11]))
 #boxplot(bpOD, main = "omdiaval 2010 vs 2019", xlab = "year", ylab = "omdiaval")
 
@@ -1164,22 +1199,19 @@ boxplot(bpOS,main = "omsysval 2010 vs 2019",xlab = "year", ylab = "omsysval")
 
 #keydata
 
-boxplot((ndns_1_11$Epcnt_4*ndns_1_11$wti_UKY1to11/4)~
-          ndns_1_11$SurveyYear)
-boxplot((ndns_1_11$Sodiummg*ndns_1_11$wti_UKY1to11)~
-         ndns_1_11$SurveyYear)
-boxplot((ndns_1_11$omsysval*ndns_1_11$wti_UKY1to11)~
-          ndns_1_11$SurveyYear)
+svyboxplot(Epcnt_4~SurveyYear,ndns_1_11d)
+svyboxplot(Sodiummg~SurveyYear,ndns_1_11d)
+#svyboxplot(omsysval~SurveyYear,ndns_1_11d, na.rm = TRUE)
 ```
 These box plots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changed over the years.
 The graphs show that there is not a visible difference between the years. Statistical analysis will follow.
 
 
-## Statistical Comparison of key variables
+## Comparative analysis
 
-## Comparison of key variables
+### Comparison of key variables
 
-### comparing UPF and Sodium intake calculated from diet
+####  comparing UPF and Sodium intake calculated from diet
 
 In order to confirm there has been a change in intake a t.test compares the means of the two samples.
 One compares the means of sodium in years 1-4 with sodium in years 9-11.
@@ -1203,7 +1235,7 @@ ttestNa
 It seems the mean percentage UPF intake changes from 48.8% to 59.2% energy and this increase is statistically significant.
 The mean sodium intake has changed from  2156.30 mg to 2574.33 mg and is also statistically significant with a p value less than 0.05.
 
-### what about outcome BP?
+#### what about outcome BP?
 
 The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
 
@@ -1224,13 +1256,19 @@ In summary there is statistically significant change in UPF and Na intake and al
 
 Has another factor affected the BP change ?
 
-### Statistical analysis of Confounding variables
+#### Statistical analysis of other variables
 
-How are confounding variables distributed between the two datasets The NDNS dataset was weighted to keep many of these the same between datasets.
+How are variables distributed between the two cohorts. 
+The NDNS dataset was weighted to keep many of these the same between datasets.
+Continuous variables are assessed using ttests and categorical variables using chi squared tests to give p.values.
+
+######  Age and Sex
+There is 
 
 ```{r echo=FALSE}
 #from pers data
 #continuous data
+#ttestage <-svyttest(~first4$Age, ~last9$Age, )
 ttestage <-t.test(ndns_1_11[SurveyYear >= 9,Age*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Age*wti_UKY1to11])
 ttestca <- t.test(ndns_1_11[SurveyYear >= 9,Calciummg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Calciummg*wti_UKY1to11])
 ttestts <-t.test(ndns_1_11[SurveyYear >= 9,Totalsugarsg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Totalsugarsg*wti_UKY1to11])
