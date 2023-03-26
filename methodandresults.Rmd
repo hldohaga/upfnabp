@@ -1,14 +1,14 @@
 ---
 title: "bp upf and na"
 output:
-  word_document: 
-    toc: yes
-    fig_caption: yes
-    keep_md: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
+    keep_md: yes
+  word_document: 
+    toc: yes
+    fig_caption: yes
     keep_md: yes
   pdf_document:
     toc: yes
@@ -1101,12 +1101,13 @@ ndns_1_11d <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1,
 
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 #Exclusions
 
 
 #ndns_1_11 <-ndns_1_11[(hyper1_2 == " Normotensive untreated" ), ]
 ndns_1_11e <- ndns_1_11[omsysval <= 150]
+ndns_1_11ed <- subset( ndns_1_11d, omsysval <= 150)
 #ndns_1_11hypo <- subset(ndns_1_11, ndns_1_11$omsysval <= 150)
 
 #there are no pregnant or breast feeding participants
@@ -1120,9 +1121,19 @@ ndns_1_11e <-ndns_1_11e[aceinh2 == "Not taking drug"]
 ndns_1_11e <-ndns_1_11e[calciumb2 =="Not taking drug"]
 ndns_1_11e <- ndns_1_11e[obpdrug2 == "Not taking drug"]
 
+ndns_1_11ed <- subset(ndns_1_11ed, diur2 == "Not taking drug")
+ndns_1_11ed <-subset(ndns_1_11ed,beta2 == "Not taking drug")
+ndns_1_11ed <-subset(ndns_1_11ed,aceinh2 == "Not taking drug")
+ndns_1_11ed <-subset(ndns_1_11ed,calciumb2 =="Not taking drug")
+ndns_1_11ed <- subset(ndns_1_11ed,obpdrug2 == "Not taking drug")
+
+
 #ndns_1_11 <- ndns_1_11[Country == "England"]
 ndns_1_11e <- ndns_1_11e[Age >18]
-ndns_1_11e <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1, data = ndns_1_11, nest = TRUE)
+ndns_1_11ed <- subset(ndns_1_11ed,Age >18)
+#ndns_1_11e <- subset(ndns_1_11d, ndns_1_11e)
+#ndns_1_11e <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1, data = ndns_1_11e, nest = TRUE)
+
 ```
 #  Results Section
 ##  Results Introduction
@@ -1136,7 +1147,10 @@ I will try to discuss the results having already described the method.
 
 This first table highlights the data from the years 2008-2012 at the beginning of the data collection.
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+#ndnssvy <- as_survey(data = ndns_1_11, ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1,nest = TRUE)
+
 first4 <- subset(ndns_1_11d,SurveyYear <= 4 )
+first4ed <- subset(ndns_1_11ed,SurveyYear <= 4 )
 Na4Mean <- svymean(~Sodiummg, first4, na.rm = TRUE)
 Na4Mean
 Sys4mean <- svymean(~omsysval, first4, na.rm = TRUE)
@@ -1145,31 +1159,48 @@ Ep4mean <- svymean(~Epcnt_4, first4, na.rm = TRUE)
 Ep4mean
 #svytable(~Sodiummg+Epcnt_4+omsysval, first4, Ntotal =NULL, round = FALSE)
 
-first4_d <- as_survey(first4)
-class(first4_d)
-subset(ndns_1_11,SurveyYear <=4 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
-                 statistic = list(all_continuous() ~"{mean} ({sd})"))
-first4_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
+means200812 <- c(Na4Mean,Ep4mean,Sys4mean)
+means200812
+
+first4ed_d <- as_survey(first4ed)
+class(first4ed_d)
+
+table200812 <- subset(ndns_1_11e,SurveyYear <=4 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
 
+table200812w <-first4ed_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
+                 statistic = list(all_continuous() ~"{mean} ({sd})"))
+
+table200812
+table200812w
+#first4e_d <- as_survey(first4)
+#class(first4e_d)
+#subset(ndns_1_11e,SurveyYear <=4 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
+#                 statistic = list(all_continuous() ~"{mean} ({sd})"))
+#first4e_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
+ #                statistic = list(all_continuous() ~"{mean} ({sd})"))
 ```
 The second table show the data from the second cohort 2017-19.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 last3 <- subset(ndns_1_11d,SurveyYear >= 9 )
+last3ed <- subset(ndns_1_11ed,SurveyYear >= 9 )
 Na9Mean <- svymean(~Sodiummg, last3, na.rm = TRUE)
-Na9Mean
+#Na9Mean
 sys9mean <- svymean(~omsysval, last3, na.rm = TRUE)
-sys9mean
+#sys9mean
 Ep9mean <- svymean(~Epcnt_4, last3, na.rm = TRUE)
-Ep9mean
+#Ep9mean
+means201719 <- c(Na9Mean,Ep9mean,sys9mean)
+means201719
+rbind(means200812,means201719)
 
-last3_d <- as_survey(last3)
-class(last3_d)
+last3ed_d <- as_survey(last3ed)
+class(last3ed_d)
 
-subset(ndns_1_11,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,omsysval),
+subset(ndns_1_11e,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
-last3_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,omsysval),
+last3ed_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
 ```
 These tables show that there has been a change between the two cohorts.
@@ -1199,11 +1230,11 @@ They also show that the weighted samples are different to raw samples identifyin
 
 #keydata
 
-#svyboxplot(Epcnt_4~SurveyYear,ndns_1_11d)
-#svyboxplot(Sodiummg~SurveyYear,ndns_1_11d)
-#svyboxplot(omsysval~SurveyYear,ndns_1_11d, na.rm = TRUE)
+svyplot(Epcnt_4~SurveyYear,ndns_1_11ed, style = "transparent", na.rm = TRUE)
+svyplot(Sodiummg~SurveyYear,ndns_1_11ed)
+svyplot(omsysval~SurveyYear,ndns_1_11ed, na.rm = TRUE)
 ```
-These box plots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changed over the years.
+These plots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changed over the years.
 The graphs show that there is not a visible difference between the years. Statistical analysis will follow.
 
 
@@ -1220,16 +1251,25 @@ The second compares the means of pcnt UPF intake in over the same periods.
 A third compares the percentage energy provided by UPF.
 
 ```{r echo=FALSE}
+ttestNa2 <- svyttest(Sodiummg~(SurveyYear >=5), ndns_1_11ed )
+ttestNa2
+ttestEpcnt <- svyttest(Epcnt_4~(SurveyYear >=5), ndns_1_11ed )
+ttestEpcnt
+ttestEkJ <- svyttest(EnergykJ_4~(SurveyYear >=5), ndns_1_11ed )
+ttestEkJ
+
+
+
 
 ttestNa <- t.test(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11])
 ttestpcnt_4 <-t.test(ndns_1_11[SurveyYear >= 9,pcnt_4*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,pcnt_4*wti_UKY1to11])
 ttestEpcnt_4 <-t.test(ndns_1_11[SurveyYear >= 9,Epcnt_4*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Epcnt_4*wti_UKY1to11])
 
 
-data.table("Var" = c("Epcnt_4","pcnt_4","Na"),"statistic" = signif(c(ttestEpcnt_4$statistic,ttestpcnt_4$statistic,ttestNa$statistic), digits = 4), "p.value" = signif(c(ttestEpcnt_4$p.value,ttestpcnt_4$p.value,ttestNa$p.value), digits = 4))
-ttestpcnt_4
-ttestEpcnt_4
-ttestNa
+data.table("Var" = c("Epcnt_4","EkJ","Na"),"statistic" = signif(c(ttestEpcnt$statistic,ttestEkJ$statistic,ttestNa2$statistic), digits = 4), "p.value" = signif(c(ttestEpcnt$p.value,ttestEkJ$p.value,ttestNa2$p.value), digits = 4))
+#ttestpcnt_4
+#ttestEpcnt_4
+#ttestNa
 ```
 
 It seems the mean percentage UPF intake changes from 48.8% to 59.2% energy and this increase is statistically significant.
@@ -1243,9 +1283,9 @@ The next t tests compare mean systolic values in the two time periods and then t
 
 
 
-ttestOS <- t.test(ndns_1_11[SurveyYear >=9,omsysval*wti_UKY1to11], ndns_1_11[SurveyYear <=4,omsysval*wti_UKY1to11])
-ttestOD <- t.test(ndns_1_11[SurveyYear >=9,omdiaval*wti_UKY1to11], ndns_1_11[SurveyYear <=4,omdiaval*wti_UKY1to11])
-data.table("Var" = c("Sys","Dia"),"statistic" = signif(c(ttestOS$statistic,ttestOD$statistic), digits= 4), "p.value" = signif(c(ttestOS$p.value,ttestOD$p.value), digits = 4))
+ttestOS <- svyttest(omsysval~SurveyYear >=5, ndns_1_11ed )
+
+data.table("Var" = c("Sys"),"statistic" = signif(c(ttestOS$statistic), digits= 4), "p.value" = signif(c(ttestOS$p.value), digits = 4))
 
 ttestOS
 ```
@@ -1263,258 +1303,72 @@ The NDNS dataset was weighted to keep many of these the same between datasets.
 Continuous variables are assessed using ttests and categorical variables using chi squared tests to give p.values.
 
 ######  Age and Sex
-There is 
-
-```{r echo=FALSE}
-#from pers data
-#continuous data
-#ttestage <-svyttest(~first4$Age, ~last9$Age, )
-ttestage <-t.test(ndns_1_11[SurveyYear >= 9,Age*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Age*wti_UKY1to11])
-ttestca <- t.test(ndns_1_11[SurveyYear >= 9,Calciummg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Calciummg*wti_UKY1to11])
-ttestts <-t.test(ndns_1_11[SurveyYear >= 9,Totalsugarsg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Totalsugarsg*wti_UKY1to11])
-ttestgl <-t.test(ndns_1_11[SurveyYear >= 9,Glucoseg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Glucoseg*wti_UKY1to11])
-ttestfr <- t.test(ndns_1_11[SurveyYear >= 9,Fructoseg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Fructoseg*wti_UKY1to11])
-ttestsu <-t.test(ndns_1_11[SurveyYear >= 9,Sucroseg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Sucroseg*wti_UKY1to11])
-ttestla <-t.test(ndns_1_11[SurveyYear >= 9,Lactoseg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Lactoseg*wti_UKY1to11])
-ttestlo <-t.test(ndns_1_11[SurveyYear >= 9,SOFTDRINKSLOWCALORIE*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,SOFTDRINKSLOWCALORIE*wti_UKY1to11])
-ttestnlo <-t.test(ndns_1_11[SurveyYear >= 9,SOFTDRINKSNOTLOWCALORIE*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,SOFTDRINKSNOTLOWCALORIE*wti_UKY1to11])
-ttesttc<- t.test(ndns_1_11[SurveyYear >= 9,TEACOFFEEANDWATER*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,TEACOFFEEANDWATER*wti_UKY1to11])
-
-confounders <- data.table("name" = c("Age","Calciummg","Totalsugarsg","Glucoseg","Fructoseg","Sucroseg", "Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE","TEACOFFEEANDWATER"), 
- "pvalue" = signif(c(ttestage$p.value, ttestca$p.value,ttestts$p.value,ttestgl$p.value,ttestfr$p.value,ttestsu$p.value,ttestla$p.value,ttestlo$p.value,ttestnlo$p.value,ttesttc$p.value), digits = 4), "statistic" = signif(c(ttestage$statistic, ttestca$statistic,ttestts$statistic,ttestgl$statistic,ttestfr$statistic,ttestsu$statistic,ttestla$statistic,ttestlo$statistic,ttestnlo$statistic,ttesttc$statistic), digits = 4))
-confounders
-
-```
-
 The age of the two datasets has changed but not in a statistically significant way.
-Intake seems to be significantly different between the datasets.
 
-There has been a change in the intake of soft drinks,not low calorie.
-
-```{r echo=FALSE, warning=FALSE}
-
-#categorical data
-stable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,Sex])
-stable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,Sex])
-stabler <- chisq.test(rbind(stable11 , stable4))
-
-
-#ctable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,Country*wti_UKY1to11])
-#ctable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,Country*wti_UKY1to11])
-#ctabler <- chisq.test(rbind(ctable4,ctable11))
-
-catconfounders <- data.table("name" = c("Sex"),"pvalue" = signif(c(stabler$p.value),digits = 4))
-
-catconfounders
-
-
-plot(ndns_1_11[SurveyYear >= 9,Sex], main = "2019", caption = "Bar Plot of Sex in 2019 cohort")
-plot( ndns_1_11[SurveyYear <= 4,Sex], main = "2010",caption = "Bar Plot of Sex in 2019 cohort")
-#boxplot(ndns_1_11[,Sex], ndns_1_11[,SurveyYear])
-#plot(sav11rp[,Country], main = "2019")
-#plot(sav4rp[,Country], main = "2010")
-
+```{r}
+ttestage <- svyttest(Age ~ SurveyYear >=5, ndns_1_11ed)
+ttestage$statistic
+#ttestage$p.value
+ttestage$conf.int
 ```
+
+
 
 There is a statistically significant change in the sex distribution of the two groups.
+```{r}
+tablesex <- svytable(~Sex+(SurveyYear >=5), ndns_1_11ed)
+tablesex
+sexchi <- svychisq(~Sex+SurveyYear , ndns_1_11ed)
+sexchi$observed
+#ttestage$p.value
+sexchi$p.value 
+```
 This might be due to differences in the numbers of excluded participants.
 In particular there may be more younger people and women taking e.g. bblockers in one group.
 
-```{r echo=FALSE}
-#ttests for continuous data
-ttestht <- t.test(ndns_1_11[SurveyYear >= 9,htval*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,htval*wti_UKY1to11])
-ttestwt <- t.test(ndns_1_11[SurveyYear >= 9,wtval*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,wtval*wti_UKY1to11])
-ttestbmi <- t.test(ndns_1_11[SurveyYear >= 9,bmival*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,bmival*wti_UKY1to11])
-
-confounders2 <- data.table("name" = c("htval","wtval","bmival"),"pvalue" = signif(c(ttestht$p.value,ttestwt$p.value,ttestbmi$p.value),digits = 4),"statistic" = signif(c(ttestht$statistic,ttestwt$statistic,ttestbmi$statistic),digits = 4))
-confounders2
 
 
+This table suggests that there is a significant difference between the bmi of the groups.
 
+```{r}
+ttestbmi <- svyttest(bmival~(SurveyYear >=5), ndns_1_11ed)
+ttestbmi$statistic
+ttestbmi$conf.int
 
 ```
-
-This table suggests that there is a significant difference between the height, and bmi of the groups.
-
-```{r echo=FALSE, warning=FALSE}
-
-#chisquared for categorical data
-#saltset
-vtable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,vegetarn])
-vtable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,vegetarn])
-vtabler <- chisq.test(rbind(vtable11 , vtable4))
-
-#cktable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,SaltChk*wti_UKY1to11])
-#cktable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,SaltChk*wti_UKY1to11])
-#cktabler <- chisq.test(rbind(cktable11 , cktable4))
-
-#hwtable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,SaltHowC*wti_UKY1to11])
-#hwtable4 <- xtabs(~ ndns_1_11[SurveyYear <= 4,SaltHowC*wti_UKY1to11])
-#hwtabler <-chisq.test(rbind(hwtable11 , hwtable4))
-
-#swtable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,SltSHow*wti_UKY1to11])
-#swtable4 <- xtabs(~nndns_1_11[SurveyYear <= 4,SltSHow*wti_UKY1to11])
-#swtabler <- chisq.test(rbind(swtable11 , swtable4))
-
-#catconfounders2 <- data.table("name" = c("vegetarn","SaltChk","SalHowC","SltShow"),"p.value" = signif(c(vtabler$p.value,cktabler$p.value,hwtabler$p.value,swtabler$p.value ),digits = 4))
-catconfounders2 <- data.table("name" = c("vegetarn"),"p.value" = signif(c(vtabler$p.value ),digits = 4),"statistic" = signif(c(vtabler$statistic ),digits = 4))
-catconfounders2
-
+There is a difference in the age of finishing education.
+```{r}
+tableedu <- svytable(~educfinh+(SurveyYear >=5), ndns_1_11ed)
+tableedu
+educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11ed)
+educhi$statistic
+#ttestage$p.value
+educhi$p.value 
 ```
+
+```{r}
+tableimd <- svytable(~EIMD_2010_quintile +(SurveyYear >=5), ndns_1_11ed)
+tableimd
+imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11ed)
+imdchi$observed
+#ttestage$p.value
+imdchi$p.value 
+```
+
+The differences in qimd, are not statistically significant.
 
 These values identify a significant difference in the number of vegetarians
-
-```{r echo=FALSE, warning=FALSE}
-
-#ethnset
-e5table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,ethgrp5])
-e5table4 <- xtabs(~ndns_1_11[SurveyYear <=4,ethgrp5])
-e5tabler <- chisq.test(rbind(e5table11 , e5table4))
-
-e2table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,ethgrp2])
-e2table4 <- xtabs(~ndns_1_11[SurveyYear <=4,ethgrp5])
-e2tabler <- chisq.test(rbind(e2table11 , e2table4))
-
-#incset
-
-#n8table11 <- xtabs(~sav11rp[,nssec8])
-#n8table4 <- xtabs(~sav4rp[, nssec8])
-#n8tabler<- chisq.test(rbind(n8table11 , n8table4))
-
-#gtable11 <- xtabs(~sav11rp[,GOR])
-#gtable4 <- xtabs(~sav4rp[,gor])
-#gtabler <- chisq.test(rbind(gtable11 , gtable4))
-
-#rtable11 <- xtabs(~sav11rp[,region])
-#rtable4 <- xtabs(~sav4rp[, region])
-#rtabler <-chisq.test(rbind(rtable11 , rtable4))
-
-
-q07table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,EIMD_2007_quintile])
-q07table4 <- xtabs(~ndns_1_11[SurveyYear<=4,EIMD_2007_quintile])
-q07tabler <-chisq.test(rbind(q07table11 , q07table4))
-
-q10table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,EIMD_2010_quintile])
-q10table4 <- xtabs(~ndns_1_11[SurveyYear <=4,EIMD_2007_quintile])
-q10tabler <-chisq.test(rbind(q10table11 , q10table4))
-
-q15table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,EIMD_2007_quintile])
-q15table4 <- xtabs(~ndns_1_11[SurveyYear <=4,EIMD_2007_quintile])
-q15tabler <-chisq.test(rbind(q15table11 , q15table4))
-
-edutable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,educfinh])
-edutable4 <- xtabs(~ndns_1_11[SurveyYear <=4,educfinh])
-edutabler <-chisq.test(rbind(edutable11 , edutable4))
-
-
-#catconfounders3a <- data.table("name" = c("GOR","region"),"p.value" =signif(c( gtabler$p.value, rtabler$p.value ),digits = 4))
-
-catconfounders3b <- data.table("name" = c("ethgrp5","ethgrp2"),"statistic" =signif(c(e5tabler$statistic, e2tabler$statistic),digits = 4),"p.value" =signif(c(e5tabler$p.value, e2tabler$p.value),digits = 4))
-
-catconfounders3c <- data.table("name" = c("EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile"),"statistic" =signif(c(q07tabler$statistic, q10tabler$statistic, q15tabler$statistic),digits = 4),"p.value" =signif(c(q07tabler$p.value, q10tabler$p.value, q15tabler$p.value),digits = 4))
-
-catconfounders3d <- data.table("name" = c("educfin"),"statistic" =signif(c(edutabler$statistic),digits = 4),"p.value" =signif(c(edutabler$p.value),digits = 4))
-
-#catconfounders3a
-catconfounders3b
-catconfounders3c
-catconfounders3d
+```{r}
+tableveg <- svytable(~vegetarn +(SurveyYear >=5), ndns_1_11ed)
+tableveg
+vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11ed)
+vegchi$observed
+#ttestage$p.value
+vegchi$p.value 
 ```
 
-There are differences in ethnicity as divided into 5 subgroups.
-The differences in qimd, are not statistically significant.
-There is a difference in the age of finishing education.
-
-```{r echo=FALSE, warning=FALSE}
-
-#hypeset
-
-h1table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,hyper1_2])
-h1table4 <- xtabs(~ndns_1_11[SurveyYear <=4,hyper1_2])
-h1tabler <- chisq.test(rbind(h1table11 , h1table4))
-
-h14table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,hyper140_2])
-h14table4 <- xtabs(~ndns_1_11[SurveyYear <=4,hyper140_2])
-h14tabler <- chisq.test(rbind(h14table11 , h14table4))
-
-#hi1table11 <- xtabs(~sav11rp[,highbp1_2])
-#hi1table4 <- xtabs(~sav4rp[, highbp1 ])
-#hi1tabler <- chisq.test(rbind(hi1table11 , hi1table4))
-
-hi14table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,hibp140_2])
-hi14table4 <- xtabs(~ndns_1_11[SurveyYear <=4,hibp140_2])
-hi14tabler <- chisq.test(rbind(hi14table11 , hi14table4))
-
-#ageset
-
-ad1table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,agegad1])
-ad1table4 <- xtabs(~ndns_1_11[SurveyYear <=4,agegad1])
-ad1tabler <- chisq.test(rbind(ad1table11 , ad1table4))
-
-ad2table11 <- xtabs(~ndns_1_11[SurveyYear >= 9,agegad2])
-ad2table4 <- xtabs(~ndns_1_11[SurveyYear <=4,agegad2])
-ad2tabler <- chisq.test(rbind(ad2table11 , ad2table4))
-
-#ch1table11 <- xtabs(~sav11rp[,agegch1])
-#ch1table4 <- xtabs(~sav4rp[, agegch1 ])
-#ch1tabler <-chisq.test(rbind(ch1table11 , ch1table4))
-
-#ag1table11 <- xtabs(~sav11rp[, agegr1])
-#ag1table4 <- xtabs(~sav4rp[, agegr1])
-#ag1tabler <- chisq.test(rbind(ag1table11 , ag1table4))
-
-catconfounders4a <- data.table("name" = c("agegad1","agegad2"),"p.value" = signif( c( ad1tabler$p.value , ad2tabler$p.value), digits = 4))
-
-catconfounders4b <- data.table("name" = c("hyper1","hyper140","highbp1","hibp140"),"p.value" = signif( c(h1tabler$p.value, h14tabler$p.value, 0, hi14tabler$p.value), digits = 4))
 
 
-catconfounders4a
-#catconfounders4b
-```
-
-The age groups show some discrepancy with the p value significant only in the child age groups.
-
-```{r echo=FALSE, warning=FALSE}
-
-#medset
-
-mctable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,bpmedc2])
-mctable4 <- xtabs(~ndns_1_11[SurveyYear <=4,bpmedc2 ])
-mctabler <- chisq.test(rbind(mctable11 , mctable4))
-
-mdtable11 <- xtabs(~ndns_1_11[SurveyYear >= 9, bpmedd2])
-mdtable4 <- xtabs(~ndns_1_11[SurveyYear <=4, bpmedd2])
-mdtabler <- chisq.test(rbind(mdtable11 , mdtable4))
-
-ditable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,diur2])
-ditable4 <- xtabs(~ndns_1_11[SurveyYear <=4, diur2])
-ditabler <- chisq.test(rbind(ditable11 , ditable4))
-
-betable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,beta2])
-betable4 <- xtabs(~ndns_1_11[SurveyYear <=4, beta2])
-betabler <- chisq.test(rbind(betable11 , betable4))
-
-cbtable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,calciumb2])
-cbtable4 <- xtabs(~ndns_1_11[SurveyYear <=4, calciumb2])
-cbtabler <-chisq.test(rbind(cbtable11 , cbtable4))
-
-acetable11 <- xtabs(~ndns_1_11[SurveyYear >= 9, aceinh2])
-acetable4 <- xtabs(~ndns_1_11[SurveyYear <=4, aceinh2])
-acetabler <- chisq.test(rbind(acetable11 , acetable4))
-
-othtable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,obpdrug2])
-othtable4 <- xtabs(~ndns_1_11[SurveyYear <=4, obpdrug2])
-othtabler <- chisq.test(rbind(othtable11 , othtable4))
-
-prtable11 <- xtabs(~ndns_1_11[SurveyYear >= 9,PregNowB])
-prtable4 <- xtabs(~ndns_1_11[SurveyYear <=4, PregNowB])
-prtabler <- chisq.test(rbind(prtable11 , prtable4))
-
-catconfounders5 <- data.table("name" = c("bpmedc","bpmedd","diur","beta","calciumb","aceinh","obpdrug","PregNowB"), "p.value" = signif(c(mctabler$p.value, mdtabler$p.value, ditabler$p.value, betabler$p.value, cbtabler$p.value, acetabler$p.value, othtabler$p.value, prtabler$p.value ),digits = 4))
-
-#catconfounders5
-
-```
 
 ## Regression Analysis
 
@@ -1542,7 +1396,7 @@ These use the populations where participants have been excluded.
 ```{r echo=FALSE}
 #linear regression models
 #UPF Energy % only
-lm1E <- svyglm(omsysval ~ EnergykJ_4, ndns_1_11e)
+lm1E <- svyglm(omsysval ~ EnergykJ_4, ndns_1_11ed)
 
 
 
@@ -1561,7 +1415,7 @@ then sodiummg
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
-lm1na <- svyglm(omsysval ~ Sodiummg, ndns_1_11e)
+lm1na <- svyglm(omsysval ~ Sodiummg, ndns_1_11ed)
 
 
 
@@ -1600,7 +1454,7 @@ This first model looks at the relationships between BP and Age and Sex education
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
-lm1AS <- svyglm(omsysval ~ Age + Sex +bmival +educfinh + EIMD_2010_quintile , ndns_1_11e, na.action = na.exclude)
+lm1AS <- svyglm(omsysval ~ Age + Sex +bmival +educfinh + EIMD_2010_quintile , ndns_1_11ed, na.action = na.exclude)
 
 
 
@@ -1621,9 +1475,9 @@ This first model shows that all these variables, Age, Sex, education, IMD,  and 
 The next model adds Sodiummg.
 
 ```{r echo=FALSE}
-lmM <- svyglm(omsysval ~ Age +Sex +Sodiummg + bmival+ educfinh+ EIMD_2010_quintile , ndns_1_11e,na.action = na.exclude)
+lmM <- svyglm(omsysval ~ Age +Sex + Sodiummg + bmival+ educfinh+ EIMD_2010_quintile , ndns_1_11ed,na.action = na.exclude)
 
-lmM
+lmM$coefficients
 
 
 anova(lmM)
@@ -1641,11 +1495,11 @@ This second model gives Sodiummg, educfinh, and IMD statistical significance. Vi
 Now we add UPF as total energy from nova 4 or UPF
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-lmM2 <- svyglm(omsysval ~ Age +Sex +Sodiummg + EnergykJ_4+ bmival  +educfinh+ EIMD_2010_quintile , ndns_1_11e,na.action = na.exclude)
+lmM2 <- svyglm(omsysval ~ Age +Sex +Sodiummg + EnergykJ_4+ bmival  +educfinh+ EIMD_2010_quintile , ndns_1_11ed,na.action = na.exclude)
 
 
 
-lmM2
+lmM2$coefficients
 
 anova(lmM2)
 #AIC(lmM2)
@@ -1657,11 +1511,11 @@ UPF does not seem significant...
 but when removing sodiummg
 
 ```{r echo=FALSE, warning=FALSE}
-lmMna <- svyglm(omsysval ~ Age +Sex + EnergykJ_4+ bmival  +educfinh+ EIMD_2010_quintile  , ndns_1_11e,na.action =na.exclude)
+lmMna <- svyglm(omsysval ~ Age +Sex + EnergykJ_4+ bmival  +educfinh+ EIMD_2010_quintile  , ndns_1_11ed,na.action =na.exclude)
 
 
 
-lmMna
+lmMna$coefficients
 
 
 Am1 <-anova(lmMna)
@@ -1671,7 +1525,7 @@ Am1
 the UPF becomes significant! 
 This suggests that the effect of UPF is mediated by Sodium!!
 
-comparing AIC for tghese three models 
+comparing AIC for these three models 
 
 ```{r}
 lmM$aic
