@@ -1314,7 +1314,7 @@ Continuous variables are assessed using ttests and categorical variables using c
   Age and Sex
 The age of the two datasets has changed but not in a statistically significant way.
 
-```{r}
+```{r echo=FALSE}
 ttestage <- svyttest(Age ~ SurveyYear >=6, ndns_1_11ed)
 ttestage$statistic
 #ttestage$p.value
@@ -1324,7 +1324,7 @@ ttestage$conf.int
 
 
 There is a statistically significant change in the sex distribution of the two groups.
-```{r}
+```{r echo=FALSE}
 tablesex <- svytable(~Sex+(SurveyYear >=5), ndns_1_11ed)
 tablesex
 sexchi <- svychisq(~Sex+SurveyYear , ndns_1_11ed)
@@ -1339,14 +1339,14 @@ In particular there may be more younger people and women taking e.g. bblockers i
 
 This table suggests that there is a significant difference between the bmi of the groups.
 
-```{r}
+```{r echo=FALSE}
 ttestbmi <- svyttest(bmival~(SurveyYear >=5), ndns_1_11ed)
 ttestbmi$statistic
 ttestbmi$conf.int
 
 ```
 There is a difference in the age of finishing education.
-```{r}
+```{r echo=FALSE}
 tableedu <- svytable(~educfinh+(SurveyYear >=5), ndns_1_11ed)
 tableedu
 educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11ed)
@@ -1355,7 +1355,7 @@ educhi$statistic
 educhi$p.value 
 ```
 
-```{r}
+```{r echo=FALSE}
 tableimd <- svytable(~EIMD_2010_quintile +(SurveyYear >=5), ndns_1_11ed)
 tableimd
 imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11ed)
@@ -1367,7 +1367,7 @@ imdchi$p.value
 The differences in qimd, are not statistically significant.
 
 These values identify a significant difference in the number of vegetarians
-```{r}
+```{r echo=FALSE}
 tableveg <- svytable(~vegetarn +(SurveyYear >=5), ndns_1_11ed)
 tableveg
 vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11ed)
