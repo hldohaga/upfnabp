@@ -359,12 +359,12 @@ This first table highlights the data from the years 2008-2012 at the beginning o
 ```
 
 ```{=html}
-<div id="xramawlzgf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ncpdxxplrg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#xramawlzgf .gt_table {
+#ncpdxxplrg .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -389,7 +389,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-left-color: #D3D3D3;
 }
 
-#xramawlzgf .gt_heading {
+#ncpdxxplrg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -401,12 +401,12 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#xramawlzgf .gt_caption {
+#ncpdxxplrg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xramawlzgf .gt_title {
+#ncpdxxplrg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -418,7 +418,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-width: 0;
 }
 
-#xramawlzgf .gt_subtitle {
+#ncpdxxplrg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -430,13 +430,13 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-top-width: 0;
 }
 
-#xramawlzgf .gt_bottom_border {
+#ncpdxxplrg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xramawlzgf .gt_col_headings {
+#ncpdxxplrg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -451,7 +451,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#xramawlzgf .gt_col_heading {
+#ncpdxxplrg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -471,7 +471,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   overflow-x: hidden;
 }
 
-#xramawlzgf .gt_column_spanner_outer {
+#ncpdxxplrg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -483,15 +483,15 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 4px;
 }
 
-#xramawlzgf .gt_column_spanner_outer:first-child {
+#ncpdxxplrg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xramawlzgf .gt_column_spanner_outer:last-child {
+#ncpdxxplrg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xramawlzgf .gt_column_spanner {
+#ncpdxxplrg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -503,7 +503,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   width: 100%;
 }
 
-#xramawlzgf .gt_group_heading {
+#ncpdxxplrg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -529,7 +529,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   text-align: left;
 }
 
-#xramawlzgf .gt_empty_group_heading {
+#ncpdxxplrg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -544,15 +544,15 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   vertical-align: middle;
 }
 
-#xramawlzgf .gt_from_md > :first-child {
+#ncpdxxplrg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xramawlzgf .gt_from_md > :last-child {
+#ncpdxxplrg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xramawlzgf .gt_row {
+#ncpdxxplrg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -571,7 +571,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   overflow-x: hidden;
 }
 
-#xramawlzgf .gt_stub {
+#ncpdxxplrg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -584,7 +584,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#xramawlzgf .gt_stub_row_group {
+#ncpdxxplrg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -598,11 +598,11 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   vertical-align: top;
 }
 
-#xramawlzgf .gt_row_group_first td {
+#ncpdxxplrg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xramawlzgf .gt_summary_row {
+#ncpdxxplrg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -612,16 +612,16 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#xramawlzgf .gt_first_summary_row {
+#ncpdxxplrg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xramawlzgf .gt_first_summary_row.thick {
+#ncpdxxplrg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xramawlzgf .gt_last_summary_row {
+#ncpdxxplrg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -631,7 +631,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-color: #D3D3D3;
 }
 
-#xramawlzgf .gt_grand_summary_row {
+#ncpdxxplrg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -641,7 +641,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#xramawlzgf .gt_first_grand_summary_row {
+#ncpdxxplrg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -651,11 +651,11 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-top-color: #D3D3D3;
 }
 
-#xramawlzgf .gt_striped {
+#ncpdxxplrg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xramawlzgf .gt_table_body {
+#ncpdxxplrg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -664,7 +664,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-color: #D3D3D3;
 }
 
-#xramawlzgf .gt_footnotes {
+#ncpdxxplrg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -678,7 +678,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#xramawlzgf .gt_footnote {
+#ncpdxxplrg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -687,7 +687,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#xramawlzgf .gt_sourcenotes {
+#ncpdxxplrg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -701,7 +701,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#xramawlzgf .gt_sourcenote {
+#ncpdxxplrg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -709,64 +709,64 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#xramawlzgf .gt_left {
+#ncpdxxplrg .gt_left {
   text-align: left;
 }
 
-#xramawlzgf .gt_center {
+#ncpdxxplrg .gt_center {
   text-align: center;
 }
 
-#xramawlzgf .gt_right {
+#ncpdxxplrg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xramawlzgf .gt_font_normal {
+#ncpdxxplrg .gt_font_normal {
   font-weight: normal;
 }
 
-#xramawlzgf .gt_font_bold {
+#ncpdxxplrg .gt_font_bold {
   font-weight: bold;
 }
 
-#xramawlzgf .gt_font_italic {
+#ncpdxxplrg .gt_font_italic {
   font-style: italic;
 }
 
-#xramawlzgf .gt_super {
+#ncpdxxplrg .gt_super {
   font-size: 65%;
 }
 
-#xramawlzgf .gt_footnote_marks {
+#ncpdxxplrg .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#xramawlzgf .gt_asterisk {
+#ncpdxxplrg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xramawlzgf .gt_indent_1 {
+#ncpdxxplrg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xramawlzgf .gt_indent_2 {
+#ncpdxxplrg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xramawlzgf .gt_indent_3 {
+#ncpdxxplrg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xramawlzgf .gt_indent_4 {
+#ncpdxxplrg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xramawlzgf .gt_indent_5 {
+#ncpdxxplrg .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -799,12 +799,12 @@ This first table highlights the data from the years 2008-2012 at the beginning o
 ```
 
 ```{=html}
-<div id="szxucglmbx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="gqqnxujphv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#szxucglmbx .gt_table {
+#gqqnxujphv .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -829,7 +829,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-left-color: #D3D3D3;
 }
 
-#szxucglmbx .gt_heading {
+#gqqnxujphv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -841,12 +841,12 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#szxucglmbx .gt_caption {
+#gqqnxujphv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#szxucglmbx .gt_title {
+#gqqnxujphv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -858,7 +858,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-width: 0;
 }
 
-#szxucglmbx .gt_subtitle {
+#gqqnxujphv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -870,13 +870,13 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-top-width: 0;
 }
 
-#szxucglmbx .gt_bottom_border {
+#gqqnxujphv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#szxucglmbx .gt_col_headings {
+#gqqnxujphv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -891,7 +891,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#szxucglmbx .gt_col_heading {
+#gqqnxujphv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -911,7 +911,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   overflow-x: hidden;
 }
 
-#szxucglmbx .gt_column_spanner_outer {
+#gqqnxujphv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -923,15 +923,15 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 4px;
 }
 
-#szxucglmbx .gt_column_spanner_outer:first-child {
+#gqqnxujphv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#szxucglmbx .gt_column_spanner_outer:last-child {
+#gqqnxujphv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#szxucglmbx .gt_column_spanner {
+#gqqnxujphv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -943,7 +943,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   width: 100%;
 }
 
-#szxucglmbx .gt_group_heading {
+#gqqnxujphv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -969,7 +969,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   text-align: left;
 }
 
-#szxucglmbx .gt_empty_group_heading {
+#gqqnxujphv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -984,15 +984,15 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   vertical-align: middle;
 }
 
-#szxucglmbx .gt_from_md > :first-child {
+#gqqnxujphv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#szxucglmbx .gt_from_md > :last-child {
+#gqqnxujphv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#szxucglmbx .gt_row {
+#gqqnxujphv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1011,7 +1011,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   overflow-x: hidden;
 }
 
-#szxucglmbx .gt_stub {
+#gqqnxujphv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1024,7 +1024,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#szxucglmbx .gt_stub_row_group {
+#gqqnxujphv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1038,11 +1038,11 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   vertical-align: top;
 }
 
-#szxucglmbx .gt_row_group_first td {
+#gqqnxujphv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#szxucglmbx .gt_summary_row {
+#gqqnxujphv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1052,16 +1052,16 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#szxucglmbx .gt_first_summary_row {
+#gqqnxujphv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#szxucglmbx .gt_first_summary_row.thick {
+#gqqnxujphv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#szxucglmbx .gt_last_summary_row {
+#gqqnxujphv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1071,7 +1071,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-color: #D3D3D3;
 }
 
-#szxucglmbx .gt_grand_summary_row {
+#gqqnxujphv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1081,7 +1081,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#szxucglmbx .gt_first_grand_summary_row {
+#gqqnxujphv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1091,11 +1091,11 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-top-color: #D3D3D3;
 }
 
-#szxucglmbx .gt_striped {
+#gqqnxujphv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#szxucglmbx .gt_table_body {
+#gqqnxujphv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1104,7 +1104,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-color: #D3D3D3;
 }
 
-#szxucglmbx .gt_footnotes {
+#gqqnxujphv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1118,7 +1118,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#szxucglmbx .gt_footnote {
+#gqqnxujphv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1127,7 +1127,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#szxucglmbx .gt_sourcenotes {
+#gqqnxujphv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1141,7 +1141,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#szxucglmbx .gt_sourcenote {
+#gqqnxujphv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1149,64 +1149,64 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#szxucglmbx .gt_left {
+#gqqnxujphv .gt_left {
   text-align: left;
 }
 
-#szxucglmbx .gt_center {
+#gqqnxujphv .gt_center {
   text-align: center;
 }
 
-#szxucglmbx .gt_right {
+#gqqnxujphv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#szxucglmbx .gt_font_normal {
+#gqqnxujphv .gt_font_normal {
   font-weight: normal;
 }
 
-#szxucglmbx .gt_font_bold {
+#gqqnxujphv .gt_font_bold {
   font-weight: bold;
 }
 
-#szxucglmbx .gt_font_italic {
+#gqqnxujphv .gt_font_italic {
   font-style: italic;
 }
 
-#szxucglmbx .gt_super {
+#gqqnxujphv .gt_super {
   font-size: 65%;
 }
 
-#szxucglmbx .gt_footnote_marks {
+#gqqnxujphv .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#szxucglmbx .gt_asterisk {
+#gqqnxujphv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#szxucglmbx .gt_indent_1 {
+#gqqnxujphv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#szxucglmbx .gt_indent_2 {
+#gqqnxujphv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#szxucglmbx .gt_indent_3 {
+#gqqnxujphv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#szxucglmbx .gt_indent_4 {
+#gqqnxujphv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#szxucglmbx .gt_indent_5 {
+#gqqnxujphv .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1257,12 +1257,12 @@ The weighted values follow the unweighted/raw values.
 ```
 
 ```{=html}
-<div id="uxdxsdddka" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="avkjbqukms" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#uxdxsdddka .gt_table {
+#avkjbqukms .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1287,7 +1287,7 @@ The weighted values follow the unweighted/raw values.
   border-left-color: #D3D3D3;
 }
 
-#uxdxsdddka .gt_heading {
+#avkjbqukms .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1299,12 +1299,12 @@ The weighted values follow the unweighted/raw values.
   border-right-color: #D3D3D3;
 }
 
-#uxdxsdddka .gt_caption {
+#avkjbqukms .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#uxdxsdddka .gt_title {
+#avkjbqukms .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1316,7 +1316,7 @@ The weighted values follow the unweighted/raw values.
   border-bottom-width: 0;
 }
 
-#uxdxsdddka .gt_subtitle {
+#avkjbqukms .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1328,13 +1328,13 @@ The weighted values follow the unweighted/raw values.
   border-top-width: 0;
 }
 
-#uxdxsdddka .gt_bottom_border {
+#avkjbqukms .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#uxdxsdddka .gt_col_headings {
+#avkjbqukms .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1349,7 +1349,7 @@ The weighted values follow the unweighted/raw values.
   border-right-color: #D3D3D3;
 }
 
-#uxdxsdddka .gt_col_heading {
+#avkjbqukms .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1369,7 +1369,7 @@ The weighted values follow the unweighted/raw values.
   overflow-x: hidden;
 }
 
-#uxdxsdddka .gt_column_spanner_outer {
+#avkjbqukms .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1381,15 +1381,15 @@ The weighted values follow the unweighted/raw values.
   padding-right: 4px;
 }
 
-#uxdxsdddka .gt_column_spanner_outer:first-child {
+#avkjbqukms .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#uxdxsdddka .gt_column_spanner_outer:last-child {
+#avkjbqukms .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#uxdxsdddka .gt_column_spanner {
+#avkjbqukms .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1401,7 +1401,7 @@ The weighted values follow the unweighted/raw values.
   width: 100%;
 }
 
-#uxdxsdddka .gt_group_heading {
+#avkjbqukms .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1427,7 +1427,7 @@ The weighted values follow the unweighted/raw values.
   text-align: left;
 }
 
-#uxdxsdddka .gt_empty_group_heading {
+#avkjbqukms .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1442,15 +1442,15 @@ The weighted values follow the unweighted/raw values.
   vertical-align: middle;
 }
 
-#uxdxsdddka .gt_from_md > :first-child {
+#avkjbqukms .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#uxdxsdddka .gt_from_md > :last-child {
+#avkjbqukms .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#uxdxsdddka .gt_row {
+#avkjbqukms .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1469,7 +1469,7 @@ The weighted values follow the unweighted/raw values.
   overflow-x: hidden;
 }
 
-#uxdxsdddka .gt_stub {
+#avkjbqukms .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1482,7 +1482,7 @@ The weighted values follow the unweighted/raw values.
   padding-right: 5px;
 }
 
-#uxdxsdddka .gt_stub_row_group {
+#avkjbqukms .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1496,11 +1496,11 @@ The weighted values follow the unweighted/raw values.
   vertical-align: top;
 }
 
-#uxdxsdddka .gt_row_group_first td {
+#avkjbqukms .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#uxdxsdddka .gt_summary_row {
+#avkjbqukms .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1510,16 +1510,16 @@ The weighted values follow the unweighted/raw values.
   padding-right: 5px;
 }
 
-#uxdxsdddka .gt_first_summary_row {
+#avkjbqukms .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#uxdxsdddka .gt_first_summary_row.thick {
+#avkjbqukms .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#uxdxsdddka .gt_last_summary_row {
+#avkjbqukms .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1529,7 +1529,7 @@ The weighted values follow the unweighted/raw values.
   border-bottom-color: #D3D3D3;
 }
 
-#uxdxsdddka .gt_grand_summary_row {
+#avkjbqukms .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1539,7 +1539,7 @@ The weighted values follow the unweighted/raw values.
   padding-right: 5px;
 }
 
-#uxdxsdddka .gt_first_grand_summary_row {
+#avkjbqukms .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1549,11 +1549,11 @@ The weighted values follow the unweighted/raw values.
   border-top-color: #D3D3D3;
 }
 
-#uxdxsdddka .gt_striped {
+#avkjbqukms .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#uxdxsdddka .gt_table_body {
+#avkjbqukms .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1562,7 +1562,7 @@ The weighted values follow the unweighted/raw values.
   border-bottom-color: #D3D3D3;
 }
 
-#uxdxsdddka .gt_footnotes {
+#avkjbqukms .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1576,7 +1576,7 @@ The weighted values follow the unweighted/raw values.
   border-right-color: #D3D3D3;
 }
 
-#uxdxsdddka .gt_footnote {
+#avkjbqukms .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1585,7 +1585,7 @@ The weighted values follow the unweighted/raw values.
   padding-right: 5px;
 }
 
-#uxdxsdddka .gt_sourcenotes {
+#avkjbqukms .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1599,7 +1599,7 @@ The weighted values follow the unweighted/raw values.
   border-right-color: #D3D3D3;
 }
 
-#uxdxsdddka .gt_sourcenote {
+#avkjbqukms .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1607,64 +1607,64 @@ The weighted values follow the unweighted/raw values.
   padding-right: 5px;
 }
 
-#uxdxsdddka .gt_left {
+#avkjbqukms .gt_left {
   text-align: left;
 }
 
-#uxdxsdddka .gt_center {
+#avkjbqukms .gt_center {
   text-align: center;
 }
 
-#uxdxsdddka .gt_right {
+#avkjbqukms .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#uxdxsdddka .gt_font_normal {
+#avkjbqukms .gt_font_normal {
   font-weight: normal;
 }
 
-#uxdxsdddka .gt_font_bold {
+#avkjbqukms .gt_font_bold {
   font-weight: bold;
 }
 
-#uxdxsdddka .gt_font_italic {
+#avkjbqukms .gt_font_italic {
   font-style: italic;
 }
 
-#uxdxsdddka .gt_super {
+#avkjbqukms .gt_super {
   font-size: 65%;
 }
 
-#uxdxsdddka .gt_footnote_marks {
+#avkjbqukms .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#uxdxsdddka .gt_asterisk {
+#avkjbqukms .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#uxdxsdddka .gt_indent_1 {
+#avkjbqukms .gt_indent_1 {
   text-indent: 5px;
 }
 
-#uxdxsdddka .gt_indent_2 {
+#avkjbqukms .gt_indent_2 {
   text-indent: 10px;
 }
 
-#uxdxsdddka .gt_indent_3 {
+#avkjbqukms .gt_indent_3 {
   text-indent: 15px;
 }
 
-#uxdxsdddka .gt_indent_4 {
+#avkjbqukms .gt_indent_4 {
   text-indent: 20px;
 }
 
-#uxdxsdddka .gt_indent_5 {
+#avkjbqukms .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1697,12 +1697,12 @@ The weighted values follow the unweighted/raw values.
 ```
 
 ```{=html}
-<div id="xlqugcpsis" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="otdncfrglr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#xlqugcpsis .gt_table {
+#otdncfrglr .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1727,7 +1727,7 @@ The weighted values follow the unweighted/raw values.
   border-left-color: #D3D3D3;
 }
 
-#xlqugcpsis .gt_heading {
+#otdncfrglr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1739,12 +1739,12 @@ The weighted values follow the unweighted/raw values.
   border-right-color: #D3D3D3;
 }
 
-#xlqugcpsis .gt_caption {
+#otdncfrglr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xlqugcpsis .gt_title {
+#otdncfrglr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1756,7 +1756,7 @@ The weighted values follow the unweighted/raw values.
   border-bottom-width: 0;
 }
 
-#xlqugcpsis .gt_subtitle {
+#otdncfrglr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1768,13 +1768,13 @@ The weighted values follow the unweighted/raw values.
   border-top-width: 0;
 }
 
-#xlqugcpsis .gt_bottom_border {
+#otdncfrglr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xlqugcpsis .gt_col_headings {
+#otdncfrglr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1789,7 +1789,7 @@ The weighted values follow the unweighted/raw values.
   border-right-color: #D3D3D3;
 }
 
-#xlqugcpsis .gt_col_heading {
+#otdncfrglr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1809,7 +1809,7 @@ The weighted values follow the unweighted/raw values.
   overflow-x: hidden;
 }
 
-#xlqugcpsis .gt_column_spanner_outer {
+#otdncfrglr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1821,15 +1821,15 @@ The weighted values follow the unweighted/raw values.
   padding-right: 4px;
 }
 
-#xlqugcpsis .gt_column_spanner_outer:first-child {
+#otdncfrglr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xlqugcpsis .gt_column_spanner_outer:last-child {
+#otdncfrglr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xlqugcpsis .gt_column_spanner {
+#otdncfrglr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1841,7 +1841,7 @@ The weighted values follow the unweighted/raw values.
   width: 100%;
 }
 
-#xlqugcpsis .gt_group_heading {
+#otdncfrglr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1867,7 +1867,7 @@ The weighted values follow the unweighted/raw values.
   text-align: left;
 }
 
-#xlqugcpsis .gt_empty_group_heading {
+#otdncfrglr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1882,15 +1882,15 @@ The weighted values follow the unweighted/raw values.
   vertical-align: middle;
 }
 
-#xlqugcpsis .gt_from_md > :first-child {
+#otdncfrglr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xlqugcpsis .gt_from_md > :last-child {
+#otdncfrglr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xlqugcpsis .gt_row {
+#otdncfrglr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1909,7 +1909,7 @@ The weighted values follow the unweighted/raw values.
   overflow-x: hidden;
 }
 
-#xlqugcpsis .gt_stub {
+#otdncfrglr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1922,7 +1922,7 @@ The weighted values follow the unweighted/raw values.
   padding-right: 5px;
 }
 
-#xlqugcpsis .gt_stub_row_group {
+#otdncfrglr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1936,11 +1936,11 @@ The weighted values follow the unweighted/raw values.
   vertical-align: top;
 }
 
-#xlqugcpsis .gt_row_group_first td {
+#otdncfrglr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xlqugcpsis .gt_summary_row {
+#otdncfrglr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1950,16 +1950,16 @@ The weighted values follow the unweighted/raw values.
   padding-right: 5px;
 }
 
-#xlqugcpsis .gt_first_summary_row {
+#otdncfrglr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xlqugcpsis .gt_first_summary_row.thick {
+#otdncfrglr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xlqugcpsis .gt_last_summary_row {
+#otdncfrglr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1969,7 +1969,7 @@ The weighted values follow the unweighted/raw values.
   border-bottom-color: #D3D3D3;
 }
 
-#xlqugcpsis .gt_grand_summary_row {
+#otdncfrglr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1979,7 +1979,7 @@ The weighted values follow the unweighted/raw values.
   padding-right: 5px;
 }
 
-#xlqugcpsis .gt_first_grand_summary_row {
+#otdncfrglr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1989,11 +1989,11 @@ The weighted values follow the unweighted/raw values.
   border-top-color: #D3D3D3;
 }
 
-#xlqugcpsis .gt_striped {
+#otdncfrglr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xlqugcpsis .gt_table_body {
+#otdncfrglr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2002,7 +2002,7 @@ The weighted values follow the unweighted/raw values.
   border-bottom-color: #D3D3D3;
 }
 
-#xlqugcpsis .gt_footnotes {
+#otdncfrglr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2016,7 +2016,7 @@ The weighted values follow the unweighted/raw values.
   border-right-color: #D3D3D3;
 }
 
-#xlqugcpsis .gt_footnote {
+#otdncfrglr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2025,7 +2025,7 @@ The weighted values follow the unweighted/raw values.
   padding-right: 5px;
 }
 
-#xlqugcpsis .gt_sourcenotes {
+#otdncfrglr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2039,7 +2039,7 @@ The weighted values follow the unweighted/raw values.
   border-right-color: #D3D3D3;
 }
 
-#xlqugcpsis .gt_sourcenote {
+#otdncfrglr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2047,64 +2047,64 @@ The weighted values follow the unweighted/raw values.
   padding-right: 5px;
 }
 
-#xlqugcpsis .gt_left {
+#otdncfrglr .gt_left {
   text-align: left;
 }
 
-#xlqugcpsis .gt_center {
+#otdncfrglr .gt_center {
   text-align: center;
 }
 
-#xlqugcpsis .gt_right {
+#otdncfrglr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xlqugcpsis .gt_font_normal {
+#otdncfrglr .gt_font_normal {
   font-weight: normal;
 }
 
-#xlqugcpsis .gt_font_bold {
+#otdncfrglr .gt_font_bold {
   font-weight: bold;
 }
 
-#xlqugcpsis .gt_font_italic {
+#otdncfrglr .gt_font_italic {
   font-style: italic;
 }
 
-#xlqugcpsis .gt_super {
+#otdncfrglr .gt_super {
   font-size: 65%;
 }
 
-#xlqugcpsis .gt_footnote_marks {
+#otdncfrglr .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#xlqugcpsis .gt_asterisk {
+#otdncfrglr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xlqugcpsis .gt_indent_1 {
+#otdncfrglr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xlqugcpsis .gt_indent_2 {
+#otdncfrglr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xlqugcpsis .gt_indent_3 {
+#otdncfrglr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xlqugcpsis .gt_indent_4 {
+#otdncfrglr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xlqugcpsis .gt_indent_5 {
+#otdncfrglr .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2253,19 +2253,9 @@ Continuous variables are assessed using ttests and categorical variables using c
 The age of the two datasets has changed but not in a statistically significant way.
 
 
-```r
-ttestage <- svyttest(Age ~ SurveyYear >=6, ndns_1_11ed)
-ttestage$statistic
-```
-
 ```
 ##         t 
 ## -3.029559
-```
-
-```r
-#ttestage$p.value
-ttestage$conf.int
 ```
 
 ```
@@ -2279,21 +2269,11 @@ ttestage$conf.int
 
 There is a statistically significant change in the sex distribution of the two groups.
 
-```r
-tablesex <- svytable(~Sex+(SurveyYear >=5), ndns_1_11ed)
-tablesex
-```
-
 ```
 ##         SurveyYear >= 5
 ## Sex          FALSE      TRUE
 ##   Male    292.7118 1822.0360
 ##   Female  537.8931 1925.6327
-```
-
-```r
-sexchi <- svychisq(~Sex+SurveyYear , ndns_1_11ed)
-sexchi$observed
 ```
 
 ```
@@ -2305,11 +2285,6 @@ sexchi$observed
 ## Sex              8         9        10
 ##   Male   177.33201 157.79591 167.49868
 ##   Female 210.83607 155.19802 203.46491
-```
-
-```r
-#ttestage$p.value
-sexchi$p.value 
 ```
 
 ```
@@ -2324,18 +2299,9 @@ In particular there may be more younger people and women taking e.g. bblockers i
 This table suggests that there is a significant difference between the bmi of the groups.
 
 
-```r
-ttestbmi <- svyttest(bmival~(SurveyYear >=5), ndns_1_11ed)
-ttestbmi$statistic
-```
-
 ```
 ##         t 
 ## -3.878727
-```
-
-```r
-ttestbmi$conf.int
 ```
 
 ```
@@ -2345,11 +2311,6 @@ ttestbmi$conf.int
 ## [1] 0.95
 ```
 There is a difference in the age of finishing education.
-
-```r
-tableedu <- svytable(~educfinh+(SurveyYear >=5), ndns_1_11ed)
-tableedu
-```
 
 ```
 ##         SurveyYear >= 5
@@ -2364,19 +2325,9 @@ tableedu
 ##        8  233.64408 1051.93547
 ```
 
-```r
-educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11ed)
-educhi$statistic
-```
-
 ```
 ##        F 
 ## 1.659393
-```
-
-```r
-#ttestage$p.value
-educhi$p.value 
 ```
 
 ```
@@ -2384,11 +2335,6 @@ educhi$p.value
 ## 0.003125183
 ```
 
-
-```r
-tableimd <- svytable(~EIMD_2010_quintile +(SurveyYear >=5), ndns_1_11ed)
-tableimd
-```
 
 ```
 ##                   SurveyYear >= 5
@@ -2398,11 +2344,6 @@ tableimd
 ##                  3 120.7524 575.2667
 ##                  4 119.1947 635.9267
 ##                  5 116.0614 571.3128
-```
-
-```r
-imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11ed)
-imdchi$observed
 ```
 
 ```
@@ -2422,11 +2363,6 @@ imdchi$observed
 ##                  5  66.718229  52.236115  72.709665  49.016260  67.230437
 ```
 
-```r
-#ttestage$p.value
-imdchi$p.value 
-```
-
 ```
 ## X-squared 
 ## 0.5773836
@@ -2436,22 +2372,12 @@ The differences in qimd, are not statistically significant.
 
 These values identify a significant difference in the number of vegetarians
 
-```r
-tableveg <- svytable(~vegetarn +(SurveyYear >=5), ndns_1_11ed)
-tableveg
-```
-
 ```
 ##                 SurveyYear >= 5
 ## vegetarn              FALSE       TRUE
 ##   vegetarian       10.91746  126.62985
 ##   vegan             0.00000   19.83417
 ##   not vegetarian  819.68744 3601.20467
-```
-
-```r
-vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11ed)
-vegchi$observed
 ```
 
 ```
@@ -2465,11 +2391,6 @@ vegchi$observed
 ##   vegetarian      11.6634214   5.4696643  12.9289343   9.8631868  18.8966220
 ##   vegan            0.0000000   1.1898140   0.9294605   6.5136847   1.8351724
 ##   not vegetarian 348.0028211 332.3750889 374.3096934 296.6170594 350.2317998
-```
-
-```r
-#ttestage$p.value
-vegchi$p.value 
 ```
 
 ```
@@ -2695,7 +2616,7 @@ Though all the models with UPF have a lower aic than the model without.
 
 
 
-###  Summary of Results
+##  Summary of Results
 
 There is a table with summary values for the key variables across the dataset.
 
