@@ -22,25 +22,25 @@ editor_options:
 # BP and UPF and Na in NDNS Dissertation
 # Method
 ## Introduction
-This section will take the research question and explain how the data will be used to answer the question.
 
-There will be a description of the study and how the data collection happened.
-This will be followed by a consideration of the process governing ethics in this research.
+This section takes the research question and explains how the data is used to answer the question.
 
-The data will be loaded and the relevant variables identified and extracted. 
+There will be a description of the study and data collection. Then a section on governance and ethics in this project.
+
+Data analysis starts with the relevant variables being identified and extracted. 
 Some data may need to be recalculated or to be processed to make a more useable form.
-The population will be reviewed and any groups which might influence the results removed.
-Once the data set has been prepared, analysis begins with description of the data.
-The second analysis section involves using linear regression to identify if there is a correlation
-between the BP and each of the key variables. 
+The population will be reviewed. Groups which bias the results are removed.
+Then there is a description of the data.
+The second analysis section compares the data between two cohorts.
+The third analysis section involves using linear regression to identify if there is a correlation between the BP and each of the key variables. 
 Multivariable regression models are then generated.
-These models are finally examined to identify the relative importance of the different variables in 
-developing an optimal model. 
+These models are finally examined to identify the relative importance of the different variables in developing an optimal model. 
+A summary and conclusion will bring all these together.
 
 
 ## Research Question
 
-What proportion of the association between blood pressure (SBP/DBP) and UPF intake can be explained by the changes in salt intake in England between 2008-2012 and 2015-2019? 
+What proportion of the association between blood pressure (SBP/DBP) and UPF intake can be explained by the changes in salt intake in England between 2008 and 2019? 
 
 The question can be split into parts, 
 What was intake of salt between 2008 and 2019?
@@ -49,10 +49,12 @@ What was BP between 2008 and 2019?
 Did each of these change over that time and how?
 Did the changes in any one affect any other?
 What are the sizes of the changes?
+Which element was most important in these changes?
 
 All of these questions look for numbers as answers. 
 
 Answering the question starts with counting.
+The collected numbers are then compared in different ways to answer each part of the question.
 
 ## National Dietary and Nutritional Survey
 
@@ -65,8 +67,9 @@ The study is designed to be representative across the whole area.
 This is a rolling cohort study which each year selects a new cohort of participants. 
 The sample is approximately 1000 per year with 50% adults. 
 The design has a random selection across postal units (psu). 
+This is stratified to ensure a representative sample across the four nations and across regions within those countries. The sample is also representative for age and sex.
 
-Having taken up the study participants complete a 4 day food diary, and have an interview with a nurse which includes taking several measurements.
+Having taken up the study participants complete a 4 day food diary, and have an interview with a nurse which includes taking several measurements. Weighting is given for each annual survey to enable comparison across the years taking account for alterations in uptake and response completion.
 
 ### NDNS Dataset
 
@@ -77,19 +80,19 @@ This is calculated from the diary using nutritional tables which are published a
 The dataset is available via the UK national Data service for research purposes.
 
 
-NDNS began before Monteiro's processing based classification was developed. 
-There is no record of Nova food type in NDNS. This has bee calculated from the food descriptions. 
+NDNS began before Monteiro's processing based classification, Nova , was developed. 
+There is no record of Nova food type in NDNS. This has been calculated from the food descriptions. 
 I have used a table from Rauber et al., but also one from Colombet (personal communication)
 
 ### University Research Governance and Ethical Review
 
-The research has beencarried out under the Universtiy governance. A proposal was discussed and agreed within the department. 
+The research has been carried out under the University governance. A proposal was discussed and agreed within the department. 
 The need for ethical review was considered using the university research tool. 
-The fact that the data is anonymised and there was no contact with participants means that there is minimal risk of hram to research participants.
+The fact that the data is anonymised and there was no contact with participants means that there is minimal risk of harm to research participants.
 
-Other ethical issues include data custodianship ensurign that the the rights of the owners of the data and of the participants are still considered as part of the process of analysis and dissemination of the research.
+Other ethical issues include data custodianship ensuring that the the rights of the owners of the data and of the participants are still considered as part of the process of analysis and dissemination of the research.
 
-Issues around the power structures which lead to privelage one research project or proposal over another are considered more in the positionality section.
+Issues around the power structures which lead to privilege one research project or proposal over another are considered more in the positionality section.
 
 ## Data Processing
 
@@ -103,13 +106,7 @@ These result from differences in compliance and uptake within and across the yea
 
 The years are amalgamated and the nature of the variables is specified.
 
-The food diaries need processing to identifiy the UPF intake.
-Each persons food diary entries are assessed against the Nova food classification from Rauber. 
-Then the weight and energy content of the days food is calculated by Nova group. 
-This is added to the intake for the other 3 days and the total intake by nova group established.
 
-The percentage of the total intake by weight and by energy is then calculated for each of the 4 nova categories.
-Nova group 4 or UPF intake is used for the study.
 
 
 
@@ -118,28 +115,38 @@ Nova group 4 or UPF intake is used for the study.
 ### Descriptive data analysis
 
 
-The data is summarised, with Mean median, and range for the key continuous variables.
-The key variables are omsysval, UPF intake and sodiummg.
+The data is summarised, with mean, median, and range for the key continuous variables.
+The key variables are systolic BP (omsysval), UPF intake (Epcnt_4) and Sodium intake (sodiummg).
 These variables are the ones which most relate to the research question.
-First for years 1-4 then for 9-11.
+
 
 There are a number of related variables in the dataset.
 These were chosen for reliability and practicality.
 These variables are ones which can also influence BP.
 They include Age, Sex, BMI, height and weight.
+Age at completion of education (educfinh), and IMD are also used. 
 The population for years 1-4 are compared with those for years 9-11.
 
 The omsysval is a validated measurement with significant quality assessment within the dataset.
-Raw systolic values are present in the dataset but are made up of data with issues around quality.
-In particular the systolic values are assessed for the effects of exercise, temperature and ill health.
+Raw systolic BP values are present in the dataset but are made up of data with issues around quality.
+In particular the systolic BP values are assessed for the effects of exercise, temperature and ill health.
 The variable omsysval is a quality assured mean value which is reliable across the dataset.
 
 The sodium value is one calculated from intake based on food diaries and standard food nutrient values.
 This only reflects standard foods and is the result of assumptions about the content being consistent.
 Serum sodium values are available for the early dataset, but not the later one.
 There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods.
-The Data is displayed in table x with minimum, mean, median, and maximum values. 
-The exposure variables are sodium intake (Sodiummg), and ultra processed food intake (UPF_4).
+
+The food diaries need processing to identify the UPF intake.
+Each persons food diary entries are assessed against the Nova food classification from Rauber. 
+Then the weight and energy content of the days food is calculated by Nova group. 
+This is added to the intake for the other 3 days and the total intake by Nova group established.
+
+The percentage of the total intake by weight (pcnt_4) and by energy (Epcnt_4)is then calculated for each of the 4 Nova categories.
+Nova group 4 or UPF intake is used for the study.
+
+Mean values for the data are displayed with a comparison for weighted values.
+The exposure variables are sodium intake (Sodiummg), and ultra processed food intake (Epcnt_4).
 The outcome variable are the mean systolic blood pressure (omsysval). 
 
 
@@ -158,8 +165,9 @@ This additional analysis is not presented here.
 
 The second phase of analysis uses standard techniques to compare the means of the populations. 
 A student's t test is used as the populations are normally distributed continuous variables. 
-The t tests compare the sodium, UPF, and systolic BP in the cohort from 2008-2012 with that from 2017-2019.
-This will show how the intake has changed, and the same for the outcome.
+The t tests compare the sodium, UPF, and systolic BP in the early cohort from teh later.
+This will show how the intake and outcome have changed.
+
 These are not the same participants so matched analysis, or time series analysis is not directly applicable.
 
 Plots will be given to show the values in each of the available eleven cohorts.
@@ -175,14 +183,14 @@ There is also anova analysis to understand the statistical significance of these
 
 ### Multiple Regression
 
-Multivariable regression models are then developed to understand the interactions between variables and to develop a mathematical model. 
+Multivariable regression models are then developed to understand the interactions between variables and to develop a mathematical model of the relationship. 
 The optimal model is one which best explains the pattern of data, but which also makes practical sense for the wider understanding of relationships.
 Assessment techniques try to understand the importance of including particular variables, and the form in which they are best included. 
 
 ### AIC and sensitivty Anaylsis
 
 This section compares models side by side using assessment techniques to identify the best way of describing the data. 
-The 'best' in part is determined by the whether a mode is needed to predict more data, or just to understand the data available.
+The 'best' in part is determined by the whether a model is needed to predict more data, or just to understand the data available.
 Here it is about how best to describe the relationship between Na, UPF, and BP.
 
 ##  Method Conclusion
@@ -314,7 +322,7 @@ This section has highlighted how the material for the study is brought together 
 
 
 
-#  Results Section
+#  Results 
 ##  Results Introduction
 
 The results derive from the method outlined above and follow the pattern described. 
@@ -351,12 +359,12 @@ This first table highlights the data from the years 2008-2012 at the beginning o
 ```
 
 ```{=html}
-<div id="cprknkepis" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xramawlzgf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#cprknkepis .gt_table {
+#xramawlzgf .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -381,7 +389,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-left-color: #D3D3D3;
 }
 
-#cprknkepis .gt_heading {
+#xramawlzgf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -393,12 +401,12 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#cprknkepis .gt_caption {
+#xramawlzgf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cprknkepis .gt_title {
+#xramawlzgf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -410,7 +418,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-width: 0;
 }
 
-#cprknkepis .gt_subtitle {
+#xramawlzgf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -422,13 +430,13 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-top-width: 0;
 }
 
-#cprknkepis .gt_bottom_border {
+#xramawlzgf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cprknkepis .gt_col_headings {
+#xramawlzgf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -443,7 +451,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#cprknkepis .gt_col_heading {
+#xramawlzgf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -463,7 +471,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   overflow-x: hidden;
 }
 
-#cprknkepis .gt_column_spanner_outer {
+#xramawlzgf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -475,15 +483,15 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 4px;
 }
 
-#cprknkepis .gt_column_spanner_outer:first-child {
+#xramawlzgf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cprknkepis .gt_column_spanner_outer:last-child {
+#xramawlzgf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cprknkepis .gt_column_spanner {
+#xramawlzgf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -495,7 +503,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   width: 100%;
 }
 
-#cprknkepis .gt_group_heading {
+#xramawlzgf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -521,7 +529,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   text-align: left;
 }
 
-#cprknkepis .gt_empty_group_heading {
+#xramawlzgf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -536,15 +544,15 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   vertical-align: middle;
 }
 
-#cprknkepis .gt_from_md > :first-child {
+#xramawlzgf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cprknkepis .gt_from_md > :last-child {
+#xramawlzgf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cprknkepis .gt_row {
+#xramawlzgf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -563,7 +571,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   overflow-x: hidden;
 }
 
-#cprknkepis .gt_stub {
+#xramawlzgf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -576,7 +584,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#cprknkepis .gt_stub_row_group {
+#xramawlzgf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -590,11 +598,11 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   vertical-align: top;
 }
 
-#cprknkepis .gt_row_group_first td {
+#xramawlzgf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cprknkepis .gt_summary_row {
+#xramawlzgf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -604,16 +612,16 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#cprknkepis .gt_first_summary_row {
+#xramawlzgf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cprknkepis .gt_first_summary_row.thick {
+#xramawlzgf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cprknkepis .gt_last_summary_row {
+#xramawlzgf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -623,7 +631,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-color: #D3D3D3;
 }
 
-#cprknkepis .gt_grand_summary_row {
+#xramawlzgf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -633,7 +641,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#cprknkepis .gt_first_grand_summary_row {
+#xramawlzgf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -643,11 +651,11 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-top-color: #D3D3D3;
 }
 
-#cprknkepis .gt_striped {
+#xramawlzgf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cprknkepis .gt_table_body {
+#xramawlzgf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -656,7 +664,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-color: #D3D3D3;
 }
 
-#cprknkepis .gt_footnotes {
+#xramawlzgf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -670,7 +678,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#cprknkepis .gt_footnote {
+#xramawlzgf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -679,7 +687,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#cprknkepis .gt_sourcenotes {
+#xramawlzgf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -693,7 +701,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#cprknkepis .gt_sourcenote {
+#xramawlzgf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -701,64 +709,64 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#cprknkepis .gt_left {
+#xramawlzgf .gt_left {
   text-align: left;
 }
 
-#cprknkepis .gt_center {
+#xramawlzgf .gt_center {
   text-align: center;
 }
 
-#cprknkepis .gt_right {
+#xramawlzgf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cprknkepis .gt_font_normal {
+#xramawlzgf .gt_font_normal {
   font-weight: normal;
 }
 
-#cprknkepis .gt_font_bold {
+#xramawlzgf .gt_font_bold {
   font-weight: bold;
 }
 
-#cprknkepis .gt_font_italic {
+#xramawlzgf .gt_font_italic {
   font-style: italic;
 }
 
-#cprknkepis .gt_super {
+#xramawlzgf .gt_super {
   font-size: 65%;
 }
 
-#cprknkepis .gt_footnote_marks {
+#xramawlzgf .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#cprknkepis .gt_asterisk {
+#xramawlzgf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cprknkepis .gt_indent_1 {
+#xramawlzgf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cprknkepis .gt_indent_2 {
+#xramawlzgf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cprknkepis .gt_indent_3 {
+#xramawlzgf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cprknkepis .gt_indent_4 {
+#xramawlzgf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cprknkepis .gt_indent_5 {
+#xramawlzgf .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -791,12 +799,12 @@ This first table highlights the data from the years 2008-2012 at the beginning o
 ```
 
 ```{=html}
-<div id="jakzlarnaz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="szxucglmbx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#jakzlarnaz .gt_table {
+#szxucglmbx .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -821,7 +829,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-left-color: #D3D3D3;
 }
 
-#jakzlarnaz .gt_heading {
+#szxucglmbx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -833,12 +841,12 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#jakzlarnaz .gt_caption {
+#szxucglmbx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jakzlarnaz .gt_title {
+#szxucglmbx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -850,7 +858,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-width: 0;
 }
 
-#jakzlarnaz .gt_subtitle {
+#szxucglmbx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -862,13 +870,13 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-top-width: 0;
 }
 
-#jakzlarnaz .gt_bottom_border {
+#szxucglmbx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jakzlarnaz .gt_col_headings {
+#szxucglmbx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -883,7 +891,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#jakzlarnaz .gt_col_heading {
+#szxucglmbx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -903,7 +911,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   overflow-x: hidden;
 }
 
-#jakzlarnaz .gt_column_spanner_outer {
+#szxucglmbx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -915,15 +923,15 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 4px;
 }
 
-#jakzlarnaz .gt_column_spanner_outer:first-child {
+#szxucglmbx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jakzlarnaz .gt_column_spanner_outer:last-child {
+#szxucglmbx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jakzlarnaz .gt_column_spanner {
+#szxucglmbx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -935,7 +943,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   width: 100%;
 }
 
-#jakzlarnaz .gt_group_heading {
+#szxucglmbx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -961,7 +969,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   text-align: left;
 }
 
-#jakzlarnaz .gt_empty_group_heading {
+#szxucglmbx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -976,15 +984,15 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   vertical-align: middle;
 }
 
-#jakzlarnaz .gt_from_md > :first-child {
+#szxucglmbx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jakzlarnaz .gt_from_md > :last-child {
+#szxucglmbx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jakzlarnaz .gt_row {
+#szxucglmbx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1003,7 +1011,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   overflow-x: hidden;
 }
 
-#jakzlarnaz .gt_stub {
+#szxucglmbx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1016,7 +1024,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#jakzlarnaz .gt_stub_row_group {
+#szxucglmbx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1030,11 +1038,11 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   vertical-align: top;
 }
 
-#jakzlarnaz .gt_row_group_first td {
+#szxucglmbx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jakzlarnaz .gt_summary_row {
+#szxucglmbx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1044,16 +1052,16 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#jakzlarnaz .gt_first_summary_row {
+#szxucglmbx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jakzlarnaz .gt_first_summary_row.thick {
+#szxucglmbx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jakzlarnaz .gt_last_summary_row {
+#szxucglmbx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1063,7 +1071,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-color: #D3D3D3;
 }
 
-#jakzlarnaz .gt_grand_summary_row {
+#szxucglmbx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1073,7 +1081,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#jakzlarnaz .gt_first_grand_summary_row {
+#szxucglmbx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1083,11 +1091,11 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-top-color: #D3D3D3;
 }
 
-#jakzlarnaz .gt_striped {
+#szxucglmbx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jakzlarnaz .gt_table_body {
+#szxucglmbx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1096,7 +1104,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-bottom-color: #D3D3D3;
 }
 
-#jakzlarnaz .gt_footnotes {
+#szxucglmbx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1110,7 +1118,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#jakzlarnaz .gt_footnote {
+#szxucglmbx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1119,7 +1127,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#jakzlarnaz .gt_sourcenotes {
+#szxucglmbx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1133,7 +1141,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   border-right-color: #D3D3D3;
 }
 
-#jakzlarnaz .gt_sourcenote {
+#szxucglmbx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1141,64 +1149,64 @@ This first table highlights the data from the years 2008-2012 at the beginning o
   padding-right: 5px;
 }
 
-#jakzlarnaz .gt_left {
+#szxucglmbx .gt_left {
   text-align: left;
 }
 
-#jakzlarnaz .gt_center {
+#szxucglmbx .gt_center {
   text-align: center;
 }
 
-#jakzlarnaz .gt_right {
+#szxucglmbx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jakzlarnaz .gt_font_normal {
+#szxucglmbx .gt_font_normal {
   font-weight: normal;
 }
 
-#jakzlarnaz .gt_font_bold {
+#szxucglmbx .gt_font_bold {
   font-weight: bold;
 }
 
-#jakzlarnaz .gt_font_italic {
+#szxucglmbx .gt_font_italic {
   font-style: italic;
 }
 
-#jakzlarnaz .gt_super {
+#szxucglmbx .gt_super {
   font-size: 65%;
 }
 
-#jakzlarnaz .gt_footnote_marks {
+#szxucglmbx .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#jakzlarnaz .gt_asterisk {
+#szxucglmbx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jakzlarnaz .gt_indent_1 {
+#szxucglmbx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jakzlarnaz .gt_indent_2 {
+#szxucglmbx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jakzlarnaz .gt_indent_3 {
+#szxucglmbx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jakzlarnaz .gt_indent_4 {
+#szxucglmbx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jakzlarnaz .gt_indent_5 {
+#szxucglmbx .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1230,6 +1238,7 @@ This first table highlights the data from the years 2008-2012 at the beginning o
 </div>
 ```
 The second table show the data from the second cohort 2017-19.
+The weighted values follow the unweighted/raw values.
 
 
 ```
@@ -1248,12 +1257,12 @@ The second table show the data from the second cohort 2017-19.
 ```
 
 ```{=html}
-<div id="ulucpzawrj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="uxdxsdddka" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ulucpzawrj .gt_table {
+#uxdxsdddka .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1278,7 +1287,7 @@ The second table show the data from the second cohort 2017-19.
   border-left-color: #D3D3D3;
 }
 
-#ulucpzawrj .gt_heading {
+#uxdxsdddka .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1290,12 +1299,12 @@ The second table show the data from the second cohort 2017-19.
   border-right-color: #D3D3D3;
 }
 
-#ulucpzawrj .gt_caption {
+#uxdxsdddka .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ulucpzawrj .gt_title {
+#uxdxsdddka .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1307,7 +1316,7 @@ The second table show the data from the second cohort 2017-19.
   border-bottom-width: 0;
 }
 
-#ulucpzawrj .gt_subtitle {
+#uxdxsdddka .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1319,13 +1328,13 @@ The second table show the data from the second cohort 2017-19.
   border-top-width: 0;
 }
 
-#ulucpzawrj .gt_bottom_border {
+#uxdxsdddka .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ulucpzawrj .gt_col_headings {
+#uxdxsdddka .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1340,7 +1349,7 @@ The second table show the data from the second cohort 2017-19.
   border-right-color: #D3D3D3;
 }
 
-#ulucpzawrj .gt_col_heading {
+#uxdxsdddka .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1360,7 +1369,7 @@ The second table show the data from the second cohort 2017-19.
   overflow-x: hidden;
 }
 
-#ulucpzawrj .gt_column_spanner_outer {
+#uxdxsdddka .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1372,15 +1381,15 @@ The second table show the data from the second cohort 2017-19.
   padding-right: 4px;
 }
 
-#ulucpzawrj .gt_column_spanner_outer:first-child {
+#uxdxsdddka .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ulucpzawrj .gt_column_spanner_outer:last-child {
+#uxdxsdddka .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ulucpzawrj .gt_column_spanner {
+#uxdxsdddka .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1392,7 +1401,7 @@ The second table show the data from the second cohort 2017-19.
   width: 100%;
 }
 
-#ulucpzawrj .gt_group_heading {
+#uxdxsdddka .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1418,7 +1427,7 @@ The second table show the data from the second cohort 2017-19.
   text-align: left;
 }
 
-#ulucpzawrj .gt_empty_group_heading {
+#uxdxsdddka .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1433,15 +1442,15 @@ The second table show the data from the second cohort 2017-19.
   vertical-align: middle;
 }
 
-#ulucpzawrj .gt_from_md > :first-child {
+#uxdxsdddka .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ulucpzawrj .gt_from_md > :last-child {
+#uxdxsdddka .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ulucpzawrj .gt_row {
+#uxdxsdddka .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1460,7 +1469,7 @@ The second table show the data from the second cohort 2017-19.
   overflow-x: hidden;
 }
 
-#ulucpzawrj .gt_stub {
+#uxdxsdddka .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1473,7 +1482,7 @@ The second table show the data from the second cohort 2017-19.
   padding-right: 5px;
 }
 
-#ulucpzawrj .gt_stub_row_group {
+#uxdxsdddka .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1487,11 +1496,11 @@ The second table show the data from the second cohort 2017-19.
   vertical-align: top;
 }
 
-#ulucpzawrj .gt_row_group_first td {
+#uxdxsdddka .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ulucpzawrj .gt_summary_row {
+#uxdxsdddka .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1501,16 +1510,16 @@ The second table show the data from the second cohort 2017-19.
   padding-right: 5px;
 }
 
-#ulucpzawrj .gt_first_summary_row {
+#uxdxsdddka .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ulucpzawrj .gt_first_summary_row.thick {
+#uxdxsdddka .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ulucpzawrj .gt_last_summary_row {
+#uxdxsdddka .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1520,7 +1529,7 @@ The second table show the data from the second cohort 2017-19.
   border-bottom-color: #D3D3D3;
 }
 
-#ulucpzawrj .gt_grand_summary_row {
+#uxdxsdddka .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1530,7 +1539,7 @@ The second table show the data from the second cohort 2017-19.
   padding-right: 5px;
 }
 
-#ulucpzawrj .gt_first_grand_summary_row {
+#uxdxsdddka .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1540,11 +1549,11 @@ The second table show the data from the second cohort 2017-19.
   border-top-color: #D3D3D3;
 }
 
-#ulucpzawrj .gt_striped {
+#uxdxsdddka .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ulucpzawrj .gt_table_body {
+#uxdxsdddka .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1553,7 +1562,7 @@ The second table show the data from the second cohort 2017-19.
   border-bottom-color: #D3D3D3;
 }
 
-#ulucpzawrj .gt_footnotes {
+#uxdxsdddka .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1567,7 +1576,7 @@ The second table show the data from the second cohort 2017-19.
   border-right-color: #D3D3D3;
 }
 
-#ulucpzawrj .gt_footnote {
+#uxdxsdddka .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1576,7 +1585,7 @@ The second table show the data from the second cohort 2017-19.
   padding-right: 5px;
 }
 
-#ulucpzawrj .gt_sourcenotes {
+#uxdxsdddka .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1590,7 +1599,7 @@ The second table show the data from the second cohort 2017-19.
   border-right-color: #D3D3D3;
 }
 
-#ulucpzawrj .gt_sourcenote {
+#uxdxsdddka .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1598,64 +1607,64 @@ The second table show the data from the second cohort 2017-19.
   padding-right: 5px;
 }
 
-#ulucpzawrj .gt_left {
+#uxdxsdddka .gt_left {
   text-align: left;
 }
 
-#ulucpzawrj .gt_center {
+#uxdxsdddka .gt_center {
   text-align: center;
 }
 
-#ulucpzawrj .gt_right {
+#uxdxsdddka .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ulucpzawrj .gt_font_normal {
+#uxdxsdddka .gt_font_normal {
   font-weight: normal;
 }
 
-#ulucpzawrj .gt_font_bold {
+#uxdxsdddka .gt_font_bold {
   font-weight: bold;
 }
 
-#ulucpzawrj .gt_font_italic {
+#uxdxsdddka .gt_font_italic {
   font-style: italic;
 }
 
-#ulucpzawrj .gt_super {
+#uxdxsdddka .gt_super {
   font-size: 65%;
 }
 
-#ulucpzawrj .gt_footnote_marks {
+#uxdxsdddka .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#ulucpzawrj .gt_asterisk {
+#uxdxsdddka .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ulucpzawrj .gt_indent_1 {
+#uxdxsdddka .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ulucpzawrj .gt_indent_2 {
+#uxdxsdddka .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ulucpzawrj .gt_indent_3 {
+#uxdxsdddka .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ulucpzawrj .gt_indent_4 {
+#uxdxsdddka .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ulucpzawrj .gt_indent_5 {
+#uxdxsdddka .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1688,12 +1697,12 @@ The second table show the data from the second cohort 2017-19.
 ```
 
 ```{=html}
-<div id="fpwpoysjdm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xlqugcpsis" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fpwpoysjdm .gt_table {
+#xlqugcpsis .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1718,7 +1727,7 @@ The second table show the data from the second cohort 2017-19.
   border-left-color: #D3D3D3;
 }
 
-#fpwpoysjdm .gt_heading {
+#xlqugcpsis .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1730,12 +1739,12 @@ The second table show the data from the second cohort 2017-19.
   border-right-color: #D3D3D3;
 }
 
-#fpwpoysjdm .gt_caption {
+#xlqugcpsis .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fpwpoysjdm .gt_title {
+#xlqugcpsis .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1747,7 +1756,7 @@ The second table show the data from the second cohort 2017-19.
   border-bottom-width: 0;
 }
 
-#fpwpoysjdm .gt_subtitle {
+#xlqugcpsis .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1759,13 +1768,13 @@ The second table show the data from the second cohort 2017-19.
   border-top-width: 0;
 }
 
-#fpwpoysjdm .gt_bottom_border {
+#xlqugcpsis .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fpwpoysjdm .gt_col_headings {
+#xlqugcpsis .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1780,7 +1789,7 @@ The second table show the data from the second cohort 2017-19.
   border-right-color: #D3D3D3;
 }
 
-#fpwpoysjdm .gt_col_heading {
+#xlqugcpsis .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1800,7 +1809,7 @@ The second table show the data from the second cohort 2017-19.
   overflow-x: hidden;
 }
 
-#fpwpoysjdm .gt_column_spanner_outer {
+#xlqugcpsis .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1812,15 +1821,15 @@ The second table show the data from the second cohort 2017-19.
   padding-right: 4px;
 }
 
-#fpwpoysjdm .gt_column_spanner_outer:first-child {
+#xlqugcpsis .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fpwpoysjdm .gt_column_spanner_outer:last-child {
+#xlqugcpsis .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fpwpoysjdm .gt_column_spanner {
+#xlqugcpsis .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1832,7 +1841,7 @@ The second table show the data from the second cohort 2017-19.
   width: 100%;
 }
 
-#fpwpoysjdm .gt_group_heading {
+#xlqugcpsis .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1858,7 +1867,7 @@ The second table show the data from the second cohort 2017-19.
   text-align: left;
 }
 
-#fpwpoysjdm .gt_empty_group_heading {
+#xlqugcpsis .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1873,15 +1882,15 @@ The second table show the data from the second cohort 2017-19.
   vertical-align: middle;
 }
 
-#fpwpoysjdm .gt_from_md > :first-child {
+#xlqugcpsis .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fpwpoysjdm .gt_from_md > :last-child {
+#xlqugcpsis .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fpwpoysjdm .gt_row {
+#xlqugcpsis .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1900,7 +1909,7 @@ The second table show the data from the second cohort 2017-19.
   overflow-x: hidden;
 }
 
-#fpwpoysjdm .gt_stub {
+#xlqugcpsis .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1913,7 +1922,7 @@ The second table show the data from the second cohort 2017-19.
   padding-right: 5px;
 }
 
-#fpwpoysjdm .gt_stub_row_group {
+#xlqugcpsis .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1927,11 +1936,11 @@ The second table show the data from the second cohort 2017-19.
   vertical-align: top;
 }
 
-#fpwpoysjdm .gt_row_group_first td {
+#xlqugcpsis .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fpwpoysjdm .gt_summary_row {
+#xlqugcpsis .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1941,16 +1950,16 @@ The second table show the data from the second cohort 2017-19.
   padding-right: 5px;
 }
 
-#fpwpoysjdm .gt_first_summary_row {
+#xlqugcpsis .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fpwpoysjdm .gt_first_summary_row.thick {
+#xlqugcpsis .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fpwpoysjdm .gt_last_summary_row {
+#xlqugcpsis .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1960,7 +1969,7 @@ The second table show the data from the second cohort 2017-19.
   border-bottom-color: #D3D3D3;
 }
 
-#fpwpoysjdm .gt_grand_summary_row {
+#xlqugcpsis .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1970,7 +1979,7 @@ The second table show the data from the second cohort 2017-19.
   padding-right: 5px;
 }
 
-#fpwpoysjdm .gt_first_grand_summary_row {
+#xlqugcpsis .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1980,11 +1989,11 @@ The second table show the data from the second cohort 2017-19.
   border-top-color: #D3D3D3;
 }
 
-#fpwpoysjdm .gt_striped {
+#xlqugcpsis .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fpwpoysjdm .gt_table_body {
+#xlqugcpsis .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1993,7 +2002,7 @@ The second table show the data from the second cohort 2017-19.
   border-bottom-color: #D3D3D3;
 }
 
-#fpwpoysjdm .gt_footnotes {
+#xlqugcpsis .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2007,7 +2016,7 @@ The second table show the data from the second cohort 2017-19.
   border-right-color: #D3D3D3;
 }
 
-#fpwpoysjdm .gt_footnote {
+#xlqugcpsis .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2016,7 +2025,7 @@ The second table show the data from the second cohort 2017-19.
   padding-right: 5px;
 }
 
-#fpwpoysjdm .gt_sourcenotes {
+#xlqugcpsis .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2030,7 +2039,7 @@ The second table show the data from the second cohort 2017-19.
   border-right-color: #D3D3D3;
 }
 
-#fpwpoysjdm .gt_sourcenote {
+#xlqugcpsis .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2038,64 +2047,64 @@ The second table show the data from the second cohort 2017-19.
   padding-right: 5px;
 }
 
-#fpwpoysjdm .gt_left {
+#xlqugcpsis .gt_left {
   text-align: left;
 }
 
-#fpwpoysjdm .gt_center {
+#xlqugcpsis .gt_center {
   text-align: center;
 }
 
-#fpwpoysjdm .gt_right {
+#xlqugcpsis .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fpwpoysjdm .gt_font_normal {
+#xlqugcpsis .gt_font_normal {
   font-weight: normal;
 }
 
-#fpwpoysjdm .gt_font_bold {
+#xlqugcpsis .gt_font_bold {
   font-weight: bold;
 }
 
-#fpwpoysjdm .gt_font_italic {
+#xlqugcpsis .gt_font_italic {
   font-style: italic;
 }
 
-#fpwpoysjdm .gt_super {
+#xlqugcpsis .gt_super {
   font-size: 65%;
 }
 
-#fpwpoysjdm .gt_footnote_marks {
+#xlqugcpsis .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#fpwpoysjdm .gt_asterisk {
+#xlqugcpsis .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fpwpoysjdm .gt_indent_1 {
+#xlqugcpsis .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fpwpoysjdm .gt_indent_2 {
+#xlqugcpsis .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fpwpoysjdm .gt_indent_3 {
+#xlqugcpsis .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fpwpoysjdm .gt_indent_4 {
+#xlqugcpsis .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fpwpoysjdm .gt_indent_5 {
+#xlqugcpsis .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2143,7 +2152,7 @@ The graphs show that there is not a visible difference between the years. Statis
 
 ### Comparison of key variables
 
-####  comparing UPF and Sodium intake calculated from diet
+ comparing UPF and Sodium intake calculated from diet
 
 In order to confirm there has been a change in intake a t.test compares the means of the two samples.
 One compares the means of sodium in years 1-4 with sodium in years 9-11.
@@ -2204,7 +2213,7 @@ A third compares the percentage energy provided by UPF.
 It seems the mean percentage UPF intake changes from 48.8% to 59.2% energy and this increase is statistically significant.
 The mean sodium intake has changed from  2156.30 mg to 2574.33 mg and is also statistically significant with a p value less than 0.05.
 
-#### what about outcome BP?
+ what about outcome BP?
 
 The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
 
@@ -2234,24 +2243,24 @@ In summary there is statistically significant change in UPF and Na intake and al
 
 Has another factor affected the BP change ?
 
-#### Statistical analysis of other variables
+### Comparative analysis of other variables
 
 How are variables distributed between the two cohorts. 
 The NDNS dataset was weighted to keep many of these the same between datasets.
 Continuous variables are assessed using ttests and categorical variables using chi squared tests to give p.values.
 
-######  Age and Sex
+  Age and Sex
 The age of the two datasets has changed but not in a statistically significant way.
 
 
 ```r
-ttestage <- svyttest(Age ~ SurveyYear >=5, ndns_1_11ed)
+ttestage <- svyttest(Age ~ SurveyYear >=6, ndns_1_11ed)
 ttestage$statistic
 ```
 
 ```
 ##         t 
-## -4.962318
+## -3.029559
 ```
 
 ```r
@@ -2260,8 +2269,8 @@ ttestage$conf.int
 ```
 
 ```
-##                         2.5 %    97.5 %
-## SurveyYear >= 5TRUE -7.493836 -3.243331
+##                         2.5 %     97.5 %
+## SurveyYear >= 6TRUE -4.473062 -0.9540307
 ## attr(,"conf.level")
 ## [1] 0.95
 ```
@@ -2473,7 +2482,7 @@ vegchi$p.value
 
 ## Regression Analysis
 
-### linear regression
+#### Linear Regression
 
 Simple linear regression equations look for the relationship between the dependant variable, and the independent variable.
 For these I am looking at the whole dataset 
@@ -2490,57 +2499,26 @@ These use the populations where participants have been excluded.
 
 
 ```
-## Stratified 1 - level Cluster Sampling design (with replacement)
-## With (1294) clusters.
-## subset(ndns_1_11ed, Age > 18)
-## 
-## Call:  svyglm(formula = omsysval ~ EnergykJ_4, design = ndns_1_11ed)
-## 
-## Coefficients:
-## (Intercept)   EnergykJ_4  
-##   1.112e+02   -2.157e-04  
-## 
-## Degrees of Freedom: 2722 Total (i.e. Null);  533 Residual
-## Null Deviance:	    4282000 
-## Residual Deviance: 4276000 	AIC: 28700
+##   (Intercept)    EnergykJ_4 
+##  1.111762e+02 -2.157041e-04
 ```
 
 then sodiummg
 
 
 ```
-## Stratified 1 - level Cluster Sampling design (with replacement)
-## With (1294) clusters.
-## subset(ndns_1_11ed, Age > 18)
-## 
-## Call:  svyglm(formula = omsysval ~ Sodiummg, design = ndns_1_11ed)
-## 
-## Coefficients:
-## (Intercept)     Sodiummg  
-##  111.957113    -0.001817  
-## 
-## Degrees of Freedom: 2722 Total (i.e. Null);  533 Residual
-## Null Deviance:	    4282000 
-## Residual Deviance: 4277000 	AIC: 28700
-```
-
-```
-## NULL
-```
-
-```
-##     eff.p       AIC  deltabar 
-##  2.670564 23.015078  1.335282
+##   (Intercept)      Sodiummg 
+## 111.957112528  -0.001816932
 ```
 
 There are relationships between Na and g pcnt as well as E pcnt and omsysval .
 
 
-In conclusion the linear regression models show that there are statistically significant positive correlations between the systolic BP and each of the key variables.
+In conclusion the linear regression models show that there are  correlations between the systolic BP and each of the key variables.
 
 
 
-### multi variable regression
+#### multi variable regression
 
 This uses a model of variables.
 It can highlight the contributions of each variable.
@@ -2554,29 +2532,14 @@ This first model looks at the relationships between BP and Age and Sex education
 
 
 ```
-## Stratified 1 - level Cluster Sampling design (with replacement)
-## With (692) clusters.
-## subset(ndns_1_11ed, Age > 18)
-## 
-## Call:  svyglm(formula = omsysval ~ Age + Sex + bmival + educfinh + EIMD_2010_quintile, 
-##     design = ndns_1_11ed, na.action = na.exclude)
-## 
-## Coefficients:
-##         (Intercept)                  Age            SexFemale  
-##             85.8191               0.3084              -2.7208  
-##              bmival            educfinh2            educfinh3  
-##              0.6406              18.9841              -2.2688  
-##           educfinh4            educfinh5            educfinh6  
-##             -1.8390              -3.7693              -9.6013  
-##           educfinh7            educfinh8  EIMD_2010_quintile2  
-##             -2.4369              -1.3726              -2.0402  
-## EIMD_2010_quintile3  EIMD_2010_quintile4  EIMD_2010_quintile5  
-##             -1.9971              -4.1453              -5.4437  
-## 
-## Degrees of Freedom: 1404 Total (i.e. Null);  279 Residual
-##   (1318 observations deleted due to missingness)
-## Null Deviance:	    2549000 
-## Residual Deviance: 2451000 	AIC: 14300
+##         (Intercept)                 Age           SexFemale              bmival 
+##          85.8191145           0.3083563          -2.7207680           0.6405843 
+##           educfinh2           educfinh3           educfinh4           educfinh5 
+##          18.9841272          -2.2688388          -1.8389628          -3.7693031 
+##           educfinh6           educfinh7           educfinh8 EIMD_2010_quintile2 
+##          -9.6013030          -2.4369487          -1.3725591          -2.0401996 
+## EIMD_2010_quintile3 EIMD_2010_quintile4 EIMD_2010_quintile5 
+##          -1.9970928          -4.1452849          -5.4437472
 ```
 
 ```
@@ -2720,13 +2683,19 @@ lmM2$aic
 
 ```r
 #AIC(lmM,lmMna,lmM2)
+sense1 <- (lm1AS$aic - lmM2$aic)*100/lm1AS$aic 
+sense1
+```
+
+```
+## [1] -0.02169342
 ```
 we find that the lowest AIC is given by the model without UPF!!
 Though all the models with UPF have a lower aic than the model without.
 
 
 
-## Summary of Results
+###  Summary of Results
 
 There is a table with summary values for the key variables across the dataset.
 
