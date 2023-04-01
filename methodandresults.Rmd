@@ -1,14 +1,14 @@
 ---
 title: "bp upf and na"
 output:
-  word_document: 
-    toc: yes
-    fig_caption: yes
-    keep_md: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
+    keep_md: yes
+  word_document: 
+    toc: yes
+    fig_caption: yes
     keep_md: yes
   pdf_document:
     toc: yes
@@ -225,6 +225,8 @@ library(labelled)
 library(survey)
 library(srvyr)
 library(gtsummary)
+library(stargazer)
+library(knitr)
 ```
 
 ```{r read data, message=FALSE, warning=FALSE, include=FALSE}
@@ -1123,17 +1125,17 @@ ndns_1_11ed <- subset( ndns_1_11d, omsysval <= 150)
 
 
 #medication affecting bp
-ndns_1_11e <- ndns_1_11e[diur2 == "Not taking drug"]
-ndns_1_11e <-ndns_1_11e[beta2 == "Not taking drug"]
-ndns_1_11e <-ndns_1_11e[aceinh2 == "Not taking drug"]
-ndns_1_11e <-ndns_1_11e[calciumb2 =="Not taking drug"]
-ndns_1_11e <- ndns_1_11e[obpdrug2 == "Not taking drug"]
+#ndns_1_11e <- ndns_1_11e[diur2 == "Not taking drug"]
+#ndns_1_11e <-ndns_1_11e[beta2 == "Not taking drug"]
+#ndns_1_11e <-ndns_1_11e[aceinh2 == "Not taking drug"]
+#ndns_1_11e <-ndns_1_11e[calciumb2 =="Not taking drug"]
+#ndns_1_11e <- ndns_1_11e[obpdrug2 == "Not taking drug"]
 
-ndns_1_11ed <- subset(ndns_1_11ed, diur2 == "Not taking drug")
-ndns_1_11ed <-subset(ndns_1_11ed,beta2 == "Not taking drug")
-ndns_1_11ed <-subset(ndns_1_11ed,aceinh2 == "Not taking drug")
-ndns_1_11ed <-subset(ndns_1_11ed,calciumb2 =="Not taking drug")
-ndns_1_11ed <- subset(ndns_1_11ed,obpdrug2 == "Not taking drug")
+#ndns_1_11ed <- subset(ndns_1_11ed, diur2 == "Not taking drug")
+#ndns_1_11ed <-subset(ndns_1_11ed,beta2 == "Not taking drug")
+#ndns_1_11ed <-subset(ndns_1_11ed,aceinh2 == "Not taking drug")
+#ndns_1_11ed <-subset(ndns_1_11ed,calciumb2 =="Not taking drug")
+#ndns_1_11ed <- subset(ndns_1_11ed,obpdrug2 == "Not taking drug")
 
 
 #ndns_1_11 <- ndns_1_11[Country == "England"]
@@ -1155,62 +1157,33 @@ I will try to discuss the results having already described the method.
 
 This first table highlights the data from the years 2008-2012 at the beginning of the data collection.
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-#ndnssvy <- as_survey(data = ndns_1_11, ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1,nest = TRUE)
 
 first4 <- subset(ndns_1_11d,SurveyYear <= 4 )
-first4ed <- subset(ndns_1_11ed,SurveyYear <= 4 )
-Na4Mean <- svymean(~Sodiummg, first4, na.rm = TRUE)
-Na4Mean
-Sys4mean <- svymean(~omsysval, first4, na.rm = TRUE)
-Sys4mean
-Ep4mean <- svymean(~Epcnt_4, first4, na.rm = TRUE)
-Ep4mean
-#svytable(~Sodiummg+Epcnt_4+omsysval, first4, Ntotal =NULL, round = FALSE)
 
-means200812 <- c(Na4Mean,Ep4mean,Sys4mean)
-means200812
 
-first4ed_d <- as_survey(first4ed)
-class(first4ed_d)
-
-table200812 <- subset(ndns_1_11e,SurveyYear <=4 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
+first4t <- tbl_summary( subset(ndns_1_11,SurveyYear <=4 ),include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
 
-table200812w <-first4ed_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
+first4tw <-tbl_svysummary(first4, include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
 
-table200812
-table200812w
-#first4e_d <- as_survey(first4)
-#class(first4e_d)
-#subset(ndns_1_11e,SurveyYear <=4 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
-#                 statistic = list(all_continuous() ~"{mean} ({sd})"))
-#first4e_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
- #                statistic = list(all_continuous() ~"{mean} ({sd})"))
+first4t
+first4tw
+
 ```
 The second table show the data from the second cohort 2017-19.
 The weighted values follow the unweighted/raw values.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 last3 <- subset(ndns_1_11d,SurveyYear >= 9 )
-last3ed <- subset(ndns_1_11ed,SurveyYear >= 9 )
-Na9Mean <- svymean(~Sodiummg, last3, na.rm = TRUE)
-#Na9Mean
-sys9mean <- svymean(~omsysval, last3, na.rm = TRUE)
-#sys9mean
-Ep9mean <- svymean(~Epcnt_4, last3, na.rm = TRUE)
-#Ep9mean
-means201719 <- c(Na9Mean,Ep9mean,sys9mean)
-means201719
-rbind(means200812,means201719)
 
-last3ed_d <- as_survey(last3ed)
-class(last3ed_d)
 
-subset(ndns_1_11e,SurveyYear >= 9 ) %>% tbl_summary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
+last3t <- tbl_summary(subset(ndns_1_11,SurveyYear >= 9 ), include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
+                 statistic = list(all_continuous() ~"{mean} ({sd}"))
+ last3tw <- tbl_svysummary(last3,include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
-last3ed_d %>% tbl_svysummary(include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
-                 statistic = list(all_continuous() ~"{mean} ({sd})"))
+last3t
+last3tw
 ```
 These tables show that there has been a change between the two cohorts.
 They also show that the weighted samples are different to raw samples identifying the importance of analysing the data across weighted groups.
@@ -1239,9 +1212,9 @@ They also show that the weighted samples are different to raw samples identifyin
 
 #keydata
 
-svyplot(Epcnt_4~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
-svyplot(Sodiummg~SurveyYear,ndns_1_11ed,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
-svyplot(omsysval~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
+svyplot(Epcnt_4~SurveyYear,ndns_1_11d, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
+svyplot(Sodiummg~SurveyYear,ndns_1_11d,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
+svyplot(omsysval~SurveyYear,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
 ```
 These plots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changed over the years.
 The graphs show that there is not a visible difference between the years. Statistical analysis will follow.
@@ -1260,25 +1233,17 @@ The second compares the means of pcnt UPF intake in over the same periods.
 A third compares the percentage energy provided by UPF.
 
 ```{r echo=FALSE}
-ttestNa2 <- svyttest(Sodiummg~(SurveyYear >=5), ndns_1_11d )
-ttestNa2
-ttestEpcnt <- svyttest(Epcnt_4~(SurveyYear >=5), ndns_1_11d )
-ttestEpcnt
-ttestEkJ <- svyttest(EnergykJ_4~(SurveyYear >=5), ndns_1_11d )
-ttestEkJ
+ttestNa2 <- svyglm(Sodiummg~(SurveyYear), ndns_1_11d )
+ttestNa2t<- tbl_regression(ttestNa2)
+ttestEpcnt <- svyglm(Epcnt_4~(SurveyYear), ndns_1_11d )
+ttestEpcntt <- tbl_regression(ttestEpcnt)
+#ttestEkJ <- svyglm(EnergykJ_4~(SurveyYear >=5), ndns_1_11d )
+#ttestEkJ
 
 
+tbl_merge(list(ttestNa2t,ttestEpcntt))
 
 
-ttestNa <- t.test(ndns_1_11[SurveyYear >= 9,Sodiummg*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Sodiummg*wti_UKY1to11])
-ttestpcnt_4 <-t.test(ndns_1_11[SurveyYear >= 9,pcnt_4*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,pcnt_4*wti_UKY1to11])
-ttestEpcnt_4 <-t.test(ndns_1_11[SurveyYear >= 9,Epcnt_4*wti_UKY1to11], ndns_1_11[SurveyYear <= 4,Epcnt_4*wti_UKY1to11])
-
-
-data.table("Var" = c("Epcnt_4","EkJ","Na"),"statistic" = signif(c(ttestEpcnt$statistic,ttestEkJ$statistic,ttestNa2$statistic), digits = 4), "p.value" = signif(c(ttestEpcnt$p.value,ttestEkJ$p.value,ttestNa2$p.value), digits = 4))
-#ttestpcnt_4
-#ttestEpcnt_4
-#ttestNa
 ```
 
 It seems the mean percentage UPF intake changes from 48.8% to 59.2% energy and this increase is statistically significant.
@@ -1292,11 +1257,10 @@ The next t tests compare mean systolic values in the two time periods and then t
 
 
 
-ttestOS <- svyttest(omsysval~SurveyYear >=5, ndns_1_11d )
+ttestOS <- svyglm(omsysval~SurveyYear, ndns_1_11d )
 
-data.table("Var" = c("Sys"),"statistic" = signif(c(ttestOS$statistic), digits= 4), "p.value" = signif(c(ttestOS$p.value), digits = 4))
 
-ttestOS
+tbl_regression(ttestOS)
 ```
 
 There is a change in mean systolic from 122-152 mmHg with a p value of 3.112e -7.
@@ -1315,22 +1279,22 @@ Continuous variables are assessed using ttests and categorical variables using c
 The age of the two datasets has changed but not in a statistically significant way.
 
 ```{r echo=FALSE}
-ttestage <- svyttest(Age ~ SurveyYear >=6, ndns_1_11d)
-ttestage$statistic
-#ttestage$p.value
-ttestage$conf.int
+
+ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11d)
+tbl_regression(ttestage)
+
 ```
 
 
 
 There is a statistically significant change in the sex distribution of the two groups.
 ```{r echo=FALSE}
-tablesex <- svytable(~Sex+(SurveyYear >=5), ndns_1_11d)
-tablesex
-sexchi <- svychisq(~Sex+SurveyYear , ndns_1_11ed)
-sexchi$observed
+#tablesex <- svyglm(~Sex+SurveyYear,design = ndns_1_11d,family = "binomial")
+#tbl_regression(tablesex)
+#sexchi <- svyglm(~SurveyYear+Sex , ndns_1_11ed)
+#tbl_regression(sexchi)
 #ttestage$p.value
-sexchi$p.value 
+#sexchi$p.value
 ```
 This might be due to differences in the numbers of excluded participants.
 In particular there may be more younger people and women taking e.g. bblockers in one group.
@@ -1340,9 +1304,8 @@ In particular there may be more younger people and women taking e.g. bblockers i
 This table suggests that there is a significant difference between the bmi of the groups.
 
 ```{r echo=FALSE}
-ttestbmi <- svyttest(bmival~(SurveyYear >=5), ndns_1_11d)
-ttestbmi$statistic
-ttestbmi$conf.int
+ttestbmi <- svyglm(bmival~(SurveyYear), ndns_1_11d)
+tbl_regression(ttestbmi)
 
 ```
 There is a difference in the age of finishing education.
@@ -1368,8 +1331,9 @@ The differences in qimd, are not statistically significant.
 
 These values identify a significant difference in the number of vegetarians
 ```{r echo=FALSE}
-tableveg <- svytable(~vegetarn +(SurveyYear >=5), ndns_1_11d)
+tableveg <- svytable(~vegetarn +SurveyYear, ndns_1_11d)
 tableveg
+# svyglm(vegetarn,SurveyYear,family = binomial(link = "logit"),ndns_1_11d)
 vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11d)
 vegchi$observed
 #ttestage$p.value
@@ -1409,7 +1373,7 @@ lm1E <- svyglm(omsysval ~ Epcnt_4, ndns_1_11d)
 
 
 
-lm1E$coefficients
+#lm1E$coefficients
 
 #anova(lm1E)
 #AIC(lm1E)
@@ -1426,13 +1390,13 @@ then sodiummg
 #sodium only
 lm1na <- svyglm(omsysval ~ Sodiummg, ndns_1_11d)
 
-(lm1na$coefficients)
+#(lm1na$coefficients)
 
 #anova(lm1na)
 #AIC(lm1na)
 
 #sensemakr(lm1na, treatment = "Sodiummg")
-
+stargazer(lm1na,lm1E,title="Results", align=TRUE, type = "text")
 ```
 
 There are relationships between Na and g pcnt as well as E pcnt and omsysval .
@@ -1454,20 +1418,20 @@ Comparisons between these models are then made using sensitivity analysis, ident
 
 This first model looks at the relationships between BP and Age and Sex education and IMD all of which may have an effect on BP. This model excludes UPF and Na.
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 #linear regression models
 #sodium only
 lm1AS <- svyglm(omsysval ~ Age + Sex +bmival +educfinh + EIMD_2010_quintile , ndns_1_11d, na.action = na.exclude)
 
 
+tbl_regression(lm1AS)
 
 
-
-(lm1AS$coefficients)
+#(lm1AS$coefficients)
 
 anova(lm1AS)
 #AIC(lm1AS)
-lm1AS$aic
+#lm1AS$aic
 #sensemakr(lm1AS, treatment = "Age")
 
 #sensemakr(lm1AS, treatment = "Sex")
@@ -1478,9 +1442,9 @@ This first model shows that all these variables, Age, Sex, education, IMD,  and 
 The next model adds Sodiummg.
 
 ```{r echo=FALSE}
-lmM <- svyglm(omsysval ~ Age +Sex + Sodiummg + bmival+ educfinh+ EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
-
-lmM$coefficients
+lmM <- svyglm(omsysval ~ Age +Sex + Sodiummg + bmival+educfinh+  EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
+tbl_regression(lmM)
+#lmM$coefficients
 
 
 anova(lmM)
@@ -1498,11 +1462,11 @@ This second model gives Sodiummg, educfinh, and IMD statistical significance. Vi
 Now we add UPF as total energy from nova 4 or UPF
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-lmM2 <- svyglm(omsysval ~ Age +Sex +Sodiummg + EnergykJ_4+ bmival  +educfinh+ EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
+lmM2 <- svyglm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ bmival +educfinh+ EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
 
+tbl_regression(lmM2)
 
-
-lmM2$coefficients
+#lmM2$coefficients
 
 anova(lmM2)
 #AIC(lmM2)
@@ -1514,11 +1478,11 @@ UPF does not seem significant...
 but when removing sodiummg
 
 ```{r echo=FALSE, warning=FALSE}
-lmMna <- svyglm(omsysval ~ Age +Sex + EnergykJ_4+ bmival  +educfinh+ EIMD_2010_quintile  , ndns_1_11d,na.action =na.exclude)
+lmMna <- svyglm(omsysval ~ Age +Sex + Epcnt_4+ bmival +educfinh + EIMD_2010_quintile  , ndns_1_11d,na.action =na.exclude)
 
 
-
-lmMna$coefficients
+tbl_regression(lmMna)
+#lmMna$coefficients
 
 
 Am1 <-anova(lmMna)
@@ -1530,7 +1494,19 @@ This suggests that the effect of UPF is mediated by Sodium!!
 
 comparing AIC for these three models 
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+lm1ASt <-tbl_regression(lm1AS)
+lmMt <- tbl_regression(lmM)
+lmM2t <- tbl_regression(lmM2)
+lmMnat <- tbl_regression(lmMna)
+
+tbl_merge(list(lm1ASt,lmMt,lmM2t,lmMnat))
+
+
+
+#stargazer(lm1AS,lmM,lmMna,lmM2,title = "multi", align = FALSE, type = "text" )
+
 lmM$aic
 lmMna$aic
 lmM2$aic
