@@ -1,15 +1,15 @@
 ---
 title: "bp upf and na"
 output:
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
   pdf_document:
     toc: yes
   word_document: 
@@ -227,6 +227,7 @@ library(gtsummary)
 library(stargazer)
 library(knitr)
 library(flextable)
+library(officer)
 ```
 
 ```{r read data, message=FALSE, warning=FALSE, include=FALSE}
@@ -1088,22 +1089,11 @@ ndns_1_11 <- ndns_1_11[ndns_1_11food, by= seriali]
 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-#data(ndns_1_11)
+
 
 
 ndns_1_11d <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1, data = ndns_1_11, nest = TRUE)
 
-#summary(ndns_1_11d)
-#sysMean <- svymean(~omsysval, ndns_1_11d, na.rm = TRUE)
-#sysMean
-#Agemean <- svymean(~Age, ndns_1_11d, na.rm = TRUE)
-#Agemean
-#sexmean <- svymean(~Sex, ndns_1_11d, na.rm = TRUE)
-#sexmean
-#Namean <-  svymean(~Sodiummg, ndns_1_11d, na.rm = TRUE)
-#Namean
-#Epmean <- svymean(~Epcnt_4, ndns_1_11d, na.rm = TRUE)
-#Epmean
 
 
 ```
@@ -1158,14 +1148,17 @@ I will discuss the results having already described the method.
 
 This first table highlights the key variables from the years 2008-2019.
 These are weighted values
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r keydata, echo=FALSE, message=FALSE, warning=FALSE}
 
 
 
-keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
+keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
 
-as_flex_table( keydatw)
+keydatw <-as_flex_table( keydatw)
+keydatw <- set_caption(keydatw, "NDNS year 1-11 data over years", 
+  autonum = run_autonum(seq_id = "tab", bkm = "SurveyYear"))
+keydatw
 
 ```
 
@@ -1173,8 +1166,8 @@ This tables shows the change between annual cohorts.
 
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-
+```{r Years Plots, echo=FALSE, message=FALSE, warning=FALSE}
+#fig.cap = "Survey Year"
 #keydata
 
 svyplot(Epcnt_4~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
@@ -1184,7 +1177,7 @@ svyplot(omsysval~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Systolic BP in mmH
 
 These box plots show the difference between the sexes in the key variables.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r Sex Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
 
 
 svyboxplot(omsysval~Sex,ndns_1_11ed, na.rm = TRUE,main = "Systolic BP in mmHg by Sex", ylab = "Sysltolic BP in mmHg" ,xlab ="Sex")
@@ -1254,8 +1247,9 @@ In particular there may be more younger people and women taking e.g. bblockers i
 
 This table suggests that there is a significant difference in the bmi of the cohorts.
 
-```{r echo=FALSE}
-
+```{r continuous data, echo=FALSE, message=FALSE, warning=FALSE}
+#tab.id = "1"
+# tab.cap = "continuous data"
 ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11d)
 ttestages<-  tbl_regression(ttestage)
 
@@ -1279,7 +1273,15 @@ vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11d)
 
 
 tablecat<- data.table("Variable"=c( "Sex", "Education","IMD","Vegetarian"),"p.value"=  c(sexchi$p.value,educhi$p.value,imdchi$p.value,vegchi$p.value ))
-flextable(tablecat)
+tablecat <- flextable(tablecat)
+tablecat <- colformat_double(tablecat, digits = 4)
+
+tablecat <- footnote( tablecat, i = 1, j = 2,
+            value = as_paragraph(c("Chi Squared for categorical data")),
+            ref_symbols = c("1"),
+            part = "header")
+tablecat <- valign(tablecat, valign = "bottom", part = "header")
+autofit(tablecat)
 ```
 
 
@@ -1293,10 +1295,10 @@ Simple linear regression equations look for the relationship between the dependa
 For these I am looking at the whole dataset 
 
 ```{r echo=FALSE}
-svyplot(omsysval~Sodiummg, ndns_1_11d )
+svyplot(omsysval~Sodiummg, ndns_1_11d ,main = "% Energy Intake UPF by Systolic BP", xlab = "Sodium Intake mg" ,ylab ="Systolic BP")
 
 
-svyplot(omsysval~Epcnt_4, ndns_1_11d)
+svyplot(omsysval~Epcnt_4, ndns_1_11d,main = "% Energy Intake UPF by Systolic BP", xlab = "% Energy Intake UPF" ,ylab ="Systolic BP")
 
 ```
 
@@ -1433,15 +1435,15 @@ Using Anova analysis of different multi variable regression models the key varia
 
 ## Conclusion
 
-The percentage by weight of NOVA group 4 foods increased from 2008 to 2019.
-The percentage by energy of NOVA group 4 foods increased from 2008 to 2019.
-The mean sodium intake in mg increased between the two time periods.
-The systolic and diastolic BP have increased between the two time periods.
 
-In each period there is a correlation between systolic BP and sodium intake.
-In each period there is a correlation between systolic BP and UPF intake.
+The percentage by energy of NOVA group 4 foods decreased from 2008 to 2019.
+The mean sodium intake in mg decreaswed.
+The systolic BP has decreased.
 
-The regression models identify that age and sex are statistically significant contributors to the BP.
+There is a correlation between systolic BP and sodium intake.
+There is a correlation between systolic BP and UPF intake.
 
-The regression models identify that sodium intake is an important contributor to any optimal model. That when sodium intake is present UPF intake is no longer significant, but still has some effect. 
+The regression models identify that age and sex are statistically significant contributors to the BP and that bmi, educfinh, and IMD are also.
+
+The regression models identify that sodium intake is an important contributor to any optimal model. That UPF intake is no longer significant, but still has some effect. 
 
