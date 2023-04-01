@@ -1,10 +1,10 @@
 ---
 title: "bp upf and na"
 output:
-  word_document: 
+  html_notebook: 
     toc: yes
     fig_caption: yes
-    keep_md: yes
+    number_sections: yes
   html_document:
     toc: yes
     fig_caption: yes
@@ -12,6 +12,10 @@ output:
     keep_md: yes
   pdf_document:
     toc: yes
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
 editor_options: 
   markdown: 
     wrap: sentence
@@ -94,7 +98,7 @@ Other ethical issues include data custodianship ensuring that the the rights of 
 
 Issues around the power structures which lead to privilege one research project or proposal over another are considered more in the positionality section.
 
-## Data Processing
+### Data Processing
 
 The storage of the data is in keeping with the research governance agreements of the University and the Data set owners.
 The data is read from its files using 'r-studio' with the processing being carried out using packages available from CRAN.
@@ -106,18 +110,25 @@ These result from differences in compliance and uptake within and across the yea
 
 The years are amalgamated and the nature of the variables is specified.
 
+### Exclusions 
+
+The relationship between salt and systolic blood pressure may be different in individuals with pathologically high BP. 
+Those taking BP controlling medications may have a different relationship to sodium and UPF.
+These patients were excluded from the main analysis, however this affected the sample size and skewed the male female ratio. 
+Analysis was done with exclusion and this produced results in line with those presented, but of smaller magnitude.
+This additional analysis is not presented here.
 
 
 
 
-## Method for Data Analysis
 
-### Descriptive data analysis
+
+## Description of the data
 
 
 The data is summarised for the key continuous variables.
 The key variables are systolic BP (omsysval), UPF intake (Epcnt_4) and Sodium intake (sodiummg).
-These variables are the ones which most relate to the research question.
+These variables are the ones which most relate to the research question. Table x shows the data which has been balanced using the weightings provided by the NDNS research team.
 
 
 There are a number of related variables in the dataset.
@@ -125,7 +136,7 @@ These were chosen for relevance, reliability and practicality.
 These variables are ones which can also influence BP.
 They include Age, Sex, BMI, height and weight.
 Age at completion of education (educfinh), and IMD are also used. 
-The population for early years are compared with those for later years.
+
 
 The omsysval is a validated measurement with significant quality assessment within the dataset.
 Raw systolic BP values are present in the dataset but are made up of data with issues around quality.
@@ -142,7 +153,7 @@ Each persons food diary entries are assessed against the Nova food classificatio
 Then the weight and energy content of the days food is calculated by Nova group. 
 This is added to the intake for the other 3 days and the total intake by Nova group established.
 
-The percentage of the total intake by weight (pcnt_4) and by energy (Epcnt_4)is then calculated for each of the 4 Nova categories.
+The percentage of the total intake of energy (Epcnt_4) is then calculated for each of the 4 Nova categories.
 Nova group 4 or UPF intake is used for the study.
 
 Mean values for the data are displayed with a comparison for weighted values.
@@ -150,23 +161,11 @@ The exposure variables are sodium intake (Sodiummg), and ultra processed food in
 The outcome variable, the mean systolic blood pressure (omsysval). 
 
 
-Key additional variables are considered in the later section looking at how they change across the populations.
-Age, sex, and bmi are important contributors. Education, NSSEC and IMD are also looked at.
 
-### Exclusions 
+### Analysis of Change over Survey Years
 
-The relationship between salt and systolic blood pressure may be different in individuals with pathologically high BP. 
-Those taking BP controlling medications may have a different relationship to sodium and UPF.
-These patients were excluded from the main analysis, however this affected the sample size and skewed the male female ratio. 
-Analysis was done with exclusion and this produced results in line with those presented, but of smaller magnitude.
-This additional analysis is not presented here.
-
-### Comparative Analysis
-
-The second phase of analysis uses standard techniques to compare the means of the populations. 
-A student's t test is used as the populations are normally distributed continuous variables. 
-The t tests compare the sodium, UPF, and systolic BP in the early cohort from the later.
-This will show how the intake and outcome have changed.
+The second phase of analysis shows how the key variables have changed over the survey years cohorts.
+This will show separately how the inputs and outputs have changed.
 
 These are not the same participants so matched analysis, or time series analysis is not directly applicable.
 
@@ -175,13 +174,13 @@ Plots will be given to show the values in each of the available cohorts.
 Other variables in the data are compared across to assess how the data changes. 
 t tests are again used for continuous data, and chi squared tests are used for categorical data.
 
-### Linear Regression
+###  Regression of key variables on systolic BP
 
 Analysis of the correlation between BP and sodium intake, and then BP and UPF intake is done using linear regression. 
 This will give an indicator of the direction, and strength of any relationship between the variables.
 There is also anova analysis to understand the statistical significance of these results.
 
-### Multiple Regression
+### Multiple Regression on Systolic BP
 
 Multivariable regression models are then developed to understand the interactions between variables and to develop a mathematical model of the relationship. 
 The optimal model is one which best explains the pattern of data, but which also makes practical sense for the wider understanding of relationships.
@@ -227,6 +226,7 @@ library(srvyr)
 library(gtsummary)
 library(stargazer)
 library(knitr)
+library(flextable)
 ```
 
 ```{r read data, message=FALSE, warning=FALSE, include=FALSE}
@@ -1150,11 +1150,11 @@ ndns_1_11b <- subset(ndns_1_11ed, Age >18)
 ##  Results Introduction
 
 The results derive from the method outlined above and follow the pattern described. 
-I will try to discuss the results having already described the method.
+I will discuss the results having already described the method.
 
 
 
-## Descriptive Data Analysis
+## Description of the Data
 
 This first table highlights the key variables from the years 2008-2019.
 These are weighted values
@@ -1165,32 +1165,13 @@ These are weighted values
 keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,pcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
 
-keydatw
+as_flex_table( keydatw)
 
 ```
 
 This tables shows the change between annual cohorts.
 
 
-
-
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-#bpNa <- data.table("2010"=c(ndns_1_11d[SurveyYear <= 4,Sodiummg*wti_UKY1to11]),"2019" =c(ndns_1_11d[SurveyYear >= 9,Sodiummg*wti_UKY1to11]))
-#boxplot(bpNa, main = "Sodiummg 2010 vs 2019", xlab = "year", ylab = "Sodium mg")
-#bpgram <-data.table("2010" =c(ndns_1_11d[SurveyYear <= 4,pcnt_4*wti_UKY1to11]),"2019" = c(ndns_1_11d[SurveyYear >= 9,pcnt_4*wti_UKY1to11]))
-#boxplot(bpgram, main = "Weight Percent UPF 2010 vs 2019", xlab = "year", ylab = "pcnt_4")
-#bpE <-data.table("2010" =c(ndns_1_11d[SurveyYear <= 4,Epcnt_4*wti_UKY1to11/4]),"2019" = c(ndns_1_11d[SurveyYear >= 9,Epcnt_4*wti_UKY1to11/4]))
-#boxplot(bpE, main = " Energy Percent UPF 2010 vs 2019", xlab = "year", ylab = "Epcnt_4")
-
-
-#bpOS <- data.table("2010" = c(ndns_1_11[SurveyYear <=4,omsysval*wti_UKY1to11]),"2019"=c(ndns_1_11[SurveyYear >=9,omsysval*wti_UKY1to11]))
-#boxplot(bpOS,main = "omsysval 2010 vs 2019",xlab = "year", ylab = "omsysval")
-#bpOD <-data.table("2010" = c(ndns_1_11[SurveyYear <=4,omdiaval*wti_UKY1to11]),"2019" = c(ndns_1_11[SurveyYear >=9,omdiaval*wti_UKY1to11]))
-#boxplot(bpOD, main = "omdiaval 2010 vs 2019", xlab = "year", ylab = "omdiaval")
-
-
-```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -1200,13 +1181,24 @@ svyplot(Epcnt_4~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Energy from UPF in 
 svyplot(Sodiummg~SurveyYear,ndns_1_11ed,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
 svyplot(omsysval~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
 ```
+
+These box plots show the difference between the sexes in the key variables.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+svyboxplot(omsysval~Sex,ndns_1_11ed, na.rm = TRUE,main = "Systolic BP in mmHg by Sex", ylab = "Sysltolic BP in mmHg" ,xlab ="Sex")
+
+svyboxplot(Sodiummg~Sex,ndns_1_11ed, na.rm = TRUE,main = "Sodium Intake in mg by Sex", ylab = "Sodium intake in mg" ,xlab ="Sex")
+svyboxplot(Epcnt_4~Sex,ndns_1_11ed, na.rm = TRUE,main = "% Energy Intake UPF by sex", ylab = "% Energy Intake UPF" ,xlab ="Sex")
+
+```
 These plots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changed over the years.
 The graphs show that there is not a clear visible difference between the years. Statistical analysis will follow.
 
 
-## Comparative analysis
 
-### Comparison of key variables
+## Analysis of Change over Survey Years
 
  comparing UPF and Sodium intake calculated from diet
 
@@ -1215,19 +1207,6 @@ The sodium levels are compared across the survey years and show a statistically 
 The pcnt UPF intake in over the same period shows a similar trend.
 
 
-```{r echo=FALSE}
-ttestNa2 <- svyglm(Sodiummg~(SurveyYear), ndns_1_11ed )
-ttestNa2t<- tbl_regression(ttestNa2)
-ttestEpcnt <- svyglm(Epcnt_4~(SurveyYear), ndns_1_11ed )
-ttestEpcntt <- tbl_regression(ttestEpcnt)
-#ttestEkJ <- svyglm(EnergykJ_4~(SurveyYear >=5), ndns_1_11d )
-#ttestEkJ
-
-
-tbl_merge(list(ttestNa2t,ttestEpcntt),tab_spanner = c("Sodium in mg", "Percent Energy UPF"))
-
-
-```
 
 It seems the mean percentage UPF intake changes from 48.8% to 59.2% energy and this increase is statistically significant.
 The mean sodium intake has changed from  2156.30 mg to 2574.33 mg and is also statistically significant with a p value less than 0.05.
@@ -1237,13 +1216,17 @@ The mean sodium intake has changed from  2156.30 mg to 2574.33 mg and is also st
 The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
 
 ```{r echo=FALSE}
-
+ttestNa2 <- svyglm(Sodiummg~SurveyYear, ndns_1_11ed )
+ttestNa2t<- tbl_regression(ttestNa2)
+ttestEpcnt <- svyglm(Epcnt_4~SurveyYear, ndns_1_11ed )
+ttestEpcntt <- tbl_regression(ttestEpcnt)
 
 
 ttestOS <- svyglm(omsysval~SurveyYear, ndns_1_11d )
 
 
-tbl_regression(ttestOS)
+ttestOSt <- tbl_regression(ttestOS)
+as_flex_table(tbl_merge(list(ttestNa2t,ttestEpcntt,ttestOSt),tab_spanner = c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
 ```
 
 There is a change in mean systolic from 122-152 mmHg with a p value of 3.112e -7.
@@ -1252,92 +1235,68 @@ In summary there is statistically significant change in UPF and Na intake and al
 
 Has another factor affected the BP change ?
 
-### Comparative analysis of other variables
+### Comparatison of other variables
 
 How are variables distributed between the two cohorts. 
 The NDNS dataset was weighted to keep many of these the same between datasets.
-Continuous variables are assessed using ttests and categorical variables using chi squared tests to give p.values.
+Continuous variables are assessed using linear regression and categorical variables using chi squared tests to give p.values.
 
   Age and Sex
-The age of the two datasets has changed but not in a statistically significant way.
-
-```{r echo=FALSE}
-
-ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11d)
-tbl_regression(ttestage)
-
-```
+The age of the two datasets does not show a statistically significant change table x.
 
 
+There is no statistically significant change in the sex distribution over the years.
 
-There is a statistically significant change in the sex distribution of the two groups.
-```{r echo=FALSE}
-#tablesex <- svyglm(~Sex+SurveyYear,design = ndns_1_11d,family = "binomial")
-#tbl_regression(tablesex)
-sexchi <- svychisq(~SurveyYear+Sex , ndns_1_11d)
-
-
-sexchi
-```
 This might be due to differences in the numbers of excluded participants.
 In particular there may be more younger people and women taking e.g. bblockers in one group.
 
 
 
-This table suggests that there is a significant difference between the bmi of the groups.
+This table suggests that there is a significant difference in the bmi of the cohorts.
 
 ```{r echo=FALSE}
-ttestbmi <- svyglm(bmival~(SurveyYear), ndns_1_11d)
-tbl_regression(ttestbmi)
 
+ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11d)
+ttestages<-  tbl_regression(ttestage)
+
+
+ttestbmi <- svyglm(bmival~SurveyYear, ndns_1_11d)
+ttestbmis <- tbl_regression(ttestbmi)
+
+tablecon <- as_flex_table(tbl_merge(list(ttestages,ttestbmis), tab_spanner = c("Age","BMI")))
+tablecon
 ```
 There is a difference in the age of finishing education.
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-tableedu <- svytable(~educfinh+(SurveyYear), ndns_1_11d)
-#tableedu
-educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11d)
-educhi
-#ttestage$p.value
-
-```
-
-```{r echo=FALSE}
-tableimd <- svytable(~EIMD_2010_quintile +SurveyYear , ndns_1_11d)
-#tableimd
-imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11d)
-imdchi
-#ttestage$p.value
-
-```
 
 The differences in qimd, are not statistically significant.
 
 These values identify a significant difference in the number of vegetarians
-```{r echo=FALSE}
-tableveg <- svytable(~vegetarn +SurveyYear, ndns_1_11d)
-#tableveg
-# svyglm(vegetarn,SurveyYear,family = binomial(link = "logit"),ndns_1_11d)
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11d)
+educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11d)
+imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11d)
 vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11d)
-vegchi
-#ttestage$p.value
 
+
+tablecat<- data.table("Variable"=c( "Sex", "Education","IMD","Vegetarian"),"p.value"=  c(sexchi$p.value,educhi$p.value,imdchi$p.value,vegchi$p.value ))
+flextable(tablecat)
 ```
 
 
 
 
-## Regression Analysis
 
-#### Linear Regression
+
+##  Regression of key variables on Systolic BP
 
 Simple linear regression equations look for the relationship between the dependant variable, and the independent variable.
 For these I am looking at the whole dataset 
 
 ```{r echo=FALSE}
-#svyplot(omsysval~Sodiummg, ndns_1_11e )
+svyplot(omsysval~Sodiummg, ndns_1_11d )
 
-#svyplot(omsysval~EnergykJ_4, ndns_1_11e)
-#svyplot(omsysval~pcnt_4, ndns_1_11e)
+
+svyplot(omsysval~Epcnt_4, ndns_1_11d)
 
 ```
 
@@ -1347,39 +1306,21 @@ These use the populations where participants have been excluded.
 
 
 
- omsysval is compared to EnergykJ 
+First, omsysval is compared to EnergykJ, then sodiummg.
 
 ```{r echo=FALSE}
-#linear regression models
+
+#univariable regression models
 #UPF Energy % only
 lm1E <- svyglm(omsysval ~ Epcnt_4, ndns_1_11d)
 lm1Et <- tbl_regression(lm1E)
-
-
-#lm1E$coefficients
-
-#anova(lm1E)
-#AIC(lm1E)
-
-
-#sensemakr(lm1E, treatment = "EnergykJ_4")
-
-```
-
-then sodiummg
-
-```{r echo=FALSE}
-#linear regression models
+#univariable regression models
 #sodium only
 lm1na <- svyglm(omsysval ~ Sodiummg, ndns_1_11d)
 lm1nat <- tbl_regression(lm1na)
-#(lm1na$coefficients)
-#lm1na
-#anova(lm1na)
-#AIC(lm1na)
 
-#sensemakr(lm1na, treatment = "Sodiummg")
-tbl_merge(list(lm1nat,lm1Et))
+
+as_flex_table(tbl_merge(list(lm1nat,lm1Et)))
 ```
 
 There are relationships between Na and g pcnt as well as E pcnt and omsysval .
@@ -1389,7 +1330,7 @@ In conclusion the linear regression models show that there are  correlations bet
 
 
 
-#### multi variable regression
+## Multi variable regression on Systolic BP
 
 This uses a model of variables.
 It can highlight the contributions of each variable.
@@ -1402,22 +1343,12 @@ Comparisons between these models are then made using sensitivity analysis, ident
 This first model looks at the relationships between BP and Age and Sex education and IMD all of which may have an effect on BP. This model excludes UPF and Na.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-#linear regression models
-#sodium only
+#regression models
+
 lm1AS <- svyglm(omsysval ~ Age + Sex +bmival +educfinh + EIMD_2010_quintile , ndns_1_11d, na.action = na.exclude)
 
 theme_gtsummary_mean_sd()
-add_global_p( tbl_regression(lm1AS))
 
-
-#(lm1AS$coefficients)
-
-anova(lm1AS)
-#AIC(lm1AS)
-#lm1AS$aic
-#sensemakr(lm1AS, treatment = "Age")
-
-#sensemakr(lm1AS, treatment = "Sex")
 
 ```
 This first model shows that all these variables, Age, Sex, education, IMD,  and bmi, give statistically significant coefficients for the model which suggests that they do have an important part to play in any optimal model.
@@ -1425,16 +1356,9 @@ This first model shows that all these variables, Age, Sex, education, IMD,  and 
 The next model adds Sodiummg.
 
 ```{r echo=FALSE}
-lmM <- svyglm(omsysval ~ Age +Sex + Sodiummg + bmival+educfinh+  EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
-tbl_regression(lmM)
-#lmM$coefficients
+#sodium only
+lmna <- svyglm(omsysval ~ Age +Sex + Sodiummg + bmival+educfinh+  EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
 
-
-anova(lmM)
-#AIC(lmM)
-
-
-#sensemakr(lmM, treatment = "Age")
 
 
 ```
@@ -1445,14 +1369,9 @@ This second model gives Sodiummg, educfinh, and IMD statistical significance. Vi
 Now we add UPF as total energy from nova 4 or UPF
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-lmM2 <- svyglm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ bmival +educfinh+ EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
+lmnaE <- svyglm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ bmival +educfinh+ EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
 
-tbl_regression(lmM2)
 
-#lmM2$coefficients
-
-anova(lmM2)
-#AIC(lmM2)
 
 ```
 
@@ -1461,16 +1380,8 @@ UPF does not seem significant...
 but when removing sodiummg
 
 ```{r echo=FALSE, warning=FALSE}
-lmMna <- svyglm(omsysval ~ Age +Sex + Epcnt_4+ bmival +educfinh + EIMD_2010_quintile , ndns_1_11d,na.action =na.exclude)
+lmME <- svyglm(omsysval ~ Age +Sex + Epcnt_4+ bmival +educfinh + EIMD_2010_quintile , ndns_1_11d,na.action =na.exclude)
 
-
-tbl_regression(lmMna)
-#lmMna$coefficients
-
-
-Am1 <-anova(lmMna)
-#AIC(lmMna)
-Am1
 ```
 the UPF becomes significant! 
 This suggests that the effect of UPF is mediated by Sodium!!
@@ -1480,22 +1391,22 @@ comparing AIC for these three models
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 lm1ASt <-tbl_regression(lm1AS)
-lmMt <- tbl_regression(lmM)
-lmM2t <- tbl_regression(lmM2)
-lmMnat <- tbl_regression(lmMna)
+lmnat <- tbl_regression(lmna)
+lmnaEt <- tbl_regression(lmnaE)
+lmMEt <- tbl_regression(lmME)
 
-tbl_merge(list(lm1ASt,lmMt,lmM2t,lmMnat))
+ as_flex_table(  tbl_merge(list(lm1ASt,lmnat,lmMEt,lmnaEt), tab_spanner = c("No sodium or UPF","Sodium only","Epcnt only","Sodium and UPF")))
+```
 
 
 
-#stargazer(lm1AS,lmM,lmMna,lmM2,title = "multi", align = FALSE, type = "text" )
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+AICt<- data.table("Model"=c("No sodium or UPF","Sodium only","Epcnt only","Sodium and UPF"),"AIC" =c(lm1AS$aic, lmna$aic,lmME$aic,lmnaE$aic))
+flextable(AICt)
 
-lmM$aic
-lmMna$aic
-lmM2$aic
 
 #AIC(lmM,lmMna,lmM2)
-sense1 <- (lm1AS$aic - lmM2$aic)*100/lm1AS$aic 
+sense1 <- (lmME$aic - lmna$aic)*100/lmna$aic 
 sense1
 
 
