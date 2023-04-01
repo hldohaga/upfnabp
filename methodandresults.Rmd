@@ -1437,7 +1437,7 @@ Using Anova analysis of different multi variable regression models the key varia
 
 
 The percentage by energy of NOVA group 4 foods decreased from 2008 to 2019.
-The mean sodium intake in mg decreaswed.
+The mean sodium intake in mg decreased.
 The systolic BP has decreased.
 
 There is a correlation between systolic BP and sodium intake.
