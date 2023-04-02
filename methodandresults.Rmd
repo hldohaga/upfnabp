@@ -446,7 +446,7 @@ ndns_1_11[,educfinh := factor(educfinh, levels = 1:8)]
 ndns_1_11[,nssec8 := factor(nssec8, levels = 1:8)] 
 #bpset 
  
-ndns_1_11[, "omsysval" := as.numeric(omsysval)]
+#ndns_1_11[, "omsysval" := as.numeric(omsysval)]
 
 
  #hypeset
@@ -551,7 +551,17 @@ ndns_1_11 <- ndns_1_11[ ndns_1_11r, on = "seriali"]
 ndns_1_11[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
 ndns_1_11[, Country := factor(Country)]
 
+ndns_1_11[omsysval <= 10, omsysval := NA]
 
+NOVA_ForDavid <- as.data.table(read_excel("data/NOVA_ForDavid.xlsx"))
+
+NOVA_ForDavid[, Sex := factor(Sex, levels = 1:2)]
+NOVA_ForDavid[, Country := factor(Country)]
+NOVA_ForDavid[, SurveyYear := factor(SurveyYear)]
+NOVA_ForDavid[, Age := as.numeric(Age)]
+#upfd <- list("seriali","NOVA_Epct_opti_4","NOVA_Gpct_opti_4")
+#NOVA_ForDavid <- NOVA_ForDavid[,..upfd]
+#NOVA_ForDavid
 
 ```
 
@@ -1150,7 +1160,7 @@ This first table highlights the key variables from the years 2008-2019.
 These are weighted values
 ```{r keydata, echo=FALSE, message=FALSE, warning=FALSE}
 
-
+summary(ndns_1_11d$variables$omsysval)
 
 keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
