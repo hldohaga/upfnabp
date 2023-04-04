@@ -1,15 +1,15 @@
 ---
 title: "bp upf and na"
 output:
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
   pdf_document:
     toc: yes
   word_document: 

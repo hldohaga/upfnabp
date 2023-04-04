@@ -1,15 +1,15 @@
 ---
 title: "bp upf and na"
 output:
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
   pdf_document:
     toc: yes
   word_document: 
@@ -288,6 +288,8 @@ sav4br$highbp1_2 <- sav4br$highbp1
 sav4br$educfinh <- sav4br$EducFin
 
 sav6r$SurveyYear <- sav6r$Surveyyear
+summary(sav6br[ seriali >=50000000 & seriali <=60000000 ,educfinh])
+
 ```
 
 ```{r stdnames11, message=FALSE, warning=FALSE, include=FALSE}
@@ -1197,7 +1199,9 @@ svyplot(Sodiummg~SurveyYear,ndns_1_11ed,main = "Sodium Intake in mg by survey ye
 svyplot(omsysval~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
 ```
 
-These box plots show the difference between the sexes in the key variables.
+These plots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic BP have changed over the years.
+The graphs show that there is not a clear visible difference between the years. Statistical analysis will follow.
+These next box plots show the difference between the sexes in the key variables.
 
 ```{r Sex Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
 
