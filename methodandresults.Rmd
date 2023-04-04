@@ -564,7 +564,7 @@ ndns_1_11[, Country := factor(Country)]
 ndns_1_11[omsysval <= 10, omsysval := NA]
 
 
-upfd <- list("seriali","NOVA_Epct_opti_4","NOVA_Gpct_opti_4")
+upfd <- c("seriali","NOVA_Epct_opti_4","NOVA_Gpct_opti_4")
 NOVA_ForDavid <- NOVA_ForDavid[,..upfd]
 #NOVA_ForDavid
 ndns_1_11 <- ndns_1_11[NOVA_ForDavid, on = "seriali"]
@@ -1235,7 +1235,7 @@ ttestOS <- svyglm(omsysval~SurveyYear, ndns_1_11d )
 
 
 ttestOSt <- tbl_regression(ttestOS)
-as_flex_table(tbl_merge(list(ttestNa2t,ttestEpcntt,ttestOSt),tab_spanner = c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
+as_flex_table(tbl_stack(list(ttestNa2t,ttestEpcntt,ttestOSt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
 ```
 
 There is a change in mean systolic from 122-152 mmHg with a p value of 3.112e -7.
@@ -1273,7 +1273,7 @@ ttestages<-  tbl_regression(ttestage)
 ttestbmi <- svyglm(bmival~SurveyYear, ndns_1_11d)
 ttestbmis <- tbl_regression(ttestbmi)
 
-tablecon <- as_flex_table(tbl_merge(list(ttestages,ttestbmis), tab_spanner = c("Age","BMI")))
+tablecon <- as_flex_table(tbl_stack(list(ttestages,ttestbmis),group_header =  c("Age","BMI")))
 tablecon
 ```
 There is a difference in the age of finishing education.
@@ -1351,9 +1351,9 @@ lmEAt <- tbl_regression(lmEA)
 lmNaA <- svyglm(Sodiummg ~ Age, ndns_1_11d)
 lmNaAt <- tbl_regression(lmNaA)
 
-row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Na"))
-row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Na"))
-as_flex_table(tbl_stack(list(row1,row2),group_header = c("BP","Age")))
+#row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Na"))
+#row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Na"))
+as_flex_table(tbl_stack(list(lm1nat,lm1Et,lmEnat,lmAt,lmEAt,lmNaAt),group_header = c("Na/BP","UPF/bp","UPF/Na","Age/BP","Age/UPF","Age/Na")))
 ```
 
 Sodium intake appears to have no linear relationship with BP or UPF energy intake.
@@ -1481,3 +1481,45 @@ The regression models identify that age and sex are statistically significant co
 
 The regression models identify that sodium intake is an important contributor to any optimal model. That UPF intake is no longer significant, but still has some effect. 
 
+#  Discussion
+
+## Introduction to Discussion
+
+This section will consider what the results mean. That will include how the context of the literature influences understanding of the values. The limitations of the study will be considered. opportunities for further research, and to influence policy will be considered.
+
+##  Discussion of results
+
+The study provides a number of results which will are first considered individually before being brought together to support the development of the dissertation.
+
+### Data 
+
+The data is well collected and comprehensive. There have been several changes over the course of the study. These changes have meant that collating the data was more than just bringing all the numbers together. 
+
+In addition the differing take up rates between different groups in each of the cohorts meant that the numbers from each cohort are not comparable. This is overcome by using weighting factors to balance the datasets. This needs adjusting every time there is a new group added to the collected data set.
+
+The analysis using these weighted datasets is performed using "survey" which is a software package used in r studio. 
+
+The table (x) of data shows how the key data items alter over the survey years. In particular demonstrating the lack of BP data from year 11.
+
+### comparative Data 
+
+
+###  univariable regression 
+
+####  of BP 
+
+#### of other comparisons
+
+### multivariable models
+
+#### analysis for BP 
+
+#### analysis for Sodium
+
+#### analysis for UPF_4
+
+## Limitations of Study
+
+## Ideas for further research
+
+## Ideas for policy
