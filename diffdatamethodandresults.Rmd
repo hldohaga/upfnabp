@@ -228,41 +228,43 @@ library(stargazer)
 library(knitr)
 library(flextable)
 library(officer)
+library(AICcmodavg)
 ```
 
 ```{r read data, message=FALSE, warning=FALSE, include=FALSE}
 
-sav4 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_personleveldietarydata_uk_v2.sav"
+sav4 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-tab/tab/ndns_rp_yr1-4a_personleveldietarydata_uk_v2.tab"
 
-sav4b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_indiv_uk.sav"
+sav4b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-tab/tab/ndns_rp_yr1-4a_indiv_uk.tab"
 
-sav6 <-"/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr5-6a_personleveldietarydata_v2.sav"
+sav6 <-"/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-tab/tab/ndns_rp_yr5-6a_personleveldietarydata_v2.tab"
 
-sav6b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr5-6a_indiv.sav"
+sav6b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-tab/tab/ndns_rp_yr5-6a_indiv.tab"
 
-sav8 <-"/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr7-8a_personleveldietarydata.sav"
+sav8 <-"/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-tab/tab/ndns_rp_yr7-8a_personleveldietarydata.tab"
 
-sav8b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr7-8a_indiv.sav"
-
-
-
-sav11 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_personleveldietarydata_uk_20210831.sav"
-
-sav11b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_indiv_20211020.sav"
-
-sav4r <- as.data.table(read_sav(sav4))
-sav4br <-as.data.table(read_sav(sav4b))
-
-sav6r <- as.data.table(read_sav(sav6))
-sav6br <-as.data.table(read_sav(sav6b))
-
-sav8r <- as.data.table(read_sav(sav8))
-sav8br <-as.data.table(read_sav(sav8b))
+sav8b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-tab/tab/ndns_rp_yr7-8a_indiv.tab"
 
 
-sav11r <- as.data.table(read_sav(sav11))
-sav11br <- as.data.table(read_sav(sav11b))
+
+sav11 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-tab/tab/ndns_rp_yr9-11a_personleveldietarydata_uk_20210831.tab"
+
+sav11b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-tab/tab/ndns_rp_yr9-11a_indiv_20211020.tab"
+
+sav4r <- as.data.table(read.table(sav4,sep = "\t",header = TRUE))
+sav4br <-as.data.table(read.table(sav4b,sep = "\t",header = TRUE))
+
+sav6r <- as.data.table(read.table(sav6,sep = "\t",header = TRUE))
+sav6br <-as.data.table(read.table(sav6b,sep = "\t",header = TRUE))
+
+sav8r <- as.data.table(read.table(sav8,sep = "\t",header = TRUE))
+sav8br <-as.data.table(read.table(sav8b,sep = "\t",header = TRUE))
+
+
+sav11r <- as.data.table(read.table(sav11,sep = "\t",header = TRUE))
+sav11br <- as.data.table(read.table(sav11b,sep = "\t",header = TRUE))
 sav11br$area <- sav11br$Area
+
 ```
 
 ```{r std names4, message=FALSE, warning=FALSE, include=FALSE}
@@ -284,6 +286,7 @@ sav4br$hyper1_2 <- sav4br$hyper1
 sav4br$highbp1_2 <- sav4br$highbp1
 
 sav4br$educfinh <- sav4br$EducFin
+
 sav6r$SurveyYear <- sav6r$Surveyyear
 ```
 
@@ -366,6 +369,7 @@ val_labels(sav8br) <- NULL
 val_labels(sav6br) <- NULL
 val_labels(sav4br) <- NULL
 val_labels(sav11br) <- NULL
+#sav11br[summary(omsysval)]
 #sav8br$seriali <- as.double(sav8br$seriali)
 #sav8br$ethgrp5 <- as.double(sav8br$ethgrp5)
 ```
@@ -446,7 +450,7 @@ ndns_1_11[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)]
 ndns_1_11[,educfinh := factor(educfinh, levels = 1:8)] 
 ndns_1_11[,nssec8 := factor(nssec8, levels = 1:8)] 
 #bpset 
- 
+
 #ndns_1_11[, "omsysval" := as.numeric(omsysval)]
 
 
@@ -527,7 +531,6 @@ perslevdat <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciu
 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-
 val_labels(sav8r) <- NULL
 val_labels(sav6r) <- NULL
 val_labels(sav4r) <- NULL
@@ -535,8 +538,8 @@ val_labels(sav11r) <- NULL
 
  sav4r$Sex <- as.numeric(sav4r$Sex)
 sav6rSex <- as.numeric(sav6r$Sex)
-
 #building the tables
+
 sav4r <- sav4r[, ..perslevdat]
 sav6r <- as.data.table(sav6r[, ..perslevdat])
 sav8r <- as.data.table(sav8r[, ..perslevdat])
@@ -552,7 +555,7 @@ ndns_1_11r <- rbindlist(list(sav4r,sav6r,sav8r,sav11r),fill = TRUE, use.names = 
 
 ndns_1_11 <- ndns_1_11[ ndns_1_11r, on = "seriali"]
 
-
+#head(ndns_1_11$Sex)
 
 ```
 
@@ -560,14 +563,18 @@ ndns_1_11 <- ndns_1_11[ ndns_1_11r, on = "seriali"]
 
 ndns_1_11[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
 ndns_1_11[, Country := factor(Country)]
-
+ndns_1_11[, SurveyYear := factor(SurveyYear)]
 ndns_1_11[omsysval <= 10, omsysval := NA]
 
 
-upfd <- list("seriali","NOVA_Epct_opti_4","NOVA_Gpct_opti_4")
+upfd <- c("seriali","NOVA_Epct_opti_4","NOVA_Gpct_opti_4")
 NOVA_ForDavid <- NOVA_ForDavid[,..upfd]
 #NOVA_ForDavid
+
 ndns_1_11 <- ndns_1_11[NOVA_ForDavid, on = "seriali"]
+
+
+
 ```
 
 
@@ -1165,7 +1172,7 @@ This first table highlights the key variables from the years 2008-2019.
 These are weighted values
 ```{r keydata, echo=FALSE, message=FALSE, warning=FALSE}
 
-summary(ndns_1_11d$variables$omsysval)
+summary(ndns_1_11[SurveyYear == 11,omsysval])
 
 keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
@@ -1190,9 +1197,7 @@ svyplot(Sodiummg~SurveyYear,ndns_1_11ed,main = "Sodium Intake in mg by survey ye
 svyplot(omsysval~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
 ```
 
-These plots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic BP have changed over the years.
-The graphs show that there is not a clear visible difference between the years. Statistical analysis will follow.
-These next box plots show the difference between the sexes in the key variables.
+These box plots show the difference between the sexes in the key variables.
 
 ```{r Sex Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -1203,7 +1208,8 @@ svyboxplot(Sodiummg~Sex,ndns_1_11ed, na.rm = TRUE,main = "Sodium Intake in mg by
 svyboxplot(Epcnt_4~Sex,ndns_1_11ed, na.rm = TRUE,main = "% Energy Intake UPF by sex", ylab = "% Energy Intake UPF" ,xlab ="Sex")
 
 ```
-
+These plots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic bp have changed over the years.
+The graphs show that there is not a clear visible difference between the years. Statistical analysis will follow.
 
 
 
@@ -1250,18 +1256,12 @@ How are variables distributed between the two cohorts.
 The NDNS dataset was weighted to keep many of these the same between datasets.
 Continuous variables are assessed using linear regression and categorical variables using chi squared tests to give p.values.
 
-  Age and Sex
+  Age and Sex and BMI
 The age of the two datasets does not show a statistically significant change table x.
 
-
-There is no statistically significant change in the sex distribution over the years.
-
-This might be due to differences in the numbers of excluded participants.
-In particular there may be more younger people and women taking e.g. bblockers in one group.
+The continuous variables age and bmi, when compared across the Survey Years show no significant differences, table x.
 
 
-
-This table suggests that there is a significant difference in the bmi of the cohorts.
 
 ```{r continuous data, echo=FALSE, message=FALSE, warning=FALSE}
 #tab.id = "1"
@@ -1276,9 +1276,8 @@ ttestbmis <- tbl_regression(ttestbmi)
 tablecon <- as_flex_table(tbl_merge(list(ttestages,ttestbmis), tab_spanner = c("Age","BMI")))
 tablecon
 ```
-There is a difference in the age of finishing education.
-
-The differences in qimd, are not statistically significant.
+Now analysing the categorical data in table 42.
+There is no difference in sex,age of finishing education, Eimd, are not statistically significant.
 
 These values identify a significant difference in the number of vegetarians
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -1307,11 +1306,11 @@ autofit(tablecat)
 
 ##  Regression of key variables on Systolic BP
 
-Simple linear regression equations look for the relationship between the dependant variable, and the independent variable.
+Simple linear regression equations look for the relationship between the Systolic BP and UPF or Sodium.
 For these I am looking at the whole dataset 
 
 ```{r echo=FALSE}
-svyplot(omsysval~Sodiummg, ndns_1_11d ,main = "% Energy Intake UPF by Systolic BP", xlab = "Sodium Intake mg" ,ylab ="Systolic BP")
+svyplot(omsysval~Sodiummg, ndns_1_11d ,main = "Sodium Intake in mg by Systolic BP", xlab = "Sodium Intake mg" ,ylab ="Systolic BP")
 
 
 svyplot(omsysval~Epcnt_4, ndns_1_11d,main = "% Energy Intake UPF by Systolic BP", xlab = "% Energy Intake UPF" ,ylab ="Systolic BP")
@@ -1326,7 +1325,7 @@ These use the populations where participants have been excluded.
 
 
 
-First, omsysval is compared to EnergykJ, then sodiummg.
+First, omsysval is compared to EnergykJ, then sodiummg and the sodium intake compared with the energy intake.
 
 ```{r echo=FALSE}
 
@@ -1353,13 +1352,13 @@ lmNaAt <- tbl_regression(lmNaA)
 
 row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Na"))
 row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Na"))
-as_flex_table(tbl_stack(list(row1,row2),group_header = c("BP","Age")))
+as_flex_table(tbl_stack(list(row1,row2),group_header = c("bp","age")))
 ```
 
 Sodium intake appears to have no linear relationship with BP or UPF energy intake.
 The UPF energy intake has a negative relationship with BP.
 BP clearly increases with age.
-Regression of UPF with age shows an equal and opposite affect to that on BP.
+Regression of UPF with age shows an equal effect to that on BP.
 Regression of Sodium with age shows a weaker positive effect.
 
 
@@ -1376,60 +1375,60 @@ In particular the research question asks about the relationship between Sodium a
 The models will reflect this question with models looking to include or exclude particular variables.
 Comparisons between these models are then made using sensitivity analysis, identifying how sensitive the model is to sodium, or other factors
 
-This first model looks at the relationships between BP and Age and Sex education and IMD all of which may have an effect on BP. This model excludes UPF and Na.
+This first model (lm1AS) in table x looks at the relationships between BP and Age and Sex education and IMD all of which may have an effect on BP. This model excludes UPF and Na.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 #regression models
 
-lm1AS <- svyglm(omsysval ~ Age + Sex +bmival +educfinh + EIMD_2010_quintile , ndns_1_11d, na.action = na.exclude)
+lm1AS <- svyglm(omsysval ~ Age +Sex +bmival +educfinh + EIMD_2010_quintile , ndns_1_11d, na.action = na.exclude)
 
 theme_gtsummary_mean_sd()
 
-
+#anova(lm1AS)
 ```
 This first model shows that all these variables, Age, Sex, education, IMD,  and bmi, give statistically significant coefficients for the model which suggests that they do have an important part to play in any optimal model.
 
-The next model adds Sodiummg.
+The next model (lmna) adds Sodiummg.
 
 ```{r echo=FALSE}
 #sodium only
 lmna <- svyglm(omsysval ~ Age +Sex + Sodiummg + bmival+educfinh+  EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
 
-
+#anova(lmna)
 
 ```
-This second model gives Sodiummg, educfinh, and IMD statistical significance. VitaminD shows no statistical significance, TotalEMJ and sqrt(pcnt) and ethgrp2 all have limited significance.
+This second model gives Sodiummg, educfinh, and IMD statistical significance, alongside Age and Sex.
 
 
 
-Now we add UPF as total energy from nova 4 or UPF
+Now we add UPF (lmnaE) as total energy from nova 4 or UPF
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 lmnaE <- svyglm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ bmival +educfinh+ EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
 
-
+#anova(lmnaE)
 
 ```
 
 UPF does not seem significant...
 
-but when removing sodiummg
+then removing sodiummg
 
 ```{r echo=FALSE, warning=FALSE}
-lmME <- svyglm(omsysval ~ Age +Sex + Epcnt_4+ bmival +educfinh + EIMD_2010_quintile , ndns_1_11d,na.action =na.exclude)
-
+lmME <- svyglm(omsysval ~ Age + Sex+Epcnt_4 + bmival +educfinh + EIMD_2010_quintile , ndns_1_11d,na.action =na.exclude)
+#anova(lmME)
 ```
-the UPF becomes significant! 
-This suggests that the effect of UPF is mediated by Sodium!!
+the UPF continues to have no significance, despite this being present in the univariable regression. 
+This suggests that the effect of UPF is affected by the other variables in the model.
 
 comparing AIC for these three models 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
-lm1ASt <-tbl_regression(lm1AS)
-lmnat <- tbl_regression(lmna)
-lmnaEt <- tbl_regression(lmnaE)
-lmMEt <- tbl_regression(lmME)
+lm1ASt <-add_global_p( tbl_regression(lm1AS, show_single_row = c(Sex)))
+lmnat <- add_global_p(tbl_regression(lmna, show_single_row = c(Sex)))
+lmnaEt <-add_global_p( tbl_regression(lmnaE, show_single_row = c(Sex)))
+lmMEt <- add_global_p(tbl_regression(lmME, show_single_row = c(Sex)))
 
  as_flex_table(  tbl_merge(list(lm1ASt,lmnat,lmMEt,lmnaEt), tab_spanner = c("No sodium or UPF","Sodium only","Epcnt only","Sodium and UPF")))
 ```
@@ -1439,6 +1438,7 @@ lmMEt <- tbl_regression(lmME)
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 AICt<- data.table("Model"=c("No sodium or UPF","Sodium only","Epcnt only","Sodium and UPF"),"AIC" =c(lm1AS$aic, lmna$aic,lmME$aic,lmnaE$aic))
 flextable(AICt)
+
 
 
 #AIC(lmM,lmMna,lmM2)
