@@ -166,23 +166,16 @@ Clinical outcomes in studies are varied. There are many studies which use multip
 Papers were excluded which related to technology including food technology. They were also excluded if the primary purpose of the paper was unrelated to dietary or nutritional causes of clinical outcomes.
 
 
-Literature review 
-1 describe literature
-2 synthesise literature
-3 critique literature
-4 explain role of study within context
 
-Table of Contents
-BP, NCD and Public Health 	1
-PH and BP	2
-Salt and BP 	5
-UPF and BP 	6
-UPF and BP	10
-BP UPF and Salt 	14
-Bibliography	15
+ 	1 describe literature
+	2 synthesise literature
+	3 critique literature
+	4 explain role of study within context
 
 
-BP, NCD and Public Health 
+
+
+##  BP, NCD and Public Health 
 Non-communicable disease is an increasing burden on public health. 
 Blood pressure is a significant contributor to NCD. 
 Blood pressure rises are described as idiopathic as their cause is not clear. 
@@ -200,7 +193,7 @@ Lifestyle factors are contented. Whilst individual choice is involved. The range
 
 Instead of trying to change activity of millions of people can be more effective to change laws and policies once (17–22). These ‘upstream’ changes are relatively simple, and are much more effective though they can also be reversed (23). Opposition sometimes comes from industry.
 
-PH and BP
+##  PH and BP
 1.
 Campos-Nonato I, Vargas Meza J, Nieto C, Ariza AC, Barquera S. Reducing sodium consumption in mexico: A strategy to decrease the morbidity and mortality of cardiovascular diseases. Frontiers in public health. 2022;10:857818–857818.
 2.
@@ -243,7 +236,7 @@ National Food Strategy, editor. National Food Strategy : : part one. [Intern
 WHO. High blood pressure: a public health problem [Internet]. World Health Organization - Regional Office for the Eastern Mediterranean. [cited 2022 Jan 19]. Available from: http://www.emro.who.int/media/world-health-day/public-health-problem-factsheet-2013.html
 
 
-Salt and BP 
+##  Salt and BP 
 Salt is a contributor to the physiology of BP 
 Its role in pathology is less clear. 
 There are increasing levels of intake.  
@@ -256,7 +249,8 @@ Understanding the best approaches to reducing salt is difficult. Is it best to g
 
 
 
-UPF and BP 
+## UPF and BP 
+
 Nova classification looks at food beyond the nutrient level.  
 It incorporates ideas relating to ‘processing of food’  
 But also includes availability and intake which are all affected.
@@ -342,7 +336,7 @@ Wang L, Martínez Steele E, Du M, Pomeranz JL, O’Connor LE, Herrick KA, et al.
 Weinstein G, Vered S, Ivancovsky‐Wajcman D, Zelber‐Sagi S, Ravona‐Springer R, Heymann A, et al. Consumption of ultra‐processed food and cognitive decline among older adults with type‐2 diabetes. Alzheimer’s & dementia. 2021;17(S10).
 
 
-UPF and BP
+##  UPF and BP
 1.
 Aceves-Martins M, Link to external site this link will open in a new window, Bates RL, Link to external site this link will open in a new window, Craig LCA, Chalmers N, et al. Nutritional Quality, Environmental Impact and Cost of Ultra-Processed Foods: A UK Food-Based Analysis. International journal of environmental research and public health [Internet]. 2022 [cited 2022 Oct 28];19(6). Available from: http://www.proquest.com/publiccontent/docview/2644005015?pq-origsite=primo
 2.
@@ -418,7 +412,7 @@ Wang M, Du X, Huang W, Xu Y. Ultra-processed foods consumption increases the ris
 37.
 Wang M, Du X, Huang W, Xu Y. Ultra-Processed Foods Consumption Increases the Risk of Hypertension in Adults: A Systematic Review and Meta-Analysis. American Journal of Hypertension. 2022 Oct 1;35(10):892–901.
 
-BP UPF and Salt 
+## BP UPF and Salt 
  
 What is not known is how UPF cause BP. 
 Is it nutrient based? In which case is this mediated by Salt?   Is it other factors?
@@ -446,7 +440,7 @@ Intersalt: an international study of electrolyte excretion and blood pressure. R
 10.
 Your Guide to Lowering Your Blood Pressure with DASH. US Department of Health and Human Services; 1998 p. 64.
 
-Bibliography
+## Bibliography
 1.	Kannel WB, Garrison RJ, Dannenberg AL. Secular blood pressure trends in normotensive persons: The Framingham Study. Am Heart J. 1993 Apr 1;125(4):1154–8. 
 2.	Kannel WB. Hypertension: Reflections on Risks and Prognostication. Med Clin North Am. 2009 May;93(3):541-Contents. 
 3.	Bress AP, Cohen JB, Anstey DE, Conroy MB, Ferdinand KC, Fontil V, et al. Inequities in Hypertension Control in the United States Exposed and Exacerbated by COVID‐19 and the Role of Home Blood Pressure and Virtual Health Care During and After the COVID‐19 Pandemic. J Am Heart Assoc. 2021 Jun 1;10(11):e020997. 
@@ -497,104 +491,9 @@ Bibliography
 48.	Aceves-Martins M, Bates RL, Craig LCA, Chalmers N, Horgan G, Boskamp B, et al. Nutritional Quality, Environmental Impact and Cost of Ultra-Processed Foods: A UK Food-Based Analysis. Int J Environ Res Public Health. 2022 Mar 8;19(6):3191. 
 49.	Rauber F, Louzada ML da C, Steele EM, Rezende LFM de, Millett C, Monteiro CA, et al. Ultra-processed foods and excessive free sugar intake in the UK: a nationally representative cross-sectional study. BMJ Open. 2019 Oct 1;9(10):e027546. 
 50.	Wang L, Martínez Steele E, Du M, Pomeranz JL, O’Connor LE, Herrick KA, et al. Trends in Consumption of Ultraprocessed Foods Among US Youths Aged 2-19 Years, 1999-2018. JAMA. 2021 Aug 10;326(6):519–30. 1.	Kannel WB, Garrison RJ, Dannenberg AL. Secular blood pressure trends in normotensive persons: The Framingham Study. Am Heart J. 1993 Apr 1;125(4):1154–8. 
-2.	Kannel WB. Hypertension: Reflections on Risks and Prognostication. Med Clin North Am. 2009 May;93(3):541-Contents. 
-3.	Bress AP, Cohen JB, Anstey DE, Conroy MB, Ferdinand KC, Fontil V, et al. Inequities in Hypertension Control in the United States Exposed and Exacerbated by COVID‐19 and the Role of Home Blood Pressure and Virtual Health Care During and After the COVID‐19 Pandemic. J Am Heart Assoc. 2021 Jun 1;10(11):e020997. 
-4.	Debon R, Bellei EA, Biduski D, Volpi SS, Alves ALS, Portella MR, et al. Effects of using a mobile health application on the health conditions of patients with arterial hypertension: A pilot trial in the context of Brazil’s Family Health Strategy. Sci Rep. 2020;10(1):6009–6009. 
-5.	Ettehad D, Emdin CA, Kiran A, Anderson SG, Callender T, Emberson J, et al. Blood pressure lowering for prevention of cardiovascular disease and death: a systematic review and meta-analysis. The Lancet. 2016 Mar 5;387(10022):957–67. 
-6.	Pringle E, Phillips C, Thijs L, Davidson C, Staessen JA, de Leeuw PW, et al. Systolic blood pressure variability as a risk factor for stroke and cardiovascular mortality in the elderly hypertensive population. J Hypertens. 2003 Dec;21(12):2251–7. 
-7.	Roche M, Onyia I. A quality improvement package for high blood pressure (BP) management in general practice, part of a systems leadership approach to tackling high BP in Cheshire and Merseyside [Internet]. NICE. NICE; 2018 [cited 2022 Jan 19]. Available from: https://www.nice.org.uk/sharedlearning/a-quality-improvement-package-for-high-blood-pressure-bp-management-in-general-practice-part-of-a-systems-leadership-approach-to-tackling-high-bp-in-cheshire-and-merseyside
-8.	WHO. High blood pressure: a public health problem [Internet]. World Health Organization - Regional Office for the Eastern Mediterranean. [cited 2022 Jan 19]. Available from: http://www.emro.who.int/media/world-health-day/public-health-problem-factsheet-2013.html
-9.	Blood pressure - Action on Salt [Internet]. [cited 2022 Nov 16]. Available from: https://www.actiononsalt.org.uk/salthealth/factsheets/pressure/
-10.	Blood Pressure UK [Internet]. [cited 2022 Jan 27]. Available from: https://www.bloodpressureuk.org/
-11.	Boutain DM. Discourses of worry, stress, and high blood pressure in rural South Louisiana. J Nurs Scholarsh. 2001 Third Quarter;33(3):225–30. 
-12.	Colombet Z, Simioni M, Drogue S, Lamani V, Perignon M, Martin-Prevel Y, et al. Demographic and socio-economic shifts partly explain the Martinican nutrition transition: an analysis of 10-year health and dietary changes (2003–2013) using decomposition models. Public Health Nutr. 2021;24(18):6323–34. 
-13.	Colombet Z, Schwaller E, Head A, Kypridemos C, Capewell S, O’Flaherty M. OP12 Social inequalities in ultra-processed food intakes in the United Kingdom: A time trend analysis (2008–2018). J Epidemiol Community Health. 2022 Aug 1;76(Suppl 1):A6–7. 
-14.	Ji C, Cappuccio FP. Socioeconomic inequality in salt intake in Britain 10 years after a national salt reduction programme. BMJ Open. 2014 Aug 26;4(8):e005683–e005683. 
-15.	Jones NR, Tong TY, Monsivais P. Meeting UK dietary recommendations is associated with higher estimated consumer food costs: an analysis using the National Diet and Nutrition Survey and consumer expenditure data, 2008–2012. Public Health Nutr. 2018 Apr;21(5):948–56. 
-16.	Leeuw E de, Simos J, editors. Healthy cities: the theory, policy, and practice of value-based urban planning. New York, NY: Springer; 2017. 515 p. 
-17.	MacGregor GA, He FJ, Pombo-Rodrigues S. Food and the responsibility deal: how the salt reduction strategy was derailed. BMJ. 2015 Apr 28;350:h1936. 
-18.	Institute of Medicine, Food and Nutrition Board, Committee on Strategies to Reduce Sodium Intake, Boon CS, Taylor CL, Henney JE. Strategies to Reduce Sodium Intake in the United States [Internet]. Washington, D.C., UNITED STATES: National Academies Press; 2010 [cited 2023 Jan 21]. Available from: http://ebookcentral.proquest.com/lib/liverpool/detail.action?docID=3378676
-19.	Laverty AA, Link to external site  this link will open in a new window, Kypridemos C, Seferidi P, Vamos EP, Pearson-Stuttard J, et al. Quantifying the impact of the Public Health Responsibility Deal on salt intake, cardiovascular disease and gastric cancer burdens: interrupted time series and microsimulation study. J Epidemiol Community Health. 2019 Sep;73(9):881. 
-20.	Millett C, Laverty AA, Stylianou N, Bibbins-Domingo K, Pape UJ. Impacts of a National Strategy to Reduce Population Salt Intake in England: Serial Cross Sectional Study. PLoS ONE. 2012 Jan 4;7(1):e29836. 
-21.	Moreira PVL, Baraldi LG, Moubarac JC, Monteiro CA, Newton A, Capewell S, et al. Comparing Different Policy Scenarios to Reduce the Consumption of Ultra-Processed Foods in UK: Impact on Cardiovascular Disease Mortality Using a Modelling Approach. Hernandez AV, editor. PLOS ONE. 2015 Feb 13;10(2):e0118353. 
-22.	National Food Strategy, editor. National Food Strategy : : part one. [Internet]. London : National Food Strategy,; 2020. Available from: https://www.nationalfoodstrategy.org/partone/
-23.	Cappuccio FP, Capewell S. Facts, Issues, and Controversies in Salt Reduction for the Prevention of Cardiovascular Disease. 2015;7(1):21. 
-24.	Intersalt: an international study of electrolyte excretion and blood pressure. Results for 24 hour urinary sodium and potassium excretion. Intersalt Cooperative Research Group. BMJ. 1988 Jul 30;297(6644):319–28. 
-25.	Elliott P, Stamler J, Nichols R, Dyer AR, Stamler R, Kesteloot H, et al. Intersalt revisited: further analyses of 24 hour sodium excretion and blood pressure within and across populations. BMJ. 1996 May 18;312(7041):1249–53. 
-26.	Newman T. High blood pressure: Sodium may not be the culprit [Internet]. Medical News Today. 2017 [cited 2022 Oct 14]. Available from: https://www.medicalnewstoday.com/articles/317099
-27.	Elijovich F, Weinberger MH, Anderson CAM, Appel LJ, Bursztyn M, Cook NR, et al. Salt Sensitivity of Blood Pressure: A Scientific Statement From the American Heart Association. Hypertens Dallas Tex 1979. 2016 Sep;68(3):e7–46. 
-28.	Your Guide to Lowering Your Blood Pressure with DASH. US Department of Health and Human Services; 1998 p. 64. 
-29.	Reports Outline Obesity, Fitness and Wellness Findings from Federal University Vicosa (Effects of Minimally and Ultra-processed Foods On Blood Pressure In Brazilian Adults: a Two-year Follow Up of the Cume Project). Obes Fit Wellness Week. 2023;3265-. 
-30.	Vollmer WM, Sacks FM, Ard J, Appel LJ, Bray GA, Simons-Morton DG, et al. Effects of Diet and Sodium Intake on Blood Pressure: Subgroup Analysis of the DASH-Sodium Trial. Ann Intern Med. 2001 Dec 18;135(12):1019. 
-31.	Sacks FM, Svetkey LP, Vollmer WM, Appel LJ, Bray GA, Harsha D, et al. Effects on Blood Pressure of Reduced Dietary Sodium and the Dietary Approaches to Stop Hypertension (DASH) Diet. N Engl J Med. 2001 Jan 4;344(1):3–10. 
-32.	Nilson EAF, Spaniol AM, Santin R da C, Silva SA. Estratégias para redução do consumo de nutrientes críticos para a saúde: o caso do sódio. Cad Saúde Pública. 2021;37(suppl 1). 
-33.	He FJ, MacGregor GA. Reducing Population Salt Intake Worldwide: From Evidence to Implementation. Prog Cardiovasc Dis. 2010 Mar 1;52(5):363–82. 
-34.	Cuj M, Grabinsky L, Yates-Doerr E. Cultures of Nutrition: Classification, Food Policy, and Health. Med Anthropol. 2021 Jan 2;40(1):79–97. 
-35.	Dickie S, Woods J, Machado P, Lawrence M. Nutrition Classification Schemes for Informing Nutrition Policy in Australia: Nutrient-Based, Food-Based, or Dietary-Based? Curr Dev Nutr. 2022 Jul 4;6(8):nzac112. 
-36.	Romero Ferreiro C, Lora Pablos D, Gómez de la Cámara A. Two Dimensions of Nutritional Value: Nutri-Score and NOVA. Nutrients. 2021 Aug 13;13(8):2783. 
-37.	A. A, Gan HJ, M.Y. H, K. KS, Zainudin AA. Food classification system based on food processing and its relationship with nutritional status of adults in Terengganu, Malaysia. Food Res. 2019;4(2):539–46. 
-38.	Bourdieu P, Bourdieu P. Distinction: a social critique of the judgement of taste. 11. print. Cambridge, Mass: Harvard Univ. Press; 2002. 613 p. 
-39.	A Bourdieu’dian Analysis for the Construction of an Education in Tea [Internet]. Tea Technique. 2021 [cited 2022 Apr 30]. Available from: https://www.teatechnique.org/a-bourdieudian-analysis-for-the-construction-of-an-education-in-tea/
-40.	Dickie S, Woods J, Machado P, Lawrence M. A novel food processing-based nutrition classification scheme for guiding policy actions applied to the Australian food supply. Front Nutr [Internet]. 2023 [cited 2023 Feb 10];10. Available from: https://www.frontiersin.org/articles/10.3389/fnut.2023.1071356
-41.	Monteiro CA. Nutrition and health. The issue is not food, nor nutrients, so much as processing. Public Health Nutr. 2009 May;12(5):729–31. 
-42.	Monteiro CA, Cannon G, Levy R, Moubarac JC, Jaime P, Martins AP, et al. NOVA. The star shines bright. World Nutr. 2016 Jan 7;7(1–3):28–38. 
-43.	Monteiro CA, Levy RB, Claro RM, Castro IRR de, Cannon G. A new classification of foods based on the extent and purpose of their processing. Cad Saúde Pública. 2010 Nov;26:2039–49. 
-44.	Monteiro CA, Levy RB, Claro RM, Castro IRR de, Cannon G. Uma nova classificação de alimentos baseada na extensão e propósito do seu processamento. Cad Saúde Pública. 2010 Nov;26:2039–49. 
-45.	Monteiro CA, Moubarac JC, Cannon G, Ng SW, Popkin B. Ultra-processed products are becoming dominant in the global food system. Obes Rev. 2013;14(S2):21–8. 
-46.	Monteiro CA, Astrup A. Does the concept of “ultra-processed foods” help inform dietary guidelines, beyond conventional classification systems? YES. Am J Clin Nutr. 2022 Dec 1;116(6):1476–81. 
-47.	Astrup A, Monteiro CA. Does the concept of “ultra-processed foods” help inform dietary guidelines, beyond conventional classification systems? Debate consensus. Am J Clin Nutr. 2022 Dec 1;116(6):1489–91. 
-48.	Aceves-Martins M, Bates RL, Craig LCA, Chalmers N, Horgan G, Boskamp B, et al. Nutritional Quality, Environmental Impact and Cost of Ultra-Processed Foods: A UK Food-Based Analysis. Int J Environ Res Public Health. 2022 Mar 8;19(6):3191. 
-49.	Rauber F, Louzada ML da C, Steele EM, Rezende LFM de, Millett C, Monteiro CA, et al. Ultra-processed foods and excessive free sugar intake in the UK: a nationally representative cross-sectional study. BMJ Open. 2019 Oct 1;9(10):e027546. 
-50.	Wang L, Martínez Steele E, Du M, Pomeranz JL, O’Connor LE, Herrick KA, et al. Trends in Consumption of Ultraprocessed Foods Among US Youths Aged 2-19 Years, 1999-2018. JAMA. 2021 Aug 10;326(6):519–30. 1.	Kannel WB, Garrison RJ, Dannenberg AL. Secular blood pressure trends in normotensive persons: The Framingham Study. Am Heart J. 1993 Apr 1;125(4):1154–8. 
-2.	Kannel WB. Hypertension: Reflections on Risks and Prognostication. Med Clin North Am. 2009 May;93(3):541-Contents. 
-3.	Bress AP, Cohen JB, Anstey DE, Conroy MB, Ferdinand KC, Fontil V, et al. Inequities in Hypertension Control in the United States Exposed and Exacerbated by COVID‐19 and the Role of Home Blood Pressure and Virtual Health Care During and After the COVID‐19 Pandemic. J Am Heart Assoc. 2021 Jun 1;10(11):e020997. 
-4.	Debon R, Bellei EA, Biduski D, Volpi SS, Alves ALS, Portella MR, et al. Effects of using a mobile health application on the health conditions of patients with arterial hypertension: A pilot trial in the context of Brazil’s Family Health Strategy. Sci Rep. 2020;10(1):6009–6009. 
-5.	Ettehad D, Emdin CA, Kiran A, Anderson SG, Callender T, Emberson J, et al. Blood pressure lowering for prevention of cardiovascular disease and death: a systematic review and meta-analysis. The Lancet. 2016 Mar 5;387(10022):957–67. 
-6.	Pringle E, Phillips C, Thijs L, Davidson C, Staessen JA, de Leeuw PW, et al. Systolic blood pressure variability as a risk factor for stroke and cardiovascular mortality in the elderly hypertensive population. J Hypertens. 2003 Dec;21(12):2251–7. 
-7.	Roche M, Onyia I. A quality improvement package for high blood pressure (BP) management in general practice, part of a systems leadership approach to tackling high BP in Cheshire and Merseyside [Internet]. NICE. NICE; 2018 [cited 2022 Jan 19]. Available from: https://www.nice.org.uk/sharedlearning/a-quality-improvement-package-for-high-blood-pressure-bp-management-in-general-practice-part-of-a-systems-leadership-approach-to-tackling-high-bp-in-cheshire-and-merseyside
-8.	WHO. High blood pressure: a public health problem [Internet]. World Health Organization - Regional Office for the Eastern Mediterranean. [cited 2022 Jan 19]. Available from: http://www.emro.who.int/media/world-health-day/public-health-problem-factsheet-2013.html
-9.	Blood pressure - Action on Salt [Internet]. [cited 2022 Nov 16]. Available from: https://www.actiononsalt.org.uk/salthealth/factsheets/pressure/
-10.	Blood Pressure UK [Internet]. [cited 2022 Jan 27]. Available from: https://www.bloodpressureuk.org/
-11.	Boutain DM. Discourses of worry, stress, and high blood pressure in rural South Louisiana. J Nurs Scholarsh. 2001 Third Quarter;33(3):225–30. 
-12.	Colombet Z, Simioni M, Drogue S, Lamani V, Perignon M, Martin-Prevel Y, et al. Demographic and socio-economic shifts partly explain the Martinican nutrition transition: an analysis of 10-year health and dietary changes (2003–2013) using decomposition models. Public Health Nutr. 2021;24(18):6323–34. 
-13.	Colombet Z, Schwaller E, Head A, Kypridemos C, Capewell S, O’Flaherty M. OP12 Social inequalities in ultra-processed food intakes in the United Kingdom: A time trend analysis (2008–2018). J Epidemiol Community Health. 2022 Aug 1;76(Suppl 1):A6–7. 
-14.	Ji C, Cappuccio FP. Socioeconomic inequality in salt intake in Britain 10 years after a national salt reduction programme. BMJ Open. 2014 Aug 26;4(8):e005683–e005683. 
-15.	Jones NR, Tong TY, Monsivais P. Meeting UK dietary recommendations is associated with higher estimated consumer food costs: an analysis using the National Diet and Nutrition Survey and consumer expenditure data, 2008–2012. Public Health Nutr. 2018 Apr;21(5):948–56. 
-16.	Leeuw E de, Simos J, editors. Healthy cities: the theory, policy, and practice of value-based urban planning. New York, NY: Springer; 2017. 515 p. 
-17.	MacGregor GA, He FJ, Pombo-Rodrigues S. Food and the responsibility deal: how the salt reduction strategy was derailed. BMJ. 2015 Apr 28;350:h1936. 
-18.	Institute of Medicine, Food and Nutrition Board, Committee on Strategies to Reduce Sodium Intake, Boon CS, Taylor CL, Henney JE. Strategies to Reduce Sodium Intake in the United States [Internet]. Washington, D.C., UNITED STATES: National Academies Press; 2010 [cited 2023 Jan 21]. Available from: http://ebookcentral.proquest.com/lib/liverpool/detail.action?docID=3378676
-19.	Laverty AA, Link to external site  this link will open in a new window, Kypridemos C, Seferidi P, Vamos EP, Pearson-Stuttard J, et al. Quantifying the impact of the Public Health Responsibility Deal on salt intake, cardiovascular disease and gastric cancer burdens: interrupted time series and microsimulation study. J Epidemiol Community Health. 2019 Sep;73(9):881. 
-20.	Millett C, Laverty AA, Stylianou N, Bibbins-Domingo K, Pape UJ. Impacts of a National Strategy to Reduce Population Salt Intake in England: Serial Cross Sectional Study. PLoS ONE. 2012 Jan 4;7(1):e29836. 
-21.	Moreira PVL, Baraldi LG, Moubarac JC, Monteiro CA, Newton A, Capewell S, et al. Comparing Different Policy Scenarios to Reduce the Consumption of Ultra-Processed Foods in UK: Impact on Cardiovascular Disease Mortality Using a Modelling Approach. Hernandez AV, editor. PLOS ONE. 2015 Feb 13;10(2):e0118353. 
-22.	National Food Strategy, editor. National Food Strategy : : part one. [Internet]. London : National Food Strategy,; 2020. Available from: https://www.nationalfoodstrategy.org/partone/
-23.	Cappuccio FP, Capewell S. Facts, Issues, and Controversies in Salt Reduction for the Prevention of Cardiovascular Disease. 2015;7(1):21. 
-24.	Intersalt: an international study of electrolyte excretion and blood pressure. Results for 24 hour urinary sodium and potassium excretion. Intersalt Cooperative Research Group. BMJ. 1988 Jul 30;297(6644):319–28. 
-25.	Elliott P, Stamler J, Nichols R, Dyer AR, Stamler R, Kesteloot H, et al. Intersalt revisited: further analyses of 24 hour sodium excretion and blood pressure within and across populations. BMJ. 1996 May 18;312(7041):1249–53. 
-26.	Newman T. High blood pressure: Sodium may not be the culprit [Internet]. Medical News Today. 2017 [cited 2022 Oct 14]. Available from: https://www.medicalnewstoday.com/articles/317099
-27.	Elijovich F, Weinberger MH, Anderson CAM, Appel LJ, Bursztyn M, Cook NR, et al. Salt Sensitivity of Blood Pressure: A Scientific Statement From the American Heart Association. Hypertens Dallas Tex 1979. 2016 Sep;68(3):e7–46. 
-28.	Your Guide to Lowering Your Blood Pressure with DASH. US Department of Health and Human Services; 1998 p. 64. 
-29.	Reports Outline Obesity, Fitness and Wellness Findings from Federal University Vicosa (Effects of Minimally and Ultra-processed Foods On Blood Pressure In Brazilian Adults: a Two-year Follow Up of the Cume Project). Obes Fit Wellness Week. 2023;3265-. 
-30.	Vollmer WM, Sacks FM, Ard J, Appel LJ, Bray GA, Simons-Morton DG, et al. Effects of Diet and Sodium Intake on Blood Pressure: Subgroup Analysis of the DASH-Sodium Trial. Ann Intern Med. 2001 Dec 18;135(12):1019. 
-31.	Sacks FM, Svetkey LP, Vollmer WM, Appel LJ, Bray GA, Harsha D, et al. Effects on Blood Pressure of Reduced Dietary Sodium and the Dietary Approaches to Stop Hypertension (DASH) Diet. N Engl J Med. 2001 Jan 4;344(1):3–10. 
-32.	Nilson EAF, Spaniol AM, Santin R da C, Silva SA. Estratégias para redução do consumo de nutrientes críticos para a saúde: o caso do sódio. Cad Saúde Pública. 2021;37(suppl 1). 
-33.	He FJ, MacGregor GA. Reducing Population Salt Intake Worldwide: From Evidence to Implementation. Prog Cardiovasc Dis. 2010 Mar 1;52(5):363–82. 
-34.	Cuj M, Grabinsky L, Yates-Doerr E. Cultures of Nutrition: Classification, Food Policy, and Health. Med Anthropol. 2021 Jan 2;40(1):79–97. 
-35.	Dickie S, Woods J, Machado P, Lawrence M. Nutrition Classification Schemes for Informing Nutrition Policy in Australia: Nutrient-Based, Food-Based, or Dietary-Based? Curr Dev Nutr. 2022 Jul 4;6(8):nzac112. 
-36.	Romero Ferreiro C, Lora Pablos D, Gómez de la Cámara A. Two Dimensions of Nutritional Value: Nutri-Score and NOVA. Nutrients. 2021 Aug 13;13(8):2783. 
-37.	A. A, Gan HJ, M.Y. H, K. KS, Zainudin AA. Food classification system based on food processing and its relationship with nutritional status of adults in Terengganu, Malaysia. Food Res. 2019;4(2):539–46. 
-38.	Bourdieu P, Bourdieu P. Distinction: a social critique of the judgement of taste. 11. print. Cambridge, Mass: Harvard Univ. Press; 2002. 613 p. 
-39.	A Bourdieu’dian Analysis for the Construction of an Education in Tea [Internet]. Tea Technique. 2021 [cited 2022 Apr 30]. Available from: https://www.teatechnique.org/a-bourdieudian-analysis-for-the-construction-of-an-education-in-tea/
-40.	Dickie S, Woods J, Machado P, Lawrence M. A novel food processing-based nutrition classification scheme for guiding policy actions applied to the Australian food supply. Front Nutr [Internet]. 2023 [cited 2023 Feb 10];10. Available from: https://www.frontiersin.org/articles/10.3389/fnut.2023.1071356
-41.	Monteiro CA. Nutrition and health. The issue is not food, nor nutrients, so much as processing. Public Health Nutr. 2009 May;12(5):729–31. 
-42.	Monteiro CA, Cannon G, Levy R, Moubarac JC, Jaime P, Martins AP, et al. NOVA. The star shines bright. World Nutr. 2016 Jan 7;7(1–3):28–38. 
-43.	Monteiro CA, Levy RB, Claro RM, Castro IRR de, Cannon G. A new classification of foods based on the extent and purpose of their processing. Cad Saúde Pública. 2010 Nov;26:2039–49. 
-44.	Monteiro CA, Levy RB, Claro RM, Castro IRR de, Cannon G. Uma nova classificação de alimentos baseada na extensão e propósito do seu processamento. Cad Saúde Pública. 2010 Nov;26:2039–49. 
-45.	Monteiro CA, Moubarac JC, Cannon G, Ng SW, Popkin B. Ultra-processed products are becoming dominant in the global food system. Obes Rev. 2013;14(S2):21–8. 
-46.	Monteiro CA, Astrup A. Does the concept of “ultra-processed foods” help inform dietary guidelines, beyond conventional classification systems? YES. Am J Clin Nutr. 2022 Dec 1;116(6):1476–81. 
-47.	Astrup A, Monteiro CA. Does the concept of “ultra-processed foods” help inform dietary guidelines, beyond conventional classification systems? Debate consensus. Am J Clin Nutr. 2022 Dec 1;116(6):1489–91. 
-48.	Aceves-Martins M, Bates RL, Craig LCA, Chalmers N, Horgan G, Boskamp B, et al. Nutritional Quality, Environmental Impact and Cost of Ultra-Processed Foods: A UK Food-Based Analysis. Int J Environ Res Public Health. 2022 Mar 8;19(6):3191. 
-49.	Rauber F, Louzada ML da C, Steele EM, Rezende LFM de, Millett C, Monteiro CA, et al. Ultra-processed foods and excessive free sugar intake in the UK: a nationally representative cross-sectional study. BMJ Open. 2019 Oct 1;9(10):e027546. 
-50.	Wang L, Martínez Steele E, Du M, Pomeranz JL, O’Connor LE, Herrick KA, et al. Trends in Consumption of Ultraprocessed Foods Among US Youths Aged 2-19 Years, 1999-2018. JAMA. 2021 Aug 10;326(6):519–30. 
+
+
+
 
 
 \newpage
