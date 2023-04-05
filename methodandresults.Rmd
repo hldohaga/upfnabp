@@ -1,10 +1,10 @@
 ---
 title: "bp upf and na"
 output:
-  word_document: 
+  html_notebook: 
     toc: yes
     fig_caption: yes
-    keep_md: yes
+    number_sections: yes
   html_document:
     toc: yes
     fig_caption: yes
@@ -12,31 +12,39 @@ output:
     keep_md: yes
   pdf_document:
     toc: yes
-  html_notebook: 
+  word_document: 
     toc: yes
     fig_caption: yes
-    number_sections: yes
+    keep_md: yes
 editor_options: 
   markdown: 
     wrap: sentence
     bibliography: upfnabp.bib 
+    csl: elsevier-vancouver.csl
 ---
 
 
  
-# BP and UPF and Na in NDNS Dissertation
+# BP and UPF and Na in NDNS Dissertation {-}
 
-# Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019
+# Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019{-}
 
-# David O’Hagan 
+# David O’Hagan {-}
 200299857
 
+## Dissertation submitted in partial fulfilment of the requirements for the degree of Master of Public Health, The University of Liverpool{-}
 
-## Dedication
+## August 2023 {-}
+
+\newpage
+
+## Dedication{-}
 
 To Julie Andrew and Sophie
 
-Acknowledgments
+\newpage
+
+##  Acknowledgments{-}
 
 
 
@@ -44,15 +52,119 @@ To Zoe and Martn
 
 To Paul
 
-## Dissertation submitted in partial fulfilment of the requirements for the degree of Master of Public Health, The University of Liverpool
-
-## August 2023
+\newpage
 
 
 
-#Introduction and Back ground
+
+
+
+\newpage
+
+# Abstract {-}
+
+This is a secondary data study looking at BP and the effects of UPF and Na.
+
+Data from the national dietary and nutrition survey (NDNS) was interrogated to establish any correlation between UPF intake and BP. The role of sodium was also examined.
+
+The study showed that there is a correlation between UPF intake and BP, and that this relationship remained over time while UPF intake has risen. It also showed that sodium intake is correlated with BP but this relationship changed as intake lowered over time.
+
+The importance of this is that BP is a clinical outcome, and a proxy measure for CVD. The study shows that increasing UPF intakes increases the population risk of BP and CVD. It also shows that reduction of the sodium content is not effective at reducing the overall risk as reducing the proportion of UPF consumed.
+
+Policy should aim to reduce intake of UPF and increase intake of unprocessed foods.
+
+
+\newpage
+
+#  Introduction
+There is an association between blood pressure (BP) and intake of Ultra-processed Foods (UPF) and Salt intake. This association is identifiable in the data set of the National dietary and nutrition survey (NDNS). 
+
+The relationship has changed between 2008 and 2019. There have been changes in the intake of UPF, of salt and BP. 
+
+This study will describe those changes. 
+
+As part of this description, I will identify how BP is affected by these key dietary factors. I will attempt to identify the role salt intake plays in the effect of ultraprocessed food on BP. 
+
+
+
+### Public Health Impact
+
+Public Health intends to reduce the burden of ill health across the population. BP is an indicator of the health of the population, in that it is a risk factor for a number of non-communicable diseases (NCD). 
+
+Dietary approaches to improving public health are able to deliver proportionate and universal interventions to populations to reduce the incidence of NCD. These can be delivered up stream at the policy level. 
+
+This is effective and efficient and minimises cost. 
+
+They also can be used at an individual level, which does risk them being used for victim blaming. 
+
+The commercial and social determinants of health play out a significant role in research, and delivery of public health improvements around food. 
+
+
+###Epistemology
+
+The epistemological approach of this study is positivist. I use a quantitative approach in a mechanistic and deterministic model. However, I am aware that this model is an incomplete description of the whole of reality. So that whilst I work within this positivist framework, I am aware that the model is limited by the isolation which defines the parameters of the study. 
+
+
+In particular I am aware that real world application to dietary change requires interaction with social and economic factors. These factors are often much better understood within critical realist and social constructionist models. The commercial and social determinants of health are both constructionist models which have a great deal of impact on the reality of dietary effects on BP and on the availability of UPF and on their nutritional constituents. 
+
+
+### Positionality
+
+
+In a positivist paradigm the observer is external to the model. Acknowledging that there are constructivist aspects to this study allows that the observer is closer to the model. My positionality is therefore of interest to interpretation of the derived model, but also to understand reasons for decisions about the approach to the data. I share with Jafar (1) an intention to lead in describing my positionality in this quantitative study.
+
+
+I am from a biomedical background, which brings an attachment to positivist ideals. However, as a practicing physician I am aware of the interaction of any number of social factors on the health of participants as Evans and Trotter (2) discuss . These impact on food ‘choices’, which might be determined by social expectations as much as by income, or geography. They also impact on ‘hard’ clinical measurements such as BP. This can be affected by position and room temperature as well as by the relationship between the observer and the participant.
+
+This work is primarily to complete requirements for an MPH degree which means that it is influenced by factors around health equity and classic epidemiology as taught on the course. It is produced in collaboration with a research group with a long established reputation in food research in public health, which may steer the results in a conservative direction. 
+
+Positivist ‘grand isolation’ may reduce the influence of these factors, but they remain as influences.
+
+I accept that to proceed, whilst I need to be aware of the limitations of the positivist approach and the necessity of making pragmatic selections that there is some degree of validity to the resulting dataset. Otherwise, analysis of it would be of no purpose.
+
+
+
+
+
+
+\newpage
 
 # Literature Review
+
+
+
+## Introduction
+
+This section will describe the search strategy and techniques used to identify articles to make up the review. Then there will be a review of separate sections of the literature, before developing a synthesis of the literature at present.
+
+
+The search strategy has a core systematic approach but is augmented with additional items from a range of sources. The success of the search is that it identifies a wide variety of articles which help to outline and augment the argument developed.
+There will then be a critical review of the literature, before a synthesis of how it relates to the research question.
+
+## Search Strategy
+
+My search of the literature identifies the majority of articles of relevance. Starting with a broad search strategy, the results are narrowed identifying those of particular relevance, by reading abstracts and cross referencing with other papers. After discussion colleagues passed on further relevant literature.
+
+Also, I identify papers from the bibliographies of identified papers. Reviews and meta-analyses are good at presenting search strategies and identifying high value studies.
+
+These identify search terms not initially included. Many of these searches consider broader clinical endpoints, using metabolic syndrome, diabetes and cerebrovascular and cardiovascular disease.
+
+My search terms are included in the table below. They were searched through a meta database which includes Medline, and Ovid and Scopus. This produced 1328 results the search allowed medical, public health, nursing articles to be prioritised and engineering, chemical, and technology articles to be deprioritised.
+
+There were no time limits, language limits or availability limits in the initial search. These 1328 were reduced down by reading titles and abstracts to identify relevant articles.
+
+Table 1: Table of search terms used
+
+(“ultra-processed food” OR “ultra-processed foods” OR “ultraprocessed food” OR “ultraprocessed foods” OR “ultra-processed product” OR “ultra-processed products” OR “ultra-processing” OR “food processing” OR “processed food” OR “processed foods” OR “NOVA” OR “NOVA system” OR “NOVA food classification” OR “NOVA classification system”) AND (hypertension OR “high blood pressure” OR “high blood pressures” OR “blood pressure” OR “systolic pressure” OR “diastolic pressure” OR “systolic blood pressure” OR “diastolic blood pressure”) AND (adult OR adults OR aged OR “middle aged” OR elderly OR “older adult”)
+
+## Search results
+
+The results demonstrate the recent introduction of the NOVA classification (1,2). The Ultraprocessed category comes from this. Prior to this most papers try to identify specific nutritional deficits. Dickie at al (3) show modifications and review the working of the NOVA system.
+
+Clinical outcomes in studies are varied. There are many studies which use multiple outcomes. Other studies use self-declared clinical states.
+
+Papers were excluded which related to technology including food technology. They were also excluded if the primary purpose of the paper was unrelated to dietary or nutritional causes of clinical outcomes.
+
 
 Literature review 
 1 describe literature
@@ -485,7 +597,7 @@ Bibliography
 50.	Wang L, Martínez Steele E, Du M, Pomeranz JL, O’Connor LE, Herrick KA, et al. Trends in Consumption of Ultraprocessed Foods Among US Youths Aged 2-19 Years, 1999-2018. JAMA. 2021 Aug 10;326(6):519–30. 
 
 
-
+\newpage
 # Method
 ## Introduction
 
@@ -1613,6 +1725,8 @@ ndns_1_11b <- subset(ndns_1_11ed, Age >18)
 #ndns_1_11e <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1, data = ndns_1_11e, nest = TRUE)
 
 ```
+
+\newpage
 #  Results 
 ##  Results Introduction
 
@@ -1625,9 +1739,10 @@ I will discuss the results having already described the method.
 
 This first table highlights the key variables from the years 2008-2019.
 These are weighted values
-```{r keydata, echo=FALSE, message=FALSE, warning=FALSE}
+And see Table \@ref(tab:keydata)
+```{r keydata, echo=FALSE, message=FALSE, warning=FALSE, caption = "The key data"}
 
-summary(ndns_1_11d$variables$omsysval)
+#summary(ndns_1_11d$variables$omsysval)
 
 keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
@@ -1686,7 +1801,7 @@ The mean sodium intake has changed from  2156.30 mg to 2574.33 mg and is also st
 
 The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
 
-```{r echo=FALSE}
+```{r echo=FALSE , caption = "Key variable against Survey Year"}
 ttestNa2 <- svyglm(Sodiummg~SurveyYear, ndns_1_11ed )
 ttestNa2t<- tbl_regression(ttestNa2)
 ttestEpcnt <- svyglm(Epcnt_4~SurveyYear, ndns_1_11ed )
@@ -1725,9 +1840,8 @@ In particular there may be more younger people and women taking e.g. bblockers i
 
 This table suggests that there is a significant difference in the bmi of the cohorts.
 
-```{r continuous data, echo=FALSE, message=FALSE, warning=FALSE}
-#tab.id = "1"
-# tab.cap = "continuous data"
+```{r continuous data, echo=FALSE, message=FALSE, warning=FALSE, caption = "Continuous Variables by survey year"}
+
 ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11d)
 ttestages<-  tbl_regression(ttestage)
 
@@ -1743,7 +1857,7 @@ There is a difference in the age of finishing education.
 The differences in qimd, are not statistically significant.
 
 These values identify a significant difference in the number of vegetarians
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, caption = "Categorical variables against Survey Year"}
 sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11d)
 educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11d)
 imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11d)
@@ -1772,11 +1886,17 @@ autofit(tablecat)
 Simple linear regression equations look for the relationship between the dependant variable, and the independent variable.
 For these I am looking at the whole dataset 
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.cap= "BP against Na"}
 svyplot(omsysval~Sodiummg, ndns_1_11d ,main = "% Energy Intake UPF by Systolic BP", xlab = "Sodium Intake mg" ,ylab ="Systolic BP")
+```
 
 
+```{r echo=FALSE, fig.cap="BP and UPF", message=FALSE, warning=FALSE}
 svyplot(omsysval~Epcnt_4, ndns_1_11d,main = "% Energy Intake UPF by Systolic BP", xlab = "% Energy Intake UPF" ,ylab ="Systolic BP")
+
+```
+
+```{r echo=FALSE, fig.cap="UPF and Na", message=FALSE, warning=FALSE}
 
 svyplot(Epcnt_4~Sodiummg, ndns_1_11d,main = "% Energy Intake UPF by Sodiummg", ylab = "% Energy Intake UPF" ,xlab ="Sodium in mg")
 
@@ -1929,7 +2049,7 @@ It also shows the same for sodium intake.
 Using Anova analysis of different multi variable regression models the key variables are significant for sodium in several models, and sometimes for UPF.
 
 
-## Conclusion
+## Results Conclusion
 
 
 The percentage by energy of NOVA group 4 foods decreased from 2008 to 2019.
@@ -1942,6 +2062,7 @@ There is a correlation between systolic BP and UPF intake.
 The regression models identify that age and sex are statistically significant contributors to the BP and that bmi, educfinh, and IMD are also.
 
 The regression models identify that sodium intake is an important contributor to any optimal model. That UPF intake is no longer significant, but still has some effect. 
+\newpage
 
 #  Discussion
 
@@ -2011,8 +2132,23 @@ Ideas include legislation to reduce UPF use, this might be by pricing, or other 
 Health promotion policy needs to match policy activity. 
 People who know that UPF is bad, are more likely to accept policy limiting availability.
 
+
+\newpage
+
 # Conclusion
-
+\newpage
 # Bibliography
+# References
 
+<div id="refs"></div>
+
+# (APPENDIX) Appendix {-} 
+
+# More information
+
+This will be Appendix A.
+
+# One more thing
+
+This will be Appendix B.
 # Appendices

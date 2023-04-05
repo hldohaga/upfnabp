@@ -1170,7 +1170,7 @@ I will discuss the results having already described the method.
 
 This first table highlights the key variables from the years 2008-2019.
 These are weighted values
-```{r keydata, echo=FALSE, message=FALSE, warning=FALSE}
+```{r keydata, echo=FALSE, message=FALSE, warning=FALSE, tab.cap = "keydata"}
 
 
 #summary(ndns_1_11d$variables$omsysval)
