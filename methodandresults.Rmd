@@ -67,19 +67,19 @@ This is a secondary data study looking at BP and the effects of UPF and Na.
 
 Data from the national dietary and nutrition survey (NDNS) was interrogated to establish any correlation between UPF intake and BP. The role of sodium was also examined.
 
-The study showed that there is a correlation between UPF intake and BP, and that this relationship remained over time while UPF intake has risen. It also showed that sodium intake is correlated with BP but this relationship changed as intake lowered over time.
+The study showed that there is a correlation between UPF intake and BP, which disappears when Age is a covariable. It also showed that sodium intake has no  correlation with BP as an isolated variable, but that it is important within multivariable models.
 
-The importance of this is that BP is a clinical outcome, and a proxy measure for CVD. The study shows that increasing UPF intakes increases the population risk of BP and CVD. It also shows that reduction of the sodium content is not effective at reducing the overall risk as reducing the proportion of UPF consumed.
+The importance of this is that BP is a clinical outcome, and a proxy measure for CVD. The study shows a complex relationship between UPF intake and population risk of BP and CVD. It also shows that reduction of the sodium content may be effective at reducing the overall risk.
 
-Policy should aim to reduce intake of UPF and increase intake of unprocessed foods.
+Policy should aim to reduce percentage intake of UPF and increase percentage intake of unprocessed foods.
 
 
 \newpage
 
 #  Introduction
-There is an association between blood pressure (BP) and intake of Ultra-processed Foods (UPF) and Salt intake. This association is identifiable in the data set of the National dietary and nutrition survey (NDNS). 
+There is thought to be an association between blood pressure (BP) and intake of Ultra-processed Foods (UPF) and Salt intake. This study looks at this association in the data set of the National dietary and nutrition survey (NDNS). 
 
-The relationship has changed between 2008 and 2019. There have been changes in the intake of UPF, of salt and BP. 
+The study gives data from 2008 to 2019. There have been changes in the intake of UPF, of salt and BP over that time. 
 
 This study will describe those changes. 
 
@@ -139,7 +139,7 @@ This section will describe the search strategy and techniques used to identify a
 
 
 The search strategy has a core systematic approach but is augmented with additional items from a range of sources. The success of the search is that it identifies a wide variety of articles which help to outline and augment the argument developed.
-There will then be a critical review of the literature, before a synthesis of how it relates to the research question.
+There will be a critical review of the literature, and synthesis, with expanation on how it relates to the research question.
 
 ## Search Strategy
 
