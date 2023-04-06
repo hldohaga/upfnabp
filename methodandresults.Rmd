@@ -1,11 +1,10 @@
 ---
 title: "bp upf and na"
 output:
-  pdf_document: 
+  html_notebook: 
     toc: yes
     fig_caption: yes
     number_sections: yes
-    keep_tex: yes
   html_document:
     toc: yes
     fig_caption: yes
@@ -16,10 +15,11 @@ output:
     fig_caption: yes
     keep_md: yes
     toc_depth: 4
-  html_notebook: 
+  pdf_document: 
     toc: yes
     fig_caption: yes
     number_sections: yes
+    keep_tex: yes
 editor_options: 
   markdown: 
     wrap: sentence
@@ -1646,8 +1646,8 @@ I will discuss the results having already described the method.
 
 This first table highlights the key variables from the years 2008-2019.
 These are weighted values
-And see Table \@ref(tab:keydata)
-```{r keydata, echo=FALSE, message=FALSE, warning=FALSE,tab.id=TRUE, tab.cap = "The key data"}
+And see Table \@ref(tab: keydata)
+```{r keydata, echo=FALSE, message=FALSE, warning=FALSE,tab.id=TRUE, tab.cap = "The key data",out.width=80%}
 
 #summary(ndns_1_11d$variables$omsysval)
 
@@ -1721,7 +1721,7 @@ The mean sodium intake has changed from  2156.30 mg to 2574.33 mg and is also st
 
 The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
 
-```{r Key Variables  by Survey year, echo=FALSE, caption="Key Variables"}
+```{r Key Variables  by Survey year, echo=FALSE,tab.id=TRUE, tab.cap ="Key Variables"}
 ttestNa2 <- svyglm(Sodiummg~SurveyYear, ndns_1_11ed )
 ttestNa2t<- tbl_regression(ttestNa2)
 ttestEpcnt <- svyglm(Epcnt_4~SurveyYear, ndns_1_11ed )
@@ -1760,7 +1760,7 @@ In particular there may be more younger people and women taking e.g. bblockers i
 
 This table suggests that there is a significant difference in the bmi of the cohorts.
 
-```{r continuous data, echo=FALSE, message=FALSE, warning=FALSE, caption = "Continuous Variables by survey year"}
+```{r continuous data, echo=FALSE, message=FALSE, warning=FALSE, tab.id=TRUE,tab.cap = "Continuous Variables by survey year"}
 
 ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11d)
 ttestages<-  tbl_regression(ttestage)
@@ -1777,7 +1777,7 @@ There is a difference in the age of finishing education.
 The differences in qimd, are not statistically significant.
 
 These values identify a significant difference in the number of vegetarians
-```{r Categorical variables against Survey Year, echo=FALSE, message=FALSE, warning=FALSE, tab.cap = "Categorical variables against Survey Year"}
+```{r Categorical variables against Survey Year, echo=FALSE, message=FALSE, warning=FALSE,tab.id=TRUE ,tab.cap = "Categorical variables against Survey Year"}
 sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11d)
 educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11d)
 imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11d)
@@ -1926,7 +1926,7 @@ This suggests that the effect of UPF is mediated by Sodium!!
 
 comparing AIC for these three models 
 
-```{r multivariable outputs, echo=FALSE, message=FALSE, warning=FALSE}
+```{r multivariable outputs, echo=FALSE, message=FALSE, warning=FALSE,tab.cap="Multivariable comparison",tab.id=TRUE}
 
 lm1ASt <-tbl_regression(lm1AS)
 lmnat <- tbl_regression(lmna)
@@ -1938,13 +1938,13 @@ lmMEt <- tbl_regression(lmME)
 
 
 
-```{r AIC comparison, echo=FALSE, message=FALSE, warning=FALSE}
+```{r AIC comparison, echo=FALSE, message=FALSE, warning=FALSE,tab.cap="AIC comparison",tab.id=TRUE}
 AICt<- data.table("Model"=c("No sodium or UPF","Sodium only","Epcnt only","Sodium and UPF"),"AIC" =c(lm1AS$aic, lmna$aic,lmME$aic,lmnaE$aic))
 flextable(AICt)
 ```
 
 
-```{r AIC sense, echo=FALSE, message=FALSE, warning=FALSE}
+```{r AIC sense, echo=FALSE, message=FALSE, warning=FALSE,tab.cap="AIC sense",tab.id=TRUE}
 
 #AIC(lmM,lmMna,lmM2)
 sense1 <- (lmME$aic - lmna$aic)*100/lmna$aic 
