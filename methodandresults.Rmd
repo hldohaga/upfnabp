@@ -1,21 +1,25 @@
 ---
 title: "bp upf and na"
 output:
-  html_notebook: 
+  pdf_document: 
     toc: yes
     fig_caption: yes
     number_sections: yes
+    keep_tex: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
-  pdf_document:
-    toc: yes
   word_document: 
     toc: yes
     fig_caption: yes
     keep_md: yes
+    toc_depth: 4
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
 editor_options: 
   markdown: 
     wrap: sentence
@@ -100,7 +104,7 @@ They also can be used at an individual level, which does risk them being used fo
 The commercial and social determinants of health play out a significant role in research, and delivery of public health improvements around food. 
 
 
-###Epistemology
+###  Epistemology
 
 The epistemological approach of this study is positivist. I use a quantitative approach in a mechanistic and deterministic model. However, I am aware that this model is an incomplete description of the whole of reality. So that whilst I work within this positivist framework, I am aware that the model is limited by the isolation which defines the parameters of the study. 
 
@@ -167,10 +171,10 @@ Papers were excluded which related to technology including food technology. They
 
 
 
- 	1 describe literature
-	2 synthesise literature
-	3 critique literature
-	4 explain role of study within context
+ -	1 describe literature
+-	2 synthesise literature
+-	3 critique literature
+-	4 explain role of study within context
 
 
 
@@ -1773,7 +1777,7 @@ There is a difference in the age of finishing education.
 The differences in qimd, are not statistically significant.
 
 These values identify a significant difference in the number of vegetarians
-```{r Categorical variables against Survey Year, echo=FALSE, message=FALSE, warning=FALSE, caption= "Categorical variables against Survey Year"}
+```{r Categorical variables against Survey Year, echo=FALSE, message=FALSE, warning=FALSE, tab.cap = "Categorical variables against Survey Year"}
 sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11d)
 educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11d)
 imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11d)
