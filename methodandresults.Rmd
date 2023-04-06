@@ -1,15 +1,15 @@
 ---
 title: "bp upf and na"
 output:
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
   pdf_document:
     toc: yes
   word_document: 
@@ -695,7 +695,7 @@ This section has highlighted how the material for the study is brought together 
 
 
 
-```{r include=FALSE}
+```{r library,include=FALSE}
 library(haven)
 library(data.table)
 library(readxl)
@@ -803,7 +803,7 @@ N <- sum(n1, n2, n3, n4) #Should be 15655
 
 
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r weight2,message=FALSE, warning=FALSE, include=FALSE}
 #now the proportion weight for each is calculated
 sav4br$wti_UKY1to11 <- ((sav4br$wti_UKY1234/n1) * N)  * (4/11)
 
@@ -836,7 +836,7 @@ weightset <- c("wti_UKY1to11","astrata1","area")
 indiv_data <- c(bpset,ethnset,saltset,medsset,hypset,incset,measset,ageset,weightset)
 ```
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r individ data,message=FALSE, warning=FALSE, include=FALSE}
 sav11br <- sav11br[,..indiv_data]
 sav4br <- sav4br[,..indiv_data]
 sav6br <- sav6br[,..indiv_data]
@@ -850,13 +850,13 @@ val_labels(sav11br) <- NULL
 #sav8br$ethgrp5 <- as.double(sav8br$ethgrp5)
 ```
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r joining together,message=FALSE, warning=FALSE, include=FALSE}
 #this creates the whole table
 ndns_1_11 <- rbindlist(list(sav4br,sav6br,sav8br,sav11br),fill = TRUE, use.names = TRUE)
 
 ```
 
-```{r include=FALSE}
+```{r define factors,include=FALSE}
  #define factors for 1-4 
 #saltset
 ndns_1_11[, SaltChk := factor(SaltChk, levels = 1:8, labels = c("Salt",
@@ -887,7 +887,7 @@ ndns_1_11[, SaltChk := factor(SaltChk, levels = 1:8, labels = c("Salt",
  ndns_1_11[, vegetarn := factor(vegetarn, levels = 1:3, labels = c("vegetarian","vegan","not vegetarian"))]
 ```
 
-```{r include=FALSE}
+```{r define factors2 ,include=FALSE}
 #medset
  ndns_1_11[, bpmedc2 := factor(bpmedc2,levels = 0:1,	labels = c("Not taking drug"
 	,"Taking drug"))]
@@ -996,7 +996,7 @@ ndns_1_11[,agegr1 := factor(agegr1, levels = 1:5, labels = c("1.5-3 years","4-10
 
 
 
-```{r include=FALSE}
+```{r personal data defn,include=FALSE}
 #this identifies the variables wanted from the person level data sets
 perslevdat <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciummg","VitaminDµg","TotalEMJ", "Totalsugarsg","Glucoseg","Sucroseg","Fructoseg","Lactoseg","SOFTDRINKSLOWCALORIE","SOFTDRINKSNOTLOWCALORIE", "TEACOFFEEANDWATER")
 
@@ -1006,7 +1006,7 @@ perslevdat <- c("seriali","Age","SurveyYear", "Sex","Country","Sodiummg","Calciu
 
 
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r join pers level data,message=FALSE, warning=FALSE, include=FALSE}
 
 val_labels(sav8r) <- NULL
 val_labels(sav6r) <- NULL
@@ -1036,7 +1036,7 @@ ndns_1_11 <- ndns_1_11[ ndns_1_11r, on = "seriali"]
 
 ```
 
-```{r echo=FALSE}
+```{r tidy up, echo=FALSE}
 
 ndns_1_11[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
 ndns_1_11[, Country := factor(Country)]
@@ -1124,10 +1124,7 @@ foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group","EnergykJ
 
 ```
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
-#heatmap(foodlevedat9s, Colv = "TotalGrams")
 
-```
 
 
 
@@ -1583,7 +1580,7 @@ ndns_1_11 <- ndns_1_11[ndns_1_11food, by= seriali]
 
 
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r survey design,message=FALSE, warning=FALSE, include=FALSE}
 
 
 
@@ -1596,7 +1593,7 @@ ndns_1_11d <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1,
 
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r exclusions,echo=FALSE, message=FALSE, warning=FALSE}
 #Exclusions
 
 
@@ -1646,7 +1643,7 @@ I will discuss the results having already described the method.
 This first table highlights the key variables from the years 2008-2019.
 These are weighted values
 And see Table \@ref(tab:keydata)
-```{r keydata, echo=FALSE, message=FALSE, warning=FALSE, caption = "The key data"}
+```{r keydata, echo=FALSE, message=FALSE, warning=FALSE,tab.id=TRUE, tab.cap = "The key data"}
 
 #summary(ndns_1_11d$variables$omsysval)
 
@@ -1664,19 +1661,19 @@ This tables shows the change between annual cohorts.
 
 
 
-```{r upf and survey year, echo=FALSE, message=FALSE, warning=FALSE,fig.cap = "Survey Year"}
+```{r upf and survey year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "Survey Year"}
 
 
 svyplot(Epcnt_4~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
 ```
 
-```{r Na and survey year, echo=FALSE, message=FALSE, warning=FALSE,fig.cap = "Na Survey Year"}
+```{r Na and survey year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "Na Survey Year"}
 
 svyplot(Sodiummg~SurveyYear,ndns_1_11ed,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
 
 ```
 
-```{r BP and survey year, echo=FALSE, message=FALSE, warning=FALSE,fig.cap = "BP Survey Year"}
+```{r BP and survey year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "BP Survey Year"}
 svyplot(omsysval~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
 ```
 
@@ -1684,18 +1681,18 @@ These plots show how the percentage of energy derived from UPF, the sodium intak
 The graphs show that there is not a clear visible difference between the years. Statistical analysis will follow.
 These next box plots show the difference between the sexes in the key variables.
 
-```{r  BP Sex Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.cap = "BP sex"}
+```{r  BP Sex Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "BP sex"}
 
 
 svyboxplot(omsysval~Sex,ndns_1_11ed, na.rm = TRUE,main = "Systolic BP in mmHg by Sex", ylab = "Sysltolic BP in mmHg" ,xlab ="Sex")
 ```
 
-```{r Na Sex Boxplots, echo=FALSE, fig.cap=, message=FALSE, warning=FALSE, fig.cap= "Na Sex Boxplot"}
+```{r Na Sex Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE, fig.cap= "Na Sex Boxplot"}
 
 svyboxplot(Sodiummg~Sex,ndns_1_11ed, na.rm = TRUE,main = "Sodium Intake in mg by Sex", ylab = "Sodium intake in mg" ,xlab ="Sex")
 ```
 
-```{r UPF Sex Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.cap = "UPF sex"}
+```{r UPF Sex Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "UPF sex"}
 svyboxplot(Epcnt_4~Sex,ndns_1_11ed, na.rm = TRUE,main = "% Energy Intake UPF by sex", ylab = "% Energy Intake UPF" ,xlab ="Sex")
 
 ```
@@ -1805,17 +1802,17 @@ autofit(tablecat)
 Simple linear regression equations look for the relationship between the dependant variable, and the independent variable.
 For these I am looking at the whole dataset 
 
-```{r echo=FALSE, fig.cap= "BP against Na"}
-svyplot(omsysval~Sodiummg, ndns_1_11d ,main = "% Energy Intake UPF by Systolic BP", xlab = "Sodium Intake mg" ,ylab ="Systolic BP")
+```{r Na by BP,echo=FALSE,fig.id=TRUE, fig.cap= "BP against Na"}
+svyplot(omsysval~Sodiummg, ndns_1_11d ,main = "Sodium Intake in mg", xlab = "Sodium Intake mg" ,ylab ="Systolic BP")
 ```
 
 
-```{r echo=FALSE, fig.cap="BP and UPF", message=FALSE, warning=FALSE}
+```{r BP and UPF,echo=FALSE, fig.cap="BP and UPF",fig.id=TRUE, message=FALSE, warning=FALSE}
 svyplot(omsysval~Epcnt_4, ndns_1_11d,main = "% Energy Intake UPF by Systolic BP", xlab = "% Energy Intake UPF" ,ylab ="Systolic BP")
 
 ```
 
-```{r echo=FALSE, fig.cap="UPF and Na", message=FALSE, warning=FALSE}
+```{r UPF and Na plot,echo=FALSE, fig.cap="UPF and Na",fig.id=TRUE, message=FALSE, warning=FALSE}
 
 svyplot(Epcnt_4~Sodiummg, ndns_1_11d,main = "% Energy Intake UPF by Sodiummg", ylab = "% Energy Intake UPF" ,xlab ="Sodium in mg")
 
@@ -1829,7 +1826,7 @@ These use the populations where participants have been excluded.
 
 First, omsysval is compared to EnergykJ, then sodiummg.
 
-```{r univariable regressions, echo=FALSE, message=FALSE, warning=FALSE, tab.cap= "Univariable Regressions"}
+```{r univariable regressions, echo=FALSE, message=FALSE, warning=FALSE, tab.id = TRUE,tab.cap= "Univariable Regressions"}
 
 #univariable regression models
 #UPF Energy % only
