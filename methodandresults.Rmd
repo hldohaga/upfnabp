@@ -1,15 +1,15 @@
 ---
 title: "bp upf and na"
 output:
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
   pdf_document:
     toc: yes
   word_document: 
@@ -111,10 +111,10 @@ In particular I am aware that real world application to dietary change requires 
 ### Positionality
 
 
-In a positivist paradigm the observer is external to the model. Acknowledging that there are constructivist aspects to this study allows that the observer is closer to the model. My positionality is therefore of interest to interpretation of the derived model, but also to understand reasons for decisions about the approach to the data. I share with Jafar (1) an intention to lead in describing my positionality in this quantitative study.
+In a positivist paradigm the observer is external to the model. Acknowledging that there are constructivist aspects to this study allows that the observer is closer to the model. My positionality is therefore of interest to interpretation of the derived model, but also to understand reasons for decisions about the approach to the data. I share with Jafar [@jafarWhatPositionalityShould2018] an intention to lead in describing my positionality in this quantitative study.
 
 
-I am from a biomedical background, which brings an attachment to positivist ideals. However, as a practicing physician I am aware of the interaction of any number of social factors on the health of participants as Evans and Trotter (2) discuss . These impact on food ‘choices’, which might be determined by social expectations as much as by income, or geography. They also impact on ‘hard’ clinical measurements such as BP. This can be affected by position and room temperature as well as by the relationship between the observer and the participant.
+I am from a biomedical background, which brings an attachment to positivist ideals. However, as a practising physician I am aware of the interaction of any number of social factors on the health of participants as Evans and Trotter [@evansEpistemologyUncertaintyPrimary2009] discuss . These impact on food ‘choices’, which might be determined by social expectations as much as by income, or geography. They also impact on ‘hard’ clinical measurements such as BP. This can be affected by position and room temperature as well as by the relationship between the observer and the participant.
 
 This work is primarily to complete requirements for an MPH degree which means that it is influenced by factors around health equity and classic epidemiology as taught on the course. It is produced in collaboration with a research group with a long established reputation in food research in public health, which may steer the results in a conservative direction. 
 
@@ -1664,12 +1664,19 @@ This tables shows the change between annual cohorts.
 
 
 
-```{r Years Plots, echo=FALSE, message=FALSE, warning=FALSE}
-#fig.cap = "Survey Year"
-#keydata
+```{r upf and survey year, echo=FALSE, message=FALSE, warning=FALSE,fig.cap = "Survey Year"}
+
 
 svyplot(Epcnt_4~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
+```
+
+```{r Na and survey year, echo=FALSE, message=FALSE, warning=FALSE,fig.cap = "Na Survey Year"}
+
 svyplot(Sodiummg~SurveyYear,ndns_1_11ed,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
+
+```
+
+```{r BP and survey year, echo=FALSE, message=FALSE, warning=FALSE,fig.cap = "BP Survey Year"}
 svyplot(omsysval~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
 ```
 
@@ -1677,12 +1684,18 @@ These plots show how the percentage of energy derived from UPF, the sodium intak
 The graphs show that there is not a clear visible difference between the years. Statistical analysis will follow.
 These next box plots show the difference between the sexes in the key variables.
 
-```{r Sex Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
+```{r  BP Sex Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.cap = "BP sex"}
 
 
 svyboxplot(omsysval~Sex,ndns_1_11ed, na.rm = TRUE,main = "Systolic BP in mmHg by Sex", ylab = "Sysltolic BP in mmHg" ,xlab ="Sex")
+```
+
+```{r Na Sex Boxplots, echo=FALSE, fig.cap=, message=FALSE, warning=FALSE, fig.cap= "Na Sex Boxplot"}
 
 svyboxplot(Sodiummg~Sex,ndns_1_11ed, na.rm = TRUE,main = "Sodium Intake in mg by Sex", ylab = "Sodium intake in mg" ,xlab ="Sex")
+```
+
+```{r UPF Sex Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.cap = "UPF sex"}
 svyboxplot(Epcnt_4~Sex,ndns_1_11ed, na.rm = TRUE,main = "% Energy Intake UPF by sex", ylab = "% Energy Intake UPF" ,xlab ="Sex")
 
 ```
@@ -1707,7 +1720,7 @@ The mean sodium intake has changed from  2156.30 mg to 2574.33 mg and is also st
 
 The next t tests compare mean systolic values in the two time periods and then the mean diastolic values.
 
-```{r echo=FALSE , caption = "Key variable against Survey Year"}
+```{r Key Variables  by Survey year, echo=FALSE, caption="Key Variables"}
 ttestNa2 <- svyglm(Sodiummg~SurveyYear, ndns_1_11ed )
 ttestNa2t<- tbl_regression(ttestNa2)
 ttestEpcnt <- svyglm(Epcnt_4~SurveyYear, ndns_1_11ed )
@@ -1763,7 +1776,7 @@ There is a difference in the age of finishing education.
 The differences in qimd, are not statistically significant.
 
 These values identify a significant difference in the number of vegetarians
-```{r echo=FALSE, message=FALSE, warning=FALSE, caption = "Categorical variables against Survey Year"}
+```{r Categorical variables against Survey Year, echo=FALSE, message=FALSE, warning=FALSE, caption= "Categorical variables against Survey Year"}
 sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11d)
 educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11d)
 imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11d)
@@ -1816,7 +1829,7 @@ These use the populations where participants have been excluded.
 
 First, omsysval is compared to EnergykJ, then sodiummg.
 
-```{r echo=FALSE}
+```{r univariable regressions, echo=FALSE, message=FALSE, warning=FALSE, tab.cap= "Univariable Regressions"}
 
 #univariable regression models
 #UPF Energy % only
@@ -1866,7 +1879,7 @@ Comparisons between these models are then made using sensitivity analysis, ident
 
 This first model looks at the relationships between BP and Age and Sex education and IMD all of which may have an effect on BP. This model excludes UPF and Na.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r lm1AS, message=FALSE, warning=FALSE, echo=FALSE}
 #regression models
 
 lm1AS <- svyglm(omsysval ~ Age + Sex +bmival +educfinh + EIMD_2010_quintile , ndns_1_11d, na.action = na.exclude)
@@ -1879,7 +1892,7 @@ This first model shows that all these variables, Age, Sex, education, IMD,  and 
 
 The next model adds Sodiummg.
 
-```{r echo=FALSE}
+```{r lmna, echo=FALSE, message=FALSE, warning=FALSE}
 #sodium only
 lmna <- svyglm(omsysval ~ Age +Sex + Sodiummg + bmival+educfinh+  EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
 
@@ -1892,7 +1905,7 @@ This second model gives Sodiummg, educfinh, and IMD statistical significance. Vi
 
 Now we add UPF as total energy from nova 4 or UPF
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r lmnaE, echo=FALSE, message=FALSE, warning=FALSE}
 lmnaE <- svyglm(omsysval ~ Age +Sex +Sodiummg + Epcnt_4+ bmival +educfinh+ EIMD_2010_quintile , ndns_1_11d,na.action = na.exclude)
 
 
@@ -1903,7 +1916,7 @@ UPF does not seem significant...
 
 but when removing sodiummg
 
-```{r echo=FALSE, warning=FALSE}
+```{r lmME, echo=FALSE, warning=FALSE}
 lmME <- svyglm(omsysval ~ Age +Sex + Epcnt_4+ bmival +educfinh + EIMD_2010_quintile , ndns_1_11d,na.action =na.exclude)
 
 ```
@@ -1912,7 +1925,7 @@ This suggests that the effect of UPF is mediated by Sodium!!
 
 comparing AIC for these three models 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r multivariable outputs, echo=FALSE, message=FALSE, warning=FALSE}
 
 lm1ASt <-tbl_regression(lm1AS)
 lmnat <- tbl_regression(lmna)
@@ -1924,10 +1937,13 @@ lmMEt <- tbl_regression(lmME)
 
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r AIC comparison, echo=FALSE, message=FALSE, warning=FALSE}
 AICt<- data.table("Model"=c("No sodium or UPF","Sodium only","Epcnt only","Sodium and UPF"),"AIC" =c(lm1AS$aic, lmna$aic,lmME$aic,lmnaE$aic))
 flextable(AICt)
+```
 
+
+```{r AIC sense, echo=FALSE, message=FALSE, warning=FALSE}
 
 #AIC(lmM,lmMna,lmM2)
 sense1 <- (lmME$aic - lmna$aic)*100/lmna$aic 
