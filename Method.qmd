@@ -1,0 +1,104 @@
+---
+title: "Method"
+author: "DO'H"
+format: html
+editor: visual
+---
+
+## Method
+
+## Introduction
+
+This section takes the research question and explains how the data is used to answer the question.
+
+There will be a description of the study and data collection. Then a section on governance and ethics in this project.
+
+Data analysis starts with the relevant variables being identified and extracted. Some data may need to be recalculated or to be processed to make a more useable form. The population will be reviewed. Groups which bias the results are removed. Then there is a description of the data. The second analysis section compares the data between two cohorts. The third analysis section involves using linear regression to identify if there is a correlation between the BP and each of the key variables. Multivariable regression models are then generated. These models are finally examined to identify the relative importance of the different variables in developing an optimal model and what these models tell us about the relationship between our variables. A summary and conclusion will bring all these together.
+
+## Research Question
+
+What proportion of the association between blood pressure (SBP) and UPF intake can be explained by the changes in salt intake in England between 2008 and 2019?
+
+The question can be split into parts, What was intake of salt between 2008 and 2019? What was intake of UPF between 2008 and 2019? What was BP between 2008 and 2019? Did each of these change over that time and how? Did the changes in any one affect any other? What are the sizes of the changes? Which element was most important in these changes?
+
+All of these questions look for numbers as answers.
+
+Answering the question starts with counting. The collected numbers are then compared in different ways to answer each part of the question.
+
+## National Dietary and Nutritional Survey
+
+This survey is a collaboration between government departments responsible for health and for food production. They have engaged academic partners to deliver reports on diet and nutrition across the United Kingdom. The study is designed to be representative across the whole area.
+
+### Study design
+
+This is a rolling cohort study which each year selects a new cohort of participants. The sample is approximately 1000 per year with 50% adults. The design has a random selection across postal units (psu). This is stratified to ensure a representative sample across the four nations and across regions within those countries. The sample is also representative for age and sex.
+
+Having taken up the study, participants complete a 4 day food diary, and have an interview with a nurse which includes taking several measurements. Weighting is given for each annual survey to enable comparison across the years taking account for alterations in uptake and response completion.
+
+### NDNS Dataset
+
+The data from the NDNS study contains items about each individual,and their household. It contains a table with each item of food as recorded in their diary. There is a table with the overall intake of each of a large range of nutrients for the whole period. This is calculated from the diary using nutritional tables which are published as part of the dataset. The dataset is available via the UK national Data service for research purposes.
+
+NDNS began before Monteiro's processing based classification, Nova , was developed. There is no record of Nova food type in NDNS. This has been calculated from the food descriptions. I have used a table from Rauber et al. for Nova values in NDNS.
+
+### University Research Governance and Ethical Review
+
+The research has been carried out under the University governance. A proposal was discussed and agreed within the department. The need for ethical review was considered using the university research tool. The fact that the data is anonymised and there was no contact with participants means that there is minimal risk of harm to research participants. A certificate from the ethics department is in the appendix.
+
+Other ethical issues include data custodianship ensuring that the the rights of the owners of the data and of the participants are still considered as part of the process of analysis and dissemination of the research.
+
+Issues around the power structures which lead to privilege one research project or proposal over another are considered more in the positionality section.
+
+### Data Processing
+
+The storage of the data is in keeping with the research governance agreements of the University and the Data set owners. The data is read from its files using 'r-studio' with the processing being carried out using packages available from CRAN. I have used files which had been amalgamated into four batches. These are 2008-2012, 2013-2014, 2015-2016, 2017-2019.
+
+Once the data labels are made consistent across the batches, weighting recalculation is done. This generates values which account for differences in population balance across the annual cohorts. These result from differences in compliance and uptake within and across the years.
+
+The years are amalgamated and the nature of the variables is specified.
+
+### Exclusions
+
+The relationship between salt and systolic blood pressure may be different in individuals with pathologically high BP. Those taking BP controlling medications may have a different relationship to sodium and UPF. These patients were excluded from the main analysis, however this affected the sample size and skewed the male female ratio. Analysis was done with exclusion and this produced results in line with those presented, but of smaller magnitude. This additional analysis is not presented here.
+
+## Description of the data
+
+The data is summarised for the key continuous variables. The key variables are systolic BP (omsysval), UPF intake (Epcnt_4) and Sodium intake (sodiummg). These variables are the ones which most relate to the research question. Table x shows the data which has been balanced using the weightings provided by the NDNS research team.
+
+There are a number of related variables in the dataset. These were chosen for relevance, reliability and practicality. These variables are ones which can also influence BP. They include Age, Sex, BMI, height and weight. Age at completion of education (educfinh), and IMD are also used.
+
+The omsysval is a validated measurement with significant quality assessment within the dataset. Raw systolic BP values are present in the dataset but are made up of data with issues around quality. In particular the systolic BP values are assessed for the effects of exercise, temperature and ill health. The variable omsysval is a quality assured mean value which is reliable across the dataset.
+
+The sodium value is one calculated from intake based on food diaries and standard food nutrient values. This only reflects standard foods and is the result of assumptions about the content being consistent. Serum sodium values are available for the early dataset, but not the later one. There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods.
+
+The food diaries need processing to identify the UPF intake. Each persons food diary entries are assessed against the Nova food classification from Rauber. Then the weight and energy content of the days food is calculated by Nova group. This is added to the intake for the other 3 days and the total intake by Nova group established.
+
+The percentage of the total intake of energy (Epcnt_4) is then calculated for each of the 4 Nova categories. Nova group 4 or UPF intake is used for the study.
+
+Mean values for the data are displayed with a comparison for weighted values. The exposure variables are sodium intake (Sodiummg), and ultra processed food intake (Epcnt_4). The outcome variable, the mean systolic blood pressure (omsysval).
+
+### Analysis of Change over Survey Years
+
+The second phase of analysis shows how the key variables have changed over the survey years cohorts. This will show separately how the inputs and outputs have changed.
+
+These are not the same participants so matched analysis, or time series analysis is not directly applicable.
+
+Plots will be given to show the values in each of the available cohorts.
+
+Other variables in the data are compared across to assess how the data changes. t tests are again used for continuous data, and chi squared tests are used for categorical data.
+
+### Regression of key variables on systolic BP
+
+Analysis of the correlation between BP and sodium intake, and then BP and UPF intake is done using linear regression. This will give an indicator of the direction, and strength of any relationship between the variables. There is also anova analysis to understand the statistical significance of these results.
+
+### Multiple Regression on Systolic BP
+
+Multivariable regression models are then developed to understand the interactions between variables and to develop a mathematical model of the relationship. The optimal model is one which best explains the pattern of data, but which also makes practical sense for the wider understanding of relationships. Assessment techniques try to understand the importance of including particular variables, and the form in which they are best included. Anova analysis here identifies how the addition of different variables changes the significance of other variables. This can suggest causative relationships.
+
+### AIC and sensitivty Anaylsis
+
+This section compares models side by side using assessment techniques to identify the best way of describing the data. The 'best' in part is determined by the whether a model is needed to predict more data, or just to understand the data available. Here it is about how best to describe the relationship between Na, UPF, and BP.
+
+## Method Conclusion
+
+This section has highlighted how the material for the study is brought together and how the governance and ethics fit with the data collection, processing and analysis to help us to derive the results which will be presented in the next section.
