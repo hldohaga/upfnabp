@@ -944,7 +944,7 @@ Issues around the power structures which lead to privilege one research project 
 ### Data Processing
 
 The storage of the data is in keeping with the research governance agreements of the University and the Data set owners.
-The data is read from its files using 'r-studio' with the processing being carried out using packages available from CRAN `r citation()` .
+The data is read from its files using 'r-studio' with the processing being carried out using packages available from CRAN @.
 I have used files which had been amalgamated into four batches.
 These are 2008-2012, 2013-2014, 2015-2016, 2017-2019.
 
