@@ -1635,55 +1635,171 @@ ndns_1_11b <- subset(ndns_1_11ed, Age >18)
 
 \newpage
 #  Results 
-##  Results Introduction
+## Results Introduction
 
-The results derive from the method outlined above and follow the pattern described. 
-I will discuss the results having already described the method.
+Analysing the data from NDNS involves following the method. The presented results are arranged to support explaining how the research question is answered by the data. 
 
+The data used is described, explaining how it is structured. The data analysis is then presented using tables and graphs to support the argument. These most frequently present details of the statistical significance of the proposed regression model. 
 
+The results section will be further interpreted in the discussion section.
 
 ## Description of the Data
 
-This first table highlights the key variables from the years 2008-2019.
-These are weighted values
-And see Table \@ref(tab: keydata)
-```{r keydata, echo=FALSE, message=FALSE, warning=FALSE,tab.id=TRUE, tab.cap = "The key data",out.width=80%}
+This first table @tbl-keydata highlights the variables  which most relate to the research question from the years 2008-2019.
+These are weighted values analysed using a software package called 'survey' @survey2004 . 
 
-#summary(ndns_1_11d$variables$omsysval)
+The tables presented by NDNS have been amalgamated and new weighting values calculated which enable comparison of data from separate tables.
+
+There are several variables chosen. The number of participants in each year, 'N', is presented. The mean sodium intake in milligrams (Sodiummg) is next. 'Epcnt_4' is the percent value of energy derived from Nova category 4 foods, or UPF, out of the whole daily energy intake. The mean Systolic BP value is one which has been validated within the NDNS study it is given in mmHg.
+
+These values are normally distributed continuous variables. The mean is representative.
+
+
+The numbers seem to be smaller towards the end of the series, for Sodium intake, UPF intake (Epcnt_4) and for systolic BP. Each cohort has been adjusted to be comparable using weighting values given by the study coordinators. However they are separate cohorts of separate participants with no linear association between them. It can be seen that there are lower values for all of the variables in the later groups.
+```{r keydata, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-keydata
+#| tbl-cap: "key data"
+
 
 keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
 
-keydatw <-as_flex_table( keydatw)
-keydatw <- set_caption(keydatw, "NDNS year 1-11 data over years", 
-  autonum = run_autonum(seq_id = "tab", bkm = "SurveyYear"))
-keydatw
+as_flex_table( keydatw)
+
 
 ```
 
-This tables shows the change between annual cohorts.
+## Analysis of Change across cohorts
+
+These key variables are now compared between the cohorts. 
+
+@fig-upf-and-survey-year shows the energy from UPF in percent (Epcnt_4) against cohort number. This plot shows that the ranges largely overlap. No visible difference is seen. 
+```{r upf-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "Survey Year"}
+#| label: fig-upf-and-survey-year
+#| fig-cap: "upf-and-survey-year"
 
 
-
-```{r upf and survey year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "Survey Year"}
-
-
-svyplot(Epcnt_4~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
+svyplot(Epcnt_4~SurveyYear,ndns_1_11c, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
 ```
 
-```{r Na and survey year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "Na Survey Year"}
-
-svyplot(Sodiummg~SurveyYear,ndns_1_11ed,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
+```{r Na-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-Na-and-survey-year
+#| fig-cap: "Na-and-survey-year"
+svyplot(Sodiummg~SurveyYear,ndns_1_11c,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
 
 ```
 
-```{r BP and survey year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "BP Survey Year"}
-svyplot(omsysval~SurveyYear,ndns_1_11ed, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
+```{r BP-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "BP Survey Year"}
+#| label: fig-BP-and-survey-year
+#| fig-cap: "BP-and-survey-year"
+
+svyplot(omsysval~SurveyYear,ndns_1_11c, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
+```
+The sodium intake @fig-Na-and-survey-year, and the Systolic BP @fig-BP-and-survey-year do not show an obvious change across the cohorts.
+
+```{r Key-Variables-by-Survey-year, echo=FALSE}
+#| label: tbl-Key-Variables-by-Survey-year
+#| tbl-cap: "Key-Variables-by-Survey-year"
+
+ttestNa2 <- svyglm(Sodiummg~SurveyYear, ndns_1_11c )
+ttestNa2t<- tbl_regression(ttestNa2)
+ttestEpcnt <- svyglm(Epcnt_4~SurveyYear, ndns_1_11c )
+ttestEpcntt <- tbl_regression(ttestEpcnt)
+ttestOS <- svyglm(omsysval~SurveyYear, ndns_1_11c )
+ttestOSt <- tbl_regression(ttestOS)
+
+as_flex_table(tbl_stack(list(ttestNa2t,ttestEpcntt,ttestOSt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
 ```
 
-These plots show how the percentage of energy derived from UPF, the sodium intake, and the Systolic BP have changed over the years.
-The graphs show that there is not a clear visible difference between the years. Statistical analysis will follow.
-These next box plots show the difference between the sexes in the key variables.
+@tbl-Key-Variables-by-SurveyYear compares mean sodium, UPF and systolic BP values across the individual cohorts. This uses cohort 1 as a comparator for the other cohorts. The differences and the beta variable do not depend on there being a linear or ordinal arrangement between the cohorts. 
+
+This shows that for sodium there is a beta of `r ttestNa2t$table_body$estimate ` with confidence limits of `r ttestNa2t$table_body$ci`; For UPF beta is `r ttestEpcntt$table_body$estimate ` and confidence limits `r ttestEpcntt$table_body$ci`; and for BP `r ttestOSt$table_body$estimate ` and `r ttestOSt$table_body$ci`. Each beta value is negative which means that these values in each cohort is largely below that of the first reference year. The confidence intervals do not pass unity and so these results are statistically significant.
+
+These corresponding negative beta values do not mean that there is a correlation between these variables. This will be examined later.
+
+
+##  Analysis of key variables by sex
+
+```{r Na-Sex-Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE, fig.cap= "Na Sex Boxplot"}
+#|label: fig-Na-Sex-Boxplots
+#|fig-cap: "Na-Sex-Boxplots"
+svyboxplot(Sodiummg~Sex,ndns_1_11c, na.rm = TRUE,main = "Sodium Intake in mg by Sex", ylab = "Sodium intake in mg" ,xlab ="Sex")
+```
+
+```{r UPF-Sex-Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "UPF sex"}
+#| label: fig-UPF-Sex-Boxplots
+#|fig-cap: "UPF-Sex-Boxplots"
+svyboxplot(Epcnt_4~Sex,ndns_1_11c, na.rm = TRUE,main = "% Energy Intake UPF by sex", ylab = "% Energy Intake UPF" ,xlab ="Sex")
+
+```
+
+```{r  BP-Sex-Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "BP sex"}
+#| label: fig-BP-Sex-Boxplots
+#| fig-cap: "BP-Sex-Boxplots"
+
+svyboxplot(omsysval~Sex,ndns_1_11c, na.rm = TRUE,main = "Systolic BP in mmHg by Sex", ylab = "Sysltolic BP in mmHg" ,xlab ="Sex")
+```
+In each graph there is little difference apparent, though perhaps the female plot is slightly lower. 
+
+```{r Key-Variables-by-Sex, echo=FALSE,tab.id=TRUE, tab.cap ="Key Variables"}
+#| label: tbl-Key-Variables-by-Sex
+#| tbl-cap: "Variables-by Sex in the full population showing the statistical significance against Male category as a comparator"
+
+ttestNax <- svyglm(Sodiummg~Sex, ndns_1_11d )
+ttestNaxt<- tbl_regression(ttestNax)
+ttestEpcnx <- svyglm(Epcnt_4~Sex, ndns_1_11d )
+ttestEpcnxt <- tbl_regression(ttestEpcnx)
+ttestOSx <- svyglm(omsysval~Sex, ndns_1_11d )
+ttestOSxt <- tbl_regression(ttestOSx)
+
+as_flex_table(tbl_stack(list(ttestNaxt,ttestEpcnxt,ttestOSxt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
+```
+
+##  Analysis of Key Variables by Age
+
+```{r  BP-age-Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-BP-age-Boxplots
+#| tbl-cap: "BP-age-Boxplots full population"
+
+svyboxplot(omsysval~ agegad2 ,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by Age", ylab = "Sysltolic BP in mmHg" ,xlab ="Age")
+```
+
+```{r Na-age-Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE, fig.cap= "Na Sex Boxplot"}
+#| label: fig-age-Sex-Boxplots
+#| tbl-cap: "Na-age-Boxplots full population" 
+svyboxplot(Sodiummg~agegad2,ndns_1_11d, na.rm = TRUE,main = "Sodium Intake in mg by Age", ylab = "Sodium intake in mg" ,xlab ="Age")
+```
+
+```{r UPF-age-Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "UPF sex"}
+#| label: fig-UPF-age-Boxplots
+#| tbl-cap: "UPF-age-Boxplots full population"
+
+svyboxplot(Epcnt_4~agegad2,ndns_1_11d, na.rm = TRUE,main = "% Energy Intake UPF by Age", ylab = "% Energy Intake UPF" ,xlab ="Age")
+
+```
+
+
+```{r Key-Variables-by-age, echo=FALSE,tab.id=TRUE, tab.cap ="Key Variables"}
+#| label: tbl-Key-Variables-by-age
+#| tbl-cap: "Variables-by age in the full population showing the statistical significance against Male category as a comparator"
+
+ttestNaA <- svyglm(Sodiummg~agegad2, ndns_1_11d )
+ttestNaAt<- tbl_regression(ttestNaA)
+ttestEpcnA <- svyglm(Epcnt_4~agegad2, ndns_1_11d )
+ttestEpcnAt <- tbl_regression(ttestEpcnA)
+ttestOSA <- svyglm(omsysval~agegad2, ndns_1_11d )
+ttestOSAt <- tbl_regression(ttestOSA)
+
+as_flex_table(tbl_stack(list(ttestNaAt,ttestEpcnAt,ttestOSAt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
+```
+
+@tbl-Key-Variables-by-age is interesting in that it shows that whilst the BP goes up across the age categories, the UPF intake decreases. The changes in sodium content are particularly interesting as they show that the older age groups have much lower sodium intake, but the highest sodium intake in in the second group, with the first and third being statistically no different.
+
+
+There is a difference in the age of finishing education.
+
+These next box plots, @fig-BP-Sex-Boxplots , @fig-Na-Sex-Boxplots , @fig-UPF-Sex-Boxplots show the difference between the sexes in the key variables.
+
 
 ```{r  BP Sex Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "BP sex"}
 
