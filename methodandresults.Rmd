@@ -1,15 +1,15 @@
 ---
 title: "bp upf and na"
 output:
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
   word_document: 
     toc: yes
     fig_caption: yes
@@ -2045,13 +2045,13 @@ These key variables are now compared between the cohorts.
 #| fig-cap: "upf-and-survey-year"
 
 
-svyplot(Epcnt_4~SurveyYear,ndns_1_11c, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
+svyplot(Epcnt_4~SurveyYear,ndns_1_11d, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
 ```
 
 ```{r Na-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-Na-and-survey-year
 #| fig-cap: "Na-and-survey-year"
-svyplot(Sodiummg~SurveyYear,ndns_1_11c,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
+svyplot(Sodiummg~SurveyYear,ndns_1_11d,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
 
 ```
 
@@ -2059,7 +2059,7 @@ svyplot(Sodiummg~SurveyYear,ndns_1_11c,main = "Sodium Intake in mg by survey yea
 #| label: fig-BP-and-survey-year
 #| fig-cap: "BP-and-survey-year"
 
-svyplot(omsysval~SurveyYear,ndns_1_11c, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
+svyplot(omsysval~SurveyYear,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
 ```
 The sodium intake @fig-Na-and-survey-year, and the Systolic BP @fig-BP-and-survey-year do not show an obvious change across the cohorts.
 
@@ -2067,11 +2067,11 @@ The sodium intake @fig-Na-and-survey-year, and the Systolic BP @fig-BP-and-surve
 #| label: tbl-Key-Variables-by-Survey-year
 #| tbl-cap: "Key-Variables-by-Survey-year"
 
-ttestNa2 <- svyglm(Sodiummg~SurveyYear, ndns_1_11c )
+ttestNa2 <- svyglm(Sodiummg~SurveyYear, ndns_1_11d )
 ttestNa2t<- tbl_regression(ttestNa2)
-ttestEpcnt <- svyglm(Epcnt_4~SurveyYear, ndns_1_11c )
+ttestEpcnt <- svyglm(Epcnt_4~SurveyYear, ndns_1_11d )
 ttestEpcntt <- tbl_regression(ttestEpcnt)
-ttestOS <- svyglm(omsysval~SurveyYear, ndns_1_11c )
+ttestOS <- svyglm(omsysval~SurveyYear, ndns_1_11d)
 ttestOSt <- tbl_regression(ttestOS)
 
 as_flex_table(tbl_stack(list(ttestNa2t,ttestEpcntt,ttestOSt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
@@ -2089,13 +2089,13 @@ These corresponding negative beta values do not mean that there is a correlation
 ```{r Na-Sex-Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE, fig.cap= "Na Sex Boxplot"}
 #|label: fig-Na-Sex-Boxplots
 #|fig-cap: "Na-Sex-Boxplots"
-svyboxplot(Sodiummg~Sex,ndns_1_11c, na.rm = TRUE,main = "Sodium Intake in mg by Sex", ylab = "Sodium intake in mg" ,xlab ="Sex")
+svyboxplot(Sodiummg~Sex,ndns_1_11d, na.rm = TRUE,main = "Sodium Intake in mg by Sex", ylab = "Sodium intake in mg" ,xlab ="Sex")
 ```
 
 ```{r UPF-Sex-Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "UPF sex"}
 #| label: fig-UPF-Sex-Boxplots
 #|fig-cap: "UPF-Sex-Boxplots"
-svyboxplot(Epcnt_4~Sex,ndns_1_11c, na.rm = TRUE,main = "% Energy Intake UPF by sex", ylab = "% Energy Intake UPF" ,xlab ="Sex")
+svyboxplot(Epcnt_4~Sex,ndns_1_11d, na.rm = TRUE,main = "% Energy Intake UPF by sex", ylab = "% Energy Intake UPF" ,xlab ="Sex")
 
 ```
 
@@ -2103,7 +2103,7 @@ svyboxplot(Epcnt_4~Sex,ndns_1_11c, na.rm = TRUE,main = "% Energy Intake UPF by s
 #| label: fig-BP-Sex-Boxplots
 #| fig-cap: "BP-Sex-Boxplots"
 
-svyboxplot(omsysval~Sex,ndns_1_11c, na.rm = TRUE,main = "Systolic BP in mmHg by Sex", ylab = "Sysltolic BP in mmHg" ,xlab ="Sex")
+svyboxplot(omsysval~Sex,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by Sex", ylab = "Sysltolic BP in mmHg" ,xlab ="Sex")
 ```
 In each graph there is little difference apparent, though perhaps the female plot is slightly lower. 
 
@@ -2190,11 +2190,11 @@ This table @tbl-continuous-data) suggests that there is a significant difference
 ```{r continuous-data, echo=FALSE, message=FALSE, warning=FALSE, tab.id=TRUE,tab.cap = "Continuous Variables by survey year"}
 #| label: tbl-continuous-data
 #| tbl-cap: "continuous-data"
-ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11c)
+ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11d)
 ttestages<-  tbl_regression(ttestage)
 
 
-ttestbmi <- svyglm(bmival~SurveyYear, ndns_1_11c)
+ttestbmi <- svyglm(bmival~SurveyYear, ndns_1_11d)
 ttestbmis <- tbl_regression(ttestbmi)
 
 tablecon <- as_flex_table(tbl_stack(list(ttestages,ttestbmis),group_header =  c("Age","BMI")))
@@ -2209,10 +2209,10 @@ These values identify a significant difference in the number of vegetarians
 #| label: tbl-Categorical-variables-year
 #| tbl-cap: "Categorical-variables-year"
 
-sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11c)
-educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11c)
-imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11c)
-vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11c)
+sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11d)
+educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11d)
+imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11d)
+vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11d)
 
 
 tablecat<- data.table("Variable"=c( "Sex", "Education","IMD","Vegetarian"),"p.value"=  c(sexchi$p.value,educhi$p.value,imdchi$p.value,vegchi$p.value ))
@@ -2258,14 +2258,14 @@ first @fig-Na-by-BP
 ```{r Na-by-BP,echo=FALSE}
 #| label: fig-Na-by-BP
 #| fig-cap: "Na-by-BP"
-svyplot(omsysval~Sodiummg, ndns_1_11c ,main = "Sodium Intake in mg", xlab = "Sodium Intake mg" ,ylab ="Systolic BP")
+svyplot(omsysval~Sodiummg, ndns_1_11d ,main = "Sodium Intake in mg", xlab = "Sodium Intake mg" ,ylab ="Systolic BP")
 ```
 
 Then @fig-BP-and-UPF
 ```{r BP-and-UPF,echo=FALSE, fig.cap="BP and UPF",fig.id=TRUE, message=FALSE, warning=FALSE}
 #| label: fig-BP-and-UPF
 #| tbl-cap: "BP-and-UPF"
-svyplot(omsysval~Epcnt_4, ndns_1_11c,main = "% Energy Intake UPF by Systolic BP", xlab = "% Energy Intake UPF" ,ylab ="Systolic BP")
+svyplot(omsysval~Epcnt_4, ndns_1_11d,main = "% Energy Intake UPF by Systolic BP", xlab = "% Energy Intake UPF" ,ylab ="Systolic BP")
 
 ```
 
@@ -2274,7 +2274,7 @@ and lastly @fig-UPF-and-Na-plot
 ```{r UPF-and-Na-plot,echo=FALSE, fig.cap="UPF and Na",fig.id=TRUE, message=FALSE, warning=FALSE}
 #| label: fig-UPF-and-Na-plot
 #| tbl-cap: "UPF-and-Na-plot"
-svyplot(Epcnt_4~Sodiummg, ndns_1_11c,main = "% Energy Intake UPF by Sodiummg", ylab = "% Energy Intake UPF" ,xlab ="Sodium in mg")
+svyplot(Epcnt_4~Sodiummg, ndns_1_11d,main = "% Energy Intake UPF by Sodiummg", ylab = "% Energy Intake UPF" ,xlab ="Sodium in mg")
 
 ```
 
