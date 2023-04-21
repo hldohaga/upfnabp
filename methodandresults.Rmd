@@ -1,25 +1,25 @@
 ---
 title: "bp upf and na"
 output:
-  html_document:
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    keep_md: yes
   html_notebook: 
     toc: yes
     fig_caption: yes
     number_sections: yes
-  word_document: 
-    toc: yes
-    fig_caption: yes
-    keep_md: yes
-    toc_depth: 4
   pdf_document: 
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_tex: yes
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
+    toc_depth: 4
+  html_document:
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    keep_md: yes
 editor_options: 
   markdown: 
     wrap: sentence

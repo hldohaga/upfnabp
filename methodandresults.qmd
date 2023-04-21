@@ -164,7 +164,7 @@ There were no time limits, language limits or availability limits in the initial
 These 1328 were reduced down by reading titles and abstracts to identify relevant articles.
 
 | Search Terms Used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|------------------------------------------------------------------------|
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | "ultra-processed food" OR "ultra-processed foods" OR "ultraprocessed food" OR "ultraprocessed foods" OR "ultra-processed product" OR "ultra-processed products" OR "ultra-processing" OR "food processing" OR "processed food" OR "processed foods" OR "NOVA" OR "NOVA system" OR "NOVA food classification" OR "NOVA classification system") AND (hypertension OR "high blood pressure" OR "high blood pressures" OR "blood pressure" OR "systolic pressure" OR "diastolic pressure" OR "systolic blood pressure" OR "diastolic blood pressure") AND (adult OR adults OR aged OR "middle aged" OR elderly OR "older adult" |
 
 Table 2.1: Table of search terms used
@@ -214,7 +214,7 @@ Whilst individual choice is involved.
 The range of choices available to individuals is limited by the nature of their society.
 A misapplication of lifestyle results in blaming individuals for the poor choices determined by their social and commercial environment.
 
-Instead of trying to change activity of millions of people can be more effective to change laws and policies once ( @instituteofmedicine2010 , @laverty2019 , @millett2012 , @moreira2015  ).
+Instead of trying to change activity of millions of people can be more effective to change laws and policies once ( @instituteofmedicine2010 , @laverty2019 , @millett2012 , @moreira2015 ).
 These 'upstream' changes are relatively simple, and are much more effective though they can also be reversed ( @cappuccio2015 ).
 Opposition sometimes comes from industry.
 
@@ -944,7 +944,7 @@ Issues around the power structures which lead to privilege one research project 
 ### Data Processing
 
 The storage of the data is in keeping with the research governance agreements of the University and the Data set owners.
-The data is read from its files using 'r-studio' with the processing being carried out using packages available from CRAN @.
+The data is read from its files using 'r-studio' with the processing being carried out using packages available from CRAN \@.
 I have used files which had been amalgamated into four batches.
 These are 2008-2012, 2013-2014, 2015-2016, 2017-2019.
 
@@ -1944,25 +1944,35 @@ ndns_1_11cc <- subset(ndns_1_11d, Age <50)
 
 ## Results Introduction
 
-Analysing the data from NDNS involves following the method. The presented results are arranged to support explaining how the research question is answered by the data. 
+Analysing the data from NDNS involves following the method.
+The presented results are arranged to support explaining how the research question is answered by the data.
 
-The data used is described, explaining how it is structured. The data analysis is then presented using tables and graphs to support the argument. These most frequently present details of the statistical significance of the proposed regression model. 
+The data used is described, explaining how it is structured.
+The data analysis is then presented using tables and graphs to support the argument.
+These most frequently present details of the statistical significance of the proposed regression model.
 
 The results section will be further interpreted in the discussion section.
 
 ## Description of the Data
 
-This first table @tbl-keydata highlights the variables  which most relate to the research question from the years 2008-2019.
-These are weighted values analysed using a software package called 'survey' @survey2004 . 
+This first table @tbl-keydata highlights the variables which most relate to the research question from the years 2008-2019.
+These are weighted values analysed using a software package called 'survey' @survey2004 .
 
 The tables presented by NDNS have been amalgamated and new weighting values calculated which enable comparison of data from separate tables.
 
-There are several variables chosen. The number of participants in each year, 'N', is presented. The mean sodium intake in milligrams (Sodiummg) is next. 'Epcnt_4' is the percent value of energy derived from Nova category 4 foods, or UPF, out of the whole daily energy intake. The mean Systolic BP value is one which has been validated within the NDNS study it is given in mmHg.
+There are several variables chosen.
+The number of participants in each year, 'N', is presented.
+The mean sodium intake in milligrams (Sodiummg) is next.
+'Epcnt_4' is the percent value of energy derived from Nova category 4 foods, or UPF, out of the whole daily energy intake.
+The mean Systolic BP value is one which has been validated within the NDNS study it is given in mmHg.
 
-These values are normally distributed continuous variables. The mean is representative.
+These values are normally distributed continuous variables.
+The mean is representative.
 
-
-The numbers seem to be smaller towards the end of the series, for Sodium intake, UPF intake (Epcnt_4) and for systolic BP. Each cohort has been adjusted to be comparable using weighting values given by the study coordinators. However they are separate cohorts of separate participants with no linear association between them. It can be seen that there are lower values for all of the variables in the later groups.
+The numbers seem to be smaller towards the end of the series, for Sodium intake, UPF intake (Epcnt_4) and for systolic BP.
+Each cohort has been adjusted to be comparable using weighting values given by the study coordinators.
+However they are separate cohorts of separate participants with no linear association between them.
+It can be seen that there are lower values for all of the variables in the later groups.
 
 ```{r keydata, echo=FALSE, message=FALSE, warning=FALSE,tab.id=TRUE}
 #| label: tbl-keydata
@@ -1974,13 +1984,13 @@ as_flex_table( keydatw)
 
 ```
 
-
-
 ## Analysis of Change across cohorts
 
-These key variables are now compared between the cohorts. 
+These key variables are now compared between the cohorts.
 
-@fig-upf-and-survey-year shows the energy from UPF in percent (Epcnt_4) against cohort number. This plot shows that the ranges largely overlap. No visible difference is seen. 
+@fig-upf-and-survey-year shows the energy from UPF in percent (Epcnt_4) against cohort number.
+This plot shows that the ranges largely overlap.
+No visible difference is seen.
 
 ```{r upf-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "Survey Year"}
 #| label: fig-upf-and-survey-year
@@ -2018,15 +2028,18 @@ ttestOSt <- tbl_regression(ttestOS)
 as_flex_table(tbl_stack(list(ttestNa2t,ttestEpcntt,ttestOSt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
 ```
 
- @tbl-Key-Variables-by-SurveyYear compares mean sodium, UPF and systolic BP values across the individual cohorts. This uses cohort 1 as a comparator for the other cohorts. The differences and the beta variable do not depend on there being a linear or ordinal arrangement between the cohorts. 
+@tbl-Key-Variables-by-SurveyYear compares mean sodium, UPF and systolic BP values across the individual cohorts.
+This uses cohort 1 as a comparator for the other cohorts.
+The differences and the beta variable do not depend on there being a linear or ordinal arrangement between the cohorts.
 
-This shows that for sodium there is a beta of `r ttestNa2t$table_body$estimate ` with confidence limits of `r ttestNa2t$table_body$ci`; For UPF beta is `r ttestEpcntt$table_body$estimate ` and confidence limits `r ttestEpcntt$table_body$ci`; and for BP `r ttestOSt$table_body$estimate ` and `r ttestOSt$table_body$ci`. Each beta value is negative which means that these values in each cohort is largely below that of the first reference year. The confidence intervals do not pass unity and so these results are statistically significant.
+This shows that for sodium there is a beta of `r ttestNa2t$table_body$estimate` with confidence limits of `r ttestNa2t$table_body$ci`; For UPF beta is `r ttestEpcntt$table_body$estimate` and confidence limits `r ttestEpcntt$table_body$ci`; and for BP `r ttestOSt$table_body$estimate` and `r ttestOSt$table_body$ci`.
+Each beta value is negative which means that these values in each cohort is largely below that of the first reference year.
+The confidence intervals do not pass unity and so these results are statistically significant.
 
-These corresponding negative beta values do not mean that there is a correlation between these variables. This will be examined later.
+These corresponding negative beta values do not mean that there is a correlation between these variables.
+This will be examined later.
 
-
-##  Analysis of key variables by sex
-
+## Analysis of key variables by sex
 
 These box plots (@fig-BP-Sex-Boxplots, @fig-Na-Sex-Boxplots, @fig-UPF-Sex-Boxplots) show the difference between the sexes in the key variables.
 
@@ -2051,7 +2064,7 @@ svyboxplot(Epcnt_4~Sex,ndns_1_11d, na.rm = TRUE,main = "% Energy Intake UPF by s
 
 ```
 
-In each graph there is little difference apparent, though perhaps the female plot is slightly lower. 
+In each graph there is little difference apparent, though perhaps the female plot is slightly lower.
 
 ```{r Key-Variables-by-Sex, echo=FALSE,tab.id=TRUE, tab.cap ="Key Variables"}
 #| label: tbl-Key-Variables-by-Sex
@@ -2067,7 +2080,7 @@ ttestOSxt <- tbl_regression(ttestOSx)
 as_flex_table(tbl_stack(list(ttestNaxt,ttestEpcnxt,ttestOSxt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
 ```
 
-##  Analysis of Key Variables by Age
+## Analysis of Key Variables by Age
 
 ```{r  BP-age-Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-BP-age-Boxplots
@@ -2075,7 +2088,6 @@ as_flex_table(tbl_stack(list(ttestNaxt,ttestEpcnxt,ttestOSxt),group_header =  c(
 
 svyboxplot(omsysval~ agegad2 ,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by Age", ylab = "Sysltolic BP in mmHg" ,xlab ="Age")
 ```
-
 
 ```{r Na-age-Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE, fig.cap= "Na Sex Boxplot"}
 #| label: fig-age-Sex-Boxplots
@@ -2091,7 +2103,6 @@ svyboxplot(Epcnt_4~agegad2,ndns_1_11d, na.rm = TRUE,main = "% Energy Intake UPF 
 
 ```
 
-
 ```{r Key-Variables-by-age, echo=FALSE,tab.id=TRUE, tab.cap ="Key Variables"}
 #| label: tbl-Key-Variables-by-age
 #| tbl-cap: "Variables-by age in the full population showing the statistical significance against Male category as a comparator"
@@ -2106,8 +2117,8 @@ ttestOSAt <- tbl_regression(ttestOSA)
 as_flex_table(tbl_stack(list(ttestNaAt,ttestEpcnAt,ttestOSAt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
 ```
 
-@tbl-Key-Variables-by-age is interesting in that it shows that whilst the BP goes up across the age categories, the UPF intake decreases. The changes in sodium content are particularly interesting as they show that the older age groups have much lower sodium intake, but the highest sodium intake in in the second group, with the first and third being statistically no different.
-
+@tbl-Key-Variables-by-age is interesting in that it shows that whilst the BP goes up across the age categories, the UPF intake decreases.
+The changes in sodium content are particularly interesting as they show that the older age groups have much lower sodium intake, but the highest sodium intake in in the second group, with the first and third being statistically no different.
 
 ## Comparison of other variables
 
@@ -2116,9 +2127,6 @@ The NDNS dataset was weighted to keep many of these the same between datasets.
 Continuous variables are assessed using linear regression and categorical variables using chi squared tests to give p.values.
 
 Age and Sex The age of the two datasets does not show a statistically significant change table x.
-
-
-
 
 This might be due to differences in the numbers of excluded participants.
 In particular there may be more younger people and women taking e.g. bblockers in one group.
