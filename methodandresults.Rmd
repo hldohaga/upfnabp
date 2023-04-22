@@ -1,25 +1,25 @@
 ---
 title: "bp upf and na"
 output:
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
-  pdf_document: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    keep_tex: yes
   word_document: 
     toc: yes
     fig_caption: yes
     keep_md: yes
     toc_depth: 4
-  html_notebook: 
+  pdf_document: 
     toc: yes
     fig_caption: yes
     number_sections: yes
+    keep_tex: yes
 editor_options: 
   markdown: 
     wrap: sentence
@@ -202,7 +202,7 @@ This meta database enables an ongoing search which is able to send messages abou
 
 Table 2.1: Table of search terms used
 
-## Search results
+### Search results
 
 This search produced 1328 results the search allowed medical, public health, nursing articles to be prioritised and engineering, chemical, and technology articles to be deprioritised.
 
@@ -212,7 +212,7 @@ These 1328 were reduced down by reading titles and abstracts to identify relevan
 Papers were excluded which related to technology including food technology.
 They were also excluded if the primary purpose of the paper was unrelated to dietary or nutritional causes of clinical outcomes.
 
-### Overview of literature
+## Overview of literature
 
 The literature has developed over some time.
 The results arrange themselves therefore into several groups.
@@ -326,8 +326,7 @@ They discuss the range of nation level approaches to reducing salt intake.
 
 ## UPF and BP
 
-``` {#dagupf .r}
-{r dagupf, echo=FALSE, message=FALSE, warning=FALSE}
+``` {r dagupf, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-dag-upf
 #| fig-cap: "DAG of relationships of UPF"
 
@@ -945,8 +944,7 @@ Here it is about how best to describe the relationship between Na, UPF, and BP.
 
 This section has highlighted how the material for the study is brought together and how the governance and ethics fit with the data collection, processing and analysis to help us to derive the results which will be presented in the next section.
 
-```{}
-```
+
 
 ```{r read data, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -2452,10 +2450,11 @@ People who know that UPF is bad, are more likely to accept policy limiting avail
 In conclusion there is a complex interaction between fixed factors and societal factors at work.
 Nova encompasses more than nutrition alone and whilst UPF has harmful elements these are not simply nutritional factors, but are complex social factors.
 These factors are omitted and ignored by a rigid nutritional approach to what is primarily a social function.
-\newpage \# Bibliography
+\newpage 
 
-::: {#refs}
-:::
+# Bibliography
+
+::: {#refs} :::
 
 # Appendix {.unnumbered}
 
