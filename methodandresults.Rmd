@@ -24,8 +24,8 @@ editor_options:
   markdown: 
     wrap: sentence
     bibliography: upfnabp.bib 
-    csl: elsevier-vancouver.csl
 bibliography: references.bib
+csl: Vancouver.csl
 ---
 
 # BP and UPF and Na in NDNS Dissertation {.unnumbered}
@@ -2355,7 +2355,7 @@ Opportunities for further research, and ways to influence policy will be conside
 
 The study provides a number of results which will are first considered individually before being brought together to support the development of the dissertation.
 
-### Data
+### Data and analysis across survey years
 
 The data is well collected and comprehensive.
 There have been several changes over the course of the study.
@@ -2369,7 +2369,7 @@ The analysis using these weighted datasets is performed using "survey" which is 
 
 The change in intake of sodium and UPF over time could be; 1 real 2 sample error 3 increasing social desirability of low sodium, low UPF
 
-### Comparative Data
+### Analysis across Sex
 
 The populations do change over time as some of the added variables do show statistical significant changes.
 In particular the number of vegetarians increases, which perhaps is one indicator of social desirability affecting the study.
@@ -2381,7 +2381,7 @@ This is possibly as a result of changing/ increasing acceptance of BP results of
 This effect is perhaps greater when medication exclusions are made.
 Treatment of women and younger men has increased over the 10 years of the study.
 
-### Univariable regression
+### Analysis across Age groups
 
 Comparison of pairs of variables identifies the degree of correlation between them.
 The key comparisons are between UPF and BP, and Na and BP.
@@ -2405,6 +2405,8 @@ They are all statistically significant when Age is excluded.
 This means that the all have effects on the systolic blood pressure, but the effect of UPF and that of Age is closely intertwined.
 
 #### analysis for Sodium
+
+Cahnging the dependant variable helps to identify how much interaction there is in the other variables ie how the cahnge in age and se
 
 #### analysis for UPF_4
 
