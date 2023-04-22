@@ -59,17 +59,13 @@ To Paul
 
 # Abstract {.unnumbered}
 
-This is a secondary data study looking at BP and the effects of UPF and Na.
-
-Data from the national dietary and nutrition survey @universityofcambridge2022 was interrogated to establish any correlation between UPF intake and BP.
-The role of sodium was also examined.
-
 The study showed that there is a correlation between UPF intake and BP, which disappears when Age is a covariable.
 It also showed that sodium intake has no correlation with BP as an isolated variable, but that it is important within multivariable models.
 
-The importance of this is that BP is a clinical outcome, and a proxy measure for CVD.
 The study shows a complex relationship between UPF intake and population risk of BP and CVD.
 It also shows that reduction of the sodium content may be effective at reducing the overall risk.
+
+This is a secondary data study the national dietary and nutrition survey @universityofcambridge2022 of looked at BP and the effects of UPF and Na.BP is clinical, and a proxy measure for CVD.
 
 Policy should aim to reduce percentage intake of UPF and increase percentage intake of unprocessed foods.
 
@@ -85,6 +81,27 @@ There is thought to be an association between blood pressure (BP) and intake of 
 This study looks at this association in the data set of the National dietary and nutrition survey (@universityofcambridge2022 ).The study gives data from 2008 to 2019.
 There have been changes in the intake of UPF, of salt and BP over that time.This study will describe those changes.As part of this description, I will identify how BP is affected by these key dietary factors.
 I will attempt to identify the role salt intake plays in the effect of ultraprocessed food on BP.
+
+```{r dag1, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-dag
+#| fig-cap: "DAG of relationships explored by analysis"
+
+bp1 <- dagitty(" dag {
+               Na -> BP
+               Age -> BP
+               Sex -> BP
+               UPF -> BP
+               UPF -> Na
+               Age -> UPF
+               Sex -> UPF
+               BP -> NCD
+               Age -> Na
+}")
+plot(graphLayout(bp1))
+
+```
+
+@fig-dag shows a possible arrangement of the relationships between UPF, Na and BP highlighting the onward relationship to non-contagious disease, and the underlying importance of age and sex. This paper will seek to explore this complex web by pulling out strands within it.
 
 ### Public Health Impact
 
@@ -138,210 +155,93 @@ Otherwise, analysis of it would be of no purpose.
 ## Introduction
 
 This section will describe the search strategy and techniques used to identify articles to make up the review.
-Then there will be a review of separate sections of the literature, before developing a synthesis of the literature at present.
-
-The search strategy has a core systematic approach but is augmented with additional items from a range of sources.
-The success of the search is that it identifies a wide variety of articles which help to outline and augment the argument developed.
-There will be a critical review of the literature, and synthesis, with explanation on how it relates to the research question.
+Then there will be a review of separate sections of the literature, before developing a synthesis of the literature at present and explanation on how it relates to the research question.
 
 ## Search Strategy
 
-My search of the literature identifies the majority of articles of relevance.
-Starting with a broad search strategy, the results are narrowed identifying those of particular relevance, by reading abstracts and cross referencing with other papers.
-After discussion colleagues passed on further relevant literature.
+The search strategy has a core systematic approach but is augmented with additional items from a range of sources.
+The success of the search is that it identifies a wide variety of articles which help to outline and augment the argument developed.
 
-Also, I identify papers from the bibliographies of identified papers.
+My search aims to identify most of the related articles.
+Starting with a broad search strategy, the results are narrowed identifying those of particular relevance, by reading abstracts and cross referencing with other papers.
+Also, after discussion colleagues passed on further relevant literature.
+
+In addition, I identify papers from the bibliographies of identified papers.
 Reviews and meta-analyses are good at presenting search strategies and identifying high value studies.
 
 These identify search terms not initially included.
-Many of these searches consider broader clinical endpoints, using metabolic syndrome, diabetes and cerebrovascular and cardiovascular disease.
+Despite limiting the search to high blood pressure many of these searches consider broader clinical endpoints, using metabolic syndrome, diabetes and cerebrovascular and cardiovascular disease.
 
 My search terms are included in the table below.
 They were searched through a meta database which includes Medline, and Ovid and Scopus.
-This produced 1328 results the search allowed medical, public health, nursing articles to be prioritised and engineering, chemical, and technology articles to be deprioritised.
-
-There were no time limits, language limits or availability limits in the initial search.
-These 1328 were reduced down by reading titles and abstracts to identify relevant articles.
+This meta database enables an ongoing search which is able to send messages about new articles as they are published.
 
 | Search Terms Used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------------------------------------------------------------|
 | "ultra-processed food" OR "ultra-processed foods" OR "ultraprocessed food" OR "ultraprocessed foods" OR "ultra-processed product" OR "ultra-processed products" OR "ultra-processing" OR "food processing" OR "processed food" OR "processed foods" OR "NOVA" OR "NOVA system" OR "NOVA food classification" OR "NOVA classification system") AND (hypertension OR "high blood pressure" OR "high blood pressures" OR "blood pressure" OR "systolic pressure" OR "diastolic pressure" OR "systolic blood pressure" OR "diastolic blood pressure") AND (adult OR adults OR aged OR "middle aged" OR elderly OR "older adult" |
 
 Table 2.1: Table of search terms used
 
 ## Search results
 
-The results demonstrate the recent introduction of the NOVA classification ( @monteiro2009 , @monteiro2010 , @monteiro2013 , @monteiro2016 , @monteiro2022 , @astrup2022 ).
-The Ultraprocessed category comes from this.
-Prior to this most papers try to identify specific nutritional deficits.
-Dickie at al ( @dickie2022 , @dickie2023 ) show modifications and review the working of the NOVA system.
+This search produced 1328 results the search allowed medical, public health, nursing articles to be prioritised and engineering, chemical, and technology articles to be deprioritised.
 
-Clinical outcomes in studies are varied.
-There are many studies which use multiple outcomes.
-Other studies use self-declared clinical states.
+There were no time limits, language limits or availability limits in the initial search.
+These 1328 were reduced down by reading titles and abstracts to identify relevant articles.
 
 Papers were excluded which related to technology including food technology.
 They were also excluded if the primary purpose of the paper was unrelated to dietary or nutritional causes of clinical outcomes.
+
+### Overview of literature
+
+The literature has developed over some time.
+The results arrange themselves therefore into several groups.
+Firstly there are those which describe the development of the argument that salt relates to BP and so to NCD.
+UPF is a recent phrase developed within the Nova framework which was described in 2009 so the arguments around UPF and its relation to BP and so NCD are more recent.
+This later group build on the earlier work, but importantly they only superficially analyse the way that UPF and salt interact.
+
+In addition papers may be categorised as primary research, systematic reviews with meta analysis, model analysis, and papers which use the other categories to consider public health policy approaches.
 
 -   1 describe literature
 -   2 synthesise literature
 -   3 critique literature
 -   4 explain role of study within context
 
-## BP, NCD and Public Health
+## Na, BP, NCD and Public Health
+
+``` {r dagNa, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-dagNa
+#| fig-cap: "DAG of relationships between BP and Salt"
+
+bp2 <- dagitty(" dag {
+               Na -> BP
+               Age -> BP
+               Sex -> BP
+            
+               BP -> NCD
+               Age -> Na
+}")
+plot(graphLayout(bp2))
+```
 
 Non-communicable disease is an increasing burden on public health.
-Blood pressure is a significant contributor to NCD.
-Blood pressure rises are described as idiopathic as their cause is not clear.
-Dietary and lifestyle causes are sought as explanations, if true this still is difficult to narrow down.
-Social and commercial determinants of health have a significant role to play.
-In reviewing the Framingham study, Kannel ( @kannel2009 , @kannel1993 ) describes how risk factor medicine came about.
-He describes raised blood pressure as a 'prominent member' of a group of risks in cardiovascular disease.
+@cappuccio2015 layout the charges against salt most clearly.
+They identify comprehensively the connection between changes in salt intake and changes in blood pressure and changes in cardiovascular (CVD) and cerebrovascular diseases.
+They link the nutritional effect of salt but they also identify the way this is affected by social and commercial determinants of health.
+These are branches from different epistemological backgrounds, nutrition from positivism, and the social determinants from a more constructivist approach.
+
+@kannel2009 , @kannel1993, and @mahmood2014 describe how risk factor medicine came about.
+They describe raised blood pressure as a 'prominent member' of a group of risks in cardiovascular disease.
 A disease which is the outcome of 'multiple forces'.
-His description sees this as part of the march of progress in understanding cardiovascular disease in particular, but also non-communicable disease.
-He identifies that cardiologists alone cannot conquer cardiovascular disease.
-Since then NCD and in particular BP has come to feature more and more.
-With studies that showed that reducing BP reduced the risk of CVD.
+Their description sees this as part of the march of progress in understanding cardiovascular disease in particular, but also non-communicable disease.
+Kannel identifies that cardiologists alone cannot conquer cardiovascular disease.
+Since then BP has come to feature more and more in NCD, following studies showing that reducing BP reduced the risk of CVD .
 This placed Blood pressure detection, management, and control at the centre of reducing CVD ( @bress2021 , @DebonRaquel2020Eoua , @ettehad2016 , @pringle2003 , @roche2018 ).
 
 The causes of BP, as Kannel explains, are divided into secondary BP where there is an identified pathological cause and 'essential' or idiopathic BP where no cause is identifiable.
 Contributors to and partial causes of this essential BP have been sought, at individual and societal levels, using medical and epidemiological approaches ( @who , @bloodpr , @bloodpr2018 ).
 Key factors are often separated into lifestyle causes ( @boutain2001 ), and social determinants( @colombet2022 , @colombet2019 , @ji2014 , @jones2018 , @healthy2017 , @macgregor2015 ).
 Commerce also has a role to play in a causation model which embraces an understanding of causation on a population scale.
-
-Lifestyle factors are contented.
-Whilst individual choice is involved.
-The range of choices available to individuals is limited by the nature of their society.
-A misapplication of lifestyle results in blaming individuals for the poor choices determined by their social and commercial environment.
-
-Instead of trying to change activity of millions of people can be more effective to change laws and policies once ( @instituteofmedicine2010 , @laverty2019 , @millett2012 , @moreira2015 ).
-These 'upstream' changes are relatively simple, and are much more effective though they can also be reversed ( @cappuccio2015 ).
-Opposition sometimes comes from industry.
-
-## PH and BP
-
-@campos-nonato2022
-
-1.  Campos-Nonato I, Vargas Meza J, Nieto C, Ariza AC, Barquera S. Reducing sodium consumption in mexico: A strategy to decrease the morbidity and mortality of cardiovascular diseases.
-    Frontiers in public health.
-    2022;10:857818--857818.
-
-    @cappuccio2015
-
-2.  Cappuccio FP, Capewell S. Facts, Issues, and Controversies in Salt Reduction for the Prevention of Cardiovascular Disease.
-    2015;7(1):21.
-
-    @bykershanks2022
-
-3.  Carmen BS, Karl V, Michelle G, Johnson N, LeeAnna L, Beryl W, et al.
-    The UnProcessed pantry project (UP3).
-    Family & community health.
-    2022;45(1):23--33.
-
-    @colombet2022
-
-4.  Colombet Z, Schwaller E, Head A, Kypridemos C, Capewell S, O'Flaherty M. OP12 Social inequalities in ultra-processed food intakes in the United Kingdom: A time trend analysis (2008--2018).
-    J Epidemiol Community Health.
-    2022 Aug 1;76(Suppl 1):A6--7.
-
-    @ColombetZoé2021Dass
-
-5.  Colombet Z, Simioni M, Drogue S, Lamani V, Perignon M, Martin-Prevel Y, et al.
-    Demographic and socio-economic shifts partly explain the Martinican nutrition transition: an analysis of 10-year health and dietary changes (2003--2013) using decomposition models.
-    Public health nutrition.
-    2021;24(18):6323--34.
-
-    @instituteofmedicine2013
-
-6.  Institute of Medicine, Board on Population Health and Public Health Practice, Food and Nutrition Board, Committee on the Consequences of Sodium Reduction in Populations, Oria M, Yaktine AL, et al.
-    Sodium Intake in Populations: Assessment of Evidence \[Internet\].
-    Washington, D.C., UNITED STATES: National Academies Press; 2013 \[cited 2023 Jan 21\].
-    Available from: <http://ebookcentral.proquest.com/lib/liverpool/detail.action?docID=3379068>
-
-    @instituteofmedicine2010
-
-7.  Institute of Medicine, Food and Nutrition Board, Committee on Strategies to Reduce Sodium Intake, Boon CS, Taylor CL, Henney JE. Strategies to Reduce Sodium Intake in the United States \[Internet\].
-    Washington, D.C., UNITED STATES: National Academies Press; 2010 \[cited 2023 Jan 21\].
-    Available from: <http://ebookcentral.proquest.com/lib/liverpool/detail.action?docID=3378676>
-
-    @iso1999
-
-8.  Iso H, Shimamoto T, Yokota K, Ohki M, Sankai T, Kudo M, et al. \[Changes in 24-hour urinary excretion of sodium and potassium in a community-based heath education program on salt reduction\].
-    Nihon Koshu Eisei Zasshi.
-    1999 Oct;46(10):894--903.
-
-    @ji2014
-
-9.  Ji C, Cappuccio FP. Socioeconomic inequality in salt intake in Britain 10 years after a national salt reduction programme.
-    BMJ Open.
-    2014 Aug 26;4(8):e005683--e005683.
-
-    @jones2018
-
-10. Jones NR, Tong TY, Monsivais P. Meeting UK dietary recommendations is associated with higher estimated consumer food costs: an analysis using the National Diet and Nutrition Survey and consumer expenditure data, 2008--2012.
-    Public Health Nutrition.
-    2018 Apr;21(5):948--56.
-
-    @kannel2009
-
-11. Kannel WB. Hypertension: Reflections on Risks and Prognostication.
-    Med Clin North Am.
-    2009 May;93(3):541-Contents.
-
-    @laverty2019
-
-12. Laverty AA, Link to external site this link will open in a new window, Kypridemos C, Seferidi P, Vamos EP, Pearson-Stuttard J, et al.
-    Quantifying the impact of the Public Health Responsibility Deal on salt intake, cardiovascular disease and gastric cancer burdens: interrupted time series and microsimulation study.
-    Journal of Epidemiology and Community Health.
-    2019 Sep;73(9):881.
-
-    @healthy
-
-13. Leeuw E de, Simos J, editors.
-    Healthy cities: the theory, policy, and practice of value-based urban planning.
-    New York, NY: Springer; 2017.
-    515 p.
-
-    @macgregor2015
-
-14. MacGregor GA, He FJ, Pombo-Rodrigues S. Food and the responsibility deal: how the salt reduction strategy was derailed.
-    BMJ.
-    2015 Apr 28;350:h1936.
-
-    @mahmood2014
-
-15. Mahmood SS, Levy D, Vasan RS, Wang TJ. The Framingham Heart Study and the epidemiology of cardiovascular disease: a historical perspective.
-    The Lancet.
-    2014 Mar 15;383(9921):999--1008.
-
-    @millett2012
-
-16. Millett C, Laverty AA, Stylianou N, Bibbins-Domingo K, Pape UJ. Impacts of a National Strategy to Reduce Population Salt Intake in England: Serial Cross Sectional Study.
-    PLoS One.
-    2012 Jan 4;7(1):e29836.
-
-    @moreira2015
-
-17. Moreira PVL, Baraldi LG, Moubarac JC, Monteiro CA, Newton A, Capewell S, et al.
-    Comparing Different Policy Scenarios to Reduce the Consumption of Ultra-Processed Foods in UK: Impact on Cardiovascular Disease Mortality Using a Modelling Approach.
-    Hernandez AV, editor.
-    PLoS ONE.
-    2015 Feb 13;10(2):e0118353.
-
-18. National Food Strategy, editor.
-    National Food Strategy: part one.
-    \[Internet\].
-    London: National Food Strategy,; 2020.
-    Available from: <https://www.nationalfoodstrategy.org/partone/>
-
-    @who
-
-19. WHO. High blood pressure: a public health problem \[Internet\].
-    World Health Organization - Regional Office for the Eastern Mediterranean.
-    \[cited 2022 Jan 19\].
-    Available from: <http://www.emro.who.int/media/world-health-day/public-health-problem-factsheet-2013.html>
-
-## Salt and BP
 
 Salt is a contributor to the physiology of BP.
 Its role in pathology is less clear.
@@ -352,9 +252,79 @@ The role of salt in normal and abnormal BP control is established ( @cappuccio20
 However there remain areas of contention( @newman2017 ).
 There may be individuals with higher sensitivity to salt ( @elijovich2016 ).
 Understanding the best approaches to reducing salt is difficult.
+
 Is it best to get individuals to reduce intake( @yourgui1998, @reports2023 , @vollmer2001 , @sacks2001 , @NilsonEduardoAugustoFernandes2021Eprd ), or for all of the food industry to reduce salt levels( @cappuccio2011 , @he2010 ).
 
+### Approach to change
+
+Lifestyle factors are contented.
+Whilst individual choice is involved.
+The range of choices available to individuals is limited by the nature of their society.
+A misapplication of lifestyle results in blaming individuals for the poor choices determined by their social and commercial environment.
+
+Instead of trying to change activity of millions of people can be more effective to change laws and policies once ( @instituteofmedicine2010 , @laverty2019 , @millett2012 , @moreira2015 , @instituteofmedicine2013 ).
+These 'upstream' changes are relatively simple, and are much more effective though they can also be reversed ( @cappuccio2015 ).
+Opposition sometimes comes from industry.
+
+@laverty2019 and @macgregor2015 showed that an analytical model can effectively demonstrate the effects of different policies on population health.
+They identify that reducing the effectiveness of a policy on salt in food leads to changes in BP and so on to NCD.
+
+@campos-nonato2022 identify the benefits of their strategy.
+They discuss the range of nation level approaches to reducing salt intake.
+
+1.  @ColombetZoé2021Dass
+
+2.  Colombet Z, Simioni M, Drogue S, Lamani V, Perignon M, Martin-Prevel Y, et al.
+    Demographic and socio-economic shifts partly explain the Martinican nutrition transition: an analysis of 10-year health and dietary changes (2003--2013) using decomposition models.
+    Public health nutrition.
+    2021;24(18):6323--34.
+
+    @iso1999
+
+3.  Iso H, Shimamoto T, Yokota K, Ohki M, Sankai T, Kudo M, et al. $$Changes in 24-hour urinary excretion of sodium and potassium in a community-based heath education program on salt reduction$$.
+    Nihon Koshu Eisei Zasshi.
+    1999 Oct;46(10):894--903.
+
+    @jones2018
+
+4.  Jones NR, Tong TY, Monsivais P. Meeting UK dietary recommendations is associated with higher estimated consumer food costs: an analysis using the National Diet and Nutrition Survey and consumer expenditure data, 2008--2012.
+    Public Health Nutrition.
+    2018 Apr;21(5):948--56.
+
+    @healthy
+
+5.  Leeuw E de, Simos J, editors.
+    Healthy cities: the theory, policy, and practice of value-based urban planning.
+    New York, NY: Springer; 2017.
+    515 p.
+
+6.  National Food Strategy, editor.
+    National Food Strategy: part one.
+    $$Internet$$.
+    London: National Food Strategy,; 2020.
+    Available from: <https://www.nationalfoodstrategy.org/partone/>
+
 ## UPF and BP
+
+``` {#dagupf .r}
+{r dagupf, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-dag-upf
+#| fig-cap: "DAG of relationships of UPF"
+
+bp3 <- dagitty(" dag {
+             
+               Age -> BP
+               Sex -> BP
+               UPF -> BP
+              Age -> UPF
+               Sex -> UPF
+               BP -> NCD
+              
+}")
+plot(graphLayout(bp3))
+```
+
+## UPF
 
 Nova classification looks at food beyond the nutrient level.
 It incorporates ideas relating to 'processing of food' But also includes availability and intake which are all affected.
@@ -367,7 +337,8 @@ The social aspect of food has been studied famously by Bourdieu ( @bourdieu2002,
 The effect of the social and commercial nature of food is partly accounted for in Monteiro's Nova classification.
 Dickie et al( @dickie2023 , @dickie2022 ) tried to develop a system which took this idea further, but struggled to build a model which was any more effective.
 
-Monteiro's initial explanation uses the concept of 'processing' ( @monteiro2009 , @monteiro2016 , @monteiro2010 , @monteiro2013 , @monteiro2022 , @astrup2022 ).
+Monteiro's initial explanation uses the concept of 'processing' ( @monteiro2009 , @monteiro2016 , @monteiro2010 , @monteiro2013 ).
+In a recent debate @monteiro2022 and @astrup2022 discuss the concept of UPF and if it is valid or useful.
 This idea separates foods into categories based on the amount of processing that occurs before the food is consumed.
 Group one are foods which are in a natural state, as plucked from the tree.
 Group two is foods which are used in processes to modify group one foods.
@@ -377,6 +348,7 @@ Explanations for the differential effect of these foods have developed as quickl
 Is it due to nutritional content( @aceves-martins2022 )?
 They are high in salt and sugar on average.
 Is it due to effects on satiety, or changes to appetite( @rauber2019 )?
+Do they taste better @bawajeeh2021 ?
 Is it due to being easy to buy, and easy to eat( @wang2021 )?
 Is it because they don't require time and effort in the home to process?
 Is it because these processes are industrial?
@@ -384,6 +356,7 @@ Is it because these foods contain 'chemicals' or new ingredients?
 These explanations move from nutritional through into social and commercial.
 
 All these critiques are possible because of the social element to the classification.
+@colombet2022 identify that the intake of UPF has an inequality dimension.
 Nutrition based classifications appear less socially divisive due to scientific isolation.
 They still contain elements of social factors.
 In particular, the way that foods are analysed can change their reported nutritional content.
@@ -395,186 +368,108 @@ Papers discussing the effect on physiology, and pathology in particular highligh
 They do not show that the sodium, and UPF together increase the risk of CVD, or BP rise.
 This dissertation intends to address this gap
 
-@A.Asma2019Fcsb
+@bykershanks2022 show an approach between individual action and changing laws.
+This approach would target those most at risk due to negative social determinants.
+It does move into the realm of coercion of those 'making the wrong choices' into making better choices.
 
-1.  A. A, Gan HJ, M.Y. H, K. KS, Zainudin AA. Food classification system based on food processing and its relationship with nutritional status of adults in Terengganu, Malaysia.
-    Food Research.
-    2019;4(2):539--46.
+## Increasing UPF
 
-    @aceves-martins2022
+Many studies show the increasing role of UPF within the diet.
+@mertens2022 and @nimhurchu2011 show how UPF are being eaten in ever greater quantities across Europe but especially across the UK.
 
-2.  Aceves-Martins M, Bates RL, Craig LCA, Chalmers N, Horgan G, Boskamp B, et al.
-    Nutritional Quality, Environmental Impact and Cost of Ultra-Processed Foods: A UK Food-Based Analysis.
-    IJERPH.
-    2022 Mar 8;19(6):3191.
+### UPF and Na
 
-    @armendariz2022
+@websterSystematicSurveySodium2010 , @nimhurchu2011 contain salt and
 
-3.  Armendariz M, Pérez-Ferrer C, Basto-Abreu A, Lovasi GS, Bilal U, Barrientos-Gutiérrez T. Changes in the Retail Food Environment in Mexican Cities and Their Association with Blood Pressure Outcomes.
+### UPF and Ill Health
+
+@OliveiraTafnes2020CtCo try to identify ill health in young people associated with the increasing use of UPF.
+
+1.  @armendariz2022
+
+2.  Armendariz M, Pérez-Ferrer C, Basto-Abreu A, Lovasi GS, Bilal U, Barrientos-Gutiérrez T. Changes in the Retail Food Environment in Mexican Cities and Their Association with Blood Pressure Outcomes.
     Int J Environ Res Public Health.
     2022 Jan 26;19(3):1353.
 
-    @astrup2022
-
-4.  Astrup A, Monteiro CA. Does the concept of "ultra-processed foods" help inform dietary guidelines, beyond conventional classification systems?
-    Debate consensus.
-    The American Journal of Clinical Nutrition.
-    2022 Dec 1;116(6):1489--91.
-
-    @bawajeeh2021
-
-5.  Bawajeeh A, Zulyniak M, Evans C, Cade J. P21 Taste classification of foods consumed in the national diet and nutrition survey.
-    J Epidemiol Community Health.
-    2021 Sep 1;75(Suppl 1):A52.
-
-    @colombet2022
-
-6.  Colombet Z, Schwaller E, Head A, Kypridemos C, Capewell S, O'Flaherty M. OP12 Social inequalities in ultra-processed food intakes in the United Kingdom: A time trend analysis (2008--2018).
-    J Epidemiol Community Health.
-    2022 Aug 1;76(Suppl 1):A6--7.
-
-    @cuj2021
-
-7.  Cuj M, Grabinsky L, Yates-Doerr E. Cultures of Nutrition: Classification, Food Policy, and Health.
-    Medical Anthropology.
-    2021 Jan 2;40(1):79--97.
-
     @DavilaHelenFreitas2017Eifu
 
-8.  D'avila HF, Kirsten VR. Energy intake from ultra-processed foods among adolescents.
+3.  D'avila HF, Kirsten VR. Energy intake from ultra-processed foods among adolescents.
     Revista paulista de pediatria.
     2017;35(1):54--60.
 
-    @dickie2022
-
-9.  Dickie S, Woods J, Machado P, Lawrence M. Nutrition Classification Schemes for Informing Nutrition Policy in Australia: Nutrient-Based, Food-Based, or Dietary-Based?
-    Curr Dev Nutr.
-    2022 Jul 4;6(8):nzac112.
-
-    @dickie2023
-
-10. Dickie S, Woods J, Machado P, Lawrence M. A novel food processing-based nutrition classification scheme for guiding policy actions applied to the Australian food supply.
-    Frontiers in Nutrition \[Internet\].
-    2023 \[cited 2023 Feb 10\];10.
-    Available from: <https://www.frontiersin.org/articles/10.3389/fnut.2023.1071356>
-
     @GuptaDeepanshi2021Sauf
 
-11. Gupta D, Khanal P, Khan M. Sustainability and ultra-processed foods: role of youth.
+4.  Gupta D, Khanal P, Khan M. Sustainability and ultra-processed foods: role of youth.
     Sustainability, agri, food and environmental research.
     2021;
 
     @HodgeAllison2021ITIU
 
-12. Hodge A. In this issue: Ultra-processed food and health.
+5.  Hodge A. In this issue: Ultra-processed food and health.
     Public health nutrition.
     2021;24(11):3177--8.
 
-    @mertens2022
-
-13. Mertens E, Colizzi C, Peñalvo JL. Ultra-processed food consumption in adults across Europe.
-    Eur J Nutr.
-    2022;61(3):1521--39.
-
-    @monteiro2013
-
-14. Monteiro CA, Moubarac JC, Cannon G, Ng SW, Popkin B. Ultra-processed products are becoming dominant in the global food system.
-    Obesity Reviews.
-    2013;14(S2):21--8.
-
-    @monteiro2022
-
-15. Monteiro CA, Astrup A. Does the concept of "ultra-processed foods" help inform dietary guidelines, beyond conventional classification systems?
-    YES.
-    The American Journal of Clinical Nutrition.
-    2022 Dec 1;116(6):1476--81.
-
-    @monteiro2009
-
-16. Monteiro CA. Nutrition and health.
-    The issue is not food, nor nutrients, so much as processing.
-    Public Health Nutrition.
-    2009 May;12(5):729--31.
-
-    @monteiro2016
-
-17. Monteiro CA, Cannon G, Levy R, Moubarac JC, Jaime P, Martins AP, et al.
-    NOVA.
-    The star shines bright.
-    World Nutrition.
-    2016 Jan 7;7(1--3):28--38.
-
-    @monteiro2010
-
-18. Monteiro CA, Levy RB, Claro RM, Castro IRR de, Cannon G. A new classification of foods based on the extent and purpose of their processing.
-    Cad Saúde Pública.
-    2010 Nov;26:2039--49.
-
-19. Monteiro CA, Levy RB, Claro RM, Castro IRR de, Cannon G. Uma nova classificação de alimentos baseada na extensão e propósito do seu processamento.
-    Cad Saúde Pública.
-    2010 Nov;26:2039--49.
-
     @Muñoz-LaraA2020TCOU
 
-20. Muñoz-Lara A, Moncada-Patiño J, Tovar-Vega A, Aguilar-Zavala H. THE CONSUMPTION OF ULTRA-PROCESSED FOODS, ANTHROPOMORPHIC MEASUREMENTS AND BLOOD CHEMISTRY IN MEXICAN SCHOOL-AGE CHILDREN. Annals of nutrition and metabolism.
+6.  Muñoz-Lara A, Moncada-Patiño J, Tovar-Vega A, Aguilar-Zavala H. THE CONSUMPTION OF ULTRA-PROCESSED FOODS, ANTHROPOMORPHIC MEASUREMENTS AND BLOOD CHEMISTRY IN MEXICAN SCHOOL-AGE CHILDREN. Annals of nutrition and metabolism.
     2020;76:212-.
 
     @rauber2019
 
-21. Rauber F, Louzada ML da C, Steele EM, Rezende LFM de, Millett C, Monteiro CA, et al.
+7.  Rauber F, Louzada ML da C, Steele EM, Rezende LFM de, Millett C, Monteiro CA, et al.
     Ultra-processed foods and excessive free sugar intake in the UK: a nationally representative cross-sectional study.
     BMJ Open.
     2019 Oct 1;9(10):e027546.
 
     @rauber2020
 
-22. Rauber F, Steele EM, Louzada ML da C, Millett C, Monteiro CA, Levy RB. Ultra-processed food consumption and indicators of obesity in the United Kingdom population (2008-2016).
+8.  Rauber F, Steele EM, Louzada ML da C, Millett C, Monteiro CA, Levy RB. Ultra-processed food consumption and indicators of obesity in the United Kingdom population (2008-2016).
     Meyre D, editor.
     PLoS ONE.
     2020 May 1;15(5):e0232676.
 
     @southall2022
 
-23. Southall JR. Ultra-processed food consumption linked to risk for colorectal cancer among men.
+9.  Southall JR. Ultra-processed food consumption linked to risk for colorectal cancer among men.
     HEM/ONC Today.
     2022 Oct 25;23(14):13.
 
     @Vargas-MezaJorge2022DSaP
 
-24. Vargas-Meza J, Cervantes-Armenta MA, Campos-Nonato I, Nieto C, Marrón-Ponce JA, Barquera S, et al.
+10. Vargas-Meza J, Cervantes-Armenta MA, Campos-Nonato I, Nieto C, Marrón-Ponce JA, Barquera S, et al.
     Dietary sodium and potassium intake: Data from the mexican national health and nutrition survey 2016.
     Nutrients.
     2022;14(2):281-.
 
     @wang2022
 
-25. Wang L, Du M, Wang K, Khandpur N, Rossato SL, Drouin-Chartier JP, et al.
+11. Wang L, Du M, Wang K, Khandpur N, Rossato SL, Drouin-Chartier JP, et al.
     Association of ultra-processed food consumption with colorectal cancer risk among men and women: results from three prospective US cohort studies.
     BMJ.
     2022 Aug 31;378:e068921.
 
     @wang2021
 
-26. Wang L, Martínez Steele E, Du M, Pomeranz JL, O'Connor LE, Herrick KA, et al.
+12. Wang L, Martínez Steele E, Du M, Pomeranz JL, O'Connor LE, Herrick KA, et al.
     Trends in Consumption of Ultraprocessed Foods Among US Youths Aged 2-19 Years, 1999-2018.
     JAMA.
     2021 Aug 10;326(6):519--30.
 
     @WeinsteinGalit2021Couf
 
-27. Weinstein G, Vered S, Ivancovsky‐Wajcman D, Zelber‐Sagi S, Ravona‐Springer R, Heymann A, et al.
+13. Weinstein G, Vered S, Ivancovsky‐Wajcman D, Zelber‐Sagi S, Ravona‐Springer R, Heymann A, et al.
     Consumption of ultra‐processed food and cognitive decline among older adults with type‐2 diabetes.
     Alzheimer's & dementia.
     2021;17(S10).
 
-## UPF and BP
+## 
 
 @aceves-martins2022
 
 1.  Aceves-Martins M, Link to external site this link will open in a new window, Bates RL, Link to external site this link will open in a new window, Craig LCA, Chalmers N, et al.
     Nutritional Quality, Environmental Impact and Cost of Ultra-Processed Foods: A UK Food-Based Analysis.
-    International journal of environmental research and public health \[Internet\].
-    2022 \[cited 2022 Oct 28\];19(6).
+    International journal of environmental research and public health $$Internet$$.
+    2022 $$cited 2022 Oct 28$$;19(6).
     Available from: <http://www.proquest.com/publiccontent/docview/2644005015?pq-origsite=primo>
 
     @AguiarSarmentoRoberta2018EPaH
@@ -663,8 +558,8 @@ This dissertation intends to address this gap
 
 15. Li M, Link to external site this link will open in a new window, Shi Z, Link to external site this link will open in a new window.
     Association between Ultra-Processed Food Consumption and Diabetes in Chinese Adults-Results from the China Health and Nutrition Survey.
-    Nutrients \[Internet\].
-    2022 \[cited 2022 Nov 12\];14(20).
+    Nutrients $$Internet$$.
+    2022 $$cited 2022 Nov 12$$;14(20).
     Available from: <https://www.proquest.com/publiccontent/docview/2729520244?parentSessionId=8CgvVWDFcQEhyTTXC%2B3zh7oBuY1vDlJi2c0%2Fm7JmQZk%3D&pq-origsite=primo&>
 
     @LiMing2021Ufca
@@ -733,8 +628,8 @@ This dissertation intends to address this gap
 
     @schulze2019
 
-26. Schulze K. UPF and cardiometabolic health \[Internet\].
-    University of Cambridge; 2019 \[cited 2023 Mar 2\].
+26. Schulze K. UPF and cardiometabolic health $$Internet$$.
+    University of Cambridge; 2019 $$cited 2023 Mar 2$$.
     Available from: <https://www.repository.cam.ac.uk/bitstream/handle/1810/306587/Kai%20Schulze%20Thesis%202020_final.pdf?sequence=1&isAllowed=y>
 
     @shim2022
@@ -815,35 +710,28 @@ Many studies use quite carefully constructed categories to achieve significant r
     Progress in Cardiovascular Diseases.
     2010 Mar 1;52(5):363--82.
 
-    @newman2017
-
-5.  Newman T. High blood pressure: Sodium may not be the culprit \[Internet\].
-    Medical News Today.
-    2017 \[cited 2022 Oct 14\].
-    Available from: <https://www.medicalnewstoday.com/articles/317099>
-
     @NilsonEduardoAugustoFernandes2021Eprd
 
-6.  Nilson EAF, Spaniol AM, Santin R da C, Silva SA. Estratégias para redução do consumo de nutrientes críticos para a saúde: o caso do sódio.
+5.  Nilson EAF, Spaniol AM, Santin R da C, Silva SA. Estratégias para redução do consumo de nutrientes críticos para a saúde: o caso do sódio.
     Cadernos de saúde pública.
     2021;37(suppl 1).
 
     @sacks2001
 
-7.  Sacks FM, Svetkey LP, Vollmer WM, Appel LJ, Bray GA, Harsha D, et al.
+6.  Sacks FM, Svetkey LP, Vollmer WM, Appel LJ, Bray GA, Harsha D, et al.
     Effects on Blood Pressure of Reduced Dietary Sodium and the Dietary Approaches to Stop Hypertension (DASH) Diet.
     New England Journal of Medicine.
     2001 Jan 4;344(1):3--10.
 
     @vollmer2001
 
-8.  Vollmer WM, Sacks FM, Ard J, Appel LJ, Bray GA, Simons-Morton DG, et al.
+7.  Vollmer WM, Sacks FM, Ard J, Appel LJ, Bray GA, Simons-Morton DG, et al.
     Effects of Diet and Sodium Intake on Blood Pressure: Subgroup Analysis of the DASH-Sodium Trial.
     Ann Intern Med. 2001 Dec 18;135(12):1019.
 
     @intersal1988
 
-9.  Intersalt: an international study of electrolyte excretion and blood pressure.
+8.  Intersalt: an international study of electrolyte excretion and blood pressure.
     Results for 24 hour urinary sodium and potassium excretion.
     Intersalt Cooperative Research Group.
     BMJ.
@@ -851,7 +739,7 @@ Many studies use quite carefully constructed categories to achieve significant r
 
     @yourgui1998
 
-10. Your Guide to Lowering Your Blood Pressure with DASH.
+9.  Your Guide to Lowering Your Blood Pressure with DASH.
     US Department of Health and Human Services; 1998 p. 64.
 
 \newpage
@@ -944,7 +832,7 @@ Issues around the power structures which lead to privilege one research project 
 ### Data Processing
 
 The storage of the data is in keeping with the research governance agreements of the University and the Data set owners.
-The data is read from its files using 'r-studio' with the processing being carried out using packages available from CRAN \@.
+The data is read from its files using 'r-studio' with the processing being carried out using packages available from CRAN @rcoreteamLanguageEnvironmentStatistical2021 .
 I have used files which had been amalgamated into four batches.
 These are 2008-2012, 2013-2014, 2015-2016, 2017-2019.
 
@@ -1980,8 +1868,8 @@ It can be seen that there are lower values for all of the variables in the later
 
 keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,omsysval),
                  statistic = list(all_continuous() ~"{mean} ({sd})"))
-as_flex_table( keydatw)
-
+keydatw <-as_flex_table( keydatw)
+keydatw
 ```
 
 ## Analysis of Change across cohorts
@@ -1994,21 +1882,21 @@ No visible difference is seen.
 
 ```{r upf-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "Survey Year"}
 #| label: fig-upf-and-survey-year
-#| tbl-cap: "upf-and-survey-year"
+#| fig-cap: "upf-and-survey-year"
 
 svyplot(Epcnt_4~SurveyYear,ndns_1_11d, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
 ```
 
 ```{r Na-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "Na Survey Year"}
 #| label: fig-Na-and-survey-year
-#| tbl-cap: "Na-and-survey-year"
+#| fig-cap: "Na-and-survey-year"
 svyplot(Sodiummg~SurveyYear,ndns_1_11d,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
 
 ```
 
 ```{r BP-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "BP Survey Year"}
 #| label: fig-BP-and-survey-year
-#| tbl-cap: "BP-and-survey-year"
+#| fig-cap: "BP-and-survey-year"
 svyplot(omsysval~SurveyYear,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
 ```
 
@@ -2045,20 +1933,20 @@ These box plots (@fig-BP-Sex-Boxplots, @fig-Na-Sex-Boxplots, @fig-UPF-Sex-Boxplo
 
 ```{r  BP-Sex-Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-BP-Sex-Boxplots
-#| tbl-cap: "BP-Sex-Boxplots"
+#| fig-cap: "BP-Sex-Boxplots"
 
 svyboxplot(omsysval~Sex,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by Sex", ylab = "Sysltolic BP in mmHg" ,xlab ="Sex")
 ```
 
 ```{r Na-Sex-Boxplots, echo=FALSE,message=FALSE, warning=FALSE}
 #| label: fig-Na-Sex-Boxplots
-#| tbl-cap: "Na-Sex-Boxplots"
+#| fig-cap: "Na-Sex-Boxplots"
 svyboxplot(Sodiummg~Sex,ndns_1_11d, na.rm = TRUE,main = "Sodium Intake in mg by Sex", ylab = "Sodium intake in mg" ,xlab ="Sex")
 ```
 
 ```{r UPF-Sex-Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-UPF-Sex-Boxplots
-#| tbl-cap: "UPF-Sex-Boxplots"
+#| fig-cap: "UPF-Sex-Boxplots"
 
 svyboxplot(Epcnt_4~Sex,ndns_1_11d, na.rm = TRUE,main = "% Energy Intake UPF by sex", ylab = "% Energy Intake UPF" ,xlab ="Sex")
 
@@ -2084,20 +1972,20 @@ as_flex_table(tbl_stack(list(ttestNaxt,ttestEpcnxt,ttestOSxt),group_header =  c(
 
 ```{r  BP-age-Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-BP-age-Boxplots
-#| tbl-cap: "BP-age-Boxplots full population"
+#| fig-cap: "BP-age-Boxplots full population"
 
 svyboxplot(omsysval~ agegad2 ,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by Age", ylab = "Sysltolic BP in mmHg" ,xlab ="Age")
 ```
 
 ```{r Na-age-Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE, fig.cap= "Na Sex Boxplot"}
 #| label: fig-age-Sex-Boxplots
-#| tbl-cap: "Na-age-Boxplots full population" 
+#| fig-cap: "Na-age-Boxplots full population" 
 svyboxplot(Sodiummg~agegad2,ndns_1_11d, na.rm = TRUE,main = "Sodium Intake in mg by Age", ylab = "Sodium intake in mg" ,xlab ="Age")
 ```
 
 ```{r UPF-age-Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "UPF sex"}
 #| label: fig-UPF-age-Boxplots
-#| tbl-cap: "UPF-age-Boxplots full population"
+#| fig-cap: "UPF-age-Boxplots full population"
 
 svyboxplot(Epcnt_4~agegad2,ndns_1_11d, na.rm = TRUE,main = "% Energy Intake UPF by Age", ylab = "% Energy Intake UPF" ,xlab ="Age")
 
@@ -2177,7 +2065,9 @@ autofit(tablecat)
 
 ## Regression of key variables on Systolic BP
 
-```{r dag, }
+```{r dag2, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-dag2
+#| fig-cap: "DAG of relationships explored by analysis"
 bp1 <- dagitty(" dag {
                Na -> BP
                Age -> BP
