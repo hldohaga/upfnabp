@@ -1,15 +1,6 @@
 ---
 title: "bp upf and na"
 output:
-  html_document:
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    keep_md: yes
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
   word_document: 
     toc: yes
     fig_caption: yes
@@ -20,6 +11,17 @@ output:
     fig_caption: yes
     number_sections: yes
     keep_tex: yes
+    latex_engine: xelatex
+  html_document: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    keep_md: yes
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    code_folding: hide
 editor_options: 
   markdown: 
     wrap: sentence
@@ -2000,7 +2002,7 @@ as_flex_table(tbl_stack(list(ttestNaxt,ttestEpcnxt,ttestOSxt),group_header =  c(
 svyboxplot(omsysval~ agegad2 ,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by Age", ylab = "Sysltolic BP in mmHg" ,xlab ="Age")
 ```
 
-```{r Na-age-Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE}
+```{r Na-age-Boxplots, echo=FALS,message=FALSE, warning=FALSE}
 #| label: fig-age-Sex-Boxplots
 #| fig-cap: "Na-age-Boxplots full population" 
 svyboxplot(Sodiummg~agegad2,ndns_1_11d, na.rm = TRUE,main = "Sodium Intake in mg by Age", ylab = "Sodium intake in mg" ,xlab ="Age")
@@ -2105,7 +2107,7 @@ Then @fig-BP-and-UPF
 
 ```{r BP-and-UPF,echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-BP-and-UPF
-#| tbl-cap: "BP-and-UPF"
+#| fig-cap: "BP-and-UPF"
 svyplot(omsysval~Epcnt_4, ndns_1_11d,main = "% Energy Intake UPF by Systolic BP", xlab = "% Energy Intake UPF" ,ylab ="Systolic BP")
 
 ```
@@ -2114,7 +2116,7 @@ and lastly @fig-UPF-and-Na-plot
 
 ```{r UPF-and-Na-plot,echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-UPF-and-Na-plot
-#| tbl-cap: "UPF-and-Na-plot"
+#| fig-cap: "UPF-and-Na-plot"
 svyplot(Epcnt_4~Sodiummg, ndns_1_11d,main = "% Energy Intake UPF by Sodiummg", ylab = "% Energy Intake UPF" ,xlab ="Sodium in mg")
 
 ```
@@ -2425,17 +2427,28 @@ This means that the all have effects on the systolic blood pressure, but the eff
 
 #### analysis for Sodium
 
-Cahnging the dependant variable helps to identify how much interaction there is in the other variables ie how the cahnge in age and se
+Changing the dependant variable helps to identify how much interaction there is in the other variables ie how the change in age and sex
 
-#### analysis for UPF_4
+#### analysis for UPF
+
+moving around to examine for UPF again allows us to see clearly how the interaction changes other variables indicating their involvement in the true model
 
 ## Limitations of Study
 
 ### The study
 
+The study is extremely well constructed. However it was not designed to gather information about UPF and so analysis of this is compromised. The classification of foods as UPF is done based on standard descriptions and if it had been done contemporaneously foods may have been entered into different categories.
+
+
+
 ### The data
 
+The data is accurate as presented. Weighting is made for non uptake and dropping out of the study in each year and is associated with some reduced statistical power. However the robustness of the data and the care in sampling and preliminary analysis have optimised the opportunities for good results.
+
+
 ### The analysis
+
+The approach largely uses general linear model regression on weighted data sets. This reduces the statistical power slightly. This does not seem to have altered the results from unweighted models.
 
 ## Ideas for further research
 

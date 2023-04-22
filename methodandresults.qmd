@@ -20,6 +20,7 @@ output:
     fig_caption: yes
     number_sections: yes
     keep_tex: yes
+    latex_engine: xelatex
 editor_options: 
   
   markdown: 
