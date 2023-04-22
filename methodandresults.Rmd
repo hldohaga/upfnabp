@@ -1,22 +1,22 @@
 ---
 title: "bp upf and na"
 output:
-  word_document: 
+  html_document: 
     toc: yes
     fig_caption: yes
+    number_sections: yes
     keep_md: yes
-    toc_depth: 4
   pdf_document: 
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_tex: yes
     latex_engine: xelatex
-  html_document: 
+  word_document: 
     toc: yes
     fig_caption: yes
-    number_sections: yes
     keep_md: yes
+    toc_depth: 4
   html_notebook: 
     toc: yes
     fig_caption: yes
@@ -231,7 +231,7 @@ In addition papers may be categorised as primary research, systematic reviews wi
 
 ## Na, BP, NCD and Public Health
 
-``` {r dagNa, echo=FALSE, message=FALSE, warning=FALSE}
+```{r dagNa, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-dagNa
 #| fig-cap: "DAG of relationships between BP and Salt"
 
@@ -313,7 +313,7 @@ They discuss the range of nation level approaches to reducing salt intake.
     Public Health Nutrition.
     2018 Apr;21(5):948--56.
 
-    @healthy
+    @healthy2017
 
 5.  Leeuw E de, Simos J, editors.
     Healthy cities: the theory, policy, and practice of value-based urban planning.
@@ -328,7 +328,7 @@ They discuss the range of nation level approaches to reducing salt intake.
 
 ## UPF and BP
 
-``` {r dagupf, echo=FALSE, message=FALSE, warning=FALSE}
+```{r dagupf, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-dag-upf
 #| fig-cap: "DAG of relationships of UPF"
 
@@ -398,186 +398,170 @@ It does move into the realm of coercion of those 'making the wrong choices' into
 Many studies show the increasing role of UPF within the diet.
 @mertens2022 and @nimhurchu2011 show how UPF are being eaten in ever greater quantities across Europe but especially across the UK.
 
+@wang2021 identifies increasing consumption
+
+@DavilaHelenFreitas2017Eifu identify that increasingly upf are the key source of energy in adolescents.
+
 ### UPF and Na
 
 @websterSystematicSurveySodium2010 , @nimhurchu2011 contain salt and
 
 ### UPF and Ill Health
 
+@mertens2022, @barbosa2022, @SantosFrancineSilvaDos2020Fpac , @aceves-martins2022, and @rauber2020 explore how UPF are associated with poor health.
+Whilst this is primarily metabolic pathology they do often mention BP.
+@schulze2019 comprehensively reviews UPF and metabolic health.
+
 @OliveiraTafnes2020CtCo try to identify ill health in young people associated with the increasing use of UPF.
 
-1.  @armendariz2022
+@southall2022 and seperately @wangAssociationUltraprocessedFood2022 have identified a risk of colorectal cancer.
+
+@elliott1996
+
+@armendariz2022
 
 2.  Armendariz M, Pérez-Ferrer C, Basto-Abreu A, Lovasi GS, Bilal U, Barrientos-Gutiérrez T. Changes in the Retail Food Environment in Mexican Cities and Their Association with Blood Pressure Outcomes.
     Int J Environ Res Public Health.
     2022 Jan 26;19(3):1353.
 
-    @DavilaHelenFreitas2017Eifu
-
-3.  D'avila HF, Kirsten VR. Energy intake from ultra-processed foods among adolescents.
-    Revista paulista de pediatria.
-    2017;35(1):54--60.
-
     @GuptaDeepanshi2021Sauf
 
-4.  Gupta D, Khanal P, Khan M. Sustainability and ultra-processed foods: role of youth.
+3.  Gupta D, Khanal P, Khan M. Sustainability and ultra-processed foods: role of youth.
     Sustainability, agri, food and environmental research.
     2021;
 
     @HodgeAllison2021ITIU
 
-5.  Hodge A. In this issue: Ultra-processed food and health.
+4.  Hodge A. In this issue: Ultra-processed food and health.
     Public health nutrition.
     2021;24(11):3177--8.
 
     @Muñoz-LaraA2020TCOU
 
-6.  Muñoz-Lara A, Moncada-Patiño J, Tovar-Vega A, Aguilar-Zavala H. THE CONSUMPTION OF ULTRA-PROCESSED FOODS, ANTHROPOMORPHIC MEASUREMENTS AND BLOOD CHEMISTRY IN MEXICAN SCHOOL-AGE CHILDREN. Annals of nutrition and metabolism.
+5.  Muñoz-Lara A, Moncada-Patiño J, Tovar-Vega A, Aguilar-Zavala H. THE CONSUMPTION OF ULTRA-PROCESSED FOODS, ANTHROPOMORPHIC MEASUREMENTS AND BLOOD CHEMISTRY IN MEXICAN SCHOOL-AGE CHILDREN. Annals of nutrition and metabolism.
     2020;76:212-.
 
     @rauber2019
 
-7.  Rauber F, Louzada ML da C, Steele EM, Rezende LFM de, Millett C, Monteiro CA, et al.
+6.  Rauber F, Louzada ML da C, Steele EM, Rezende LFM de, Millett C, Monteiro CA, et al.
     Ultra-processed foods and excessive free sugar intake in the UK: a nationally representative cross-sectional study.
     BMJ Open.
     2019 Oct 1;9(10):e027546.
 
-    @rauber2020
-
-8.  Rauber F, Steele EM, Louzada ML da C, Millett C, Monteiro CA, Levy RB. Ultra-processed food consumption and indicators of obesity in the United Kingdom population (2008-2016).
-    Meyre D, editor.
-    PLoS ONE.
-    2020 May 1;15(5):e0232676.
-
     @southall2022
 
-9.  Southall JR. Ultra-processed food consumption linked to risk for colorectal cancer among men.
+7.  Southall JR. Ultra-processed food consumption linked to risk for colorectal cancer among men.
     HEM/ONC Today.
     2022 Oct 25;23(14):13.
 
     @Vargas-MezaJorge2022DSaP
 
-10. Vargas-Meza J, Cervantes-Armenta MA, Campos-Nonato I, Nieto C, Marrón-Ponce JA, Barquera S, et al.
+8.  Vargas-Meza J, Cervantes-Armenta MA, Campos-Nonato I, Nieto C, Marrón-Ponce JA, Barquera S, et al.
     Dietary sodium and potassium intake: Data from the mexican national health and nutrition survey 2016.
     Nutrients.
     2022;14(2):281-.
 
-    @wang2022
+    @wangAssociationUltraprocessedFood2022
 
-11. Wang L, Du M, Wang K, Khandpur N, Rossato SL, Drouin-Chartier JP, et al.
+9.  Wang L, Du M, Wang K, Khandpur N, Rossato SL, Drouin-Chartier JP, et al.
     Association of ultra-processed food consumption with colorectal cancer risk among men and women: results from three prospective US cohort studies.
     BMJ.
     2022 Aug 31;378:e068921.
 
     @wang2021
 
-12. Wang L, Martínez Steele E, Du M, Pomeranz JL, O'Connor LE, Herrick KA, et al.
+10. Wang L, Martínez Steele E, Du M, Pomeranz JL, O'Connor LE, Herrick KA, et al.
     Trends in Consumption of Ultraprocessed Foods Among US Youths Aged 2-19 Years, 1999-2018.
     JAMA.
     2021 Aug 10;326(6):519--30.
 
     @WeinsteinGalit2021Couf
 
-13. Weinstein G, Vered S, Ivancovsky‐Wajcman D, Zelber‐Sagi S, Ravona‐Springer R, Heymann A, et al.
+11. Weinstein G, Vered S, Ivancovsky‐Wajcman D, Zelber‐Sagi S, Ravona‐Springer R, Heymann A, et al.
     Consumption of ultra‐processed food and cognitive decline among older adults with type‐2 diabetes.
     Alzheimer's & dementia.
     2021;17(S10).
 
 ## 
 
-@aceves-martins2022
+@AguiarSarmentoRoberta2018EPaH
 
-1.  Aceves-Martins M, Link to external site this link will open in a new window, Bates RL, Link to external site this link will open in a new window, Craig LCA, Chalmers N, et al.
-    Nutritional Quality, Environmental Impact and Cost of Ultra-Processed Foods: A UK Food-Based Analysis.
-    International journal of environmental research and public health $$Internet$$.
-    2022 $$cited 2022 Oct 28$$;19(6).
-    Available from: <http://www.proquest.com/publiccontent/docview/2644005015?pq-origsite=primo>
-
-    @AguiarSarmentoRoberta2018EPaH
-
-2.  Aguiar Sarmento R, Peçanha Antonio J, Lamas de Miranda I, Bellicanta Nicoletto B, Carnevale de Almeida J. Eating patterns and health outcomes in patients with type 2 diabetes.
+1.  Aguiar Sarmento R, Peçanha Antonio J, Lamas de Miranda I, Bellicanta Nicoletto B, Carnevale de Almeida J. Eating patterns and health outcomes in patients with type 2 diabetes.
     Journal of the Endocrine Society.
     2018;2(1):42--52.
 
-    @barbosa2022
-
-3.  Barbosa SS, Sousa LCM, de Oliveira Silva DF, Pimentel JB, Evangelista KCM de S, Lyra C de O, et al.
-    A Systematic Review on Processed/Ultra-Processed Foods and Arterial Hypertension in Adults and Older People.
-    Nutrients.
-    2022 Mar 13;14(6):1215.
-
     @colombet2019
 
-4.  Colombet Z, Perignon M, Salanave B, Landais E, Martin-Prevel Y, Allès B, et al.
+2.  Colombet Z, Perignon M, Salanave B, Landais E, Martin-Prevel Y, Allès B, et al.
     Socioeconomic inequalities in metabolic syndrome in the French West Indies.
     BMC Public Health.
     2019 Dec 3;19(1):1620.
 
     @DavilaHelenFreitas2017Eifu
 
-5.  D'Avila HF, Kirsten VR. CONSUMO ENERGÉTICO PROVENIENTE DE ALIMENTOS ULTRAPROCESSADOS POR ADOLESCENTES. Revista paulista de pediatria.
+3.  D'Avila HF, Kirsten VR. CONSUMO ENERGÉTICO PROVENIENTE DE ALIMENTOS ULTRAPROCESSADOS POR ADOLESCENTES. Revista paulista de pediatria.
     2017;35(1):54--60.
 
     @DeDeusMendonçaRaquel2017Ufca
 
-6.  De Deus Mendonça R, Souza Lopes AC, Pimenta AM, Gea A, Martinez-Gonzalez MA, Bes-Rastrollo M. Ultra-processed food consumption and the incidence of hypertension in a mediterranean cohort: The seguimiento universidad de navarra project.
+4.  De Deus Mendonça R, Souza Lopes AC, Pimenta AM, Gea A, Martinez-Gonzalez MA, Bes-Rastrollo M. Ultra-processed food consumption and the incidence of hypertension in a mediterranean cohort: The seguimiento universidad de navarra project.
     American journal of hypertension.
     2017;30(4):358--66.
 
     @deMirandaRenataCosta2021Iouf
 
-7.  de Miranda RC, Rauber F, Levy RB. Impact of ultra-processed food consumption on metabolic health.
+5.  de Miranda RC, Rauber F, Levy RB. Impact of ultra-processed food consumption on metabolic health.
     Current opinion in lipidology.
     2021;32(1):24--37.
 
-    @deMirandaRenataCosta2021Iouf
+    @dossantos
 
-8.  dos Santos FS, Dias M da S, Mintem GC, de Oliveira IO, Gigante DP. Food processing and cardiometabolic risk factors: a systematic review.
+6.  dos Santos FS, Dias M da S, Mintem GC, de Oliveira IO, Gigante DP. Food processing and cardiometabolic risk factors: a systematic review.
     Rev Saude Publica.
     54:70.
 
     @Gomez-SmithMariana2018RCRa
 
-9.  Gomez-Smith M, Janik R, Adams C, Lake EM, Thomason LAM, Jeffers MS, et al.
+7.  Gomez-Smith M, Janik R, Adams C, Lake EM, Thomason LAM, Jeffers MS, et al.
     Reduced cerebrovascular reactivity and increased resting cerebral perfusion in rats exposed to a cafeteria diet.
     Neuroscience.
     2018;371:166--77.
 
     @GonçalvesVivianSS2019Cots
 
-10. Gonçalves VS, Duarte EC, Dutra ES, Barufaldi LA, Carvalho KM. Characteristics of the school food environment associated with hypertension and obesity in Brazilian adolescents: a multilevel analysis of the Study of Cardiovascular Risks in Adolescents (ERICA).
+8.  Gonçalves VS, Duarte EC, Dutra ES, Barufaldi LA, Carvalho KM. Characteristics of the school food environment associated with hypertension and obesity in Brazilian adolescents: a multilevel analysis of the Study of Cardiovascular Risks in Adolescents (ERICA).
     Public health nutrition.
     2019;22(14):2625--34.
 
     @GoodmanDina2020Diac
 
-11. Goodman D, González-Rivas JP, Jaacks LM, Duran M, Marulanda MI, Ugel E, et al.
+9.  Goodman D, González-Rivas JP, Jaacks LM, Duran M, Marulanda MI, Ugel E, et al.
     Dietary intake and cardiometabolic risk factors among Venezuelan adults: a nationally representative analysis.
     BMC nutrition.
     2020;6(1):61--61.
 
     @IvancovskyWajcmanDana2021Ufia
 
-12. Ivancovsky‐Wajcman D, Fliss‐Isakov N, Webb M, Bentov I, Shibolet O, Kariv R, et al.
+10. Ivancovsky‐Wajcman D, Fliss‐Isakov N, Webb M, Bentov I, Shibolet O, Kariv R, et al.
     Ultra‐processed food is associated with features of metabolic syndrome and non‐alcoholic fatty liver disease.
     Liver international.
     2021;41(11):2635--45.
 
     @KityoAnthony2022TIoU
 
-13. Kityo A, Lee SA. The intake of ultra-processed foods and prevalence of chronic kidney disease: The health examinees study.
+11. Kityo A, Lee SA. The intake of ultra-processed foods and prevalence of chronic kidney disease: The health examinees study.
     Nutrients.
     2022;14(17):3548-.
 
     @LeeHae-Young2022UFaa
 
-14. Lee HY. Ultra-processed foods as a less-known risk factor in cardiovascular diseases.
+12. Lee HY. Ultra-processed foods as a less-known risk factor in cardiovascular diseases.
     Korean circulation journal.
     2022;52(1):71--3.
 
     @LiMing2022AbUF
 
-15. Li M, Link to external site this link will open in a new window, Shi Z, Link to external site this link will open in a new window.
+13. Li M, Link to external site this link will open in a new window, Shi Z, Link to external site this link will open in a new window.
     Association between Ultra-Processed Food Consumption and Diabetes in Chinese Adults-Results from the China Health and Nutrition Survey.
     Nutrients $$Internet$$.
     2022 $$cited 2022 Nov 12$$;14(20).
@@ -585,119 +569,113 @@ Many studies show the increasing role of UPF within the diet.
 
     @LiMing2021Ufca
 
-16. Li M, Shi Z. Ultra-processed food consumption associated with overweight/obesity among Chinese adults---Results from China health and nutrition survey 1997--2011.
+14. Li M, Shi Z. Ultra-processed food consumption associated with overweight/obesity among Chinese adults---Results from China health and nutrition survey 1997--2011.
     Nutrients.
     2021;13(8):2796-.
 
     @LiMing2022AbUF
 
-17. Li M, Shi Z. Association between Ultra-Processed Food Consumption and Diabetes in Chinese Adults---Results from the China Health and Nutrition Survey.
+15. Li M, Shi Z. Association between Ultra-Processed Food Consumption and Diabetes in Chinese Adults---Results from the China Health and Nutrition Survey.
     Nutrients.
     2022 Jan;14(20):4241.
 
     @LimaR2011Pouf
 
-18. Lima R, Moreira L, Rossato S, Silva R, Fuchs S. P2-155 Consumption of ultra-processed food is associated with blood pressure in hypertensive individuals.
+16. Lima R, Moreira L, Rossato S, Silva R, Fuchs S. P2-155 Consumption of ultra-processed food is associated with blood pressure in hypertensive individuals.
     Journal of epidemiology and community health (1979).
     2011;65(Suppl 1):A263--A263.
 
     @Martinez-PerezCelia2021Uodf
 
-19. Martínez Steele E, Juul F, Neri D, Rauber F, Monteiro CA. Dietary share of ultra-processed foods and metabolic syndrome in the US adult population.
+17. Martínez Steele E, Juul F, Neri D, Rauber F, Monteiro CA. Dietary share of ultra-processed foods and metabolic syndrome in the US adult population.
     Preventive medicine.
     2019;125:40--8.
 
     @OliveiraTafnes2020CtCo
 
-20. Oliveira T, Ribeiro I, Jurema-Santos G, Nobre I, Santos R, Rodrigues C, et al.
+18. Oliveira T, Ribeiro I, Jurema-Santos G, Nobre I, Santos R, Rodrigues C, et al.
     Can the consumption of ultra-processed food be associated with anthropometric indicators of obesity and blood pressure in children 7 to 10 years old?
     Foods.
     2020;9(11):1567-.
 
     @rauber2019
 
-21. Rauber F, Louzada ML da C, Steele EM, Rezende LFM de, Millett C, Monteiro CA, et al.
+19. Rauber F, Louzada ML da C, Steele EM, Rezende LFM de, Millett C, Monteiro CA, et al.
     Ultra-processed foods and excessive free sugar intake in the UK: a nationally representative cross-sectional study.
     BMJ Open.
     2019 Oct 1;9(10):e027546.
 
     @rauber2020
 
-22. Rauber F, Steele EM, Louzada ML da C, Millett C, Monteiro CA, Levy RB. Ultra-processed food consumption and indicators of obesity in the United Kingdom population (2008-2016).
+20. Rauber F, Steele EM, Louzada ML da C, Millett C, Monteiro CA, Levy RB. Ultra-processed food consumption and indicators of obesity in the United Kingdom population (2008-2016).
     Meyre D, editor.
     PLoS ONE.
     2020 May 1;15(5):e0232676.
 
     @Rezende-AlvesKatiusse2021Fpar
 
-23. Rezende-Alves K, Hermsdorff HHM, Miranda AE da S, Lopes ACS, Bressan J, Pimenta AM. Food processing and risk of hypertension: Cohort of universities of minas gerais, brazil (CUME project).
+21. Rezende-Alves K, Hermsdorff HHM, Miranda AE da S, Lopes ACS, Bressan J, Pimenta AM. Food processing and risk of hypertension: Cohort of universities of minas gerais, brazil (CUME project).
     Public health nutrition.
     2021;24(13):4071--9.
 
     @SantosFrancineSilvaDos2020Fpac
 
-24. Santos FSD, Dias M da S, Mintem GC, Oliveira IO de, Gigante DP. Food processing and cardiometabolic risk factors: a systematic review.
+22. Santos FSD, Dias M da S, Mintem GC, Oliveira IO de, Gigante DP. Food processing and cardiometabolic risk factors: a systematic review.
     Revista de saúde pública.
     2020;54:70--70.
 
-    @scaranni
+    @scaranniUltraprocessedFoodsChanges2021a
 
-25. Scaranni P de O da S, Cardoso L de O, Chor D, Melo ECP, Matos SMA, Giatti L, et al.
+23. Scaranni P de O da S, Cardoso L de O, Chor D, Melo ECP, Matos SMA, Giatti L, et al.
     Ultra-processed foods, changes in blood pressure and incidence of hypertension: the Brazilian Longitudinal Study of Adult Health (ELSA-Brasil).
     Public health nutrition.
     2021;24(11):3352--60.
 
-    @schulze2019
+    @shimConsumptionUltraProcessedFood2022
 
-26. Schulze K. UPF and cardiometabolic health $$Internet$$.
-    University of Cambridge; 2019 $$cited 2023 Mar 2$$.
-    Available from: <https://www.repository.cam.ac.uk/bitstream/handle/1810/306587/Kai%20Schulze%20Thesis%202020_final.pdf?sequence=1&isAllowed=y>
-
-    @shim2022
-
-27. Shim SY, Kim HC, Shim JS. Consumption of ultra-processed food and blood pressure in korean adults.
+24. Shim SY, Kim HC, Shim JS. Consumption of ultra-processed food and blood pressure in korean adults.
     Korean circulation journal.
     2022;52(1):60--70.
 
     @smiljanec2020
 
-28. Smiljanec K, Mbakwe AU, Ramos-Gonzalez M, Mesbah C, Lennon SL. Associations of ultra-processed and unprocessed/minimally processed food consumption with peripheral and central hemodynamics, and arterial stiffness in young healthy adults.
+25. Smiljanec K, Mbakwe AU, Ramos-Gonzalez M, Mesbah C, Lennon SL. Associations of ultra-processed and unprocessed/minimally processed food consumption with peripheral and central hemodynamics, and arterial stiffness in young healthy adults.
     Nutrients.
     2020;12(11):1--19.
 
-    @suter2002
+    @suterNutritionalFactorsControl2002a
 
-29. Suter PM, Sierro C, Vetter W. Nutritional Factors in the Control of Blood Pressure and Hypertension.
+26. Suter PM, Sierro C, Vetter W. Nutritional Factors in the Control of Blood Pressure and Hypertension.
     Nutrition in Clinical Care.
     2002;5(1):9--19.
 
     @TavaresLetíciaFerreira2012Rbuf
 
-30. Tavares LF, Fonseca SC, Garcia Rosa ML, Yokoo EM. Relationship between ultra-processed foods and metabolic syndrome in adolescents from a Brazilian Family Doctor Program.
+27. Tavares LF, Fonseca SC, Garcia Rosa ML, Yokoo EM. Relationship between ultra-processed foods and metabolic syndrome in adolescents from a Brazilian Family Doctor Program.
     Public health nutrition.
     2012;15(1):82--7.
 
     @TzelefaVicky2021Aodp
 
-31. Tzelefa V, Tsirimiagkou C, Argyris A, Moschonis G, Perogiannakis G, Yannakoulia M, et al.
+28. Tzelefa V, Tsirimiagkou C, Argyris A, Moschonis G, Perogiannakis G, Yannakoulia M, et al.
     Associations of dietary patterns with blood pressure and markers of subclinical arterial damage in adults with risk factors for CVD.
     Public health nutrition.
     2021;24(18):6075--84.
 
     @VilelaSofia2022Eotf
 
-32. Vilela S, Magalhães V, Severo M, Oliveira A, Torres D, Lopes C. Effect of the food processing degree on cardiometabolic health outcomes: A prospective approach in childhood.
+29. Vilela S, Magalhães V, Severo M, Oliveira A, Torres D, Lopes C. Effect of the food processing degree on cardiometabolic health outcomes: A prospective approach in childhood.
     Clinical nutrition (Edinburgh, Scotland).
     2022;41(10):2235--43.
 
     @WangMei2022UFCI
 
-33. Wang M, Du X, Huang W, Xu Y. Ultra-Processed Foods Consumption Increases the Risk of Hypertension in Adults: A Systematic Review and Meta-Analysis.
+30. Wang M, Du X, Huang W, Xu Y. Ultra-Processed Foods Consumption Increases the Risk of Hypertension in Adults: A Systematic Review and Meta-Analysis.
     American Journal of Hypertension.
     2022 Oct 1;35(10):892--901.
 
 ## BP UPF and Salt
-## BP UPF and Salt
+
 ```{r dagall, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-dagall
 #| fig-cap: "DAG of relationships explored by analysis"
@@ -964,8 +942,6 @@ Here it is about how best to describe the relationship between Na, UPF, and BP.
 ## Method Conclusion
 
 This section has highlighted how the material for the study is brought together and how the governance and ethics fit with the data collection, processing and analysis to help us to derive the results which will be presented in the next section.
-
-
 
 ```{r read data, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -2002,7 +1978,7 @@ as_flex_table(tbl_stack(list(ttestNaxt,ttestEpcnxt,ttestOSxt),group_header =  c(
 svyboxplot(omsysval~ agegad2 ,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by Age", ylab = "Sysltolic BP in mmHg" ,xlab ="Age")
 ```
 
-```{r Na-age-Boxplots, echo=FALS,message=FALSE, warning=FALSE}
+```{r Na-age-Boxplots, echo=FALSE,message=FALSE, warning=FALSE}
 #| label: fig-age-Sex-Boxplots
 #| fig-cap: "Na-age-Boxplots full population" 
 svyboxplot(Sodiummg~agegad2,ndns_1_11d, na.rm = TRUE,main = "Sodium Intake in mg by Age", ylab = "Sodium intake in mg" ,xlab ="Age")
@@ -2437,18 +2413,21 @@ moving around to examine for UPF again allows us to see clearly how the interact
 
 ### The study
 
-The study is extremely well constructed. However it was not designed to gather information about UPF and so analysis of this is compromised. The classification of foods as UPF is done based on standard descriptions and if it had been done contemporaneously foods may have been entered into different categories.
-
-
+The study is extremely well constructed.
+However it was not designed to gather information about UPF and so analysis of this is compromised.
+The classification of foods as UPF is done based on standard descriptions and if it had been done contemporaneously foods may have been entered into different categories.
 
 ### The data
 
-The data is accurate as presented. Weighting is made for non uptake and dropping out of the study in each year and is associated with some reduced statistical power. However the robustness of the data and the care in sampling and preliminary analysis have optimised the opportunities for good results.
-
+The data is accurate as presented.
+Weighting is made for non uptake and dropping out of the study in each year and is associated with some reduced statistical power.
+However the robustness of the data and the care in sampling and preliminary analysis have optimised the opportunities for good results.
 
 ### The analysis
 
-The approach largely uses general linear model regression on weighted data sets. This reduces the statistical power slightly. This does not seem to have altered the results from unweighted models.
+The approach largely uses general linear model regression on weighted data sets.
+This reduces the statistical power slightly.
+This does not seem to have altered the results from unweighted models.
 
 ## Ideas for further research
 
@@ -2484,7 +2463,7 @@ People who know that UPF is bad, are more likely to accept policy limiting avail
 In conclusion there is a complex interaction between fixed factors and societal factors at work.
 Nova encompasses more than nutrition alone and whilst UPF has harmful elements these are not simply nutritional factors, but are complex social factors.
 These factors are omitted and ignored by a rigid nutritional approach to what is primarily a social function.
-\newpage 
+\newpage
 
 # Bibliography
 
