@@ -270,7 +270,7 @@ Its role in pathology is less clear.
 There are increasing levels of intake.
 This is correlated with increasing BP readings.
 Other nutrients have also been correlated.
-The role of salt in normal and abnormal BP control is established ( @cappuccio2015 , @intersal1988 , @elliot , ).
+The role of salt in normal and abnormal BP control is established ( @cappuccio2015 , @intersal1988 , @elliott1996 , ).
 However there remain areas of contention( @newman2017 ).
 There may be individuals with higher sensitivity to salt ( @elijovich2016 ).
 Understanding the best approaches to reducing salt is difficult.
@@ -482,7 +482,7 @@ Whilst this is primarily metabolic pathology they do often mention BP.
     Alzheimer's & dementia.
     2021;17(S10).
 
-## 
+
 
 @AguiarSarmentoRoberta2018EPaH
 
@@ -932,6 +932,22 @@ Assessment techniques try to understand the importance of including particular v
 Anova analysis here identifies how the addition of different variables changes the significance of other variables.
 This can suggest causative relationships.
 The resultant p.values help to establish the statistical significance of the results.
+```{r adjusting-dag, echo=FALSE, message=FALSE, warning=FALSE}
+ for( n in names(bp1) ){
+     for( m in setdiff( descendants( bp1, n ), n ) ){
+         a <- adjustmentSets( bp1, n, m )
+         if( length(a) > 0 ){
+             cat("The total effect of ",n," on ",m,
+                 " is identifiable controlling for:\n",sep="")
+             print( a, prefix=" * " ) }} }
+
+ for( n in names(bp1) ){
+     for( m in children(bp1,n) ){
+         iv <- instrumentalVariables( bp1, n, m )
+         if( length( iv ) > 0 ){
+             cat( n, m, "\n" )
+             print( iv , prefix=" * " )}} }
+```
 
 ### AIC and sensitivty Anaylsis
 
@@ -1008,7 +1024,7 @@ sav11br$bmival <- sav11br$bmival2
 sav11br$gor <- sav11br$GOR
 sav11br$age <- sav11br$AgeR
 sav11r$Age <- sav11r$AgeR
-sav11br[omsysval <= 10, omsysval := NA]
+#sav11br[omsysval <= 10, omsysval := NA]
 ```
 
 ```{r novafile, message=FALSE, warning=FALSE, include=FALSE }
@@ -1882,7 +1898,7 @@ These key variables are now compared between the cohorts.
 This plot shows that the ranges largely overlap.
 No visible difference is seen.
 
-```{r upf-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
+```{r fig-upf-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-upf-and-survey-year
 #| fig-cap: "upf-and-survey-year"
 
@@ -1890,14 +1906,14 @@ No visible difference is seen.
 svyplot(Epcnt_4~SurveyYear,ndns_1_11d, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
 ```
 
-```{r Na-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
+```{r fig-Na-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-Na-and-survey-year
 #| fig-cap: "Na-and-survey-year"
 svyplot(Sodiummg~SurveyYear,ndns_1_11d,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
 
 ```
 
-```{r BP-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
+```{r fig-BP-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-BP-and-survey-year
 #| fig-cap: "BP-and-survey-year"
 
@@ -2245,7 +2261,7 @@ AICt<- data.table("Model"=c("No sodium or UPF","Sodium only","Epcnt only","Sodiu
 flextable(AICt)
 ```
 
-Finaly this calculation tries to identify the size of the effect
+Finally this calculation tries to identify the size of the effect
 
 ```{r AIC-sense, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -2258,6 +2274,46 @@ sense1
 
 we find that the lowest AIC is given by the model without UPF!!
 Though all the models with UPF have a lower aic than the model without.
+
+without additional variables
+```{r lmMEj-AS6, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+
+
+
+#sodium only
+lmnaj <- svyglm( omsysval ~ Sodiummg + Age , ndns_1_11d,na.action = na.exclude)
+
+lmnaEj <- svyglm(omsysval ~ Sodiummg +Epcnt_4 +Age, ndns_1_11d,na.action = na.exclude)
+
+lmMEj <- svyglm( omsysval~ Epcnt_4 +Age , ndns_1_11d,na.action =na.exclude)
+#lmnaja  <-      anova(lmnaj)
+#lmnaja
+```
+
+```{r multivariable-outputsAS, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-multivariable-outputsAS
+#| tbl-cap: "multivariable-outputs BP"
+
+lmnajt <- tbl_regression(lmnaj)
+lmnaEjt <- tbl_regression(lmnaEj)
+lmMEjt <- tbl_regression(lmMEj)
+
+ as_flex_table(  tbl_merge(list(lmnajt,lmMEjt,lmnaEjt), tab_spanner = c("Sodium only","Epcnt only","Sodium and UPF")))
+```
+
+```{r AIC-comparison2, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-AIC-comparison-AS
+#| tbl-cap: "AIC-comparison AS"
+
+AICjt<- data.table("Model"=c("Sodium only","Epcnt only","Sodium and UPF"),"AIC" =c( lmnaj$aic,lmMEj$aic,lmnaEj$aic))
+flextable(AICjt)
+
+```
+
+
+regressing on sodium
 
 ```{r na-lmME, echo=FALSE, warning=FALSE}
 
@@ -2285,6 +2341,16 @@ lmME2t <- tbl_regression(lmME2)
  as_flex_table(  tbl_merge(list(lm1AS2t,lmna2t,lmME2t,lmnaE2t), tab_spanner = c("No bp or UPF","BP only","Epcnt only","BP and UPF")))
 ```
 
+```{r AIC-comparison3, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-AIC-comparison-Na
+#| tbl-cap: "AIC-comparison Na"
+
+AIC2t<- data.table("Model"=c("No bp or UPF","bp only","Epcnt only","bp and UPF"),"AIC" =c(lm1AS2$aic, lmna2$aic,lmME2$aic,lmnaE2$aic))
+flextable(AIC2t)
+```
+
+
+then on upf
 ```{r upf-lmME, echo=FALSE, warning=FALSE}
 
 lm1AS3 <- svyglm(Epcnt_4 ~  Sex +bmival +agegad1+educfinh + EIMD_2010_quintile , ndns_1_11d, na.action = na.exclude)
@@ -2310,6 +2376,15 @@ lmME3t <- tbl_regression(lmME3)
 
  as_flex_table(  tbl_merge(list(lm1AS3t,lmna3t,lmME3t,lmnaE3t), tab_spanner = c("No bp or UPF","BP only","Epcnt only","BP and UPF")))
 ```
+
+```{r AIC-comparison4, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-AIC-comparison-upf
+#| tbl-cap: "AIC-comparison upf"
+
+AIC3t<- data.table("Model"=c("No bp or Na","bp only","Na only","bp and Na"),"AIC" =c(lm1AS3$aic, lmna3$aic,lmME3$aic,lmnaE3$aic))
+flextable(AIC3t)
+```
+
 
 ## Summary of Results
 
