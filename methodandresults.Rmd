@@ -1,15 +1,15 @@
 ---
 title: "bp upf and na"
 output:
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
   html_document:
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
   word_document: 
     toc: yes
     fig_caption: yes
@@ -695,6 +695,25 @@ Many studies show the increasing role of UPF within the diet.
     2022 Oct 1;35(10):892--901.
 
 ## BP UPF and Salt
+## BP UPF and Salt
+```{r dagall, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-dagall
+#| fig-cap: "DAG of relationships explored by analysis"
+
+bp1 <- dagitty(" dag {
+               Na -> BP
+               Age -> BP
+               Sex -> BP
+               UPF -> BP
+               UPF -> Na
+               Age -> UPF
+               Sex -> UPF
+               BP -> NCD
+               Age -> Na
+}")
+plot(graphLayout(bp1))
+
+```
 
 What is not known is how UPF cause BP.
 Is it nutrient based?
