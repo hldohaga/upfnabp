@@ -1885,7 +1885,7 @@ These key variables are now compared between the cohorts.
 This plot shows that the ranges largely overlap.
 No visible difference is seen.
 
-```{r upf-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "Survey Year"}
+```{r upf-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-upf-and-survey-year
 #| fig-cap: "upf-and-survey-year"
 
@@ -1900,7 +1900,7 @@ svyplot(Sodiummg~SurveyYear,ndns_1_11d,main = "Sodium Intake in mg by survey yea
 
 ```
 
-```{r BP-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "BP Survey Year"}
+```{r BP-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-BP-and-survey-year
 #| fig-cap: "BP-and-survey-year"
 
@@ -1923,8 +1923,8 @@ ttestOSt <- tbl_regression(ttestOS)
 as_flex_table(tbl_stack(list(ttestNa2t,ttestEpcntt,ttestOSt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
 ```
 
-@tbl-Key-Variables-by-SurveyYear compares mean sodium, UPF and systolic BP values across the individual cohorts.
-This uses cohort 1 as a comparator for the other cohorts.
+@tbl-Key-Variables-by-Survey-year compares mean sodium, UPF and systolic BP values across the individual cohorts.
+This uses general linear regression modeling, with cohort 1 as a comparator for the other cohorts.
 The differences and the beta variable do not depend on there being a linear or ordinal arrangement between the cohorts.
 
 This shows that for sodium there is a beta of `r ttestNa2t$table_body$estimate` with confidence limits of `r ttestNa2t$table_body$ci`; For UPF beta is `r ttestEpcntt$table_body$estimate` and confidence limits `r ttestEpcntt$table_body$ci`; and for BP `r ttestOSt$table_body$estimate` and `r ttestOSt$table_body$ci`.
@@ -1936,20 +1936,20 @@ This will be examined later.
 
 ## Analysis of key variables by sex
 
-```{r Na-Sex-Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE, fig.cap= "Na Sex Boxplot"}
+```{r Na-Sex-Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE}
 #|label: fig-Na-Sex-Boxplots
 #|fig-cap: "Na-Sex-Boxplots"
 svyboxplot(Sodiummg~Sex,ndns_1_11d, na.rm = TRUE,main = "Sodium Intake in mg by Sex", ylab = "Sodium intake in mg" ,xlab ="Sex")
 ```
 
-```{r UPF-Sex-Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "UPF sex"}
+```{r UPF-Sex-Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-UPF-Sex-Boxplots
 #|fig-cap: "UPF-Sex-Boxplots"
 svyboxplot(Epcnt_4~Sex,ndns_1_11d, na.rm = TRUE,main = "% Energy Intake UPF by sex", ylab = "% Energy Intake UPF" ,xlab ="Sex")
 
 ```
 
-```{r  BP-Sex-Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "BP sex"}
+```{r  BP-Sex-Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-BP-Sex-Boxplots
 #| fig-cap: "BP-Sex-Boxplots"
 
@@ -1958,7 +1958,7 @@ svyboxplot(omsysval~Sex,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by 
 
 In each graph there is little difference apparent, though perhaps the female plot is slightly lower.
 
-```{r Key-Variables-by-Sex, echo=FALSE,tab.id=TRUE, tab.cap ="Key Variables"}
+```{r Key-Variables-by-Sex, echo=FALSE}
 #| label: tbl-Key-Variables-by-Sex
 #| tbl-cap: "Variables-by Sex in the full population showing the statistical significance against Male category as a comparator"
 
@@ -1981,13 +1981,13 @@ as_flex_table(tbl_stack(list(ttestNaxt,ttestEpcnxt,ttestOSxt),group_header =  c(
 svyboxplot(omsysval~ agegad2 ,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by Age", ylab = "Sysltolic BP in mmHg" ,xlab ="Age")
 ```
 
-```{r Na-age-Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE, fig.cap= "Na Sex Boxplot"}
+```{r Na-age-Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE}
 #| label: fig-age-Sex-Boxplots
 #| fig-cap: "Na-age-Boxplots full population" 
 svyboxplot(Sodiummg~agegad2,ndns_1_11d, na.rm = TRUE,main = "Sodium Intake in mg by Age", ylab = "Sodium intake in mg" ,xlab ="Age")
 ```
 
-```{r UPF-age-Boxplots, echo=FALSE, message=FALSE, warning=FALSE,fig.id=TRUE,fig.cap = "UPF sex"}
+```{r UPF-age-Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-UPF-age-Boxplots
 #| fig-cap: "UPF-age-Boxplots full population"
 
@@ -1995,7 +1995,7 @@ svyboxplot(Epcnt_4~agegad2,ndns_1_11d, na.rm = TRUE,main = "% Energy Intake UPF 
 
 ```
 
-```{r Key-Variables-by-age, echo=FALSE,tab.id=TRUE, tab.cap ="Key Variables"}
+```{r Key-Variables-by-age, echo=FALSE}
 #| label: tbl-Key-Variables-by-age
 #| tbl-cap: "Variables-by age in the full population showing the statistical significance against Male category as a comparator"
 
@@ -2029,7 +2029,7 @@ In particular there may be more younger people and women taking e.g. bblockers i
 
 This table @tbl-continuous-data) suggests that there is a significant difference in the bmi of the cohorts.
 
-```{r continuous-data, echo=FALSE, message=FALSE, warning=FALSE, tab.id=TRUE,tab.cap = "Continuous Variables by survey year"}
+```{r continuous-data, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-continuous-data
 #| tbl-cap: "continuous-data"
 ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11d)
@@ -2049,7 +2049,7 @@ The differences in qimd, are not statistically significant.
 
 These values identify a significant difference in the number of vegetarians
 
-```{r Categorical-variables-year, echo=FALSE, message=FALSE, warning=FALSE,tab.id=TRUE ,tab.cap = "Categorical variables against Survey Year"}
+```{r Categorical-variables-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-Categorical-variables-year
 #| tbl-cap: "Categorical-variables-year"
 
@@ -2084,7 +2084,7 @@ svyplot(omsysval~Sodiummg, ndns_1_11d ,main = "Sodium Intake in mg", xlab = "Sod
 
 Then @fig-BP-and-UPF
 
-```{r BP-and-UPF,echo=FALSE, fig.cap="BP and UPF",fig.id=TRUE, message=FALSE, warning=FALSE}
+```{r BP-and-UPF,echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-BP-and-UPF
 #| tbl-cap: "BP-and-UPF"
 svyplot(omsysval~Epcnt_4, ndns_1_11d,main = "% Energy Intake UPF by Systolic BP", xlab = "% Energy Intake UPF" ,ylab ="Systolic BP")
@@ -2093,7 +2093,7 @@ svyplot(omsysval~Epcnt_4, ndns_1_11d,main = "% Energy Intake UPF by Systolic BP"
 
 and lastly @fig-UPF-and-Na-plot
 
-```{r UPF-and-Na-plot,echo=FALSE, fig.cap="UPF and Na",fig.id=TRUE, message=FALSE, warning=FALSE}
+```{r UPF-and-Na-plot,echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-UPF-and-Na-plot
 #| tbl-cap: "UPF-and-Na-plot"
 svyplot(Epcnt_4~Sodiummg, ndns_1_11d,main = "% Energy Intake UPF by Sodiummg", ylab = "% Energy Intake UPF" ,xlab ="Sodium in mg")
@@ -2106,7 +2106,7 @@ These use the populations where participants have been excluded.
 
 First, omsysval is compared to EnergykJ, then sodiummg.
 
-```{r univariable-regressions, echo=FALSE, message=FALSE, warning=FALSE, tab.id = TRUE,tab.cap= "Univariable Regressions"}
+```{r univariable-regressions, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-univariable-regressions
 #| tbl-cap: "univariable-regressions full population"
 #univariable regression models
@@ -2135,7 +2135,7 @@ lmNaAt <- tbl_regression(lmNaA)
 as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt),group_header = c("BP/Na","UPF/Na","UPF/bp","UPF/Age","Age/BP","Age/Na")))
 ```
 
-```{r more-univariable-regressions, echo=FALSE, message=FALSE, warning=FALSE, tab.id = TRUE,tab.cap= "Univariable Regressions"}
+```{r more-univariable-regressions, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-more-univariable-regressions
 #| tbl-cap: "more univariable-regressions full population"
 #univariable regression models
@@ -2227,7 +2227,7 @@ This suggests that the effect of UPF is mediated by Sodium!!
 
 This table @multivariable-outputs-bp comparing p.values for these four models
 
-```{r multivariable-outputs, echo=FALSE, message=FALSE, warning=FALSE,tab.cap="Multivariable comparison",tab.id=TRUE, out.width='80%'}
+```{r multivariable-outputs, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-multivariable-outputs-bp
 #| tbl-cap: "multivariable-outputs BP"
 lm1ASt <-tbl_regression(lm1AS)
@@ -2240,7 +2240,7 @@ lmMEt <- tbl_regression(lmME)
 
 The subsequent @tbl-AIC-comparison-bp shows the size of the effect relating to sodium
 
-```{r AIC-comparison, echo=FALSE, message=FALSE, warning=FALSE,tab.cap="AIC comparison",tab.id=TRUE}
+```{r AIC-comparison, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-AIC-comparison-bp
 #| tbl-cap: "AIC-comparison BP"
 
@@ -2250,7 +2250,7 @@ flextable(AICt)
 
 Finaly this calculation tries to identify the size of the effect
 
-```{r AIC-sense, echo=FALSE, message=FALSE, warning=FALSE,tab.cap="AIC sense",tab.id=TRUE}
+```{r AIC-sense, echo=FALSE, message=FALSE, warning=FALSE}
 
 #AIC(lmM,lmMna,lmM2)
 sense1 <- (lmME$aic - lmna$aic)*100/lmna$aic 
@@ -2277,7 +2277,7 @@ lmME2 <- svyglm( Sodiummg ~  Epcnt_4 +agegad1+Sex + bmival +educfinh + EIMD_2010
 
 ```
 
-```{r na-multivariable-outputs, echo=FALSE, message=FALSE, warning=FALSE,tab.cap="Multivariable comparison",tab.id=TRUE, out.width='80%'}
+```{r na-multivariable-outputs, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-na-multivariable-outputs
 #| tbl-cap: "multivariable-outputs Na"
 lm1AS2t <-tbl_regression(lm1AS2)
@@ -2303,7 +2303,7 @@ lmME3 <- svyglm( Epcnt_4 ~  Sodiummg +agegad1+Sex + bmival +educfinh + EIMD_2010
 
 ```
 
-```{r upf-multivariable-outputs, echo=FALSE, message=FALSE, warning=FALSE,tab.cap="Multivariable comparison",tab.id=TRUE, out.width='80%'}
+```{r upf-multivariable-outputs, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-upf-multivariable-outputs
 #| tbl-cap: "multivariable-outputs upf"
 lm1AS3t <-tbl_regression(lm1AS3)
