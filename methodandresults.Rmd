@@ -101,6 +101,7 @@ library(knitr)
 library(flextable)
 library(officer)
 library(dagitty)
+library(grateful)
 ```
 
 ```{r dag, echo=FALSE, message=FALSE, warning=FALSE}
@@ -768,7 +769,7 @@ sav11r$Age <- sav11r$AgeR
 ```
 
 ```{r novafile, message=FALSE, warning=FALSE, include=FALSE }
-NOVA_ForDavid <- as.data.table(read_excel("data/NOVA_ForDavid.xlsx"))
+NOVA_ForDavid <- as.data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/NOVA_ForDavid.xlsx"))
 
 NOVA_ForDavid[, Sex := factor(Sex, levels = 1:2)]
 NOVA_ForDavid[, Country := factor(Country)]
@@ -1617,7 +1618,7 @@ Each cohort has been adjusted to be comparable using weighting values given by t
 However they are separate cohorts of separate participants with no linear association between them.
 It can be seen that there are lower values for all of the variables in the later groups.
 
-```{r keydata, echo=FALSE, message=FALSE, warning=FALSE}
+```{r tbl-keydata, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-keydata
 #| tbl-cap: "key data"
 
@@ -2178,32 +2179,21 @@ The difference between the two values as a proportion of the larger is `r sense1
 
 ## Summary of Results
 
-@tbl-keydata with summary values for the key variables across the dataset showing a change across the cohorts.
-This is less evident in the plots.
+@tbl-keydata with means for the key variables across the dataset showing a reduction across the cohorts. This is less evident in the plots, but the @tbl-Key-Variables-by-Survey-year shows statistical analysis of the key variables shows the reduction.
 
-@tbl-Key-Variables-by-Survey-year shows statistical analysis of the key variables shows the change across the cohorts.
+@tbl-continuous-data and @tbl-Categorical-variables-year show the other variables analysed and show that there has been change in the balance of the populations.
 
-@tbl-continuous-data and @tbl-Categorical-variables-year show that other variables are analysed and show that there has been change in the balance of the populations.
+Analysis by Sex shows that female sex always reduces BP. When analysed by age, UPF reduces, BP increases, as does Na though with a more complex relationship. Analysis by place shows that most areas are similar, but with London as an outlier.
 
-Univariable regression, @tbl-univariable-regressions , shows a degree of association between the BP and UPF intake.
-It also shows the same for sodium intake.
-It also shows that the change with age is the same size as the change for UPF.
 
-Using Anova analysis of different multi variable regression models, @tbl-multivariable-outputs-bp , the key variables are significant for sodium in several models with age included and sometimes for UPF with age excluded.
+Paired regression, @tbl-univariable-regressions, shows that sodium intake has no relationship with BP or UPF with Na.
+It shows that UPF intake decreases with age, and UPF decreases with BP.
+It also shows that the change of BP with age and with Na are positive
 
-## Results Conclusion
+The sets of models of multivariable regressions show that the model regressed on UPF including Na and BP has the lowest AIC. The highest AIC statistic is for the model regressed against Na without BP or UPF.
 
-The percentage by energy of NOVA group 4 foods decreased from 2008 to 2019.
-The mean sodium intake in mg decreased.
-The systolic BP has decreased.
 
-There is a correlation between systolic BP and sodium intake.
-There is a correlation between systolic BP and UPF intake.
 
-The regression models identify that age and sex are statistically significant contributors to the BP and that bmi, educfinh, and IMD are also.
-
-The regression models identify that sodium intake is an important contributor to any optimal model.
-That UPF intake is no longer significant, but still has some effect.
 
 
 \newpage
@@ -2217,7 +2207,7 @@ That will include how the context of the literature influences understanding of 
 The limitations of the study will be considered.
 Opportunities for further research, and ways to influence policy will be considered.
 
-## Data and analysis of change across cohorts
+## Data 
 
 The data is well collected and comprehensive.
 There have been several changes over the course of the study.
@@ -2226,6 +2216,9 @@ These changes have meant that collating the data was more than just bringing all
 In addition the differing take up rates between different groups in each of the cohorts meant that the numbers from each cohort are not comparable.
 This is overcome by using weighting factors to balance the datasets.
 This needs adjusting every time there is a new group added to the collected data set.
+
+
+## Discussion of change across cohorts
 
 The analysis using these weighted datasets is performed using "survey" which is a software package used in r studio.
 
@@ -2343,3 +2336,8 @@ The ethics cert.
 # Appendix 3 Software used
 
 The software used
+``` {r package-cite, echo=FALSE, warnings=FALSE }
+cite_packages(output="citekeys", out.dir = getwd() ,out.format= "Rmd")
+
+```
+
