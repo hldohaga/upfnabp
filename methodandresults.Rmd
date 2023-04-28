@@ -1,17 +1,6 @@
 ---
 title: "bp upf and na"
 output:
-  pdf_document: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    keep_tex: yes
-    latex_engine: xelatex
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    code_folding: hide
   html_document: 
     toc: yes
     fig_caption: yes
@@ -22,6 +11,17 @@ output:
     fig_caption: yes
     keep_md: yes
     toc_depth: 4
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    code_folding: hide
+  pdf_document: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    keep_tex: yes
+    latex_engine: xelatex
 editor_options: 
   markdown: 
     wrap: sentence
@@ -102,6 +102,7 @@ library(flextable)
 library(officer)
 library(dagitty)
 library(grateful)
+library(dplyr)
 ```
 
 ```{r dag, echo=FALSE, message=FALSE, warning=FALSE}
@@ -170,6 +171,32 @@ Positivist 'grand isolation' may reduce the influence of these factors, but they
 
 I accept that to proceed, whilst I need to be aware of the limitations of the positivist approach and the necessity of making pragmatic selections that there is some degree of validity to the resulting dataset.
 Otherwise, analysis of it would be of no purpose.
+
+## University Research Governance and Ethical Review 
+
+The ethics process for the University of Liverpool was followed and a certificate of compliance is attached at appendix 2. 
+
+The storage of the data is in keeping with the research governance agreements of the University and the Data set owners. 
+
+## Research Question
+
+What proportion of the association between blood pressure (SBP) and UPF intake can be explained by the changes in salt intake in England between 2008 and 2019?
+
+The question can be split into parts, What was intake of salt between 2008 and 2019?
+What was intake of UPF between 2008 and 2019?
+What was BP between 2008 and 2019?
+Did each of these change over that time and how?
+Did the changes in any one affect any other?
+What are the sizes of the changes?
+Which element was most important in these changes?
+
+All of these questions look for numbers as answers.
+
+Answering the question starts with collecting a sample of participants.
+Measurements are taken, and then collated.
+The collected numbers are then compared in different ways to answer each part of the question.
+
+##  Aims and Objectives
 
 \newpage
 
@@ -491,214 +518,117 @@ This study aims to cross link these paradigms looking at how Na and UPF interact
 
 \newpage
 
-# Method
+# Method 
 
-## Introduction
+## Study Design and Setting
 
-This section takes the research question and explains how the data is used to answer the question.
+National Dietary and Nutritional Survey (NDNS @universityofcambridge2022) 
 
-There will be a description of the study and data collection.
-Then a section on governance and ethics in this project.
+This survey is a collaboration between government departments responsible for health and for food production. They have engaged academic partners to deliver reports on diet and nutrition across the United Kingdom. The study is designed to be representative across the four home nations, across age with balanced representation for children. NDNS data are available via the UK national Data service for research purposes. 
 
-Data analysis starts with the relevant variables being identified and extracted.
-Some data may need to be recalculated or to be processed to make a more useable form.
-The population will be reviewed.
-Then there is consideration of groups to be excluded.
+NDNS is a rolling cohort study in which each year selects a new cohort of participants. The sample is intended to be  1000 per year with 50% adults. Each year the sample is slightly different due to differential uptake. There is some oversampling to take account of this.
+ 
+The design has a random selection across postal units (psu). This is stratified to ensure a representative sample across the four nations (England, Wales, Scotland, and Northern Ireland) and across regions within those countries (North West, North East, Scotland, Northern Ireland, Wales, Yorkshire and Humberside, East Midlands,West Midlands, London, The South East, The South West). The sample is also representative for age and sex and IMD.
 
-There is a description of the data.
-The second analysis section compares the data across the annual cohorts.
-The next analysis section involves using linear regression to identify correlations.
-Firstly, between the BP and each of the key variables.
-Then between other pairs of key variables.
 
-Multivariable regression models are then generated.
-These models are examined to identify the relative importance of the different variables in developing an optimal model and what these models tell us about the relationship between our variables.
-A summary and conclusion will bring all these together.
+## Participants, Inclusion and Exclusion 
 
-## Research Question
+All participants in NDNS are included.
 
-What proportion of the association between blood pressure (SBP) and UPF intake can be explained by the changes in salt intake in England between 2008 and 2019?
-```{r fig-dagupfbp2, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-dagupfbp2
-#| fig-cap: "DAG of relationships explored by analysis"
+The relationship between salt and systolic blood pressure may be different in individuals with pathologically high BP. Those taking BP controlling medications may have a different relationship to sodium and UPF. These participants were excluded from the main analysis, however this affected the sample size and skewed the male-female ratio. Thus, I have conducted a sensitivity analysis included the participants taking BP medications. 
 
-bp7 <- dagitty(" dag {
-               Na -> BP
-               UPF -> BP
-               UPF <-> Na
-               BP -> NCD}")
-plot(graphLayout(bp7))
+The data from the NDNS study contains information about each individual, and their household. This was collected through questionnaires. Then weight, height, and blood pressure were measured by a nurse. Finally, dietary information was collected through a 4-day food diary. 
 
-```
-The question can be split into parts, What was intake of salt between 2008 and 2019?
-What was intake of UPF between 2008 and 2019?
-What was BP between 2008 and 2019?
-Did each of these change over that time and how?
-Did the changes in any one affect any other?
-What are the sizes of the changes?
-Which element was most important in these changes?
+## Variables
 
-All of these questions look for numbers as answers.
+The key variables are systolic BP, UPF intake and Sodium intake.
 
-Answering the question starts with collecting a sample of participants.
-Measurements are taken, and then collated.
-The collected numbers are then compared in different ways to answer each part of the question.
+Additional variables are ones which can also influence BP. They include Age, Sex, BMI, height, and weight. Age at completion of education (educfinh), and IMD are also used. 
 
-## National Dietary and Nutritional Survey
+ 
 
-This survey is a collaboration between government departments responsible for health and for food production.
-They have engaged academic partners to deliver reports on diet and nutrition across the United Kingdom.
-The study is designed to be representative across the whole area.
+###  Systolic BP 
 
-### Study design
+The mean systolic blood pressure (omsysval, BP) is a validated measurement with significant quality assessment within the dataset. 
 
-This is a rolling cohort study which each year selects a new cohort of participants.
-The sample is approximately 1000 per year with 50% adults.
-The design has a random selection across postal units (psu).
-This is stratified to ensure a representative sample across the four nations and across regions within those countries.
-The sample is also representative for age and sex.
-
-Having taken up the study, participants complete a 4 day food diary, and have an interview with a nurse which includes taking several measurements.
-Weighting is given for each annual survey to enable comparison across the years taking account for alterations in uptake and response completion.
-
-### NDNS Dataset
-
-The data from the NDNS study contains items about each individual,and their household.
-It contains a table with each item of food as recorded in their diary.
-There is a table with the overall intake of each of a large range of nutrients for the whole period.
-This is calculated from the diary using nutritional tables which are published as part of the dataset.
-The dataset is available via the UK national Data service for research purposes.
-
-NDNS began before Monteiro's processing based classification, Nova , was developed.
-There is no record of Nova food type in NDNS.
-This has been calculated from the food descriptions.
-I have used a table from Rauber et al @rauber2020 .
-for Nova values in NDNS.
-
-### University Research Governance and Ethical Review
-
-The research has been carried out under the University governance.
-A proposal was discussed and agreed within the public health department.
-The need for ethical review was considered using the university research tool.
-The fact that the data is anonymised and there was no contact with participants means that there is minimal risk of harm to research participants.
-The initial proposal and a certificate from the ethics department are in the appendices.
-
-Other ethical issues include data custodianship ensuring that the the rights of the owners of the data and of the participants are still considered as part of the process of analysis and dissemination of the research.
-
-Issues around the power structures which lead to privilege one research project or proposal over another are considered more in the positionality section.
-
-### Data Processing
-
-The storage of the data is in keeping with the research governance agreements of the University and the Data set owners.
-The data is read from its files using 'r-studio' with the processing being carried out using packages available from CRAN @rcoreteamLanguageEnvironmentStatistical2021 .
-I have used files which had been amalgamated into four batches.
-These are 2008-2012, 2013-2014, 2015-2016, 2017-2019.
-
-Once the data labels are made consistent across the batches, weighting recalculation is done.
-This generates values which account for differences in population balance across the annual cohorts.
-These result from differences in compliance and uptake within and across the years.
-
-The years are amalgamated and the nature of the variables is specified.
-
-### Exclusions
-
-The relationship between salt and systolic blood pressure may be different in individuals with pathologically high BP.
-Those taking BP controlling medications may have a different relationship to sodium and UPF.
-These patients were excluded from the main analysis, however this affected the sample size and skewed the male female ratio.
-Analysis was done with exclusion and this produced results in line with those presented, but of smaller magnitude.
-This additional analysis is not presented here.
-
-## The data
-
-The data is summarised for the key continuous variables by survey year cohort.
-The key variables are systolic BP (omsysval), UPF intake (Epcnt_4) and Sodium intake (sodiummg).
-These variables are the ones which most relate to the research question.
-@tbl-keydata shows the data which has been balanced using the weightings provided by the NDNS research team.
-
-There are a number of related variables in the dataset.
-A wider set of variables will be included in the backgorund and tested to ensure they have no affect on the results to be demonstrated. 
-These were chosen for relevance, reliability and practicality.
-These variables are ones which can also influence BP.
-They include Age, Sex, BMI, height and weight.
-Age at completion of education (educfinh), and IMD are also used.
-
-The omsysval is a validated measurement with significant quality assessment within the dataset.
-Raw systolic BP values are present in the dataset but are made up of data with issues around quality.
-In particular the systolic BP values are assessed for the effects of exercise, temperature and ill health.
 The variable omsysval is a quality assured mean value which is reliable across the dataset.
+ In particular, the omsysval variable was assessed for the effects of exercise, temperature and ill health.  Raw BP values are present in the dataset but are made up of data with issues around quality.
 
-The sodium value is one calculated from intake based on food diaries and standard food nutrient values.
-This only reflects standard foods and is the result of assumptions about the content being consistent.
-Serum sodium values are available for the early dataset, but not the later one.
-There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods.
-Though they were part of a supplementary study.
 
-The food diaries need processing to identify the UPF intake.
-Each persons food diary entries are assessed against the Nova food classification from Rauber.
-Then the weight and energy content of the days food is calculated by Nova group.
-This is added to the intake for the other 3 days and the total intake by Nova group established.
 
-The percentage of the total intake of energy (Epcnt_4) is then calculated for each of the 4 Nova categories.
-Nova group 4 or UPF intake is used for the study.
+###  Dietary data 
 
-Mean values for the data are displayed with a comparison for weighted values.
-The exposure variables are sodium intake (Sodiummg), and ultra processed food intake (Epcnt_4).
-The outcome variable, the mean systolic blood pressure (omsysval, BP).
+The participants recorded their food intake prospectively over 4 days recording food and portion size as well as where food was eaten. Adults recorded this for the child participants. 
 
-### Analysis of Change over Survey Years
+Based on the food and drink intake reported and with a composition data table, the NDNS team have estimated the overall intake of a large range of nutrients.  
 
-The second phase of analysis shows how the key variables have changed over the survey years cohorts.
-This will show separately how the inputs and outputs have changed.
+ 
 
-These are not the same participants so matched analysis, or time series analysis is not directly applicable.
+###  Salt estimation 
 
-Plots will be given to show the values in each of the available cohorts.
+The sodium value is one calculated from intake based on food diaries and standard food nutrient values. This only reflects standard foods and is the result of assumptions about the content being consistent. Serum sodium values are available for the early dataset, but not the later one. There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found in both time periods. Though they were part of a supplementary study. 
 
-Other variables in the data are compared across to assess how the data changes.
-Statistical significance of changes in the data are shown by p.values with continuous data, and categorical data analysed using chi squared tables.
+ 
 
-### Univariable Regression of key variables
+ 
+### UPF
+To estimate the intake of UPF, we used  the NOVA classification, developed by Monteiro et al. (@monteiro2010). As  there is no record of NOVA classification in NDNS, I have used a table from Rauber et al (@rauber2019). The author has classified each food and drink according to the food descriptions. 
 
-Analysis of the correlation between BP and sodium intake, and then BP and UPF intake is done using linear regression.
-This will give an indicator of the direction, and strength of any relationship between the variables.
-There is also anova analysis to understand the statistical significance of these results.
-Comparison is also made with Age, and between each of the variables.
-This will show where significant relationships are present.
+Each participant food diary entries are assessed against the Nova food classification. The weight and energy content of the day's food is calculated by Nova group. This is added to the intake for the other 3 days and the total intake by Nova group established. The percentage of the total intake of energy is then calculated for each of the 4 Nova categories. Nova group 4 or UPF intake (Epcnt_4) is used for this study. 
 
-### Multiple Regression on Systolic BP (?age, ?Epcnt_4)
+ 
 
-Multivariable regression models are then developed to understand the interactions between variables and to develop a mathematical model of the relationship.
-The optimal model is one which best explains the pattern of data, but which also makes practical sense for the wider understanding of relationships.
-Assessment techniques try to understand the importance of including particular variables, and the form in which they are best included.
-Anova analysis here identifies how the addition of different variables changes the significance of other variables.
-This can suggest causative relationships.
-The resultant p.values help to establish the statistical significance of the results.
-```{r adjusting-dag, echo=FALSE, message=FALSE, warning=FALSE}
- for( n in names(bp1) ){
-     for( m in setdiff( descendants( bp1, n ), n ) ){
-         a <- adjustmentSets( bp1, n, m )
-         if( length(a) > 0 ){
-             cat("The total effect of ",n," on ",m,
-                 " is identifiable controlling for:\n",sep="")
-             print( a, prefix=" * " ) }} }
+## Analysis of the data  
 
- for( n in names(bp1) ){
-     for( m in children(bp1,n) ){
-         iv <- instrumentalVariables( bp1, n, m )
-         if( length( iv ) > 0 ){
-             cat( n, m, "\n" )
-             print( iv , prefix=" * " )}} }
-```
+### Description of sample 
+I amalgamated four data batches, 2008-2012, 2013-2014, 2015-2016, 2017-2019. 
+The data is read from its files using ‘r-studio’ with the processing being carried out using packages (see appendix 3) available from CRAN (@base). 
+Once the data labels are made consistent across the batches, weighting recalculation is done. 
 
-### AIC and sensitivty Anaylsis
+This generates values which account for differences in population balance across the annual cohorts. These result from differences in compliance and uptake within and across the years. 
 
-This section compares models side by side using assessment techniques to identify the best way of describing the data.
-The 'best' in part is determined by the whether a model is needed to predict more data, or just to understand the data available.
-Here it is about how best to describe the relationship between Na, UPF, and BP.
+The years are amalgamated and the nature of the variables is specified. 
+Mean values for the data are displayed with a comparison for weighted values. The exposure variables are sodium intake (Sodiummg,Na), and ultra processed food intake (Epcnt_4, UPF). The outcome variable, the mean systolic blood pressure (omsysval,BP). 
 
-## Method Conclusion
+ 
 
-This section has highlighted how the material for the study is brought together and how the governance and ethics fit with the data collection, processing and analysis to help us to derive the results which will be presented in the next section.
+### Analysis of Change over Survey Years 
+
+The second phase of analysis shows how the key variables changed over the survey years cohorts. This showed separately how the inputs and outputs have changed. 
+
+These are not the same participants so matched analysis, or time series analysis were not directly applicable. 
+
+Plots were given to show the values in each of the available cohorts. 
+
+Other variables in the data were compared across to assess how the data changes. Statistical significance of changes in the data were shown by p.values with continuous data, and categorical data analysed using chi squared tables. 
+
+### Analysis of Change by Sex Age and Place
+I have analysed the key variables by sex, age in categories, and by government region. 
+This intends to show the distribution of the sample across these categories.
+
+## Univariable Regression of key variables 
+
+Analysis of the association between BP and sodium intake, and then BP and UPF intake was done using univariable linear regression. This gave indication of the direction and strength of relationship between the variables. P.values and confidence intervals help to understand the statistical significance of these results. Comparison was also made with age,sex, region and between each of the variables. This showed the significant relationships present. 
+
+ 
+
+## Multiple Regression on Systolic BP ,age, UPF 
+
+Multivariable regression models were then developed to understand the interactions between variables and to develop a mathematical model of the relationship. The optimal model is one which best explains the pattern of data, but which also makes practical sense for the wider understanding of relationships.  
+
+Several sets of four models were developed. The baseline model with the dependant variable and background variables. Then two models with each independent variable was added separately. Finally a model containing all three of the key variables.  
+
+
+Assessment techniques try to understand the importance of including particular variables, and the form in which they are best included. The resultant p.values help to establish the statistical significance of the results. 
+
+ 
+
+## AIC and sensitivty Anaylsis 
+
+This section compares models side by side using assessment techniques to identify the best way of describing the data. The ‘best’ in part is determined by the whether a model is needed to predict more data, or just to understand the data available. Here it is about how best to describe the relationship between Na, UPF, and BP. 
+
+
+
 
 ```{r read data, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -1536,6 +1466,17 @@ setkey(ndns_1_11, seriali)
 ndns_1_11 <- ndns_1_11[ndns_1_11food, by= seriali]
 ```
 
+```{r upf-tertiles, echo=FALSE,message=FALSE}
+#epcnt_4 divided into tertiles as cat variable
+ndns_1_11$UPF3 <-  cut(ndns_1_11$Epcnt_4 ,
+                       breaks=c(0, 33, 63,100))
+ndns_1_11$agegad3 <-  cut(ndns_1_11$age ,
+                       breaks=c(0, 16,19,35,50,65,108))
+
+
+```
+
+
 ```{r survey design,message=FALSE, warning=FALSE, include=FALSE}
 
 
@@ -1586,54 +1527,51 @@ ndns_1_11b <- subset(ndns_1_11ed, Age >18)
 
 # Results
 
-## Results Introduction
+## Participants and Descriptive Data
 
-Analysing the data from NDNS involves following the method.
-The presented results are arranged to support explaining how the research question is answered by the data.
+This first table @tbl-keydata1 includes all variables.
+These are weighted values analysed using a software package called 'survey' @survey2004 .
 
-The data used is described, explaining how it is structured.
-The data analysis is then presented using tables and graphs to support the argument.
-These most frequently present details of the statistical significance of the proposed regression model.
+The tables presented by NDNS have been amalgamated and new weighting values calculated which enable compilation of data from separate tables into one.
+```{r tbl-keydata1, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-keydata1
+#| tbl-cap: "key data1"
 
-The results section will be further interpreted in the discussion section.
 
-## The Data
+keydatw1 <-tbl_svysummary(ndns_1_11d, include= c(age, agegad3,Sex, omsysval, bmival, Sodiummg, Epcnt_4,UPF3, educfinh, EIMD_2010_quintile,gor ) )
 
-This first table @tbl-keydata highlights the variables which most relate to the research question from the years 2008-2019.
-These are weighted values analysed using a software package called 'survey' @survey2004 . Other software is also used and a complete list included in appendix 3.
+as_flex_table( keydatw1)
+```
+Continuous variables are represented by the mean and standard deviation in brackets.
+Categorical variables give the number of participants and the percentage of the sample in brackets.
 
-The tables presented by NDNS have been amalgamated and new weighting values calculated which enable comparison of data from separate tables.
+#### Exposure variables
+The exposure variables Sodiummg, and Epcnt_4 are continuous. The mean value for Sodiummg is 2,037. That for Epcnt_4 is 48. 
+The categorical variable UPF3 shows that 67% of the population fall within the central category calculated from the standard deviation of the mean.
 
-There are several variables chosen.
-The number of participants in each year, 'N', is presented.
-The mean sodium intake in milligrams (Sodiummg) is next.
-'Epcnt_4' is the percent value of energy derived from Nova category 4 foods, or UPF, out of the whole daily energy intake.
-The mean Systolic BP value is one which has been validated within the NDNS study it is given in mmHg.
+#### Outcome Variable
+The BP is also continuous with a mean of 123 and standard deviation of 17. There are a significant number of unknowns, 7196 out of a sample of 15,655.
 
-These values are normally distributed continuous variables.
-The mean is representative.
 
+### Analysis of Change across cohorts
+
+These key variables are now compared between the cohorts fist in tbl-keydata.
+```{r tbl-keydata, echo=FALSE}
+#| label: tbl-keydata
+#| tbl-cap: "Table showing key variables by survey year"
+
+keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4, UPF3,omsysval))
+keydatw <-as_flex_table( keydatw)
+keydatw
+
+
+```
 The numbers seem to be smaller towards the end of the series, for Sodium intake, UPF intake (Epcnt_4) and for systolic BP.
 Each cohort has been adjusted to be comparable using weighting values given by the study coordinators.
 However they are separate cohorts of separate participants with no linear association between them.
 It can be seen that there are lower values for all of the variables in the later groups.
 
-```{r tbl-keydata, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-keydata
-#| tbl-cap: "key data"
 
-
-keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,omsysval),
-                 statistic = list(all_continuous() ~"{mean} ({sd})"))
-
-as_flex_table( keydatw)
-
-
-```
-
-## Analysis of Change across cohorts
-
-These key variables are now compared between the cohorts.
 
 @fig-upf-and-survey-year shows the energy from UPF in percent (Epcnt_4) against cohort number.
 This plot shows that the ranges largely overlap.
@@ -1695,7 +1633,7 @@ The NDNS dataset was weighted to keep many of these, but not all,  the same betw
 Continuous variables are assessed using linear regression and categorical variables using chi squared tests to give p.values.
 
 
-This table @tbl-continuous-data) suggests that there is a significant difference in the bmi of the cohorts.
+This table @tbl-continuous-data suggests that there is a significant difference in the bmi of the cohorts.
 
 ```{r tbl-continuous-data, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-continuous-data
@@ -1713,9 +1651,9 @@ tablecon
 
 There is a difference in the age of finishing education.
 
-The differences in qimd, are not statistically significant.
+The differences in IMD, are not statistically significant.
 
-These values identify a significant difference in the number of vegetarians
+@tbl-Categorical-variables-year identifies a significant difference in the number of vegetarians.
 
 ```{r tbl-Categorical-variables-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-Categorical-variables-year
@@ -1725,9 +1663,10 @@ sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11d)
 educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11d)
 imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11d)
 vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11d)
+UPF3chi <- svychisq(~UPF3+ SurveyYear , ndns_1_11d)
 
 
-tablecat<- data.table("Variable"=c( "Sex", "Education","IMD","Vegetarian"),"p.value"=  c(sexchi$p.value,educhi$p.value,imdchi$p.value,vegchi$p.value ))
+tablecat<- data.table("Variable"=c( "Sex", "Education","IMD","Vegetarian","UPF3"),"ChiSq"=c(sexchi$statistic,educhi$statistic,imdchi$statistic,vegchi$statistic,UPF3chi$statistic ),"p.value"= c(sexchi$p.value,educhi$p.value,imdchi$p.value,vegchi$p.value,UPF3chi$p.value ))
 tablecat <- flextable(tablecat)
 tablecat <- colformat_double(tablecat, digits = 4)
 
@@ -1740,6 +1679,20 @@ autofit(tablecat)
 ```
 
 ## Analysis of Key variables by Sex
+
+```{r tbl-keydatax, echo=FALSE, message=FALSE, warning=FALSE}
+
+#| label: tbl-keydatax
+#| tbl-cap: "Table of key variables by sex showing less exposure to UPF and Sodium in females and a lower BP"
+
+keydatwx <-tbl_svysummary(ndns_1_11d,Sex, include = c(Sodiummg,Epcnt_4,UPF3,omsysval))
+keydatwx <-as_flex_table( keydatwx)
+keydatwx
+
+
+```
+@tbl-keydatax shows the difference between male and female in the key variables. 
+
 
 ```{r fig-Na-Sex-Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE}
 #|label: fig-Na-Sex-Boxplots
@@ -1781,6 +1734,19 @@ as_flex_table(tbl_stack(list(ttestNaxt,ttestEpcnxt,ttestOSxt),group_header =  c(
 
 ## Analysis of Key Variables by Age
 
+```{r tbl-keydataA, echo=FALSE, message=FALSE, warning=FALSE}
+
+#| label: tbl-keydataA
+#| tbl-cap: "Table showing the key variables by age group showing differences between exposure and outcome in different age groups"
+
+keydatwA <-tbl_svysummary(ndns_1_11d,agegad3, include = c(Sodiummg,Epcnt_4,UPF3,omsysval))
+keydatwA <-as_flex_table( keydatwA)
+keydatwA
+
+
+```
+@tbl-tbl-keydataA shows the age distribution of exposure to sodium and UPF. Peak sodium exposure in the 19-35 age group. The peak UPF exposure is in the 16-18 age group, but is almost matched by the 0-16 group. The outcome BP rises through life.
+
 ```{r  fig-BP-age-Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-BP-age-Boxplots
 #| fig-cap: "The difference in Systolic BP in mmHg between Age groups showing a sttrong overlap"
@@ -1818,6 +1784,23 @@ as_flex_table(tbl_stack(list(ttestNaAt,ttestEpcnAt,ttestOSAt),group_header =  c(
 The changes in sodium content are particularly interesting as they show that the older age groups have much lower sodium intake, but the highest sodium intake in in the second group, with the first and third being statistically no different.
 
 ## Analysis of Key Variables by Place
+
+```{r tbl-keydatap, echo=FALSE, message=FALSE, warning=FALSE}
+
+#| label: tbl-keydatap
+#| tbl-cap: "Table of key variables by age place showing differing exposure and outcome by place"
+
+keydatwp <-tbl_svysummary(ndns_1_11d,gor, include = c(Sodiummg,Epcnt_4,UPF3,omsysval))
+keydatwp <-as_flex_table( keydatwp)
+keydatwp
+
+
+```
+@tbl-datap shows the UPF exposure is highest in Northern Ireland and lowest in London.
+The sodium exposure is highest in Scotland and lowest in London.
+Outcome BP is also lowest in London, with the highest in the North East.
+
+
 ```{r tbl-Key-Variables-by-place, echo=FALSE}
 #| label: tbl-Key-Variables-by-place
 #| tbl-cap: "Variables by place in the full population showing the statistical significance against Age categories as comparators"
@@ -1835,11 +1818,11 @@ as_flex_table(tbl_stack(list(ttestNagt,ttestEpcngt,ttestOSgt),group_header =  c(
 
 
 
-## Paired Regression of key variables on each other
+## Paired Regression of variables on each other
 
 ```{r dag2, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-dag2
-#| fig-cap: "DAG of relationships explored by analysis"
+#| fig-cap: "diagram of the relationships explored by the analysis"
 bp1 <- dagitty(" dag {
                Na -> BP
                Age -> BP
@@ -1854,9 +1837,11 @@ bp1 <- dagitty(" dag {
 plot(graphLayout(bp1))
 
 ```
+@fig-dag2 shows the range of relationships explored by the paired regressions.
 
-Simple linear regression equations look for the relationship between the BP, and the independent variable.
-For these I am looking at the whole dataset.
+
+Simple linear regression equations look for the relationship between the outcome BP, and the independent  exposure variable.
+
 First @fig-Na-by-BP
 
 ```{r fig-Na-by-BP,echo=FALSE}
@@ -1882,8 +1867,8 @@ and lastly @fig-UPF-and-Na-plot
 svyplot(Epcnt_4~Sodiummg, ndns_1_11d,main = "% Energy Intake UPF by Sodiummg", ylab = "% Energy Intake UPF" ,xlab ="Sodium in mg")
 
 ```
-The plots appear to show limited correlation.
-First, omsysval is compared to EnergykJ, then sodiummg.
+Simple plots of exposure against outcome appear to show limited correlation.
+
 
 ```{r tbl-univariable-regressions, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-univariable-regressions
@@ -1969,7 +1954,9 @@ The next section will examine how this situation changes as variables interact i
 
 ## Complex Modelling using Multi variable regression
 
-This section uses models of several variables to try to highlight the contributions of each variable. The complexity in these models is much less than that of reality. 
+This section uses models of several variables to try to highlight the contributions of each variable. The complexity in these models is much less than that of reality.
+There are four sets of four models. The first a baseline model, the second and third introduce each variable separately, the final model includes all three.
+
 The intention is to work towards an optimal model. This ideally mathematically describes the situation. In reality there may be a set of models with no single one predominating.
 
 In particular the research question asks about the relationship between Sodium and UPF intake with BP.
@@ -2209,7 +2196,7 @@ Opportunities for further research, and ways to influence policy will be conside
 
 ## Data 
 
-The data is well collected and comprehensive.
+NDNS data is well collected and comprehensive.
 There have been several changes over the course of the study.
 These changes have meant that collating the data was more than just bringing all the numbers together.
 
