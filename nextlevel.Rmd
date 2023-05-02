@@ -1742,46 +1742,7 @@ keydatwx
 
 ```
 
-@tbl-keydatax shows the difference between male and female in the key variables.
-
-```{r fig-Na-Sex-Boxplots, echo=FALSE, fig.id=TRUE ,message=FALSE, warning=FALSE}
-#|label: fig-Na-Sex-Boxplots
-#|fig-cap: "The difference in Sodium intake in mg between male and female showing a slightly lower value in the female cohort"
-svyboxplot(Sodiummg~Sex,ndns_1_11d, na.rm = TRUE,main = "Sodium Intake in mg by Sex", ylab = "Sodium intake in mg" ,xlab ="Sex")
-```
-
-```{r fig-UPF-Sex-Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-UPF-Sex-Boxplots
-#|fig-cap: "The difference in UPF intake by % between male and female showing a slightly lower value in the female cohort"
-svyboxplot(Epcnt_4~Sex,ndns_1_11d, na.rm = TRUE,main = "% Energy Intake UPF by sex", ylab = "% Energy Intake UPF" ,xlab ="Sex")
-
-```
-
-```{r  fig-BP-Sex-Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-BP-Sex-Boxplots
-#| fig-cap: "The difference in Systolic BP in mmHg between male and female showing a slightly lower value in the female cohort"
-
-svyboxplot(omsysval~Sex,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by Sex", ylab = "Sysltolic BP in mmHg" ,xlab ="Sex")
-```
-
-In each graph there is little difference apparent, though perhaps the female plot is slightly lower.
-
-```{r tbl-Key-Variables-by-Sex, echo=FALSE}
-#| label: tbl-Key-Variables-by-Sex
-#| tbl-cap: "Variables-by Sex in the full population showing the statistical significance against Male category as a comparator"
-
-ttestNax <- svyglm(Sodiummg~Sex, ndns_1_11d )
-ttestNaxt<- tbl_regression(ttestNax)
-ttestEpcnx <- svyglm(Epcnt_4~Sex, ndns_1_11d )
-ttestEpcnxt <- tbl_regression(ttestEpcnx)
-ttestOSx <- svyglm(omsysval~Sex, ndns_1_11d )
-ttestOSxt <- tbl_regression(ttestOSx)
-
-as_flex_table(tbl_stack(list(ttestNaxt,ttestEpcnxt,ttestOSxt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
-```
-
-@tbl-Key-Variables-by-Sex shows that for all these variables there is a lower beta coefficient for females.
-In each case the lower gradient of the relationship between the variable and Sex is statistically significant as the confidence intervals do not cross one.
+@tbl-keydatax shows the difference between male and female in the key variables.In each case the lower gradient of the relationship between the variable and Sex is statistically significant.
 
 ## Analysis of Key Variables by Age
 
@@ -1802,40 +1763,7 @@ Peak sodium exposure in the 19-35 age group.
 The peak UPF exposure is in the 16-18 age group, but is almost matched by the 0-16 group.
 The outcome BP rises through life.
 
-```{r  fig-BP-age-Boxplots, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-BP-age-Boxplots
-#| fig-cap: "The difference in Systolic BP in mmHg between Age groups showing a sttrong overlap"
-
-svyboxplot(omsysval~ agegad2 ,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by Age", ylab = "Systolic BP in mmHg" ,xlab ="Age")
-```
-
-```{r fig-UPF-age-Boxplots, echo=FALSE,message=FALSE, warning=FALSE}
-#| label: fig-UPF-age-Boxplots
-#| fig-cap: "The difference in UPF intake in % between Age groups showing a sttrong overlap" 
-svyboxplot(Epcnt_4~agegad2,ndns_1_11d, na.rm = TRUE,main = "UPF intake in % by Age", ylab = "UPF intake in %" ,xlab ="Age")
-```
-
-```{r fig-Na-age-Boxplots, echo=FALSE,message=FALSE, warning=FALSE}
-#| label: fig-Na-age-Boxplots
-#| fig-cap: "The difference in Sodium intake in mg between Age groups showing a sttrong overlap" 
-svyboxplot(Sodiummg~agegad2,ndns_1_11d, na.rm = TRUE,main = "Sodium Intake in mg by Age", ylab = "Sodium intake in mg" ,xlab ="Age")
-```
-
-```{r tbl-Key-Variables-by-age, echo=FALSE}
-#| label: tbl-Key-Variables-by-age
-#| tbl-cap: "Variables by age in the full population showing the statistical significance against Age categories as comparators"
-
-ttestNaA <- svyglm(Sodiummg~agegad2, ndns_1_11d )
-ttestNaAt<- tbl_regression(ttestNaA)
-ttestEpcnA <- svyglm(Epcnt_4~agegad2, ndns_1_11d )
-ttestEpcnAt <- tbl_regression(ttestEpcnA)
-ttestOSA <- svyglm(omsysval~agegad2, ndns_1_11d )
-ttestOSAt <- tbl_regression(ttestOSA)
-
-as_flex_table(tbl_stack(list(ttestNaAt,ttestEpcnAt,ttestOSAt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
-```
-
-@tbl-Key-Variables-by-age is interesting in that it shows that whilst the BP goes up across the age categories, the UPF intake decreases.
+This shows that whilst the BP goes up across the age categories, the UPF intake decreases.
 The changes in sodium content are particularly interesting as they show that the older age groups have much lower sodium intake, but the highest sodium intake in in the second group, with the first and third being statistically no different.
 
 ## Analysis of Key Variables by Place
@@ -1857,19 +1785,7 @@ keydatwp
 The sodium exposure is highest in Scotland and lowest in London.
 Outcome BP is also lowest in London, with the highest in the North East.
 
-```{r tbl-Key-Variables-by-place, echo=FALSE}
-#| label: tbl-Key-Variables-by-place
-#| tbl-cap: "Variables by place in the full population showing the statistical significance against Age categories as comparators"
 
-ttestNag <- svyglm(Sodiummg~relevel(gor, ref = "North West"), ndns_1_11d )
-ttestNagt<- tbl_regression(ttestNag)
-ttestEpcng <- svyglm(Epcnt_4~relevel(gor, ref = "North West"), ndns_1_11d )
-ttestEpcngt <- tbl_regression(ttestEpcng)
-ttestOSg <- svyglm(omsysval~relevel(gor, ref = "North West"), ndns_1_11d )
-ttestOSgt <- tbl_regression(ttestOSg)
-
-#as_flex_table(tbl_stack(list(ttestNagt,ttestEpcngt,ttestOSgt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
-```
 
 
 
@@ -1897,33 +1813,6 @@ plot(graphLayout(bp1))
 
 Simple linear regression equations look for the relationship between the outcome BP, and the independent exposure variable.
 
-First @fig-Na-by-BP
-
-```{r fig-Na-by-BP,echo=FALSE}
-#| label: fig-Na-by-BP
-#| tbl-cap: "Plot of Sodium Intake agaist BP showing lack of direction to the relationship"
-svyplot(omsysval~Sodiummg, ndns_1_11d ,main = "Sodium Intake in mg", xlab = "Sodium Intake mg" ,ylab ="Systolic BP")
-```
-
-Then @fig-BP-and-UPF
-
-```{r fig-BP-and-UPF,echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-BP-and-UPF
-#| tbl-cap: "Plot of UPF Intake agaist BP showing lack of direction to the relationship"
-svyplot(omsysval~Epcnt_4, ndns_1_11d,main = "% Energy Intake UPF by Systolic BP", xlab = "% Energy Intake UPF" ,ylab ="Systolic BP")
-
-```
-
-and lastly @fig-UPF-and-Na-plot
-
-```{r fig-UPF-and-Na-plot,echo=FALSE,  message=FALSE, warning=FALSE}
-#| label: fig-UPF-and-Na-plot
-#| tbl-cap: "Plot of Sodium agaist UPF  intake showing lack of direction to the relationship"
-svyplot(Epcnt_4~Sodiummg, ndns_1_11d,main = "% Energy Intake UPF by Sodiummg", ylab = "% Energy Intake UPF" ,xlab ="Sodium in mg")
-
-```
-
-Simple plots of exposure against outcome appear to show limited correlation.
 
 ```{r tbl-univariable-regressions, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-univariable-regressions

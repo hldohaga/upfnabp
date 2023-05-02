@@ -1,88 +1,91 @@
-\contentsline {section}{BP and UPF and Na in NDNS Dissertation}{3}{section*.2}%
-\contentsline {section}{Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019}{3}{section*.3}%
-\contentsline {section}{David O'Hagan}{3}{section*.4}%
-\contentsline {subsection}{Dissertation submitted in partial fulfilment of the requirements for the degree of Master of Public Health, The University of Liverpool}{3}{section*.5}%
-\contentsline {subsection}{August 2023}{3}{section*.6}%
-\contentsline {subsection}{Dedication}{4}{section*.7}%
-\contentsline {subsection}{Acknowledgments}{5}{section*.8}%
-\contentsline {section}{Abstract}{6}{section*.9}%
+\contentsline {section}{Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019}{2}{section*.2}%
+\contentsline {section}{David O'Hagan}{2}{section*.3}%
+\contentsline {subsection}{Dissertation submitted in partial fulfilment of the requirements for the degree of Master of Public Health, The University of Liverpool}{3}{section*.4}%
+\contentsline {subsection}{August 2023}{3}{section*.5}%
+\contentsline {subsection}{Dedication}{4}{section*.6}%
+\contentsline {subsection}{Acknowledgments}{5}{section*.7}%
+\contentsline {section}{Abstract}{6}{section*.8}%
 \contentsline {section}{\numberline {1}Introduction}{7}{section.1}%
 \contentsline {subsubsection}{\numberline {1.0.1}Public Health Impact}{7}{subsubsection.1.0.1}%
 \contentsline {subsubsection}{\numberline {1.0.2}Epistemology}{8}{subsubsection.1.0.2}%
 \contentsline {subsubsection}{\numberline {1.0.3}Positionality}{8}{subsubsection.1.0.3}%
-\contentsline {section}{\numberline {2}Literature Review}{9}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Introduction}{9}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Search Strategy}{9}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Search results}{9}{subsubsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.3}Overview of literature}{10}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Na, BP, NCD and Public Health}{10}{subsubsection.2.3.1}%
-\contentsline {paragraph}{\numberline {2.3.1.1}Approach to change}{11}{paragraph.2.3.1.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}UPF and BP}{11}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}UPF}{11}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Increasing UPF}{13}{subsubsection.2.3.4}%
-\contentsline {subsubsection}{\numberline {2.3.5}UPF and increased intake}{13}{subsubsection.2.3.5}%
-\contentsline {subsubsection}{\numberline {2.3.6}UPF and Ill Health}{14}{subsubsection.2.3.6}%
-\contentsline {paragraph}{\numberline {2.3.6.1}obesity}{14}{paragraph.2.3.6.1}%
-\contentsline {paragraph}{\numberline {2.3.6.2}diabetes and cardmetabolic syndromes}{14}{paragraph.2.3.6.2}%
-\contentsline {paragraph}{\numberline {2.3.6.3}cancer}{14}{paragraph.2.3.6.3}%
-\contentsline {paragraph}{\numberline {2.3.6.4}ckd}{14}{paragraph.2.3.6.4}%
-\contentsline {subsubsection}{\numberline {2.3.7}UPF BP and Salt}{14}{subsubsection.2.3.7}%
-\contentsline {subsection}{\numberline {2.4}Literature review Conclusion}{16}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Method}{17}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Introduction}{17}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Research Question}{17}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}National Dietary and Nutritional Survey}{18}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Study design}{18}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}NDNS Dataset}{18}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}University Research Governance and Ethical Review}{18}{subsubsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.4}Data Processing}{18}{subsubsection.3.3.4}%
-\contentsline {subsubsection}{\numberline {3.3.5}Exclusions}{19}{subsubsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.4}The data}{19}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Analysis of Change over Survey Years}{19}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Univariable Regression of key variables}{20}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Multiple Regression on Systolic BP (?age, ?Epcnt\_4)}{20}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}AIC and sensitivty Anaylsis}{21}{subsubsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.5}Method Conclusion}{21}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Results}{22}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Results Introduction}{22}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}The Data}{22}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Analysis of Change across cohorts}{22}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}other variables compared across cohorts}{26}{subsubsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.4}Analysis of Key variables by Sex}{27}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Analysis of Key Variables by Age}{29}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Analysis of Key Variables by Place}{30}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Paired Regression of key variables on each other}{31}{subsection.4.7}%
-\contentsline {subsection}{\numberline {4.8}Complex Modelling using Multi variable regression}{39}{subsection.4.8}%
-\contentsline {subsubsection}{\numberline {4.8.1}Regression on BP}{39}{subsubsection.4.8.1}%
-\contentsline {subsubsection}{\numberline {4.8.2}simple set Regression on BP}{41}{subsubsection.4.8.2}%
-\contentsline {subsubsection}{\numberline {4.8.3}Regression on Na}{42}{subsubsection.4.8.3}%
-\contentsline {subsubsection}{\numberline {4.8.4}Regression on UPF}{43}{subsubsection.4.8.4}%
-\contentsline {subsection}{\numberline {4.9}Summary of Results}{45}{subsection.4.9}%
-\contentsline {subsection}{\numberline {4.10}Results Conclusion}{45}{subsection.4.10}%
-\contentsline {section}{\numberline {5}Discussion}{46}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Introduction to Discussion}{46}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Data and analysis of change across cohorts}{46}{subsection.5.2}%
-\contentsline {paragraph}{\numberline {5.2.0.1}of other variables compared across cohorts}{46}{paragraph.5.2.0.1}%
-\contentsline {subsection}{\numberline {5.3}Discussion of Key variables by Sex}{46}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Discussion of Key variables by Age}{46}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Discussion of Key variables by Place}{46}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Discussion Paired Regression of key variables on each other}{47}{subsection.5.6}%
-\contentsline {subsection}{\numberline {5.7}Complex Modelling using Multi variable regression}{47}{subsection.5.7}%
-\contentsline {subsubsection}{\numberline {5.7.1}analysis for BP}{47}{subsubsection.5.7.1}%
-\contentsline {subsubsection}{\numberline {5.7.2}simple set BP}{47}{subsubsection.5.7.2}%
-\contentsline {subsubsection}{\numberline {5.7.3}analysis for Sodium}{47}{subsubsection.5.7.3}%
-\contentsline {subsubsection}{\numberline {5.7.4}analysis for UPF}{47}{subsubsection.5.7.4}%
-\contentsline {subsection}{\numberline {5.8}Limitations of Study}{47}{subsection.5.8}%
-\contentsline {subsubsection}{\numberline {5.8.1}The study}{47}{subsubsection.5.8.1}%
-\contentsline {subsubsection}{\numberline {5.8.2}The data}{47}{subsubsection.5.8.2}%
-\contentsline {subsubsection}{\numberline {5.8.3}The analysis}{47}{subsubsection.5.8.3}%
-\contentsline {subsection}{\numberline {5.9}Ideas for further research}{47}{subsection.5.9}%
-\contentsline {subsubsection}{\numberline {5.9.1}Quantitative}{47}{subsubsection.5.9.1}%
-\contentsline {subsubsection}{\numberline {5.9.2}Mixed and Qualitative}{47}{subsubsection.5.9.2}%
-\contentsline {subsection}{\numberline {5.10}Ideas for policy}{47}{subsection.5.10}%
-\contentsline {section}{\numberline {6}Conclusion}{48}{section.6}%
-\contentsline {section}{\numberline {7}Bibliography}{49}{section.7}%
-\contentsline {section}{Appendix}{49}{section*.13}%
-\contentsline {section}{\numberline {8}Appendix 1 Approved Proposal}{49}{section.8}%
-\contentsline {section}{\numberline {9}Appendix 2 Ethics Certificate}{49}{section.9}%
-\contentsline {section}{\numberline {10}Appendix 3 Software used}{49}{section.10}%
+\contentsline {subsection}{\numberline {1.1}University Research Governance and Ethical Review}{8}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Research Question}{8}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Aims and Objectives}{9}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Literature Review}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Introduction}{10}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Search Strategy}{10}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Search results}{10}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.3}Overview of literature}{11}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Na, BP, NCD and Public Health}{11}{subsubsection.2.3.1}%
+\contentsline {paragraph}{\numberline {2.3.1.1}Approach to change}{12}{paragraph.2.3.1.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}UPF and BP}{12}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}UPF}{12}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Increasing UPF}{14}{subsubsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.5}UPF and increased intake}{14}{subsubsection.2.3.5}%
+\contentsline {subsubsection}{\numberline {2.3.6}UPF and Ill Health}{15}{subsubsection.2.3.6}%
+\contentsline {paragraph}{\numberline {2.3.6.1}obesity}{15}{paragraph.2.3.6.1}%
+\contentsline {paragraph}{\numberline {2.3.6.2}diabetes and cardmetabolic syndromes}{15}{paragraph.2.3.6.2}%
+\contentsline {paragraph}{\numberline {2.3.6.3}cancer}{15}{paragraph.2.3.6.3}%
+\contentsline {paragraph}{\numberline {2.3.6.4}ckd}{15}{paragraph.2.3.6.4}%
+\contentsline {subsubsection}{\numberline {2.3.7}UPF BP and Salt}{15}{subsubsection.2.3.7}%
+\contentsline {subsection}{\numberline {2.4}Literature review Conclusion}{17}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Method}{18}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Study Design and Setting}{18}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Participants, Inclusion and Exclusion}{18}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Variables}{18}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Systolic BP}{18}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Dietary data}{19}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Salt estimation}{19}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}UPF}{19}{subsubsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.4}Analysis of the data}{19}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Description of sample}{19}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Analysis of Change over Survey Years}{19}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Analysis of Change by Sex Age and Place}{20}{subsubsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.5}Univariable Regression of key variables}{20}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Multiple Regression on Systolic BP ,age, UPF}{20}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}AIC and sensitivty Anaylsis}{20}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Results}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Participants and Descriptive Data}{21}{subsection.4.1}%
+\contentsline {paragraph}{\numberline {4.1.0.1}Exposure variables}{23}{paragraph.4.1.0.1}%
+\contentsline {paragraph}{\numberline {4.1.0.2}Outcome Variable}{23}{paragraph.4.1.0.2}%
+\contentsline {subsubsection}{\numberline {4.1.1}Analysis of Change across cohorts}{23}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}other variables compared across cohorts}{26}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Analysis of Key variables by Sex}{27}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Analysis of Key Variables by Age}{30}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Analysis of Key Variables by Place}{31}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Paired Regression of variables on each other}{31}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Complex Modelling using Multi variable regression}{40}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}Regression on BP}{40}{subsubsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.2}simple set Regression on BP}{42}{subsubsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.3}Regression on Na}{42}{subsubsection.4.6.3}%
+\contentsline {subsubsection}{\numberline {4.6.4}Regression on UPF}{43}{subsubsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.7}Summary of Results}{46}{subsection.4.7}%
+\contentsline {section}{\numberline {5}Discussion}{47}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Introduction to Discussion}{47}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Data}{47}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Discussion of change across cohorts}{47}{subsection.5.3}%
+\contentsline {paragraph}{\numberline {5.3.0.1}of other variables compared across cohorts}{47}{paragraph.5.3.0.1}%
+\contentsline {subsection}{\numberline {5.4}Discussion of Key variables by Sex}{47}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Discussion of Key variables by Age}{47}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Discussion of Key variables by Place}{48}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Discussion Paired Regression of key variables on each other}{48}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Complex Modelling using Multi variable regression}{48}{subsection.5.8}%
+\contentsline {subsubsection}{\numberline {5.8.1}analysis for BP}{48}{subsubsection.5.8.1}%
+\contentsline {subsubsection}{\numberline {5.8.2}simple set BP}{48}{subsubsection.5.8.2}%
+\contentsline {subsubsection}{\numberline {5.8.3}analysis for Sodium}{48}{subsubsection.5.8.3}%
+\contentsline {subsubsection}{\numberline {5.8.4}analysis for UPF}{48}{subsubsection.5.8.4}%
+\contentsline {subsection}{\numberline {5.9}Limitations of Study}{48}{subsection.5.9}%
+\contentsline {subsubsection}{\numberline {5.9.1}The study}{48}{subsubsection.5.9.1}%
+\contentsline {subsubsection}{\numberline {5.9.2}The data}{48}{subsubsection.5.9.2}%
+\contentsline {subsubsection}{\numberline {5.9.3}The analysis}{48}{subsubsection.5.9.3}%
+\contentsline {subsection}{\numberline {5.10}Ideas for further research}{48}{subsection.5.10}%
+\contentsline {subsubsection}{\numberline {5.10.1}Quantitative}{48}{subsubsection.5.10.1}%
+\contentsline {subsubsection}{\numberline {5.10.2}Mixed and Qualitative}{48}{subsubsection.5.10.2}%
+\contentsline {subsection}{\numberline {5.11}Ideas for policy}{49}{subsection.5.11}%
+\contentsline {section}{\numberline {6}Conclusion}{50}{section.6}%
+\contentsline {section}{\numberline {7}Bibliography}{51}{section.7}%
+\contentsline {section}{Appendix}{51}{section*.12}%
+\contentsline {section}{\numberline {8}Appendix 1 Approved Proposal}{51}{section.8}%
+\contentsline {section}{\numberline {9}Appendix 2 Ethics Certificate}{51}{section.9}%
+\contentsline {section}{\numberline {10}Appendix 3 Software used}{51}{section.10}%

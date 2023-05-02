@@ -34,6 +34,46 @@
 \makeatother
 \usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -103,11 +143,13 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={bp upf and na},
+  pdftitle={Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\title{bp upf and na}
+\title{Trends in the association between Ultra-processed foods, salt
+intake and Blood Pressure using the National Dietary and Nutritional
+Survey (NDNS) in England 2008-2019}
 \author{}
 \date{\vspace{-2.5em}}
 
@@ -118,11 +160,6 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\hypertarget{bp-and-upf-and-na-in-ndns-dissertation}{%
-\section*{BP and UPF and Na in NDNS
-Dissertation}\label{bp-and-upf-and-na-in-ndns-dissertation}}
-\addcontentsline{toc}{section}{BP and UPF and Na in NDNS Dissertation}
-
 \hypertarget{trends-in-the-association-between-ultra-processed-foods-salt-intake-and-blood-pressure-using-the-national-dietary-and-nutritional-survey-ndns-in-england-2008-2019}{%
 \section*{Trends in the association between Ultra-processed foods, salt
 intake and Blood Pressure using the National Dietary and Nutritional
@@ -297,6 +334,38 @@ I accept that to proceed, whilst I need to be aware of the limitations
 of the positivist approach and the necessity of making pragmatic
 selections that there is some degree of validity to the resulting
 dataset. Otherwise, analysis of it would be of no purpose.
+
+\hypertarget{university-research-governance-and-ethical-review}{%
+\subsection{University Research Governance and Ethical
+Review}\label{university-research-governance-and-ethical-review}}
+
+The ethics process for the University of Liverpool was followed and a
+certificate of compliance is attached at appendix 2.
+
+The storage of the data is in keeping with the research governance
+agreements of the University and the Data set owners.
+
+\hypertarget{research-question}{%
+\subsection{Research Question}\label{research-question}}
+
+What proportion of the association between blood pressure (SBP) and UPF
+intake can be explained by the changes in salt intake in England between
+2008 and 2019?
+
+The question can be split into parts, What was intake of salt between
+2008 and 2019? What was intake of UPF between 2008 and 2019? What was BP
+between 2008 and 2019? Did each of these change over that time and how?
+Did the changes in any one affect any other? What are the sizes of the
+changes? Which element was most important in these changes?
+
+All of these questions look for numbers as answers.
+
+Answering the question starts with collecting a sample of participants.
+Measurements are taken, and then collated. The collected numbers are
+then compared in different ways to answer each part of the question.
+
+\hypertarget{aims-and-objectives}{%
+\subsection{Aims and Objectives}\label{aims-and-objectives}}
 
 \newpage
 
@@ -712,167 +781,85 @@ nutritional paradigm similarly projects into the other paradigm.
 \hypertarget{method}{%
 \section{Method}\label{method}}
 
-\hypertarget{introduction-2}{%
-\subsection{Introduction}\label{introduction-2}}
+\hypertarget{study-design-and-setting}{%
+\subsection{Study Design and Setting}\label{study-design-and-setting}}
 
-This section takes the research question and explains how the data is
-used to answer the question.
-
-There will be a description of the study and data collection. Then a
-section on governance and ethics in this project.
-
-Data analysis starts with the relevant variables being identified and
-extracted. Some data may need to be recalculated or to be processed to
-make a more useable form. The population will be reviewed. Then there is
-consideration of groups to be excluded.
-
-There is a description of the data. The second analysis section compares
-the data across the annual cohorts. The next analysis section involves
-using linear regression to identify correlations. Firstly, between the
-BP and each of the key variables. Then between other pairs of key
-variables.
-
-Multivariable regression models are then generated. These models are
-examined to identify the relative importance of the different variables
-in developing an optimal model and what these models tell us about the
-relationship between our variables. A summary and conclusion will bring
-all these together.
-
-\hypertarget{research-question}{%
-\subsection{Research Question}\label{research-question}}
-
-What proportion of the association between blood pressure (SBP) and UPF
-intake can be explained by the changes in salt intake in England between
-2008 and 2019?
-\includegraphics{methodandresults_files/figure-latex/fig-dagupfbp2-1.pdf}
-The question can be split into parts, What was intake of salt between
-2008 and 2019? What was intake of UPF between 2008 and 2019? What was BP
-between 2008 and 2019? Did each of these change over that time and how?
-Did the changes in any one affect any other? What are the sizes of the
-changes? Which element was most important in these changes?
-
-All of these questions look for numbers as answers.
-
-Answering the question starts with collecting a sample of participants.
-Measurements are taken, and then collated. The collected numbers are
-then compared in different ways to answer each part of the question.
-
-\hypertarget{national-dietary-and-nutritional-survey}{%
-\subsection{National Dietary and Nutritional
-Survey}\label{national-dietary-and-nutritional-survey}}
+National Dietary and Nutritional Survey (NDNS (1))
 
 This survey is a collaboration between government departments
 responsible for health and for food production. They have engaged
 academic partners to deliver reports on diet and nutrition across the
 United Kingdom. The study is designed to be representative across the
-whole area.
+four home nations, across age with balanced representation for children.
+NDNS data are available via the UK national Data service for research
+purposes.
 
-\hypertarget{study-design}{%
-\subsubsection{Study design}\label{study-design}}
+NDNS is a rolling cohort study in which each year selects a new cohort
+of participants. The sample is intended to be 1000 per year with 50\%
+adults. Each year the sample is slightly different due to differential
+uptake. There is some oversampling to take account of this.
 
-This is a rolling cohort study which each year selects a new cohort of
-participants. The sample is approximately 1000 per year with 50\%
-adults. The design has a random selection across postal units (psu).
-This is stratified to ensure a representative sample across the four
-nations and across regions within those countries. The sample is also
-representative for age and sex.
+The design has a random selection across postal units (psu). This is
+stratified to ensure a representative sample across the four nations
+(England, Wales, Scotland, and Northern Ireland) and across regions
+within those countries (North West, North East, Scotland, Northern
+Ireland, Wales, Yorkshire and Humberside, East Midlands,West Midlands,
+London, The South East, The South West). The sample is also
+representative for age and sex and IMD.
 
-Having taken up the study, participants complete a 4 day food diary, and
-have an interview with a nurse which includes taking several
-measurements. Weighting is given for each annual survey to enable
-comparison across the years taking account for alterations in uptake and
-response completion.
+\hypertarget{participants-inclusion-and-exclusion}{%
+\subsection{Participants, Inclusion and
+Exclusion}\label{participants-inclusion-and-exclusion}}
 
-\hypertarget{ndns-dataset}{%
-\subsubsection{NDNS Dataset}\label{ndns-dataset}}
-
-The data from the NDNS study contains items about each individual,and
-their household. It contains a table with each item of food as recorded
-in their diary. There is a table with the overall intake of each of a
-large range of nutrients for the whole period. This is calculated from
-the diary using nutritional tables which are published as part of the
-dataset. The dataset is available via the UK national Data service for
-research purposes.
-
-NDNS began before Monteiro's processing based classification, Nova , was
-developed. There is no record of Nova food type in NDNS. This has been
-calculated from the food descriptions. I have used a table from Rauber
-et al (70) . for Nova values in NDNS.
-
-\hypertarget{university-research-governance-and-ethical-review}{%
-\subsubsection{University Research Governance and Ethical
-Review}\label{university-research-governance-and-ethical-review}}
-
-The research has been carried out under the University governance. A
-proposal was discussed and agreed within the public health department.
-The need for ethical review was considered using the university research
-tool. The fact that the data is anonymised and there was no contact with
-participants means that there is minimal risk of harm to research
-participants. The initial proposal and a certificate from the ethics
-department are in the appendices.
-
-Other ethical issues include data custodianship ensuring that the the
-rights of the owners of the data and of the participants are still
-considered as part of the process of analysis and dissemination of the
-research.
-
-Issues around the power structures which lead to privilege one research
-project or proposal over another are considered more in the
-positionality section.
-
-\hypertarget{data-processing}{%
-\subsubsection{Data Processing}\label{data-processing}}
-
-The storage of the data is in keeping with the research governance
-agreements of the University and the Data set owners. The data is read
-from its files using `r-studio' with the processing being carried out
-using packages available from CRAN (101) . I have used files which had
-been amalgamated into four batches. These are 2008-2012, 2013-2014,
-2015-2016, 2017-2019.
-
-Once the data labels are made consistent across the batches, weighting
-recalculation is done. This generates values which account for
-differences in population balance across the annual cohorts. These
-result from differences in compliance and uptake within and across the
-years.
-
-The years are amalgamated and the nature of the variables is specified.
-
-\hypertarget{exclusions}{%
-\subsubsection{Exclusions}\label{exclusions}}
+All participants in NDNS are included.
 
 The relationship between salt and systolic blood pressure may be
 different in individuals with pathologically high BP. Those taking BP
 controlling medications may have a different relationship to sodium and
-UPF. These patients were excluded from the main analysis, however this
-affected the sample size and skewed the male female ratio. Analysis was
-done with exclusion and this produced results in line with those
-presented, but of smaller magnitude. This additional analysis is not
-presented here.
+UPF. These participants were excluded from the main analysis, however
+this affected the sample size and skewed the male-female ratio. Thus, I
+have conducted a sensitivity analysis included the participants taking
+BP medications.
 
-\hypertarget{the-data}{%
-\subsection{The data}\label{the-data}}
+The data from the NDNS study contains information about each individual,
+and their household. This was collected through questionnaires. Then
+weight, height, and blood pressure were measured by a nurse. Finally,
+dietary information was collected through a 4-day food diary.
 
-The data is summarised for the key continuous variables by survey year
-cohort. The key variables are systolic BP (omsysval), UPF intake
-(Epcnt\_4) and Sodium intake (sodiummg). These variables are the ones
-which most relate to the research question. (\textbf{tbl-keydata?})
-shows the data which has been balanced using the weightings provided by
-the NDNS research team.
+\hypertarget{variables}{%
+\subsection{Variables}\label{variables}}
 
-There are a number of related variables in the dataset. A wider set of
-variables will be included in the backgorund and tested to ensure they
-have no affect on the results to be demonstrated. These were chosen for
-relevance, reliability and practicality. These variables are ones which
-can also influence BP. They include Age, Sex, BMI, height and weight.
-Age at completion of education (educfinh), and IMD are also used.
+The key variables are systolic BP, UPF intake and Sodium intake.
 
-The omsysval is a validated measurement with significant quality
-assessment within the dataset. Raw systolic BP values are present in the
-dataset but are made up of data with issues around quality. In
-particular the systolic BP values are assessed for the effects of
-exercise, temperature and ill health. The variable omsysval is a quality
-assured mean value which is reliable across the dataset.
+Additional variables are ones which can also influence BP. They include
+Age, Sex, BMI, height, and weight. Age at completion of education
+(educfinh), and IMD are also used.
+
+\hypertarget{systolic-bp}{%
+\subsubsection{Systolic BP}\label{systolic-bp}}
+
+The mean systolic blood pressure (omsysval, BP) is a validated
+measurement with significant quality assessment within the dataset.
+
+The variable omsysval is a quality assured mean value which is reliable
+across the dataset. In particular, the omsysval variable was assessed
+for the effects of exercise, temperature and ill health. Raw BP values
+are present in the dataset but are made up of data with issues around
+quality.
+
+\hypertarget{dietary-data}{%
+\subsubsection{Dietary data}\label{dietary-data}}
+
+The participants recorded their food intake prospectively over 4 days
+recording food and portion size as well as where food was eaten. Adults
+recorded this for the child participants.
+
+Based on the food and drink intake reported and with a composition data
+table, the NDNS team have estimated the overall intake of a large range
+of nutrients.
+
+\hypertarget{salt-estimation}{%
+\subsubsection{Salt estimation}\label{salt-estimation}}
 
 The sodium value is one calculated from intake based on food diaries and
 standard food nutrient values. This only reflects standard foods and is
@@ -883,109 +870,105 @@ better indicator of dietary sodium for parts of the dataset, but again
 these are not found in both time periods. Though they were part of a
 supplementary study.
 
-The food diaries need processing to identify the UPF intake. Each
-persons food diary entries are assessed against the Nova food
-classification from Rauber. Then the weight and energy content of the
-days food is calculated by Nova group. This is added to the intake for
-the other 3 days and the total intake by Nova group established.
+\hypertarget{upf-1}{%
+\subsubsection{UPF}\label{upf-1}}
 
-The percentage of the total intake of energy (Epcnt\_4) is then
-calculated for each of the 4 Nova categories. Nova group 4 or UPF intake
-is used for the study.
+To estimate the intake of UPF, we used the NOVA classification,
+developed by Monteiro et al.~((51)). As there is no record of NOVA
+classification in NDNS, I have used a table from Rauber et al ((56)).
+The author has classified each food and drink according to the food
+descriptions.
 
+Each participant food diary entries are assessed against the Nova food
+classification. The weight and energy content of the day's food is
+calculated by Nova group. This is added to the intake for the other 3
+days and the total intake by Nova group established. The percentage of
+the total intake of energy is then calculated for each of the 4 Nova
+categories. Nova group 4 or UPF intake (Epcnt\_4) is used for this
+study.
+
+\hypertarget{analysis-of-the-data}{%
+\subsection{Analysis of the data}\label{analysis-of-the-data}}
+
+\hypertarget{description-of-sample}{%
+\subsubsection{Description of sample}\label{description-of-sample}}
+
+I amalgamated four data batches, 2008-2012, 2013-2014, 2015-2016,
+2017-2019. The data is read from its files using `r-studio' with the
+processing being carried out using packages (see appendix 3) available
+from CRAN ((101)). Once the data labels are made consistent across the
+batches, weighting recalculation is done.
+
+This generates values which account for differences in population
+balance across the annual cohorts. These result from differences in
+compliance and uptake within and across the years.
+
+The years are amalgamated and the nature of the variables is specified.
 Mean values for the data are displayed with a comparison for weighted
-values. The exposure variables are sodium intake (Sodiummg), and ultra
-processed food intake (Epcnt\_4). The outcome variable, the mean
-systolic blood pressure (omsysval, BP).
+values. The exposure variables are sodium intake (Sodiummg,Na), and
+ultra processed food intake (Epcnt\_4, UPF). The outcome variable, the
+mean systolic blood pressure (omsysval,BP).
 
 \hypertarget{analysis-of-change-over-survey-years}{%
 \subsubsection{Analysis of Change over Survey
 Years}\label{analysis-of-change-over-survey-years}}
 
-The second phase of analysis shows how the key variables have changed
-over the survey years cohorts. This will show separately how the inputs
-and outputs have changed.
+The second phase of analysis shows how the key variables changed over
+the survey years cohorts. This showed separately how the inputs and
+outputs have changed.
 
 These are not the same participants so matched analysis, or time series
-analysis is not directly applicable.
+analysis were not directly applicable.
 
-Plots will be given to show the values in each of the available cohorts.
+Plots were given to show the values in each of the available cohorts.
 
-Other variables in the data are compared across to assess how the data
-changes. Statistical significance of changes in the data are shown by
+Other variables in the data were compared across to assess how the data
+changes. Statistical significance of changes in the data were shown by
 p.values with continuous data, and categorical data analysed using chi
 squared tables.
 
+\hypertarget{analysis-of-change-by-sex-age-and-place}{%
+\subsubsection{Analysis of Change by Sex Age and
+Place}\label{analysis-of-change-by-sex-age-and-place}}
+
+I have analysed the key variables by sex, age in categories, and by
+government region. This intends to show the distribution of the sample
+across these categories.
+
 \hypertarget{univariable-regression-of-key-variables}{%
-\subsubsection{Univariable Regression of key
+\subsection{Univariable Regression of key
 variables}\label{univariable-regression-of-key-variables}}
 
-Analysis of the correlation between BP and sodium intake, and then BP
-and UPF intake is done using linear regression. This will give an
-indicator of the direction, and strength of any relationship between the
-variables. There is also anova analysis to understand the statistical
-significance of these results. Comparison is also made with Age, and
-between each of the variables. This will show where significant
-relationships are present.
+Analysis of the association between BP and sodium intake, and then BP
+and UPF intake was done using univariable linear regression. This gave
+indication of the direction and strength of relationship between the
+variables. P.values and confidence intervals help to understand the
+statistical significance of these results. Comparison was also made with
+age,sex, region and between each of the variables. This showed the
+significant relationships present.
 
-\hypertarget{multiple-regression-on-systolic-bp-age-epcnt_4}{%
-\subsubsection{Multiple Regression on Systolic BP (?age,
-?Epcnt\_4)}\label{multiple-regression-on-systolic-bp-age-epcnt_4}}
+\hypertarget{multiple-regression-on-systolic-bp-age-upf}{%
+\subsection{Multiple Regression on Systolic BP ,age,
+UPF}\label{multiple-regression-on-systolic-bp-age-upf}}
 
-Multivariable regression models are then developed to understand the
+Multivariable regression models were then developed to understand the
 interactions between variables and to develop a mathematical model of
 the relationship. The optimal model is one which best explains the
 pattern of data, but which also makes practical sense for the wider
-understanding of relationships. Assessment techniques try to understand
-the importance of including particular variables, and the form in which
-they are best included. Anova analysis here identifies how the addition
-of different variables changes the significance of other variables. This
-can suggest causative relationships. The resultant p.values help to
-establish the statistical significance of the results.
+understanding of relationships.
 
-\begin{verbatim}
-## The total effect of Age on UPF is identifiable controlling for:
-##  *  {}
-## The total effect of Age on Na is identifiable controlling for:
-##  *  {}
-## The total effect of Age on BP is identifiable controlling for:
-##  *  {}
-## The total effect of Age on NCD is identifiable controlling for:
-##  *  {}
-## The total effect of BP on NCD is identifiable controlling for:
-##  *  {}
-## The total effect of Na on BP is identifiable controlling for:
-## { Age, UPF }
-## The total effect of Na on NCD is identifiable controlling for:
-## { Age, UPF }
-## The total effect of Sex on UPF is identifiable controlling for:
-##  *  {}
-## The total effect of Sex on Na is identifiable controlling for:
-##  *  {}
-## The total effect of Sex on BP is identifiable controlling for:
-##  *  {}
-## The total effect of Sex on NCD is identifiable controlling for:
-##  *  {}
-## The total effect of UPF on Na is identifiable controlling for:
-## { Age }
-## The total effect of UPF on BP is identifiable controlling for:
-## { Age, Sex }
-## The total effect of UPF on NCD is identifiable controlling for:
-## { Age, Sex }
-\end{verbatim}
+Several sets of four models were developed. The baseline model with the
+dependant variable and background variables. Then two models with each
+independent variable was added separately. Finally a model containing
+all three of the key variables.
 
-\begin{verbatim}
-## BP NCD 
-##  *  Age
-##  *  Na
-##  *  Sex
-##  *  UPF
-## UPF Na 
-##  *  Sex
-\end{verbatim}
+Assessment techniques try to understand the importance of including
+particular variables, and the form in which they are best included. The
+resultant p.values help to establish the statistical significance of the
+results.
 
 \hypertarget{aic-and-sensitivty-anaylsis}{%
-\subsubsection{AIC and sensitivty
+\subsection{AIC and sensitivty
 Anaylsis}\label{aic-and-sensitivty-anaylsis}}
 
 This section compares models side by side using assessment techniques to
@@ -994,62 +977,44 @@ determined by the whether a model is needed to predict more data, or
 just to understand the data available. Here it is about how best to
 describe the relationship between Na, UPF, and BP.
 
-\hypertarget{method-conclusion}{%
-\subsection{Method Conclusion}\label{method-conclusion}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#ndns\_1\_11dd \textless{}{-} ndns\_1\_11[,c(seriali,diur2,beta2,aceinh2,calciumb2,obpdrug2)]}
+\CommentTok{\#ndns\_1\_11dd$bpd \textless{}{-} c("not taking drug", "Taking drug")[(rowSums( == "Taking drug") \textgreater{} 0) + 1]}
 
-This section has highlighted how the material for the study is brought
-together and how the governance and ethics fit with the data collection,
-processing and analysis to help us to derive the results which will be
-presented in the next section.
+\CommentTok{\#ndns\_1\_11$bpd \textless{}{-} c("not taking drug", "Taking drug")[(rowSums(ndns\_1\_11, diur2 == "Taking drug") \textgreater{} 0) + 1]}
+
+\CommentTok{\#ndns\_1\_11$bpd \textless{}{-} c("not Taking drug")}
+\CommentTok{\#ifelse( ndns\_1\_11[,diur2 == "Taking drug"], ndns\_1\_11$bpd == "Taking drug" , ndns\_1\_11$bpd == "not Taking drug")}
+
+\CommentTok{\#ndns\_1\_11$bpd \textless{}{-} ndns\_1\_11 \%\textgreater{}\% select(diur2,beta2,aceinh2,calciumb2,obpdrug2) \%\textgreater{}\%}
+ \CommentTok{\# mutate()}
+
+\CommentTok{\#meds \textless{}{-} (drug = c(diur2,beta2,aceinh2,calciumb2,obpdrug2), options = c("Taking drug","not Taking drug"))}
+
+\CommentTok{\#or ndns\_1\_11e[beta2 == "Taking drug"]}
+\CommentTok{\#or ndns\_1\_11e[aceinh2 == "Taking drug"]}
+\CommentTok{\#or ndns\_1\_11e \textless{}{-}ndns\_1\_11e[calciumb2 =="Taking drug"]}
+\CommentTok{\#or ndns\_1\_11e[obpdrug2 == "Taking drug"])}
+\end{Highlighting}
+\end{Shaded}
 
 \newpage
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
-\hypertarget{results-introduction}{%
-\subsection{Results Introduction}\label{results-introduction}}
+\hypertarget{participants-and-descriptive-data}{%
+\subsection{Participants and Descriptive
+Data}\label{participants-and-descriptive-data}}
 
-Analysing the data from NDNS involves following the method. The
-presented results are arranged to support explaining how the research
-question is answered by the data.
-
-The data used is described, explaining how it is structured. The data
-analysis is then presented using tables and graphs to support the
-argument. These most frequently present details of the statistical
-significance of the proposed regression model.
-
-The results section will be further interpreted in the discussion
-section.
-
-\hypertarget{the-data-1}{%
-\subsection{The Data}\label{the-data-1}}
-
-This first table (\textbf{tbl-keydata?}) highlights the variables which
-most relate to the research question from the years 2008-2019. These are
-weighted values analysed using a software package called `survey' (102)
-. Other software is also used and a complete list included in appendix
-3.
+This first table (\textbf{tbl-keydata1?}) includes all variables. These
+are weighted values analysed using a software package called `survey'
+(102) .
 
 The tables presented by NDNS have been amalgamated and new weighting
-values calculated which enable comparison of data from separate tables.
-
-There are several variables chosen. The number of participants in each
-year, `N', is presented. The mean sodium intake in milligrams (Sodiummg)
-is next. `Epcnt\_4' is the percent value of energy derived from Nova
-category 4 foods, or UPF, out of the whole daily energy intake. The mean
-Systolic BP value is one which has been validated within the NDNS study
-it is given in mmHg.
-
-These values are normally distributed continuous variables. The mean is
-representative.
-
-The numbers seem to be smaller towards the end of the series, for Sodium
-intake, UPF intake (Epcnt\_4) and for systolic BP. Each cohort has been
-adjusted to be comparable using weighting values given by the study
-coordinators. However they are separate cohorts of separate participants
-with no linear association between them. It can be seen that there are
-lower values for all of the variables in the later groups.
+values calculated which enable compilation of data from separate tables
+into one.
 
 \global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
 
@@ -1063,45 +1028,363 @@ lower values for all of the variables in the later groups.
 
 \providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
 
-\begin{longtable}[c]{|p{2.86in}|p{1.27in}|p{1.27in}|p{1.27in}|p{1.27in}|p{1.27in}|p{1.27in}|p{1.27in}|p{1.27in}|p{1.27in}|p{1.37in}|p{1.37in}}
+\begin{longtable}[c]{|p{2.86in}|p{1.86in}|p{1.86in}}
 
 
 
-\ascline{1pt}{000000}{1-12}
+\ascline{1pt}{000000}{1-3}
 
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Characteristic}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{1}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,459}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{2}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,429}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{3}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,372}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{4}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,432}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{5}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,485}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{6}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,362}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{7}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,442}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{8}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,405}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{9}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,444}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.37in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{10}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,481}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.37in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{11}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,345}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} \\
+\multicolumn{1}{>{\raggedright}m{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\ }}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Table\ 1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Table\ 2}}}}} \\
 
-\ascline{1pt}{000000}{1-12}\endhead
+\ascline{1pt}{000000}{1-3}
 
 
 
-\multicolumn{12}{>{\raggedright}m{\dimexpr 16.99in+22\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Mean\ (SD)}}}} \\
+\multicolumn{1}{>{\raggedright}m{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Characteristic}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{N\ =\ 15,655}}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{N\ =\ 5,105}}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} \\
+
+\ascline{1pt}{000000}{1-3}\endhead
+
+
+
+\multicolumn{3}{>{\raggedright}m{\dimexpr 6.58in+4\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Median\ (IQR);\ n\ (\%)}}}} \\
 
 \endfoot
 
 
 
-\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sodium\ (mg)\ diet\ only}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,257\ (878)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,208\ (827)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,184\ (830)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,077\ (799)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,010\ (742)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,988\ (765)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,987\ (798)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,945\ (822)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,924\ (775)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.37in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,892\ (724)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.37in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,929\ (762)}}}} \\
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Age}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{40\ (22,\ 58)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Epcnt\_4}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{49\ (14)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{50\ (15)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{49\ (15)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{49\ (15)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{48\ (15)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{50\ (16)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{47\ (15)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{45\ (16)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{45\ (16)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.37in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{45\ (15)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.37in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{47\ (16)}}}} \\
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{agegad3}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(D)\ Omron\ valid\ mean\ systolic\ BP}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{125\ (19)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{124\ (16)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{124\ (18)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{124\ (16)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{122\ (17)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{120\ (18)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{124\ (19)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{121\ (18)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{121\ (17)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.37in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{122\ (16)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.37in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0\ (0)}}}} \\
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(0,16]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,930\ (19\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{879\ (17\%)}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Unknown}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{609}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{639}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{604}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{654}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{551}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{574}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{588}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{541}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.27in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{562}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.37in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{529}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.37in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,345}}}} \\
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(16,19]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{526\ (3.4\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{202\ (4.0\%)}}}} \\
 
-\ascline{1pt}{000000}{1-12}
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(19,35]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{3,372\ (22\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,272\ (25\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(35,50]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{3,355\ (21\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,248\ (24\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(50,65]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,912\ (19\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{943\ (18\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(65,108]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,561\ (16\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{562\ (11\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sex}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Male}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{7,699\ (49\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,358\ (46\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Female}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{7,956\ (51\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,747\ (54\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(D)\ Omron\ valid\ mean\ systolic\ BP}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{122\ (110,\ 133)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Unknown}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{7,196}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(D)\ Valid\ BMI}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{25\ (21,\ 29)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Unknown}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{981}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sodium\ (mg)\ diet\ only}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,927\ (1,480,\ 2,478)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Epcnt\_4}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{47\ (37,\ 58)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{47\ (37,\ 58)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{UPF3}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(0,33]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,678\ (17\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{890\ (17\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(33,63]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{10,423\ (67\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{3,405\ (67\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(63,100]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,554\ (16\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{809\ (16\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{educfinh}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{375\ (2.9\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{101\ (2.4\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{41\ (0.3\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{13\ (0.3\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{3}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{504\ (3.9\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{77\ (1.8\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{4}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,773\ (14\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{458\ (11\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{5}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{3,483\ (27\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,189\ (28\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{6}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,074\ (8.3\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{306\ (7.3\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{7}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,588\ (12\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{580\ (14\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{8}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{4,172\ (32\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,478\ (35\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Unknown}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,645}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{903}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{EIMD\_2010\_quintile}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,806\ (22\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{998\ (23\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,728\ (21\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{934\ (22\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{3}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,364\ (18\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{763\ (18\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{4}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,642\ (20\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{853\ (20\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{5}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,493\ (19\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{759\ (18\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Unknown}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,622}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{798}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{gor}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{North\ East}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{641\ (4.1\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{210\ (4.1\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{North\ West}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,735\ (11\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{517\ (10\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Yorkshire\ \&\ The\ Humber}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,308\ (8.4\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{407\ (8.0\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{East\ Midlands}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,128\ (7.2\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{405\ (7.9\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{West\ Midlands}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,384\ (8.8\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{430\ (8.4\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{East\ of\ England}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,460\ (9.3\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{498\ (9.7\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{London}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,029\ (13\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{647\ (13\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{South\ East}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,148\ (14\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{764\ (15\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{South\ West}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,321\ (8.4\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{454\ (8.9\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Wales}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{753\ (4.8\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{225\ (4.4\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Scotland}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,302\ (8.3\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{428\ (8.4\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Northern\ Ireland}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{447\ (2.9\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{117\ (2.3\%)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{age}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{38\ (22,\ 53)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{omsysval}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{118\ (108,\ 128)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{bmival}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{25\ (21,\ 28)}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Unknown}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{128}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sodiummg}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,955\ (1,515,\ 2,470)}}}} \\
+
+\ascline{1pt}{000000}{1-3}
 
 
 
@@ -1117,11 +1400,44 @@ lower values for all of the variables in the later groups.
 
 \renewcommand*{\arraystretch}{1}
 
+Continuous variables are represented by the mean and standard deviation
+in brackets. Categorical variables give the number of participants and
+the percentage of the sample in brackets.
+
+\hypertarget{exposure-variables}{%
+\paragraph{Exposure variables}\label{exposure-variables}}
+
+The exposure variables Sodiummg, and Epcnt\_4 are continuous. The mean
+value for Sodiummg is 2,037. That for Epcnt\_4 is 48. The categorical
+variable UPF3 shows that 67\% of the population fall within the central
+category calculated from the standard deviation of the mean.
+
+\hypertarget{outcome-variable}{%
+\paragraph{Outcome Variable}\label{outcome-variable}}
+
+The BP is also continuous with a mean of 123 and standard deviation of
+17. There are a significant number of unknowns, 7196 out of a sample of
+15,655.
+
 \hypertarget{analysis-of-change-across-cohorts}{%
-\subsection{Analysis of Change across
+\subsubsection{Analysis of Change across
 cohorts}\label{analysis-of-change-across-cohorts}}
 
-These key variables are now compared between the cohorts.
+These key variables are now compared between the cohorts fist in
+tbl-keydata.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#keydatw \textless{}{-}tbl\_svysummary(ndns\_1\_11d,SurveyYear , include = c(Sodiummg,Epcnt\_4,omsysval))}
+\end{Highlighting}
+\end{Shaded}
+
+The numbers seem to be smaller towards the end of the series, for Sodium
+intake, UPF intake (Epcnt\_4) and for systolic BP. Each cohort has been
+adjusted to be comparable using weighting values given by the study
+coordinators. However they are separate cohorts of separate participants
+with no linear association between them. It can be seen that there are
+lower values for all of the variables in the later groups.
 
 (\textbf{fig-upf-and-survey-year?}) shows the energy from UPF in percent
 (Epcnt\_4) against cohort number. This plot shows that the ranges
@@ -1238,69 +1554,26 @@ not all, the same between datasets. Continuous variables are assessed
 using linear regression and categorical variables using chi squared
 tests to give p.values.
 
-This table (\textbf{tbl-continuous-data?})) suggests that there is a
+This table (\textbf{tbl-continuous-data?}) suggests that there is a
 significant difference in the bmi of the cohorts.
 
-\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
-
-\global\setlength{\Oldtabcolsep}{\tabcolsep}
-
-\setlength{\tabcolsep}{0pt}
-
-\renewcommand*{\arraystretch}{1.5}
-
-
-
-\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
-
-\begin{longtable}[c]{|p{0.81in}|p{1.70in}|p{0.68in}|p{1.17in}|p{0.93in}}
-
-
-
-\ascline{1pt}{000000}{1-5}
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.81in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Group}}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.7in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Characteristic}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Beta}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.17in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{95\%\ CI}}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{p-value}}}}} \\
-
-\ascline{1pt}{000000}{1-5}\endhead
-
-
-
-\multicolumn{5}{>{\raggedright}m{\dimexpr 5.29in+8\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{CI\ =\ Confidence\ Interval}}}} \\
-
-\endfoot
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 0.81in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Age}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1.7in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{NDNS\ Survey\ year}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.10}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.17in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-0.06,\ 0.25}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.2}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 0.81in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{BMI}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 1.7in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{NDNS\ Survey\ year}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-0.09}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.17in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-0.13,\ -0.04}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
-
-\ascline{1pt}{000000}{1-5}
-
-
-
+\begin{longtable}[]{@{}llccc@{}}
+\toprule()
+\textbf{Group} & \textbf{Characteristic} & \textbf{Beta} & \textbf{95\%
+CI} & \textbf{p-value} \\
+\midrule()
+\endhead
+Age & NDNS Survey year & 0.10 & -0.06, 0.25 & 0.2 \\
+BMI & NDNS Survey year & -0.09 & -0.13, -0.04 & \textless0.001 \\
+\bottomrule()
 \end{longtable}
-
-
-
-\arrayrulecolor[HTML]{000000}
-
-\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
-
-\global\setlength{\tabcolsep}{\Oldtabcolsep}
-
-\renewcommand*{\arraystretch}{1}
 
 There is a difference in the age of finishing education.
 
-The differences in qimd, are not statistically significant.
+The differences in IMD, are not statistically significant.
 
-These values identify a significant difference in the number of
-vegetarians
+(\textbf{tbl-Categorical-variables-year?}) identifies a significant
+difference in the number of vegetarians.
 
 \global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
 
@@ -1314,45 +1587,51 @@ vegetarians
 
 \providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
 
-\begin{longtable}[c]{|p{1.12in}|p{0.90in}}
+\begin{longtable}[c]{|p{1.12in}|p{0.82in}|p{0.85in}}
 
 
 
-\ascline{1.5pt}{666666}{1-2}
+\ascline{1.5pt}{666666}{1-3}
 
-\multicolumn{1}{>{\raggedright}b{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Variable}}}} & \multicolumn{1}{>{\raggedleft}b{\dimexpr 0.9in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{p.value}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} \\
+\multicolumn{1}{>{\raggedright}b{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Variable}}}} & \multicolumn{1}{>{\raggedleft}b{\dimexpr 0.82in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{ChiSq}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\raggedleft}b{\dimexpr 0.85in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{p.value}}}} \\
 
-\ascline{1.5pt}{666666}{1-2}\endhead
+\ascline{1.5pt}{666666}{1-3}\endhead
 
 
 
-\multicolumn{2}{>{\raggedright}m{\dimexpr 2.02in+2\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Chi\ Squared\ for\ categorical\ data}}}} \\
+\multicolumn{3}{>{\raggedright}m{\dimexpr 2.79in+4\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Chi\ Squared\ for\ categorical\ data}}}} \\
 
 \endfoot
 
 
 
-\multicolumn{1}{>{\raggedright}m{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sex}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.9in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.5921}}}} \\
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sex}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.82in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.8357}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.85in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.5921}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}m{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Education}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.9in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.0000}}}} \\
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Education}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.82in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{3.5072}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.85in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.0000}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}m{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{IMD}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.9in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.2208}}}} \\
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{IMD}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.82in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1.1718}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.85in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.2208}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}m{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Vegetarian}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.9in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.0245}}}} \\
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Vegetarian}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.82in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1.9096}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.85in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.0245}}}} \\
 
-\ascline{1.5pt}{666666}{1-2}
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{UPF3}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.82in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{4.1740}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.85in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.0000}}}} \\
+
+\ascline{1.5pt}{666666}{1-3}
 
 
 
@@ -1371,6 +1650,105 @@ vegetarians
 \hypertarget{analysis-of-key-variables-by-sex}{%
 \subsection{Analysis of Key variables by
 Sex}\label{analysis-of-key-variables-by-sex}}
+
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{0pt}
+
+\renewcommand*{\arraystretch}{1.5}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[c]{|p{2.86in}|p{1.86in}|p{1.86in}|p{0.93in}}
+
+
+
+\ascline{1pt}{000000}{1-4}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Characteristic}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Male}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 7,699}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Female}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 7,956}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{p-value}}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2}}}}} \\
+
+\ascline{1pt}{000000}{1-4}\endhead
+
+
+
+\multicolumn{4}{>{\raggedright}m{\dimexpr 7.5in+6\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Median\ (IQR);\ n\ (\%)}}}} \\
+
+
+
+
+
+\multicolumn{4}{>{\raggedright}m{\dimexpr 7.5in+6\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Wilcoxon\ rank-sum\ test\ for\ complex\ survey\ samples;\ chi-squared\ test\ with\ Rao\ \&\ Scott's\ second-order\ correction}}}} \\
+
+\endfoot
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sodium\ (mg)\ diet\ only}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,193\ (1,677,\ 2,778)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,722\ (1,354,\ 2,164)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Epcnt\_4}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{48\ (38,\ 59)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{46\ (36,\ 57)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{UPF3}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(0,33]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,164\ (15\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,514\ (19\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(33,63]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{5,124\ (67\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{5,299\ (67\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(63,100]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,411\ (18\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,143\ (14\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(D)\ Omron\ valid\ mean\ systolic\ BP}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{124\ (115,\ 134)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{116\ (107,\ 130)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Unknown}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{3,560}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{3,636}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+\ascline{1pt}{000000}{1-4}
+
+
+
+\end{longtable}
+
+
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+(\textbf{tbl-keydatax?}) shows the difference between male and female in
+the key variables.
 
 \includegraphics{methodandresults_files/figure-latex/fig-UPF-Sex-Boxplots-1.pdf}
 
@@ -1488,6 +1866,107 @@ statistically significant as the confidence intervals do not cross one.
 \hypertarget{analysis-of-key-variables-by-age}{%
 \subsection{Analysis of Key Variables by
 Age}\label{analysis-of-key-variables-by-age}}
+
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{0pt}
+
+\renewcommand*{\arraystretch}{1.5}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[c]{|p{2.86in}|p{1.86in}|p{1.86in}|p{1.86in}|p{1.86in}|p{1.86in}|p{1.89in}|p{0.93in}}
+
+
+
+\ascline{1pt}{000000}{1-8}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Characteristic}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{(0,16]}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 2,930}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{(16,19]}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 526}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{(19,35]}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 3,372}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{(35,50]}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 3,355}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{(50,65]}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 2,912}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{(65,108]}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 2,561}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{p-value}}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2}}}}} \\
+
+\ascline{1pt}{000000}{1-8}\endhead
+
+
+
+\multicolumn{8}{>{\raggedright}m{\dimexpr 14.98in+14\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Median\ (IQR);\ n\ (\%)}}}} \\
+
+
+
+
+
+\multicolumn{8}{>{\raggedright}m{\dimexpr 14.98in+14\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Wilcoxon\ rank-sum\ test\ for\ complex\ survey\ samples;\ chi-squared\ test\ with\ Rao\ \&\ Scott's\ second-order\ correction}}}} \\
+
+\endfoot
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sodium\ (mg)\ diet\ only}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,634\ (1,254,\ 2,072)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,068\ (1,616,\ 2,681)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,207\ (1,624,\ 2,779)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,062\ (1,595,\ 2,641)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,955\ (1,533,\ 2,450)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,805\ (1,434,\ 2,221)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Epcnt\_4}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{57\ (47,\ 66)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{57\ (48,\ 69)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{50\ (39,\ 60)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{45\ (35,\ 56)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{41\ (33,\ 51)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{43\ (34,\ 52)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{UPF3}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(0,33]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{158\ (5.4\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{27\ (5.2\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{503\ (15\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{704\ (21\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{745\ (26\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{542\ (21\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(33,63]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,835\ (63\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{311\ (59\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,210\ (66\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,253\ (67\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,965\ (67\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,850\ (72\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(63,100]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{937\ (32\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{188\ (36\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{660\ (20\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{398\ (12\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{202\ (6.9\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{170\ (6.6\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(D)\ Omron\ valid\ mean\ systolic\ BP}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{106\ (99,\ 113)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{114\ (108,\ 123)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{118\ (110,\ 126)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{121\ (112,\ 130)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{129\ (118,\ 140)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{134\ (122,\ 146)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Unknown}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,636}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{246}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,646}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,475}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,159}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.89in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,035}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+
+\ascline{1pt}{000000}{1-8}
+
+
+
+\end{longtable}
+
+
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+(\textbf{tbl-tbl-keydataA?}) shows the age distribution of exposure to
+sodium and UPF. Peak sodium exposure in the 19-35 age group. The peak
+UPF exposure is in the 16-18 age group, but is almost matched by the
+0-16 group. The outcome BP rises through life.
 
 \begin{figure}
 \centering
@@ -1683,255 +2162,75 @@ Place}\label{analysis-of-key-variables-by-place}}
 
 \providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
 
-\begin{longtable}[c]{|p{1.80in}|p{2.71in}|p{0.68in}|p{1.02in}|p{0.93in}}
+\begin{longtable}[c]{|p{2.86in}|p{1.93in}|p{2.14in}|p{3.28in}|p{2.36in}|p{2.43in}|p{2.50in}|p{1.86in}|p{2.09in}|p{2.15in}|p{1.86in}|p{1.91in}|p{2.45in}|p{0.93in}}
 
 
 
-\ascline{1pt}{000000}{1-5}
+\ascline{1pt}{000000}{1-14}
 
-\multicolumn{1}{>{\raggedright}m{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Group}}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Characteristic}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Beta}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{95\%\ CI}}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{p-value}}}}} \\
+\multicolumn{1}{>{\raggedright}m{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Characteristic}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{North\ East}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 641}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 2.14in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{North\ West}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,735}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 3.28in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Yorkshire\ \&\ The\ Humber}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,308}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 2.36in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{East\ Midlands}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,128}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 2.43in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{West\ Midlands}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,384}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 2.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{East\ of\ England}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,460}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{London}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 2,029}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 2.09in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{South\ East}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 2,148}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 2.15in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{South\ West}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,321}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Wales}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 753}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.91in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Scotland}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 1,302}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 2.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{Northern\ Ireland}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{,\ N\ =\ 447}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{\textbf{p-value}}}}\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2}}}}} \\
 
-\ascline{1pt}{000000}{1-5}\endhead
+\ascline{1pt}{000000}{1-14}\endhead
 
 
 
-\multicolumn{5}{>{\raggedright}m{\dimexpr 7.13in+8\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{CI\ =\ Confidence\ Interval}}}} \\
+\multicolumn{14}{>{\raggedright}m{\dimexpr 30.75in+26\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Median\ (IQR);\ n\ (\%)}}}} \\
+
+
+
+
+
+\multicolumn{14}{>{\raggedright}m{\dimexpr 30.75in+26\tabcolsep}}{\textcolor[HTML]{000000}{\textsuperscript{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2}}}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Wilcoxon\ rank-sum\ test\ for\ complex\ survey\ samples;\ chi-squared\ test\ with\ Rao\ \&\ Scott's\ second-order\ correction}}}} \\
 
 \endfoot
 
 
 
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sodium\ in\ mg}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{relevel(gor,\ ref\ =\ "North\ West")}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sodium\ (mg)\ diet\ only}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,898\ (1,362,\ 2,493)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.14in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,946\ (1,511,\ 2,505)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 3.28in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,912\ (1,441,\ 2,470)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.36in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,991\ (1,517,\ 2,552)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.43in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,955\ (1,507,\ 2,504)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,962\ (1,518,\ 2,554)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,789\ (1,347,\ 2,398)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.09in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,891\ (1,478,\ 2,437)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.15in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,956\ (1,503,\ 2,448)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,896\ (1,466,\ 2,425)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.91in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2,003\ (1,555,\ 2,540)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,956\ (1,520,\ 2,495)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{North\ West}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{—}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{—}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Epcnt\_4}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{50\ (39,\ 59)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.14in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{48\ (37,\ 59)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 3.28in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{48\ (38,\ 60)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.36in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{47\ (38,\ 57)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.43in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{50\ (39,\ 60)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{48\ (38,\ 58)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{43\ (31,\ 54)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.09in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{46\ (36,\ 57)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.15in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{46\ (37,\ 56)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{48\ (38,\ 58)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.91in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{49\ (39,\ 60)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{51\ (41,\ 61)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{North\ East}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-91}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-208,\ 27}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.13}}}} \\
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{UPF3}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.14in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 3.28in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.36in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.43in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.09in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.15in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.91in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Yorkshire\ \&\ The\ Humber}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-61}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-150,\ 28}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.2}}}} \\
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(0,33]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{89\ (14\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.14in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{302\ (17\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 3.28in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{205\ (16\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.36in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{171\ (15\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.43in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{193\ (14\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{212\ (15\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{548\ (27\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.09in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{374\ (17\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.15in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{235\ (18\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{115\ (15\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.91in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{187\ (14\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{46\ (10\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{East\ Midlands}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{28}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-70,\ 125}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.6}}}} \\
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(33,63]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{438\ (68\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.14in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,112\ (64\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 3.28in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{838\ (64\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.36in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{771\ (68\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.43in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{921\ (67\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,013\ (69\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,276\ (63\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.09in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,452\ (68\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.15in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{900\ (68\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{511\ (68\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.91in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{881\ (68\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{309\ (69\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{West\ Midlands}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{4.0}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-93,\ 101}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{>0.9}}}} \\
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(63,100]}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{113\ (18\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.14in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{321\ (19\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 3.28in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{265\ (20\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.36in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{186\ (16\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.43in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{270\ (19\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{234\ (16\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{204\ (10\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.09in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{322\ (15\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.15in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{186\ (14\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{126\ (17\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.91in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{234\ (18\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{92\ (21\%)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{East\ of\ England}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-14}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-107,\ 79}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.8}}}} \\
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{(D)\ Omron\ valid\ mean\ systolic\ BP}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{123\ (113,\ 136)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.14in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{122\ (112,\ 132)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 3.28in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{122\ (111,\ 135)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.36in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{123\ (112,\ 134)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.43in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{122\ (111,\ 132)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{122\ (110,\ 132)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{116\ (107,\ 128)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.09in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{120\ (110,\ 132)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.15in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{122\ (110,\ 133)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{123\ (112,\ 137)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.91in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{120\ (109,\ 134)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{122\ (110,\ 134)}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{London}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-143}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-237,\ -49}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.003}}}} \\
+\multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Unknown}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{282}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.14in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{828}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 3.28in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{606}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.36in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{475}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.43in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{659}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.5in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{669}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1,011}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.09in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{902}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.15in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{568}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{365}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.91in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{590}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 2.45in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{242}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
 
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{South\ East}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-65}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-148,\ 18}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.13}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{South\ West}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-31}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-117,\ 56}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.5}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Wales}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-66}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-156,\ 23}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.15}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Scotland}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{39}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-45,\ 122}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.4}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Northern\ Ireland}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-19}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-100,\ 62}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.6}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Percent\ Energy\ UPF}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{relevel(gor,\ ref\ =\ "North\ West")}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{North\ West}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{—}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{—}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{North\ East}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1.2}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-0.61,\ 3.1}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.2}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Yorkshire\ \&\ The\ Humber}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.93}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-0.87,\ 2.7}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.3}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{East\ Midlands}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.36}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-1.6,\ 2.3}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.7}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{West\ Midlands}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1.6}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.02,\ 3.3}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.047}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{East\ of\ England}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-0.23}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-2.0,\ 1.5}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.8}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{London}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-4.7}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-6.5,\ -2.9}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{South\ East}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-1.1}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-2.7,\ 0.47}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.2}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{South\ West}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-1.6}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-3.4,\ 0.15}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.074}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Wales}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.26}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-1.4,\ 1.9}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.8}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Scotland}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1.5}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-0.20,\ 3.1}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.084}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Northern\ Ireland}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{2.8}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1.3,\ 4.3}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Systolic\ BP}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{relevel(gor,\ ref\ =\ "North\ West")}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{North\ West}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{—}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{—}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{North\ East}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1.6}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-1.4,\ 4.5}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.3}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Yorkshire\ \&\ The\ Humber}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.14}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-2.4,\ 2.7}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{>0.9}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{East\ Midlands}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.61}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-2.2,\ 3.5}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.7}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{West\ Midlands}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-1.1}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-3.7,\ 1.6}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.4}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{East\ of\ England}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-1.3}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-3.9,\ 1.4}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.3}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{London}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-5.5}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-8.0,\ -3.1}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{South\ East}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-2.1}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-4.6,\ 0.40}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.10}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{South\ West}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.28}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-2.5,\ 3.1}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.8}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Wales}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{1.0}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-1.4,\ 3.5}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.4}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Scotland}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-1.3}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-3.9,\ 1.2}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.3}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}p{\dimexpr 1.8in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\raggedright}p{\dimexpr 2.71in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Northern\ Ireland}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-0.86}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-3.1,\ 1.4}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.5}}}} \\
-
-\ascline{1pt}{000000}{1-5}
+\ascline{1pt}{000000}{1-14}
 
 
 
@@ -1947,24 +2246,28 @@ Place}\label{analysis-of-key-variables-by-place}}
 
 \renewcommand*{\arraystretch}{1}
 
-(\textbf{tbl-Key-Variables-by-place?}) shows that in comparison to the
-North West only London has a statistically significant negative gradient
-in salt intake. The UPF intake is higher in Northern Ireland and the
-West Midlands, and lower in London. The BP is lower in London only.
+(\textbf{tbl-datap?}) shows the UPF exposure is highest in Northern
+Ireland and lowest in London. The sodium exposure is highest in Scotland
+and lowest in London. Outcome BP is also lowest in London, with the
+highest in the North East.
 
-\hypertarget{paired-regression-of-key-variables-on-each-other}{%
-\subsection{Paired Regression of key variables on each
-other}\label{paired-regression-of-key-variables-on-each-other}}
+\hypertarget{paired-regression-of-variables-on-each-other}{%
+\subsection{Paired Regression of variables on each
+other}\label{paired-regression-of-variables-on-each-other}}
 
 \begin{figure}
 \centering
 \includegraphics{methodandresults_files/figure-latex/fig-dag2-1.pdf}
-\caption{DAG of relationships explored by analysis}
+\caption{diagram of the relationships explored by the analysis}
 \end{figure}
 
+(\textbf{fig-dag2?}) shows the range of relationships explored by the
+paired regressions.
+
 Simple linear regression equations look for the relationship between the
-BP, and the independent variable. For these I am looking at the whole
-dataset. First (\textbf{fig-Na-by-BP?})
+outcome BP, and the independent exposure variable.
+
+First (\textbf{fig-Na-by-BP?})
 
 \includegraphics{methodandresults_files/figure-latex/fig-Na-by-BP-1.pdf}
 
@@ -1975,8 +2278,9 @@ Then (\textbf{fig-BP-and-UPF?})
 and lastly (\textbf{fig-UPF-and-Na-plot?})
 
 \includegraphics{methodandresults_files/figure-latex/fig-UPF-and-Na-plot-1.pdf}
-The plots appear to show limited correlation. First, omsysval is
-compared to EnergykJ, then sodiummg.
+
+Simple plots of exposure against outcome appear to show limited
+correlation.
 
 \global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
 
@@ -2392,9 +2696,13 @@ regression}\label{complex-modelling-using-multi-variable-regression}}
 
 This section uses models of several variables to try to highlight the
 contributions of each variable. The complexity in these models is much
-less than that of reality. The intention is to work towards an optimal
-model. This ideally mathematically describes the situation. In reality
-there may be a set of models with no single one predominating.
+less than that of reality. There are four sets of four models. The first
+a baseline model, the second and third introduce each variable
+separately, the final model includes all three.
+
+The intention is to work towards an optimal model. This ideally
+mathematically describes the situation. In reality there may be a set of
+models with no single one predominating.
 
 In particular the research question asks about the relationship between
 Sodium and UPF intake with BP. The models will reflect this question by
@@ -2636,72 +2944,6 @@ The last set of columns, ``Sodium and UPF'', shows that when combined
 there is still little effect identified statistically, on each other or
 on the other variables.
 
-Using the AIC statistic for each model gives another way of
-understanding the comparative effects. The subsequent
-(\textbf{tbl-AIC-comparison-bp?}) shows the size of the effect relating
-to sodium. The lowest scored model is the optimal model. Here that is
-``UPF only''. Though the size of the difference is tiny.
-
-\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
-
-\global\setlength{\Oldtabcolsep}{\tabcolsep}
-
-\setlength{\tabcolsep}{0pt}
-
-\renewcommand*{\arraystretch}{1.5}
-
-
-
-\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
-
-\begin{longtable}[c]{|p{0.75in}|p{0.75in}}
-
-
-
-\ascline{1.5pt}{666666}{1-2}
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Model}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{AIC}}}} \\
-
-\ascline{1.5pt}{666666}{1-2}\endhead
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{No\ sodium\ or\ UPF}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{21,982.14}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sodium\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{21,982.31}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Epcnt\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{21,982.75}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sodium\ and\ UPF}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{21,982.10}}}} \\
-
-\ascline{1.5pt}{666666}{1-2}
-
-
-
-\end{longtable}
-
-
-
-\arrayrulecolor[HTML]{000000}
-
-\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
-
-\global\setlength{\tabcolsep}{\Oldtabcolsep}
-
-\renewcommand*{\arraystretch}{1}
-
 \hypertarget{simple-set-regression-on-bp}{%
 \subsubsection{simple set Regression on
 BP}\label{simple-set-regression-on-bp}}
@@ -2787,60 +3029,6 @@ BP}\label{simple-set-regression-on-bp}}
 \multicolumn{1}{>{\raggedright}p{\dimexpr 1.99in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Epcnt\_4}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.06in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.01}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-0.03,\ 0.05}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.7}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-0.02}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{-0.06,\ 0.02}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{0.4}}}} \\
 
 \ascline{1pt}{000000}{1-10}
-
-
-
-\end{longtable}
-
-
-
-\arrayrulecolor[HTML]{000000}
-
-\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
-
-\global\setlength{\tabcolsep}{\Oldtabcolsep}
-
-\renewcommand*{\arraystretch}{1}
-
-\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
-
-\global\setlength{\Oldtabcolsep}{\tabcolsep}
-
-\setlength{\tabcolsep}{0pt}
-
-\renewcommand*{\arraystretch}{1.5}
-
-
-
-\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
-
-\begin{longtable}[c]{|p{0.75in}|p{0.75in}}
-
-
-
-\ascline{1.5pt}{666666}{1-2}
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Model}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{AIC}}}} \\
-
-\ascline{1.5pt}{666666}{1-2}\endhead
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sodium\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{44,383.55}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{UPF\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{44,442.17}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Sodium\ and\ UPF}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{44,384.23}}}} \\
-
-\ascline{1.5pt}{666666}{1-2}
 
 
 
@@ -3064,66 +3252,6 @@ models both being further away from the lowest value.
 \multicolumn{1}{>{\raggedright}p{\dimexpr 2.86in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Epcnt\_4}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.12in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{10}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.08in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{8.4,\ 13}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.68in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{11}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 1.08in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{8.3,\ 14}}}} & \multicolumn{1}{>{\centering}p{\dimexpr 0.93in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{<0.001}}}} \\
 
 \ascline{1pt}{000000}{1-13}
-
-
-
-\end{longtable}
-
-
-
-\arrayrulecolor[HTML]{000000}
-
-\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
-
-\global\setlength{\tabcolsep}{\Oldtabcolsep}
-
-\renewcommand*{\arraystretch}{1}
-
-\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
-
-\global\setlength{\Oldtabcolsep}{\tabcolsep}
-
-\setlength{\tabcolsep}{0pt}
-
-\renewcommand*{\arraystretch}{1.5}
-
-
-
-\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
-
-\begin{longtable}[c]{|p{0.75in}|p{0.75in}}
-
-
-
-\ascline{1.5pt}{666666}{1-2}
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Model}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{AIC}}}} \\
-
-\ascline{1.5pt}{666666}{1-2}\endhead
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{No\ bp\ or\ UPF}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{75,042.64}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{bp\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{42,457.62}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{UPF\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{74,872.48}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{bp\ and\ UPF}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{42,347.00}}}} \\
-
-\ascline{1.5pt}{666666}{1-2}
 
 
 
@@ -3398,25 +3526,91 @@ model drops its AIC value again.
 
 
 
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{No\ bp\ or\ Na}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{38,183.62}}}} \\
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{BP1:No\ sodium\ or\ UPF}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{21,982.14}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{bp\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{21,623.66}}}} \\
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{BP1:Sodium\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{21,982.31}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Na\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{38,013.45}}}} \\
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{BP1:Epcnt\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{21,982.75}}}} \\
 
 
 
 
 
-\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{bp\ and\ Na}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{21,513.04}}}} \\
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{BP1:Sodium\ and\ UPF}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{21,982.10}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{BP:Sodium\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{44,383.55}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{BP:UPF\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{44,442.17}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{BP:Sodium\ and\ UPF}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{44,384.23}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Na:No\ bp\ or\ UPF}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{75,042.64}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Na:bp\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{42,457.62}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Na:UPF\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{74,872.48}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{Na:bp\ and\ UPF}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{42,347.00}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{UPF:No\ BP\ or\ Na}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{38,183.62}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{UPF:BP\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{21,623.66}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{UPF:Na\ only}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{38,013.45}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{UPF:BP\ and\ Na}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{DejaVu Sans}{21,513.04}}}} \\
 
 \ascline{1.5pt}{666666}{1-2}
 
@@ -3455,6 +3649,12 @@ against UPF including Na and BP as the best model. This also identifies
 the model regressed against Na without BP or UPF as the least good model
 for the dataset.
 
+Using the AIC statistic for each model gives another way of
+understanding the comparative effects. The subsequent
+(\textbf{tbl-AIC-comparison-bp?}) shows the size of the effect relating
+to sodium. The lowest scored model is the optimal model. Here that is
+``UPF only''. Though the size of the difference is tiny.
+
 The difference between the two values as a proportion of the larger is
 71.3322424 \%. There is a significant sensitivity of the data set to
 improved modelling. Though the set of models around the same values
@@ -3464,45 +3664,29 @@ which include BP.
 \hypertarget{summary-of-results}{%
 \subsection{Summary of Results}\label{summary-of-results}}
 
-(\textbf{tbl-keydata?}) with summary values for the key variables across
-the dataset showing a change across the cohorts. This is less evident in
-the plots.
-
-(\textbf{tbl-Key-Variables-by-Survey-year?}) shows statistical analysis
-of the key variables shows the change across the cohorts.
+(\textbf{tbl-keydata?}) with means for the key variables across the
+dataset showing a reduction across the cohorts. This is less evident in
+the plots, but the (\textbf{tbl-Key-Variables-by-Survey-year?}) shows
+statistical analysis of the key variables shows the reduction.
 
 (\textbf{tbl-continuous-data?}) and
-(\textbf{tbl-Categorical-variables-year?}) show that other variables are
+(\textbf{tbl-Categorical-variables-year?}) show the other variables
 analysed and show that there has been change in the balance of the
 populations.
 
-Univariable regression, (\textbf{tbl-univariable-regressions?}) , shows
-a degree of association between the BP and UPF intake. It also shows the
-same for sodium intake. It also shows that the change with age is the
-same size as the change for UPF.
+Analysis by Sex shows that female sex always reduces BP. When analysed
+by age, UPF reduces, BP increases, as does Na though with a more complex
+relationship. Analysis by place shows that most areas are similar, but
+with London as an outlier.
 
-Using Anova analysis of different multi variable regression models,
-(\textbf{tbl-multivariable-outputs-bp?}) , the key variables are
-significant for sodium in several models with age included and sometimes
-for UPF with age excluded.
+Paired regression, (\textbf{tbl-univariable-regressions?}), shows that
+sodium intake has no relationship with BP or UPF with Na. It shows that
+UPF intake decreases with age, and UPF decreases with BP. It also shows
+that the change of BP with age and with Na are positive
 
-\hypertarget{results-conclusion}{%
-\subsection{Results Conclusion}\label{results-conclusion}}
-
-The percentage by energy of NOVA group 4 foods decreased from 2008 to
-2019. The mean sodium intake in mg decreased. The systolic BP has
-decreased.
-
-There is a correlation between systolic BP and sodium intake. There is a
-correlation between systolic BP and UPF intake.
-
-The regression models identify that age and sex are statistically
-significant contributors to the BP and that bmi, educfinh, and IMD are
-also.
-
-The regression models identify that sodium intake is an important
-contributor to any optimal model. That UPF intake is no longer
-significant, but still has some effect.
+The sets of models of multivariable regressions show that the model
+regressed on UPF including Na and BP has the lowest AIC. The highest AIC
+statistic is for the model regressed against Na without BP or UPF.
 
 \newpage
 
@@ -3518,11 +3702,10 @@ the context of the literature influences understanding of the values.
 The limitations of the study will be considered. Opportunities for
 further research, and ways to influence policy will be considered.
 
-\hypertarget{data-and-analysis-of-change-across-cohorts}{%
-\subsection{Data and analysis of change across
-cohorts}\label{data-and-analysis-of-change-across-cohorts}}
+\hypertarget{data}{%
+\subsection{Data}\label{data}}
 
-The data is well collected and comprehensive. There have been several
+NDNS data is well collected and comprehensive. There have been several
 changes over the course of the study. These changes have meant that
 collating the data was more than just bringing all the numbers together.
 
@@ -3531,6 +3714,10 @@ of the cohorts meant that the numbers from each cohort are not
 comparable. This is overcome by using weighting factors to balance the
 datasets. This needs adjusting every time there is a new group added to
 the collected data set.
+
+\hypertarget{discussion-of-change-across-cohorts}{%
+\subsection{Discussion of change across
+cohorts}\label{discussion-of-change-across-cohorts}}
 
 The analysis using these weighted datasets is performed using ``survey''
 which is a software package used in r studio.
@@ -3618,8 +3805,8 @@ the effect of UPF and that of Age is closely intertwined.
 \hypertarget{the-study}{%
 \subsubsection{The study}\label{the-study}}
 
-\hypertarget{the-data-2}{%
-\subsubsection{The data}\label{the-data-2}}
+\hypertarget{the-data}{%
+\subsubsection{The data}\label{the-data}}
 
 \hypertarget{the-analysis}{%
 \subsubsection{The analysis}\label{the-analysis}}
@@ -3699,6 +3886,14 @@ The ethics cert.
 \section{Appendix 3 Software used}\label{appendix-3-software-used}}
 
 The software used
+
+\begin{verbatim}
+##  [1] "base"          "dagitty"       "datatable"     "flextable"    
+##  [5] "gtsummary"     "knitr2023"     "knitr2015"     "knitr2014"    
+##  [9] "labelled"      "officer"       "rmarkdown2023" "rmarkdown2018"
+## [13] "rmarkdown2020" "sensemakr"     "srvyr"         "stargazer"    
+## [17] "survey2020"    "survey2004"    "survey2010"    "tidyverse"
+\end{verbatim}
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{0}{0}
@@ -4445,11 +4640,11 @@ with blood pressure and markers of subclinical arterial damage in adults
 with risk factors for {CVD}. Public health nutrition.
 2021;24(18):6075--84. }
 
-\leavevmode\vadjust pre{\hypertarget{ref-rcoreteamLanguageEnvironmentStatistical2021}{}}%
+\leavevmode\vadjust pre{\hypertarget{ref-base}{}}%
 \CSLLeftMargin{101. }%
-\CSLRightInline{Team RC. R: {A} language and environment for statistical
-computing. {[}Internet{]}. {Vienna,Austria}: {R Foundation for
-Statistical Computing}; 2021. Available from:
+\CSLRightInline{R Core Team. {R}: A language and environment for
+statistical computing {[}Internet{]}. Vienna, Austria: R Foundation for
+Statistical Computing; 2022. Available from:
 \url{https://www.R-project.org/}}
 
 \leavevmode\vadjust pre{\hypertarget{ref-survey2004}{}}%
