@@ -11,17 +11,17 @@ output:
     fig_caption: yes
     keep_md: yes
     toc_depth: 4
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    code_folding: hide
   pdf_document: 
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_tex: yes
     latex_engine: xelatex
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    code_folding: hide
 editor_options: 
   markdown: 
     wrap: sentence
@@ -1488,11 +1488,31 @@ ndns_1_11 <- ndns_1_11[ndns_1_11food, by= seriali]
 #epcnt_4 divided into tertiles as cat variable
 ndns_1_11$UPF3 <-  cut(ndns_1_11$Epcnt_4 ,
                        breaks=c(0, 33, 63,100))
+ndns_1_11$UPF2 <- cut(ndns_1_11$Epcnt_4 ,
+                       breaks=c(0, 63,100))
 ndns_1_11$agegad3 <-  cut(ndns_1_11$age ,
                        breaks=c(0, 16,19,35,50,65,108))
+ndns_1_11$hyp <- cut(ndns_1_11$omsysval ,
+                       breaks=c(0, 150,300))
+```
+
+
+```{r}
+#ndns_1_11dd <- ndns_1_11[,c(seriali,diur2,beta2,aceinh2,calciumb2,obpdrug2)]
+#ndns_1_11dd$bpd <- c("not taking drug", "Taking drug")[(rowSums( == "Taking drug") > 0) + 1]
+
+#ndns_1_11$bpd <- c("not taking drug", "Taking drug")[(rowSums(ndns_1_11, diur2 == "Taking drug") > 0) + 1]
+
+
+#(ndns_1_11[diur2 == "Taking drug"]
+#or ndns_1_11e[beta2 == "Taking drug"]
+#or ndns_1_11e[aceinh2 == "Taking drug"]
+#or ndns_1_11e <-ndns_1_11e[calciumb2 =="Taking drug"]
+#or ndns_1_11e[obpdrug2 == "Taking drug"])
 
 
 ```
+
 
 ```{r survey design,message=FALSE, warning=FALSE, include=FALSE}
 
@@ -1518,11 +1538,7 @@ ndns_1_11ed <- subset( ndns_1_11d, omsysval <= 150)
 
 
 #medication affecting bp
-#ndns_1_11e <- ndns_1_11e[diur2 == "Not taking drug"]
-#ndns_1_11e <-ndns_1_11e[beta2 == "Not taking drug"]
-#ndns_1_11e <-ndns_1_11e[aceinh2 == "Not taking drug"]
-#ndns_1_11e <-ndns_1_11e[calciumb2 =="Not taking drug"]
-#ndns_1_11e <- ndns_1_11e[obpdrug2 == "Not taking drug"]
+
 
 ndns_1_11dd <- subset(ndns_1_11ed, diur2 == "Not taking drug")
 ndns_1_11dd <-subset(ndns_1_11dd,beta2 == "Not taking drug")
@@ -1557,8 +1573,9 @@ The tables presented by NDNS have been amalgamated and new weighting values calc
 
 
 keydatw1 <-tbl_svysummary(ndns_1_11d, include= c(age, agegad3,Sex, omsysval, bmival, Sodiummg, Epcnt_4,UPF3, educfinh, EIMD_2010_quintile,gor ) )
-
-as_flex_table( keydatw1)
+keydatwdd <-tbl_svysummary(ndns_1_11dd, include= c(age, agegad3,Sex, omsysval, bmival, Sodiummg, Epcnt_4,UPF3, educfinh, EIMD_2010_quintile,gor ) )
+keydatwT <- tbl_merge(list(keydatw1,keydatwdd))
+as_flex_table( keydatwT)
 ```
 
 Continuous variables are represented by the mean and standard deviation in brackets.
@@ -1580,11 +1597,17 @@ There are a significant number of unknowns, 7196 out of a sample of 15,655.
 
 These key variables are now compared between the cohorts fist in tbl-keydata.
 
-```{r tbl-keydata, echo=FALSE}
+```{r}
+keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,omsysval))
+```
+
+
+
+```{r tbl-keydata, echo=FALSE, message=TRUE, warning=TRUE}
 #| label: tbl-keydata
 #| tbl-cap: "Table showing key variables by survey year"
 
-keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,omsysval))
+
 keydatw <-as_flex_table( keydatw)
 keydatw
 
@@ -1667,7 +1690,7 @@ ttestages<-  tbl_regression(ttestage)
 ttestbmi <- svyglm(bmival~SurveyYear, ndns_1_11d)
 ttestbmis <- tbl_regression(ttestbmi)
 
-tablecon <- as_flex_table(tbl_stack(list(ttestages,ttestbmis),group_header =  c("Age","BMI")))
+tablecon <- tbl_stack(list(ttestages,ttestbmis),group_header =  c("Age","BMI"))
 tablecon
 ```
 
@@ -1703,12 +1726,11 @@ autofit(tablecat)
 ## Analysis of Key variables by Sex
 
 ```{r tbl-keydatax, echo=FALSE, message=FALSE, warning=FALSE}
-
 #| label: tbl-keydatax
 #| tbl-cap: "Table of key variables by sex showing less exposure to UPF and Sodium in females and a lower BP"
 
 keydatwx <-tbl_svysummary(ndns_1_11d,Sex, include = c(Sodiummg,Epcnt_4,UPF3,omsysval))
-keydatwx <-as_flex_table( keydatwx)
+keydatwx <-as_flex_table( add_p(keydatwx))
 keydatwx
 
 
@@ -1763,7 +1785,7 @@ In each case the lower gradient of the relationship between the variable and Sex
 #| tbl-cap: "Table showing the key variables by age group showing differences between exposure and outcome in different age groups"
 
 keydatwA <-tbl_svysummary(ndns_1_11d,agegad3, include = c(Sodiummg,Epcnt_4,UPF3,omsysval))
-keydatwA <-as_flex_table( keydatwA)
+keydatwA <-as_flex_table( add_p(keydatwA))
 keydatwA
 
 
@@ -1818,7 +1840,8 @@ The changes in sodium content are particularly interesting as they show that the
 #| tbl-cap: "Table of key variables by age place showing differing exposure and outcome by place"
 
 keydatwp <-tbl_svysummary(ndns_1_11d,gor, include = c(Sodiummg,Epcnt_4,UPF3,omsysval))
-keydatwp <-as_flex_table( keydatwp)
+
+keydatwp <-as_flex_table( add_p(keydatwp))
 keydatwp
 
 
@@ -1839,12 +1862,10 @@ ttestEpcngt <- tbl_regression(ttestEpcng)
 ttestOSg <- svyglm(omsysval~relevel(gor, ref = "North West"), ndns_1_11d )
 ttestOSgt <- tbl_regression(ttestOSg)
 
-as_flex_table(tbl_stack(list(ttestNagt,ttestEpcngt,ttestOSgt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
+#as_flex_table(tbl_stack(list(ttestNagt,ttestEpcngt,ttestOSgt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
 ```
 
-@tbl-Key-Variables-by-place shows that in comparison to the North West only London has a statistically significant negative gradient in salt intake.
-The UPF intake is higher in Northern Ireland and the West Midlands, and lower in London.
-The BP is lower in London only.
+
 
 ## Paired Regression of variables on each other
 
@@ -2035,18 +2056,13 @@ Again there are minimal effects on the other variables.
 
 The last set of columns, "Sodium and UPF", shows that when combined there is still little effect identified statistically, on each other or on the other variables.
 
-Using the AIC statistic for each model gives another way of understanding the comparative effects.
-The subsequent @tbl-AIC-comparison-bp shows the size of the effect relating to sodium.
-The lowest scored model is the optimal model.
-Here that is "UPF only".
-Though the size of the difference is tiny.
+
 
 ```{r AIC-comparison, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-AIC-comparison-bp
-#| tbl-cap: "AIC-comparison BP"
 
-AICt<- data.table("Model"=c("No sodium or UPF","Sodium only","Epcnt only","Sodium and UPF"),"AIC" =c(lm1AS$aic, lmna$aic,lmME$aic,lmnaE$aic))
-flextable(AICt)
+
+AICt<- data.table("Model"=c("BP1:No sodium or UPF","BP1:Sodium only","BP1:Epcnt only","BP1:Sodium and UPF"),"AIC" =c(lm1AS$aic, lmna$aic,lmME$aic,lmnaE$aic))
+
 ```
 
 ### simple set Regression on BP
@@ -2078,12 +2094,11 @@ lmMEjt <- tbl_regression(lmMEj)
  as_flex_table(  tbl_merge(list(lmnajt,lmMEjt,lmnaEjt), tab_spanner = c("Sodium only","UPF only","Sodium and UPF")))
 ```
 
-```{r tbl-AIC-comparison-AS, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-AIC-comparison-AS
-#| tbl-cap: "AIC-comparison AS"
+```{r AIC-comparison-AS, echo=FALSE, message=FALSE, warning=FALSE}
 
-AICjt<- data.table("Model"=c("Sodium only","UPF only","Sodium and UPF"),"AIC" =c( lmnaj$aic,lmMEj$aic,lmnaEj$aic))
-flextable(AICjt)
+
+AICjt<- data.table("Model"=c("BP:Sodium only","BP:UPF only","BP:Sodium and UPF"),"AIC" =c( lmnaj$aic,lmMEj$aic,lmnaEj$aic))
+#AICjt <- flextable(AICjt)
 
 ```
 
@@ -2122,12 +2137,12 @@ lmME2t <- tbl_regression(lmME2)
  as_flex_table(  tbl_merge(list(lm1AS2t,lmna2t,lmME2t,lmnaE2t), tab_spanner = c("No bp or UPF","BP only","Epcnt only","BP and UPF")))
 ```
 
-```{r tbl-AIC-comparison-Na, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-AIC-comparison-Na
-#| tbl-cap: "AIC-comparison Na"
+```{r AIC-comparison-Na, echo=FALSE, message=FALSE, warning=FALSE}
 
-AIC2t<- data.table("Model"=c("No bp or UPF","bp only","UPF only","bp and UPF"),"AIC" =c(lm1AS2$aic, lmna2$aic,lmME2$aic,lmnaE2$aic))
-flextable(AIC2t)
+
+AIC2t<- data.table("Model"=c("Na:No bp or UPF","Na:bp only","Na:UPF only","Na:bp and UPF"),"AIC" =c(lm1AS2$aic, lmna2$aic,lmME2$aic,lmnaE2$aic))
+
+
 ```
 
 This set of models @tbl-na-multivariable-outputs follows the established pattern.
@@ -2176,12 +2191,15 @@ lmME3t <- tbl_regression(lmME3)
  as_flex_table(  tbl_merge(list(lm1AS3t,lmna3t,lmME3t,lmnaE3t), tab_spanner = c("No BP or Na","BP only","Na only","Na and BP")))
 ```
 
-```{r tbl-AIC-comparison-upf, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-AIC-comparison-upf
-#| tbl-cap: "AIC-comparison upf"
+```{r tbl-AIC-comparison, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-AIC-comparison
+#| tbl-cap: "AIC-comparisonf"
 
-AIC3t<- data.table("Model"=c("No bp or Na","bp only","Na only","bp and Na"),"AIC" =c(lm1AS3$aic, lmna3$aic,lmME3$aic,lmnaE3$aic))
-flextable(AIC3t)
+AIC3t<- data.table("Model"=c("UPF:No BP or Na","UPF:BP only","UPF:Na only","UPF:BP and Na"),"AIC" =c(lm1AS3$aic, lmna3$aic,lmME3$aic,lmnaE3$aic))
+
+cfAIC <- rbind(AICt,AICjt,AIC2t,AIC3t)
+
+flextable(cfAIC)
 ```
 
 This fourth set of models @tbl-upf-multivariable-outputs regresses on UPF intake.
@@ -2199,6 +2217,12 @@ On its own introducing BP affects the effect of bmi.
 The AIC values @tbl-AIC-comparison-upf in models with BP are the lowest of all the models presented.
 This identifies the regression against UPF including Na and BP as the best model.
 This also identifies the model regressed against Na without BP or UPF as the least good model for the dataset.
+
+Using the AIC statistic for each model gives another way of understanding the comparative effects.
+The subsequent @tbl-AIC-comparison-bp shows the size of the effect relating to sodium.
+The lowest scored model is the optimal model.
+Here that is "UPF only".
+Though the size of the difference is tiny.
 
 ```{r AIC-sense1, echo=FALSE, message=FALSE, warning=FALSE}
 
