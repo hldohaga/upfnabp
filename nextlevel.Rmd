@@ -1556,8 +1556,8 @@ ndns_1_11dd <- subset(ndns_1_11d, bpd == "not taking drug")
 
 ## Participants and Descriptive Data
 
-This first table @tbl-table1 includes all variables.
-The NDNS population is 15,655, with 1,438 taking medication removed for column two.
+
+The NDNS population is 15,655, with 1,438 taking medication likely to affect BP.
 
 The mean age is sightly less in the population on medication at 38.
 Categorising age shows that it is the population over 50 years which is more represented in the whole population.
@@ -1566,9 +1566,10 @@ The sex balance is the same in both groups.
 Mean BP is 123 mmHg in the whole sample, but 121 mmHg in those not on BP medication.
 There are more people with BPs over 150 in the whole population.
 
-The Na exposure is less in the whole population, with less taking over 3000mg daily The UPF exposure is the same in both groups.
+The Na exposure is less in the whole population, with less taking over 3000mg daily. The UPF exposure is the same in both groups.
 
 There appears little difference in bmi, educational level, IMD, or region of origin.
+This first table @tbl-table1 shows all variables.
 
 ```{r tbl-table1, echo=FALSE, message=FALSE, warning=FALSE,cache=TRUE}
 #| label: tbl-table1
@@ -1604,7 +1605,7 @@ There are a significant number of unknowns, 7196 out of a sample of 15,655.
 These key variables are now compared between the cohorts fist in tbl-keydata.
 
 ```{r tbl-setup, include=FALSE,echo=FALSE,message=FALSE}
-keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,omsysval))
+keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Na,UPF,BP))
 
 
 ```
