@@ -1,0 +1,128 @@
+---
+title: "hypertension 11"
+author: "doh"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+
+```
+
+## R Markdown
+
+```{r library,include=FALSE}
+library(haven)
+library(data.table)
+library(readxl)
+#library(sensemakr)
+library(labelled)
+library(survey)
+library(srvyr)
+library(gtsummary)
+library(stargazer)
+library(knitr)
+library(flextable)
+library(officer)
+library(dagitty)
+library(grateful)
+library(dplyr)
+```
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+sav11 <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_personleveldietarydata_uk_20210831.sav"
+
+sav11b <- "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/UKDA-6533-spss/spss/spss25/ndns_rp_yr9-11a_indiv_20211020.sav"
+
+sav11r <- as.data.table(read_sav(sav11))
+sav11br <- as.data.table(read_sav(sav11b))
+sav11br$area <- sav11br$Area
+
+
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+
+```{r allsetup variables, message=FALSE, warning=FALSE, include=FALSE}
+ #measured and recorded data yr1-4a_indiv_uk 
+#subsets of the table to identify grouped information
+bpset <- c("seriali","omsysval","omdiaval")
+
+
+indiv_data <- c(bpset)
+```
+
+```{r individ data,message=FALSE, warning=FALSE, include=FALSE}
+sav11br <- sav11br[, ..bpset]
+
+
+
+val_labels(sav11br) <- NULL
+
+```
+
+
+
+```{r personal data defn,include=FALSE}
+#this identifies the variables wanted from the person level data sets
+perslevdat <- c("seriali","SurveyYear", "Sex","Country","Sodiummg" )
+
+
+
+```
+
+```{r join pers level data,message=FALSE, warning=FALSE, include=FALSE}
+
+
+val_labels(sav11r) <- NULL
+
+
+
+#building the tables
+
+sav11r <- sav11r[,..perslevdat]
+
+
+
+val_labels(sav11r) <- NULL
+
+#sav11brr <- rbindlist(list(sav4r,sav6r,sav8r,sav11r),fill = TRUE, use.names = TRUE)
+
+sav11br <- sav11br[ sav11brr, on = "seriali"]
+
+
+
+```
+
+```{r tidy up, echo=FALSE}
+
+sav11br[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
+sav11br[, Country := factor(Country)]
+sav11br[, SurveyYear := factor(SurveyYear)]
+#sav11br[omsysval <= 10, omsysval := NA]
+
+
+upfd <- c("seriali","NOVA_Epct_opti_4","NOVA_Gpct_opti_4")
+NOVA_ForDavid <- NOVA_ForDavid[,..upfd]
+#NOVA_ForDavid
+sav11br <- sav11br[NOVA_ForDavid, on = "seriali"]
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+yr11 <-   sav11br[surveyyr == 11]
+yr11$omsysval
+```
+
