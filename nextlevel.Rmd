@@ -1,16 +1,16 @@
 ---
 title: "Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    code_folding: hide
   html_document: 
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_md: yes
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    code_folding: hide
   word_document: 
     toc: yes
     fig_caption: yes
@@ -103,9 +103,9 @@ library(grateful)
 library(dplyr)
 ```
 
-```{r dag, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-dag
-#| fig-cap: "DAG of relationships explored by analysis"
+```{r fig-diag1, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-diag1
+#| fig-cap: "The relationships explored in the analysis"
 
 bp1 <- dagitty(" dag {
                Na -> BP
@@ -122,12 +122,12 @@ plot(graphLayout(bp1))
 
 ```
 
-@fig-dag shows a possible arrangement of the relationships between UPF, Na and BP highlighting the onward relationship to non-contagious disease, and the underlying importance of age and sex.
+@fig-diag1 shows a possible arrangement of the relationships between UPF, Na and BP highlighting the onward relationship to non-communicable disease, and the underlying importance of age and sex.
 This paper will seek to explore this complex web by pulling out strands within it.
 
 ### Public Health Impact
 
-Public Health intends to reduce the burden of ill health across the population.
+The key Public Health aim is to reduce the burden of ill health across the population.
 BP is an indicator of the health of the population, in that it is a risk factor for a number of non-communicable diseases (NCD) @cappuccio2015 .
 
 Dietary approaches to improving public health are able to deliver proportionate and universal interventions to populations to reduce the incidence of NCD.
@@ -180,9 +180,12 @@ The storage of the data is in keeping with the research governance agreements of
 
 What proportion of the association between blood pressure (SBP) and UPF intake can be explained by the changes in salt intake in England between 2008 and 2019?
 
-The question can be split into parts, What was intake of salt between 2008 and 2019?
+The question can be split into parts,
+
 What was intake of UPF between 2008 and 2019?
+What was intake of salt between 2008 and 2019?
 What was BP between 2008 and 2019?
+
 Did each of these change over that time and how?
 Did the changes in any one affect any other?
 What are the sizes of the changes?
@@ -195,6 +198,18 @@ Measurements are taken, and then collated.
 The collected numbers are then compared in different ways to answer each part of the question.
 
 ## Aims and Objectives
+
+Key objectives of the research are
+
+1 Systematic literature review of UPF and blood pressure, with salt
+
+2 Descriptive analysis of subjects from NDNS with amalgamation of data across the rolling programme: salt and UPF consumption and BP.
+
+3 Analysis for correlation between UPFs intake and mean systolic blood pressure values using regression models incorporating salt in different ways.
+
+4 Discussion of implications of results in relation to limitations of study and data as well as suggestions for further research
+
+5 Publication of findings in peer reviewed journal/ direct delivery to policy makers.
 
 \newpage
 
@@ -487,8 +502,8 @@ Many studies use quite carefully constructed categories to achieve significant r
 
 The role of UPF in BP is described in a number of papers.
 Wang @WangMei2022UFCI delivers a meta analysis and systematic review.
-This identifies teh best primary research and gives an odds ratio.
-Scaranni @scaranniUltraprocessedFoodsChanges2021a and de Deus Mendonca @DeDeusMendonçaRaquel2017Ufca deliver key primary studies in specific populations with Shim @shimConsumptionUltraProcessedFood2022 providing a Korean perspective.
+This identifies the best primary research and gives an odds ratio.
+Scaranni @scaranniUltraprocessedFoodsChanges2021a and de Deus Mendonca @DeDeusMendonçaRaquel2017Ufca deliver key primary studies in specific populations with Shim @shimConsumptionUltraProcessedFood2022 providing a Korean perspective.Du @du2014 gives the data for China.
 Oliveira @OliveiraTafnes2020CtCo looks at the effect in children, Rezende @Rezende-AlvesKatiusse2021Fpar with adolescents.
 
 Lima @LimaR2011Pouf reviewed already hypertensive individuals.
@@ -537,7 +552,8 @@ All participants in NDNS are included.
 
 The relationship between salt and systolic blood pressure may be different in individuals with pathologically high BP.
 Those taking BP controlling medications may have a different relationship to sodium and UPF.
-These participants were excluded however this affected the sample size and skewed the male-female ratio, the overall results were unchanged. They have been included in multivariable analysis and conducted a sensitivity analysis on these participants taking BP medications.
+These participants were excluded however this affected the sample size and skewed the male-female ratio, the overall results were unchanged.
+They have been included in multivariable analysis and conducted a sensitivity analysis on these participants taking BP medications.
 
 The data from the NDNS study contains information about each individual, and their household.
 This was collected through questionnaires.
@@ -551,10 +567,9 @@ The key variables are systolic BP, UPF intake and Sodium intake.
 Additional variables are ones which can also influence BP.
 They include Age, Sex, BMI, height, and weight.
 Age at completion of education (educfinh), and IMD are also used.
-BP medication (bpmedd) identifies which participants have medication. 
+BP medication (bpmedd) identifies which participants have medication.
 
 Categories have been made from UPF and BP, to enable alternative analyses.
-
 
 ### Systolic BP
 
@@ -564,7 +579,7 @@ The variable omsysval is a quality assured mean value which is reliable across t
 In particular, the omsysval variable was assessed for the effects of exercise, temperature and ill health.
 Raw BP values are present in the dataset but are made up of data with issues around quality.
 
-I have created (Hyp)  a variable which identifies participants with BP over 150. 
+I have created (Hyp) a variable which identifies participants with BP over 150.
 
 ### Dietary data
 
@@ -582,7 +597,6 @@ The cut off is 3000mg which is the WHO recommended amount.
 Serum sodium values are available for the early dataset, but not the later one.
 There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found across the whole time period.
 
-
 ### UPF
 
 To estimate the intake of UPF, I used the NOVA classification, developed by Monteiro et al. (@monteiro2010).
@@ -593,12 +607,14 @@ Each participant food diary entries are assessed against the Nova food classific
 The weight and energy content of the day's food is calculated by Nova group.
 This is added to the intake for the other 3 days and the total intake by Nova group established.
 The percentage of the total intake of energy is then calculated for each of the 4 Nova categories.
-Nova group 4 or UPF intake (Epcnt_4, UPF) is used for this study.
+Nova group 4 or UPF intake ( UPF) is used for this study.
 
-A variable (UPF3)  was developed from the mean UPF intake. The central category is the mean with one standard deviation above and below. This effectively identifies 67% in the centre of the distribution. 
+A variable (UPF3) was developed from the mean UPF intake.
+The central category is the mean with one standard deviation above and below.
+This effectively identifies 67% in the centre of the distribution.
 
-A second variable UPF2 was derived from this. This identifies those more than one standard deviation above the mean.
-
+A second variable UPF2 was derived from this.
+This identifies those more than one standard deviation above the mean.
 
 ## Analysis of the data
 
@@ -606,18 +622,16 @@ A second variable UPF2 was derived from this. This identifies those more than on
 
 I amalgamated four data batches, 2008-2012, 2013-2014, 2015-2016, 2017-2019.
 The data was read from its files using 'r-studio' with the processing being carried out using packages (see appendix 3) available from CRAN (@base).
+Inparticular the package 'survey' @survey2004 was used to manage weighted data.
 Once the data labels were made consistent across the batches, weighting recalculation was done.
 Generated weighting values account for differences in population balance across the annual cohorts.
 These result from differences in compliance and uptake within and across the years.
 Weighting maintains IMD, Sex, Age, IMD and regional representation in the resultant populations
 
-
 A table showing representative statistics for the population was developed.
 Mean values for the data are displayed with a comparison for weighted values.
 The exposure variables are sodium intake (Sodiummg,Na), and ultra processed food intake (Epcnt_4, UPF).
 The outcome variable, the mean systolic blood pressure (omsysval,BP).
-
-
 
 ### Analysis of Change over Survey Years
 
@@ -627,7 +641,6 @@ These were not the same participants so matched analysis, or time series analysi
 
 Other variables in the data were compared across to assess how the data changes.
 Statistical significance of changes in the data were shown by p.values with continuous data, and categorical data analysed using chi squared tables.
-
 
 ### Analysis of Change by Sex Age and Place
 
@@ -647,13 +660,12 @@ This showed the significant relationships present.
 Multivariable regression models were then developed to understand the interactions between variables and to develop a mathematical model of the relationship.
 The optimal model is one which best explains the pattern of data, but which also makes practical sense for the wider understanding of relationships.
 
-Several sets of four models were developed.
-The baseline model with the dependant variable and background variables.
-Then two models with each independent variable was added separately.
+A set of four models were developed.
+The baseline model with the outcome variable and background variables.
+Then two models with each exposure variable added separately.
 Finally a model containing all three of the key variables.
 
 Assessment techniques try to understand the importance of including particular variables, and the form in which they are best included.
-The resultant p.values help to establish the statistical significance of the results.
 
 ## AIC and sensitivty Anaylsis
 
@@ -661,7 +673,6 @@ This section compares models side by side using assessment techniques to identif
 The 'best' in part is determined by the whether a model is needed to predict more data, or just to understand the data available.
 Here it is about how best to describe the relationship between Na, UPF, and BP.
 Sensitivity analysis identifies the relative contribution of the addition of each variable.
-
 
 ```{r read data, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -861,7 +872,7 @@ ndns_1_11[, PregNowB := factor(PregNowB,levels = 1:2,	labels = c("preg or breast
 #incset
   
  
-ndns_1_11[,gor := factor(gor, levels = 1:12, labels = c("North East","North West","Yorkshire & The Humber","East Midlands","West Midlands","East of England","London","South East","South West","Wales","Scotland","Northern Ireland"))]
+ndns_1_11[,gor := factor(gor, levels = 1:12, labels = c("England:North East","England:North West","England:Yorkshire & The Humber","England:East Midlands","England:West Midlands","England:East of England","England:London","England:South East","England:South West","Wales","Scotland","Northern Ireland"))]
 
 
 ndns_1_11[,region := factor(region, levels = 1:6, labels = c("England: North","England: Central/Midlands","England: South(including London)","Scotland","Wales","Northern Ireland"))] 
@@ -982,7 +993,7 @@ ndns_1_11 <- ndns_1_11[ ndns_1_11r, on = "seriali"]
 
 ndns_1_11[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
 ndns_1_11[, Country := factor(Country)]
-
+ndns_1_11[, SurveyYear := factor(SurveyYear)]
 ndns_1_11[omsysval <= 10, omsysval := NA]
 
 
@@ -1226,7 +1237,7 @@ foodleveldat8sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var 
 
 ```
 
-```{r slow processing four years, echo=FALSE, warning=FALSE}
+```{r slow processing four years, echo=FALSE, warning=FALSE,cache=TRUE}
 
 name <-foodlevedat4s[,.(seriali)]  
 name <- (unlist(name))
@@ -1276,7 +1287,7 @@ setnames( oneweight, 'V1','EnergykJ')
 
 ```
 
-```{r Eyear 9 process, message=FALSE, warning=FALSE, include=FALSE}
+```{r Eyear 9 process, message=FALSE, warning=FALSE, include=FALSE,cache=TRUE}
 ### This section uses the function designed above to process the table
 name <-foodlevedat9s[,.(seriali)]  
 name <- as.numeric(unlist(name))
@@ -1305,7 +1316,7 @@ foodleveldat9spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var
 
 ```
 
-```{r Eyear 10 process, message=FALSE, warning=FALSE, include=FALSE}
+```{r Eyear 10 process, message=FALSE, warning=FALSE, include=FALSE,cache=TRUE}
 ### This section uses the function designed above to process the table
 name <-foodlevedat10s[,.(seriali)]  
 name <- as.numeric(unlist(name))
@@ -1334,7 +1345,7 @@ foodleveldat10spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.va
 
 ```
 
-```{r Eyear 11 process, message=FALSE, warning=FALSE, include=FALSE}
+```{r Eyear 11 process, message=FALSE, warning=FALSE, include=FALSE,cache=TRUE}
 ### This section uses the function designed above to process the table
 name <-foodlevedat11s[,.(seriali)]  
 name <- as.numeric(unlist(name))
@@ -1365,7 +1376,7 @@ foodleveldat910spE <- rbind(foodleveldat9spE,foodleveldat10spE)
 foodleveldat911spE <- rbind(foodleveldat11spE, foodleveldat910spE)
 ```
 
-```{r Eslow processing four years, echo=FALSE, warning=FALSE}
+```{r Eslow processing four years, echo=FALSE, warning=FALSE,cache=TRUE}
 
 name <-foodlevedat4s[,.(seriali)]  
 name <- (unlist(name))
@@ -1499,24 +1510,24 @@ setkey(ndns_1_11, seriali)
 ndns_1_11 <- ndns_1_11[ndns_1_11food, by= seriali]
 ```
 
-```{r upf-tertiles, echo=FALSE,message=FALSE}
+```{r new-variables, echo=FALSE,message=FALSE}
 #epcnt_4 divided into tertiles as cat variable
 ndns_1_11$UPF <-  ndns_1_11$Epcnt_4 
                       
 ndns_1_11$UPF3 <-  cut(ndns_1_11$Epcnt_4 ,
-                       breaks=c(0, 33, 63,100))
+                       breaks=c(0, 33, 45,63,80,100))
 ndns_1_11$UPF2 <- cut(ndns_1_11$Epcnt_4 ,
                        breaks=c(0, 63,100))
 ndns_1_11$agegad3 <-  cut(ndns_1_11$age ,
                        breaks=c(0, 16,19,35,50,65,108))
 ndns_1_11$hyp <- cut(ndns_1_11$omsysval ,
-                       breaks=c(0, 150,300))
+                       breaks=c(0,140,300))
+ndns_1_11$BP <- ndns_1_11$omsysval 
 ndns_1_11$Na <- ndns_1_11$Sodiummg
-ndns_1_11$hiNa <- cut(ndns_1_11$Sodiummg , breaks = c(0,3000,10000))
+ndns_1_11$hiNa <- cut(ndns_1_11$Sodiummg , breaks = c(0,1500,3000,5000,6000,10000))
 ```
 
-
-```{r taking-any-meds, echo=FALSE, message=FALSE, warning=FALSE}
+```{r taking-any-meds, echo=FALSE, message=FALSE, warning=FALSE,include=FALSE}
 
 
 ndns_1_11$bpd <- if_else(ndns_1_11$diur2=="Taking drug", "Taking drug" ,
@@ -1527,46 +1538,15 @@ ndns_1_11$bpd <- if_else(ndns_1_11$diur2=="Taking drug", "Taking drug" ,
 head(ndns_1_11$bpd)
 ```
 
-
-```{r survey design,message=FALSE, warning=FALSE, include=FALSE}
-
-
+```{r survey-design,message=FALSE, warning=FALSE, include=FALSE}
 
 ndns_1_11d <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1, data = ndns_1_11, nest = TRUE)
 
-
-
-```
-
-```{r exclusions,echo=FALSE, message=FALSE, warning=FALSE}
 #Exclusions
-
-
-#ndns_1_11 <-ndns_1_11[(hyper1_2 == " Normotensive untreated" ), ]
-ndns_1_11e <- ndns_1_11[omsysval <= 150]
-ndns_1_11ed <- subset( ndns_1_11d, omsysval <= 150)
-#ndns_1_11hypo <- subset(ndns_1_11, ndns_1_11$omsysval <= 150)
-
-#there are no pregnant or breast feeding participants
-#ndns_1_11n <- ndns_1_11n[(PregNowB != "preg or breastfeeding" ), ]
-
-
 #medication affecting bp
-
-
-ndns_1_11dd <- subset(ndns_1_11ed, diur2 == "Not taking drug")
-ndns_1_11dd <-subset(ndns_1_11dd,beta2 == "Not taking drug")
-ndns_1_11dd <-subset(ndns_1_11dd,aceinh2 == "Not taking drug")
-ndns_1_11dd <-subset(ndns_1_11dd,calciumb2 =="Not taking drug")
-ndns_1_11dd <- subset(ndns_1_11dd,obpdrug2 == "Not taking drug")
-
-
-#ndns_1_11 <- ndns_1_11[Country == "England"]
-#ndns_1_11e <- ndns_1_11e[Age >18]
-#ndns_1_11ed <- subset(ndns_1_11ed,Age >18)
-ndns_1_11a <- subset(ndns_1_11d, Age >18)
-ndns_1_11b <- subset(ndns_1_11ed, Age >18)
-#ndns_1_11e <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1, data = ndns_1_11e, nest = TRUE)
+ndns_1_11dd <- subset(ndns_1_11d, bpd == "not taking drug")
+#ndns_1_11bp <- subset(ndns_1_11d, omsysval== is.na(NA))
+#ndns_1_11bp
 
 ```
 
@@ -1576,20 +1556,31 @@ ndns_1_11b <- subset(ndns_1_11ed, Age >18)
 
 ## Participants and Descriptive Data
 
-This first table @tbl-keydata1 includes all variables.
-These are weighted values analysed using a software package called 'survey' @survey2004 .
+This first table @tbl-table1 includes all variables.
+The NDNS population is 15,655, with 1,438 taking medication removed for column two.
 
-The tables presented by NDNS have been amalgamated and new weighting values calculated which enable compilation of data from separate tables into one.
+The mean age is sightly less in the population on medication at 38.
+Categorising age shows that it is the population over 50 years which is more represented in the whole population.
+The sex balance is the same in both groups.
 
-```{r tbl-keydata1, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-keydata1
-#| tbl-cap: "Table of variables used in analysis.Continuous variables are represented by the mean and standard deviation in brackets.Categorical variables give the number of participants and the percentage of the sample in brackets."
+Mean BP is 123 mmHg in the whole sample, but 121 mmHg in those not on BP medication.
+There are more people with BPs over 150 in the whole population.
+
+The Na exposure is less in the whole population, with less taking over 3000mg daily The UPF exposure is the same in both groups.
+
+There appears little difference in bmi, educational level, IMD, or region of origin.
+
+```{r tbl-table1, echo=FALSE, message=FALSE, warning=FALSE,cache=TRUE}
+#| label: tbl-table1
+#| tbl-cap: "Characteristics of the sample population from National Dietary and Nutrition Study (2008-2019) N= 15,655"
 
 
-keydatw1 <-tbl_svysummary(ndns_1_11d, include= c(age, agegad3,Sex, omsysval,hyp, bmival, Na,hiNa, UPF,UPF3, educfinh, EIMD_2010_quintile,gor,bpd ) )
-#keydatwdd <-tbl_svysummary(ndns_1_11d$sex=="female", include= c(age, agegad3,Sex, omsysval, bmival, Sodiummg, Epcnt_4,UPF3, educfinh, EIMD_2010_quintile,gor ) )
-#keydatwT <- tbl_merge(list(keydatw1,keydatwdd))
-as_flex_table( keydatw1)
+keydatw1 <-tbl_svysummary(ndns_1_11d, include= c(Age, agegad3,Sex, omsysval,hyp, bmival, Na,hiNa, UPF,UPF3, educfinh, EIMD_2010_quintile,gor,bpd ))
+#keydatw1
+keydatwdd <-tbl_svysummary(ndns_1_11dd, include= c(Age, agegad3,Sex, omsysval,hyp, bmival, Na,hiNa, UPF,UPF3, educfinh, EIMD_2010_quintile,gor,bpd ) )
+
+keydatwT <- tbl_merge(list(keydatw1,keydatwdd),tab_spanner = c("Whole Population", "Population with those on BP medication excluded"))
+as_flex_table( keydatwT)
 #heatmap(keydataw1)
 ```
 
@@ -1608,17 +1599,15 @@ The categorical variable UPF3 shows that 67% of the population fall within the c
 The BP is also continuous with a mean of 123 and standard deviation of 17.
 There are a significant number of unknowns, 7196 out of a sample of 15,655.
 
-### Analysis of Change across cohorts
+### Analysis of Change across waves
 
 These key variables are now compared between the cohorts fist in tbl-keydata.
 
-```{r }
+```{r tbl-setup, include=FALSE,echo=FALSE,message=FALSE}
 keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Sodiummg,Epcnt_4,omsysval))
 
 
 ```
-
-
 
 ```{r tbl-keydata, echo=FALSE, message=TRUE, warning=TRUE}
 #| label: tbl-keydata
@@ -1636,20 +1625,44 @@ Each cohort has been adjusted to be comparable using weighting values given by t
 However they are separate cohorts of separate participants with no linear association between them.
 It can be seen that there are lower values for all of the variables in the later groups.
 
+```{r fig-upf-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-upf-and-survey-year
+#| fig-cap: "Plot of the percentage of energy from UPF in each annual cohort showing an apparent overlap"
 
 
-```{r tbl-Key-Variables-by-Survey-year, echo=FALSE}
+svyboxplot(Epcnt_4~SurveyYear,ndns_1_11d, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
+```
+
+```{r fig-Na-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-Na-and-survey-year
+#| fig-cap: "Plot of the intake of Na in mg in each annual cohort showing an apparent overlap "
+svyboxplot(Sodiummg~SurveyYear,ndns_1_11d,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
+
+```
+
+```{r fig-BP-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-BP-and-survey-year
+#| fig-cap: "Plot of the BP in mmHg in each annual cohort showing an apparent overlap"
+
+#svyboxplot(omsysval~SurveyYear,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
+```
+
+```{r tbl-Variables-by-Survey-year, echo=FALSE}
 #| label: tbl-Key-Variables-by-Survey-year
 #| tbl-cap: "Key Variables (Na, UPF, BP) by Survey cohort showing a negative gradient in relation to year one which is statistically significant"
 
-ttestNa2 <- svyglm(Sodiummg~SurveyYear, ndns_1_11d )
+ttestNa2 <- svyglm(Na~SurveyYear, ndns_1_11d )
 ttestNa2t <- tbl_regression(ttestNa2)
-ttestEpcnt <- svyglm(Epcnt_4~SurveyYear, ndns_1_11d )
+ttestEpcnt <- svyglm(UPF~SurveyYear, ndns_1_11d )
 ttestEpcntt <- tbl_regression(ttestEpcnt)
-ttestOS <- svyglm(omsysval~SurveyYear, ndns_1_11d)
+ttestOS <- svyglm(BP~SurveyYear, ndns_1_11d)
 ttestOSt <- tbl_regression(ttestOS)
+ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11d)
+ttestages<-  tbl_regression(ttestage)
 
-as_flex_table(tbl_stack(list(ttestNa2t,ttestEpcntt,ttestOSt),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP")))
+ttestbmi <- svyglm(bmival~SurveyYear, ndns_1_11d)
+ttestbmis <- tbl_regression(ttestbmi)
+as_flex_table(tbl_stack(list(ttestNa2t,ttestEpcntt,ttestOSt,ttestages,ttestbmis),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP","Age","BMI")))
 ```
 
 @tbl-Key-Variables-by-Survey-year compares mean sodium, UPF and systolic BP values across the individual cohorts.
@@ -1671,40 +1684,44 @@ Continuous variables are assessed using linear regression and categorical variab
 
 This table @tbl-continuous-data suggests that there is a significant difference in the bmi of the cohorts.
 
-```{r tbl-continuous-data, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-continuous-data
-#| tbl-cap: "Table of Age and BMI regressed against survey year identifying that there is no significant change in Age, but that there is a significant difference in BMI"
-ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11d)
-ttestages<-  tbl_regression(ttestage)
-
-
-ttestbmi <- svyglm(bmival~SurveyYear, ndns_1_11d)
-ttestbmis <- tbl_regression(ttestbmi)
-
-tablecon <- tbl_stack(list(ttestages,ttestbmis),group_header =  c("Age","BMI"))
-flextable(tablecon)
-```
-
 There is a difference in the age of finishing education.
 
 The differences in IMD, are not statistically significant.
 
 @tbl-Categorical-variables-year identifies a significant difference in the number of vegetarians.
 
+```{r}
+library(svyVGAM)
+sexy <- svy_vglm(Sex ~SurveyYear , family=multinomial(refLevel=2), design=ndns_1_11d)
+sexy
+eduy <-svy_vglm(educfinh~SurveyYear , family=multinomial(refLevel=1),design= ndns_1_11d)
+eduy
+imdy <- svy_vglm(~EIMD_2010_quintile+SurveyYear ,family=multinomial(refLevel=1),design= ndns_1_11d)
+vegy <- svy_vglm(~vegetarn+ SurveyYear ,family=multinomial(refLevel=1),design= ndns_1_11d)
+UPF3y <- svy_vglm(UPF3~ SurveyYear , family=multinomial(refLevel=1), design= ndns_1_11d)
+UPF3y
+agegad3y <- svy_vglm(~agegad3+ SurveyYear ,family=multinomial(refLevel=1),design= ndns_1_11d)
+hypy <- svy_vglm(hyp~SurveyYear , family=multinomial(refLevel=2), design=ndns_1_11d)
+hypy
+```
+
+
+
 ```{r tbl-Categorical-variables-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-Categorical-variables-year
-#| tbl-cap: "Categorical Variables analysed using Chi squared approach to give p values indicating Sex and IMD as not statistically significantly different from year one, and Education and Vegetarian as statistically significant"
+#| tbl-cap: "Key categorical variables by survey year from NDNS 2008-2018"
 
 sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11d)
 educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11d)
 imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11d)
 vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11d)
 UPF3chi <- svychisq(~UPF3+ SurveyYear , ndns_1_11d)
+agegad3chi <- svychisq(~agegad3+ SurveyYear , ndns_1_11d)
+hypchi <- svychisq(~hyp+ SurveyYear , ndns_1_11d)
 
-
-tablecat<- data.table("Variable"=c( "Sex", "Education","IMD","Vegetarian","UPF3"),"ChiSq"=c(sexchi$statistic,educhi$statistic,imdchi$statistic,vegchi$statistic,UPF3chi$statistic ),"p.value"= c(sexchi$p.value,educhi$p.value,imdchi$p.value,vegchi$p.value,UPF3chi$p.value ))
+tablecat<- data.table("Variable"=c( "Sex", "Education","IMD","Vegetarian","UPF3","Age","Hypertension"),"ChiSq"=c(sexchi$statistic,educhi$statistic,imdchi$statistic,vegchi$statistic,UPF3chi$statistic,agegad3chi$statistic,hypchi$statistic ),"p.value"= c(sexchi$p.value,educhi$p.value,imdchi$p.value,vegchi$p.value,UPF3chi$p.value,agegad3chi$statistic,hypchi$statistic ))
 tablecat <- flextable(tablecat)
-tablecat <- colformat_double(tablecat, digits = 4)
+tablecat <- colformat_double(tablecat, digits = 2)
 
 tablecat <- footnote( tablecat, i = 1, j = 2,
             value = as_paragraph(c("Chi Squared for categorical data")),
@@ -1716,30 +1733,20 @@ autofit(tablecat)
 
 ## Analysis of Key variables by Sex
 
+@tbl-keydatax shows the difference between male and female in the key variables.In each case the lower gradient of the relationship between the variable and Sex is statistically significant.
+
 ```{r tbl-keydatax, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-keydatax
-#| tbl-cap: "Table of key variables by sex showing less exposure to UPF and Sodium in females and a lower BP"
+#| tbl-cap: "Key variables by age group from NDNS 2008-2018"
 
-keydatwx <-tbl_svysummary(ndns_1_11d,Sex, include = c(Sodiummg,Epcnt_4,UPF3,omsysval))
+keydatwx <-tbl_svysummary(ndns_1_11d,Sex, include = c(Na,UPF,UPF3,BP))
 keydatwx <-as_flex_table( add_p(keydatwx))
 keydatwx
 
 
 ```
 
-@tbl-keydatax shows the difference between male and female in the key variables.In each case the lower gradient of the relationship between the variable and Sex is statistically significant.
-
 ## Analysis of Key Variables by Age
-
-```{r tbl-keydataA, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-keydataA
-#| tbl-cap: "Table showing the key variables by age group showing differences between exposure and outcome in different age groups"
-
-keydatwA <-tbl_svysummary(ndns_1_11d,agegad3, include = c(Sodiummg,Epcnt_4,UPF3,omsysval))
-keydatwA <-as_flex_table( add_p(keydatwA))
-keydatwA
-
-```
 
 @tbl-tbl-keydataA shows the age distribution of exposure to sodium and UPF.
 Peak sodium exposure in the 19-35 age group.
@@ -1749,13 +1756,27 @@ The outcome BP rises through life.
 This shows that whilst the BP goes up across the age categories, the UPF intake decreases.
 The changes in sodium content are particularly interesting as they show that the older age groups have much lower sodium intake, but the highest sodium intake in in the second group, with the first and third being statistically no different.
 
+```{r tbl-keydataA, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-keydataA
+#| tbl-cap: "Key variables by age group from NDNS 2008-2018"
+
+keydatwA <-tbl_svysummary(ndns_1_11d,agegad3, include = c(Na,UPF,UPF3,BP))
+keydatwA <-as_flex_table( add_p(keydatwA))
+keydatwA
+
+```
+
 ## Analysis of Key Variables by Place
+
+@tbl-datap shows the UPF exposure is highest in Northern Ireland and lowest in London.
+The sodium exposure is highest in Scotland and lowest in London.
+Outcome BP is also lowest in London, with the highest in the North East.
 
 ```{r tbl-keydatap, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-keydatap
-#| tbl-cap: "Table of key variables by age place showing differing exposure and outcome by place"
+#| tbl-cap: "Key variables by government region from NDNS 2008-2018"
 
-keydatwp <-tbl_svysummary(ndns_1_11d,gor, include = c(Sodiummg,Epcnt_4,UPF3,omsysval))
+keydatwp <-tbl_svysummary(ndns_1_11d,gor, include = c(Na,UPF,UPF3,BP))
 
 keydatwp <-as_flex_table( add_p(keydatwp))
 keydatwp
@@ -1763,66 +1784,37 @@ keydatwp
 
 ```
 
-@tbl-datap shows the UPF exposure is highest in Northern Ireland and lowest in London.
-The sodium exposure is highest in Scotland and lowest in London.
-Outcome BP is also lowest in London, with the highest in the North East.
-
-
-
-
-
 ## Paired Regression of variables on each other
-
-```{r dag2, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-dag2
-#| fig-cap: "diagram of the relationships explored by the analysis"
-bp1 <- dagitty(" dag {
-               Na -> BP
-               Age -> BP
-               Sex -> BP
-               UPF -> BP
-               UPF -> Na
-               Age -> UPF
-               Sex -> UPF
-               BP -> NCD
-               Age -> Na
-}")
-plot(graphLayout(bp1))
-
-```
-
-@fig-dag2 shows the range of relationships explored by the paired regressions.
 
 Simple linear regression equations look for the relationship between the outcome BP, and the independent exposure variable.
 
-
-```{r tbl-univariable-regressions, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-univariable-regressions
-#| tbl-cap: "regressions in pairs between key variables full population showing direction and strength of relationships"
+```{r tbl-univariable-regressionsb, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-univariable-regressionsb
+#| tbl-cap: "regressions in pairs between key variables full population showing direction and strength of relationships NDNS data 2008-2019"
 #univariable regression models
 #UPF Energy % only
-lm1E <- svyglm(omsysval ~ Epcnt_4, ndns_1_11d)
+lm1E <- svyglm(BP ~ UPF, ndns_1_11d)
 lm1Et <- tbl_regression(lm1E)
 #univariable regression models
 #sodium only
-lm1na <- svyglm(omsysval ~ Sodiummg, ndns_1_11d)
+lm1na <- svyglm(BP ~ Na, ndns_1_11d)
 lm1nat <- tbl_regression(lm1na)
 
-lmEna <- svyglm(Epcnt_4 ~ Sodiummg, ndns_1_11d)
+lmEna <- svyglm(UPF ~ Na, ndns_1_11d)
 lmEnat <- tbl_regression(lmEna)
 
-lmA <- svyglm(omsysval ~ Age, ndns_1_11d)
+lmA <- svyglm(BP ~ Age, ndns_1_11d)
 lmAt <- tbl_regression(lmA)
 
-lmEA <- svyglm( Age ~ Epcnt_4, ndns_1_11d)
+lmEA <- svyglm( Age ~ UPF, ndns_1_11d)
 lmEAt <- tbl_regression(lmEA)
 
-lmNaA <- svyglm(Sodiummg ~ Age, ndns_1_11d)
+lmNaA <- svyglm(Na ~ Age, ndns_1_11d)
 lmNaAt <- tbl_regression(lmNaA)
 
 #row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Na"))
 #row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Na"))
-as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt),group_header = c("BP/Na","UPF/Na","UPF/bp","UPF/Age","Age/BP","Age/Na")))
+#as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt),group_header = c("BP/Na","UPF/Na","UPF/bp","UPF/Age","Age/BP","Age/Na")))
 ```
 
 The regression model for Sodium against BP shows that there is no linear relationship between Sodium and BP in this table @tbl-univariable-regressions.
@@ -1834,42 +1826,42 @@ There is also a negative relationship with Age, again statistically significant.
 Age has a relationship with BP with a statistically significant positive gradient.
 There is also a positive relationship with Na, which is also statistically significant to the 95% level.
 
-```{r tbl-more-univariable-regressions, echo=FALSE, message=FALSE, warning=FALSE}
+```{r tbl-univariable-regressions, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-more-univariable-regressions
-#| tbl-cap: "pair regressions of BP, Na and UPF againt Age, bmi, educfinh full population"
+#| tbl-cap: "pair regressions of BP, Na and UPF against Age, bmi, educfinh full population NDNS data 2008-2019"
 #univariable regression models
 #UPF Energy % only
-lm1bmi <- svyglm(omsysval ~ bmival, ndns_1_11d)
+lm1bmi <- svyglm(BP ~ bmival, ndns_1_11d)
 lm1bmit <- tbl_regression(lm1bmi)
 #univariable regression models
 #sodium only
-lm1Ag1 <- svyglm(omsysval ~ agegad1, ndns_1_11d)
+lm1Ag1 <- svyglm(BP ~ agegad3, ndns_1_11d)
 lm1Ag1t <- tbl_regression(lm1Ag1)
 
-lmEbmi <- svyglm(Epcnt_4 ~ bmival, ndns_1_11d)
+lmEbmi <- svyglm(UPF ~ bmival, ndns_1_11d)
 lmEbmit <- tbl_regression(lmEbmi)
 
-lmed <- svyglm(omsysval ~ educfinh, ndns_1_11d)
+lmed <- svyglm(BP ~ educfinh, ndns_1_11d)
 lmedt <- tbl_regression(lmed)
 
-lmEs <- svyglm(Epcnt_4 ~ agegad1, ndns_1_11d)
+lmEs <- svyglm(UPF ~ agegad3, ndns_1_11d)
 lmEst <- tbl_regression(lmEs)
 
-lmEed <- svyglm(Epcnt_4 ~ educfinh, ndns_1_11d)
+lmEed <- svyglm(UPF ~ educfinh, ndns_1_11d)
 lmEedt <- tbl_regression(lmEed)
 
-lmNabm <- svyglm(Sodiummg ~ bmival, ndns_1_11d)
+lmNabm <- svyglm(Na ~ bmival, ndns_1_11d)
 lmNabmt <- tbl_regression(lmNabm)
 
-lmNaed <- svyglm(Sodiummg ~ educfinh, ndns_1_11d)
+lmNaed <- svyglm(Na ~ educfinh, ndns_1_11d)
 lmNaedt <- tbl_regression(lmNaed)
 
-lmNaAg <- svyglm(Sodiummg ~ agegad1, ndns_1_11d)
+lmNaAg <- svyglm(Na ~ agegad3, ndns_1_11d)
 lmNaAgt <- tbl_regression(lmNaAg)
 
 #row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Na"))
 #row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Na"))
-as_flex_table(tbl_stack(list(lm1bmit,lm1Ag1t,lmedt,lmEbmit,lmEst,lmEedt,lmNabmt,lmNaAgt,lmNaedt),group_header = c("BP/bmi","BP/Agg1","BP/ed","UPF/bmi","UPF/age","UPF/ed","Na/bmi","Na/Agg","Na/ed")))
+as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt,lm1bmit,lm1Ag1t,lmedt,lmEbmit,lmEst,lmEedt,lmNabmt,lmNaAgt,lmNaedt),group_header = c("BP/Na","UPF/Na","UPF/bp","UPF/Age","Age/BP","Age/Na","BP/bmi","BP/Agg1","BP/ed","UPF/bmi","UPF/age","UPF/ed","Na/bmi","Na/Agg","Na/ed")))
 ```
 
 In conclusion the linear regression models show that there are correlations between the systolic BP and energy intake only.
@@ -1901,21 +1893,24 @@ theme_gtsummary_mean_sd()
 #sodium only
 lmna <- svyglm( hyp ~ hiNa  +Sex +agegad3 + bmival+educfinh+  EIMD_2010_quintile+bpd ,family = binomial(link = "logit"), ndns_1_11d,na.action = na.exclude)
 
-lmnaE <- svyglm(hyp ~ hiNa +Sex +agegad3+UPF2 + bmival +educfinh+ EIMD_2010_quintile +bpd ,family = binomial(link = "logit"), ndns_1_11d,na.action = na.exclude)
+lmnaE <- svyglm(hyp ~ hiNa +Sex +agegad3+UPF3 + bmival +educfinh+ EIMD_2010_quintile +bpd ,family = binomial(link = "logit"), ndns_1_11d,na.action = na.exclude)
 
-lmME <- svyglm( hyp~ UPF2 +agegad3+Sex + bmival +educfinh + EIMD_2010_quintile +bpd,family = binomial(link = "logit"), ndns_1_11d,na.action =na.exclude)
+lmME <- svyglm( hyp~ UPF3 +agegad3+Sex + bmival +educfinh + EIMD_2010_quintile +bpd,family = binomial(link = "logit"), ndns_1_11d,na.action =na.exclude)
+
+#lmME2 <- svy_vglm(UPF3 ~ hyp+hiNa +agegad3+Sex + bmival +educfinh + EIMD_2010_quintile +bpd,family = multinomial(refLevel=1),design= ndns_1_11d,na.action =na.exclude)
+#tbl_regression(lmME2)
 
 ```
 
 ```{r tbl-multivariable-outputs-bp, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-multivariable-outputs-bp
-#| tbl-cap: "Table of multivariable regression against BP in 4 models to identify the effects realting to Na and UPF"
-lm1ASt <-tbl_regression(lm1AS)
-lmnat <- tbl_regression(lmna)
-lmnaEt <- tbl_regression(lmnaE)
-lmMEt <- tbl_regression(lmME)
+#| tbl-cap: "Table of multivariable regression against BP in 4 models to identify the effects relating to Na and UPF NDNS data 2008-2019"
+lm1ASt <-tbl_regression(lm1AS,exponentiate = TRUE)
+lmnat <- tbl_regression(lmna,exponentiate = TRUE)
+lmnaEt <- tbl_regression(lmnaE,exponentiate = TRUE)
+lmMEt <- tbl_regression(lmME,exponentiate = TRUE)
 
- as_flex_table(  tbl_merge(list(lm1ASt,lmnat,lmMEt,lmnaEt), tab_spanner = c("No sodium or UPF","Sodium only","Epcnt only","Sodium and UPF")))
+ as_flex_table(  tbl_merge(list(lm1ASt,lmnat,lmMEt,lmnaEt), tab_spanner = c("No Na or UPF","Na only","UPF only","Na and UPF")))
 ```
 
 This first set of models are in @tbl-multivariable-outputs-bp and look at what happens when regression against BP is used.
@@ -1933,59 +1928,16 @@ Again there are minimal effects on the other variables.
 
 The last set of columns, "Sodium and UPF", shows that when combined there is still little effect identified statistically, on each other or on the other variables.
 
-
-
-```{r AIC-comparison, echo=FALSE, message=FALSE, warning=FALSE}
-
+```{r tbl-AIC-comparison, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-AIC-comparison
+#| tbl-cap: "Table of AIC NDNS data 2008-2019"
 
 AICt<- data.table("Model"=c("BP1:No sodium or UPF","BP1:Sodium only","BP1:Epcnt only","BP1:Sodium and UPF"),"AIC" =c(lm1AS$aic, lmna$aic,lmME$aic,lmnaE$aic))
 flextable(AICt)
 ```
 
-### simple set Regression on BP
-
-```{r regression-on-BPs, echo=FALSE, message=FALSE, warning=FALSE}
-
-
-
-
-
-#sodium only
-lmnaj <- svyglm( hyp ~ Sodiummg + agegad3 +bpd, ndns_1_11d,family = binomial(link = "logit"),na.action = na.exclude)
-
-lmnaEj <- svyglm(hyp ~ Sodiummg +Epcnt_4 +agegad3+bpd,family = binomial(link = "logit"), ndns_1_11d,na.action = na.exclude)
-
-lmMEj <- svyglm( hyp~ Epcnt_4 +agegad3 +bpd,family = binomial(link = "logit"), ndns_1_11d,na.action =na.exclude)
-#lmnaja  <-      anova(lmnaj)
-#lmnaja
-```
-
-```{r tbl-multivariable-output-BPs, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-multivariable-output-BPs
-#| tbl-cap: "multivariable-outputs BP"
-
-lmnajt <- tbl_regression(lmnaj)
-lmnaEjt <- tbl_regression(lmnaEj)
-lmMEjt <- tbl_regression(lmMEj)
-
- as_flex_table(  tbl_merge(list(lmnajt,lmMEjt,lmnaEjt), tab_spanner = c("Sodium only","UPF only","Sodium and UPF")))
-```
-next
-```{r AIC-comparison-AS, echo=FALSE, message=FALSE, warning=FALSE}
-
-
-AICjt<- data.table("Model"=c("BP:Sodium only","BP:UPF only","BP:Sodium and UPF"),"AIC" =c( lmnaj$aic,lmMEj$aic,lmnaEj$aic))
-AICjt
-
-```
-
-This set of regressions @tbl-multivariable-output-BPs follows the pattern but omits the baseline as those variables are all excluded.
-
-The AIC values @tbl-AIC-comparison-AS are all significantly higher, which may indicate that these models are actually less close to an accurate description of the source data.
-
 The 'best' of these models is that with only sodium included.
 The UPF models both being further away from the lowest value.
-
 
 The AIC values @tbl-AIC-comparison-upf in models with BP are the lowest of all the models presented.
 This identifies the regression against UPF including Na and BP as the best model.
@@ -2012,34 +1964,13 @@ sense3
 
 Of the difference between the lowest scoring model and the highest 55% is due to Na and 45 % to UPF
 
-
 The difference between the two values as a proportion of the larger is `r sense1` %.
 There is a significant sensitivity of the data set to improved modelling.
 Though the set of models around the same values includes the four regressed against BP, and two of those against UPF which include BP.
 
-## Summary of Results
-
-@tbl-keydata with means for the key variables across the dataset showing a reduction across the cohorts.
-This is less evident in the plots, but the @tbl-Key-Variables-by-Survey-year shows statistical analysis of the key variables shows the reduction.
-
-@tbl-continuous-data and @tbl-Categorical-variables-year show the other variables analysed and show that there has been change in the balance of the populations.
-
-Analysis by Sex shows that female sex always reduces BP.
-When analysed by age, UPF reduces, BP increases, as does Na though with a more complex relationship.
-Analysis by place shows that most areas are similar, but with London as an outlier.
-
-Paired regression, @tbl-univariable-regressions, shows that sodium intake has no relationship with BP or UPF with Na.
-It shows that UPF intake decreases with age, and UPF decreases with BP.
-It also shows that the change of BP with age and with Na are positive
-
-The sets of models of multivariable regressions show that the model regressed on UPF including Na and BP has the lowest AIC.
-The highest AIC statistic is for the model regressed against Na without BP or UPF.
-
 \newpage
 
 # Discussion
-
-## Introduction to Discussion
 
 This section will consider what the results mean.
 That will include how the context of the literature influences understanding of the values.
@@ -2102,12 +2033,6 @@ These show the change from excluding Na and UPf to adding each individually and 
 They are all statistically significant when Age is excluded.
 
 This means that the all have effects on the systolic blood pressure, but the effect of UPF and that of Age is closely intertwined.
-
-### simple set BP
-
-### analysis for Sodium
-
-### analysis for UPF
 
 ## Limitations of Study
 
