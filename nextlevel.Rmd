@@ -1,12 +1,11 @@
 ---
 title: "Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
-  pdf_document: 
+  word_document: 
     toc: yes
     fig_caption: yes
-    number_sections: yes
-    keep_tex: yes
-    latex_engine: xelatex
+    keep_md: yes
+    toc_depth: 4
     fig_width: 4
     fig_height: 4
   html_notebook: 
@@ -21,11 +20,12 @@ output:
     keep_md: yes
     fig_width: 4
     fig_height: 4
-  word_document: 
+  pdf_document: 
     toc: yes
     fig_caption: yes
-    keep_md: yes
-    toc_depth: 4
+    number_sections: yes
+    keep_tex: yes
+    latex_engine: xelatex
     fig_width: 4
     fig_height: 4
 editor_options: 
