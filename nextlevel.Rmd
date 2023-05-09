@@ -1,27 +1,33 @@
 ---
 title: "Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
-  html_document: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    keep_md: yes
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    code_folding: hide
-  word_document: 
-    toc: yes
-    fig_caption: yes
-    keep_md: yes
-    toc_depth: 4
   pdf_document: 
     toc: yes
     fig_caption: yes
     number_sections: yes
     keep_tex: yes
     latex_engine: xelatex
+    fig_width: 4
+    fig_height: 4
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    code_folding: hide
+  html_document: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    keep_md: yes
+    fig_width: 4
+    fig_height: 4
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
+    toc_depth: 4
+    fig_width: 4
+    fig_height: 4
 editor_options: 
   markdown: 
     wrap: sentence
@@ -239,11 +245,13 @@ My search terms are included in the table below.
 They were searched through a meta database which includes Medline, and Ovid and Scopus.
 This meta database enables an ongoing search which is able to send messages about new articles as they are published.
 
-| Search Terms Used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|------------------------------------------------------------------------|
-| "ultra-processed food" OR "ultra-processed foods" OR "ultraprocessed food" OR "ultraprocessed foods" OR "ultra-processed product" OR "ultra-processed products" OR "ultra-processing" OR "food processing" OR "processed food" OR "processed foods" OR "NOVA" OR "NOVA system" OR "NOVA food classification" OR "NOVA classification system") AND (hypertension OR "high blood pressure" OR "high blood pressures" OR "blood pressure" OR "systolic pressure" OR "diastolic pressure" OR "systolic blood pressure" OR "diastolic blood pressure") AND (adult OR adults OR aged OR "middle aged" OR elderly OR "older adult" |
+```{r tbl-search-terms,warning=FALSE,include=TRUE}
+#| label: tbl-search-terms
+#| caption: "Table of Search terms used"
 
-Table 2.1: Table of search terms used
+search1 <- data.table("Search Terms Used "="\"ultra-processed food\" OR \"ultra-processed foods\" OR \"ultraprocessed food\" OR \"ultraprocessed foods\" OR \"ultra-processed product\" OR \"ultra-processed products\" OR \"ultra-processing\" OR \"food processing\" OR \"processed food\" OR \"processed foods\" OR \"NOVA\" OR \"NOVA system\" OR \"NOVA food classification\" OR \"NOVA classification system\") AND (hypertension OR \"high blood pressure\" OR \"high blood pressures\" OR \"blood pressure\" OR \"systolic pressure\" OR \"diastolic pressure\" OR \"systolic blood pressure\" OR \"diastolic blood pressure\") AND (adult OR adults OR aged OR \"middle aged\" OR elderly OR \"older adult\"")
+flextable(search1)
+```
 
 ### Search results
 
@@ -1605,7 +1613,7 @@ There are a significant number of unknowns, 7196 out of a sample of 15,655.
 These key variables are now compared between the cohorts fist in tbl-keydata.
 
 ```{r tbl-setup, include=FALSE,echo=FALSE,message=FALSE}
-keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Na,UPF,BP))
+#keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Na,UPF,BP))
 
 
 ```
@@ -1615,8 +1623,8 @@ keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Na,UPF,BP))
 #| tbl-cap: "Table showing key variables by survey year"
 
 
-keydatw <-as_flex_table( keydatw)
-keydatw
+#keydatw <-as_flex_table( keydatw)
+#keydatw
 
 
 ```
@@ -1691,19 +1699,19 @@ The differences in IMD, are not statistically significant.
 
 @tbl-Categorical-variables-year identifies a significant difference in the number of vegetarians.
 
-```{r}
-library(svyVGAM)
-sexy <- svy_vglm(Sex ~SurveyYear , family=multinomial(refLevel=2), design=ndns_1_11d)
-sexy
-eduy <-svy_vglm(educfinh~SurveyYear , family=multinomial(refLevel=1),design= ndns_1_11d)
-eduy
-imdy <- svy_vglm(~EIMD_2010_quintile+SurveyYear ,family=multinomial(refLevel=1),design= ndns_1_11d)
-vegy <- svy_vglm(~vegetarn+ SurveyYear ,family=multinomial(refLevel=1),design= ndns_1_11d)
-UPF3y <- svy_vglm(UPF3~ SurveyYear , family=multinomial(refLevel=1), design= ndns_1_11d)
-UPF3y
-agegad3y <- svy_vglm(~agegad3+ SurveyYear ,family=multinomial(refLevel=1),design= ndns_1_11d)
-hypy <- svy_vglm(hyp~SurveyYear , family=multinomial(refLevel=2), design=ndns_1_11d)
-hypy
+```{r multinomial-regression,echo=FALSE,include=FALSE,warning=FALSE}
+#library(svyVGAM)
+#sexy <- svy_vglm(Sex ~SurveyYear , family=multinomial(refLevel=2), design=ndns_1_11d)
+#sexy
+#eduy <-svy_vglm(educfinh~SurveyYear , family=multinomial(refLevel=1),design= ndns_1_11d)
+#eduy
+#imdy <- svy_vglm(~EIMD_2010_quintile+SurveyYear ,family=multinomial(refLevel=1),design= ndns_1_11d)
+#vegy <- svy_vglm(~vegetarn+ SurveyYear ,family=multinomial(refLevel=1),design= ndns_1_11d)
+#UPF3y <- svy_vglm(UPF3~ SurveyYear , family=multinomial(refLevel=1), design= ndns_1_11d)
+#UPF3y
+#agegad3y <- svy_vglm(~agegad3+ SurveyYear ,family=multinomial(refLevel=1),design= ndns_1_11d)
+#hypy <- svy_vglm(hyp~SurveyYear , family=multinomial(refLevel=2), design=ndns_1_11d)
+#hypy
 ```
 
 
@@ -1953,8 +1961,8 @@ Though the size of the difference is tiny.
 ```{r AIC-sense1, echo=TRUE, message=FALSE, warning=FALSE}
 
 #AIC(lmM,lmMna,lmM2)
-sense1 <- (lm1AS2$aic - lmnaE3$aic)*100/lm1AS2$aic 
-sense1
+#sense1 <- (lm1AS2$aic - lmnaE3$aic)*100/lm1AS2$aic 
+#sense1
 
 sense2 <- (lmnaE$aic-lmna$aic)*100/(lmnaE$aic-lm1AS$aic)
 sense2
@@ -1965,7 +1973,7 @@ sense3
 
 Of the difference between the lowest scoring model and the highest 55% is due to Na and 45 % to UPF
 
-The difference between the two values as a proportion of the larger is `r sense1` %.
+The difference between the two values as a proportion of the larger is `r sense2` %.
 There is a significant sensitivity of the data set to improved modelling.
 Though the set of models around the same values includes the four regressed against BP, and two of those against UPF which include BP.
 
