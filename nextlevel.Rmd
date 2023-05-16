@@ -1,6 +1,11 @@
 ---
 title: "Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    code_folding: hide
   word_document: 
     toc: yes
     fig_caption: yes
@@ -8,11 +13,6 @@ output:
     toc_depth: 4
     fig_width: 4
     fig_height: 4
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    code_folding: hide
   html_document: 
     toc: yes
     fig_caption: yes
@@ -66,15 +66,18 @@ To Paul
 
 # Abstract {.unnumbered}
 
-The study showed that there is a correlation between UPF intake and BP, which disappears when Age is a covariable.
-It also showed that sodium intake has no correlation with BP as an isolated variable, but that it is important within multivariable models.
+This study shows that the odds ratio between high Na intake and high BP is 7.71(CI 2.12,28.0).It also shows that UPF has no statistically significant correlation with high BP within a multivariable logistic regression model.
 
-The study shows a complex relationship between UPF intake and population risk of BP and CVD.
-It also shows that reduction of the sodium content may be effective at reducing the overall risk.
+In univariable regression UPF shows a negative gradient with BP, and a stronger negative gradient with age balancing the relationship between age and BP.
+This suggests interaction between UPF, Na and Age.
 
-This is a secondary data study the national dietary and nutrition survey @universityofcambridge2022 of looked at BP and the effects of UPF and Na.BP is clinical, and a proxy measure for CVD.
+Reduction of sodium intake may be effective at reducing the overall risk.
 
-Policy should aim to reduce percentage intake of UPF and increase percentage intake of unprocessed foods.
+This is a secondary data study the national dietary and nutrition survey @universityofcambridge2022 which looked at BP and the effects of UPF and Na.
+BP is in important clinical and public health measurement, and is a proxy measure for CVD.
+
+Policy should aim to reduce intake of Na and UPF and increase percentage intake of unprocessed foods.
+The accompanying literature review discusses aspects of policy and their effectiveness.
 
 ```{=tex}
 \tableofcontents
@@ -86,10 +89,15 @@ Policy should aim to reduce percentage intake of UPF and increase percentage int
 
 # Introduction
 
-There is thought to be an association between blood pressure (BP) and intake of Ultra-processed Foods (UPF) and Salt intake.
-This study looks at this association in the data set of the National dietary and nutrition survey (@universityofcambridge2022 ).The study gives data from 2008 to 2019.
-There have been changes in the intake of UPF, of salt and BP over that time.This study will describe those changes.As part of this description, I will identify how BP is affected by these key dietary factors.
-I will attempt to identify the role salt intake plays in the effect of ultraprocessed food on BP.
+There is evidence of an association between blood pressure (BP) and intake of Ultra-processed Foods (UPF) @du2014 and BP and Salt intake @cappuccio2015 from studies of different types in multiple countries.
+This study looked at this association in the data set of the National dietary and nutrition survey (@universityofcambridge2022 ).The study gives data from 2008 to 2019.
+There have been changes in the intake of UPF, of salt and BP over that time.This study described those changes.
+As part of this description, I identify how BP is affected by these key dietary factors.
+I identify the role salt intake plays in the effect of ultraprocessed food on BP.
+
+It seems that there are relationships between UPF, Na and BP and an onward relationship to non-communicable disease.
+There is an underlying importance of age and sex.
+This study explored this complex web pulling out strands within it, @fig-diag1 shows a possible arrangement of this.
 
 ```{r library,include=FALSE}
 library(haven)
@@ -114,67 +122,66 @@ library(dplyr)
 #| fig-cap: "The relationships explored in the analysis"
 
 bp1 <- dagitty(" dag {
-               Na -> BP
-               Age -> BP
-               Sex -> BP
-               UPF -> BP
-               UPF -> Na
-               Age -> UPF
-               Sex -> UPF
-               BP -> NCD
-               Age -> Na
+               Sodium -> Blood_Pressure
+               Age -> Blood_Pressure
+               Sex ->  Blood_Pressure
+               UltraProcessed_Food ->  Blood_Pressure
+             UltraProcessed_Food  <-> Sodium
+               Age ->  UltraProcessed_Food
+               Sex ->  UltraProcessed_Food 
+               Blood_Pressure -> non_communicable_Disease
+               Age -> Sodium
+               Sex -> Sodium
+               
 }")
 plot(graphLayout(bp1))
 
 ```
 
-@fig-diag1 shows a possible arrangement of the relationships between UPF, Na and BP highlighting the onward relationship to non-communicable disease, and the underlying importance of age and sex.
-This paper will seek to explore this complex web by pulling out strands within it.
+## Public Health Impact
 
-### Public Health Impact
-
-The key Public Health aim is to reduce the burden of ill health across the population.
+Public Health aims to reduce the burden of ill health across the population.
 BP is an indicator of the health of the population, in that it is a risk factor for a number of non-communicable diseases (NCD) @cappuccio2015 .
 
 Dietary approaches to improving public health are able to deliver proportionate and universal interventions to populations to reduce the incidence of NCD.
-These can be delivered up stream at the policy level.
-This is effective and efficient and minimises cost.
+When delivered up stream at the policy level they are effective and efficient and minimise cost.
 
 Dietary approaches can also be used by individuals.
-This approach risks the development of a culture of blame of individuals whose choices are limited by systems outside of their control.
+This approach risks the development of a culture of blame of individuals.
 The commercial and social determinants of health play out a significant role in research, and delivery of public health improvements around food @marmot2010 .
 
-### Epistemology
+## Epistemology
 
 The epistemological approach of this study is positivist.
 I use a quantitative approach in a mechanistic and deterministic model.
 However, I am aware that this model is an incomplete description of the whole of reality.
-So that whilst I work within this positivist framework, I am aware that the model is limited by the isolation which defines the parameters of the study.
+I am aware that the paradigm encourages experimental isolation.
+This attempts to isolate the study from the world through control of explanatory variables.
 
-In particular I am aware that real world application to dietary change requires interaction with social and economic factors.
-These factors are often much better understood within critical realist and social constructionist models.
-The commercial and social determinants of health are both constructionist models which have a great deal of impact on the reality of dietary effects on BP and on the availability of UPF and on their nutritional constituents.
+Real world application to dietary change requires understanding interaction with social and economic factors.
+Critical realist and social constructionist studies are needed to complement the information from this study.
+The commercial and social determinants of health are models which have a great deal of impact on the reality of dietary effects on BP and on the availability of UPF and on their nutritional constituents.
 
-### Positionality
+## Positionality
 
-In a positivist paradigm the observer is external to the model.
+In a positivist paradigm the observer is external to the experiment.
 Acknowledging that there are constructivist aspects to this study allows that the observer is closer to the model.
-My positionality is therefore of interest to interpretation of the derived model, but also to understand reasons for decisions about the approach to the data.
+My positionality is therefore of interest to interpretation of the model, and also to understand reasons for decisions about the approach to the data.
 I share with Jafar @jafar2018 an intention to lead in describing my positionality in this quantitative study.
 
-I am from a biomedical background, which brings an attachment to positivist ideals.
-However, as a practising physician I am aware of the interaction of any number of social factors on the health of participants as Evans and Trotter @evans discuss .
+From a biomedical background, I bring an attachment to positivist ideals.
+However, as a practising physician I am aware of the interaction of any number of social factors on the health of participants as Evans and Trotter @evans discuss.
 These impact on food 'choices', which might be determined by social expectations as much as by income, or geography.
 They also impact on 'hard' clinical measurements such as BP.
-This can be affected by position and room temperature as well as by the relationship between the observer and the participant.
+This can also be affected by position and room temperature as well as by the relationship between the observer and the participant.
 
 This work is primarily to complete requirements for an MPH degree which means that it is influenced by factors around health equity and classic epidemiology as taught on the course.
 It is produced in collaboration with a research group with a long established reputation in food research in public health, which may steer the results in a conservative direction.
 
 Positivist 'grand isolation' may reduce the influence of these factors, but they remain as influences.
 
-I accept that to proceed, whilst I need to be aware of the limitations of the positivist approach and the necessity of making pragmatic selections that there is some degree of validity to the resulting dataset.
-Otherwise, analysis of it would be of no purpose.
+To proceed, I need to be aware of the limitations of the positivist approach.
+I need to make pragmatic selections to bring some degree of validity to the resulting dataset.
 
 ## University Research Governance and Ethical Review
 
@@ -203,15 +210,13 @@ Answering the question starts with collecting a sample of participants.
 Measurements are taken, and then collated.
 The collected numbers are then compared in different ways to answer each part of the question.
 
-## Aims and Objectives
+## Key Objectives
 
-Key objectives of the research are
+1 Literature Review of UPF and BP, with Na
 
-1 Systematic literature review of UPF and blood pressure, with salt
+2 Descriptive analysis of subjects from NDNS with amalgamation of data across the rolling programme.
 
-2 Descriptive analysis of subjects from NDNS with amalgamation of data across the rolling programme: salt and UPF consumption and BP.
-
-3 Analysis for correlation between UPFs intake and mean systolic blood pressure values using regression models incorporating salt in different ways.
+3 Analysis for correlation between UPF and BP using regression models incorporating Na in different ways.
 
 4 Discussion of implications of results in relation to limitations of study and data as well as suggestions for further research
 
@@ -221,44 +226,45 @@ Key objectives of the research are
 
 # Literature Review
 
-## Introduction
-
-This section will describe the search strategy and techniques used to identify articles to make up the review.
-Then there will be a review of separate sections of the literature, before developing a synthesis of the literature at present and explanation on how it relates to the research question.
-
 ## Search Strategy
 
-The search strategy has a core systematic approach but is augmented with additional items from a range of sources.
-The success of the search is that it identifies a wide variety of articles which help to outline and augment the argument developed.
+The search strategy has a core systematic approach augmented with additional items from a range of sources.
+The search identified a wide variety of articles, which outlined and augmented the review.
 
-My search aims to identify most of the related articles.
-Starting with a broad search strategy, the results are narrowed identifying those of particular relevance, by reading abstracts and cross referencing with other papers.
-Also, after discussion colleagues passed on further relevant literature.
+The search identified many related articles.
+The terms used are in @tbl-search-terms.
+Starting with a broad search strategy, the results were narrowed.
+Those of particular relevance were identified by reading abstracts and cross referencing with other papers.
+Colleagues identified further relevant literature.
 
-In addition, I identify papers from the bibliographies of identified papers.
-Reviews and meta-analyses are good at presenting search strategies and identifying high value studies.
+Additional papers were identified from the bibliographies of relevant papers.
+Reviews and meta-analyses presented search strategies and identified highly relevant studies.
 
-These identify search terms not initially included.
-Despite limiting the search to high blood pressure many of these searches consider broader clinical endpoints, using metabolic syndrome, diabetes and cerebrovascular and cardiovascular disease.
+The search was limited to to high blood pressure, however, many papers consider broader clinical endpoints.
+These included metabolic syndrome, diabetes and cerebrovascular and cardiovascular disease.
 
-My search terms are included in the table below.
-They were searched through a meta database which includes Medline, and Ovid and Scopus.
-This meta database enables an ongoing search which is able to send messages about new articles as they are published.
+My search terms are included in @tbl-search-terms below.
+They were searched through a university meta database which includes Medline, and Ovid and Scopus.
+This meta database includes an ongoing search sends notification of articles as they are published.
 
-```{r tbl-search-terms,warning=FALSE,include=TRUE}
+```{r tbl-search-terms, message=FALSE, warning=FALSE, include=FALSE}
 #| label: tbl-search-terms
 #| caption: "Table of Search terms used"
 
 search1 <- data.table("Search Terms Used "="\"ultra-processed food\" OR \"ultra-processed foods\" OR \"ultraprocessed food\" OR \"ultraprocessed foods\" OR \"ultra-processed product\" OR \"ultra-processed products\" OR \"ultra-processing\" OR \"food processing\" OR \"processed food\" OR \"processed foods\" OR \"NOVA\" OR \"NOVA system\" OR \"NOVA food classification\" OR \"NOVA classification system\") AND (hypertension OR \"high blood pressure\" OR \"high blood pressures\" OR \"blood pressure\" OR \"systolic pressure\" OR \"diastolic pressure\" OR \"systolic blood pressure\" OR \"diastolic blood pressure\") AND (adult OR adults OR aged OR \"middle aged\" OR elderly OR \"older adult\"")
-flextable(search1)
+#flextable(search1)
+png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/test.png")
+save_as_image(width(autofit(flextable(search1)), width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/temp.png")
 ```
 
 ### Search results
 
-This search produced 1328 results the search allowed medical, public health, nursing articles to be prioritised and engineering, chemical, and technology articles to be deprioritised.
+The search produced 1328 results.
+The search allowed medical, public health, nursing articles to be prioritised.
+Engineering, chemical, and technology articles were deprioritised.
 
-There were no time limits, language limits or availability limits in the initial search.
-These 1328 were reduced down by reading titles and abstracts to identify relevant articles.
+No time limits, language limits or availability limits were included in the initial search.
+Reading titles and abstracts identified relevant articles.
 
 Papers were excluded which related to technology including food technology.
 They were also excluded if the primary purpose of the paper was unrelated to dietary or nutritional causes of clinical outcomes.
@@ -266,12 +272,17 @@ They were also excluded if the primary purpose of the paper was unrelated to die
 ## Overview of literature
 
 The literature has developed over some time.
-The results arrange themselves therefore into several groups.
-Firstly there are those which describe the development of the argument that salt relates to BP and so to NCD.
-UPF is a recent phrase developed within the Nova framework which was described in 2009 so the arguments around UPF and its relation to BP and so NCD are more recent.
-This later group build on the earlier work, but importantly they only superficially analyse the way that UPF and salt interact.
+The results arrange themselves into several groups.
+The oldest are those which describe the development of the argument that Na relates to BP and to NCD.
+UPF is a recent concept developed within the Nova framework which was described in 2009.
+Hence articles around UPF and its relation to BP and NCD are more recent.
+This later group do build on earlier work.
+Importantly they analyse the way that UPF is correlated with BP.
+They don't go into how Na might be involved in this relationship.
 
-In addition papers may be categorised as primary research, systematic reviews with meta analysis, model analysis, and papers which use the other categories to consider public health policy approaches.
+Papers are also categorised as primary research, systematic reviews with meta analysis, model analysis, and papers which use the other categories to consider public health policy approaches.
+
+### Aims of literature review
 
 -   1 describe literature
 -   2 synthesise literature
@@ -280,74 +291,119 @@ In addition papers may be categorised as primary research, systematic reviews wi
 
 ### Na, BP, NCD and Public Health
 
-```{r dagNa, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-dagNa
-#| fig-cap: "DAG of relationships between BP and Salt"
-
-bp2 <- dagitty(" dag {
-               Na -> BP
-               Age -> BP
-               Sex -> BP
-            
-               BP -> NCD
-               Age -> Na
-}")
-plot(graphLayout(bp2))
-```
-
 Non-communicable disease is an increasing burden on public health.
 @cappuccio2015 layout the charges against salt most clearly.
 They identify comprehensively the connection between changes in salt intake and changes in blood pressure and changes in cardiovascular (CVD) and cerebrovascular diseases.
 They link the nutritional effect of salt but they also identify the way this is affected by social and commercial determinants of health.
 These are branches from different epistemological backgrounds, nutrition from positivism, and the social determinants from a more constructivist approach.
 
-@kannel2009 , @kannel1993, and @mahmood2014 describe how risk factor medicine came about.
+```{r dagNa, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-dagNa
+#| fig-cap: "Diagram of relationships between BP and Salt"
+
+bp2 <- dagitty(" dag {
+               Sodium -> Blood_Pressure
+               Age -> Blood_Pressure
+               Sex -> Blood_Pressure
+               Age -> Sodium
+               Sex -> Sodium
+}")
+plot(graphLayout(bp2))
+
+```
+
+Explaining the role of the Framingham studies Kannel (@kannel2009 , @kannel1993) and Mahmood @mahmood2014 describe how risk factor medicine came about.
 They describe raised blood pressure as a 'prominent member' of a group of risks in cardiovascular disease.
 A disease which is the outcome of 'multiple forces'.
-Their description sees this as part of the march of progress in understanding cardiovascular disease in particular, but also non-communicable disease.
+Their description sees Framingham as part of the march of progress in understanding cardiovascular disease in particular, but also non-communicable disease.
 Kannel identifies that cardiologists alone cannot conquer cardiovascular disease.
-Since then BP has come to feature more and more in NCD, following studies showing that reducing BP reduced the risk of CVD .
-This placed Blood pressure detection, management, and control at the centre of reducing CVD ( @bress2021 , @DebonRaquel2020Eoua , @ettehad2016 , @pringle2003 , @roche2018 ).
+Pringle @pringle2003 shows how stroke risk relates to BP.
 
-The causes of BP, as Kannel explains, are divided into secondary BP where there is an identified pathological cause and 'essential' or idiopathic BP where no cause is identifiable.
+Since then BP has come to feature more and more in NCD, following studies showing that reducing BP reduced the risk of CVD.
+This placed detection, management, and control of BP at the centre of reducing CVD.
+Ettehad @ettehad2016 reported a comprehensive systematic review with 123 studies over 49 years and 613815 participants.
+More contemporary studies look at app use to improve BP monitoring @DebonRaquel2020Eoua.
+Bress @bress2021 clearly identifies that patient trust and engagement are essential in reducing 'race' based inequalities.
+Boutain @boutain2001 identifies stress and worry as important factors for African American men and women.
+In North west England Roche @roche2018 developed quality assurance approaches to BP management which highlight that there are many different approaches to assessment monitoring and control.
+
+Causes come from different epistological paradigms.
+Medically, the causes of BP, as Kannel explains, are divided into secondary BP where there is an identified pathological cause and 'essential' or idiopathic BP where no cause is identifiable.
 Contributors to and partial causes of this essential BP have been sought, at individual and societal levels, using medical and epidemiological approaches ( @who , @bloodpr , @bloodpr2018 ).
-Key factors are often separated into lifestyle causes ( @boutain2001 ), and social determinants( @colombet2022 , @colombet2019 , @ji2014 , @jones2018 , @healthy2017 , @macgregor2015 ).
-Commerce also has a role to play in a causation model which embraces an understanding of causation on a population scale.
 
-Salt is a contributor to the physiology of BP.
-Its role in pathology is less clear.
-There are increasing levels of intake.
-This is correlated with increasing BP readings.
-Other nutrients have also been correlated.
-The role of salt in normal and abnormal BP control is established ( @cappuccio2015 , @intersal1988 , @elliott1996 , ).
-However there remain areas of contention( @newman2017 ).
-There may be individuals with higher sensitivity to salt ( @elijovich2016 ).
-Understanding the best approaches to reducing salt is difficult.
+At the level of physiology, salt (Na) is a contributor to BP.
+The role of salt in normal and abnormal BP control has been established through WHO and Intersalt @intersal1988 with Elliot @elliott1996 updating the findings and repeating the message.
+However news reports such as that of Newman @newman2017 identify contentious aspects.
+Elijovich @elijovich2016 carefully explains how the American Heart Association deals with the idea that there may be individuals with higher sensitivity to salt .
 
-Is it best to get individuals to reduce intake( @yourgui1998, @reports2023 , @vollmer2001 , @sacks2001 , @NilsonEduardoAugustoFernandes2021Eprd ), or for all of the food industry to reduce salt levels( @cappuccio2011 , @he2010 ).
+'Lifestyle' causes, such as Boutain's ( @boutain2001 ) stresses, are reported as a mix of personal 'choice', 'behaviours' and responses to other social factors.
+That is, they are not choices at all.
+Whilst Jones et al. @jones2018 demonstrated that there is a cost to adopting dietary recommendations in the UK.
+Salisbury's editorial @salisbury2022 discusses how commerce also has a role to play in a causation model which embraces an understanding of causation on a population scale.
 
-#### Approach to change
+Personal choice may be affected by taste sensation and satiety.
+Tan @tan2021 discovered that this is difficult to study with a wide range of approaches across their systematic review.
+Nakamura et al. @nakamura2022 used NDNS to explore how alternative flavourings might reduce the use of salt.
 
-Lifestyle factors are contented.
-Whilst individual choice is involved.
-The range of choices available to individuals is limited by the nature of their society.
-A misapplication of lifestyle results in blaming individuals for the poor choices determined by their social and commercial environment.
-Iso @iso1999 looks at how education may be effective in delivering change.
+Reducing salt intake works.
+Vollmer @vollmer2001 reports findings that reduced salt intake can reduce BP in diverse groups in the USA.
+Hendriksen @hendriksen also explored this using Dutch and other European data to support this.
+Laverty et al. @laverty2019 demonstrates how policy reduces salt intake, and how reversal of policy allows intake to increase again.
 
-Instead of trying to change activity of millions of people can be more effective to change laws and policies once ( @instituteofmedicine2010 , @laverty2019 , @millett2012 , @moreira2015 , @instituteofmedicine2013 ).
-These 'upstream' changes are relatively simple, and are much more effective though they can also be reversed ( @cappuccio2015 ).
-Cost is one of the causes of change as shown by Jones @jones2018 using NDNS to identify the cost premium of a good diet as defined by UK dietary recommendation .
-Opposition sometimes comes from industry.
+### Food classification
 
-@laverty2019 and @macgregor2015 showed that an analytical model can effectively demonstrate the effects of different policies on population health.
-They identify that reducing the effectiveness of a policy on salt in food leads to changes in BP and so on to NCD.
+has traditionally concentrated on nutritional analysis eg Nutriscore ( @cuj2021 , @dickie2022, @romeroferreiro2021 , @A.Asma2019Fcsb ).
 
-@campos-nonato2022 identify the benefits of their strategy.
-They discuss the range of nation level approaches to reducing salt intake.
+The social aspect of food has been studied famously by Bourdieu ( @bourdieu2002, @abourdi2021 ).
 
-6.  National Food Strategy, editor. National Food Strategy: part one. $$Internet$$. London: National Food Strategy,; 2020. Available from: <https://www.nationalfoodstrategy.org/partone/>
+The effect of the social and commercial nature of food is partly accounted for in Monteiro's Nova classification.
+Dickie et al( @dickie2023 , @dickie2022 ) tried to develop a system which took this idea further, but struggled to build a model which was any more effective.
 
-### UPF and BP
+Monteiro's initial explanation uses the concept of 'processing' ( @monteiro2009 , @monteiro2016 , @monteiro2010 , @monteiro2013 ).
+In a recent debate @monteiro2022 and @astrup2022 discuss the concept of UPF and if it is valid or useful.
+
+Explanations for the differential effect of these foods have developed as quickly as new ultra-processed foods have been developed .
+Is it due to nutritional content( @aceves-martins2022 )?
+They are high in salt and sugar on average.
+Is it due to effects on satiety, or changes to appetite( @rauber2019 )?
+Do they taste better @bawajeeh2021 ?
+Is it due to being easy to buy, and easy to eat( @wang2021 )?
+Is it because they don't require time and effort in the home to process?
+Is it because these processes are industrial?
+Is it because these foods contain 'chemicals' or new ingredients?
+These explanations move from nutritional through into social and commercial.
+
+Colombet @colombet2022 showed that household income is correlated with UPF intake in the UK as well as exploring the relationship in the French West Indies @colombet2019.
+
+All these critiques are possible because of the social element to the classification.
+Colombet @colombet2022 identify that the intake of UPF has an inequality dimension and then @ColombetZoé2021Dass use modeling to describe a 'nutrition transition'.
+
+Nutrition based classifications appear less socially divisive due to scientific isolation.
+They still contain elements of social factors.
+In particular, the way that foods are analysed can change their reported nutritional content.
+Eg a 'standard' food may be compared to a 'traditionally prepared' food.
+The first is prepared in a factory with control of its nutrition, the second by a home cook with limited access to nutrition modification technology.
+
+Statements about the scheme often discuss the high salt and sugar content.
+Papers discussing the effect on physiology, and pathology in particular highlight these, but they do not back their statements with analysis.
+They do not show that the sodium, and UPF together increase the risk of CVD, or BP rise.
+This dissertation intends to address this gap
+
+@bykershanks2022 show an approach between individual action and changing laws.
+This approach would target those most at risk due to negative social determinants.
+It does move into the realm of coercion of those 'making the wrong choices' into making better choices.
+
+### UPF
+
+Nova classification @monteiro2009 looks at food beyond the nutrient level.
+It primarily incorporates ideas relating to 'processing of food'.
+As the Nova concept has developed it can also be seen that 'processsing' incorporates how food is made available within social systems.
+Nova also involves 'processing' affects consumption behaviours through changes in cooking and eating behaviour within social systems.
+
+Group one are foods which are in a natural state, as plucked from the tree.
+Group two is foods which are used in processes to modify group one foods.
+Group three initially was all other foods, but was soon separated into minimally processed foods, and group four the ultra-processed foods.Increasing Nova category four food, or UPF, is associated with increasing BP.
+There are other approaches to food classification which try to address more than the nutritional content.
 
 ```{r dagupf, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-dag-upf
@@ -366,66 +422,7 @@ bp3 <- dagitty(" dag {
 plot(graphLayout(bp3))
 ```
 
-### UPF
-
-Nova classification looks at food beyond the nutrient level.
-It incorporates ideas relating to 'processing of food' But also includes availability and intake which are all affected.
-Increasing Category four or UPF is associated with increasing BP.
-Other approaches to food classification try to address more than the nutritional content.
-There is always conflict between commercial interests and restriction to the freedom to exploitation
-
-Food classification has traditionally concentrated on nutritional analysis eg Nutriscore ( @cuj2021 , @dickie2022, @romeroferreiro2021 , @A.Asma2019Fcsb ).
-The social aspect of food has been studied famously by Bourdieu ( @bourdieu2002, @abourdi2021 ).
-The effect of the social and commercial nature of food is partly accounted for in Monteiro's Nova classification.
-Dickie et al( @dickie2023 , @dickie2022 ) tried to develop a system which took this idea further, but struggled to build a model which was any more effective.
-
-Monteiro's initial explanation uses the concept of 'processing' ( @monteiro2009 , @monteiro2016 , @monteiro2010 , @monteiro2013 ).
-In a recent debate @monteiro2022 and @astrup2022 discuss the concept of UPF and if it is valid or useful.
-This idea separates foods into categories based on the amount of processing that occurs before the food is consumed.
-Group one are foods which are in a natural state, as plucked from the tree.
-Group two is foods which are used in processes to modify group one foods.
-Group three initially was all other foods, but was soon separated into minimally processed foods, and group four the ultra-processed foods.
-
-Explanations for the differential effect of these foods have developed as quickly as new ultra-processed foods have been developed .
-Is it due to nutritional content( @aceves-martins2022 )?
-They are high in salt and sugar on average.
-Is it due to effects on satiety, or changes to appetite( @rauber2019 )?
-Do they taste better @bawajeeh2021 ?
-Is it due to being easy to buy, and easy to eat( @wang2021 )?
-Is it because they don't require time and effort in the home to process?
-Is it because these processes are industrial?
-Is it because these foods contain 'chemicals' or new ingredients?
-These explanations move from nutritional through into social and commercial.
-
-All these critiques are possible because of the social element to the classification.
-Colombaet @colombet2022 identify that the intake of UPF has an inequality dimension and then @ColombetZoé2021Dass use modeling to describe a 'nutrition transition'.
-
-Nutrition based classifications appear less socially divisive due to scientific isolation.
-They still contain elements of social factors.
-In particular, the way that foods are analysed can change their reported nutritional content.
-Eg a 'standard' food may be compared to a 'traditionally prepared' food.
-The first is prepared in a factory with control of its nutrition, the second by a home cook with limited access to nutrition modification technology.
-
-Statements about the scheme often discuss the high salt and sugar content.
-Papers discussing the effect on physiology, and pathology in particular highlight these, but they do not back their statements with analysis.
-They do not show that the sodium, and UPF together increase the risk of CVD, or BP rise.
-This dissertation intends to address this gap
-
-@bykershanks2022 show an approach between individual action and changing laws.
-This approach would target those most at risk due to negative social determinants.
-It does move into the realm of coercion of those 'making the wrong choices' into making better choices.
-
-### Increasing UPF
-
-Many studies show the increasing role of UPF within the diet.
-Mertens @mertens2022 and ni Mhurchu @nimhurchu2011 show how UPF are being eaten in ever greater quantities across Europe but especially across the UK.
-
-Wang @wang2021 identifies increasing consumption in US youths, D'Avila @DavilaHelenFreitas2017Eifu also identify that increasingly upf are the key source of energy in adolescents.
-Gupta @GuptaDeepanshi2021Sauf explores the role of youth, identifying the peculiar age distribution of UPF intake.
-
-Rauber @rauber2019 look instead at free sugar intake.
-
-### UPF and increased intake
+### Can UPF be described in nutritional terms?
 
 Webster @websterSystematicSurveySodium2010 and niMurchu @nimhurchu2011 identify the amount of salt in ultraprocessed foods.
 Vargas @Vargas-MezaJorge2022DSaP concentrates on sodium and potassium using the Mexican national health and nutrition survey.
@@ -433,6 +430,8 @@ Vargas @Vargas-MezaJorge2022DSaP concentrates on sodium and potassium using the 
 Sugars are the focus for Rauber @rauber2019, particularly free sugar intake.
 
 Armendariz @armendariz2022 look at how the retail food evironment in Mexican cities has changed and how it affects BP.
+
+### 
 
 ### UPF and Ill Health
 
@@ -453,7 +452,7 @@ Munoz @Muñoz-LaraA2020TCOU looked at Mexican school age children.
 Li @LiMing2021Ufca looked at adults in China.
 Rauber @rauber2020 used the NDNS study to look at obesity in the UK.
 
-#### diabetes and cardmetabolic syndromes
+#### diabetes and cardiometabolic syndromes
 
 Given the effects on obesity and the increase of energy intake the connection to diabetes and cardiometabolic syndromes has been the subject of more papers.
 
@@ -484,6 +483,16 @@ Colombet @colombet2019 connects these changes in metabolic syndrome with changes
 
 Kityo @KityoAnthony2022TIoU identifies the effect on the kidneys.
 Identifying the diverse effects of UPF and possibly also another contributory cause of BP changes.
+
+### Increasing UPF intake
+
+Many studies show the increasing role of UPF within the diet.
+Mertens @mertens2022 and ni Mhurchu @nimhurchu2011 show how UPF are being eaten in ever greater quantities across Europe but especially across the UK.
+
+Wang @wang2021 identifies increasing consumption in US youths, D'Avila @DavilaHelenFreitas2017Eifu also identify that increasingly upf are the key source of energy in adolescents.
+Gupta @GuptaDeepanshi2021Sauf explores the role of youth, identifying the peculiar age distribution of UPF intake.
+
+Rauber @rauber2019 look instead at free sugar intake.
 
 ### UPF BP and Salt
 
@@ -523,6 +532,36 @@ The question is dropped, the focus elsewhere.
 
 smiljenac @smiljanec2020 and tzelfa @TzelefaVicky2021Aodp both look at how UPF affect the vasculature which may be part of the pathway to BP.
 
+### Approach to change
+
+Understanding the best approaches to reducing salt requires approaches that also cross epsitological paradigms.
+
+The relationship between Na and socioeconomic position was demonstrated by Ji et al. @ji2014.
+
+Is it best to get individuals to reduce intake( @yourgui1998, @reports2023 , @vollmer2001 , @sacks2001 , @NilsonEduardoAugustoFernandes2021Eprd ), or for all of the food industry to reduce salt levels( @cappuccio2011 , @he2010 ).
+
+Lifestyle factors are contented.
+Whilst individual choice is involved.
+The range of choices available to individuals is limited by the nature of their society.
+A misapplication of lifestyle results in blaming individuals for the poor choices determined by their social and commercial environment.
+Iso @iso1999 looks at how education may be effective in delivering change.
+
+This can be tackled using a comprehensive integrated policy approach such as 'healthy cities' @healthy2017.
+Macregor @macgregor2015 explores how political change affects both the process and outcome of population level approaches to improving health.
+
+Instead of trying to change activity of millions of people can be more effective to change laws and policies once ( @instituteofmedicine2010 , @laverty2019 , @millett2012 , @moreira2015 , @instituteofmedicine2013 ).
+These 'upstream' changes are relatively simple, and are much more effective though they can also be reversed ( @cappuccio2015 ).
+Cost is one of the causes of change as shown by Jones @jones2018 using NDNS to identify the cost premium of a good diet as defined by UK dietary recommendation .
+Opposition sometimes comes from industry.
+
+@laverty2019 and @macgregor2015 showed that an analytical model can effectively demonstrate the effects of different policies on population health.
+They identify that reducing the effectiveness of a policy on salt in food leads to changes in BP and so on to NCD.
+
+@campos-nonato2022 identify the benefits of their strategy.
+They discuss the range of nation level approaches to reducing salt intake.
+
+6.  National Food Strategy, editor. National Food Strategy: part one. $$Internet$$. London: National Food Strategy,; 2020. Available from: <https://www.nationalfoodstrategy.org/partone/>
+
 ## Literature review Conclusion
 
 The literature review identified and analysed a range of literature across the field.
@@ -545,49 +584,46 @@ They have engaged academic partners to deliver reports on diet and nutrition acr
 The study is designed to be representative across the four home nations, across age with balanced representation for children.
 NDNS data are available via the UK national Data service for research purposes.
 
-NDNS is a rolling cohort study in which each year selects a new cohort of participants.
-The sample is intended to be 1000 per year with 50% adults.
+NDNS is a rolling cohort study in each year a new cohort of participants is selected.
+The intended sample is 1000 per year with 50% adults.
 Each year the sample is slightly different due to differential uptake.
-There is some oversampling to take account of this.
+Oversampling is used to control this.
 
-The design has a random selection across postal units (psu).
-This is stratified to ensure a representative sample across the four nations (England, Wales, Scotland, and Northern Ireland) and across regions within those countries (North West, North East, Scotland, Northern Ireland, Wales, Yorkshire and Humberside, East Midlands,West Midlands, London, The South East, The South West).
+The design is random selection across postal units (psu), stratified to ensure a representative sample across the four nations (England, Wales, Scotland, and Northern Ireland) and across regions within those nations (North West, North East, Scotland, Northern Ireland, Wales, Yorkshire and Humberside, East Midlands,West Midlands, London, The South East, The South West).
 The sample is also representative for age and sex and IMD.
 
 ## Participants, Inclusion and Exclusion
 
 All participants in NDNS are included.
-
-The relationship between salt and systolic blood pressure may be different in individuals with pathologically high BP.
-Those taking BP controlling medications may have a different relationship to sodium and UPF.
-These participants were excluded however this affected the sample size and skewed the male-female ratio, the overall results were unchanged.
-They have been included in multivariable analysis and conducted a sensitivity analysis on these participants taking BP medications.
-
 The data from the NDNS study contains information about each individual, and their household.
 This was collected through questionnaires.
 Then weight, height, and blood pressure were measured by a nurse.
 Finally, dietary information was collected through a 4-day food diary.
 
+The relationship between salt and systolic blood pressure may be different in individuals with pathologically high BP.
+Those taking BP controlling medications may have a different relationship to sodium and UPF and were excluded for analysis.
+
 ## Variables
 
-The key variables are systolic BP, UPF intake and Sodium intake.
+The key variables are systolic BP (BP), the outcome dependant variable, and the explanatory exposure variables, UPF intake (UPF) and Sodium intake (Na).
 
-Additional variables are ones which can also influence BP.
-They include Age, Sex, BMI, height, and weight.
+Additional explanatory variables are ones which can also influence BP.
+They include Age, Sex, and BMI.
 Age at completion of education (educfinh), and IMD are also used.
-BP medication (bpmedd) identifies which participants have medication.
+BP medication (bpd) identifies which participants have medication.
 
-Categories have been made from UPF and BP, to enable alternative analyses.
+Categorical variables have been made from UPF,Na and BP, to enable analysis.
 
-### Systolic BP
+### Systolic BP (BP)
 
-The mean systolic blood pressure (omsysval, BP) is a validated measurement with significant quality assessment within the dataset.
+The mean systolic blood pressure (BP) is a validated measurement with significant quality assessment within the dataset.
 
-The variable omsysval is a quality assured mean value which is reliable across the dataset.
-In particular, the omsysval variable was assessed for the effects of exercise, temperature and ill health.
-Raw BP values are present in the dataset but are made up of data with issues around quality.
+The variable BP is a quality assured mean value which is reliable across the dataset.
+In particular it was assessed for the effects of exercise, temperature and ill health and the data on all these is in the dataset.
+Raw BP values are also present in the dataset to allow quality review.
 
-I have created (Hyp) a variable which identifies participants with BP over 150.
+I have created (hyp) a variable which identifies participants with BP over 140 mmHg to enable logistic regression.
+This value is identified by Du et al (@du2014) and others.
 
 ### Dietary data
 
@@ -598,28 +634,29 @@ Based on the food and drink intake reported and with a composition data table, t
 
 ### Salt estimation
 
-The sodium value (Sodium mg, Na, hiNa) is one calculated from intake based on food diaries and standard food nutrient values.
-This only reflects standard foods and is the result of assumptions about the content being consistent.
-A binary categorical variable hiNa, has been produced to use in logistic regression.
-The cut off is 3000mg which is the WHO recommended amount.
+The sodium value ( Na, hiNa) was calculated from intake based on food diaries and standard food nutrient values.
+This reflects the expected Na content of standard foods.It assumes the content remains consistent.
+A categorical variable hiNa, has been produced to use in logistic regression.
+The cut off was 3000mg which is the WHO recommended amount and to match those used in Du et al @du2014.
 Serum sodium values are available for the early dataset, but not the later one.
-There are also values for 24 urinary sodium which is probably a better indicator of dietary sodium for parts of the dataset, but again these are not found across the whole time period.
+24 urinary sodium is a better indicator of dietary sodium but values are not available across the whole time period.
 
 ### UPF
 
-To estimate the intake of UPF, I used the NOVA classification, developed by Monteiro et al. (@monteiro2010).
-As there is no record of NOVA classification in NDNS, I have used a table from Rauber et al (@rauber2019).
-The author has classified each food and drink according to the food descriptions.
+The NOVA classification was used to estimate the intake of UPF developed by Monteiro et al. (@monteiro2010).
+There is no record of NOVA classification in NDNS.
+Data from Rauber et al (@rauber2019) was used as a key for NDNS food groups.
 
 Each participant food diary entries are assessed against the Nova food classification.
-The weight and energy content of the day's food is calculated by Nova group.
-This is added to the intake for the other 3 days and the total intake by Nova group established.
-The percentage of the total intake of energy is then calculated for each of the 4 Nova categories.
-Nova group 4 or UPF intake ( UPF) is used for this study.
+The energy content of the day's food was calculated by Nova group.
+This was added to the intake for the other 3 days and the total intake by Nova group established.
+The percentage of the total intake of energy was then calculated for each of the 4 Nova categories.
+Nova group 4 or UPF intake (UPF) is used for this study.
 
 A variable (UPF3) was developed from the mean UPF intake.
 The central category is the mean with one standard deviation above and below.
 This effectively identifies 67% in the centre of the distribution.
+Categories used in other papers eg @WangMei2022UFCI are low for the UK.
 
 A second variable UPF2 was derived from this.
 This identifies those more than one standard deviation above the mean.
@@ -628,59 +665,51 @@ This identifies those more than one standard deviation above the mean.
 
 ### Description of sample
 
-I amalgamated four data batches, 2008-2012, 2013-2014, 2015-2016, 2017-2019.
-The data was read from its files using 'r-studio' with the processing being carried out using packages (see appendix 3) available from CRAN (@base).
-Inparticular the package 'survey' @survey2004 was used to manage weighted data.
+Four data batches of data ( 2008-2012, 2013-2014, 2015-2016, 2017-2019) were combined.
+The data was read using 'r-studio' with the processing being carried out using packages (see appendix 3) available from CRAN (@base).
+In particular the package 'survey' @survey2004 was used to manage weighted data.
 Once the data labels were made consistent across the batches, weighting recalculation was done.
 Generated weighting values account for differences in population balance across the annual cohorts.
-These result from differences in compliance and uptake within and across the years.
-Weighting maintains IMD, Sex, Age, IMD and regional representation in the resultant populations
+These result from differences in compliance and uptake within and across the years and maintains IMD, Sex, Age, IMD and regional representation in the resultant populations
 
 A table showing representative statistics for the population was developed.
 Mean values for the data are displayed with a comparison for weighted values.
-The exposure variables are sodium intake (Sodiummg,Na), and ultra processed food intake (Epcnt_4, UPF).
-The outcome variable, the mean systolic blood pressure (omsysval,BP).
+The exposure variables are sodium intake (Na), and ultra processed food intake (UPF).
+The outcome variable, the mean systolic blood pressure (BP).
 
-### Analysis of Change over Survey Years
+### Analysis of Change over Survey Wave Sex Age and Place
 
-The second phase of analysis shows how the key variables changed over the survey years cohorts.
-This showed separately how the inputs and outputs have changed.
-These were not the same participants so matched analysis, or time series analysis were not directly applicable.
+Change over the survey waves was demonstrated.
+These were not the same participants so matched analysis, and time series analysis was not applicable.
 
-Other variables in the data were compared across to assess how the data changes.
-Statistical significance of changes in the data were shown by p.values with continuous data, and categorical data analysed using chi squared tables.
+Other variables in the data were also compared to show that waves were comparable across controlled variables.
 
-### Analysis of Change by Sex Age and Place
-
-I analysed the key variables by sex, age in categories, and by government region.
+The main variables were analysed against sex, age, and UK government region.
 This showed the distribution of the sample across these categories.
 
-## Univariable Regression of key variables
+Statistical significance of changes in the data were shown by p.values with continuous data, and categorical data analysed using chi squared tables.
+In all analysis a value of p \< 0.05 was taken as the threshold of statistical significance.
+
+## Univariable Regression
 
 Analysis of the association between BP and sodium intake, and then BP and UPF intake was done using univariable linear regression.
-This gave indication of the direction and strength of relationship between the variables.
-P.values and confidence intervals help to understand the statistical significance of these results.
-Comparison was also made with age,sex, region and between each of the variables.
-This showed the significant relationships present.
 
-## Multiple Regression on Systolic BP ,Age, UPF
+Analysis with age,sex, region and between each of the variables identified their relationships.
 
-Multivariable regression models were then developed to understand the interactions between variables and to develop a mathematical model of the relationship.
+P.values and confidence intervals were calculated.
+
+## Multivariable Regression on BP
+
+Multivariable regression models were developed.
+These demonstrate the interactions between variables and identify mathematical models of the relationships.
 The optimal model is one which best explains the pattern of data, but which also makes practical sense for the wider understanding of relationships.
 
-A set of four models were developed.
-The baseline model with the outcome variable and background variables.
-Then two models with each exposure variable added separately.
-Finally a model containing all three of the key variables.
+A set of four models was developed.
+The baseline model had the outcome variable and explanatory variables.
+Each exposure variable was added separately for the next two models.
+The final model contained all three of the key variables.
 
-Assessment techniques try to understand the importance of including particular variables, and the form in which they are best included.
-
-## AIC and sensitivty Anaylsis
-
-This section compares models side by side using assessment techniques to identify the best way of describing the data.
-The 'best' in part is determined by the whether a model is needed to predict more data, or just to understand the data available.
-Here it is about how best to describe the relationship between Na, UPF, and BP.
-Sensitivity analysis identifies the relative contribution of the addition of each variable.
+AIC was used to understand the relative importance of variables.
 
 ```{r read data, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -886,9 +915,12 @@ ndns_1_11[,gor := factor(gor, levels = 1:12, labels = c("England:North East","En
 ndns_1_11[,region := factor(region, levels = 1:6, labels = c("England: North","England: Central/Midlands","England: South(including London)","Scotland","Wales","Northern Ireland"))] 
   
 ndns_1_11[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
-ndns_1_11[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5)] 
+ndns_1_11[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5,labels = c(Label = "0.53->8.49 [least deprived]", "8.49->13.79","13.79->21.35","21.35->34.17", "34.17->87.80 [most deprived]"))] 
 ndns_1_11[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
-ndns_1_11[,educfinh := factor(educfinh, levels = 1:8)] 
+ndns_1_11[,educfinh := factor(educfinh, levels = 1:8, labels = c( "Not yet finished",
+"Never went to school"
+,"14 or under"
+,"15","16","17","18","19 or over"))] 
 ndns_1_11[,nssec8 := factor(nssec8, levels = 1:8)] 
 #bpset 
  
@@ -1533,6 +1565,8 @@ ndns_1_11$hyp <- cut(ndns_1_11$omsysval ,
 ndns_1_11$BP <- ndns_1_11$omsysval 
 ndns_1_11$Na <- ndns_1_11$Sodiummg
 ndns_1_11$hiNa <- cut(ndns_1_11$Sodiummg , breaks = c(0,1500,3000,5000,6000,10000))
+ndns_1_11$BMI <- cut(ndns_1_11$bmival ,breaks = c(0,18,24,30,50))
+
 ```
 
 ```{r taking-any-meds, echo=FALSE, message=FALSE, warning=FALSE,include=FALSE}
@@ -1564,22 +1598,30 @@ ndns_1_11dd <- subset(ndns_1_11d, bpd == "not taking drug")
 
 ## Participants and Descriptive Data
 
+The whole NDNS population was 15,655.
+The mean age was 40.
+Categorising age shows that 22% of the population was between 19 and 35.
+There were 49% male participants.
+Mean BP was 123 mmHg.
+On outcome, 7256 participants had a BP below 140 mmHg, but there were 7196 participants unknown.
+There was no BP recorded for year 11.
+The mean exposure to Na was 2037 mg daily.
+The mean UPF exposure was 48%.
 
-The NDNS population is 15,655, with 1,438 taking medication likely to affect BP.
+The population with those on medication included 14217 participants.
+The mean age was 38.
+The biggest age group again was 19-35.
+There were again 49% male participants.
+Mean outcome, BP was 121 mmHg.
+The exposure, Na was 2043 mg and UPF was still 48%.
 
-The mean age is sightly less in the population on medication at 38.
-Categorising age shows that it is the population over 50 years which is more represented in the whole population.
-The sex balance is the same in both groups.
-
-Mean BP is 123 mmHg in the whole sample, but 121 mmHg in those not on BP medication.
-There are more people with BPs over 150 in the whole population.
-
-The Na exposure is less in the whole population, with less taking over 3000mg daily. The UPF exposure is the same in both groups.
-
-There appears little difference in bmi, educational level, IMD, or region of origin.
+There appeared little difference in bmi, educational level, IMD, or region of origin.
 This first table @tbl-table1 shows all variables.
 
-```{r tbl-table1, echo=FALSE, message=FALSE, warning=FALSE,cache=TRUE}
+Continuous variables are represented by the mean and standard deviation in brackets.
+Categorical variables give the number of participants and the percentage of the sample in brackets.
+
+```{r tbl-table1, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, paged.print=TRUE}
 #| label: tbl-table1
 #| tbl-cap: "Characteristics of the sample population from National Dietary and Nutrition Study (2008-2019) N= 15,655"
 
@@ -1589,30 +1631,28 @@ keydatw1 <-tbl_svysummary(ndns_1_11d, include= c(Age, agegad3,Sex, omsysval,hyp,
 keydatwdd <-tbl_svysummary(ndns_1_11dd, include= c(Age, agegad3,Sex, omsysval,hyp, bmival, Na,hiNa, UPF,UPF3, educfinh, EIMD_2010_quintile,gor,bpd ) )
 
 keydatwT <- tbl_merge(list(keydatw1,keydatwdd),tab_spanner = c("Whole Population", "Population with those on BP medication excluded"))
-as_flex_table( keydatwT)
+keydatflx <- as_flex_table( keydatwT)
+png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/table1.png")
+save_as_image(width(autofit(keydatflx), width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/table1.png")
+save_as_docx(width(autofit(keydatflx), width=5), path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/table1.docx")
 #heatmap(keydataw1)
 ```
 
-Continuous variables are represented by the mean and standard deviation in brackets.
-Categorical variables give the number of participants and the percentage of the sample in brackets.
+### Population by Survey Wave
 
-#### Exposure variables
+The variables were compared across annual waves.
+The numbers seemed smaller towards the end of the series, for Na, UPF and for BP.
+Each cohort was adjusted to be comparable using weighting values given by the study coordinators.
+The highest mean value for Na was 2257 (standard deviation is 878) in year one.
+The lowest mean value for Na was 1892 (724) in year ten.
 
-The exposure variables Sodiummg, and UPF are continuous.
-The mean value for Sodiummg is 2,037.
-That for Epcnt_4 is 48.
-The categorical variable UPF3 shows that 67% of the population fall within the central category calculated from the standard deviation of the mean.
+Mean UPF was highest in year 2 and year 6 at 50%.
+The lowest mean UPF intake was 45% in years 8,9 and 10.
+The mean outcome variable BP was highest in year one with 125 mmHg, and the lowest 120 mmHg in year 6.
 
-#### Outcome Variable
+The separate waves had separate participants.The data is presented in @tbl-keydata.
 
-The BP is also continuous with a mean of 123 and standard deviation of 17.
-There are a significant number of unknowns, 7196 out of a sample of 15,655.
-
-### Analysis of Change across waves
-
-These key variables are now compared between the cohorts fist in tbl-keydata.
-
-```{r tbl-setup, include=FALSE,echo=FALSE,message=FALSE}
+```{r tbl-setup, include=FALSE,echo=FALSE,message=FALSE,cache=TRUE}
 #keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Na,UPF,BP))
 
 
@@ -1623,81 +1663,87 @@ These key variables are now compared between the cohorts fist in tbl-keydata.
 #| tbl-cap: "Table showing key variables by survey year"
 
 
-#keydatw <-as_flex_table( keydatw)
-#keydatw
+#tblkeydata <-as_flex_table( keydatw)
+#tblkeydata
 
+#png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/tblkeydata.png")
+#save_as_image(width(tblkeydata, width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tblkeydata.png")
+#save_as_docx(width(tblkeydata, width=5), path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tblkeydata.docx")
 
 ```
 
-The numbers seem to be smaller towards the end of the series, for Sodium intake, UPF intake (Epcnt_4) and for systolic BP.
-Each cohort has been adjusted to be comparable using weighting values given by the study coordinators.
-However they are separate cohorts of separate participants with no linear association between them.
-It can be seen that there are lower values for all of the variables in the later groups.
+Results were illustrated by plots against survey year.
+@fig-upf-and-survey-year showed overlap between the waves for UPF intake.
+@fig-Na-and-survey-year showed Na exposure overlap between waves.
+@fig-BP-and-survey-year identified the lack of data for year 11.
 
 ```{r fig-upf-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-upf-and-survey-year
-#| fig-cap: "Plot of the percentage of energy from UPF in each annual cohort showing an apparent overlap"
+#| fig-cap: "Energy from UPF% in each annual cohorts NDNS (2008-2019)"
 
 
-svyboxplot(Epcnt_4~SurveyYear,ndns_1_11d, na.rm = TRUE,main = "Energy from UPF in percent by survey year", ylab = "Energy percent from UPF" ,xlab ="Survey Year")
+svyboxplot(UPF~SurveyYear,ndns_1_11dd, na.rm = TRUE,main = "UPF% by survey year", ylab = "UPF%" ,xlab ="Survey Year")
 ```
 
 ```{r fig-Na-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-Na-and-survey-year
-#| fig-cap: "Plot of the intake of Na in mg in each annual cohort showing an apparent overlap "
-svyboxplot(Sodiummg~SurveyYear,ndns_1_11d,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
+#| fig-cap: "Na in mg in each annual cohort NDNS(2008-2019)"
+svyboxplot(Na~SurveyYear,ndns_1_11dd,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
 
 ```
 
 ```{r fig-BP-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: fig-BP-and-survey-year
-#| fig-cap: "Plot of the BP in mmHg in each annual cohort showing an apparent overlap"
+#| fig-cap: "Plot of the BP in mmHg by year from NDNS (2008-2018)"
 
-#svyboxplot(omsysval~SurveyYear,ndns_1_11d, na.rm = TRUE,main = "Systolic BP in mmHg by survey year", ylab = "Sysltolic BP in mmHg" ,xlab ="Survey Year")
+svyplot(BP~SurveyYear,ndns_1_11dd, na.rm = TRUE,main = "BP in mmHg by survey year", ylab = "BP in mmHg" ,xlab ="Survey Year")
 ```
+
+General linear regression modelling was used, with wave 1 as a comparator for analysis of the other waves.
+
+This showed that for Na there was a negative beta value with p.value \<0.001 in wave 4-11.
+For UPF the beta value was negative in wave 7,8,9 and 10 with p.value \<0.05.
+The BP had a negative beta value in all waves, with p.value \<0.05 in waves 5,6,8,9 and 10.
+
+Age was a variable which the whole sample was weighted to be maintained across the waves.
+There were no p.values below 0.12.
+
+BMI had a negative p.value in most years but the p.value was \<0.05 only in wave 7 and 8.
+
+@tbl-Key-Variables-by-Survey-year shows results for continuous variables.
 
 ```{r tbl-Variables-by-Survey-year, echo=FALSE}
 #| label: tbl-Key-Variables-by-Survey-year
 #| tbl-cap: "Key Variables (Na, UPF, BP) by Survey cohort showing a negative gradient in relation to year one which is statistically significant"
 
-ttestNa2 <- svyglm(Na~SurveyYear, ndns_1_11d )
+ttestNa2 <- svyglm(Na~SurveyYear, ndns_1_11dd )
 ttestNa2t <- tbl_regression(ttestNa2)
-ttestEpcnt <- svyglm(UPF~SurveyYear, ndns_1_11d )
+ttestEpcnt <- svyglm(UPF~SurveyYear, ndns_1_11dd )
 ttestEpcntt <- tbl_regression(ttestEpcnt)
-ttestOS <- svyglm(BP~SurveyYear, ndns_1_11d)
+ttestOS <- svyglm(BP~SurveyYear, ndns_1_11dd)
 ttestOSt <- tbl_regression(ttestOS)
-ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11d)
+ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11dd)
 ttestages<-  tbl_regression(ttestage)
-
-ttestbmi <- svyglm(bmival~SurveyYear, ndns_1_11d)
+ttestbmi <- svyglm(bmival~SurveyYear, ndns_1_11dd)
 ttestbmis <- tbl_regression(ttestbmi)
-as_flex_table(tbl_stack(list(ttestNa2t,ttestEpcntt,ttestOSt,ttestages,ttestbmis),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP","Age","BMI")))
+kvsearchyr <- as_flex_table(tbl_stack(list(ttestNa2t,ttestEpcntt,ttestOSt,ttestages,ttestbmis),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP","Age","BMI")))
+
+png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/tbl-Variables-by-Survey-year.png")
+save_as_image(width(autofit(kvsearchyr), width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tbl-Variables-by-Survey-year.png")
+save_as_docx(width(autofit(kvsearchyr), width=5), path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tbl-Variables-by-Survey-year.docx")
 ```
 
-@tbl-Key-Variables-by-Survey-year compares mean sodium, UPF and systolic BP values across the individual cohorts.
-This uses general linear regression modelling, with cohort 1 as a comparator for the other cohorts.
-The differences and the beta variable do not depend on there being a linear or ordinal arrangement between the cohorts.
+The categorical data also had p.values \>0.05 for the controlled variables (age, sex, IMD) against annual wave.
+UK region is part of the weighting, but this sample showed variation with p.value \<0.05.
 
-This shows that for sodium there is a beta of `r ttestNa2t$table_body$estimate` with confidence limits of `r ttestNa2t$table_body$ci`; For UPF beta is `r ttestEpcntt$table_body$estimate` and confidence limits `r ttestEpcntt$table_body$ci`; and for BP `r ttestOSt$table_body$estimate` and `r ttestOSt$table_body$ci`.
-Each beta value is negative which means that these values in each cohort is largely below that of the first reference year.
-The confidence intervals do not pass unity and so these results are statistically significant.
+Vegetarian, categorised UPF intake, and hypertension had a p.value of \<0.05.
 
-These corresponding negative beta values do not mean that there is a correlation between these variables.
-This will be examined later.
+BMI had a p.value of 0.77.
 
-### other variables compared across cohorts
+Data for year 5 was absent for education.
+Data for year 11 was absent for hypertension.
 
-This section shows how variables are distributed between the survey annual cohorts.
-The NDNS dataset was weighted to keep many of these, but not all, the same between datasets.
-Continuous variables are assessed using linear regression and categorical variables using chi squared tests to give p.values.
-
-This table @tbl-continuous-data suggests that there is a significant difference in the bmi of the cohorts.
-
-There is a difference in the age of finishing education.
-
-The differences in IMD, are not statistically significant.
-
-@tbl-Categorical-variables-year identifies a significant difference in the number of vegetarians.
+@tbl-Categorical-variables-year follows.
 
 ```{r multinomial-regression,echo=FALSE,include=FALSE,warning=FALSE}
 #library(svyVGAM)
@@ -1714,21 +1760,20 @@ The differences in IMD, are not statistically significant.
 #hypy
 ```
 
-
-
 ```{r tbl-Categorical-variables-year, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-Categorical-variables-year
 #| tbl-cap: "Key categorical variables by survey year from NDNS 2008-2018"
 
-sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11d)
-educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11d)
-imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11d)
-vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11d)
-UPF3chi <- svychisq(~UPF3+ SurveyYear , ndns_1_11d)
-agegad3chi <- svychisq(~agegad3+ SurveyYear , ndns_1_11d)
-hypchi <- svychisq(~hyp+ SurveyYear , ndns_1_11d)
-
-tablecat<- data.table("Variable"=c( "Sex", "Education","IMD","Vegetarian","UPF3","Age","Hypertension"),"ChiSq"=c(sexchi$statistic,educhi$statistic,imdchi$statistic,vegchi$statistic,UPF3chi$statistic,agegad3chi$statistic,hypchi$statistic ),"p.value"= c(sexchi$p.value,educhi$p.value,imdchi$p.value,vegchi$p.value,UPF3chi$p.value,agegad3chi$statistic,hypchi$statistic ))
+sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11dd)
+educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11dd)
+imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11dd)
+vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11dd)
+UPF3chi <- svychisq(~UPF3+ SurveyYear , ndns_1_11dd)
+agegad3chi <- svychisq(~agegad3+ SurveyYear , ndns_1_11dd)
+hypchi <- svychisq(~hyp+ SurveyYear , ndns_1_11dd)
+BMIchi <- svychisq(~BMI+ SurveyYear, ndns_1_11dd)
+gorchi <- svychisq(~gor+ SurveyYear, ndns_1_11dd)
+tablecat<- data.table("Variable"=c( "Sex", "IMD","Age","Education","UPF3","Hypertension","BMI","Region","Vegetarian"),"ChiSq"=c(sexchi$statistic,imdchi$statistic,agegad3chi$statistic,educhi$statistic,UPF3chi$statistic,hypchi$statistic,BMIchi$statistic,gorchi$statistic,vegchi$statistic ),"p.value"= c(sexchi$p.value,imdchi$p.value,agegad3chi$p.value,educhi$p.value,UPF3chi$p.value,hypchi$p.value,BMIchi$p.value,gorchi$p.value ,vegchi$p.value))
 tablecat <- flextable(tablecat)
 tablecat <- colformat_double(tablecat, digits = 2)
 
@@ -1736,60 +1781,71 @@ tablecat <- footnote( tablecat, i = 1, j = 2,
             value = as_paragraph(c("Chi Squared for categorical data")),
             ref_symbols = c("1"),
             part = "header")
+tablecat <- footnote( tablecat, i = 4, j = 1,
+            value = as_paragraph(c("year 5 data missing")),
+            ref_symbols = c("2"))
+tablecat <- footnote( tablecat, i = 6, j = 1,
+            value = as_paragraph(c("year 11 data missing")),
+            ref_symbols = c("3"))
 tablecat <- valign(tablecat, valign = "bottom", part = "header")
 autofit(tablecat)
+
+png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/tablecat.png")
+save_as_image(width(autofit(tablecat), width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tablecat.png")
+save_as_docx(width(autofit(tablecat), width=5), path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tablecat.docx")
 ```
 
-## Analysis of Key variables by Sex
+## Exposure and outcome variables by Sex, Age and Place
 
-@tbl-keydatax shows the difference between male and female in the key variables.In each case the lower gradient of the relationship between the variable and Sex is statistically significant.
+In each case the lower gradient of the relationship between the variable and Sex was statistically significant.
+@tbl-keydatax shows the difference between male and female in the key variables.
 
 ```{r tbl-keydatax, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-keydatax
 #| tbl-cap: "Key variables by age group from NDNS 2008-2018"
 
-keydatwx <-tbl_svysummary(ndns_1_11d,Sex, include = c(Na,UPF,UPF3,BP))
+keydatwx <-tbl_svysummary(ndns_1_11dd,Sex, include = c(Na,UPF,UPF3,BP))
 keydatwx <-as_flex_table( add_p(keydatwx))
 keydatwx
-
-
+png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/keydatwx.png")
+save_as_image(width(keydatwx, width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tblkeydata.png")
+save_as_docx(width(keydatwx, width=5), path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tblkeydata.docx")
 ```
 
-## Analysis of Key Variables by Age
+Peak mean Na was 2302mg in the 19-35 age group.
+The mean peak UPF exposure was 58% in the 16-18 age group, but was almost matched by 56% the 0-16 group.
+BP rose through life to a mean of 134 mm Hg in the over 65 age category.
 
-@tbl-tbl-keydataA shows the age distribution of exposure to sodium and UPF.
-Peak sodium exposure in the 19-35 age group.
-The peak UPF exposure is in the 16-18 age group, but is almost matched by the 0-16 group.
-The outcome BP rises through life.
-
-This shows that whilst the BP goes up across the age categories, the UPF intake decreases.
-The changes in sodium content are particularly interesting as they show that the older age groups have much lower sodium intake, but the highest sodium intake in in the second group, with the first and third being statistically no different.
+@tbl-tbl-keydataA shows the age distribution of exposure to sodium and UPF and the resulting BP.
 
 ```{r tbl-keydataA, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-keydataA
 #| tbl-cap: "Key variables by age group from NDNS 2008-2018"
 
-keydatwA <-tbl_svysummary(ndns_1_11d,agegad3, include = c(Na,UPF,UPF3,BP))
+keydatwA <-tbl_svysummary(ndns_1_11dd,agegad3, include = c(Na,UPF,UPF3,BP))
 keydatwA <-as_flex_table( add_p(keydatwA))
 keydatwA
-
+png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/keydatwA.png")
+save_as_image(width(keydatwA, width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/keydatwA.png")
+save_as_docx(width(keydatwA, width=5), path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/keydatwA.docx")
 ```
 
-## Analysis of Key Variables by Place
-
-@tbl-datap shows the UPF exposure is highest in Northern Ireland and lowest in London.
-The sodium exposure is highest in Scotland and lowest in London.
-Outcome BP is also lowest in London, with the highest in the North East.
+UPF exposure was highest in Northern Ireland and lowest in London.
+The sodium exposure was highest in Scotland and lowest in London.
+Outcome BP was also lowest in London, with the highest in the North East.
+@tbl-keydatap shows the data.
 
 ```{r tbl-keydatap, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-keydatap
 #| tbl-cap: "Key variables by government region from NDNS 2008-2018"
 
-keydatwp <-tbl_svysummary(ndns_1_11d,gor, include = c(Na,UPF,UPF3,BP))
+keydatwp <-tbl_svysummary(ndns_1_11dd,gor, include = c(Na,UPF,UPF3,BP))
 
 keydatwp <-as_flex_table( add_p(keydatwp))
 keydatwp
-
+png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/keydatwp.png")
+save_as_image(width(keydatwp, width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/keydatwp.png")
+save_as_docx(width(keydatwp, width=5), path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/keydatwp.docx")
 
 ```
 
@@ -1802,23 +1858,23 @@ Simple linear regression equations look for the relationship between the outcome
 #| tbl-cap: "regressions in pairs between key variables full population showing direction and strength of relationships NDNS data 2008-2019"
 #univariable regression models
 #UPF Energy % only
-lm1E <- svyglm(BP ~ UPF, ndns_1_11d)
+lm1E <- svyglm(BP ~ UPF, ndns_1_11dd)
 lm1Et <- tbl_regression(lm1E)
 #univariable regression models
 #sodium only
-lm1na <- svyglm(BP ~ Na, ndns_1_11d)
+lm1na <- svyglm(BP ~ Na, ndns_1_11dd)
 lm1nat <- tbl_regression(lm1na)
 
-lmEna <- svyglm(UPF ~ Na, ndns_1_11d)
+lmEna <- svyglm(UPF ~ Na, ndns_1_11dd)
 lmEnat <- tbl_regression(lmEna)
 
-lmA <- svyglm(BP ~ Age, ndns_1_11d)
+lmA <- svyglm(BP ~ Age, ndns_1_11dd)
 lmAt <- tbl_regression(lmA)
 
-lmEA <- svyglm( Age ~ UPF, ndns_1_11d)
+lmEA <- svyglm( Age ~ UPF, ndns_1_11dd)
 lmEAt <- tbl_regression(lmEA)
 
-lmNaA <- svyglm(Na ~ Age, ndns_1_11d)
+lmNaA <- svyglm(Na ~ Age, ndns_1_11dd)
 lmNaAt <- tbl_regression(lmNaA)
 
 #row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Na"))
@@ -1835,76 +1891,89 @@ There is also a negative relationship with Age, again statistically significant.
 Age has a relationship with BP with a statistically significant positive gradient.
 There is also a positive relationship with Na, which is also statistically significant to the 95% level.
 
+In conclusion the linear regression models show that there are correlations between the systolic BP and energy intake only.
+The next section will examine how this situation changes as variables interact in more complex models.
+
 ```{r tbl-univariable-regressions, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-more-univariable-regressions
 #| tbl-cap: "pair regressions of BP, Na and UPF against Age, bmi, educfinh full population NDNS data 2008-2019"
 #univariable regression models
 #UPF Energy % only
-lm1bmi <- svyglm(BP ~ bmival, ndns_1_11d)
+lm1bmi <- svyglm(BP ~ bmival, ndns_1_11dd)
 lm1bmit <- tbl_regression(lm1bmi)
 #univariable regression models
 #sodium only
-lm1Ag1 <- svyglm(BP ~ agegad3, ndns_1_11d)
+lm1Ag1 <- svyglm(BP ~ agegad3, ndns_1_11dd)
 lm1Ag1t <- tbl_regression(lm1Ag1)
 
-lmEbmi <- svyglm(UPF ~ bmival, ndns_1_11d)
+lmEbmi <- svyglm(UPF ~ bmival, ndns_1_11dd)
 lmEbmit <- tbl_regression(lmEbmi)
 
-lmed <- svyglm(BP ~ educfinh, ndns_1_11d)
+lmed <- svyglm(BP ~ educfinh, ndns_1_11dd)
 lmedt <- tbl_regression(lmed)
 
-lmEs <- svyglm(UPF ~ agegad3, ndns_1_11d)
+lmEs <- svyglm(UPF ~ agegad3, ndns_1_11dd)
 lmEst <- tbl_regression(lmEs)
 
-lmEed <- svyglm(UPF ~ educfinh, ndns_1_11d)
+lmEed <- svyglm(UPF ~ educfinh, ndns_1_11dd)
 lmEedt <- tbl_regression(lmEed)
 
-lmNabm <- svyglm(Na ~ bmival, ndns_1_11d)
+lmNabm <- svyglm(Na ~ bmival, ndns_1_11dd)
 lmNabmt <- tbl_regression(lmNabm)
 
-lmNaed <- svyglm(Na ~ educfinh, ndns_1_11d)
+lmNaed <- svyglm(Na ~ educfinh, ndns_1_11dd)
 lmNaedt <- tbl_regression(lmNaed)
 
-lmNaAg <- svyglm(Na ~ agegad3, ndns_1_11d)
+lmNaAg <- svyglm(Na ~ agegad3, ndns_1_11dd)
 lmNaAgt <- tbl_regression(lmNaAg)
 
 #row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Na"))
 #row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Na"))
-as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt,lm1bmit,lm1Ag1t,lmedt,lmEbmit,lmEst,lmEedt,lmNabmt,lmNaAgt,lmNaedt),group_header = c("BP/Na","UPF/Na","UPF/bp","UPF/Age","Age/BP","Age/Na","BP/bmi","BP/Agg1","BP/ed","UPF/bmi","UPF/age","UPF/ed","Na/bmi","Na/Agg","Na/ed")))
+univariables <- as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt,lm1bmit,lm1Ag1t,lmedt,lmEbmit,lmEst,lmEedt,lmNabmt,lmNaAgt,lmNaedt),group_header = c("BP/Na","UPF/Na","UPF/bp","UPF/Age","Age/BP","Age/Na","BP/bmi","BP/Agg1","BP/ed","UPF/bmi","UPF/age","UPF/ed","Na/bmi","Na/Agg","Na/ed")))
+
+png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/univariables.png")
+save_as_image(univariables, width=5, "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/univariables.png")
+save_as_docx(univariables, width=5, path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/univariables.docx")
 ```
 
-In conclusion the linear regression models show that there are correlations between the systolic BP and energy intake only.
-The next section will examine how this situation changes as variables interact in more complex models.
+## Multi variable logistic regression
 
-## Complex Modelling using Multi variable regression
+This set of models looked at when the data was regressed against hyp a variable identifying hypertension as 140mmHg in patients who are not on BP reducing medication.
 
-This section uses models of several variables to try to highlight the contributions of each variable.
-The complexity in these models is much less than that of reality.
-There are four sets of four models.
-The first a baseline model, the second and third introduce each variable separately, the final model includes all three.
+The first model, labelled "No sodium or UPF" of this set looks at the relationships between BP and some of the background variables (Age and Sex, education and IMD) all of which may have an effect on BP.
+The result shows that the odds ratio for females is 0.6 and this is statistically significant.
+That is the odds of a female participant having a BP above 140 are almost half those for a male participant.
+BMI odds ratios are not statistically significant across the categories.
+That is a BMI over 30 is not associated with a BP above 140mmHg in this data set.
+All age groups have statistically significant differences in odds of hypertension compared to the under 16 age group.
+That of the oldest age group being a 372 times greater risk.
+The IMD groups are not statistically different from the least deprived.
 
-The intention is to work towards an optimal model.
-This ideally mathematically describes the situation.
-In reality there may be a set of models with no single one predominating.
+The second model, "Sodium Only", adds sodium as the exposure variable.
+The odds ratio for the group taking between 5000mg and 6000mg per day is statistically significantly different from those taking less than 3000mg per day.
+There is an odds ratio of 7.5 for this group.
+It also shows minimal effects on other variables in the model.
 
-In particular the research question asks about the relationship between Sodium and UPF intake with BP.
-The models will reflect this question by looking to include or exclude particular variables.
-Comparisons between these models are then made using sensitivity analysis, identifying how sensitive the model is to sodium, or other factors
+"UPF only" is the third model.
+Here there is no significant difference in odds ratio for any group.
+Again there are minimal effects on the other variables.
 
-### Regression on BP
+The last model, "Sodium and UPF", shows that when combined there is still little effect identified statistically, on each other or on the other variables.
+The difference in odds ratio for 5000-6000mg of Na remains, and remains statistically significant.
+@tbl-multivariable-outputs-bp follows below.
 
 ```{r bp-multivariable-models, echo=FALSE, warning=FALSE}
 
-lm1AS <- svyglm(hyp ~  Sex +bmival +agegad3+educfinh + EIMD_2010_quintile+bpd ,family = binomial(link = "logit"), ndns_1_11d , na.action = na.exclude)
+lm1AS <- svyglm(hyp ~  Sex +BMI +agegad3+educfinh + EIMD_2010_quintile ,family = binomial(link = "logit"), ndns_1_11dd , na.action = na.exclude)
 
 theme_gtsummary_mean_sd()
 
 #sodium only
-lmna <- svyglm( hyp ~ hiNa  +Sex +agegad3 + bmival+educfinh+  EIMD_2010_quintile+bpd ,family = binomial(link = "logit"), ndns_1_11d,na.action = na.exclude)
+lmna <- svyglm( hyp ~ hiNa  +Sex +agegad3 + BMI+educfinh+  EIMD_2010_quintile ,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
 
-lmnaE <- svyglm(hyp ~ hiNa +Sex +agegad3+UPF3 + bmival +educfinh+ EIMD_2010_quintile +bpd ,family = binomial(link = "logit"), ndns_1_11d,na.action = na.exclude)
+lmnaE <- svyglm(hyp ~ hiNa +Sex +agegad3+UPF3 + BMI +educfinh+ EIMD_2010_quintile ,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
 
-lmME <- svyglm( hyp~ UPF3 +agegad3+Sex + bmival +educfinh + EIMD_2010_quintile +bpd,family = binomial(link = "logit"), ndns_1_11d,na.action =na.exclude)
+lmME <- svyglm( hyp~ UPF3 +agegad3+Sex + BMI +educfinh + EIMD_2010_quintile ,family = binomial(link = "logit"), ndns_1_11dd,na.action =na.exclude)
 
 #lmME2 <- svy_vglm(UPF3 ~ hyp+hiNa +agegad3+Sex + bmival +educfinh + EIMD_2010_quintile +bpd,family = multinomial(refLevel=1),design= ndns_1_11d,na.action =na.exclude)
 #tbl_regression(lmME2)
@@ -1919,72 +1988,57 @@ lmnat <- tbl_regression(lmna,exponentiate = TRUE)
 lmnaEt <- tbl_regression(lmnaE,exponentiate = TRUE)
 lmMEt <- tbl_regression(lmME,exponentiate = TRUE)
 
- as_flex_table(  tbl_merge(list(lm1ASt,lmnat,lmMEt,lmnaEt), tab_spanner = c("No Na or UPF","Na only","UPF only","Na and UPF")))
+multivariables<- as_flex_table(  tbl_merge(list(lm1ASt,lmnat,lmMEt,lmnaEt), tab_spanner = c("No Na or UPF","Na only","UPF only","Na and UPF")))
+ 
+ 
+ png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/multivariables.png")
+save_as_image(multivariables, width=5, "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/multivariables.png")
+save_as_docx(multivariables, width=5, path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/multivariables.docx")
 ```
-
-This first set of models are in @tbl-multivariable-outputs-bp and look at what happens when regression against BP is used.
-
-The first model, labelled "No sodium or UPF" of this set looks at the relationships between BP and some of the background variables (Age and Sex, education and IMD) all of which may have an effect on BP.
-This model excludes UPF and Na.
-
-The second model, "Sodium Only", shows that sodium has a zero beta coefficient, but that this is not statistically significant.
-It also shows minimal effects on the other variables in the model.
-
-The model, "UPF only", is in the third set of columns.
-Here there is a negative beta coefficient, but the confidence intervals cross one.
-This indicates that the effect is statistically uncertain.
-Again there are minimal effects on the other variables.
-
-The last set of columns, "Sodium and UPF", shows that when combined there is still little effect identified statistically, on each other or on the other variables.
-
-```{r tbl-AIC-comparison, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-AIC-comparison
-#| tbl-cap: "Table of AIC NDNS data 2008-2019"
-
-AICt<- data.table("Model"=c("BP1:No sodium or UPF","BP1:Sodium only","BP1:Epcnt only","BP1:Sodium and UPF"),"AIC" =c(lm1AS$aic, lmna$aic,lmME$aic,lmnaE$aic))
-flextable(AICt)
-```
-
-The 'best' of these models is that with only sodium included.
-The UPF models both being further away from the lowest value.
-
-The AIC values @tbl-AIC-comparison-upf in models with BP are the lowest of all the models presented.
-This identifies the regression against UPF including Na and BP as the best model.
-This also identifies the model regressed against Na without BP or UPF as the least good model for the dataset.
 
 Using the AIC statistic for each model gives another way of understanding the comparative effects.
-The subsequent @tbl-AIC-comparison-bp shows the size of the effect relating to sodium.
+The subsequent @tbl-AIC-comparison shows the size of the effect relating to sodium.
 The lowest scored model is the optimal model.
-Here that is "UPF only".
-Though the size of the difference is tiny.
+The 'best' of these models is that with only sodium included "Na only".
+The UPF models both being further away from the lowest value.
 
-```{r AIC-sense1, echo=TRUE, message=FALSE, warning=FALSE}
+Of the difference between the lowest scoring model and the highest 80/20 is due to UPF
+
+The difference between the two values as a proportion of the larger is `r sense3` %.
+There is a significant sensitivity of the data set to improved modelling.
+Though the set of models around the same values includes the four regressed against BP, and two of those against UPF which include BP.
+
+```{r AIC-sense1, echo=FALSE, message=FALSE, warning=FALSE}
+
+
 
 #AIC(lmM,lmMna,lmM2)
 #sense1 <- (lm1AS2$aic - lmnaE3$aic)*100/lm1AS2$aic 
 #sense1
 
-sense2 <- (lmnaE$aic-lmna$aic)*100/(lmnaE$aic-lm1AS$aic)
+sense2 <- (lmME$aic-lmna$aic)*100/(lmME$aic-lmna$aic)
 sense2
-sense3<- (lmnaE$aic-lmME$aic)*100/(lmnaE$aic-lm1AS$aic)
+sense3<- (lmME$aic-lmnaE$aic)*100/(lmME$aic-lmna$aic)
 sense3
 
 ```
 
-Of the difference between the lowest scoring model and the highest 55% is due to Na and 45 % to UPF
+```{r tbl-AIC-comparison, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-AIC-comparison
+#| tbl-cap: "Table of AIC NDNS data 2008-2019"
 
-The difference between the two values as a proportion of the larger is `r sense2` %.
-There is a significant sensitivity of the data set to improved modelling.
-Though the set of models around the same values includes the four regressed against BP, and two of those against UPF which include BP.
+AICt<- data.table("Model"=c("No Na or UPF","Na only","UPF only","Na and UPF"),"AIC" =c(lm1AS$aic, lmna$aic,lmME$aic,lmnaE$aic))
+flextable(AICt)
+
+ png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/multivariables.png")
+save_as_image(flextable(AICt), width=5, "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/AICt.png")
+save_as_docx(flextable(AICt), width=5, path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/AICt.docx")
+
+```
 
 \newpage
 
 # Discussion
-
-This section will consider what the results mean.
-That will include how the context of the literature influences understanding of the values.
-The limitations of the study will be considered.
-Opportunities for further research, and ways to influence policy will be considered.
 
 ## Data
 
@@ -2007,7 +2061,7 @@ The change in intake of sodium and UPF over time could be; 1 real 2 sample error
 Age seems to be related to UPF having a similar effect on BP.
 This would mean that the relationship of different aged participants and their UPF habit is affecting the comparisons within the multivariable models.
 
-## Discussion of Key variables by Sex
+## Discussion of Key variables by Sex,Age and Place
 
 The populations do change over time as some of the added variables do show statistical significant changes.
 In particular the number of vegetarians increases, which perhaps is one indicator of social desirability affecting the study.
@@ -2019,27 +2073,20 @@ This is possibly as a result of changing/ increasing acceptance of BP results of
 This effect is perhaps greater when medication exclusions are made.
 Treatment of women and younger men has increased over the 10 years of the study.
 
-## Discussion of Key variables by Age
-
 Comparison of pairs of variables identifies the degree of correlation between them.
 The key comparisons are between UPF and BP, and Na and BP.
 These highlight that there is an effect of UPF on BP, though there is no effect of Na.
 
 The third side of this triangle is the relationship between Na and UPF which confirms that UPF is high in Sodium.
 
-## Discussion of Key variables by Place
-
 The results here show that there is regional variation in key variables with consistently better values in London.
 
 ## Discussion Paired Regression of key variables on each other
 
-## Complex Modelling using Multi variable regression
-
-### analysis for BP
+## Multi variable logistic regression for BP
 
 The multivariable regression is made of four models.
 These show the change from excluding Na and UPf to adding each individually and then together.
-They are all statistically significant when Age is excluded.
 
 This means that the all have effects on the systolic blood pressure, but the effect of UPF and that of Age is closely intertwined.
 
