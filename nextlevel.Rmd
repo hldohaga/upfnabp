@@ -178,7 +178,10 @@ This can also be affected by position and room temperature as well as by the rel
 This work is primarily to complete requirements for an MPH degree which means that it is influenced by factors around health equity and classic epidemiology as taught on the course.
 It is produced in collaboration with a research group with a long established reputation in food research in public health, which may steer the results in a conservative direction.
 
-Positivist 'grand isolation' may reduce the influence of these factors, but they remain as influences.
+In relying on NDNS I am aware that the reasons for ongoing funding for this study relate to its being established by the government department responsible for food policy in collaboration with that for health.
+These influences affect the development of the study and therefore the data collected and available.
+
+Positivist 'grand isolation' may reduce the influence of these 'external' factors, but they remain as influences.
 
 To proceed, I need to be aware of the limitations of the positivist approach.
 I need to make pragmatic selections to bring some degree of validity to the resulting dataset.
