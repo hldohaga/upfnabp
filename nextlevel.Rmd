@@ -1,11 +1,6 @@
 ---
 title: "Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    code_folding: hide
   word_document: 
     toc: yes
     fig_caption: yes
@@ -13,6 +8,11 @@ output:
     toc_depth: 4
     fig_width: 4
     fig_height: 4
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    code_folding: hide
   html_document: 
     toc: yes
     fig_caption: yes
@@ -398,7 +398,7 @@ It does move into the realm of coercion of those 'making the wrong choices' into
 
 ### UPF
 
-Nova classification @monteiro2009 looks at food beyond the nutrient level.
+NOVA classification @monteiro2009 looks at food beyond the nutrient level.
 It primarily incorporates ideas relating to 'processing of food'.
 As the Nova concept has developed it can also be seen that 'processsing' incorporates how food is made available within social systems.
 Nova also involves 'processing' affects consumption behaviours through changes in cooking and eating behaviour within social systems.
@@ -438,9 +438,10 @@ Armendariz @armendariz2022 look at how the retail food evironment in Mexican cit
 
 ### UPF and Ill Health
 
-@mertens2022, @barbosa2022, @SantosFrancineSilvaDos2020Fpac , @aceves-martins2022, and @rauber2020 explore how UPF are associated with poor health.
+Mertens @mertens, Barbosa @barbosa2022, Santos @SantosFrancineSilvaDos2020Fpac ,Aceves-martins @aceves-martins2022, and Rauber @rauber2020 explore how UPF are associated with poor health.
 Whilst this is primarily metabolic pathology they do often mention BP.
-@schulze2019 comprehensively reviews UPF and metabolic health.
+Schulze @schulze2019 comprehensively reviews UPF and metabolic health.
+Dicken and Betterham @dicken2021 provide a comprehensive review of papers considering a range of metabolic and other health endpoints.
 
 @OliveiraTafnes2020CtCo try to identify ill health in young people associated with the increasing use of UPF.
 
@@ -563,7 +564,9 @@ They identify that reducing the effectiveness of a policy on salt in food leads 
 @campos-nonato2022 identify the benefits of their strategy.
 They discuss the range of nation level approaches to reducing salt intake.
 
-6.  National Food Strategy, editor. National Food Strategy: part one. $$Internet$$. London: National Food Strategy,; 2020. Available from: <https://www.nationalfoodstrategy.org/partone/>
+Dinbleby's @dimbleby National food strategy
+
+@tulleken2023 ultraprocessed people
 
 ## Literature review Conclusion
 
@@ -825,7 +828,7 @@ ethnset <- c("ethgrp5","ethgrp2")
 saltset <- c("SaltChk","SalHowC","SltSHow" ,"vegetarn")
 medsset <- c( "bpmedc2","bpmedd2","diur2","beta2","aceinh2", "calciumb2","obpdrug2", "PregNowB")
 hypset <- c("hyper140_2", "hibp140_2", "hyper1_2", "highbp1_2")
-incset <-c("nssec8","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","educfinh")
+incset <-c("nssec8","gor","region", "EIMD_2007_quintile","EIMD_2010_quintile","EIMD_2015_quintile","WIMD_2014_quintile","SIMD_2016_quintile","NIMD_2017_quintile","educfinh")
 measset <- c("htval","wtval","bmival")
 ageset <- c("agegad1", "agegad2", "agegch1","agegr1","age")
 weightset <- c("wti_UKY1to11","astrata1","area")
@@ -850,6 +853,16 @@ val_labels(sav11br) <- NULL
 ```{r joining together,message=FALSE, warning=FALSE, include=FALSE}
 #this creates the whole table
 ndns_1_11 <- rbindlist(list(sav4br,sav6br,sav8br,sav11br),fill = TRUE, use.names = TRUE)
+
+```
+
+```{r imd, echo=FALSE, message=FALSE, warning=FALSE}
+imd <- data.table(ndns_1_11[,c('EIMD_2015_quintile','WIMD_2014_quintile','SIMD_2016_quintile','NIMD_2017_quintile')])
+#imd
+#df1$IMD <- rowSums(imd , na.rm=TRUE)
+#ndns_1_11$IMD <- NA
+#case_when(is.na(ndns_1_11$IMD)~ (ndns_1_11$IMD <-ndns_1_11$EIMD_2015_quintile), is.na(ndns_1_11$IMD)~ (ndns_1_11$IMD <-ndns_1_11$WIMD_2014_quintile), is.na(ndns_1_11$IMD)~ (ndns_1_11$IMD <-ndns_1_11$SIMD_2016_quintile),is.na(ndns_1_11$IMD)~ (ndns_1_11$IMD <-ndns_1_11$NIMD_2017_quintile))))
+        
 
 ```
 
@@ -920,6 +933,10 @@ ndns_1_11[,region := factor(region, levels = 1:6, labels = c("England: North","E
 ndns_1_11[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
 ndns_1_11[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5,labels = c(Label = "0.53->8.49 [least deprived]", "8.49->13.79","13.79->21.35","21.35->34.17", "34.17->87.80 [most deprived]"))] 
 ndns_1_11[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
+ndns_1_11[,SIMD_2016_quintile := factor(SIMD_2016_quintile, levels = 1:5)]
+ndns_1_11[,WIMD_2014_quintile := factor(WIMD_2014_quintile, levels = 1:5)]
+ndns_1_11[,NIMD_2017_quintile := factor(NIMD_2017_quintile, levels = 1:5)]
+
 ndns_1_11[,educfinh := factor(educfinh, levels = 1:8, labels = c( "Not yet finished",
 "Never went to school"
 ,"14 or under"
@@ -1569,7 +1586,6 @@ ndns_1_11$BP <- ndns_1_11$omsysval
 ndns_1_11$Na <- ndns_1_11$Sodiummg
 ndns_1_11$hiNa <- cut(ndns_1_11$Sodiummg , breaks = c(0,1500,3000,5000,6000,10000))
 ndns_1_11$BMI <- cut(ndns_1_11$bmival ,breaks = c(0,18,24,30,50))
-
 ```
 
 ```{r taking-any-meds, echo=FALSE, message=FALSE, warning=FALSE,include=FALSE}
@@ -1656,7 +1672,7 @@ The mean outcome variable BP was highest in year one with 125 mmHg, and the lowe
 The separate waves had separate participants.The data is presented in @tbl-keydata.
 
 ```{r tbl-setup, include=FALSE,echo=FALSE,message=FALSE,cache=TRUE}
-#keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Na,UPF,BP))
+keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Na,UPF,BP))
 
 
 ```
@@ -1666,8 +1682,8 @@ The separate waves had separate participants.The data is presented in @tbl-keyda
 #| tbl-cap: "Table showing key variables by survey year"
 
 
-#tblkeydata <-as_flex_table( keydatw)
-#tblkeydata
+tblkeydata <-as_flex_table( keydatw)
+tblkeydata
 
 #png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/tblkeydata.png")
 #save_as_image(width(tblkeydata, width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tblkeydata.png")
@@ -2007,7 +2023,6 @@ The UPF models both being further away from the lowest value.
 
 Of the difference between the lowest scoring model and the highest 80/20 is due to UPF
 
-The difference between the two values as a proportion of the larger is `r sense3` %.
 There is a significant sensitivity of the data set to improved modelling.
 Though the set of models around the same values includes the four regressed against BP, and two of those against UPF which include BP.
 
