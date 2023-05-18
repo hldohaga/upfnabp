@@ -1,6 +1,11 @@
 ---
 title: "Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    code_folding: hide
   word_document: 
     toc: yes
     fig_caption: yes
@@ -8,11 +13,6 @@ output:
     toc_depth: 4
     fig_width: 4
     fig_height: 4
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    code_folding: hide
   html_document: 
     toc: yes
     fig_caption: yes
@@ -856,16 +856,6 @@ ndns_1_11 <- rbindlist(list(sav4br,sav6br,sav8br,sav11br),fill = TRUE, use.names
 
 ```
 
-```{r imd, echo=FALSE, message=FALSE, warning=FALSE}
-imd <- data.table(ndns_1_11[,c('EIMD_2015_quintile','WIMD_2014_quintile','SIMD_2016_quintile','NIMD_2017_quintile')])
-#imd
-#df1$IMD <- rowSums(imd , na.rm=TRUE)
-#ndns_1_11$IMD <- NA
-#case_when(is.na(ndns_1_11$IMD)~ (ndns_1_11$IMD <-ndns_1_11$EIMD_2015_quintile), is.na(ndns_1_11$IMD)~ (ndns_1_11$IMD <-ndns_1_11$WIMD_2014_quintile), is.na(ndns_1_11$IMD)~ (ndns_1_11$IMD <-ndns_1_11$SIMD_2016_quintile),is.na(ndns_1_11$IMD)~ (ndns_1_11$IMD <-ndns_1_11$NIMD_2017_quintile))))
-        
-
-```
-
 ```{r define factors,include=FALSE}
  #define factors for 1-4 
 #saltset
@@ -1588,6 +1578,16 @@ ndns_1_11$hiNa <- cut(ndns_1_11$Sodiummg , breaks = c(0,1500,3000,5000,6000,1000
 ndns_1_11$BMI <- cut(ndns_1_11$bmival ,breaks = c(0,18,24,30,50))
 ```
 
+```{r imd, echo=FALSE, message=FALSE, warning=FALSE}
+#ndns_1_11$IMD <- na.omit(ndns_1_11[,c(,WIMD_2014_quintile,SIMD_2016_quintile,NIMD_2017_quintile)])
+ndns_1_11 <- ndns_1_11[,IMD:=EIMD_2015_quintile]
+ndns_1_11 <- ndns_1_11[is.na(IMD),IMD:=WIMD_2014_quintile]
+ndns_1_11 <- ndns_1_11[is.na(IMD),IMD:=NIMD_2017_quintile]
+ndns_1_11 <- ndns_1_11[is.na(IMD),IMD:=SIMD_2016_quintile] 
+#ndns_1_11$IMD
+
+```
+
 ```{r taking-any-meds, echo=FALSE, message=FALSE, warning=FALSE,include=FALSE}
 
 
@@ -1645,9 +1645,9 @@ Categorical variables give the number of participants and the percentage of the 
 #| tbl-cap: "Characteristics of the sample population from National Dietary and Nutrition Study (2008-2019) N= 15,655"
 
 
-keydatw1 <-tbl_svysummary(ndns_1_11d, include= c(Age, agegad3,Sex, omsysval,hyp, bmival, Na,hiNa, UPF,UPF3, educfinh, EIMD_2010_quintile,gor,bpd ))
-#keydatw1
-keydatwdd <-tbl_svysummary(ndns_1_11dd, include= c(Age, agegad3,Sex, omsysval,hyp, bmival, Na,hiNa, UPF,UPF3, educfinh, EIMD_2010_quintile,gor,bpd ) )
+keydatw1 <-tbl_svysummary(ndns_1_11d, include= c(Age, agegad3,Sex, omsysval,hyp, bmival, Na,hiNa, UPF,UPF3, educfinh, IMD,gor,bpd ))
+keydatw1
+keydatwdd <-tbl_svysummary(ndns_1_11dd, include= c(Age, agegad3,Sex, omsysval,hyp, bmival, Na,hiNa, UPF,UPF3, educfinh, IMD,gor,bpd ) )
 
 keydatwT <- tbl_merge(list(keydatw1,keydatwdd),tab_spanner = c("Whole Population", "Population with those on BP medication excluded"))
 keydatflx <- as_flex_table( keydatwT)
@@ -1785,7 +1785,7 @@ Data for year 11 was absent for hypertension.
 
 sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11dd)
 educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11dd)
-imdchi <- svychisq(~EIMD_2010_quintile+SurveyYear , ndns_1_11dd)
+imdchi <- svychisq(~IMD+SurveyYear , ndns_1_11dd)
 vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11dd)
 UPF3chi <- svychisq(~UPF3+ SurveyYear , ndns_1_11dd)
 agegad3chi <- svychisq(~agegad3+ SurveyYear , ndns_1_11dd)
@@ -1845,7 +1845,7 @@ keydatwA <-tbl_svysummary(ndns_1_11dd,agegad3, include = c(Na,UPF,UPF3,BP))
 keydatwA <-as_flex_table( add_p(keydatwA))
 keydatwA
 png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/keydatwA.png")
-save_as_image(width(keydatwA, width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/keydatwA.png")
+save_as_image(width(keydatwA, width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/keydatwAb.png")
 save_as_docx(width(keydatwA, width=5), path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/keydatwA.docx")
 ```
 
@@ -1863,7 +1863,7 @@ keydatwp <-tbl_svysummary(ndns_1_11dd,gor, include = c(Na,UPF,UPF3,BP))
 keydatwp <-as_flex_table( add_p(keydatwp))
 keydatwp
 png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/keydatwp.png")
-save_as_image(width(keydatwp, width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/keydatwp.png")
+save_as_image(width(keydatwp, width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/keydatwpb.png")
 save_as_docx(width(keydatwp, width=5), path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/keydatwp.docx")
 
 ```
@@ -1949,7 +1949,7 @@ lmNaAgt <- tbl_regression(lmNaAg)
 #row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Na"))
 #row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Na"))
 univariables <- as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt,lm1bmit,lm1Ag1t,lmedt,lmEbmit,lmEst,lmEedt,lmNabmt,lmNaAgt,lmNaedt),group_header = c("BP/Na","UPF/Na","UPF/bp","UPF/Age","Age/BP","Age/Na","BP/bmi","BP/Agg1","BP/ed","UPF/bmi","UPF/age","UPF/ed","Na/bmi","Na/Agg","Na/ed")))
-
+univariables
 png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/univariables.png")
 save_as_image(univariables, width=5, "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/univariables.png")
 save_as_docx(univariables, width=5, path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/univariables.docx")
@@ -1983,16 +1983,16 @@ The difference in odds ratio for 5000-6000mg of Na remains, and remains statisti
 
 ```{r bp-multivariable-models, echo=FALSE, warning=FALSE}
 
-lm1AS <- svyglm(hyp ~  Sex +BMI +agegad3+educfinh + EIMD_2010_quintile ,family = binomial(link = "logit"), ndns_1_11dd , na.action = na.exclude)
+lm1AS <- svyglm(hyp ~  Sex +BMI +agegad3+educfinh + IMD ,family = binomial(link = "logit"), ndns_1_11dd , na.action = na.exclude)
 
 theme_gtsummary_mean_sd()
 
 #sodium only
-lmna <- svyglm( hyp ~ hiNa  +Sex +agegad3 + BMI+educfinh+  EIMD_2010_quintile ,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
+lmna <- svyglm( hyp ~ hiNa  +Sex +agegad3 + BMI+educfinh+  IMD ,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
 
-lmnaE <- svyglm(hyp ~ hiNa +Sex +agegad3+UPF3 + BMI +educfinh+ EIMD_2010_quintile ,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
+lmnaE <- svyglm(hyp ~ hiNa +Sex +agegad3+UPF3 + BMI +educfinh+ IMD ,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
 
-lmME <- svyglm( hyp~ UPF3 +agegad3+Sex + BMI +educfinh + EIMD_2010_quintile ,family = binomial(link = "logit"), ndns_1_11dd,na.action =na.exclude)
+lmME <- svyglm( hyp~ UPF3 +agegad3+Sex + BMI +educfinh + IMD ,family = binomial(link = "logit"), ndns_1_11dd,na.action =na.exclude)
 
 #lmME2 <- svy_vglm(UPF3 ~ hyp+hiNa +agegad3+Sex + bmival +educfinh + EIMD_2010_quintile +bpd,family = multinomial(refLevel=1),design= ndns_1_11d,na.action =na.exclude)
 #tbl_regression(lmME2)
@@ -2009,9 +2009,9 @@ lmMEt <- tbl_regression(lmME,exponentiate = TRUE)
 
 multivariables<- as_flex_table(  tbl_merge(list(lm1ASt,lmnat,lmMEt,lmnaEt), tab_spanner = c("No Na or UPF","Na only","UPF only","Na and UPF")))
  
- 
+multivariables 
  png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/multivariables.png")
-save_as_image(multivariables, width=5, "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/multivariables.png")
+save_as_image(multivariables, width=5, "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/multivariablesb.png")
 save_as_docx(multivariables, width=5, path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/multivariables.docx")
 ```
 
@@ -2048,8 +2048,8 @@ sense3
 AICt<- data.table("Model"=c("No Na or UPF","Na only","UPF only","Na and UPF"),"AIC" =c(lm1AS$aic, lmna$aic,lmME$aic,lmnaE$aic))
 flextable(AICt)
 
- png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/multivariables.png")
-save_as_image(flextable(AICt), width=5, "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/AICt.png")
+ png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/AICt.png")
+save_as_image(flextable(AICt), width=5, "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/AICtb.png")
 save_as_docx(flextable(AICt), width=5, path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/AICt.docx")
 
 ```
@@ -2148,8 +2148,14 @@ People who know that UPF is bad, are more likely to accept policy limiting avail
 # Conclusion
 
 In conclusion there is a complex interaction between fixed factors and societal factors at work.
-Nova encompasses more than nutrition alone and whilst UPF has harmful elements these are not simply nutritional factors, but are complex social factors.
-These factors are omitted and ignored by a rigid nutritional approach to what is primarily a social function.
+
+NOVA and UPF are a conceptual model they are not reality.
+As a model they are useful in bridging the chasm between 'scientific' (or more specifically 'positivist') nutrition and more social science paradigms.
+They are a Rosetta stone, or key which has elements from each side.
+
+This study looked at how this crossover applied to a clinical (or biomedical) characteristic.
+The result implied this characteristic is best explained within the positivistic paradigm when examined using this positivistic methodolgy.
+
 \newpage
 
 # Bibliography
