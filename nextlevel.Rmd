@@ -1,23 +1,11 @@
 ---
 title: "Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    code_folding: hide
   word_document: 
     toc: yes
     fig_caption: yes
     keep_md: yes
     toc_depth: 4
-    fig_width: 4
-    fig_height: 4
-  html_document: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    keep_md: yes
     fig_width: 4
     fig_height: 4
   pdf_document: 
@@ -28,6 +16,18 @@ output:
     latex_engine: xelatex
     fig_width: 4
     fig_height: 4
+  html_document: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    keep_md: yes
+    fig_width: 4
+    fig_height: 4
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    code_folding: hide
 editor_options: 
   markdown: 
     wrap: sentence
@@ -90,7 +90,7 @@ The accompanying literature review discusses aspects of policy and their effecti
 # Introduction
 
 There is evidence of an association between blood pressure (BP) and intake of Ultra-processed Foods (UPF) @du2014 and BP and Salt intake @cappuccio2015 from studies of different types in multiple countries.
-This study looked at this association in the data set of the National dietary and nutrition survey (@universityofcambridge2022 ).The study gives data from 2008 to 2019.
+This study looked at this association in the data set of the National dietary and nutrition survey (@universityofcambridge2022 ).The study gives data from the UK from 2008 to 2019.
 There have been changes in the intake of UPF, of salt and BP over that time.This study described those changes.
 As part of this description, I identify how BP is affected by these key dietary factors.
 I identify the role salt intake plays in the effect of ultraprocessed food on BP.
@@ -922,8 +922,8 @@ ndns_1_11[,region := factor(region, levels = 1:6, labels = c("England: North","E
   
 ndns_1_11[, EIMD_2007_quintile := factor(EIMD_2007_quintile, levels = 1:5)] 
 ndns_1_11[,EIMD_2010_quintile := factor(EIMD_2010_quintile, levels = 1:5,labels = c(Label = "0.53->8.49 [least deprived]", "8.49->13.79","13.79->21.35","21.35->34.17", "34.17->87.80 [most deprived]"))] 
-ndns_1_11[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5)] 
-ndns_1_11[,SIMD_2016_quintile := factor(SIMD_2016_quintile, levels = 1:5)]
+ndns_1_11[,EIMD_2015_quintile := factor(EIMD_2015_quintile, levels = 1:5,labels = c(Label = "0.53->8.49 [least deprived]", "8.49->13.79","13.79->21.35","21.35->34.17", "34.17->87.80 [most deprived]"))] 
+ndns_1_11[,SIMD_2016_quintile := factor(SIMD_2016_quintile, levels = 1:5,labels = c(Label = "0.53->8.49 [least deprived]", "8.49->13.79","13.79->21.35","21.35->34.17", "34.17->87.80 [most deprived]"))]
 ndns_1_11[,WIMD_2014_quintile := factor(WIMD_2014_quintile, levels = 1:5)]
 ndns_1_11[,NIMD_2017_quintile := factor(NIMD_2017_quintile, levels = 1:5)]
 
@@ -1672,7 +1672,7 @@ The mean outcome variable BP was highest in year one with 125 mmHg, and the lowe
 The separate waves had separate participants.The data is presented in @tbl-keydata.
 
 ```{r tbl-setup, include=FALSE,echo=FALSE,message=FALSE,cache=TRUE}
-keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Na,UPF,BP))
+#keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Na,UPF,BP))
 
 
 ```
@@ -1682,8 +1682,8 @@ keydatw <-tbl_svysummary(ndns_1_11d,SurveyYear , include = c(Na,UPF,BP))
 #| tbl-cap: "Table showing key variables by survey year"
 
 
-tblkeydata <-as_flex_table( keydatw)
-tblkeydata
+#tblkeydata <-as_flex_table( keydatw)
+#tblkeydata
 
 #png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/tblkeydata.png")
 #save_as_image(width(tblkeydata, width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tblkeydata.png")
@@ -2154,7 +2154,7 @@ As a model they are useful in bridging the chasm between 'scientific' (or more s
 They are a Rosetta stone, or key which has elements from each side.
 
 This study looked at how this crossover applied to a clinical (or biomedical) characteristic.
-The result implied this characteristic is best explained within the positivistic paradigm when examined using this positivistic methodolgy.
+The result implied this characteristic is best explained within the positivist paradigm when examined using this positivist methodolgy.
 
 \newpage
 
