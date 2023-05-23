@@ -1,0 +1,358 @@
+---
+title: "litrev235"
+author: "doh"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  pdf_document: default
+bibliography: references.bib
+csl: Vancouver.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dagitty)
+```
+
+## Overview of literature
+
+The literature has developed over some time.
+The results arrange themselves into several groups.
+The oldest are those which describe the development of the argument that Na relates to BP and to NCD.
+UPF is a recent concept developed within the Nova framework which was described in 2009.
+Hence articles around UPF and its relation to BP and NCD are more recent.
+Importantly they analyse the way that UPF is correlated with BP.
+They don't go into how Na might be involved in this relationship.
+
+Papers are also categorised as primary research, systematic reviews with meta analysis, model analysis, and papers which use the other categories to consider public health policy approaches.
+
+## Aims of literature review
+
+1 describe literature
+
+2 synthesise literature
+
+3 critique literature
+
+4 explain role of study within context
+
+## Na, BP, NCD and Public Health
+
+Non-communicable disease is an increasing burden on public health.
+@cappuccio2015 layout the charges against salt most clearly.
+They identify comprehensively the connection between changes in salt intake and changes in blood pressure and changes in cardiovascular (CVD) and cerebrovascular diseases.
+They link the nutritional effect of salt but they also identify the way this is affected by social and commercial determinants of health.
+These are branches from different epistemological backgrounds, nutrition from positivism, and the social determinants from a more constructivist approach.
+
+```{r dagNa, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-dagNa
+#| fig-cap: "Diagram of relationships between BP and Salt"
+
+bp2 <- dagitty(" dag {
+               Sodium -> Blood_Pressure
+               Age -> Blood_Pressure
+               Sex -> Blood_Pressure
+               Age -> Sodium
+               Sex -> Sodium
+}")
+plot(graphLayout(bp2))
+```
+
+Explaining the role of the Framingham studies Kannel (@kannel2009 , @kannel1993) and Mahmood @mahmood2014 describe how risk factor medicine came about.
+They describe raised blood pressure as a 'prominent member' of a group of risks in cardiovascular disease.
+A disease which is the outcome of 'multiple forces'.
+Their description sees Framingham as part of the march of progress in understanding cardiovascular disease in particular, but also non-communicable disease.
+Kannel identifies that cardiologists alone cannot conquer cardiovascular disease.
+Pringle @pringle2003 shows how stroke risk relates to BP.
+
+Since then BP has come to feature more and more in NCD, following studies showing that reducing BP reduced the risk of CVD.
+This placed detection, management, and control of BP at the centre of reducing CVD.
+Ettehad @ettehad2016 reported a comprehensive systematic review with 123 studies over 49 years and 613815 participants.
+More contemporary studies look at app use to improve BP monitoring @DebonRaquel2020Eoua.
+Bress @bress2021 clearly identifies that patient trust and engagement are essential in reducing 'race' based inequalities.
+Boutain @boutain2001 identifies stress and worry as important factors for African American men and women.
+In North west England Roche @roche2018 developed quality assurance approaches to BP management which highlight that there are many different approaches to assessment monitoring and control.
+
+Causes come from different epistemological paradigms.
+Medically, the causes of BP, as Kannel explains, are divided into secondary BP where there is an identified pathological cause and 'essential' or idiopathic BP where no cause is identifiable.
+Contributors to and partial causes of this essential BP have been sought, at individual and societal levels, using medical and epidemiological approaches ( @who , @bloodpr , @bloodpr2018 ).
+
+At the level of physiology, salt (Na) is a contributor to BP.
+The role of salt in normal and abnormal BP control has been established through WHO and Intersalt @intersal1988 with Elliot @elliott1996 updating the findings and repeating the message.
+However news reports such as that of Taubes @taubes2012 and Newman @newman2017 identify contentious aspects.
+Elijovich @elijovich2016 carefully explains how the American Heart Association deals with the idea that there may be individuals with higher sensitivity to salt .
+Barris et al. @barris2023 discuss the role of sex in salt sensitivity.
+Pitzer et al. @pitzer2022 propose a mechanism of action.
+
+'Lifestyle' causes, such as Boutain's ( @boutain2001 ) stresses, are reported as a mix of personal 'choice', 'behaviours' and responses to other social factors.
+That is, they are not choices at all.
+Whilst Jones et al. @jones2018 demonstrated that there is a cost to adopting dietary recommendations in the UK.
+Salisbury's editorial @salisbury2022 discusses how commerce also has a role to play in a causation model which embraces an understanding of causation on a population scale.
+
+Personal choice may be affected by taste sensation and satiety.
+Tan @tan2021 discovered that this is difficult to study with a wide range of approaches across their systematic review.
+Nakamura et al. @nakamura2022 used NDNS to explore how alternative flavourings might reduce the use of salt.
+
+Reducing salt intake works.
+Vollmer @vollmer2001 reports findings that reduced salt intake can reduce BP in diverse groups in the USA.
+Hendriksen @hendriksen also explored this using Dutch and other European data to support this.
+Laverty et al. @laverty2019 demonstrate how policy reduces salt intake, and how reversal of policy allows intake to increase again.
+They also show how that affects BP.
+
+## NOVA
+
+The NOVA classification @monteiro2009 looks at food beyond the nutrient level, at the 'level of processing'.
+Group one are foods which are in a natural state, as plucked from the tree.
+Group two is foods which are used in processes to modify group one foods.
+Group three initially was all other foods, but was soon separated into minimally processed foods, and group four the ultra-processed foods.
+Increased Nova category four food intake, or UPF, is associated with risk of hypertension in some groups around the world.
+
+As the Nova concept has developed it can also be seen that 'processsing' incorporates how food is made available within social systems, how consumption behaviour changes in cooking and eating behaviour within social systems.
+
+## The 'controversy' of Food classification
+
+Martinez @martínez2021 makes an attempt to develop 'ecofoodomics' by deconstruction.
+His neologism can recieve a new more inclusive epistemology of food.
+His knowledge of food branches into food as culture, food as biologic, and food as economic.
+Nutrition would sit strongly within a biologic category, but UPF intentionally carries economic aspects, and cultural aspects.
+Meghani @meghani2007 expresses this same idea using examples actually a little way along the food chain.
+Identifying that there is a conceptual mismatch between the different parties in these arguments.
+ALso highlighting that for societal and political action it is essential that 'pure' scientists engage with the cultural and socioeconomic aspects of their science.
+
+Bearing in mind cultural and economic dimensions of food it becomes easier to understand that researchers don't always view food in the same way as people do, or as each other.
+Romero et al. @romeroferreiro2021 compare Nutri-Score and NOVA.
+Nutri-Score concentrates on nutritional analysis and identification to 'enable consumer choice'.
+Their analysis shows how foods classified nutritionally end up in all four of the NOVA categories.
+Asma et al. @A.Asma2019Fcsb as many other researchers found the concept of processing of food helpful in categorising their participants.
+
+Bourdieu ( @bourdieu2002, @abourdi2021 ) identified how food and food culture is associated with social position and how society is structured at a fundamental level.
+This includes that there is a two way process at work.
+Food preferences can change social position, as social position can be changed by food preferences.
+
+Cuj et al @cuj2021 support this idea that nutrition is limited when only the chemical composition is studied.
+Haber et al. @haber1977 review the role of structural arrangement of nutrients and how this alters speed of delivery of nutrients, venous glucose profile and resulting satiety.
+This breaks apart the idea of the nutritional content being the sole identifier of value for a food.
+Structure is important too.
+
+Dickie et al( @dickie2023 , @dickie2022 ) tried to develop a system to describe healthy foods, but struggled to build a model which was any more effective than NOVA.
+Each model demonstrated the similar 'flaws' around different 'bad' foods being made 'good' by the classification scheme.
+Martinez @Martinez-PerezCelia2021Uodf also describes trying to use different classification schemes to describe all the health related aspects of food.
+
+Monteiro's initial explanation uses the concept of 'processing' @monteiro2009 , and revised after initial reviews @monteiro2010.
+By 2013 @monteiro2013 the value of the model was becoming clearer.
+This idea was more confidently expressed by 2016 @monteiro2016.
+Even at this stage there is a bio-reductionist explanation around UPF.
+The 'value' of a scientific cache is too strong.
+
+In a recent debate @monteiro2022 and @astrup2022 discuss the concept of UPF and if it is valid or useful.
+There is a lot agreed about the necessity and importance of processing.
+Contended areas include confidence in the fundamental ideas, and in the approach to improving food quality of production, supply, and consumption.
+The areas of contention seem to identify differing epistemological approaches.
+On one side there is a confidence in a positivist solution to the social questions asked.
+The other identifies with a multi-paradigm approach.
+
+This conflicting conversation is evident across the scientific and lay discourse around UPF.
+Using Martinez's approach we can see the confusion is brought about because of differing assumptions about the epistemological basis of the parties.
+In particular the value they all hold for biologic-positivist purity.
+
+## How is UPF different?
+
+Explanations for the differential effect of these foods have developed as quickly as new ultra-processed foods have been developed .
+
+Aceves-Martins @aceves-martins2022 asks is it due to nutritional content ?
+In 2019 Rauber et al @rauber2019 ask, is it due to effects on satiety, or changes to appetite ?
+Do they taste better asks BawaJeeh et al. @bawajeeh2021 ?
+With Wang et al. @wang2021 considering, Is it due to being easy to buy, and easy to eat?
+Is it because they don't require time and effort in the home to process?
+Is it because these processes are industrial?
+Is it because these foods contain 'chemicals' or new ingredients?
+These explanations move from nutritional through into social and commercial.
+
+Colombet @colombet2022 showed that household income is correlated with UPF intake in the UK as well as exploring the relationship in the French West Indies @colombet2019.
+
+All these critiques are possible because of the social element to the classification.
+Colombet @colombet2022 identify that the intake of UPF has an inequality dimension and then @ColombetZoé2021Dass use modeling to describe a 'nutrition transition'.
+
+Nutrition based classifications appear less socially divisive due to scientific isolation.
+They still contain elements of social factors.
+One example is the way that foods are analysed can change their reported nutritional content.
+Eg a 'standard' food may be compared to a 'traditionally prepared' food.
+The first is prepared in a factory with control of its nutrition, the second by a home cook with limited access to nutrition modification technology.
+
+Statements about the scheme often discuss the high salt and sugar content.
+Papers discussing the effect on physiology, and pathology in particular highlight these, but they do not back their statements with analysis.
+They do not show that the sodium, and UPF together increase the risk of CVD, or BP rise.
+This dissertation intends to address this gap
+
+@bykershanks2022 show an approach between individual action and changing laws.
+This approach would target those most at risk due to negative social determinants.
+It does move into the realm of coercion of those 'making the wrong choices' into making better choices.
+
+## Can UPF be described in nutritional terms?
+
+Webster @websterSystematicSurveySodium2010 and niMurchu @nimhurchu2011 identify the large amount of salt in ultraprocessed foods.
+Vargas @Vargas-MezaJorge2022DSaP concentrates on sodium and potassium using the Mexican national health and nutrition survey.
+
+Sugars are the focus for Rauber @rauber2019, particularly free sugar intake.
+
+Armendariz @armendariz2022 look at how the retail food environment in Mexican cities has changed and how it affects BP.
+
+## UPF and Ill Health
+
+``` r
+  {r dagupf, echo=FALSE, message=FALSE, warning=FALSE} #| label: fig-dag-upf #| fig-cap: "Diagram of possible relationships of UPF"
+
+bp3 <- dagitty(" dag {         Age -> BP
+           Sex -> BP
+           UPF -> BP
+          Age -> UPF
+           Sex -> UPF
+           BP -> NCD
+}") plot(graphLayout(bp3))    
+```
+
+Dicken and Betterham @dicken2021 provide a comprehensive review of papers considering a range of metabolic and other health endpoints.
+
+Mertens @mertens2022 , Barbosa @barbosa2022, Santos @SantosFrancineSilvaDos2020Fpac ,Aceves-martins @aceves-martins2022, and Rauber @rauber2020 explore how UPF are associated with poor health.
+Whilst this is primarily metabolic pathology they do often mention BP.
+Schulze @schulze2019 comprehensively reviews UPF and metabolic health.
+
+Oliveira et al @OliveiraTafnes2020CtCo try to identify ill health in young people associated with the increasing use of UPF.
+
+Hodge @HodgeAllison2021ITIU dedicated an edition of 'Public Health Nutrition' to this question
+
+### obesity
+
+The link to obesity is perhaps the most direct.
+Munoz @Muñoz-LaraA2020TCOU looked at Mexican school age children.
+Li @LiMing2021Ufca looked at adults in China.
+Rauber @rauber2020 used the NDNS study to look at obesity in the UK.
+Each finding links to increased UPF and increased BMI and odds of being obese, often related to increased energy intake.
+UPF with its nutritional, cultural, and economic parts increases obesity.
+Critical review of UPF findings almost always include 'what is the mechanism?'
+as an early question.
+We can now ask this question in three parts.
+How much of the mechanism is biologic, how much cultural and how much economic?
+
+### diabetes and cardiometabolic syndromes
+
+Given the effects on obesity and the increase of energy intake the connection to diabetes and cardiometabolic syndromes has been the subject of more papers.
+
+Aguiar @AguiarSarmentoRoberta2018EPaH concentrates on diabetes only.
+Li @LiMing2022AbUF uses a national study to link UPF with diabetes in China.
+
+de Miranda Renata Costa @deMirandaRenataCosta2021Iouf identifies the effect on metabolic health.
+Martinez @Martinez-PerezCelia2021Uodf connects the dietary share of UPF in the US population.
+Tavares @TavaresLetíciaFerreira2012Rbuf doing the same in Brazilian adolescents.
+
+dos Santos @dossantos identifies this as cardiometabolic health and provides a systematic review @SantosFrancineSilvaDos2020Fpac .
+Goodman et al @GoodmanDina2020Diac explore this in Venezualan adults.
+Vilela @VilelaSofia2022Eotf give a '...prospective approach to childhood'.
+
+Some authors look how these metabolic effects lead to other conditions.
+For example Weinstein @WeinsteinGalit2021Couf with dementia.
+Gomez-Smith @Gomez-SmithMariana2018RCRa identify a possible pathological explanation.
+Ivancovsky @IvancovskyWajcmanDana2021Ufia connects NAFLD.
+Lee @LeeHae-Young2022UFaa connects these to CVD.
+
+Colombet @colombet2019 connects these changes in metabolic syndrome with changes in socioeconomic inequalities again linking the nutritional identity of diet with its social aspects.
+
+### cancer
+
+Southall @southall2022 and seperately Wang @wangAssociationUltraprocessedFood2022 have identified a risk of colorectal cancer.
+
+### ckd
+
+Kityo @KityoAnthony2022TIoU identifies the effect on the kidneys.
+Identifying the diverse effects of UPF and possibly also another contributory cause of BP changes.
+
+### Increasing UPF intake
+
+Many studies show the increasing role of UPF within the diet.
+Mertens @mertens2022 and ni Mhurchu @nimhurchu2011 show how UPF are being eaten in ever greater quantities across Europe but especially across the UK.
+
+Wang @wang2021 identifies increasing consumption in US youths, D'Avila @DavilaHelenFreitas2017Eifu also identify that increasingly upf are the key source of energy in adolescents.
+Gupta @GuptaDeepanshi2021Sauf explores the role of youth, identifying the peculiar age distribution of UPF intake.
+
+Rauber @rauber2019 look instead at free sugar intake.
+
+### UPF BP and Na
+
+``` r
+{r fig-dagupfbp, echo=FALSE, message=FALSE, warning=FALSE} #| label: fig-dagupfbp #| fig-cap: "Diagram of relationship between Na and UPF and BP"
+
+
+bp6 <- dagitty(" dag { Na -> BP UPF -> BP UPF <-> Na BP -> NCD}") plot(graphLayout(bp6))
+
+```
+
+Studies have started to find that hypertension is associated with increased intake of UPF in North and South America (Scaranni @scaranniUltraprocessedFoodsChanges2021a and de Deus Mendonca @DeDeusMendonçaRaquel2017Ufca), Europe and in Asia (@shimConsumptionUltraProcessedFood2022 providing a Korean perspective.Du @du2014 gives the data for China).
+Wang @WangMei2022UFCI delivers a meta analysis and systematic review.
+
+The definition of hypertension is contentious with many studies using self identification, or historical physician diagnosis.
+There is also a distinction between pathology, and physiology.
+Some papers identify hypertension as a pathological state and exclude it from analysis, others include participants on medication which alters BP value, in others 'hypertension' is the outcome measure irrespective of BP value.
+
+What is the mechanism by which UPF causes BP?
+How much of it is nutritional?
+After excluding the nutritional dimension is there still a UPF effect?
+Most studies don't include sodium intake in their analysis.
+
+Before UPF, Suter @suterNutritionalFactorsControl2002a asked is hypertension and blood pressure nutrient based, is it mediated by Salt?
+
+Is it other factors such as the food sales environment as explored by Goncalves @GonçalvesVivianSS2019Cots ?
+
+Oliveira @OliveiraTafnes2020CtCo looks at the effect in children, Rezende @Rezende-AlvesKatiusse2021Fpar with adolescents.
+
+Lima @LimaR2011Pouf reviewed already hypertensive individuals.
+
+These papers answer to a connection between UPF and Hypertension.
+They leave the next obvious question to brief speculation and future research.
+Their offer is that UPF are high in Salt and sugars.
+The question is dropped, the focus elsewhere.
+
+smiljenac @smiljanec2020 and tzelfa @TzelefaVicky2021Aodp both look at how UPF affect the vasculature which may be part of the pathway to BP.
+This looks further along the causal chain within the nutritional biologic domain of food science.
+
+### Approach to change
+
+Understanding the best approaches to reducing salt requires approaches that also cross epsitological paradigms.
+As well as biologic, we need cultural and economic approaches.
+Indeed it may be that all the science will never make changes in behaviour and regulation in isolation, but may require addressing the cultural and economic.
+
+The relationship between Na and socioeconomic position was demonstrated by Ji et al. @ji2014.
+
+Is it best to get individuals to reduce intake( @yourgui1998, @reports2023 , @vollmer2001 , @sacks2001 , @NilsonEduardoAugustoFernandes2021Eprd ), or for all of the food industry to reduce salt levels( @cappuccio2011 , @he2010 ).
+
+Lifestyle factors are contented.
+Whilst individual choice is involved.
+The range of choices available to individuals is limited by the nature of their society.
+A misapplication of lifestyle results in blaming individuals for the poor choices determined by their social and commercial environment.
+Iso @iso1999 looks at how education may be effective in delivering change.
+
+This can be tackled using a comprehensive integrated policy approach such as 'healthy cities' @healthy2017.
+Macregor @macgregor2015 explores how political change affects both the process and outcome of population level approaches to improving health.
+
+Instead of trying to change activity of millions of people can be more effective to change laws and policies once ( @instituteofmedicine2010 , @millett2012 , @moreira2015 , @instituteofmedicine2013 ).
+These 'upstream' changes are relatively simple, and are much more effective though they can also be reversed @cappuccio2015 .
+Cost is one of the causes of change as shown by Jones @jones2018 using NDNS to identify the cost premium of a good diet as defined by UK dietary recommendation .
+Opposition sometimes comes from industry.
+
+Laverty @laverty2019 and Macgregor @macgregor2015 showed that analytical models can effectively demonstrate the effects of different policies on population health.
+They identify that reducing the effectiveness of a policy on salt in food leads to changes in BP and so on to NCD.
+
+Campos-Nonato @campos-nonato2022 identify the benefits of their strategy.
+They discuss the range of nation level approaches to reducing salt intake.
+
+Dimbleby's @dimbleby National food strategy is an example of a high level approach to tackling biologic, cultural and economic aspects of food in order to improve all these factors and so reduce the burden of ill health and NCD across the population.
+
+@tulleken2023 ultraprocessed people
+
+## Literature review Conclusion
+
+The literature review identified and analysed a range of literature across the field.
+Key points being that CVD is a significant NCD, and has links with Na and UPF.
+These links are often described from different epistemological viewpoints within the study of food.
+This study aims to cross link these paradigms looking at how Na and UPF interact and looking to understand from a positivist approach what effects UPF have within the positivist paradigm.
+At the same time knowing and accepting that effects of UPF in this paradigm are a subset of the total effect, which also includes cultural and economic aspects.
+Also understanding that Na in its nutritional paradigm similarly projects into the cultural and economic.
