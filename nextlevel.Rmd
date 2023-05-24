@@ -296,7 +296,7 @@ Papers are also categorised as primary research, systematic reviews with meta an
 ### Na, BP, NCD and Public Health
 
 Non-communicable disease is an increasing burden on public health.
-@cappuccio2015 layout the charges against salt most clearly.
+Cappucio et al. @cappuccio2015 layout the charges against salt most clearly.
 They identify comprehensively the connection between changes in salt intake and changes in blood pressure and changes in cardiovascular (CVD) and cerebrovascular diseases.
 They link the nutritional effect of salt but they also identify the way this is affected by social and commercial determinants of health.
 These are branches from different epistemological backgrounds, nutrition from positivism, and the social determinants from a more constructivist approach.
@@ -316,7 +316,7 @@ plot(graphLayout(bp2))
 
 ```
 
-Explaining the role of the Framingham studies Kannel (@kannel2009 , @kannel1993) and Mahmood @mahmood2014 describe how risk factor medicine came about.
+Explaining the role of the Framingham studies Kannel @kannel2009 , @kannel1993 and Mahmood @mahmood2014 describe how risk factor medicine came about.
 They describe raised blood pressure as a 'prominent member' of a group of risks in cardiovascular disease.
 A disease which is the outcome of 'multiple forces'.
 Their description sees Framingham as part of the march of progress in understanding cardiovascular disease in particular, but also non-communicable disease.
@@ -326,18 +326,20 @@ Pringle @pringle2003 shows how stroke risk relates to BP.
 Since then BP has come to feature more and more in NCD, following studies showing that reducing BP reduced the risk of CVD.
 This placed detection, management, and control of BP at the centre of reducing CVD.
 Ettehad @ettehad2016 reported a comprehensive systematic review with 123 studies over 49 years and 613815 participants.
-More contemporary studies look at app use to improve BP monitoring @DebonRaquel2020Eoua.
+In a more contemporary study Debon-Raque et al. @DebonRaquel2020Eoua look at app use to improve BP monitoring.
 Bress @bress2021 clearly identifies that patient trust and engagement are essential in reducing 'race' based inequalities.
 Boutain @boutain2001 identifies stress and worry as important factors for African American men and women.
 In North west England Roche @roche2018 developed quality assurance approaches to BP management which highlight that there are many different approaches to assessment monitoring and control.
 
-Causes come from different epistemological paradigms.
+Satisfactory explanations of the cause of BP depend on the epistemological frame used.
 Medically, the causes of BP, as Kannel explains, are divided into secondary BP where there is an identified pathological cause and 'essential' or idiopathic BP where no cause is identifiable.
-Contributors to and partial causes of this essential BP have been sought, at individual and societal levels, using medical and epidemiological approaches ( @who , @bloodpr , @bloodpr2018 ).
+Contributors to and partial causes of this essential BP have been sought, at individual and societal levels, using medical and epidemiological approaches @who , @bloodpr , @bloodpr2018 .
 
-At the level of physiology, salt (Na) is a contributor to BP.
-The role of salt in normal and abnormal BP control has been established through WHO and Intersalt @intersal1988 with Elliot @elliott1996 updating the findings and repeating the message.
-However news reports such as that of Taubes @taubes2012 and Newman @newman2017 identify contentious aspects.
+At the level of physiology, Na is a contributor to BP.
+The role of Na in normal and abnormal BP control has been established through WHO and Intersalt @intersal1988 with Elliot @elliott1996 updating the findings and repeating the message.
+It is possible to look at these studies and identify areas where clarity is assumed.
+
+News reports such as that of Taubes @taubes2012 and Newman @newman2017 identify question 'orthodox' explanations and seek to disrupt consensus with some degree of success.
 Elijovich @elijovich2016 carefully explains how the American Heart Association deals with the idea that there may be individuals with higher sensitivity to salt .
 Barris et al. @barris2023 discuss the role of sex in salt sensitivity.
 Pitzer et al. @pitzer2022 propose a mechanism of action.
@@ -359,7 +361,8 @@ They also show how that affects BP.
 
 ### NOVA
 
-The NOVA classification @monteiro2009 looks at food beyond the nutrient level, at the 'level of processing'.
+The NOVA classification, of Monteiro @monteiro2009, looks at food beyond the nutrient level.
+At the level of 'processing'.
 Group one are foods which are in a natural state, as plucked from the tree.
 Group two is foods which are used in processes to modify group one foods.
 Group three initially was all other foods, but was soon separated into minimally processed foods, and group four the ultra-processed foods.
@@ -373,9 +376,12 @@ Martinez @martínez2021 makes an attempt to develop 'ecofoodomics' by deconstruc
 His neologism can recieve a new more inclusive epistemology of food.
 His knowledge of food branches into food as culture, food as biologic, and food as economic.
 Nutrition would sit strongly within a biologic category, but UPF intentionally carries economic aspects, and cultural aspects.
+
 Meghani @meghani2007 expresses this same idea using examples actually a little way along the food chain.
 Identifying that there is a conceptual mismatch between the different parties in these arguments.
 ALso highlighting that for societal and political action it is essential that 'pure' scientists engage with the cultural and socioeconomic aspects of their science.
+
+Cifuentes @cifuentes2020 claims 'foodomics' as a descriptor of the pure science aspects of food.
 
 Bearing in mind cultural and economic dimensions of food it becomes easier to understand that researchers don't always view food in the same way as people do, or as each other.
 Romero et al. @romeroferreiro2021 compare Nutri-Score and NOVA.
@@ -383,7 +389,7 @@ Nutri-Score concentrates on nutritional analysis and identification to 'enable c
 Their analysis shows how foods classified nutritionally end up in all four of the NOVA categories.
 Asma et al. @A.Asma2019Fcsb as many other researchers found the concept of processing of food helpful in categorising their participants.
 
-Bourdieu ( @bourdieu2002, @abourdi2021 ) identified how food and food culture is associated with social position and how society is structured at a fundamental level.
+Bourdieu @bourdieu2002, @abourdi2021 identified how food and food culture is associated with social position and how society is structured at a fundamental level.
 This includes that there is a two way process at work.
 Food preferences can change social position, as social position can be changed by food preferences.
 
@@ -392,7 +398,7 @@ Haber et al. @haber1977 review the role of structural arrangement of nutrients a
 This breaks apart the idea of the nutritional content being the sole identifier of value for a food.
 Structure is important too.
 
-Dickie et al( @dickie2023 , @dickie2022 ) tried to develop a system to describe healthy foods, but struggled to build a model which was any more effective than NOVA.
+Dickie et al. @dickie2023 , @dickie2022 tried to develop a system to describe healthy foods, but struggled to build a model which was any more effective than NOVA.
 Each model demonstrated the similar 'flaws' around different 'bad' foods being made 'good' by the classification scheme.
 Martinez @Martinez-PerezCelia2021Uodf also describes trying to use different classification schemes to describe all the health related aspects of food.
 
@@ -402,7 +408,7 @@ This idea was more confidently expressed by 2016 @monteiro2016.
 Even at this stage there is a bio-reductionist explanation around UPF.
 The 'value' of a scientific cache is too strong.
 
-In a recent debate @monteiro2022 and @astrup2022 discuss the concept of UPF and if it is valid or useful.
+In a recent debate Monteiro @monteiro2022 and Astrup @astrup2022 discuss the concept of UPF and if it is valid or useful.
 There is a lot agreed about the necessity and importance of processing.
 Contended areas include confidence in the fundamental ideas, and in the approach to improving food quality of production, supply, and consumption.
 The areas of contention seem to identify differing epistemological approaches.
@@ -442,7 +448,7 @@ Papers discussing the effect on physiology, and pathology in particular highligh
 They do not show that the sodium, and UPF together increase the risk of CVD, or BP rise.
 This dissertation intends to address this gap
 
-@bykershanks2022 show an approach between individual action and changing laws.
+Byker-Shhanks et al. @bykershanks2022 show an approach between individual action and changing laws.
 This approach would target those most at risk due to negative social determinants.
 It does move into the realm of coercion of those 'making the wrong choices' into making better choices.
 
@@ -554,7 +560,7 @@ plot(graphLayout(bp6))
 
 ```
 
-Studies have started to find that hypertension is associated with increased intake of UPF in North and South America (Scaranni @scaranniUltraprocessedFoodsChanges2021a and de Deus Mendonca @DeDeusMendonçaRaquel2017Ufca), Europe and in Asia (@shimConsumptionUltraProcessedFood2022 providing a Korean perspective.Du @du2014 gives the data for China).
+Studies have started to find that hypertension is associated with increased intake of UPF in North and South America (Scaranni @scaranniUltraprocessedFoodsChanges2021a and de Deus Mendonca @DeDeusMendonçaRaquel2017Ufca), Europe and in Asia Shim et al. @shimConsumptionUltraProcessedFood2022 provide a Korean perspective.Du @du2014 gives the data for China).
 Wang @WangMei2022UFCI delivers a meta analysis and systematic review.
 
 The definition of hypertension is contentious with many studies using self identification, or historical physician diagnosis.
@@ -579,7 +585,7 @@ They leave the next obvious question to brief speculation and future research.
 Their offer is that UPF are high in Salt and sugars.
 The question is dropped, the focus elsewhere.
 
-smiljenac @smiljanec2020 and tzelfa @TzelefaVicky2021Aodp both look at how UPF affect the vasculature which may be part of the pathway to BP.
+Smiljenac @smiljanec2020 and Tzelfa @TzelefaVicky2021Aodp both look at how UPF affect the vasculature which may be part of the pathway to BP.
 This looks further along the causal chain within the nutritional biologic domain of food science.
 
 ### Approach to change
@@ -590,7 +596,7 @@ Indeed it may be that all the science will never make changes in behaviour and r
 
 The relationship between Na and socioeconomic position was demonstrated by Ji et al. @ji2014.
 
-Is it best to get individuals to reduce intake( @yourgui1998, @reports2023 , @vollmer2001 , @sacks2001 , @NilsonEduardoAugustoFernandes2021Eprd ), or for all of the food industry to reduce salt levels( @cappuccio2011 , @he2010 ).
+Is it best to get individuals to reduce intake( @yourgui1998, @reports2023 , @vollmer2001 , @sacks2001 , @NilsonEduardoAugustoFernandes2021Eprd ), or for all of the food industry to reduce salt levels Cappuccio @cappuccio2011 ,and He @he2010 .
 
 Lifestyle factors are contented.
 Whilst individual choice is involved.
@@ -602,7 +608,7 @@ This can be tackled using a comprehensive integrated policy approach such as 'he
 Macregor @macgregor2015 explores how political change affects both the process and outcome of population level approaches to improving health.
 
 Instead of trying to change activity of millions of people can be more effective to change laws and policies once ( @instituteofmedicine2010 , @millett2012 , @moreira2015 , @instituteofmedicine2013 ).
-These 'upstream' changes are relatively simple, and are much more effective though they can also be reversed @cappuccio2015 .
+These 'upstream' changes are relatively simple, and are much more effective though they can also be reversed eg Cappuccio @cappuccio2015 .
 Cost is one of the causes of change as shown by Jones @jones2018 using NDNS to identify the cost premium of a good diet as defined by UK dietary recommendation .
 Opposition sometimes comes from industry.
 
@@ -614,7 +620,9 @@ They discuss the range of nation level approaches to reducing salt intake.
 
 Dimbleby's @dimbleby National food strategy is an example of a high level approach to tackling biologic, cultural and economic aspects of food in order to improve all these factors and so reduce the burden of ill health and NCD across the population.
 
-@tulleken2023 ultraprocessed people
+Tulleken's @tulleken2023 ultraprocessed people presents a case for stopping the use of UPF.
+He supports individual choice, but identifies that a whole systems approach involving governmental partners is essential.
+He argues largely within the biomedical paradigm.
 
 ## Literature review Conclusion
 
@@ -1921,7 +1929,7 @@ save_as_docx(width(keydatwp, width=5), path = "/media/david/Elements1/contents/D
 
 ```
 
-##  Univariable Linear Regression
+## Univariable Linear Regression
 
 Simple linear regression equations look for the relationship between the outcome BP, and the independent exposure variable.
 
@@ -2139,10 +2147,11 @@ However BP measurement technology has changed over ten years.
 BP machines derive their results from the changes in pressure detected in the arm of the participant.
 However the algorithm used may have changed.
 
-#### of other variables compared across cohorts
+#### of other variables compared across waves
 
-Age seems to be related to UPF having a similar effect on BP.
-This would mean that the relationship of different aged participants and their UPF habit is affecting the comparisons within the multivariable models.
+Weighting maintains age, sex, IMD, and government region across the waves.
+BMI is no different, and educational attainment is also unaffected.
+There are more vegetarians as time goes on.
 
 ## Discussion of Key variables by Sex,Age and Place
 
