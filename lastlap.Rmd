@@ -1636,6 +1636,15 @@ ndns_1_11$UPF3 <-  cut(ndns_1_11$Epcnt_4 ,
                        breaks=c(0, 33, 45,63,80,100))
 ndns_1_11$UPF2 <- cut(ndns_1_11$Epcnt_4 ,
                        breaks=c(0, 63,100))
+ndns_1_11$zPF <-  ndns_1_11$NOVA_Epct_opti_4
+                      
+ndns_1_11$zPF3 <-  cut(ndns_1_11$NOVA_Epct_opti_4 ,
+                       breaks=c(0, 33, 45,63,80,100))
+ndns_1_11$zPF2 <- cut(ndns_1_11$NOVA_Epct_opti_4 ,
+                       breaks=c(0, 63,100))
+
+
+
 ndns_1_11$agegad3 <-  cut(ndns_1_11$age ,
                        breaks=c(0, 16,19,35,50,65,108))
 ndns_1_11$hyp <- cut(ndns_1_11$omsysval ,
@@ -1675,6 +1684,10 @@ ndns_1_11d <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1,
 #medication affecting bp
 ndns_1_11dd <- subset(ndns_1_11d, bpd == "not taking drug")
 ndns_1_11f <- subset(ndns_1_11d, Sex == "Female")
+ndns_1_11na <- subset(ndns_1_11d, Na >= 5000)
+ndns_1_11upf<- subset(ndns_1_11d, UPF >= 63)
+ndns_1_11zpf<- subset(ndns_1_11d, NOVA_Epct_opti_4 >= 63)
+ndns_1_11hyp <- subset(ndns_1_11d, BP >= 140)
 #ndns_1_11bp <- subset(ndns_1_11d, omsysval== is.na(NA))
 #ndns_1_11bp
 
@@ -1703,8 +1716,27 @@ There were again 49% male participants.
 Mean outcome, BP was 121 mmHg.
 The exposure, Na was 2043 mg and UPF was still 48%.
 
-There appeared little difference in bmi, educational level, IMD, or region of origin.
-This first table @tbl-table1 shows all variables.
+The population exposed to UPF \>63% of their calories is made up of 5121 participants.
+These are more commonly male, and younger than the overall population or those not on medication.
+34% are 0-16 years old.
+There is a gradient in deprivation with more affected in the most deprived group.
+The north west has 13% of those with high UPF intake along with the south east.
+
+The population exposed to Na \>5000mg has only 73 participants.
+Men are more commonly affected.
+They are also younger than average.
+The least deprived have only 5.2% of the population compared with 39% of the population being the most deprived.
+The north west has23% of those with high Na intake, much the highest.
+
+The population with BP \> 140 mmHg is 1244 participants.
+Men are once again overrepresented.
+These participants are older than the population mean, 44% of theses participants are over 65.
+With deprivation there is a reverse gradient.
+The most deprived are least represented in this population.
+The largest proportion are in the least deprived category.
+The north west is second highest in raised BP after the south east.
+
+This table @tbl-table1 shows all variables.
 
 Continuous variables are represented by the mean and standard deviation in brackets.
 Categorical variables give the number of participants and the percentage of the sample in brackets.
@@ -1714,12 +1746,15 @@ Categorical variables give the number of participants and the percentage of the 
 #| tbl-cap: "Characteristics of the sample population from National Dietary and Nutrition Study (2008-2019) N= 15,655"
 
 
-keydatw1 <-tbl_svysummary(ndns_1_11d, include= c(Age, agegad3, omsysval,hyp, bmival, Na,hiNa, UPF,UPF3, educfinh, IMD,gor,bpd ))
+keydatw1 <-tbl_svysummary(ndns_1_11d, include= c(Sex,Age, agegad3,  bmival,  educfinh, IMD,gor ))
 #keydatw1
-keydatwdd <-tbl_svysummary(ndns_1_11dd, include= c(Age, agegad3, omsysval,hyp, bmival, Na,hiNa, UPF,UPF3, educfinh, IMD,gor,bpd ) )
+keydatwdd <-tbl_svysummary(ndns_1_11dd, include= c(Sex,Age, agegad3,  bmival, educfinh, IMD,gor ) )
 
-keydatwdf <-tbl_svysummary(ndns_1_11f, include= c(Age, agegad3, omsysval,hyp, bmival, Na,hiNa, UPF,UPF3, educfinh, IMD,gor,bpd ) )
-keydatwT <- tbl_merge(list(keydatw1,keydatwdd,keydatwdf),tab_spanner = c("Whole Population", "Population with those on BP medication excluded","Female"))
+keydatwzpf <-tbl_svysummary(ndns_1_11zpf, include= c(Sex,Age, agegad3,  bmival,  educfinh, IMD,gor) )
+keydatwna <-tbl_svysummary(ndns_1_11na, include= c(Sex,Age, agegad3,  bmival,  educfinh, IMD,gor ) )
+keydatwhyp <-tbl_svysummary(ndns_1_11hyp, include= c(Sex,Age, agegad3,  bmival,  educfinh, IMD,gor) )
+
+keydatwT <- tbl_merge(list(keydatw1,keydatwdd,keydatwzpf,keydatwna,keydatwhyp),tab_spanner = c("Whole Population", "Population with those on BP medication excluded","UPF >63%","Na >5000mg","hyp >140mmHg"))
 keydatflx <- as_flex_table( keydatwT)
 keydatflx
 #png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/table1.png")
@@ -1728,7 +1763,7 @@ keydatflx
 #heatmap(keydataw1)
 ```
 
-### Population by Survey Wave
+## Population by Survey Wave
 
 The variables were compared across annual waves.
 The numbers seemed smaller towards the end of the series, for Na, UPF and for BP.
@@ -1743,7 +1778,7 @@ The mean outcome variable BP was highest in year one with 125 mmHg, and the lowe
 The separate waves had separate participants.The data is presented in @tbl-keydata.
 
 ```{r tbl-setup, include=FALSE,echo=FALSE,message=FALSE,cache=TRUE}
-keydatw <-tbl_svysummary(ndns_1_11dd,SurveyYear , include = c(Na,UPF,BP))
+keydatw <-tbl_svysummary(ndns_1_11dd,by =SurveyYear , include = c(Na,UPF,BP))
 
 
 ```
@@ -1772,7 +1807,7 @@ Results were illustrated by plots against survey year.
 #| fig-cap: "Energy from UPF% in each annual cohorts NDNS (2008-2019)"
 
 
-svyboxplot(UPF~SurveyYear,ndns_1_11dd, na.rm = TRUE,main = "UPF% by survey year", ylab = "UPF%" ,xlab ="Survey Year")
+svyboxplot(NOVA_Epct_opti_4~SurveyYear,ndns_1_11dd, na.rm = TRUE,main = "UPF% by survey year", ylab = "UPF%" ,xlab ="Survey Year")
 ```
 
 ```{r fig-Na-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
@@ -1807,17 +1842,17 @@ BMI had a negative p.value in most years but the p.value was \<0.05 only in wave
 #| tbl-cap: "Key Variables (Na, UPF, BP) by Survey cohort showing a negative gradient in relation to year one which is statistically significant"
 
 ttestNa2 <- svyglm(Na~SurveyYear, ndns_1_11dd )
-ttestNa2t <- tbl_regression(ttestNa2)
-ttestEpcnt <- svyglm(UPF~SurveyYear, ndns_1_11dd )
-ttestEpcntt <- tbl_regression(ttestEpcnt)
+ttestNa2t <- add_global_p(tbl_regression(ttestNa2))
+ttestEpcnt <- svyglm(NOVA_Epct_opti_4~SurveyYear, ndns_1_11dd )
+ttestEpcntt <- add_global_p(tbl_regression(ttestEpcnt))
 ttestOS <- svyglm(BP~SurveyYear, ndns_1_11dd)
-ttestOSt <- tbl_regression(ttestOS)
+ttestOSt <- add_global_p(tbl_regression(ttestOS))
 ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11dd)
-ttestages<-  tbl_regression(ttestage)
+ttestages<-  add_global_p(tbl_regression(ttestage))
 ttestbmi <- svyglm(bmival~SurveyYear, ndns_1_11dd)
-ttestbmis <- tbl_regression(ttestbmi)
+ttestbmis <- add_global_p(tbl_regression(ttestbmi))
 kvsearchyr <- as_flex_table(tbl_stack(list(ttestNa2t,ttestEpcntt,ttestOSt,ttestages,ttestbmis),group_header =  c("Sodium in mg", "Percent Energy UPF","Systolic BP","Age","BMI")))
-
+kvsearchyr
 png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/tbl-Variables-by-Survey-year.png")
 save_as_image(width(autofit(kvsearchyr), width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tbl-Variables-by-Survey-year.png")
 save_as_docx(width(autofit(kvsearchyr), width=5), path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tbl-Variables-by-Survey-year.docx")
@@ -1855,10 +1890,10 @@ Data for year 11 was absent for hypertension.
 #| tbl-cap: "Key categorical variables by survey year from NDNS 2008-2018"
 
 sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11dd)
-educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11dd)
+educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11dd[,"SurveyYear" !=5])
 imdchi <- svychisq(~IMD+SurveyYear , ndns_1_11dd)
 vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11dd)
-UPF3chi <- svychisq(~UPF3+ SurveyYear , ndns_1_11dd)
+UPF3chi <- svychisq(~zPF3+ SurveyYear , ndns_1_11dd)
 agegad3chi <- svychisq(~agegad3+ SurveyYear , ndns_1_11dd)
 hypchi <- svychisq(~hyp+ SurveyYear , ndns_1_11dd)
 BMIchi <- svychisq(~BMI+ SurveyYear, ndns_1_11dd)
@@ -1894,7 +1929,7 @@ In each case the lower gradient of the relationship between the variable and Sex
 #| label: tbl-keydatax
 #| tbl-cap: "Key variables by age group from NDNS 2008-2018"
 
-keydatwx <-tbl_svysummary(ndns_1_11dd,Sex, include = c(Na,UPF,UPF3,BP))
+keydatwx <-tbl_svysummary(ndns_1_11dd,Sex, include = c(Na,zPF,zPF3,BP))
 keydatwx <-as_flex_table( add_p(keydatwx))
 keydatwx
 png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/keydatwx.png")
@@ -1912,7 +1947,7 @@ BP rose through life to a mean of 134 mm Hg in the over 65 age category.
 #| label: tbl-keydataA
 #| tbl-cap: "Key variables by age group from NDNS 2008-2018"
 
-keydatwA <-tbl_svysummary(ndns_1_11dd,agegad3, include = c(Na,UPF,UPF3,BP))
+keydatwA <-tbl_svysummary(ndns_1_11dd,agegad3, include = c(Na,zPF,zPF3,BP))
 keydatwA <-as_flex_table( add_p(keydatwA))
 keydatwA
 png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/keydatwA.png")
@@ -1929,7 +1964,7 @@ Outcome BP was also lowest in London, with the highest in the North East.
 #| label: tbl-keydatap
 #| tbl-cap: "Key variables by government region from NDNS 2008-2018"
 
-keydatwp <-tbl_svysummary(ndns_1_11dd,gor, include = c(Na,UPF,UPF3,BP))
+keydatwp <-tbl_svysummary(ndns_1_11dd,gor, include = c(Na,zPF,zPF3,BP))
 
 keydatwp <-as_flex_table( add_p(keydatwp))
 keydatwp
@@ -1948,20 +1983,20 @@ Simple linear regression equations look for the relationship between the outcome
 #| tbl-cap: "regressions in pairs between key variables full population showing direction and strength of relationships NDNS data 2008-2019"
 #univariable regression models
 #UPF Energy % only
-lm1E <- svyglm(BP ~ UPF, ndns_1_11dd)
+lm1E <- svyglm(BP ~ zPF, ndns_1_11dd)
 lm1Et <- tbl_regression(lm1E)
 #univariable regression models
 #sodium only
 lm1na <- svyglm(BP ~ Na, ndns_1_11dd)
 lm1nat <- tbl_regression(lm1na)
 
-lmEna <- svyglm(UPF ~ Na, ndns_1_11dd)
+lmEna <- svyglm(zPF ~ Na, ndns_1_11dd)
 lmEnat <- tbl_regression(lmEna)
 
 lmA <- svyglm(BP ~ Age, ndns_1_11dd)
 lmAt <- tbl_regression(lmA)
 
-lmEA <- svyglm( Age ~ UPF, ndns_1_11dd)
+lmEA <- svyglm( Age ~ zPF, ndns_1_11dd)
 lmEAt <- tbl_regression(lmEA)
 
 lmNaA <- svyglm(Na ~ Age, ndns_1_11dd)
@@ -1996,16 +2031,16 @@ lm1bmit <- tbl_regression(lm1bmi)
 lm1Ag1 <- svyglm(BP ~ agegad3, ndns_1_11dd)
 lm1Ag1t <- tbl_regression(lm1Ag1)
 
-lmEbmi <- svyglm(UPF ~ bmival, ndns_1_11dd)
+lmEbmi <- svyglm(zPF ~ bmival, ndns_1_11dd)
 lmEbmit <- tbl_regression(lmEbmi)
 
 lmed <- svyglm(BP ~ educfinh, ndns_1_11dd)
 lmedt <- tbl_regression(lmed)
 
-lmEs <- svyglm(UPF ~ agegad3, ndns_1_11dd)
+lmEs <- svyglm(zPF ~ agegad3, ndns_1_11dd)
 lmEst <- tbl_regression(lmEs)
 
-lmEed <- svyglm(UPF ~ educfinh, ndns_1_11dd)
+lmEed <- svyglm(zPF ~ educfinh, ndns_1_11dd)
 lmEedt <- tbl_regression(lmEed)
 
 lmNabm <- svyglm(Na ~ bmival, ndns_1_11dd)
@@ -2028,42 +2063,32 @@ save_as_docx(univariables, width=5, path = "/media/david/Elements1/contents/DOHm
 
 ## Multi variable logistic regression
 
-This set of models looked at when the data was regressed against hyp a variable identifying hypertension as 140mmHg in patients who are not on BP reducing medication.
+This set of models looked at when the data was regressed against (hyp) a variable identifying hypertension as 140mmHg in patients who are not on BP reducing medication.
 
-The first model, labelled "No sodium or UPF" of this set looks at the relationships between BP and some of the background variables (Age and Sex, education and IMD) all of which may have an effect on BP.
-The result shows that the odds ratio for females is 0.6 and this is statistically significant.
-That is the odds of a female participant having a BP above 140 are almost half those for a male participant.
-BMI odds ratios are not statistically significant across the categories.
-That is a BMI over 30 is not associated with a BP above 140mmHg in this data set.
-All age groups have statistically significant differences in odds of hypertension compared to the under 16 age group.
-That of the oldest age group being a 372 times greater risk.
-The IMD groups are not statistically different from the least deprived.
-
-The second model, "Sodium Only", adds sodium as the exposure variable.
+The model, "Sodium Only", adds sodium as the exposure variable.
 The odds ratio for the group taking between 5000mg and 6000mg per day is statistically significantly different from those taking less than 3000mg per day.
-There is an odds ratio of 7.5 for this group.
-It also shows minimal effects on other variables in the model.
+There is an odds ratio of 5.07 for this group.
 
-"UPF only" is the third model.
-Here there is no significant difference in odds ratio for any group.
-Again there are minimal effects on the other variables.
+"UPF only" shows a significant difference in odds ratio 0.61 for the group 63-80% with a p.value of 0.049.
 
-The last model, "Sodium and UPF", shows that when combined there is still little effect identified statistically, on each other or on the other variables.
-The difference in odds ratio for 5000-6000mg of Na remains, and remains statistically significant.
+The last model, "Sodium and UPF", shows that when combined the effect remains.
+The odds ratio for 5000-6000mg of Na remains statistically significant.
+The odds ratio for UPF also remains.
+
 @tbl-multivariable-outputs-bp follows below.
 
 ```{r bp-multivariable-models, echo=FALSE, warning=FALSE}
 
-lm1AS <- svyglm(hyp ~  Sex +BMI +agegad3+educfinh + IMD ,family = binomial(link = "logit"), ndns_1_11dd , na.action = na.exclude)
+lm1AS <- svyglm(hyp ~  Sex +BMI +agegad3+educfinh + IMD +SurveyYear,family = binomial(link = "logit"), ndns_1_11dd , na.action = na.exclude)
 
 theme_gtsummary_mean_sd()
 
 #sodium only
-lmna <- svyglm( hyp ~ hiNa  +Sex +agegad3 + BMI+educfinh+  IMD ,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
+lmna <- svyglm( hyp ~ hiNa  +Sex +agegad3 + BMI+educfinh+  IMD+SurveyYear ,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
 
-lmnaE <- svyglm(hyp ~ hiNa +Sex +agegad3+UPF3 + BMI +educfinh+ IMD ,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
+lmnaE <- svyglm(hyp ~ hiNa +Sex +agegad3+ zPF3 + BMI +educfinh+ IMD +SurveyYear,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
 
-lmME <- svyglm( hyp~ UPF3 +agegad3+Sex + BMI +educfinh + IMD ,family = binomial(link = "logit"), ndns_1_11dd,na.action =na.exclude)
+lmME <- svyglm( hyp~ zPF3 +agegad3+Sex + BMI +educfinh + IMD +SurveyYear,family = binomial(link = "logit"), ndns_1_11dd,na.action =na.exclude)
 
 #lmME2 <- svy_vglm(UPF3 ~ hyp+hiNa +agegad3+Sex + bmival +educfinh + EIMD_2010_quintile +bpd,family = multinomial(refLevel=1),design= ndns_1_11d,na.action =na.exclude)
 #tbl_regression(lmME2)
@@ -2072,13 +2097,17 @@ lmME <- svyglm( hyp~ UPF3 +agegad3+Sex + BMI +educfinh + IMD ,family = binomial(
 
 ```{r tbl-multivariable-outputs-bp, echo=FALSE, message=FALSE, warning=FALSE}
 #| label: tbl-multivariable-outputs-bp
-#| tbl-cap: "Table of multivariable regression against BP in 4 models to identify the effects relating to Na and UPF NDNS data 2008-2019"
-lm1ASt <-tbl_regression(lm1AS,exponentiate = TRUE)
-lmnat <- tbl_regression(lmna,exponentiate = TRUE)
-lmnaEt <- tbl_regression(lmnaE,exponentiate = TRUE)
-lmMEt <- tbl_regression(lmME,exponentiate = TRUE)
+#| tbl-cap: "Table of multivariable regression against BP to identify the effects relating to Na and UPF NDNS data 2008-2019"
+#lm1ASt <-tbl_regression(lm1AS,include=c(hiNa,NOVA_Epct_opti_4) ,exponentiate = TRUE)
+lmnat <- tbl_regression(lmna,include=hiNa,exponentiate = TRUE)
+lmnaEt <- tbl_regression(lmnaE,include=c(hiNa,zPF3),exponentiate = TRUE)
+lmMEt <- tbl_regression(lmME,include=zPF3,exponentiate = TRUE)
 
-multivariables<- as_flex_table(  tbl_merge(list(lm1ASt,lmnat,lmMEt,lmnaEt), tab_spanner = c("No Na or UPF","Na only","UPF only","Na and UPF")))
+multivariables<- set_caption(as_flex_table(  tbl_merge(list(lmnat,lmMEt,lmnaEt), tab_spanner = c("Na only","UPF only","Na and UPF"))), caption = "Table of multivariable regression against BP to identify the effects relating to Na and UPF NDNS data 2008-2019")
+multivariables <- add_footer_lines(multivariables, "All models include Sex,Age, BMI, Education, IMD and Survey Year")
+
+lm1AS$aic
+
  
 multivariables 
  png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/multivariables.png")
@@ -2087,7 +2116,7 @@ save_as_docx(multivariables, width=5, path = "/media/david/Elements1/contents/DO
 ```
 
 Using the AIC statistic for each model gives another way of understanding the comparative effects.
-The subsequent @tbl-AIC-comparison shows the size of the effect relating to sodium.
+The subsequent \@ref(tbl-AIC-comparison) shows the size of the effect relating to sodium.
 The lowest scored model is the optimal model.
 The 'best' of these models is that with only sodium included "Na only".
 The UPF models both being further away from the lowest value.
