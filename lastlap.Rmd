@@ -1,11 +1,6 @@
 ---
 title: "Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    code_folding: hide
   pdf_document: 
     toc: yes
     fig_caption: yes
@@ -14,18 +9,23 @@ output:
     latex_engine: xelatex
     fig_width: 4
     fig_height: 4
-  html_document: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    keep_md: yes
-    fig_width: 4
-    fig_height: 4
   word_document: 
     toc: yes
     fig_caption: yes
     keep_md: yes
     toc_depth: 4
+    fig_width: 4
+    fig_height: 4
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    code_folding: hide
+  html_document: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    keep_md: yes
     fig_width: 4
     fig_height: 4
 editor_options: 
@@ -104,7 +104,7 @@ The accompanying literature review discusses aspects of policy and their effecti
 \newpage
 ```
 ```{r tbl-abbreviations, echo=FALSE, message=TRUE, warning=TRUE}
-#| label: tbl-abbreviations
+#| tab-id: tbl-abbreviations
 #| caption: "Table of abbreviations used"
 
 abbrev <- data.table("Abbreviation "=c("NDNS","BP","Na","UPF","NCD","CVD","CHAMPs","NOVA","NAFLD","BMI"),"Term"=c("National Dietary and Nutrition Survey","Blood Pressure","Sodium intake in mg", "Ultra Processed Foods", "Non communicable Disease","Cardiovascular Disease","Cheshire and Merseyside public health  collaborative","NOVA is a classification system, it is not an acronym","non- alcohol fatty liver disease","Body Mass Index"))
@@ -125,10 +125,10 @@ This study looked at this association in the data set of the National dietary an
 This study assess correlation between BP and these dietary factors and the association between salt intake and the effect of ultraprocessed food on BP within the data from this study.
 
 Age and sex remain important background factors.
-This study explored this complex web pulling out strands within it, @fig-diag1 shows a possible arrangement of this.
+This study explored this complex web pulling out strands within it, \@ref(fig:figdiag1) shows a possible arrangement of this.
 
 ```{r fig-diag1, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-diag1
+#| fig-id: fig-diag1
 #| fig-cap: "The relationships explored in the analysis"
 
 bp1 <- dagitty(" dag {
@@ -250,19 +250,19 @@ Reviews and meta-analyses presented search strategies and identified highly rele
 The search was limited to to high blood pressure, however, many papers consider broader clinical endpoints.
 These included metabolic syndrome, diabetes and cerebrovascular and cardiovascular disease.
 
-My search terms are included in @tbl-search-terms below.
+My search terms are included in \@ref(tab:tbl-search-terms) below.
 They were searched through a university meta database which includes Medline, and Ovid and Scopus.
 This meta database includes an ongoing search sends notification of articles as they are published.
 
 ```{r tbl-search-terms, echo=FALSE, message=TRUE, warning=TRUE}
-#| label: tbl-search-terms
+#| tab-id: tbl-search-terms
 #| caption: "Table of Search terms used"
 
 search1 <- data.table("Search Terms Used "="\"ultra-processed food\" OR \"ultra-processed foods\" OR \"ultraprocessed food\" OR \"ultraprocessed foods\" OR \"ultra-processed product\" OR \"ultra-processed products\" OR \"ultra-processing\" OR \"food processing\" OR \"processed food\" OR \"processed foods\" OR \"NOVA\" OR \"NOVA system\" OR \"NOVA food classification\" OR \"NOVA classification system\") AND (hypertension OR \"high blood pressure\" OR \"high blood pressures\" OR \"blood pressure\" OR \"systolic pressure\" OR \"diastolic pressure\" OR \"systolic blood pressure\" OR \"diastolic blood pressure\") AND (adult OR adults OR aged OR \"middle aged\" OR elderly OR \"older adult\"")
 width(autofit(flextable(search1)), width=5)
 
-png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/search1.png")
-save_as_image(width(autofit(flextable(search1)), width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/search1b.png")
+#png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/search1.png")
+#save_as_image(width(autofit(flextable(search1)), width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/search1b.png")
 ```
 
 ### Search results
@@ -305,7 +305,7 @@ They link the nutritional effect of salt but they also identify the way this is 
 These are branches from different epistemological backgrounds, nutrition from positivism, and the social determinants from a more constructivist approach.
 
 ```{r dagNa, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-dagNa
+#| fig-id: fig-dagNa
 #| fig-cap: "Diagram of relationships between BP and Salt"
 
 bp2 <- dagitty(" dag {
@@ -467,12 +467,13 @@ This dissertation intends to address this gap.
 Byker-Shanks et al. @bykershanks2022 show an approach between individual action and changing laws.
 This approach would target those most at risk due to negative social determinants.
 It does move into the realm of coercion of those 'making the wrong choices' into making better choices.
-It is a pragmatic response to manipulating the strange food economy described by Dimblebey @dimbleby. Armendariz @armendariz2022 looks at how the retail food environment in Mexican cities has changed and how it affects BP.
+It is a pragmatic response to manipulating the strange food economy described by Dimblebey @dimbleby.
+Armendariz @armendariz2022 looks at how the retail food environment in Mexican cities has changed and how it affects BP.
 
 ### UPF and Ill Health
 
 ```{r dagupf, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-dag-upf
+#| fig-id: fig-dag-upf
 #| fig-cap: "Diagram of possible relationships of UPF"
 
 bp3 <- dagitty(" dag {
@@ -556,7 +557,7 @@ Rauber @rauber2019 look instead at free sugar intake.
 ### UPF BP and Na
 
 ```{r fig-dagupfbp, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-dagupfbp
+#| fig-id: fig-dagupfbp
 #| fig-cap: "Diagram of relationship between Na and UPF and BP"
 
 bp6 <- dagitty(" dag {
@@ -1736,13 +1737,13 @@ The most deprived are least represented in this population.
 The largest proportion are in the least deprived category.
 The north west is second highest in raised BP after the south east.
 
-This table @tbl-table1 shows all variables.
+This table \@ref(tab:tbl-table1) shows all variables.
 
 Continuous variables are represented by the mean and standard deviation in brackets.
 Categorical variables give the number of participants and the percentage of the sample in brackets.
 
 ```{r tbl-table1, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, paged.print=TRUE}
-#| label: tbl-table1
+#| tab.id: tbl-table1
 #| tbl-cap: "Characteristics of the sample population from National Dietary and Nutrition Study (2008-2019) N= 15,655"
 
 
@@ -1775,21 +1776,21 @@ Mean UPF was highest in year 2 and year 6 at 50%.
 The lowest mean UPF intake was 45% in years 8,9 and 10.
 The mean outcome variable BP was highest in year one with 125 mmHg, and the lowest 120 mmHg in year 6.
 
-The separate waves had separate participants.The data is presented in @tbl-keydata.
+The separate waves had separate participants.The data is presented in \@ref(tab:tbl-keydata) tbl-keydata.
 
 ```{r tbl-setup, include=FALSE,echo=FALSE,message=FALSE,cache=TRUE}
-keydatw <-tbl_svysummary(ndns_1_11dd,by =SurveyYear , include = c(Na,UPF,BP))
+#keydatw <-tbl_svysummary(ndns_1_11dd,by =SurveyYear , include = c(Na,UPF,BP))
 
 
 ```
 
 ```{r tbl-keydata, echo=FALSE, message=TRUE, warning=TRUE}
-#| label: tbl-keydata
+#| tab-id: tbl-keydata
 #| tbl-cap: "Table showing key variables by survey year"
 
 
-tblkeydata <-as_flex_table( keydatw)
-tblkeydata
+#tblkeydata <-as_flex_table( keydatw)
+#tblkeydata
 
 #png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/tblkeydata.png")
 #save_as_image(width(tblkeydata, width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/tblkeydatab.png")
@@ -1798,12 +1799,12 @@ tblkeydata
 ```
 
 Results were illustrated by plots against survey year.
-@fig-upf-and-survey-year showed overlap between the waves for UPF intake.
-@fig-Na-and-survey-year showed Na exposure overlap between waves.
-@fig-BP-and-survey-year identified the lack of data for year 11.
+\@ref(fig:fig-upf-and-survey-year )s howed overlap between the waves for UPF intake.
+@ref(fig:fig-Na-and-survey-year) showed Na exposure overlap between waves.
+@ref(fig:fig-BP-and-survey-year) identified the lack of data for year 11.
 
 ```{r fig-upf-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-upf-and-survey-year
+#| fig-id: fig-upf-and-survey-year
 #| fig-cap: "Energy from UPF% in each annual cohorts NDNS (2008-2019)"
 
 
@@ -1811,14 +1812,14 @@ svyboxplot(NOVA_Epct_opti_4~SurveyYear,ndns_1_11dd, na.rm = TRUE,main = "UPF% by
 ```
 
 ```{r fig-Na-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-Na-and-survey-year
+#| fig-id: fig-Na-and-survey-year
 #| fig-cap: "Na in mg in each annual cohort NDNS(2008-2019)"
 svyboxplot(Na~SurveyYear,ndns_1_11dd,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
 
 ```
 
 ```{r fig-BP-and-survey-year, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: fig-BP-and-survey-year
+#| fig-id: fig-BP-and-survey-year
 #| fig-cap: "Plot of the BP in mmHg by year from NDNS (2008-2018)"
 
 svyplot(BP~SurveyYear,ndns_1_11dd, na.rm = TRUE,main = "BP in mmHg by survey year", ylab = "BP in mmHg" ,xlab ="Survey Year")
@@ -1835,10 +1836,10 @@ There were no p.values below 0.12.
 
 BMI had a negative p.value in most years but the p.value was \<0.05 only in wave 7 and 8.
 
-@tbl-Key-Variables-by-Survey-year shows results for continuous variables.
+@ref(tab:tbl-Key-Variables-by-Survey-year) shows results for continuous variables.
 
 ```{r tbl-Variables-by-Survey-year, echo=FALSE}
-#| label: tbl-Key-Variables-by-Survey-year
+#| tab-id: tbl-Key-Variables-by-Survey-year
 #| tbl-cap: "Key Variables (Na, UPF, BP) by Survey cohort showing a negative gradient in relation to year one which is statistically significant"
 
 ttestNa2 <- svyglm(Na~SurveyYear, ndns_1_11dd )
@@ -1868,7 +1869,7 @@ BMI had a p.value of 0.77.
 Data for year 5 was absent for education.
 Data for year 11 was absent for hypertension.
 
-@tbl-Categorical-variables-year follows.
+@ref(tab:tbl-Categorical-variables-year) follows.
 
 ```{r multinomial-regression,echo=FALSE,include=FALSE,warning=FALSE}
 #library(svyVGAM)
@@ -1886,7 +1887,7 @@ Data for year 11 was absent for hypertension.
 ```
 
 ```{r tbl-Categorical-variables-year, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-Categorical-variables-year
+#| tab-id: tbl-Categorical-variables-year
 #| tbl-cap: "Key categorical variables by survey year from NDNS 2008-2018"
 
 sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11dd)
@@ -1923,10 +1924,10 @@ save_as_docx(width(autofit(tablecat), width=5), path = "/media/david/Elements1/c
 ## Exposure and outcome variables by Sex, Age and Place
 
 In each case the lower gradient of the relationship between the variable and Sex was statistically significant.
-@tbl-keydatax shows the difference between male and female in the key variables.
+@ref(tab:tbl-keydatax) shows the difference between male and female in the key variables.
 
 ```{r tbl-keydatax, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-keydatax
+#| tab-id: tbl-keydatax
 #| tbl-cap: "Key variables by age group from NDNS 2008-2018"
 
 keydatwx <-tbl_svysummary(ndns_1_11dd,Sex, include = c(Na,zPF,zPF3,BP))
@@ -1941,10 +1942,10 @@ Peak mean Na was 2302mg in the 19-35 age group.
 The mean peak UPF exposure was 58% in the 16-18 age group, but was almost matched by 56% the 0-16 group.
 BP rose through life to a mean of 134 mm Hg in the over 65 age category.
 
-@tbl-tbl-keydataA shows the age distribution of exposure to sodium and UPF and the resulting BP.
+@ref(tab:tbl-tbl-keydataA) shows the age distribution of exposure to sodium and UPF and the resulting BP.
 
 ```{r tbl-keydataA, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-keydataA
+#| tab-id: tbl-keydataA
 #| tbl-cap: "Key variables by age group from NDNS 2008-2018"
 
 keydatwA <-tbl_svysummary(ndns_1_11dd,agegad3, include = c(Na,zPF,zPF3,BP))
@@ -1958,10 +1959,10 @@ save_as_docx(width(keydatwA, width=5), path = "/media/david/Elements1/contents/D
 UPF exposure was highest in Northern Ireland and lowest in London.
 The sodium exposure was highest in Scotland and lowest in London.
 Outcome BP was also lowest in London, with the highest in the North East.
-@tbl-keydatap shows the data.
+@ref(tab:tbl-keydatap) shows the data.
 
 ```{r tbl-keydatap, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-keydatap
+#| tab-id: tbl-keydatap
 #| tbl-cap: "Key variables by government region from NDNS 2008-2018"
 
 keydatwp <-tbl_svysummary(ndns_1_11dd,gor, include = c(Na,zPF,zPF3,BP))
@@ -1979,7 +1980,7 @@ save_as_docx(width(keydatwp, width=5), path = "/media/david/Elements1/contents/D
 Simple linear regression equations look for the relationship between the outcome BP, and the independent exposure variable.
 
 ```{r tbl-univariable-regressionsb, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-univariable-regressionsb
+#| tab-id: tbl-univariable-regressionsb
 #| tbl-cap: "regressions in pairs between key variables full population showing direction and strength of relationships NDNS data 2008-2019"
 #univariable regression models
 #UPF Energy % only
@@ -2007,7 +2008,7 @@ lmNaAt <- tbl_regression(lmNaA)
 #as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt),group_header = c("BP/Na","UPF/Na","UPF/bp","UPF/Age","Age/BP","Age/Na")))
 ```
 
-The regression model for Sodium against BP shows that there is no linear relationship between Sodium and BP in this table @tbl-univariable-regressions.
+The regression model for Sodium against BP shows that there is no linear relationship between Sodium and BP in this table @ref(tab:tbl-univariable-regressions).
 UPF compared to Na also shows a zero beta value indicating no linear relationship.
 
 UPF does show a negative relationship with age, which is statistically significant.
@@ -2020,7 +2021,7 @@ In conclusion the linear regression models show that there are correlations betw
 The next section will examine how this situation changes as variables interact in more complex models.
 
 ```{r tbl-univariable-regressions, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-more-univariable-regressions
+#| tab-id: tbl-more-univariable-regressions
 #| tbl-cap: "pair regressions of BP, Na and UPF against Age, bmi, educfinh full population NDNS data 2008-2019"
 #univariable regression models
 #UPF Energy % only
@@ -2075,7 +2076,7 @@ The last model, "Sodium and UPF", shows that when combined the effect remains.
 The odds ratio for 5000-6000mg of Na remains statistically significant.
 The odds ratio for UPF also remains.
 
-@tbl-multivariable-outputs-bp follows below.
+\@ref(tab:tbl-multivariable-outputs-bp) follows below.[![]()](tbl-multivariable-outputs-bp)
 
 ```{r bp-multivariable-models, echo=FALSE, warning=FALSE}
 
@@ -2096,7 +2097,7 @@ lmME <- svyglm( hyp~ zPF3 +agegad3+Sex + BMI +educfinh + IMD +SurveyYear,family 
 ```
 
 ```{r tbl-multivariable-outputs-bp, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-multivariable-outputs-bp
+#| tab-id: tbl-multivariable-outputs-bp
 #| tbl-cap: "Table of multivariable regression against BP to identify the effects relating to Na and UPF NDNS data 2008-2019"
 #lm1ASt <-tbl_regression(lm1AS,include=c(hiNa,NOVA_Epct_opti_4) ,exponentiate = TRUE)
 lmnat <- tbl_regression(lmna,include=hiNa,exponentiate = TRUE)
@@ -2128,8 +2129,6 @@ Though the set of models around the same values includes the four regressed agai
 
 ```{r AIC-sense1, echo=FALSE, message=FALSE, warning=FALSE}
 
-
-
 #AIC(lmM,lmMna,lmM2)
 #sense1 <- (lm1AS2$aic - lmnaE3$aic)*100/lm1AS2$aic 
 #sense1
@@ -2142,7 +2141,7 @@ sense3
 ```
 
 ```{r tbl-AIC-comparison, echo=FALSE, message=FALSE, warning=FALSE}
-#| label: tbl-AIC-comparison
+#| tab-id: tbl-AIC-comparison
 #| tbl-cap: "Table of AIC NDNS data 2008-2019"
 
 AICt<- data.table("Model"=c("No Na or UPF","Na only","UPF only","Na and UPF"),"AIC" =c(lm1AS$aic, lmna$aic,lmME$aic,lmnaE$aic))
@@ -2158,7 +2157,9 @@ save_as_docx(flextable(AICt), width=5, path = "/media/david/Elements1/contents/D
 
 # Discussion
 
-## Data
+## Key Results
+
+## 
 
 NDNS is a well constructed study.
 Data is well collected and comprehensive.
@@ -2167,8 +2168,6 @@ These changes have meant that collating the data was more than just bringing all
 
 The differing take up rates between different groups in each of the waves meant that the numbers from each wave are not initially comparable.
 Weighting factors balance the waves.
-
-## Discussion of change across waves
 
 The change in intake of Na and UPF over time could be; 1 real 2 sample error 3 increasing social desirability of low Na, low UPF.
 
@@ -2186,13 +2185,9 @@ However BP measurement technology has changed over ten years.
 BP machines derive their results from the changes in pressure detected in the arm of the participant.
 However the algorithm used may have changed.
 
-#### of other variables compared across waves
-
 Weighting maintains age, sex, IMD, and government region across the waves.
 BMI is no different, and educational attainment is also unaffected.
 There are more vegetarians as time goes on.
-
-## Discussion of Key variables by Sex,Age and Place
 
 The populations do change over time as some of the added variables do show statistical significant changes.
 In particular the number of vegetarians increases, which perhaps is one indicator of social desirability affecting the study.
@@ -2212,16 +2207,12 @@ The third side of this triangle is the relationship between Na and UPF which con
 
 The results here show that there is regional variation in key variables with consistently better values in London.
 
-## Discussion Paired Regression of key variables on each other
-
-## Multi variable logistic regression for BP
-
 The multivariable regression is made of four models.
 These show the change from excluding Na and UPf to adding each individually and then together.
 
 This means that the all have effects on the systolic blood pressure, but the effect of UPF and that of Age is closely intertwined.
 
-## Limitations of Study
+## Limitations
 
 ### The study
 
@@ -2242,6 +2233,8 @@ The study did not look at differences between regions by IMD or ethnicity.
 
 ### The analysis
 
+## Interpretation
+
 ## Ideas for further research
 
 I will divide these suggestions into quantitative and qualitative.
@@ -2260,7 +2253,9 @@ It could also be used as a template for studies smaller in geographical scope, b
 
 Modelling research has allowed projections to be made using
 
-## Ideas for policy
+## Generalisability
+
+#### Ideas for policy
 
 Policy is an 'upstream' approach.
 
