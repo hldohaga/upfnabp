@@ -1,6 +1,18 @@
 ---
 title: "Trends in the association between Ultra-processed foods, salt intake and Blood Pressure using the National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    code_folding: hide
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
+    toc_depth: 4
+    fig_width: 4
+    fig_height: 4
   pdf_document: 
     toc: yes
     fig_caption: yes
@@ -9,18 +21,6 @@ output:
     latex_engine: xelatex
     fig_width: 4
     fig_height: 4
-  word_document: 
-    toc: yes
-    fig_caption: yes
-    keep_md: yes
-    toc_depth: 4
-    fig_width: 4
-    fig_height: 4
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    code_folding: hide
   html_document: 
     toc: yes
     fig_caption: yes
@@ -66,15 +66,14 @@ To Paul
 
 # Abstract {.unnumbered}
 
-This study shows that the odds ratio between high Na intake and high BP is 7.71(CI 2.12,28.0).It also shows that UPF has no statistically significant correlation with high BP within a multivariable logistic regression model.
-
-In univariable regression UPF shows a negative gradient with BP, and a stronger negative gradient with age balancing the relationship between age and BP.
-This suggests interaction between UPF, Na and Age.
-
+This study shows that high Na intake is associated with hypertension.
 Reduction of sodium intake may be effective at reducing the overall risk.
+UPF intake is also associated with hypertension.
 
-This is a secondary data study the national dietary and nutrition survey @universityofcambridge2022 which looked at BP and the effects of UPF and Na.
-BP is in important clinical and public health measurement, and is a proxy measure for CVD.
+This is a secondary data study the national dietary and nutrition survey @universityofcambridge2022 which looked at the relationship between hypertension and intake of UPF and Na.
+
+Policy should aim to reduce intake of Na.
+The accompanying literature review discusses aspects of policy and their effectiveness.
 
 ```{r library,include=FALSE}
 library(haven)
@@ -94,9 +93,6 @@ library(grateful)
 library(dplyr)
 ```
 
-Policy should aim to reduce intake of Na and UPF and increase percentage intake of unprocessed foods.
-The accompanying literature review discusses aspects of policy and their effectiveness.
-
 ```{=tex}
 \tableofcontents
 \listoffigures
@@ -107,8 +103,9 @@ The accompanying literature review discusses aspects of policy and their effecti
 #| tab-id: tbl-abbreviations
 #| caption: "Table of abbreviations used"
 
-abbrev <- data.table("Abbreviation "=c("NDNS","BP","Na","UPF","NCD","CVD","CHAMPs","NOVA","NAFLD","BMI"),"Term"=c("National Dietary and Nutrition Survey","Blood Pressure","Sodium intake in mg", "Ultra Processed Foods", "Non communicable Disease","Cardiovascular Disease","Cheshire and Merseyside public health  collaborative","NOVA is a classification system, it is not an acronym","non- alcohol fatty liver disease","Body Mass Index"))
-width(autofit(flextable(abbrev)), width=5)
+abbrev <- data.table("Abbreviation "=c("NDNS","BP","Na","UPF","NCD","CVD","CHAMPs","NOVA","NAFLD","BMI","mmHg","AIC"),"Term"=c("National Dietary and Nutrition Survey","Blood Pressure","Sodium intake in mg", "Ultra Processed Foods", "Non communicable Disease","Cardiovascular Disease","Cheshire and Merseyside public health  collaborative","NOVA is a classification system, it is not an acronym","non- alcohol fatty liver disease","Body Mass Index","Units of pressure used physiologically","AIC"))
+tblabbreviations <- width(autofit(flextable(abbrev)), width=5)
+tblabbreviations
 ```
 
 \newpage
@@ -2298,6 +2295,6 @@ The ethics cert.
 The software used
 
 ```{r package-cite, echo=FALSE, warnings=FALSE }
-cite_packages(output="citekeys", out.dir = getwd() ,out.format= "Rmd")
+#cite_packages(output="citekeys", out.dir = getwd() ,out.format= "Rmd")
 
 ```
