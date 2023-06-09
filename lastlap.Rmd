@@ -1,11 +1,11 @@
 ---
 title: "Exposure to High Ultra-processed Food and Sodium Intake and its effect on Hypertension using the cross sectional study UK National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
-  html_document: 
+  word_document: 
     toc: yes
     fig_caption: yes
-    number_sections: yes
     keep_md: yes
+    toc_depth: 4
     fig_width: 4
     fig_height: 4
   html_notebook: 
@@ -21,11 +21,11 @@ output:
     latex_engine: xelatex
     fig_width: 4
     fig_height: 4
-  word_document: 
+  html_document: 
     toc: yes
     fig_caption: yes
+    number_sections: yes
     keep_md: yes
-    toc_depth: 4
     fig_width: 4
     fig_height: 4
 editor_options: 
@@ -117,18 +117,21 @@ table1
 
 # Introduction
 
-Cheshire and Merseyside public health collaborative (CHAMPs) have a plan to reduce BP by 2029 @highblo2020 .
-The strategy aims to increase awareness of individual risk and so increase individual compliance with testing and treatment of raised BP and so prevent CVD.
+417482 people, 15.4% of the population, have hypertension in Cheshire and Merseyside @cardiova. Cheshire and Merseyside public health collaborative (CHAMPs) have a plan to reduce BP by 2029 @highblo2020 .
+The strategy aims to increase 'awareness'.
+This is intended to increase individual compliance with testing and treatment of raised BP.
 This study intends to offer additional opportunities for improving outcomes.
 
 There is evidence of an association between hypertension and intake of Ultra-processed Foods (UPF) @du2014 and hypertension and Salt intake @cappuccio2015 from studies of different types in multiple countries.
+Monteiro et al @moreira2015 model a scenarion where "halving intake of (NOVA) group 3 foods could result in approximately 22,055 fewer deaths" across the UK in 2030.
+Local food policies around UPF might be a way of reducing hypertension at a population level.
+There is potential for significant public health impact.
 
-This study looked at this association in the data set of the National Dietary and Nutrition Survey (NDNS) @universityofcambridge2022 .The study gives data from the UK from 2008 to 2019.
-It is representative of the population of the UK by sex, age, region and index of multiple deprivation (IMD).
+This study assessed prevalence of exposure to sodium and UPF, and hypertension in the data set of the National Dietary and Nutrition Survey (NDNS) @universityofcambridge2022 .The study gives data from the UK from 2008 to 2019.
+It is stratified to be representative of the population of the UK by sex, age, region and index of multiple deprivation (IMD).
 Exposure to high UPF and high Sodium intake, and outcome BP were recorded.
-
-This study assesses correlation between BP and exposure to these dietary factors.
 Age and sex remain important background factors.
+
 I have used STROBE guidance @elm2007 in producing this report.
 This study explored this complex web pulling out strands within it, [diagram 1](fig:diagram%201) shows a possible arrangement of this.
 
@@ -153,6 +156,33 @@ plot(graphLayout(bp1))
 
 ```
 
+## Research Question
+
+Using PICO @bruce2018 approach,
+
+In adults and children across the four home nations of the UK between 2008 and 2019, did exposure to high sodium dietary intake, and or high UPF dietary intake, compared to lower exposure, increase the odds of having a mean systolic blood pressure of over 140mmHg?
+
+This primary question can be split into parts,
+
+For a representative population across the UK What was dietary intake of UPF between 2008 and 2019?
+What was dietary intake of salt between 2008 and 2019?
+What was BP between 2008 and 2019?
+What was the correlation between these?
+
+In addition it may be possible to consider, How did each of these change over that time?
+Is there evidence of interaction between these?
+Was UPF or Na most important in these changes?
+
+## Objectives
+
+1 Literature Review of UPF and BP, with Na
+
+2 Descriptive analysis of participants from NDNS with amalgamation of data across the rolling programme.
+
+3 Analysis of exposure to UPF and Na, and prevalence of BP \>140mmHg using regression models.
+
+4 Discussion of implications of results in relation to limitations of cross- sectional studies, and available data, as well as suggestions for further research
+
 ## Public Health Impact
 
 Public Health aims to reduce the burden of ill health across the population.
@@ -170,8 +200,7 @@ The commercial and social determinants of health play out a significant role in 
 Marmot @marmot2022 identifies the external influences in Cheshire and Merseyside which need to be improved to permit individual action to be effective.
 
 This study aims to inform local policy to reduce BP and so Non-Communicable Disease.
-If UPF and sodium intake increase the risk of hypertension they may be on the pathway, or mechanism of action, of social and commercial determinants.
-Then policy to reduce exposure might deliver change at a population level.
+If UPF and sodium intake increase the risk of hypertension then policy to reduce exposure might deliver change at a population level.
 
 ## Epistemology
 
@@ -179,7 +208,7 @@ The epistemological approach of this study is positivist.
 I use a quantitative approach in a mechanistic and deterministic model.
 However, I am aware that this model is incomplete.
 Positivism encourages experimental isolation.
-The study is isolated from the world through control of experimental environment.
+The study is isolated from the world through control of the experimental environment.
 
 Real world dietary change requires understanding interaction with social and economic factors, not isolation.
 Critical realist and social constructionist studies are needed to complement the information from this study.
@@ -193,6 +222,7 @@ Jafar @jafar2018 argues that understanding the position of the investigator be o
 
 I bring an attachment to positivist ideals from my biomedical background.
 As an older physicians I am aware of social factors impacting health of participants as Evans and Trotter @evans discuss.
+I also understand that my perception of the world is from a position of significant privilege.
 
 These constructed ideas, social expectations, income, or geography affect food and health 'choices'.
 They also impact on 'hard' clinical measurements such as BP, through physical position and room temperature as well as by the relationship between the observer and the participant.
@@ -214,60 +244,45 @@ The ethics process for the University of Liverpool was followed and a certificat
 
 The storage of the data is in keeping with the research governance agreements of the University and the Data set owners.
 
-## Research Question
-
-Using PICO @bruce2018 I am able to frame the research question.
-
-In adults and children across the four home nations of the UK between 2008 and 2019, did exposure to high sodium dietary intake, and or high UPF dietary intake, compared to lower exposure, increase the odds of having a mean systolic blood pressure of over 140mmHg?
-
-This primary question can be split into parts,
-
-For a representative population across the UK What was dietary intake of UPF between 2008 and 2019?
-What was dietary intake of salt between 2008 and 2019?
-What was BP between 2008 and 2019?
-What was the correlation between these?
-
-In addition it may be possible to consider, How did each of these change over that time?
-Is there evidence of interaction between these?
-Was UPF or Na most important in these changes?
-
-## Key Objectives
-
-1 Literature Review of UPF and BP, with Na
-
-2 Descriptive analysis of participants from NDNS with amalgamation of data across the rolling programme.
-
-3 Analysis of exposure to UPF and Na, and prevalence of BP \>140mmHg using regression models.
-
-4 Discussion of implications of results in relation to limitations of cross- sectional studies, and available data, as well as suggestions for further research
-
-5 Publication of findings in peer reviewed journal/ direct delivery to policy makers to promote an upstream approach to NCD prevention.
-
 \newpage
 
 # Literature Review
 
-## Search Strategy
+### Rationale
 
-The search strategy has a core systematic approach augmented with additional items from a range of sources.
-The search identified a wide variety of articles, which outlined and augmented the review.
-Those of particular relevance were identified by reading abstracts and cross referencing with other papers.
-Colleagues identified further relevant literature.
-Additional papers were identified from the bibliographies of relevant papers.
-Reviews and meta-analyses presented search strategies and identified highly relevant studies.
+This review was intended to identify papers with information about UPF, sodium and blood pressure.
 
-The search was limited to to high blood pressure, however, many papers consider broader clinical endpoints.
+Many papers consider broader clinical endpoints.
 These included metabolic syndrome, diabetes and cerebrovascular and cardiovascular disease.
 
-My search terms are included in [table 2.1](#tab:tab2) below.
+The review objectve is to contribute to answering the research question;
+
+What is the evidence that in adults and children across the four home nations of the UK between 2008 and 2019, would exposure to high sodium dietary intake, and or high UPF dietary intake, compared to lower exposure, increase the odds of having a mean systolic blood pressure of over 140mmHg?
+
+## Method
+
+Eligible studies were those which fulfilled the inclusion criteria and not the exclusion criteria.
+They were primary research and systematic reviews considering the relationship between the exposure, and outcome in comparable populations.
+One additional area of policy and policy implementation was also considered.
+Exclusions included papers which dealt with food technology and processing only.
+
 They were searched through a university meta database which includes Medline, and Ovid and Scopus.
 This meta database includes an ongoing search sends notification of articles as they are published.
+
+The search strategy is included in [table 2.1](#tab:tab2) below.
+The search identified a wide variety of articles, which outlined and augmented the review.
+Others were identified by reading abstracts and cross referencing with other papers.
+Colleagues identified further relevant literature.
+Additional papers were identified from the bibliographies of relevant papers.
+Reviews and meta-analyses presented search strategies and identified highly relevant studies.It has a core systematic approach informed by PRISMA @page2021,with additional items from a range of sources.
+
+My search terms
 
 ```{r table2, echo=FALSE, message=TRUE, warning=TRUE}
 #| tab-id: "tab2"
 #| caption: "Table of Search terms used"
 
-search1 <- data.table("Search Terms Used "="\"ultra-processed food\" OR \"ultra-processed foods\" OR \"ultraprocessed food\" OR \"ultraprocessed foods\" OR \"ultra-processed product\" OR \"ultra-processed products\" OR \"ultra-processing\" OR \"food processing\" OR \"processed food\" OR \"processed foods\" OR \"NOVA\" OR \"NOVA system\" OR \"NOVA food classification\" OR \"NOVA classification system\") AND (hypertension OR \"high blood pressure\" OR \"high blood pressures\" OR \"blood pressure\" OR \"systolic pressure\" OR \"diastolic pressure\" OR \"systolic blood pressure\" OR \"diastolic blood pressure\") AND (adult OR adults OR aged OR \"middle aged\" OR elderly OR \"older adult\"")
+search1 <- data.table("Search Terms Used "="\"ultra-processed food\" OR \"ultra-processed foods\" OR \"ultraprocessed food\" OR \"ultraprocessed foods\" OR \"ultra-processed product\" OR \"ultra-processed products\" OR \"ultra-processing\" OR \"food processing\" OR \"processed food\" OR \"processed foods\" OR \"NOVA\" OR \"NOVA system\" OR \"NOVA food classification\" OR \"NOVA classification system\") AND (hypertension OR \"high blood pressure\" OR \"high blood pressures\" OR \"blood pressure\" OR \"systolic pressure\" OR \"diastolic pressure\" OR \"systolic blood pressure\" OR \"diastolic blood pressure\") AND (adult OR adults OR aged OR \"middle aged\" OR elderly OR \"older adult\"","Inclusion"= "papers", "exclusion"= "reviews commentary" ,"Results"="1328")
 table2 <-width(autofit(flextable(search1)), width=5)
 table2 <- set_caption(table2, "Table of Search terms used", 
   autonum = run_autonum(seq_id = "tab", bkm = "tab2"))
@@ -275,6 +290,8 @@ table2
 #png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/search1.png")
 #save_as_image(width(autofit(flextable(search1)), width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/search1b.png")
 ```
+
+## Selection strategy
 
 ### Search results
 
@@ -287,8 +304,9 @@ Reading titles and abstracts identified relevant articles.
 
 Papers which related to technology including food technology were excluded.
 They were also excluded if the primary purpose of the paper was unrelated to dietary or nutritional causes of clinical outcomes.
+The resulting
 
-## Overview of literature
+## discussion of results
 
 The literature has developed over time.
 Results arrange themselves into several groups.
@@ -1954,24 +1972,26 @@ tblbpdata
 
 ```
 
-Chi squared table The odds ratio for hypertension in participants exposed to UPF \>63% is 0.5.
+## Main Results
 
+The main results are the correlation between the exposure and the outcome variables.
+These are presented using 2\*2 tables with no additional control for confounding.
+Univariable regression demonstrated the interaction with other explanatory variables.
+This is complicated by the effect of stratification.
+
+Chi squared table The odds ratio for hypertension in participants exposed to UPF \>63% is 0.5.
 The odds ratio for hypertension in participants exposed to Na \>5000mg is 1.45
 
 ```{r chisq, echo=FALSE, message=FALSE, warning=FALSE}
 hyp1chi <- svychisq(~hyp+ hiNa2 , ndns_1_11dd, na.rm=TRUE)
 hyp1chi$p.value
-flextable(data.table(round(ftable(hyp1chi$observed),2)))
+round(ftable(hyp1chi$observed),2)
 
 
 hyp2chi <- svychisq(~hyp+ zPF2, ndns_1_11dd, na.rm=TRUE)
 hyp2chi$p.value
-flextable(data.table(round(ftable(hyp2chi$observed),2)))
+round(ftable(hyp2chi$observed),2)
 ```
-
-Univariable Linear Regression
-
-Simple linear regression equations look for the relationship between the outcome BP, and the independent exposure variable.
 
 ```{r tblunivariableregressionsb, echo=FALSE, message=FALSE, warning=FALSE}
 #| tab-id: "tbl-univariable-regressionsb"
@@ -2011,12 +2031,9 @@ There is also a negative relationship with Age, again statistically significant.
 Age has a relationship with BP with a statistically significant positive gradient.
 There is also a positive relationship with Na, which is also statistically significant to the 95% level.
 
-In conclusion the linear regression models show that there are correlations between the systolic BP and energy intake only.
-The next section will examine how this situation changes as variables interact in more complex models.
-
 ```{r tblunivariableregressions, echo=FALSE, message=FALSE, warning=FALSE}
 #| tab-id: "tbl-more-univariable-regressions"
-#| tbl-cap: "pair regressions of BP, Na and UPF against Age, bmi, educfinh full population NDNS data 2008-2019"
+#| tbl-cap: "Table of Regressions of BP, Na and UPF against Age, bmi, educfinh full population NDNS data 2008-2019"
 #univariable regression models
 #UPF Energy % only
 lm1bmi <- svyglm(BP ~ bmival, ndns_1_11dd)
@@ -2050,13 +2067,12 @@ lmNaAgt <- tbl_regression(lmNaAg)
 #row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Na"))
 #row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Na"))
 univariables <- as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt,lm1bmit,lm1Ag1t,lmedt,lmEbmit,lmEst,lmEedt,lmNabmt,lmNaAgt,lmNaedt),group_header = c("BP/Na","UPF/Na","UPF/bp","UPF/Age","Age/BP","Age/Na","BP/bmi","BP/Agg1","BP/ed","UPF/bmi","UPF/age","UPF/ed","Na/bmi","Na/Agg","Na/ed")))
+univariables<- set_caption(univariables, "Table of Regressions of BP, Na and UPF against Age, bmi, educfinh full population NDNS data 2008-2019", autonum = run_autonum(seq_id = "tab", bkm = "tab8"))
 univariables
 #png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/univariables.png")
 #save_as_image(univariables, width=5, "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/univariables.png")
 #save_as_docx(univariables, width=5, path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/univariables.docx")
 ```
-
-## Main Results
 
 Multivariable regression models were constructed based on the outcomes of the univariable regression identifying relevant additional variables.
 
@@ -2096,17 +2112,14 @@ lmME <- svyglm( hyp~ zPF3 +agegad3+Sex + BMI +educfinh + IMD +SurveyYear,family 
 #| tab-id: "tbl-multivariable-outputs-bp"
 #| tbl-cap: "Table of multivariable regression against BP to identify the effects relating to Na and UPF NDNS data 2008-2019"
 #lm1ASt <-tbl_regression(lm1AS,include=c(hiNa,NOVA_Epct_opti_4) ,exponentiate = TRUE)
-lmnat <- tbl_regression(lmna,include=hiNa,exponentiate = TRUE)
-lmnaEt <- tbl_regression(lmnaE,include=c(hiNa,zPF3),exponentiate = TRUE)
-lmMEt <- tbl_regression(lmME,include=zPF3,exponentiate = TRUE)
+lmnat <- tbl_regression(lmna,include=hiNa,exponentiate = TRUE, label = list( hiNa ~ "Sodium Intake in mg"))
+lmnaEt <- tbl_regression(lmnaE,include=c(hiNa,zPF3),exponentiate = TRUE, label = list(zPF3 ~ "percent Ultraprocessed Food", hiNa ~ "Sodium Intake in mg"))
+lmMEt <- tbl_regression(lmME,include=zPF3,exponentiate = TRUE, label = list(zPF3 ~ "percent Ultraprocessed Food"))
 
-multivariables<- set_caption(as_flex_table(  tbl_merge(list(lmnat,lmMEt,lmnaEt), tab_spanner = c("Na only","UPF only","Na and UPF"))), caption = "Table of multivariable regression against BP to identify the effects relating to Na and UPF NDNS data 2008-2019")
+multivariables<- set_caption(as_flex_table(  tbl_merge(list(lmnat,lmMEt,lmnaEt), tab_spanner = c("Na only","UPF only","Na and UPF")), caption = "Table of multivariable regression against BP to identify the effects relating to Na and UPF NDNS data 2008-2019", autonum = run_autonum(seq_id = "tab", bkm = "tab9")))
 multivariables <- add_footer_lines(multivariables, "All models include additional variables Sex,Age, BMI, Education, IMD and Survey Year")
 
-#lm1AS$aic
-
- 
-multivariables 
+multivariables
 # png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/multivariables.png")
 #save_as_image(multivariables, width=5, "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/multivariablesb.png")
 #save_as_docx(multivariables, width=5, path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/multivariables.docx")
@@ -2141,7 +2154,8 @@ sense3
 #| tbl-cap: "Table of AIC NDNS data 2008-2019"
 
 AICt<- data.table("Model"=c("No Na or UPF","Na only","UPF only","Na and UPF"),"AIC" =c(lm1AS$aic, lmna$aic,lmME$aic,lmnaE$aic))
-flextable(AICt)
+AICt <- set_caption(as_flextable(AICt), "Table of AIC NDNS data 2008-2019", autonum = run_autonum(seq_id = "tab", bkm = "tab10"))
+AICt
 
 # png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/AICt.png")
 #save_as_image(flextable(AICt), width=5, "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/AICtb.png")
@@ -2170,31 +2184,27 @@ This is present with each variable independently and with both in the model.
 This is a cross-sectional study, and so has the limitations of this design.
 In particular the study measures exposure and outcome at the same time.
 This makes interpretation of the direction of causation difficult.
+This is particularly an issue here where participants aware of their BP might have chosen to reduce their UPF intake.
 
 This study was organised by the government departments connected with food and farming alongside the Department of Health.
 This means it was intended to monitor outcomes relevant to these departments.
-My analysis is a secondary analysis using the data for different purposes.
-It is unrealistic to expect the data to be ideal for my analysis.
-
-There may also be unintentional bias in the structure of the study because of the funding and commissioning processes.
-This might also affect participant engagement and expectation.
-In particular there might be an unconscious desire to be portrayed in a way that 'the government' would prefer to hear.
-
+The funding and commissioning processes might affect the structure of the study and might also affect participant engagement and expectation.
+In particular this might affect social desirability bias.
 Social desirability and other participant reporting bias may well be significant within dietary diaries.
 Double labelled water studies on the first wave showed some significant differences between measured energy intake, and reported energy intake with differences between different age groups.
 
 ### The data
 
 The result depends on participants recording foods in the same way as time goes on.
-Exposure of the whole population to a stimulus to change their diet or the recording of their diet would be an explanation.
+Exposure of the whole population to a stimulus to change their diet or the recording of their diet may result in systematic changes in results.
 
-If the diet and recording stay the same, an alternative cause is a uniform change in the nutrient content of the food.
-By changing the nutritional definitions the derived results would be affected uniformly.
+A uniform change in the nutrient content of the food or changing the nutritional definitions would affect results.
+Years 9-11 used a slightly different methodology for identifying foods for analysis as researchers have started to become aware of the need to understand 'processing'.
+This may account for the apparent lower exposure in the last three years.
 
-These changes would not affect the outcome variable.
+These changes would affect the outcome variable less.
 However BP measurement technology has changed over ten years.
-BP machines derive their results from the changes in pressure detected in the arm of the participant.
-However the algorithm used may have changed.
+BP machines derive their results from the changes in pressure detected in the arm of the participant, the algorithm used by the sphygmomanometer may have changed.
 
 Weighting maintains age, sex, IMD, and government region across the waves.
 BMI is no different, and educational attainment is also unaffected.
@@ -2214,40 +2224,46 @@ Treatment of women and younger men has increased over the 10 years of the study.
 
 ## Interpretation
 
-Participants with high Na are more likely to have hypertension.
-This could be that raised BP stimulates ingestion of Na, or that Na ingestion increases hypertension.
+Participants with high Na \>5000mg are more likely to have hypertension.
+Causation from other studies is likely to be that this high Na intake is contributing to high BP.
+However from this study causation cannot be identified.
+Other possibilities are that raised BP stimulates ingestion of Na, that Na ingestion increases hypertension, or that people with hypertension share another characteristic that increases their Na intake.
 
 The results around high UPF intake also do no more than imply correlation.
-Causation might be the high BP reduces intake of UPF..?
-
-could be; 1 real 2 sample error 3 increasing social desirability of low Na, low UPF.
+Causation might be the high BP reduces intake of UPF, or that participants with high BP are more aware of dietary UPF content.
+This can affect the detected directionality of the correlation.
 
 ### Ideas for further research
 
 I will divide these suggestions into quantitative and qualitative.
-Within the quantitative there are biomedical
 
 #### Quantitative
 
 There is scope for more research based on this data set.
 Within this same biomedical paradigm there are whole range of variables which can be compared against the clinical and biochemical outcomes.
+These include measured variables such as BMI, biochemical indicators such as Hba1c and medical diagnostic categories such as Diabetes.
+
+Modelling research has allowed projections to be made using the data from studies such as this as a base for projected models.
+This can evaluate policy effects.
 
 #### Mixed and Qualitative
 
 The richness of the quantitative data in this survey calls for its use within an approach allowing more detailed description and in depth assessment with participants.
+In the study data there are data allowing research around cooking activities, hobbies, and eating activities.
 
 It could also be used as a template for studies smaller in geographical scope, but more in depth as cross over studies collecting both quantitative and qualitative data.
-
-Modelling research has allowed projections to be made using
 
 #### Ideas for policy
 
 Policy is an 'upstream' approach.
-
+It can be used to reduce exposure indirectly or directly.
 Ideas include legislation to reduce UPF use, this might be by pricing, or other approaches.
-
 Health promotion policy needs to match policy activity.
 People who know that UPF is bad, are more likely to accept policy limiting availability.
+
+Reformulation is a policy suggestion, where UPF is further processed to remove the salt.
+This is frequently discussed.
+By demonstrating that UPF is not just high in salt this study supports the argument of avoiding further formulation as a policy for reducing BP.
 
 ## Generalisability
 
