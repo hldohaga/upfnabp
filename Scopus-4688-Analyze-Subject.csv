@@ -1,0 +1,30 @@
+﻿Scopus-4688-Analyze-Subject
+
+"Your query : (SUBJAREA(MEDI OR SOCI) (TITLE-ABS-KEY(""BP""OR ""Blood pressure""OR""hypertension""OR""high blood pressure""OR""systolic"")) AND ((TITLE-ABS-KEY(salt Or sodium OR Na)) OR (TITLE-ABS-KEY(""ultra-processed food"" OR ""ultra-processed foods"" OR ""ultraprocessed food"" OR ""ultraprocessed foods"" OR ""ultra-processed product"" OR ""ultra-processed products"" OR ""ultra-processing"" OR ""food processing"" OR ""processed food"" OR ""processed foods"" OR ""NOVA"" OR ""NOVA system"" OR ""NOVA food classification"" OR ""NOVA classification system""))) AND (TITLE-ABS-KEY((""primary research""OR""cohort study""OR""odds ratio""OR""cross-sectional study"")AND(""human""))))"
+
+
+Number of results : 4688
+
+"SUBJECT AREA",
+"Medicine","4682"
+"Biochemistry, Genetics and Molecular Biology","557"
+"Nursing","462"
+"Pharmacology, Toxicology and Pharmaceutics","93"
+"Neuroscience","79"
+"Environmental Science","64"
+"Immunology and Microbiology","47"
+"Social Sciences","47"
+"Health Professions","36"
+"Agricultural and Biological Sciences","31"
+"Psychology","21"
+"Arts and Humanities","10"
+"Engineering","8"
+"Chemical Engineering","7"
+"Chemistry","6"
+"Materials Science","6"
+"Computer Science","2"
+"Business, Management and Accounting","1"
+"Dentistry","1"
+"Mathematics","1"
+"Physics and Astronomy","1"
+"Veterinary","1"

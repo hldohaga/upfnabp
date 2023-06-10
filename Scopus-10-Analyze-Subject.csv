@@ -1,0 +1,20 @@
+﻿Scopus-10-Analyze-Subject
+
+"Your query : ((TITLE-ABS-KEY(salt Or sodium OR Na)) AND (TITLE-ABS-KEY(""BP""OR ""Blood pressure""OR""hypertension""OR""high blood pressure""OR""systolic"")) AND (TITLE-ABS-KEY(""ultra-processed food"" OR ""ultra-processed foods"" OR ""ultraprocessed food"" OR ""ultraprocessed foods"" OR ""ultra-processed product"" OR ""ultra-processed products"" OR ""ultra-processing"" OR ""food processing"" OR ""processed food"" OR ""processed foods"" OR ""NOVA"" OR ""NOVA system"" OR ""NOVA food classification"" OR ""NOVA classification system"")) AND ( EXCLUDE ( SUBJAREA,""BIOC"" ) OR EXCLUDE ( SUBJAREA,""PHAR"" ) OR EXCLUDE ( SUBJAREA,""AGRI"" ) OR EXCLUDE ( SUBJAREA,""EART"" ) OR EXCLUDE ( SUBJAREA,""VETE"" ) OR EXCLUDE ( SUBJAREA,""MATE"" ) OR EXCLUDE ( SUBJAREA,""PHYS"" ) OR EXCLUDE ( SUBJAREA,""CHEM"" ) OR EXCLUDE ( SUBJAREA,""ENER"" ) OR EXCLUDE ( SUBJAREA,""ENVI"" ) ) )"
+
+
+Number of results : 10
+
+"SUBJECT AREA",
+"Medicine","354"
+"Nursing","75"
+"Multidisciplinary","17"
+"Social Sciences","9"
+"Neuroscience","7"
+"Psychology","7"
+"Health Professions","4"
+"Immunology and Microbiology","4"
+"Arts and Humanities","2"
+"Business, Management and Accounting","2"
+"Economics, Econometrics and Finance","2"
+"Computer Science","1"

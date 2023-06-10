@@ -127,10 +127,14 @@ Monteiro et al @moreira2015 model a scenarion where "halving intake of (NOVA) gr
 Local food policies around UPF might be a way of reducing hypertension at a population level.
 There is potential for significant public health impact.
 
+Marmot @marmot2022 identifies the external influences in Cheshire and Merseyside which need to be improved to permit individual action to be effective.
+Using a better understanding of the role of UPF, and the interaction with sodium, might give a mechanism of action of some of Marmot's categories of influence.
+
 This study assessed prevalence of exposure to sodium and UPF, and hypertension in the data set of the National Dietary and Nutrition Survey (NDNS) @universityofcambridge2022 .The study gives data from the UK from 2008 to 2019.
 It is stratified to be representative of the population of the UK by sex, age, region and index of multiple deprivation (IMD).
 Exposure to high UPF and high Sodium intake, and outcome BP were recorded.
 Age and sex remain important background factors.
+This leads to the research question below.
 
 I have used STROBE guidance @elm2007 in producing this report.
 This study explored this complex web pulling out strands within it, [diagram 1](fig:diagram%201) shows a possible arrangement of this.
@@ -183,25 +187,6 @@ Was UPF or Na most important in these changes?
 
 4 Discussion of implications of results in relation to limitations of cross- sectional studies, and available data, as well as suggestions for further research
 
-## Public Health Impact
-
-Public Health aims to reduce the burden of ill health across the population.
-The aim of CHAMPs in Cheshire and Merseyside is shared by public health across the world.
-BP is an indicator of the health of the population, it is a risk factor for a number of non-communicable diseases (NCD).
-Cappuccio and Capewell @cappuccio2015 highlight these connections.
-
-Dietary approaches to improving public health are able to deliver proportionate and universal interventions to populations to reduce the incidence of NCD.
-When delivered up stream at the policy level they are effective and efficient and minimise cost.
-These approaches offer significant benefits over actions targeted at individuals.
-
-Dietary and 'awareness' approaches can be used by individuals.
-These approaches risk the development of a culture of blame of individuals and of sub-groups in society.
-The commercial and social determinants of health play out a significant role in research, and delivery of public health improvements around food.
-Marmot @marmot2022 identifies the external influences in Cheshire and Merseyside which need to be improved to permit individual action to be effective.
-
-This study aims to inform local policy to reduce BP and so Non-Communicable Disease.
-If UPF and sodium intake increase the risk of hypertension then policy to reduce exposure might deliver change at a population level.
-
 ## Epistemology
 
 The epistemological approach of this study is positivist.
@@ -221,8 +206,10 @@ Acknowledging the constructivist aspects to this study allows that the observer 
 Jafar @jafar2018 argues that understanding the position of the investigator be of interest to understanding this quantitative study.
 
 I bring an attachment to positivist ideals from my biomedical background.
-As an older physicians I am aware of social factors impacting health of participants as Evans and Trotter @evans discuss.
+As an older physician I am aware of social factors impacting health of participants as Evans and Trotter @evans discuss.
 I also understand that my perception of the world is from a position of significant privilege.
+To proceed, I need to be aware of the limitations of the positivist approach.
+I need to make pragmatic selections to bring some degree of validity to the resulting dataset.
 
 These constructed ideas, social expectations, income, or geography affect food and health 'choices'.
 They also impact on 'hard' clinical measurements such as BP, through physical position and room temperature as well as by the relationship between the observer and the participant.
@@ -230,17 +217,9 @@ They also impact on 'hard' clinical measurements such as BP, through physical po
 This work is primarily to complete requirements for an MPH degree which means that it is influenced by factors around health equity and classic epidemiology as taught on the course.
 It is produced in collaboration with a research group with a long established reputation in food research in public health, which may steer the results in a conservative direction.
 
-In relying on NDNS I am aware that the reasons for ongoing funding for this study relate to its being established by the government department responsible for food policy in collaboration with that for health.
-These influences affect the development of the study and therefore the data collected and available.
-
-Positivist 'grand isolation' may reduce the influence of these 'external' factors, but they cannot be 'controlled for' but instead need to be understood.
-
-To proceed, I need to be aware of the limitations of the positivist approach.
-I need to make pragmatic selections to bring some degree of validity to the resulting dataset.
-
 ## University Research Governance and Ethical Review
 
-The ethics process for the University of Liverpool was followed and a certificate of compliance is attached at appendix 2.
+The ethics process for the University of Liverpool was followed and confirmation of compliance is attached at [Appendix 2 Ethics Certificate]
 
 The storage of the data is in keeping with the research governance agreements of the University and the Data set owners.
 
@@ -250,7 +229,7 @@ The storage of the data is in keeping with the research governance agreements of
 
 ### Rationale
 
-This review was intended to identify papers with information about UPF, sodium and blood pressure.
+This review was intended to identify papers with information about UPF, sodium and blood pressure informed by PRISMA @page2021.
 
 Many papers consider broader clinical endpoints.
 These included metabolic syndrome, diabetes and cerebrovascular and cardiovascular disease.
@@ -264,7 +243,7 @@ What is the evidence that in adults and children across the four home nations of
 Eligible studies were those which fulfilled the inclusion criteria and not the exclusion criteria.
 They were primary research and systematic reviews considering the relationship between the exposure, and outcome in comparable populations.
 One additional area of policy and policy implementation was also considered.
-Exclusions included papers which dealt with food technology and processing only.
+Exclusions included papers which dealt with food technology and processing only, experimental reports using rats, cows rabbits and parrots, those investigating specific foods or food groups, or specific disease groups.
 
 They were searched through a university meta database which includes Medline, and Ovid and Scopus.
 This meta database includes an ongoing search sends notification of articles as they are published.
@@ -274,24 +253,39 @@ The search identified a wide variety of articles, which outlined and augmented t
 Others were identified by reading abstracts and cross referencing with other papers.
 Colleagues identified further relevant literature.
 Additional papers were identified from the bibliographies of relevant papers.
-Reviews and meta-analyses presented search strategies and identified highly relevant studies.It has a core systematic approach informed by PRISMA @page2021,with additional items from a range of sources.
+Reviews and meta-analyses presented search strategies and identified highly relevant studies.It has a core systematic approach with additional items from a range of sources.
 
 My search terms
 
 ```{r table2, echo=FALSE, message=TRUE, warning=TRUE}
 #| tab-id: "tab2"
-#| caption: "Table of Search terms used"
+#| caption: "Description of Search "
 
-search1 <- data.table("Search Terms Used "="\"ultra-processed food\" OR \"ultra-processed foods\" OR \"ultraprocessed food\" OR \"ultraprocessed foods\" OR \"ultra-processed product\" OR \"ultra-processed products\" OR \"ultra-processing\" OR \"food processing\" OR \"processed food\" OR \"processed foods\" OR \"NOVA\" OR \"NOVA system\" OR \"NOVA food classification\" OR \"NOVA classification system\") AND (hypertension OR \"high blood pressure\" OR \"high blood pressures\" OR \"blood pressure\" OR \"systolic pressure\" OR \"diastolic pressure\" OR \"systolic blood pressure\" OR \"diastolic blood pressure\") AND (adult OR adults OR aged OR \"middle aged\" OR elderly OR \"older adult\"","Inclusion"= "papers", "exclusion"= "reviews commentary" ,"Results"="1328")
+#((“ultra-processed food” OR “ultra-processed foods” OR “ultraprocessed food” OR “ultraprocessed foods” OR “ultra-processed product” OR “ultra-processed products” OR “ultra-processing” OR “food processing” OR “processed food” OR “processed foods” OR “NOVA” OR “NOVA system” OR “NOVA food classification” OR “NOVA classification system”)OR(salt Or sodium OR Na) AND ("BP"OR "Blood pressure"OR"hypertensionOR"high blood pressure"OR"systolic"))
+
+search1 <- data.table("Name"=c("Date of Search","Database Searched","Search Terms Used","Inclusion","Exclusion","Number of results" ),"Details"=c("10/6/23","Medline, Ovid,Scopus","\"ultra-processed food\" OR \"ultra-processed foods\" OR \"ultraprocessed food\" OR \"ultraprocessed foods\" OR \"ultra-processed product\" OR \"ultra-processed products\" OR \"ultra-processing\" OR \"food processing\" OR \"processed food\" OR \"processed foods\" OR \"NOVA\" OR \"NOVA system\" OR \"NOVA food classification\" OR \"NOVA classification system\")OR(salt Or sodium OR Na) AND (hypertension OR \"high blood pressure\" OR \"high blood pressures\" OR \"blood pressure\" OR \"systolic pressure\" OR \"diastolic pressure\" OR \"systolic blood pressure\" OR \"diastolic blood pressure\")", "ultraprocessed and dietary and prevention or lifestyle", " food technology and processing only, experimental reports using rats, cows rabbits and parrots, those investigating specific foods or food groups, or specific disease groups" ,"572 initially, a further 207 excluded as relating to animal research"))
 table2 <-width(autofit(flextable(search1)), width=5)
-table2 <- set_caption(table2, "Table of Search terms used", 
+table2 <- set_caption(table2, "Description of Search ", 
   autonum = run_autonum(seq_id = "tab", bkm = "tab2"))
 table2
 #png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/search1.png")
 #save_as_image(width(autofit(flextable(search1)), width=5), "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/search1b.png")
 ```
 
-## Selection strategy
+### Selection strategy
+
+Inclusions and exclusions are identified in the table.
+
+Data collection process the papers were reviewed by the author only.
+
+The key data items sought were odds ratios for the effect of UPF or sodium on blood pressure.
+
+There is risk of bias due to the single reviewer approach.
+
+Data was collated and compared to identify useful odds ratios
+
+There is no agreed approach to reporting exposure or outcome.
+This made for a wide variety of difficult to compare items.
 
 ### Search results
 
@@ -2264,6 +2258,17 @@ People who know that UPF is bad, are more likely to accept policy limiting avail
 Reformulation is a policy suggestion, where UPF is further processed to remove the salt.
 This is frequently discussed.
 By demonstrating that UPF is not just high in salt this study supports the argument of avoiding further formulation as a policy for reducing BP.
+
+Dietary approaches to improving public health are able to deliver proportionate and universal interventions to populations to reduce the incidence of NCD.
+When delivered up stream at the policy level they are effective and efficient and minimise cost.
+These approaches offer significant benefits over actions targeted at individuals.
+
+Dietary and 'awareness' approaches can be used by individuals.
+These approaches risk the development of a culture of blame of individuals and of sub-groups in society.
+The commercial and social determinants of health play out a significant role in research, and delivery of public health improvements around food.
+
+This study aims to inform local policy to reduce BP and so Non-Communicable Disease.
+If UPF and sodium intake increase the risk of hypertension then policy to reduce exposure might deliver change at a population level.
 
 ## Generalisability
 

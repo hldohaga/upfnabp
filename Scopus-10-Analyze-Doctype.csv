@@ -1,0 +1,17 @@
+﻿Scopus-10-Analyze-Doctype
+
+"Your query : ((TITLE-ABS-KEY(salt Or sodium OR Na)) AND (TITLE-ABS-KEY(""BP""OR ""Blood pressure""OR""hypertension""OR""high blood pressure""OR""systolic"")) AND (TITLE-ABS-KEY(""ultra-processed food"" OR ""ultra-processed foods"" OR ""ultraprocessed food"" OR ""ultraprocessed foods"" OR ""ultra-processed product"" OR ""ultra-processed products"" OR ""ultra-processing"" OR ""food processing"" OR ""processed food"" OR ""processed foods"" OR ""NOVA"" OR ""NOVA system"" OR ""NOVA food classification"" OR ""NOVA classification system"")) AND ( EXCLUDE ( SUBJAREA,""BIOC"" ) OR EXCLUDE ( SUBJAREA,""PHAR"" ) OR EXCLUDE ( SUBJAREA,""AGRI"" ) OR EXCLUDE ( SUBJAREA,""EART"" ) OR EXCLUDE ( SUBJAREA,""VETE"" ) OR EXCLUDE ( SUBJAREA,""MATE"" ) OR EXCLUDE ( SUBJAREA,""PHYS"" ) OR EXCLUDE ( SUBJAREA,""CHEM"" ) OR EXCLUDE ( SUBJAREA,""ENER"" ) OR EXCLUDE ( SUBJAREA,""ENVI"" ) ) )"
+
+
+Number of results : 10
+
+"DOCUMENT TYPE",
+"Article","204"
+"Review","77"
+"Editorial","25"
+"Note","24"
+"Letter","20"
+"Book Chapter","17"
+"Conference Paper","11"
+"Short Survey","6"
+"Book","1"

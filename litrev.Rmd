@@ -1,0 +1,101 @@
+---
+title: "litrev"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r libraries ,echo=FALSE}
+library(quanteda)
+library(quanteda.textstats)
+library(quanteda.textmodels)
+library(quanteda.textplots)
+library(tidyverse)
+library(bibtex)
+library(readtext)
+```
+
+```{r read doc, echo=FALSE}
+# read document
+dat_search1 <- readtext("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/writlit/search/Primo_BibTeX_Export*.bib")
+#nameanon <- c("David","david" ,"O'Hagan", "Andrew", "Taylor", "Yogesh","Swathi","Lydiah", "lydia", "Kisoo", "[hlatay19]","hlatay19", "Alexander", "d'Elia", "(Guest)", "*david","david*", "hlatay*","*o'hagan", "Alexander*", "*d'Elia", "*yogesh","*Kisoo", "*Taylor", "Andrew*", "swathi*", "Lydiah*", "alex", "guest" , "sweden", "swedish")
+#view(dat_tea)
+```
+
+```{r create corpus, echo=FALSE}
+
+cor_dat_search1<- corpus(dat_search1)
+
+summary(cor_dat_search1)
+
+#reshape to paragraphs
+
+#cor_dat_tea <- corpus_reshape(cor_dat_tea, to = "paragraphs")
+#summary(cor_dat_tea)
+
+# segment by pattern time stamp
+cot_search_seg <- corpus_segment(cor_dat_search1, pattern = "@article{", valuetype = "glob")
+
+summarycot <-summary(cot_search_seg)
+
+#cbind(docvars(cot_tea_seg), text = as.character(cot_tea_seg))
+hist(summarycot$Tokens)
+hist(summarycot$Sentences)
+hist(summarycot$Types)
+
+# tokens of segmented version
+tok_search1 <- tokens(cot_search_seg, remove_punct = TRUE, remove_symbols = TRUE, remove_numbers = TRUE)
+#tok_seg_tea <- tokens_remove(tok_seg_tea, nameanon)
+
+# change to DFM
+search1_dfm <-dfm(tok_search1)
+#tea_segtok_dfm <- dfm_remove(tea_segtok_dfm, stopwords("en"))
+#view(tea_segtok_dfm)
+
+
+
+
+
+
+
+#tea_tok_dfm <-dfm(tokens_remove(toknop_dat_tea, pattern = c(  nameanon )))
+search1_dfm <-dfm(tokens_remove(tok_search1, pattern = c( stopwords("en") )))
+
+view(search1_dfm)
+plot(topfeatures(search1_dfm, n = 20))
+topfeatures(search1_dfm, n = 20)
+#plot(topfeatures(tea2_tok_dfm, n = 20))
+#topfeatures(tea2_tok_dfm, n = 20)
+```
+
+```{r tea, echo=FALSE}
+ratssearkwic <- kwic( tok_search1, "rats", window = 12)
+teakwic <- kwic(tok_dat_tea,"tea", window = 12)
+summary(ratssearkwic)
+#segteakwic$docname
+#teakwic$docname
+
+```
+
+```{r myour, echo=FALSE}
+oursegteakwic <- kwic( tok_seg_tea, "our", window = 12)
+#oursegteakwic$docname
+summary(oursegteakwic$from)
+
+oursegteakwic <- kwic( tok_seg_tea, "my", window = 12)
+#oursegteakwic$docname
+
+```
+
+```{r wordclouds, echo=FALSE}
+
+set.seed(132)
+textplot_wordcloud(search1_dfm, max_words = 100)
+
+
+#set.seed(132)
+#allwordsg <- textplot_wordcloud(tea_tok_dfm, max_words = 100)
+
+#head(rowSums(tea_segtok_dfm), 10)
+
+```

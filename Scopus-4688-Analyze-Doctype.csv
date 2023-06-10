@@ -1,0 +1,16 @@
+﻿Scopus-4688-Analyze-Doctype
+
+"Your query : (SUBJAREA(MEDI OR SOCI) (TITLE-ABS-KEY(""BP""OR ""Blood pressure""OR""hypertension""OR""high blood pressure""OR""systolic"")) AND ((TITLE-ABS-KEY(salt Or sodium OR Na)) OR (TITLE-ABS-KEY(""ultra-processed food"" OR ""ultra-processed foods"" OR ""ultraprocessed food"" OR ""ultraprocessed foods"" OR ""ultra-processed product"" OR ""ultra-processed products"" OR ""ultra-processing"" OR ""food processing"" OR ""processed food"" OR ""processed foods"" OR ""NOVA"" OR ""NOVA system"" OR ""NOVA food classification"" OR ""NOVA classification system""))) AND (TITLE-ABS-KEY((""primary research""OR""cohort study""OR""odds ratio""OR""cross-sectional study"")AND(""human""))))"
+
+
+Number of results : 4688
+
+"DOCUMENT TYPE",
+"Article","4363"
+"Review","203"
+"Conference Paper","44"
+"Letter","40"
+"Editorial","16"
+"Note","13"
+"Short Survey","7"
+"Book Chapter","2"
