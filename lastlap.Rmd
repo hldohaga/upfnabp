@@ -1,6 +1,11 @@
 ---
 title: "Exposure to High Ultra-processed Food and Sodium Intake and its effect on Hypertension using the cross sectional study UK National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
+  html_notebook: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    code_folding: hide
   word_document: 
     toc: yes
     fig_caption: yes
@@ -8,11 +13,6 @@ output:
     toc_depth: 4
     fig_width: 4
     fig_height: 4
-  html_notebook: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    code_folding: hide
   pdf_document: 
     toc: yes
     fig_caption: yes
@@ -94,6 +94,7 @@ library(officer)
 library(dagitty)
 library(grateful)
 library(dplyr)
+library(DiagrammeR)
 ```
 
 ```{=tex}
@@ -117,7 +118,8 @@ table1
 
 # Introduction
 
-417482 people, 15.4% of the population, have hypertension in Cheshire and Merseyside @cardiova. Cheshire and Merseyside public health collaborative (CHAMPs) have a plan to reduce BP by 2029 @highblo2020 .
+417482 people, 15.4% of the population, have hypertension in Cheshire and Merseyside @cardiova.
+Cheshire and Merseyside public health collaborative (CHAMPs) have a plan to reduce BP by 2029 @highblo2020 .
 The strategy aims to increase 'awareness'.
 This is intended to increase individual compliance with testing and treatment of raised BP.
 This study intends to offer additional opportunities for improving outcomes.
@@ -229,12 +231,19 @@ The storage of the data is in keeping with the research governance agreements of
 
 ### Rationale
 
+-   1 develop search
+-   2 review search and confirm inclusion
+-   3 describe literature
+-   4 synthesise literature
+-   5 critique literature
+-   6 explain role of study within context
+
 This review was intended to identify papers with information about UPF, sodium and blood pressure informed by PRISMA @page2021.
 
 Many papers consider broader clinical endpoints.
 These included metabolic syndrome, diabetes and cerebrovascular and cardiovascular disease.
 
-The review objectve is to contribute to answering the research question;
+The review objective is to contribute to answering the research question;
 
 What is the evidence that in adults and children across the four home nations of the UK between 2008 and 2019, would exposure to high sodium dietary intake, and or high UPF dietary intake, compared to lower exposure, increase the odds of having a mean systolic blood pressure of over 140mmHg?
 
@@ -245,8 +254,7 @@ They were primary research and systematic reviews considering the relationship b
 One additional area of policy and policy implementation was also considered.
 Exclusions included papers which dealt with food technology and processing only, experimental reports using rats, cows rabbits and parrots, those investigating specific foods or food groups, or specific disease groups.
 
-They were searched through a university meta database which includes Medline, and Ovid and Scopus.
-This meta database includes an ongoing search sends notification of articles as they are published.
+They were searched through Scopus and Medline(ovid)
 
 The search strategy is included in [table 2.1](#tab:tab2) below.
 The search identified a wide variety of articles, which outlined and augmented the review.
@@ -261,9 +269,19 @@ My search terms
 #| tab-id: "tab2"
 #| caption: "Description of Search "
 
-#((“ultra-processed food” OR “ultra-processed foods” OR “ultraprocessed food” OR “ultraprocessed foods” OR “ultra-processed product” OR “ultra-processed products” OR “ultra-processing” OR “food processing” OR “processed food” OR “processed foods” OR “NOVA” OR “NOVA system” OR “NOVA food classification” OR “NOVA classification system”)OR(salt Or sodium OR Na) AND ("BP"OR "Blood pressure"OR"hypertensionOR"high blood pressure"OR"systolic"))
+#1 	(salt or sodium or Na).mp. [mp=title, book title, abstract, original title, name of substance word, subject heading word, floating sub-heading word, keyword heading word, organism supplementary concept word, protocol supplementary concept word, rare disease supplementary concept word, unique identifier, synonyms, population supplementary concept word, anatomy supplementary concept word] 	
 
-search1 <- data.table("Name"=c("Date of Search","Database Searched","Search Terms Used","Inclusion","Exclusion","Number of results" ),"Details"=c("10/6/23","Medline, Ovid,Scopus","\"ultra-processed food\" OR \"ultra-processed foods\" OR \"ultraprocessed food\" OR \"ultraprocessed foods\" OR \"ultra-processed product\" OR \"ultra-processed products\" OR \"ultra-processing\" OR \"food processing\" OR \"processed food\" OR \"processed foods\" OR \"NOVA\" OR \"NOVA system\" OR \"NOVA food classification\" OR \"NOVA classification system\")OR(salt Or sodium OR Na) AND (hypertension OR \"high blood pressure\" OR \"high blood pressures\" OR \"blood pressure\" OR \"systolic pressure\" OR \"diastolic pressure\" OR \"systolic blood pressure\" OR \"diastolic blood pressure\")", "ultraprocessed and dietary and prevention or lifestyle", " food technology and processing only, experimental reports using rats, cows rabbits and parrots, those investigating specific foods or food groups, or specific disease groups" ,"572 initially, a further 207 excluded as relating to animal research"))
+#2 	("BP" or "Blood pressure" or "hypertension" or "high blood pressure" or "systolic").mp. [mp=title, book title, abstract, original title, name of substance word, subject heading word, floating sub-heading word, keyword heading word, organism supplementary concept word, protocol supplementary concept word, rare disease supplementary concept word, unique identifier, synonyms, population supplementary concept word, anatomy supplementary concept word] 	
+	
+#3 	("ultra-processed food" or "ultra-processed foods" or "ultraprocessed food" or "ultraprocessed foods" or "ultra-processed product" or "ultra-processed products" or "ultra-processing" or "food processing" or "processed food" or "processed foods" or "NOVA" or "NOVA system" or "NOVA food classification" or "NOVA classification system").mp. [mp=title, book title, abstract, original title, name of substance word, subject heading word, floating sub-heading word, keyword heading word, organism supplementary concept word, protocol supplementary concept word, rare disease supplementary concept word, unique identifier, synonyms, population supplementary concept word, anatomy supplementary concept word] 
+#4 	1 and 2 and 3 	5 	limit 4 to humans
+
+search1 <- data.table("Name"=c("Date of Search","Database Searched","Search Terms Used","Inclusion","Exclusion","Number of results" ),"Search 1"=c("10/6/23","Scopus","((TITLE-ABS-KEY(salt Or sodium OR Na)) AND (TITLE-ABS-KEY(\"\"BP\"\"OR \"\"Blood pressure\"\"OR\"\"hypertension\"\"OR\"\"high blood pressure\"\"OR\"\"systolic\"\")) AND (TITLE-ABS-KEY(\"\"\"ultra-processed food\" OR \"ultra-processed foods\" OR \"ultraprocessed food\" OR \"ultraprocessed foods\" OR \"ultra-processed product\" OR \"ultra-processed products\" OR \"ultra-processing\" OR \"food processing\" OR \"processed food\" OR \"processed foods\" OR \"NOVA\" OR \"NOVA system\" OR \"NOVA food classification\" OR \"NOVA classification system\")AND ( EXCLUDE ( SUBJAREA,\"\"BIOC\"\" ) OR EXCLUDE ( SUBJAREA,\"\"PHAR\"\" ) OR EXCLUDE ( SUBJAREA,\"\"AGRI\"\" ) OR EXCLUDE ( SUBJAREA,\"\"EART\"\" ) OR EXCLUDE ( SUBJAREA,\"\"VETE\"\" ) OR EXCLUDE ( SUBJAREA,\"\"MATE\"\" ) OR EXCLUDE ( SUBJAREA,\"\"PHYS\"\" ) OR EXCLUDE ( SUBJAREA,\"\"CHEM\"\" ) OR EXCLUDE ( SUBJAREA,\"\"ENER\"\" ) OR EXCLUDE ( SUBJAREA,\"\"ENVI\"\" ) ) )", "ultraprocessed and dietary and prevention or lifestyle", " food technology and processing only, experimental reports using rats, cows rabbits and parrots, those investigating specific foods or food groups, or specific disease groups" ,"385"),"Search 2"=c("11/6/23","Medline(Ovid)","1 	(salt or sodium or Na).mp. 	
+
+2 	(\"BP\" or \"Blood pressure\" or \"hypertension\" or \"high blood pressure\" or \"systolic\").mp. 	
+	
+3 	(\"ultra-processed food\" or \"ultra-processed foods\" or \"ultraprocessed food\" or \"ultraprocessed foods\" or \"ultra-processed product\" or \"ultra-processed products\" or \"ultra-processing\" or \"food processing\" or \"processed food\" or \"processed foods\" or \"NOVA\" or \"NOVA system\" or \"NOVA food classification\" or \"NOVA classification system\").mp. 
+4 	1 and 2 and 3 	5 	limit 4 to humans [mp=title, book title, abstract, original title, name of substance word, subject heading word, floating sub-heading word, keyword heading word, organism supplementary concept word, protocol supplementary concept word, rare disease supplementary concept word, unique identifier, synonyms, population supplementary concept word, anatomy supplementary concept word] ","same","same","211"))
 table2 <-width(autofit(flextable(search1)), width=5)
 table2 <- set_caption(table2, "Description of Search ", 
   autonum = run_autonum(seq_id = "tab", bkm = "tab2"))
@@ -275,6 +293,7 @@ table2
 ### Selection strategy
 
 Inclusions and exclusions are identified in the table.
+No time limits, language limits or availability limits were included in the initial search.
 
 Data collection process the papers were reviewed by the author only.
 
@@ -289,35 +308,43 @@ This made for a wide variety of difficult to compare items.
 
 ### Search results
 
-The search produced 1328 results.
-The search allowed medical, public health, nursing articles to be prioritised.
-Engineering, chemical, and technology articles were deprioritised.
+Search 1 produced 385 results.
+204 articles, 77 reviews, 25 editorials, 24 notes, 20 letters, 17 book chapters, 11 conference papers, 6 'short surveys' and 1 book.
+These came from 159 institutions, St George's, University of London provided the most with 14.
+112 funding bodies were involved, National Heart, Lung, and Blood Institute providing funds for 14.
+He, F.J., with 11 papers, was the most represented first author out of 157.
 
-No time limits, language limits or availability limits were included in the initial search.
-Reading titles and abstracts identified relevant articles.
+```{r diag4, echo=FALSE, message=FALSE, warning=FALSE}
+grViz(diagram = "digraph flowchart {
+  node [fontname = arial, shape = rectangle]
+  tab1 [label = '@@1']
+  tab2 [label = '@@2']
+  tab3 [label = '@@3']
+  
+  tab1 -> tab2 -> tab3;
+}
+  
+  [1]: 'Initial searches 385 and 211 papers'
+  [2]: 'adjusting for overlap 430'    
+  [3]: 'reading titles and abstracts 87'    
+  ")
+```
 
-Papers which related to technology including food technology were excluded.
-They were also excluded if the primary purpose of the paper was unrelated to dietary or nutritional causes of clinical outcomes.
-The resulting
+Search 2 gave 211 papers.
+The lists of details from each search were downloaded.
+Then the two lists were added together using RefmanageR @matt .
+The contents of the resulting file were examined for duplicates.Once these were eliminated the total unique papers was 430.
+These were then reviewed by comparing the titles against the inclusion and exclusion criteria.
+This eliminated 303 papers.
 
 ## discussion of results
 
 The literature has developed over time.
-Results arrange themselves into several groups.
-The oldest are those which develop the argument that Na relates to BP and to NCD.
+In Dahl's paper @dahl1968 from 1968 the 'artificial' nature of food for infants is discussed.
 UPF is a recent concept developed within the NOVA framework, described in 2009.
 Hence articles around UPF and its relation to BP and NCD are more recent.
 Importantly they analyse the way that UPF is correlated with BP.
 They don't go into how Na might be involved in this relationship.
-
-Papers are also categorised as primary research, systematic reviews with meta analysis, model analysis, and papers which use the other categories to consider public health policy approaches.
-
-### Aims of literature review
-
--   1 describe literature
--   2 synthesise literature
--   3 critique literature
--   4 explain role of study within context
 
 ### Na, BP, NCD and Public Health
 
@@ -1870,7 +1897,7 @@ The [table 4.1.1](tab:table3) shows the population exposed to UPF \>63% of their
 This compares with 9424 participants with lower exposure.
 That is an exposure prevalence of 34%.
 
-Hgh UPF is more common in younger males than in the overall population or those not on medication.
+High UPF is more common in younger males than in the overall population or those not on medication.
 37% are 0-16 years old.
 There is a gradient in deprivation with more exposure in the most deprived group.
 England's South East has 13% of those with high UPF intake.
