@@ -13,13 +13,38 @@ library(quanteda.textplots)
 library(tidyverse)
 library(bibtex)
 library(readtext)
+library(RefManageR)
+library(bib2df)
+library(ggplot2)
 ```
 
 ```{r read doc, echo=FALSE}
 # read document
 dat_search1 <- readtext("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/writlit/search/Primo_BibTeX_Export*.bib")
-#nameanon <- c("David","david" ,"O'Hagan", "Andrew", "Taylor", "Yogesh","Swathi","Lydiah", "lydia", "Kisoo", "[hlatay19]","hlatay19", "Alexander", "d'Elia", "(Guest)", "*david","david*", "hlatay*","*o'hagan", "Alexander*", "*d'Elia", "*yogesh","*Kisoo", "*Taylor", "Andrew*", "swathi*", "Lydiah*", "alex", "guest" , "sweden", "swedish")
-#view(dat_tea)
+Prim_search1b <- ReadBib("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/writlit/search/Primo_BibTeX_Export.bib")
+Prim_search2b <- ReadBib("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/writlit/search/Primo_BibTeX_Export2.bib")
+#/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp
+scop_search2b <- ReadBib("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/scopus.bib")
+scop_searchx <- bib2df("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/scopus.bib")
+medl_search2b <- ReadBib("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/medline116.bib")
+medl_searchy <- bib2df("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/medline116.bib")
+combined_search2b <- scop_search2b + medl_search2b
+WriteBib(combined_search2b,file = "combined.bib")
+
+view(medl_searchy)
+
+combined136_search <- bib2df("combined136.bib")
+
+ggplot(combined136_search, aes(x=reorder(CATEGORY, CATEGORY, function(x)-length(x))))+
+  geom_bar(fill='red')+  labs(x='Type')
+
+ggplot(combined136_search , aes(x=(as.factor(YEAR)), y=CATEGORY) )+
+ geom_boxplot(fill='red')+  labs(x='year')
+
+dat_search1b[author = "Myrie"]
+dat_search3 <- dat_search1b + dat_search2b
+dat_search3[author = "Myrie"]
+combined_search2b[author = "*"]
 ```
 
 ```{r create corpus, echo=FALSE}
@@ -45,6 +70,7 @@ hist(summarycot$Types)
 
 # tokens of segmented version
 tok_search1 <- tokens(cot_search_seg, remove_punct = TRUE, remove_symbols = TRUE, remove_numbers = TRUE)
+tok_search2 <- tokens(cot_search_seg, remove_punct = FALSE, remove_symbols = FALSE, remove_numbers = TRUE)
 #tok_seg_tea <- tokens_remove(tok_seg_tea, nameanon)
 
 # change to DFM
@@ -52,7 +78,7 @@ search1_dfm <-dfm(tok_search1)
 #tea_segtok_dfm <- dfm_remove(tea_segtok_dfm, stopwords("en"))
 #view(tea_segtok_dfm)
 
-
+dat_search1b.bib["boot"]
 
 
 
@@ -69,22 +95,24 @@ topfeatures(search1_dfm, n = 20)
 ```
 
 ```{r tea, echo=FALSE}
-ratssearkwic <- kwic( tok_search1, "rats", window = 12)
-teakwic <- kwic(tok_dat_tea,"tea", window = 12)
-summary(ratssearkwic)
+authorsearkwic <- kwic( tok_search1, "author", window = 12)
+#teakwic <- kwic(tok_dat_tea,"tea", window = 12)
+(authorsearkwic$post)
 #segteakwic$docname
 #teakwic$docname
-
+typesearkwic <- kwic( tok_search2, "@", window = 8)
+#teakwic <- kwic(tok_dat_tea,"tea", window = 12)
+(typesearkwic$post)
 ```
 
 ```{r myour, echo=FALSE}
-oursegteakwic <- kwic( tok_seg_tea, "our", window = 12)
+placekwic <- kwic( tok_search1, "place", window = 12)
 #oursegteakwic$docname
-summary(oursegteakwic$from)
+(placekwic$post)
 
-oursegteakwic <- kwic( tok_seg_tea, "my", window = 12)
+datekwic <- kwic( tok_search1, "date", window = 12)
 #oursegteakwic$docname
-
+datekwic$post
 ```
 
 ```{r wordclouds, echo=FALSE}

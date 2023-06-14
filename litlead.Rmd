@@ -1,11 +1,13 @@
 ---
 title: "Exposure to High Ultra-processed Food and Sodium Intake and its effect on Hypertension using the cross sectional study UK National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
-  html_notebook: 
+  html_document: 
     toc: yes
     fig_caption: yes
     number_sections: yes
-    code_folding: hide
+    keep_md: yes
+    fig_width: 4
+    fig_height: 4
   word_document: 
     toc: yes
     fig_caption: yes
@@ -21,13 +23,11 @@ output:
     latex_engine: xelatex
     fig_width: 4
     fig_height: 4
-  html_document: 
+  html_notebook: 
     toc: yes
     fig_caption: yes
     number_sections: yes
-    keep_md: yes
-    fig_width: 4
-    fig_height: 4
+    code_folding: hide
 editor_options: 
   markdown: 
     wrap: sentence
@@ -382,7 +382,7 @@ Du's 2021 study in the USA used CVD as an outcome.
 The results identified
 
 +----------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Cohort               | description           | results                                                                                                                                                                              |
+| Cohort country       | First Author          | results                                                                                                                                                                              |
 +======================+=======================+======================================================================================================================================================================================+
 | China                | Du                    | Sodium intake decreased from 6.3 g/d in 1991 to 4.1 g/d in 2015                                                                                                                      |
 |                      |                       |                                                                                                                                                                                      |
@@ -431,6 +431,16 @@ There were 2-3 which were used for this study.
 +----------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 : Table of relevant cross sectional studies
+
+Additional relevant studies likely no mention of salt !!
+
+| Col1                                               | Col2                                        | Col3                              |
+|----------------------------------------------------|---------------------------------------------|-----------------------------------|
+| shim @ShimSunYoung2022Couf                         | wang @wangAssociationUltraprocessedFood2022 | rezendez-alves @rezende-alves2021 |
+| scranni @ScaranniPatriciadeOliveiradaSilva2021Ufci |                                             |                                   |
+|                                                    |                                             |                                   |
+
+: other relevant studies
 
 ### Na, BP, NCD and Public Health
 
