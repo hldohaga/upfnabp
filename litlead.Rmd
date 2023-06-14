@@ -58,9 +58,9 @@ for your loving patience and support
 
 ## Acknowledgments {.unnumbered}
 
-To Zoe and Martin
+Thanks to Zoe and Martin
 
-To Paul
+Thanks to Paul for the project which didn't quite come together
 
 \newpage
 
@@ -71,9 +71,28 @@ To Paul
 This is a secondary data study of the cross sectional study national dietary and nutrition survey @universityofcambridge2022.
 This study looked at the outcome of hypertension compared with exposure to high intake of UPF and Na.
 
+method
+
+regression analysis
+
+results
+
+increased odds hypertension with higher sodium intake
+
+lower odds hypertension with high upf intake
+
 This study shows that high Na intake is associated with hypertension.
 Reduction of sodium intake may be effective at reducing the overall risk.
 UPF intake is also associated with hypertension.
+
+discussion
+
+confirms sodium and hyp
+
+upf and bp ?
+due to age separation, high upf in young, high bp in old
+
+high upf not necessarily linked to high na!
 
 Policy should aim to reduce intake of Na.
 The accompanying literature review discusses aspects of policy and their effectiveness.
@@ -124,6 +143,7 @@ The strategy aims to increase 'awareness'.
 This is intended to increase individual compliance with testing and treatment of raised BP.
 This study intends to offer additional opportunities for improving outcomes.
 
+UPF makes up up to 60% diet in UK especially in the North West of England.
 There is evidence of an association between hypertension and intake of Ultra-processed Foods (UPF) @du2014 and hypertension and Salt intake @cappuccio2015 from studies of different types in multiple countries.
 Monteiro et al @moreira2015 model a scenarion where "halving intake of (NOVA) group 3 foods could result in approximately 22,055 fewer deaths" across the UK in 2030.
 Local food policies around UPF might be a way of reducing hypertension at a population level.
@@ -238,7 +258,7 @@ The storage of the data is in keeping with the research governance agreements of
 -   5 critique literature
 -   6 explain role of study within context
 
-This review was intended to identify papers with information about UPF, sodium and blood pressure informed by PRISMA @page2021.
+This literature review was intended as a systematic search, to identify papers with information about UPF, sodium and blood pressure informed by PRISMA @page2021.
 
 The rationale for this review is to contribute background and to answering the research question;
 
@@ -340,7 +360,9 @@ The lists of details from each search were downloaded.
 Then the two lists were added together using RefmanageR @mclean14 .
 The contents of the resulting file were examined for duplicates.Once these were eliminated the total unique papers was 430.
 These were then reviewed by comparing the titles against the inclusion and exclusion criteria.
-The remaining literature was still large
+The remaining literature was still large 380.
+Cohort studies 7 and cross-sectional studies 14 were identified within this group.
+Several additional relevant studies have also been identified by my supervisors.
 
 ## discussion of results
 
@@ -352,10 +374,10 @@ Importantly they analyse the way that UPF is correlated with BP.
 Cohort studies
 
 There were 7 articles identified in the search.
-These articles reported on 5 cohorts, the China Health and Nutrition Survey,USA, a south african cohort, one from Mexico, and another from Spain.
+These articles reported on 5 cohorts, @du2014 @du2020 ,USA @Du20213746 , a south african cohort @ware2017 @Charlton2021 , one from Mexico @colin-ramirez2017 , and another from Spain @DeDeusMendonçaRaquel2017Ufca .
 Only the spanish study looked at hypertension as an outcome.
 The others assessed sodium intake and excretion levels and assumed that this would affect blood pressure.
-Du's study in the USA used CVD as an outcome.
+Du's 2021 study in the USA used CVD as an outcome.
 
 The results identified
 
@@ -382,6 +404,17 @@ The results identified
 cross-sectional studies
 
 14 studies were identified as cross-sectional studies on general populations looking at hypertension, sodium, and ultraprocessed food.
+
+| UPF, Na and BP                 | Salt                       | Awareness              | Other conditions         |
+|--------------------------------|----------------------------|------------------------|--------------------------|
+| barbosa @barbosa2023           | reyhani @Reyhani2020       | ponzo @ponzo2015       | hajmir @Hajmir20223609 , |
+| harrington @Harrington20131311 | korff @Korff202045         | westrick @westrick2014 | cunha @cunha2019         |
+|                                | johner @johner2015         |                        |                          |
+| asma @Asma201949               | quader @Quader20191623     |                        |                          |
+| d'avila @davila2017            | jovic @Jovičić-Bata2016651 |                        |                          |
+
+: Cross-sectional studies
+
 The studies looked at awareness, and intake of sodium, UPF, and only a few assessed BP.
 Again a clearly stated assumption was that changing salt intake would change BP.
 Even when BP or hypertension was explicitly included it was often 'self reported'.
