@@ -1,20 +1,6 @@
 ---
 title: "Exposure to High Ultra-processed Food and Sodium Intake and its effect on Hypertension using the cross sectional study UK National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
-  html_document: 
-    toc: yes
-    fig_caption: yes
-    number_sections: yes
-    keep_md: yes
-    fig_width: 4
-    fig_height: 4
-  word_document: 
-    toc: yes
-    fig_caption: yes
-    keep_md: yes
-    toc_depth: 4
-    fig_width: 4
-    fig_height: 4
   pdf_document: 
     toc: yes
     fig_caption: yes
@@ -28,6 +14,21 @@ output:
     fig_caption: yes
     number_sections: yes
     code_folding: hide
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    keep_md: yes
+    toc_depth: 4
+    fig_width: 4
+    fig_height: 4
+  html_document: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    keep_md: yes
+    fig_width: 4
+    fig_height: 4
+always_allow_html: true 
 editor_options: 
   markdown: 
     wrap: sentence
@@ -68,24 +69,30 @@ Thanks to Paul for the project which didn't quite come together
 
 # Abstract {.unnumbered}
 
-This is a secondary data study of the cross sectional study national dietary and nutrition survey @universityofcambridge2022.
-This study looked at the outcome of hypertension compared with exposure to high intake of UPF and Na.
+Context
 
-method
+This study looked at the outcome of hypertension compared with exposure to high intake of UPF and high Sodium Intake.
+This examined the assumption that it is the salt content of UPF which contributes to its 'unhealthiness' and to query the idea that 'reformulation' will generate 'healthy UPF'.
 
-regression analysis
+Method
 
-results
+Secondary data analysis of the National Dietary and Nutrition Survey (NDNS) used multivariable logistic regression analysis of high sodium intake and high UPF intake against hypertension.
 
-increased odds hypertension with higher sodium intake
+Results
 
-lower odds hypertension with high upf intake
+increased odds hypertension with higher sodium intake 5.43 (1.44, 20.4) p=0.012
+
+lower odds hypertension with high upf intake.
+0.57(0.35, 0.95) p=0.032
+
+no correlation between UPF intake and sodium intake!
+beta =0
 
 This study shows that high Na intake is associated with hypertension.
 Reduction of sodium intake may be effective at reducing the overall risk.
 UPF intake is also associated with hypertension.
 
-discussion
+Conclusion
 
 confirms sodium and hyp
 
@@ -95,7 +102,15 @@ due to age separation, high upf in young, high bp in old
 high upf not necessarily linked to high na!
 
 Policy should aim to reduce intake of Na.
-The accompanying literature review discusses aspects of policy and their effectiveness.
+The accompanying discussion examines aspects of policy and their effectiveness.
+
+Keywords
+
+UPF, Sodium, hypertension, NOVA, Nutrition
+
+abstract 200 words
+
+Dissertation 12054
 
 ```{r library, include=FALSE}
 library(haven)
@@ -114,6 +129,7 @@ library(dagitty)
 library(grateful)
 library(dplyr)
 library(DiagrammeR)
+library(RefManageR)
 ```
 
 ```{=tex}
@@ -126,7 +142,7 @@ library(DiagrammeR)
 #| tab-id: "table 1"
 #| caption: "Table of abbreviations used"
 
-table1 <- data.table("Abbreviation "=c("NDNS","BP","Na","UPF","NCD","CVD","CHAMPs","NOVA","NAFLD","BMI","mmHg","AIC"),"Term"=c("National Dietary and Nutrition Survey","Blood Pressure","Sodium intake in mg", "Ultra Processed Foods", "Non communicable Disease","Cardiovascular Disease","Cheshire and Merseyside public health  collaborative","NOVA is a classification system, it is not an acronym","non- alcohol fatty liver disease","Body Mass Index","Units of pressure used physiologically","AIC"))
+table1 <- data.table("Abbreviation "=c("NDNS","BP","Na","UPF","NCD","CVD","CHAMPs","NOVA","NAFLD","BMI","AIC"),"Term"=c("National Dietary and Nutrition Survey","Blood Pressure","Sodium intake in mg", "Ultra Processed Foods", "Non communicable Disease","Cardiovascular Disease","Cheshire and Merseyside public health  collaborative","NOVA is a classification system, it is not an acronym","non- alcohol fatty liver disease","Body Mass Index","Akaike Information Criterion"))
 table1 <- width(autofit(flextable(table1)), width=5)
 table1 <- set_caption(table1, "Table of Abbreviations used", 
   autonum = run_autonum(seq_id = "tab", bkm = "table1"))
@@ -381,25 +397,25 @@ Du's 2021 study in the USA used CVD as an outcome.
 
 The results identified
 
-+----------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Cohort country       | First Author          | results                                                                                                                                                                              |
-+======================+=======================+======================================================================================================================================================================================+
-| China                | Du                    | Sodium intake decreased from 6.3 g/d in 1991 to 4.1 g/d in 2015                                                                                                                      |
-|                      |                       |                                                                                                                                                                                      |
-|                      | Du                    | Sodium intake is decreasing                                                                                                                                                          |
-+----------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| South Africa         | Ware                  | overall salt intake dropped by 1.15 g/day (P = 0.028)                                                                                                                                |
-|                      |                       |                                                                                                                                                                                      |
-|                      | Charlton              | Median salt intake (6.8 g/day) was higher in younger than older adults (8.6 g vs 6.1 g/day; p ¡ 0.001), and in urban compared to rural populations (7.0 g vs 6.0 g/day; p = 0.033).  |
-+----------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| USA                  | Du                    | Participants in the highest compared with lowest quartile of ultra-processed food intake had a 19% higher risk of coronary artery disease (HR: 1.19; 95% CI: 1.05, 1.35)             |
-+----------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Mexico               | Colin-Ramirez         | Mean daily sodium intake estimated by three-day food records and 24-h urinary sodium excretion was 2647.2 +/- 976.9 mg/day and 3497.2 +/- 1393.0,                                    |
-+----------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Spain                | de Deus Mendonca      | adjusted HR, 1.21; 95% CI, 1.06, 1.37; P for trend = 0.00                                                                                                                            |
-|                      |                       |                                                                                                                                                                                      |
-|                      | middle aged uni grads |                                                                                                                                                                                      |
-+----------------------+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++----------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Cohort country | First Author          | results                                                                                                                                                                             |
++================+=======================+=====================================================================================================================================================================================+
+| China          | Du                    | Sodium intake decreased from 6.3 g/d in 1991 to 4.1 g/d in 2015                                                                                                                     |
+|                |                       |                                                                                                                                                                                     |
+|                | Du                    | Sodium intake is decreasing                                                                                                                                                         |
++----------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| South Africa   | Ware                  | overall salt intake dropped by 1.15 g/day (P = 0.028)                                                                                                                               |
+|                |                       |                                                                                                                                                                                     |
+|                | Charlton              | Median salt intake (6.8 g/day) was higher in younger than older adults (8.6 g vs 6.1 g/day; p ¡ 0.001), and in urban compared to rural populations (7.0 g vs 6.0 g/day; p = 0.033). |
++----------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| USA            | Du                    | Participants in the highest compared with lowest quartile of ultra-processed food intake had a 19% higher risk of coronary artery disease (HR: 1.19; 95% CI: 1.05, 1.35)            |
++----------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Mexico         | Colin-Ramirez         | Mean daily sodium intake estimated by three-day food records and 24-h urinary sodium excretion was 2647.2 +/- 976.9 mg/day and 3497.2 +/- 1393.0,                                   |
++----------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Spain          | de Deus Mendonca      | adjusted HR, 1.21; 95% CI, 1.06, 1.37; P for trend = 0.00                                                                                                                           |
+|                |                       |                                                                                                                                                                                     |
+|                | middle aged uni grads |                                                                                                                                                                                     |
++----------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 cross-sectional studies
 
@@ -420,15 +436,11 @@ Again a clearly stated assumption was that changing salt intake would change BP.
 Even when BP or hypertension was explicitly included it was often 'self reported'.
 There were 2-3 which were used for this study.
 
-+----------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Cohort               | description           | results                                                                                                                                                                                                                    |
-+======================+=======================+============================================================================================================================================================================================================================+
-|                      |                       | odds ratio (OR)=1.48; 95% confidence interval (CI) 1.14-1.91 and OR=2.17; 95% CI 1.68-2.79, respectively), the consumption of ¿2/day salty snacks (OR=1.86; 95% CI 1.32-2.63 and OR=2.38; 95% CI 1.69-3.37, respectively)  |
-+----------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                      |                       |                                                                                                                                                                                                                            |
-+----------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                      |                       |                                                                                                                                                                                                                            |
-+----------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Cohort | description | results                                                                                                                                                                                                                   |
+|--------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        |             | odds ratio (OR)=1.48; 95% confidence interval (CI) 1.14-1.91 and OR=2.17; 95% CI 1.68-2.79, respectively), the consumption of ¿2/day salty snacks (OR=1.86; 95% CI 1.32-2.63 and OR=2.38; 95% CI 1.69-3.37, respectively) |
+|        |             |                                                                                                                                                                                                                           |
+|        |             |                                                                                                                                                                                                                           |
 
 : Table of relevant cross sectional studies
 
@@ -441,345 +453,6 @@ Additional relevant studies likely no mention of salt !!
 |                                                    |                                             |                                   |
 
 : other relevant studies
-
-### Na, BP, NCD and Public Health
-
-Non-communicable disease (NCD) is an increasing burden on public health.
-Cappuccio and Capewell @cappuccio2015 layout the charges against salt clearly.
-They identify comprehensively the connection between changes in salt intake and changes in blood pressure and changes in cardiovascular (CVD) and cerebrovascular diseases.
-They link the nutritional effect of salt but they also identify the way this is affected by social and commercial determinants of health.
-These are branches from different epistemological backgrounds, nutrition from positivism, and the social determinants from a more constructivist approach.
-
-```{r dagNa, echo=FALSE, message=FALSE, warning=FALSE}
-#| fig-id: "fig-dagNa"
-#| fig-cap: "Diagram of relationships between BP and Salt"
-
-bp2 <- dagitty(" dag {
-               Sodium -> Blood_Pressure
-               Age -> Blood_Pressure
-               Sex -> Blood_Pressure
-               Age -> Sodium
-               Sex -> Sodium
-}")
-plot(graphLayout(bp2))
-
-```
-
-Explaining the role of the Framingham studies Kannel @kannel2009 , @kannel1993 and Mahmood @mahmood2014 describe how risk factor medicine came about.
-They describe raised blood pressure as a 'prominent member' of a group of risks in cardiovascular disease.
-A disease which is the outcome of 'multiple forces'.
-Their description sees Framingham as part of the march of progress in understanding cardiovascular disease in particular, but also non-communicable disease.
-Kannel identifies that cardiologists alone cannot conquer cardiovascular disease.
-Pringle @pringle2003 shows how stroke risk relates to BP.
-
-Since then BP has come to feature more and more in NCD, following studies showing that reducing BP reduced the risk of CVD.
-This placed detection, management, and control of BP at the centre of reducing CVD.
-Ettehad @ettehad2016 reported a comprehensive systematic review with 123 studies over 49 years and 613815 participants.
-In a more contemporary study Debon-Raque et al. @DebonRaquel2020Eoua look at app use to improve BP monitoring.
-Bress @bress2021 clearly identifies that patient trust and engagement are essential in reducing 'race' based inequalities.
-Boutain @boutain2001 identifies stress and worry as important factors for African American men and women.
-In North west England Roche @roche2018 developed quality assurance approaches to BP management which highlight that there are many different approaches to assessment monitoring and control.
-The CHAMPS strategy follows on from this work @cvdprev2022.
-
-Satisfactory explanations of the cause of BP depend on the epistemological frame used.
-Medically, the causes of BP, as Kannel explains, are divided into secondary BP where there is an identified pathological cause and 'essential' or idiopathic BP where no cause is identifiable.
-Contributors to and partial causes of this essential BP have been sought, at individual and societal levels, using medical and epidemiological approaches @who , @bloodpr , @bloodpr2018 .
-
-At the level of physiology, Na is a contributor to BP.
-The role of Na in normal and abnormal BP control has been established through WHO and Intersalt @intersal1988 with Elliot @elliott1996 updating the findings and repeating the message.
-It is possible to look at these studies and identify areas where clarity is assumed.
-
-News reports such as that of Taubes @taubes2012 and Newman @newman2017 identify question 'orthodox' explanations and seek to disrupt consensus with some degree of success.
-Elijovich @elijovich2016 carefully explains how the American Heart Association deals with the idea that there may be individuals with higher sensitivity to salt .
-Barris et al. @barris2023 discuss the role of sex in salt sensitivity.
-Pitzer et al. @pitzer2022 propose a mechanism of action.
-
-'Lifestyle' causes, such as Boutain's @boutain2001 'stresses', are reported as a mix of personal 'choice', 'behaviours' and responses to other social factors.
-That is, they are not choices at all.
-Marmot's Whitehall series @marmot1997 @marmot2001 @marmot2015 shows how 'lifestyle' affects BP, CVD and NCD.
-This identifies mechanisms for Whitehead @whitehead1988 Dahlgren @dahlgreen2007 and Diderichson's @diderichsen2001 social determinants of health inequalities with their policy approaches and points of intervention.
-
-Whilst Jones et al. @jones2018 demonstrated that there is a cost to adopting dietary recommendations in the UK.
-Salisbury's editorial @salisbury2022 discusses how commerce also has a role to play in a causation model which embraces an understanding of causation on a population scale.
-
-Personal choice may be affected by taste sensation and satiety.
-Tan @tan2021 discovered that this is difficult to study with a wide range of approaches across their systematic review.
-Nakamura et al. @nakamura2022 used NDNS to explore how alternative flavourings might reduce the use of salt.
-
-Reducing salt intake works to reduce BP.
-Vollmer @vollmer2001 reports findings that reduced salt intake can reduce BP in diverse groups in the USA.
-Hendriksen @hendriksen also explored this using Dutch and other European data to support this.
-Laverty et al. @laverty2019 demonstrate how policy reduces salt intake, and how reversal of policy allows intake to increase again.
-They also show how that affects BP.
-
-### NOVA
-
-The NOVA classification, of Monteiro @monteiro2009, looks at food beyond the nutrient level.
-At the level of 'processing'.
-Group one are foods which are in a natural state, as plucked from the tree.
-Group two is foods which are used in processes to modify group one foods.
-Group three initially was all other foods, but was soon separated into minimally processed foods, and group four the ultra-processed foods.
-Increased NOVA category four food intake, or UPF, is associated with risk of hypertension in some groups around the world.
-
-As the NOVA concept has developed it can also be seen that 'processsing' incorporates how food is made available within social systems, how consumption behaviour changes in cooking and eating behaviour within social systems.
-
-Though processing is important to the concept of UPF, Tulleken @tulleken2023 describes UPF in nutritional terms quoting Rauber identifying 'industrially produced edible substances'.
-
-### The 'controversy' of Food classification
-
-Martinez @martínez2021 makes an attempt to develop 'ecofoodomics' by deconstruction.
-His neologism can receive a new more inclusive epistemology of food.
-His 'knowledge of food' branches into food as culture, food as biologic, and food as economic.
-Nutrition would sit strongly within a biologic category, but UPF intentionally carries economic aspects, and cultural aspects.
-this epistemology reflects the ontology, the essential nature of food is multidimensional in the same way as knowledge about it.
-
-Meghani @meghani2007 expresses this same idea using examples actually a little way along the food chain.
-Identifying that there is a conceptual mismatch between the different parties in these arguments.
-It is essential that 'pure' scientists engage with the cultural and socioeconomic aspects of their science, to highlight this to direct societal and political activity.
-
-Cifuentes @cifuentes2020 claims 'foodomics' as a descriptor of the pure science aspects of food.
-This shows the difficulty of defining this field.
-
-Bearing in mind cultural and economic dimensions of food it becomes easier to understand that researchers don't always view food in the same way as people do, or as each other.
-Romero et al. @romeroferreiro2021 compare Nutri-Score and NOVA.
-Nutri-Score concentrates on nutritional analysis and identification to 'enable consumer choice'.
-Their analysis shows how foods classified nutritionally end up in all four of the NOVA categories.
-Asma et al. @A.Asma2019Fcsb as many other researchers found the concept of processing of food helpful in categorising their participants.
-
-Bourdieu @bourdieu2002, @abourdi2021 identified how food and food culture is associated with social position and how society is structured at a fundamental level.
-This includes that there is a two way process at work.
-Food preferences can change social position, as social position can be changed by food preferences.
-
-Cuj et al @cuj2021 support this idea that nutrition is limited when only the chemical composition is studied.
-Haber et al. @haber1977 review the role of structural arrangement of nutrients and how this alters speed of delivery of nutrients, venous glucose profile and resulting satiety.
-This breaks apart the idea of the nutritional content being the sole identifier of value for a food within a biological paradigm.
-Structure is important too.
-
-Dickie et al. @dickie2023 , @dickie2022 tried to develop a system to describe healthy foods, but struggled to build a model which was any more effective than NOVA.
-Each model demonstrated the similar 'flaws' around different 'bad' foods being made 'good' by the classification scheme.
-Martinez @Martinez-PerezCelia2021Uodf also describes trying to use different classification schemes to describe all the health related aspects of food.
-
-Monteiro's initial explanation uses the concept of 'processing' @monteiro2009 , and revised after initial reviews @monteiro2010.
-This second version is the first that knowingly separates processed and ultraprocessed food.
-Identifying that whilst some processing might be of value, there is a threshold where risk increases.
-By 2013 @monteiro2013 the value of the model was becoming clearer.
-This idea was more confidently expressed by 2016 @monteiro2016.
-Even at this stage there is a bio-reductionist explanation around UPF.
-The 'value' of a scientific cache is too strong.
-
-In a recent debate Monteiro @monteiro2022 and Astrup @astrup2022 discuss the concept of UPF and if it is valid or useful.
-There is a lot agreed about the necessity and importance of processing.
-Contended areas include confidence in the fundamental ideas, and in the approach to improving food quality of production, supply, and consumption.
-The areas of contention seem to identify differing epistemological approaches.
-On one side there is a confidence in a positivist solution to the social questions asked.
-The other identifies with a multi-paradigm approach.
-
-This conflicting conversation is evident across the scientific and lay discourse around UPF.
-Using Martinez's approach we can see the confusion is brought about because of differing assumptions about the epistemological basis of the parties.
-In particular the value they all hold for biologic-positivist purity.
-
-### How is UPF different?
-
-Explanations for the differential effect of these foods have developed as quickly as new ultra-processed foods have been developed .
-
-Aceves-Martins @aceves-martins2022 asks is it due to nutritional content ?
-In 2019 Rauber et al @rauber2019 ask, is it due to effects on satiety, or changes to appetite ?
-Do they taste better asks BawaJeeh et al. @bawajeeh2021 ?
-With Wang et al. @wang2021 considering, Is it due to being easy to buy, and easy to eat?
-Is it because they don't require time and effort in the home to process?
-Is it because these processes are industrial?
-Is it because these foods contain 'chemicals' or new ingredients?
-These explanations move from nutritional through into social and commercial.
-
-Colombet @colombet2022 showed that household income is correlated with UPF intake in the UK identifying a social dimension.
-This was also shown in the French West Indies @colombet2019 describing a 'nutrition transition', a historic societal change.
-
-Nutrition based classifications appear less socially divisive due to scientific isolation.
-They still contain elements of social factors.
-One example is the way that foods are analysed can change their reported nutritional content.
-Eg a 'standard' food may be compared to a 'traditionally prepared' food.
-The first is prepared in a factory with control of its nutrition, the second by a home cook with limited access to nutrition modification technology.
-
-Statements about NOVA discuss high salt and sugar content.
-Webster @websterSystematicSurveySodium2010 and niMurchu @nimhurchu2011 identify the large amount of salt in ultraprocessed foods.
-Vargas @Vargas-MezaJorge2022DSaP concentrates on sodium and potassium using the Mexican national health and nutrition survey.
-
-Sugars are the focus for Rauber @rauber2019, particularly free sugar intake.
-
-Papers describe content, discuss the effect on physiology, and pathology, but rarely develop their analysis.
-They do not show that the sodium, and UPF together increase the risk of CVD, or BP rise.
-This dissertation intends to address this gap.
-
-Byker-Shanks et al. @bykershanks2022 show an approach between individual action and changing laws.
-This approach would target those most at risk due to negative social determinants.
-It does move into the realm of coercion of those 'making the wrong choices' into making better choices.
-It is a pragmatic response to manipulating the strange food economy described by Dimblebey @dimbleby.
-Armendariz @armendariz2022 looks at how the retail food environment in Mexican cities has changed and how it affects BP.
-
-### UPF and Ill Health
-
-```{r dagupf, echo=FALSE, message=FALSE, warning=FALSE}
-#| fig-id: "fig-dag-upf"
-#| fig-cap: "Diagram of possible relationships of UPF"
-
-bp3 <- dagitty(" dag {
-             
-               Age -> BP
-               Sex -> BP
-               UPF -> BP
-              Age -> UPF
-               Sex -> UPF
-               BP -> NCD
-              
-}")
-plot(graphLayout(bp3))
-```
-
-Dicken and Betterham @dicken2021 provide a comprehensive review of papers considering a range of metabolic and other health endpoints.
-
-Mertens @mertens2022, Barbosa @barbosa2022, Santos @SantosFrancineSilvaDos2020Fpac ,Aceves-martins @aceves-martins2022, and Rauber @rauber2020 explore how UPF are associated with poor health.
-Whilst this is primarily metabolic pathology they do often mention BP.
-Schulze @schulze2019 comprehensively reviews UPF and metabolic health.
-
-Oliveira et al @OliveiraTafnes2020CtCo try to identify ill health in young people associated with the increasing use of UPF.
-
-Hodge @HodgeAllison2021ITIU dedicated an edition of 'Public Health Nutrition' to this question
-
-#### obesity
-
-The link to obesity is perhaps the most direct.
-Munoz @Muñoz-LaraA2020TCOU looked at Mexican school age children.
-Li @LiMing2021Ufca looked at adults in China.
-Rauber @rauber2020 used the NDNS study to look at obesity in the UK.
-Each finding links to increased UPF and increased BMI and odds of being obese, often related to increased energy intake.
-UPF with its nutritional, cultural, and economic parts increases obesity.
-Critical review of UPF findings almost always include 'what is the mechanism?'
-as an early question.
-We can now ask this question in three parts.
-How much of the mechanism is biologic, how much cultural and how much economic?
-
-#### diabetes and cardiometabolic syndromes
-
-Given the effects on obesity and the increase of energy intake the connection to diabetes and cardiometabolic syndromes has been the subject of more papers.
-
-Aguiar @AguiarSarmentoRoberta2018EPaH concentrates on diabetes only.
-Li @LiMing2022AbUF uses a national study to link UPF with diabetes in China.
-
-de Miranda Renata Costa @deMirandaRenataCosta2021Iouf identifies the effect on metabolic health.
-Martinez @Martinez-PerezCelia2021Uodf connects the dietary share of UPF in the US population.
-Tavares @TavaresLetíciaFerreira2012Rbuf doing the same in Brazilian adolescents.
-
-dos Santos @dossantos identifies this as cardiometabolic health and provides a systematic review @SantosFrancineSilvaDos2020Fpac .
-Goodman et al @GoodmanDina2020Diac explore this in Venezualan adults.
-Vilela @VilelaSofia2022Eotf give a '...prospective approach to childhood'.
-
-Some authors look how these metabolic effects lead to other conditions.
-For example Weinstein @WeinsteinGalit2021Couf with dementia.
-Gomez-Smith @Gomez-SmithMariana2018RCRa identify a possible pathological explanation.
-Ivancovsky @IvancovskyWajcmanDana2021Ufia connects non- alcohol fatty liver disease (NAFLD).
-Lee @LeeHae-Young2022UFaa connects these to CVD.
-
-Colombet @colombet2019 connects these changes in metabolic syndrome with changes in socioeconomic inequalities again linking the nutritional identity of diet with its social aspects.
-
-#### cancer
-
-Southall @southall2022 and seperately Wang @wangAssociationUltraprocessedFood2022 have identified a risk of colorectal cancer.
-
-#### ckd
-
-Kityo @KityoAnthony2022TIoU identifies the effect on the kidneys.
-Identifying the diverse effects of UPF and possibly also another contributory cause of BP changes.
-
-### UPF BP and Na
-
-```{r figdagupfbp, echo=FALSE, message=FALSE, warning=FALSE}
-#| fig-id: "fig-dagupfbp"
-#| fig-cap: "Diagram of relationship between Na and UPF and BP"
-
-bp6 <- dagitty(" dag {
-               Na -> BP
-               UPF -> BP
-               UPF <-> Na
-               BP -> NCD}")
-plot(graphLayout(bp6))
-
-```
-
-Many studies show the increasing role of UPF within the diet.
-Mertens @mertens2022 and ni Mhurchu @nimhurchu2011 show how UPF are being eaten in ever greater quantities across Europe but especially across the UK.
-
-Wang @wang2021 identifies increasing consumption in US youths, D'Avila @DavilaHelenFreitas2017Eifu also identify that increasingly upf are the key source of energy in adolescents.
-Gupta @GuptaDeepanshi2021Sauf explores the role of youth, identifying the peculiar age distribution of UPF intake.
-
-Rauber @rauber2019 look instead at free sugar intake.
-
-Studies have started to find that hypertension is associated with increased intake of UPF in North and South America (Scaranni @scaranniUltraprocessedFoodsChanges2021a and de Deus Mendonca @DeDeusMendonçaRaquel2017Ufca), Europe and in Asia Shim et al. @shimConsumptionUltraProcessedFood2022 provide a Korean perspective.Du @du2014 gives the data for China).
-Wang @WangMei2022UFCI delivers a meta analysis and systematic review.
-
-The definition of hypertension is contentious with many studies using self identification, or historical physician diagnosis.
-There is also a distinction between pathology, and physiology.
-Some papers identify hypertension as a pathological state and exclude it from analysis, others include participants on medication which alters BP value, in others 'hypertension' is the outcome measure irrespective of BP value.
-
-What is the mechanism by which UPF causes BP?
-How much of it is nutritional?
-After excluding the nutritional dimension is there a further UPF effect?
-Most studies don't include sodium intake in their analysis.
-
-Before UPF, Suter @suterNutritionalFactorsControl2002a asked is hypertension and blood pressure nutrient based, is it mediated by Salt?
-
-Is it other factors such as the food sales environment as explored by Goncalves @GonçalvesVivianSS2019Cots ?
-
-Oliveira @OliveiraTafnes2020CtCo looks at the effect in children, Rezende @Rezende-AlvesKatiusse2021Fpar with adolescents.
-
-Lima @LimaR2011Pouf reviewed already hypertensive individuals.
-
-These papers answer to a connection between UPF and Hypertension.
-They leave the next obvious question to brief speculation and future research.
-Their offer is that UPF are high in Salt and sugars.
-The question is dropped, the focus elsewhere.
-
-Smiljenac @smiljanec2020 and Tzelfa @TzelefaVicky2021Aodp both look at how UPF affect the vasculature which may be part of the pathway to BP.
-This looks further along the causal chain within the nutritional biologic domain of food science.
-
-### Approach to change
-
-Understanding the best approaches to reducing salt requires approaches that also cross epsitological paradigms.
-As well as biologic, we need cultural and economic approaches.
-Indeed it may be that all the science will never make changes in behaviour and regulation in isolation, but may require addressing the cultural and economic.
-
-The relationship between Na and socioeconomic position was demonstrated by Ji et al. @ji2014.
-
-Is it best to get individuals to reduce intake( @yourgui1998, @reports2023 , @vollmer2001 , @sacks2001 , @NilsonEduardoAugustoFernandes2021Eprd ), or for all of the food industry to reduce salt levels Cappuccio @cappuccio2011 ,and He @he2010 .
-Critics often identify 'reformulation', reducing the Na content of UPF, delivering an even more processed 'industrially produced edible substance'.
-
-Lifestyle factors are contented.
-Whilst individual choice is involved.
-The range of choices available to individuals is limited by the nature of their society.
-A misapplication of 'lifestyle' results in blaming individuals for 'poor choices' determined by their social and commercial environment.
-Iso @iso1999 looks at how education may be effective in delivering change.
-
-A comprehensive integrated policy approach such as 'healthy cities' @healthy2017 is proposed.
-Macregor @macgregor2015 explores how political change affects both the process and outcome of population level approaches to improving health.
-
-Instead of trying to change activity of millions of people.
-It can be more effective to change laws and policies once @instituteofmedicine2010 , @millett2012 , @moreira2015 , @instituteofmedicine2013 .
-These 'upstream' changes are simple changes.
-Though might require social and political approaches to achieve.
-They are much more effective, though they can also be reversed eg Cappuccio @cappuccio2015 .
-Cost is one of the causes of change as shown by Jones @jones2018 using NDNS to identify the cost premium of a good diet as defined by UK dietary recommendation .
-Opposition sometimes comes from industry.
-
-Laverty @laverty2019 and Macgregor @macgregor2015 showed that analytical models can effectively demonstrate the effects of different policies on population health.
-They identify that reducing the effectiveness of a policy on salt in food leads to changes in BP and so on to NCD.
-
-Campos-Nonato @campos-nonato2022 identify the benefits of their strategy.
-They discuss the range of nation level approaches to reducing salt intake.
-
-Dimbleby's @dimbleby National food strategy is an example of a high level approach to tackling biologic, cultural and economic aspects of food in order to improve all these factors and so reduce the burden of ill health and NCD across the population.
-
-Tulleken's @tulleken2023 'ultraprocessed people' presents a case for stopping the use of UPF.
-He supports individual choice, but identifies that a whole systems approach involving governmental partners is essential.
-He argues largely within the biomedical paradigm.
 
 ## Literature review Conclusion
 
@@ -1270,521 +943,14 @@ NOVA_ForDavid <- NOVA_ForDavid[,..upfd]
 ndns_1_11 <- ndns_1_11[NOVA_ForDavid, on = "seriali"]
 ```
 
-```{r loadfooddiarydata, message=FALSE, warning=FALSE, include=FALSE}
-UPFNOVA <- data.table(read_excel("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/altquant/UPFNOVA.xlsx"))
-#ndns_yr1_nutrientdatabank <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_yr1_nutrientdatabank.sav"))
-
-#ndns_yr11_nutrient <- data.table(read_sav("UKDA-6533-spss/spss/spss25/ndns_yr11_nutrientdatabank_2021-03-19.sav"))
-
- ndns1_4a_foodleveldietarydata_uk_v2 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr1-4a_foodleveldietarydata_uk_v2.sav"))
-
-ndns5_6a_foodleveldietarydata_v2 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr5-6a_foodleveldietarydata_v2.sav"))
- 
-ndns7_8a_foodleveldietarydata_v2 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr7-8a_foodleveldietarydata.sav"))
-
-
-
- ndns_rp_yr9a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr9a_foodleveldietarydata_uk_20210831.sav"))
- ndns_rp_yr10a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr10a_foodleveldietarydata_uk_20210831.sav"))
- ndns_rp_yr11a_foodleveldietarydata_uk_20210831 <- data.table(read_sav("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/altquant/UKDA-6533-spss/spss/spss25/ndns_rp_yr11a_foodleveldietarydata_uk_20210831.sav") )
-```
-
-```{r processfooddataintotables, message=FALSE, warning=FALSE, include=FALSE}
-#taking data from diet diary
-
-UPFNOVA[,`Nova group`:= factor(`Nova group`,levels = 1:4)]
-UPFNOVA$SubFoodGroupCode <- UPFNOVA$`food group number`
-
-#specifically coded food groups
-
-#combine with key for Nova Group
-#first 1-4
-foodlevedat4s <- ndns1_4a_foodleveldietarydata_uk_v2[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
-#foodlevedat4s[ ,seriali  := factor(seriali)]
-foodlevedat4s<- foodlevedat4s[UPFNOVA, on= "SubFoodGroupCode"]
-#summary(foodlevedat4s)
-
-foodlevedat4s<- foodlevedat4s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
-
-#years 5-6
-foodlevedat6s <- ndns5_6a_foodleveldietarydata_v2[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
-foodlevedat8s <- ndns7_8a_foodleveldietarydata_v2[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
-foodlevedat6s<- foodlevedat6s[UPFNOVA, on= "SubFoodGroupCode"]
-foodlevedat8s<- foodlevedat8s[UPFNOVA, on= "SubFoodGroupCode"]
-foodlevedat6s<- foodlevedat6s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
-foodlevedat8s<- foodlevedat8s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
-
-
-#finally years 9, 10, 11
-foodlevedat9s <- ndns_rp_yr9a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
-foodlevedat10s <- ndns_rp_yr10a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
-foodlevedat11s <- ndns_rp_yr11a_foodleveldietarydata_uk_20210831[,c("seriali","SubFoodGroupCode","RecipeSubFoodGroupCode","TotalGrams","EnergykJ")]
-
-#combine with key for Nova Group
-
-foodlevedat9s<- foodlevedat9s[UPFNOVA, on= "SubFoodGroupCode"]
-foodlevedat10s<- foodlevedat10s[UPFNOVA, on= "SubFoodGroupCode"]
-foodlevedat11s<- foodlevedat11s[UPFNOVA, on= "SubFoodGroupCode"]
-
-
-
-foodlevedat9s<- foodlevedat9s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
-foodlevedat10s<- foodlevedat10s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
-foodlevedat11s<- foodlevedat11s[,c("seriali","TotalGrams","Nova group","EnergykJ")]
-
-```
-
-```{r functiondefn, message=FALSE, warning=FALSE, include=FALSE}
-#To work out the gram weight amount of food intake by each individual, first the diary entries for each individual are totalled up.
-#The total gram weight value of intake of each food is then worked out as a percentage of the total intake.
-
-
-
-## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
-
-
-
-IndividDiet <- function(DT,individ) {
-  pers <- DT[seriali==individ]
-pers
-oneweight<-pers[, round(sum(TotalGrams),2), by=`Nova group`][order(`Nova group`)]
-
-setnames( oneweight, 'V1','Totalg')
- oneweight[,pcnt := round((Totalg/sum(Totalg)*100),2)]
-
-  return(na.exclude(oneweight))
-}
-
-
-```
-
-```{r year9process, message=FALSE, warning=FALSE, include=FALSE}
-#All these individual calculations are then built back up into tables.
-#This is done for years 9-11 and then 1-4.
-
-### This section uses the function designed above to process the table
-name <-foodlevedat9s[,.(seriali)]  
-name <- as.numeric(unlist(name))
-nameu <-c(unique(name))
-x <- length(nameu)  
-#nameu
-outcome <- data.table()
-
-for (i in 1:x){
-  
-
-
-output<- IndividDiet(foodlevedat9s,nameu[i])  
-
-output$seriali <- nameu[i]
-
- outcome <-rbind(outcome,output) 
- 
- 
-}
-
-foodleveldat9sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
-#foodleveldat9sp
-
-
-
-```
-
-```{r year10process, warning=FALSE, include=FALSE}
-
-name <-foodlevedat10s[,.(seriali)]  
-name <- as.numeric(unlist(name))
-nameu <-c(unique(name))
-x <- length(nameu)
-#summary(nameu)
-outcome <- data.table()
-
-for (i in 1:x){
-  
-
-
-output<- IndividDiet(foodlevedat10s,nameu[i])  
-
-output$seriali <- nameu[i]
-
- outcome <-rbind(outcome,output) 
- 
- 
-}
-
-foodleveldat10sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
-#foodleveldat10sp
-
-
-```
-
-```{r year11process, message=FALSE, warning=FALSE, include=FALSE}
-
-name <-foodlevedat11s[,.(seriali)]  
-name <- as.numeric(unlist(name))
-nameu <-c(unique(name))
-x <- length(nameu)
-#summary(nameu)
-outcome <- data.table()
-
-for (i in 1:x){
-  
-
-
-output<- IndividDiet(foodlevedat11s,nameu[i])  
-
-output$seriali <- nameu[i]
-
- outcome <-rbind(outcome,output) 
- 
- 
-}
-
-foodleveldat11sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
-#foodleveldat11sp
-
-#then combining the outputs 9-11
-foodleveldat910sp <- rbind(foodleveldat9sp,foodleveldat10sp)
-foodleveldat911sp <- rbind(foodleveldat11sp, foodleveldat910sp)
-```
-
-```{r year56process, warning=FALSE, include=FALSE}
-
-name <-foodlevedat6s[,.(seriali)]  
-name <- as.numeric(unlist(name))
-nameu <-c(unique(name))
-x <- length(nameu)
-#summary(nameu)
-outcome <- data.table()
-
-for (i in 1:x){
-  
-
-
-output<- IndividDiet(foodlevedat6s,nameu[i])  
-
-output$seriali <- nameu[i]
-
- outcome <-rbind(outcome,output) 
- 
- 
-}
-
-foodleveldat6sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
-#foodleveldat6sp
-
-
-```
-
-```{r year78process, warning=FALSE, include=FALSE}
-
-name <-foodlevedat8s[,.(seriali)]  
-name <- as.numeric(unlist(name))
-nameu <-c(unique(name))
-x <- length(nameu)
-#summary(nameu)
-outcome <- data.table()
-
-for (i in 1:x){
-  
-
-
-output<- IndividDiet(foodlevedat8s,nameu[i])  
-
-output$seriali <- nameu[i]
-
- outcome <-rbind(outcome,output) 
- 
- 
-}
-
-foodleveldat8sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
-#foodleveldat8sp
-
-
-```
-
-```{r slowprocessingfouryears, echo=FALSE, warning=FALSE,cache=TRUE}
-
-name <-foodlevedat4s[,.(seriali)]  
-name <- (unlist(name))
-nameu <-c(unique(name))
-x <- length(nameu)
-#summary(nameu)
-outcome <- data.table()
-
-for (i in 1:x){
-  
-
-
-output<- IndividDiet(foodlevedat4s,nameu[i])  
-
-output$seriali <- nameu[i]
-
- outcome <-rbind(outcome,output) 
- 
- 
-}
-
-foodleveldat4sp <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('Totalg',"pcnt"))
-#foodleveldat4sp
-
-
-
-```
-
-```{r energyfunctiondefn, message=FALSE, warning=FALSE, include=FALSE}
-#The process can be done for food level energy intake also.
-
-## First I write the function to process the individual entries. This totals the intake in grams and identifies the proportion by nova type.
-
-
-
-IndividDietE <- function(DT,individ) {
-  pers <- DT[seriali==individ]
-pers
-oneweight<-pers[, round(sum(EnergykJ),2), by=`Nova group`][order(`Nova group`)]
-
-setnames( oneweight, 'V1','EnergykJ')
- oneweight[,Epcnt := round((EnergykJ/sum(EnergykJ)*100),2)]
-
-  return(na.exclude(oneweight))
-}
-
-
-```
-
-```{r Eyear9process, message=FALSE, warning=FALSE, include=FALSE,cache=TRUE}
-### This section uses the function designed above to process the table
-name <-foodlevedat9s[,.(seriali)]  
-name <- as.numeric(unlist(name))
-nameu <-c(unique(name))
-x <- length(nameu)  
-#nameu
-outcome <- data.table()
-
-for (i in 1:x){
-  
-
-
-output<- IndividDietE(foodlevedat9s,nameu[i])  
-
-output$seriali <- nameu[i]
-
- outcome <-rbind(outcome,output) 
- 
- 
-}
-
-foodleveldat9spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
-#foodleveldat9spE
-
-
-
-```
-
-```{r Eyear10process, message=FALSE, warning=FALSE, include=FALSE,cache=TRUE}
-### This section uses the function designed above to process the table
-name <-foodlevedat10s[,.(seriali)]  
-name <- as.numeric(unlist(name))
-nameu <-c(unique(name))
-x <- length(nameu)  
-#nameu
-outcome <- data.table()
-
-for (i in 1:x){
-  
-
-
-output<- IndividDietE(foodlevedat10s,nameu[i])  
-
-output$seriali <- nameu[i]
-
- outcome <-rbind(outcome,output) 
- 
- 
-}
-
-foodleveldat10spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
-#foodleveldat10spE
-
-
-
-```
-
-```{r Eyear11process, message=FALSE, warning=FALSE, include=FALSE,cache=TRUE}
-### This section uses the function designed above to process the table
-name <-foodlevedat11s[,.(seriali)]  
-name <- as.numeric(unlist(name))
-nameu <-c(unique(name))
-x <- length(nameu)  
-#nameu
-outcome <- data.table()
-
-for (i in 1:x){
-  
-
-
-output<- IndividDietE(foodlevedat11s,nameu[i])  
-
-output$seriali <- nameu[i]
-
- outcome <-rbind(outcome,output) 
- 
- 
-}
-
-foodleveldat11spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
-foodleveldat11spE
-
-
-#then combining the outputs 9-11
-foodleveldat910spE <- rbind(foodleveldat9spE,foodleveldat10spE)
-foodleveldat911spE <- rbind(foodleveldat11spE, foodleveldat910spE)
-```
-
-```{r Eslowprocessingfouryears, echo=FALSE, warning=FALSE,cache=TRUE}
-
-name <-foodlevedat4s[,.(seriali)]  
-name <- (unlist(name))
-nameu <-c(unique(name))
-x <- length(nameu)
-#summary(nameu)
-outcome <- data.table()
-
-for (i in 1:x){
-  
-
-
-output<- IndividDietE(foodlevedat4s,nameu[i])  
-
-output$seriali <- nameu[i]
-
- outcome <-rbind(outcome,output) 
- 
- 
-}
-
-foodleveldat4spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
-#foodleveldat4spE
-
-
-
-```
-
-```{r E8processingfouryears, echo=FALSE, warning=FALSE}
-
-name <-foodlevedat8s[,.(seriali)]  
-name <- (unlist(name))
-nameu <-c(unique(name))
-x <- length(nameu)
-#summary(nameu)
-outcome <- data.table()
-
-for (i in 1:x){
-  
-
-
-output<- IndividDietE(foodlevedat8s,nameu[i])  
-
-output$seriali <- nameu[i]
-
- outcome <-rbind(outcome,output) 
- 
- 
-}
-
-foodleveldat8spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
-#foodleveldat4spE
-
-
-
-```
-
-```{r E6processingfouryears, echo=FALSE, warning=FALSE}
-
-name <-foodlevedat6s[,.(seriali)]  
-name <- (unlist(name))
-nameu <-c(unique(name))
-x <- length(nameu)
-#summary(nameu)
-outcome <- data.table()
-
-for (i in 1:x){
-  
-
-
-output<- IndividDietE(foodlevedat6s,nameu[i])  
-
-output$seriali <- nameu[i]
-
- outcome <-rbind(outcome,output) 
- 
- 
-}
-
-foodleveldat6spE <-dcast.data.table(outcome, seriali  ~ `Nova group` , value.var = c('EnergykJ',"Epcnt"))
-#foodleveldat6spE
-
-
-
-```
-
-```{r addingtoearlierdata2, echo=FALSE, message=FALSE, warning=FALSE}
-
-# combine with data from version10a.rmd
-
-#sav11rpb <- readRDS("sav11rp.rds")
-
-
-setkey(foodleveldat911sp, seriali)
-setkey(foodleveldat911spE, seriali)
-
-foodleveldat911spE <-foodleveldat911spE[foodleveldat911sp, by= seriali]
-#sav11rp <-sav11rp[foodleveldat911spE, by= seriali]
-#sav11rp$ED <- sav11rp[,.("Epcnt_4"/"pcnt_4")]
-
-#sav4rp <- readRDS("sav4rp.rds")
-
-#setkey(sav4rp,seriali)
-setkey(foodleveldat4sp,seriali)
-setkey(foodleveldat4spE,seriali)
-foodleveldat4spE<-foodleveldat4spE[foodleveldat4sp, by= seriali]
-#sav4rp <-sav4rp[foodleveldat4spE, by= seriali]
-
-
-#setkey(sav6rp,seriali)
-setkey(foodleveldat6sp,seriali)
-setkey(foodleveldat6spE,seriali)
-foodleveldat6spE <-foodleveldat6spE[foodleveldat6sp, by= seriali]
-#sav6rp <-sav6rp[foodleveldat6spE, by= seriali]
-
-
-
-#setkey(sav8rp,seriali)
-setkey(foodleveldat8sp,seriali)
-setkey(foodleveldat8spE,seriali)
-foodleveldat8spE <-foodleveldat8spE[foodleveldat8sp, by= seriali]
-#sav8rp <-sav8rp[foodleveldat8spE, by= seriali]
-
-ndns_1_11food <- rbindlist(list(foodleveldat8spE,foodleveldat4spE,foodleveldat6spE,foodleveldat911spE))
-```
-
-```{r addingtoearlierdata, echo=FALSE, message=FALSE, warning=FALSE}
-# combine with data from version10a.rmd
-setkey(ndns_1_11food, seriali)
-setkey(ndns_1_11, seriali)
-ndns_1_11 <- ndns_1_11[ndns_1_11food, by= seriali]
-```
-
 ```{r newvariables, echo=FALSE,message=FALSE}
 #epcnt_4 divided into tertiles as cat variable
-ndns_1_11$UPF <-  ndns_1_11$Epcnt_4 
+#ndns_1_11$UPF <-  ndns_1_11$Epcnt_4 
                       
-ndns_1_11$UPF3 <-  cut(ndns_1_11$Epcnt_4 ,
-                       breaks=c(0, 33, 45,63,80,100))
-ndns_1_11$UPF2 <- cut(ndns_1_11$Epcnt_4 ,
-                       breaks=c(0, 63,100))
+#ndns_1_11$UPF3 <-  cut(ndns_1_11$Epcnt_4 ,
+#                       breaks=c(0, 33, 45,63,80,100))
+#ndns_1_11$UPF2 <- cut(ndns_1_11$Epcnt_4 ,
+#                       breaks=c(0, 63,100))
 ndns_1_11$zPF <-  ndns_1_11$NOVA_Epct_opti_4
                       
 ndns_1_11$zPF3 <-  cut(ndns_1_11$NOVA_Epct_opti_4 ,
@@ -1836,7 +1002,7 @@ ndns_1_11d <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1,
 ndns_1_11dd <- subset(ndns_1_11d, bpd == "not taking drug")
 ndns_1_11f <- subset(ndns_1_11dd, Sex == "Female")
 ndns_1_11na <- subset(ndns_1_11dd, Na >= 5000)
-ndns_1_11upf<- subset(ndns_1_11dd, UPF >= 63)
+#ndns_1_11upf<- subset(ndns_1_11dd, UPF >= 63)
 ndns_1_11zpf<- subset(ndns_1_11dd, NOVA_Epct_opti_4 >= 63)
 ndns_1_11hyp <- subset(ndns_1_11dd, BP >= 140)
 #ndns_1_11bp <- subset(ndns_1_11d, omsysval== is.na(NA))
@@ -2291,7 +1457,7 @@ This simple model does not allow for confounding or additional variables to be t
 
 The multivariable logistic regression controls a number of additional variables.
 Sex and age probably contribute the largest affects.
-These models show a statistically significant correlation between high Na intake and hypertension, and between high UPF and hypertension.
+These models show a statistically significant correlation between high Na intake and hypertension , and between high UPF and hypertension.
 This is present with each variable independently and with both in the model.
 
 ## Limitations
