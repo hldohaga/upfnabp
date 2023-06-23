@@ -1,11 +1,13 @@
 ---
 title: "Exposure to High Ultra-processed Food and Sodium Intake and its effect on Hypertension from a Cross-sectional study  UK National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
-  html_notebook: 
+  word_document: 
     toc: yes
     fig_caption: yes
-    number_sections: yes
-    code_folding: hide
+    keep_md: yes
+    toc_depth: 4
+    fig_width: 5
+    fig_height: 5
   pdf_document: 
     toc: yes
     fig_caption: yes
@@ -14,13 +16,11 @@ output:
     latex_engine: xelatex
     fig_width: 5
     fig_height: 5
-  word_document: 
+  html_notebook: 
     toc: yes
     fig_caption: yes
-    keep_md: yes
-    toc_depth: 4
-    fig_width: 5
-    fig_height: 5
+    number_sections: yes
+    code_folding: hide
   html_document: 
     toc: yes
     fig_caption: yes
@@ -108,15 +108,16 @@ The lack of association between UPF and sodium intake is odd.
 Most UPF contains more sodium.
 Some UPF contains less sodium.
 This result suggests that the mix of UPF consumed by this population has no net increase in sodium content.
-If this is true reformulation for low salt would not eliminate the association identified in the main results.
+If this is true, reformulation for low salt would not eliminate the association identified in the main results.
+Public health policy will need to reduce UPF, not simply reformulate.
 
 ### Keywords
 
 UPF, Sodium, hypertension, reformulation, Nutrition
 
-**Abstract** 226 words
+**Abstract** 296 words
 
-**Dissertation** 9020
+**Dissertation** 9676
 
 ```{r library, include=FALSE}
 library(haven)
@@ -366,7 +367,9 @@ Some of these calculated odds ratios using meta-analysis.
 |                                             |                                     |                                 |                                                                                                                  |
 |                                             |                                     |                                 | no association systolic BP                                                                                       |
 +---------------------------------------------+-------------------------------------+---------------------------------+------------------------------------------------------------------------------------------------------------------+
-|                                             | nb BP is Blood Pressure             | nb UPF is Ultraprocessed food   | nb CVD is cardiovascular disease                                                                                 |
+|                                             | nb BP is Blood Pressure             | nb CI is confidence interval    | nb CVD is cardiovascular disease                                                                                 |
+|                                             |                                     |                                 |                                                                                                                  |
+|                                             |                                     |                                 | UPF is Ultraprocessed food                                                                                       |
 +---------------------------------------------+-------------------------------------+---------------------------------+------------------------------------------------------------------------------------------------------------------+
 
 : Systematic reviews and Meta-analyses
@@ -384,6 +387,7 @@ These three cohort studies of middle aged adults were followed up for between 2.
 Scaranni used Brazil's ELSA study, in middle aged civil servants, finding that higher UPF had a marginally greater risk of developing hypertension (OR = 1.17; 95% CI: 1.00, 1.37) compared with lower intake %.
 
 Monge found no association between categories of UPF, from ≤20% to \>45% energy/d and incident hypertension.
+This study used mexican female teachers, this group may have a different exposure and outcome profile to a more general population.
 
 Mendonca in Spain found an affect on hypertension (HR = 1.21, 95% CI: 1.06, 1.37, Ptrend = 0.004).
 This sample had a strong effect on Wang's meta analysis with a weighting of 16.72 from 9 studies.
@@ -392,7 +396,7 @@ Wang's meta analysis included six more studies;
 
 Ivancovsky-Wajcman OR = 1.53, (1.07- 2.19)
 
-Levigne OR =0·99 (0·59, 1·68)
+Levigne- OR =0·99 (0·59, 1·68)
 
 Martinez-Steele OR =1.19 (1.03,1.38)
 
@@ -400,7 +404,11 @@ Nardocci OR = 1.60, (1.26--2.03)
 
 Nasreddine OR =3.10, (0.84,16.66)
 
-Rezende-Alves OR =1.35 (1.01,1.81)
+Rezende-Alves OR =1.35 (1.01,1.81).
+
+Of these studies the study by Nasreddine was a very small localised study in Lebanon, as shown by the wide confidence interval.
+Monge and Levigne- also had equivocal results.
+Levigne- 's sample was a specific population in Canada.
 
 Barbosa identified a different group of studies.
 No meta-analysis was done.
@@ -409,59 +417,63 @@ This made it hared to compare results as accurately.
 
 Shim demonstrated the effect on hypertension in Korea, despite the highest tertile percentage UPF being only \>28.55%.
 
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| First Author                                        | Study Type                         | Subject                               | Results                                                                                     |
-+=====================================================+====================================+=======================================+=============================================================================================+
-| Shim @ShimSunYoung2022Couf                          | Korean Cross-sectional             | UPF and Hypertension                  | OR= 1.25,CI: 1.11 and 1.40                                                                  |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Scaranni @ScaranniPatriciadeOliveiradaSilva2021Ufci | Brazil ELSA cohort                 | UPF and Hypertension                  | OR = 1.17; 95% CI: 1.00, 1.37                                                               |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Rezendez-Alves @rezende-alves2021                   | Brazil cohort                      | UPF and Hypertension                  | RR: 1.35; 95% CI: 1.01, 1.82).                                                              |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Martinez-Peres @martinez-perez2021                  | Spain Transverse                   | UPF and BP                            | no significant effect                                                                       |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Monge @monge2021                                    | women only Cohort                  | UPF and BP                            | no effect                                                                                   |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| da Conceicao @DaConceição2019512                    | Cross-sectional                    | UPF and BP                            | no effect                                                                                   |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Nardocci @nardocci2021                              | Canada Cross-sectional             | UPF and hypertension                  | OR = 1.60, 95% CI: 1.26--2.03)                                                              |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Nasreddine @NasreddineLara2018Ampd                  | Lebanese Cross-sectional           | UPF and BP                            | OR 3.10 (0.58,16.66)                                                                        |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Lavigne @Lavigne-RobichaudMathilde2018Dqii          | Canada Cree People Cross-sectional | UPF and BP                            | 0.99 (0.59,1.68)                                                                            |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Martinez-Steele @martinezsteele2022                 | USA Cross-sectional                | UPF and Mets                          | 1.19(1.03,1.38)                                                                             |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Smiljanec @smiljanec2020                            | USA Cross-sectional                | UPF and BP                            | Positive association between UPFs and general SBP (B = 0.25, 95% CI: 0.03, 0.46, p = 0.029) |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Ivancovsky-Wajcman @IvancovskyWajcmanDana2021Ufia   | USA Cross-sectional                | UPF and BP                            | OR = 1.53, 1.07- 2.19, P = .026                                                             |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| de Deus Mendonca @DeDeusMendonçaRaquel2017Ufca      | Spain SUN cohort                   | UPF and (self -reported) hypertension | HR, 1.21; 95% CI, 1.06, 1.37; P for trend = 0.004                                           |
-|                                                     |                                    |                                       |                                                                                             |
-|                                                     | middle aged uni grads              |                                       |                                                                                             |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-|                                                     | nb BP is Blood Pressure            | nb UPF is Ultraprocessed food         | nb CVD is cardiovascular disease                                                            |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| First Author                                         | Study Type                         | Subject                               | Results                                                                                     |
++======================================================+====================================+=======================================+=============================================================================================+
+| Shim @ShimSunYoung2022Couf                           | Korean Cross-sectional             | UPF and Hypertension                  | OR= 1.25,CI: 1.11 and 1.40                                                                  |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Scaranni @ScaranniPatriciadeOliveiradaSilva2021Ufci  | Brazil ELSA cohort                 | UPF and Hypertension                  | OR = 1.17; 95% CI: 1.00, 1.37                                                               |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Rezendez-Alves @rezende-alves2021                    | Brazil cohort                      | UPF and Hypertension                  | RR: 1.35; 95% CI: 1.01, 1.82).                                                              |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Martinez-Peres @martinez-perez2021                   | Spain Transverse                   | UPF and BP                            | no significant effect                                                                       |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Monge @monge2021                                     | Mexico women only Cohort           | UPF and BP                            | no effect                                                                                   |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| da Conceicao @DaConceição2019512                     | Cross-sectional                    | UPF and BP                            | no effect                                                                                   |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Nardocci @nardocci2021                               | Canada Cross-sectional             | UPF and hypertension                  | OR = 1.60, 95% CI: 1.26--2.03)                                                              |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Nasreddine @NasreddineLara2018Ampd                   | Lebanese Cross-sectional           | UPF and BP                            | OR 3.10 (0.58,16.66)                                                                        |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Lavigne-Robichaud @Lavigne-RobichaudMathilde2018Dqii | Canada Cree People Cross-sectional | UPF and BP                            | 0.99 (0.59,1.68)                                                                            |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Martinez-Steele @martinezsteele2022                  | USA Cross-sectional                | UPF and Mets                          | 1.19(1.03,1.38)                                                                             |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Smiljanec @smiljanec2020                             | USA Cross-sectional                | UPF and BP                            | Positive association between UPFs and general SBP (B = 0.25, 95% CI: 0.03, 0.46, p = 0.029) |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Ivancovsky-Wajcman @IvancovskyWajcmanDana2021Ufia    | USA Cross-sectional                | UPF and BP                            | OR = 1.53, 1.07- 2.19, P = .026                                                             |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| de Deus Mendonca @DeDeusMendonçaRaquel2017Ufca       | Spain SUN cohort                   | UPF and (self -reported) hypertension | HR, 1.21; 95% CI, 1.06, 1.37; P for trend = 0.004                                           |
+|                                                      |                                    |                                       |                                                                                             |
+|                                                      | middle aged uni grads              |                                       |                                                                                             |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+|                                                      | nb BP is Blood Pressure            | nb CI is confidence interval          | nb CVD is cardiovascular disease                                                            |
+|                                                      |                                    |                                       |                                                                                             |
+|                                                      |                                    |                                       | nb UPF is Ultraprocessed food                                                               |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
 
 : Table of papers on UPF and BP
 
 ### Salt and CVD
 
-+----------------------------+-------------------------+-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| First Author               | Study Type              | Subject                       | Results                                                                                                                                                                         |
-+============================+=========================+===============================+=================================================================================================================================================================================+
-| He @hefjm                  | meta-analysis           | Salt and hypertension         | 11 trials in 'normotensive'                                                                                                                                                     |
-|                            |                         |                               |                                                                                                                                                                                 |
-|                            |                         |                               | A reduction of 100 mmol/day (6 g of salt) in salt intake predicted a fall in systolic blood pressure of ... 3.57 mmHg in normotensive individuals (systolic: Po0.001)           |
-+----------------------------+-------------------------+-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Strazzullo @strazzullo2009 | meta-analysis           | Salt and CVD                  | 13 studies risk of stroke (pooled relative risk higher salt intake 1.23, 95% confidence interval 1.06 to 1.43; P=0.007) and cardiovascular disease (1.14, 0.99 to 1.32; P=0.07) |
-+----------------------------+-------------------------+-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Graudal @graudal2014       | meta-analysis           | Salt and CVD                  | *ACM: HR = 1.16, 95% CI = 1.03-1.30; CVDEs: HR = 1.12, 95% CI = 1.02-1.24*                                                                                                      |
-+----------------------------+-------------------------+-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Ma @ma2022                 | meta-analysis           | urinary sodium and CVD        | Each daily increment of 1000 mg in sodium excretion was associated with an 18% increase in cardiovascular risk (hazard ratio, 1.18; 95% CI, 1.08 to 1.29),                      |
-+----------------------------+-------------------------+-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                            | nb BP is Blood Pressure | nb UPF is Ultraprocessed food | nb CVD is cardiovascular disease                                                                                                                                                |
-+----------------------------+-------------------------+-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------+-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| First Author               | Study Type              | Subject                      | Results                                                                                                                                                                         |
++============================+=========================+==============================+=================================================================================================================================================================================+
+| He @hefjm                  | meta-analysis           | Salt and hypertension        | 11 trials in 'normotensive'                                                                                                                                                     |
+|                            |                         |                              |                                                                                                                                                                                 |
+|                            |                         |                              | A reduction of 100 mmol/day (6 g of salt) in salt intake predicted a fall in systolic blood pressure of ... 3.57 mmHg in normotensive individuals (systolic: Po0.001)           |
++----------------------------+-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Strazzullo @strazzullo2009 | meta-analysis           | Salt and CVD                 | 13 studies risk of stroke (pooled relative risk higher salt intake 1.23, 95% confidence interval 1.06 to 1.43; P=0.007) and cardiovascular disease (1.14, 0.99 to 1.32; P=0.07) |
++----------------------------+-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Graudal @graudal2014       | meta-analysis           | Salt and CVD                 | *ACM: HR = 1.16, 95% CI = 1.03-1.30; CVDEs: HR = 1.12, 95% CI = 1.02-1.24*                                                                                                      |
++----------------------------+-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Ma @ma2022                 | meta-analysis           | urinary sodium and CVD       | Each daily increment of 1000 mg in sodium excretion was associated with an 18% increase in cardiovascular risk (hazard ratio, 1.18; 95% CI, 1.08 to 1.29),                      |
++----------------------------+-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                            | nb BP is Blood Pressure | nb CI is confidence interval | nb CVD is cardiovascular disease                                                                                                                                                |
+|                            |                         |                              |                                                                                                                                                                                 |
+|                            |                         |                              | nb UPF is Ultraprocessed food                                                                                                                                                   |
++----------------------------+-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 : Review papers Sodium and BP
 
@@ -477,16 +489,16 @@ He Identifies the inclusion of papers with big effect sizes, and short follow up
 \
 D'Elia et al look at arterial stiffness pressure wave velocity 'PWV' and show that this increases with salt intake.
 This arterial stiffness is potentially more sensitive to sodium intake than BP.
-
-"*Eleven studies met the predefined inclusion criteria and provided 14 cohorts with 431 participants and 1--6 weeks intervention time. In the pooled analysis, an average reduction in sodium intake of 89.3 mmol/day was associated with a 2.84% (95% CI 0.51--5.08) reduction in PWV."*
+They included 11 studies, of 14 cohorts and 431 participants studied over 1-6 weeks.
+Reducing sodium intake by 89.3mmol/day was associated with 2.84% (CI0.51-5.08) reduction in PWV.
 
 D'Elia's results show that BP is less accurately predicted than arterial stiffness.
 This may be a cause of the equivocal results found by studies looking at BP.
 
 Graudal et al.
 Studied cohort studies as there were no RCTs of increased sodium intake.
-
-"*Data from 23 cohort studies and 2 follow-up studies of RCTs (n = 274,683) showed that the risks of ACM and CVDEs were.... increased in high sodium vs. usual sodium intake (ACM: HR = 1.16, 95% CI = 1.03-1.30; CVDEs: HR = 1.12, 95% CI = 1.02-1.24)."*
+They found data from 23 cohort studies (n=274,683).
+They showed acute cardiac events (ACM) and cerebrovascular events CVDE were increased in high sodium intake compared with usual sodium intake *(ACM: HR = 1.16, 95% CI = 1.03-1.30; CVDEs: HR = 1.12, 95% CI = 1.02-1.24)*.
 
 Their findings identify that there might be 'too much' salt reduction possible.
 They provide an explanation as to how low sodium levels may causes issues.
@@ -498,12 +510,14 @@ Straluzzo et al identifies He et al @hefjm as a source for hypertension and salt
 Of the identified papers the majority describe 2/3 elements, UPF or salt intake or BP/ CVD .
 
 They show an odds ratio for cvd with raised sodium intake and hypertension with high UPF intake.
-The qualification is that BP is an uncertain outcome measurement.
+They suggests BP is an uncertain outcome measurement.
 Papers often look to CVD outcomes as stronger endpoints.
 
-Where UPF exposure has been studied with hypertension as an endpoint the cross sectional studies have identified a link in adults, but sometimes their is an inverse gradient.
+Where UPF exposure has been studied with hypertension as an endpoint the cross-sectional studies have identified a link in adults, but sometimes there is an inverse gradient.
+The cohort studies are consistent in showing a small but measurable positive effect.
+This is also identified in the meta-analyses.
 
-This study aims to identify these two effects within a large represntative cross sectional population.
+This study aims to identify these two effects within a large representative cross-sectional population.
 The relationship between these two effects can be shown by studying both in the same population.
 This study also gives the opportunity to consider if there are associated factors.
 

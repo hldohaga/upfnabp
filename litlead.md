@@ -69,8 +69,11 @@ Thanks to Paul for the project which didn't quite come together
 
 # Abstract {.unnumbered}
 
-Is hypertension associated with exposure to high intake of UPF and high Sodium intake?
-This research examines assumptions about salt and UPF, what contributes to 'unhealthiness' and to query the idea that 'reformulation' will generate 'healthy UPF'.
+Hypertension is associated with exposure to high intake of UPF and high Sodium intake.
+This research examines assumptions about salt and UPF.
+What contributes to 'unhealthiness'?
+Will 'reformulation' generate 'healthy UPF'?
+Can this help reduce BP in one part of the the UK?
 
 ### Method
 
@@ -105,15 +108,16 @@ The lack of association between UPF and sodium intake is odd.
 Most UPF contains more sodium.
 Some UPF contains less sodium.
 This result suggests that the mix of UPF consumed by this population has no net increase in sodium content.
-If this is true reformulation for low salt would not eliminate the association identified in the main results.
+If this is true, reformulation for low salt would not eliminate the association identified in the main results.
+Public health policy will need to reduce UPF, not simply reformulate.
 
 ### Keywords
 
 UPF, Sodium, hypertension, reformulation, Nutrition
 
-**Abstract** 226 words
+**Abstract** 296 words
 
-**Dissertation** 9020
+**Dissertation** 9676
 
 
 
@@ -159,33 +163,6 @@ This study explored this complex web pulling out strands within it, [diagram 1](
 
 ![The relationships explored in the analysis](litlead_files/figure-docx/figdiag1-1.png)
 
-## Research Question
-
-Using PICO @bruce2018 approach,
-
-In adults and children across the four home nations of the UK between 2008 and 2019, did exposure to high sodium dietary intake, and or high UPF dietary intake, compared to lower exposure, increase the odds of having a mean systolic blood pressure of over 140mmHg?
-
-This primary question can be split into parts,
-
-For a representative population across the UK What was dietary intake of UPF between 2008 and 2019?
-What was dietary intake of salt between 2008 and 2019?
-What was BP between 2008 and 2019?
-What was the correlation between these?
-
-In addition it may be possible to consider, How did each of these change over that time?
-Is there evidence of interaction between these?
-Was UPF or Na most important in these changes?
-
-## Objectives
-
-1 Literature Review of UPF and BP, with Sodium
-
-2 Descriptive analysis of participants from NDNS with amalgamation of data across the rolling programme.
-
-3 Analysis of exposure to UPF and sodium, and prevalence of BP \>140mmHg using regression models.
-
-4 Discussion of implications of results in relation to limitations of cross- sectional studies, and available data, as well as suggestions for further research
-
 ## Epistemology
 
 The epistemological approach of this study is positivist.
@@ -215,12 +192,6 @@ They also impact on 'hard' clinical measurements such as BP, through physical po
 
 This work is primarily to complete requirements for an MPH degree which means that it is influenced by factors around health equity and classic epidemiology as taught on the course.
 It is produced in collaboration with a research group with a long established reputation in food research in public health, which may steer the results in a conservative direction.
-
-## University Research Governance and Ethical Review
-
-The ethics process for the University of Liverpool was followed and confirmation of compliance is attached at [Appendix 2 Ethics Certificate]
-
-The storage of the data is in keeping with the research governance agreements of the University and the Data set owners.
 
 \newpage
 
@@ -281,10 +252,6 @@ The search identified 593 papers, 348 after removing duplicates.
 [Chart 1](fig:diag4) shows how these were assessed.
 
 
-```{=html}
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1976cd457dfc2a1255f5" style="width:480px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-1976cd457dfc2a1255f5">{"x":{"diagram":"digraph flowchart {\n  node [fontname = arial, shape = rectangle]\n  tab1 [label = \"Initial searches 593 (240,202,103 and 48)  papers\"]\n  tab2 [label = \"adjusting for overlap 348\"]\n  tab3 [label = \"comparing with exclusion criteria 56\"]\n  tab4 [label = \"Systematic Review and UPF 2\"]\n  tab5 [label = \"Systematic Review and sodium 4\"]\n  tab6 [label = \"Cohort Studies 11\"]\n  \n  tab1 -> tab2 -> tab3;\n  tab3 -> tab4;\n  tab3 -> tab5;\n  tab3 -> tab6;\n \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-```
 
 These were then reviewed by comparing the titles against the inclusion and exclusion criteria leaving 56.
 6 systematic reviews were identified, one which considered both UPF and sodium intake.
@@ -296,12 +263,16 @@ Some of these calculated odds ratios using meta-analysis.
 | First Author                                | Type of Study                       | Subject of Study                | Results                                                                                                          |
 +=============================================+=====================================+=================================+==================================================================================================================+
 | Barbosa @barbosa2023                        | systematic review                   | UPF and Sodium and Hypertension | 5 cross-sectional and 4 cohort studies                                                                           |
+|                                             |                                     |                                 |                                                                                                                  |
+|                                             | Papers from Americas                |                                 | +ve association found                                                                                            |
 +---------------------------------------------+-------------------------------------+---------------------------------+------------------------------------------------------------------------------------------------------------------+
 | Wang @wangAssociationUltraprocessedFood2022 | systematic review and meta analysis | UPF and hypertension            | 5 cross-sectional and 4 cohort studies                                                                           |
 |                                             |                                     |                                 |                                                                                                                  |
 |                                             |                                     |                                 | (odds ratio: 1.23; 95% CI: 1.11, 1.37; P=0.034)                                                                  |
 +---------------------------------------------+-------------------------------------+---------------------------------+------------------------------------------------------------------------------------------------------------------+
 | Mambrini @mambrini2023                      | systematic review                   | UPF and BP                      | 4/17 UPF and BP                                                                                                  |
+|                                             |                                     |                                 |                                                                                                                  |
+|                                             | few studies one women only study    |                                 | +ve association found                                                                                            |
 +---------------------------------------------+-------------------------------------+---------------------------------+------------------------------------------------------------------------------------------------------------------+
 | D'Elia @delia2018                           | meta-analysis                       | Salt and CVD                    | *a 2.84% (95% CI 0.51--5.08) reduction in PWV*                                                                   |
 +---------------------------------------------+-------------------------------------+---------------------------------+------------------------------------------------------------------------------------------------------------------+
@@ -312,6 +283,10 @@ Some of these calculated odds ratios using meta-analysis.
 | Frias @frías2023                            | systematic review of cohorts        | children and BP                 | 2 studies BP                                                                                                     |
 |                                             |                                     |                                 |                                                                                                                  |
 |                                             |                                     |                                 | no association systolic BP                                                                                       |
++---------------------------------------------+-------------------------------------+---------------------------------+------------------------------------------------------------------------------------------------------------------+
+|                                             | nb BP is Blood Pressure             | nb CI is confidence interval    | nb CVD is cardiovascular disease                                                                                 |
+|                                             |                                     |                                 |                                                                                                                  |
+|                                             |                                     |                                 | UPF is Ultraprocessed food                                                                                       |
 +---------------------------------------------+-------------------------------------+---------------------------------+------------------------------------------------------------------------------------------------------------------+
 
 : Systematic reviews and Meta-analyses
@@ -329,6 +304,7 @@ These three cohort studies of middle aged adults were followed up for between 2.
 Scaranni used Brazil's ELSA study, in middle aged civil servants, finding that higher UPF had a marginally greater risk of developing hypertension (OR = 1.17; 95% CI: 1.00, 1.37) compared with lower intake %.
 
 Monge found no association between categories of UPF, from ≤20% to \>45% energy/d and incident hypertension.
+This study used mexican female teachers, this group may have a different exposure and outcome profile to a more general population.
 
 Mendonca in Spain found an affect on hypertension (HR = 1.21, 95% CI: 1.06, 1.37, Ptrend = 0.004).
 This sample had a strong effect on Wang's meta analysis with a weighting of 16.72 from 9 studies.
@@ -337,7 +313,7 @@ Wang's meta analysis included six more studies;
 
 Ivancovsky-Wajcman OR = 1.53, (1.07- 2.19)
 
-Levigne OR =0·99 (0·59, 1·68)
+Levigne- OR =0·99 (0·59, 1·68)
 
 Martinez-Steele OR =1.19 (1.03,1.38)
 
@@ -345,7 +321,11 @@ Nardocci OR = 1.60, (1.26--2.03)
 
 Nasreddine OR =3.10, (0.84,16.66)
 
-Rezende-Alves OR =1.35 (1.01,1.81)
+Rezende-Alves OR =1.35 (1.01,1.81).
+
+Of these studies the study by Nasreddine was a very small localised study in Lebanon, as shown by the wide confidence interval.
+Monge and Levigne- also had equivocal results.
+Levigne- 's sample was a specific population in Canada.
 
 Barbosa identified a different group of studies.
 No meta-analysis was done.
@@ -354,76 +334,88 @@ This made it hared to compare results as accurately.
 
 Shim demonstrated the effect on hypertension in Korea, despite the highest tertile percentage UPF being only \>28.55%.
 
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| First Author                                        | Study Type                         | Subject                               | Results                                                                                     |
-+=====================================================+====================================+=======================================+=============================================================================================+
-| Shim @ShimSunYoung2022Couf                          | Korean Cross-sectional             | UPF and Hypertension                  | OR= 1.25,CI: 1.11 and 1.40                                                                  |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Scaranni @ScaranniPatriciadeOliveiradaSilva2021Ufci | Brazil ELSA cohort                 | UPF and Hypertension                  | OR = 1.17; 95% CI: 1.00, 1.37                                                               |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Rezendez-Alves @rezende-alves2021                   | Brazil cohort                      | UPF and Hypertension                  | RR: 1.35; 95% CI: 1.01, 1.82).                                                              |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Martinez-Peres @martinez-perez2021                  | Spain Transverse                   | UPF and BP                            | no significant effect                                                                       |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Monge @monge2021                                    | women only Cohort                  | UPF and BP                            | no effect                                                                                   |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| da Conceicao @DaConceição2019512                    | Cross-sectional                    | UPF and BP                            | no effect                                                                                   |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Nardocci @nardocci2021                              | Canada Cross-sectional             | UPF and hypertension                  | OR = 1.60, 95% CI: 1.26--2.03)                                                              |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Nasreddine @NasreddineLara2018Ampd                  | Lebanese Cross-sectional           | UPF and BP                            | OR 3.10 (0.58,16.66)                                                                        |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Lavigne @Lavigne-RobichaudMathilde2018Dqii          | Canada Cree People Cross-sectional | UPF and BP                            | 0.99 (0.59,1.68)                                                                            |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Martinez-Steele @martinezsteele2022                 | USA Cross-sectional                | UPF and Mets                          | 1.19(1.03,1.38)                                                                             |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Smiljanec @smiljanec2020                            | USA Cross-sectional                | UPF and BP                            | Positive association between UPFs and general SBP (B = 0.25, 95% CI: 0.03, 0.46, p = 0.029) |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| Ivancovsky-Wajcman @IvancovskyWajcmanDana2021Ufia   | USA Cross-sectional                | UPF and BP                            | OR = 1.53, 1.07- 2.19, P = .026                                                             |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
-| de Deus Mendonca @DeDeusMendonçaRaquel2017Ufca      | Spain SUN cohort                   | UPF and (self -reported) hypertension | HR, 1.21; 95% CI, 1.06, 1.37; P for trend = 0.004                                           |
-|                                                     |                                    |                                       |                                                                                             |
-|                                                     | middle aged uni grads              |                                       |                                                                                             |
-+-----------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| First Author                                         | Study Type                         | Subject                               | Results                                                                                     |
++======================================================+====================================+=======================================+=============================================================================================+
+| Shim @ShimSunYoung2022Couf                           | Korean Cross-sectional             | UPF and Hypertension                  | OR= 1.25,CI: 1.11 and 1.40                                                                  |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Scaranni @ScaranniPatriciadeOliveiradaSilva2021Ufci  | Brazil ELSA cohort                 | UPF and Hypertension                  | OR = 1.17; 95% CI: 1.00, 1.37                                                               |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Rezendez-Alves @rezende-alves2021                    | Brazil cohort                      | UPF and Hypertension                  | RR: 1.35; 95% CI: 1.01, 1.82).                                                              |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Martinez-Peres @martinez-perez2021                   | Spain Transverse                   | UPF and BP                            | no significant effect                                                                       |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Monge @monge2021                                     | Mexico women only Cohort           | UPF and BP                            | no effect                                                                                   |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| da Conceicao @DaConceição2019512                     | Cross-sectional                    | UPF and BP                            | no effect                                                                                   |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Nardocci @nardocci2021                               | Canada Cross-sectional             | UPF and hypertension                  | OR = 1.60, 95% CI: 1.26--2.03)                                                              |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Nasreddine @NasreddineLara2018Ampd                   | Lebanese Cross-sectional           | UPF and BP                            | OR 3.10 (0.58,16.66)                                                                        |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Lavigne-Robichaud @Lavigne-RobichaudMathilde2018Dqii | Canada Cree People Cross-sectional | UPF and BP                            | 0.99 (0.59,1.68)                                                                            |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Martinez-Steele @martinezsteele2022                  | USA Cross-sectional                | UPF and Mets                          | 1.19(1.03,1.38)                                                                             |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Smiljanec @smiljanec2020                             | USA Cross-sectional                | UPF and BP                            | Positive association between UPFs and general SBP (B = 0.25, 95% CI: 0.03, 0.46, p = 0.029) |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| Ivancovsky-Wajcman @IvancovskyWajcmanDana2021Ufia    | USA Cross-sectional                | UPF and BP                            | OR = 1.53, 1.07- 2.19, P = .026                                                             |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+| de Deus Mendonca @DeDeusMendonçaRaquel2017Ufca       | Spain SUN cohort                   | UPF and (self -reported) hypertension | HR, 1.21; 95% CI, 1.06, 1.37; P for trend = 0.004                                           |
+|                                                      |                                    |                                       |                                                                                             |
+|                                                      | middle aged uni grads              |                                       |                                                                                             |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
+|                                                      | nb BP is Blood Pressure            | nb CI is confidence interval          | nb CVD is cardiovascular disease                                                            |
+|                                                      |                                    |                                       |                                                                                             |
+|                                                      |                                    |                                       | nb UPF is Ultraprocessed food                                                               |
++------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
 
 : Table of papers on UPF and BP
 
 ### Salt and CVD
 
-+----------------------------+---------------+-----------------------+----------------------------------------------------------------------------+
-| First Author               | Study Type    | Subject               | Results                                                                    |
-+============================+===============+=======================+============================================================================+
-| He @hefjm                  | meta-analysis | Salt and hypertension |                                                                            |
-+----------------------------+---------------+-----------------------+----------------------------------------------------------------------------+
-| Strazzullo @strazzullo2009 | meta-analysis | Salt and CVD          |                                                                            |
-+----------------------------+---------------+-----------------------+----------------------------------------------------------------------------+
-| Graudal @graudal2014       | meta-analysis | Salt and CVD          | *ACM: HR = 1.16, 95% CI = 1.03-1.30; CVDEs: HR = 1.12, 95% CI = 1.02-1.24* |
-+----------------------------+---------------+-----------------------+----------------------------------------------------------------------------+
-| Ma @ma2022                 | meta-analysis | Salt and CVD          |                                                                            |
-+----------------------------+---------------+-----------------------+----------------------------------------------------------------------------+
++----------------------------+-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| First Author               | Study Type              | Subject                      | Results                                                                                                                                                                         |
++============================+=========================+==============================+=================================================================================================================================================================================+
+| He @hefjm                  | meta-analysis           | Salt and hypertension        | 11 trials in 'normotensive'                                                                                                                                                     |
+|                            |                         |                              |                                                                                                                                                                                 |
+|                            |                         |                              | A reduction of 100 mmol/day (6 g of salt) in salt intake predicted a fall in systolic blood pressure of ... 3.57 mmHg in normotensive individuals (systolic: Po0.001)           |
++----------------------------+-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Strazzullo @strazzullo2009 | meta-analysis           | Salt and CVD                 | 13 studies risk of stroke (pooled relative risk higher salt intake 1.23, 95% confidence interval 1.06 to 1.43; P=0.007) and cardiovascular disease (1.14, 0.99 to 1.32; P=0.07) |
++----------------------------+-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Graudal @graudal2014       | meta-analysis           | Salt and CVD                 | *ACM: HR = 1.16, 95% CI = 1.03-1.30; CVDEs: HR = 1.12, 95% CI = 1.02-1.24*                                                                                                      |
++----------------------------+-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Ma @ma2022                 | meta-analysis           | urinary sodium and CVD       | Each daily increment of 1000 mg in sodium excretion was associated with an 18% increase in cardiovascular risk (hazard ratio, 1.18; 95% CI, 1.08 to 1.29),                      |
++----------------------------+-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                            | nb BP is Blood Pressure | nb CI is confidence interval | nb CVD is cardiovascular disease                                                                                                                                                |
+|                            |                         |                              |                                                                                                                                                                                 |
+|                            |                         |                              | nb UPF is Ultraprocessed food                                                                                                                                                   |
++----------------------------+-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-The systematic reviews identified in the search include Barbosa, and D'Elia, Leyvraz and Frias concentrate on effects in children.
+: Review papers Sodium and BP
+
+The systematic reviews identified in the search include Barbosa, and D'Elia.
+Leyvraz and Frias concentrate on effects in children.
 
 He, Graudal and Strazzullo were not identified in this search but were referenced in the other papers.
 
 He identifies reduction in BP with reduction in sodium intake.
 Graudal reports that sodium reduction can go too far, identifying a 'j'-shaped curve.
-He directly criticises Graudal's work.
-Identifying the inclusion of papers with big effect sizes, and short follow up.
+He Identifies the inclusion of papers with big effect sizes, and short follow up in Graudal as contributing to this effect of very low sodium intakes.
 
 \
 D'Elia et al look at arterial stiffness pressure wave velocity 'PWV' and show that this increases with salt intake.
 This arterial stiffness is potentially more sensitive to sodium intake than BP.
-
-"*Eleven studies met the predefined inclusion criteria and provided 14 cohorts with 431 participants and 1--6 weeks intervention time. In the pooled analysis, an average reduction in sodium intake of 89.3 mmol/day was associated with a 2.84% (95% CI 0.51--5.08) reduction in PWV."*
+They included 11 studies, of 14 cohorts and 431 participants studied over 1-6 weeks.
+Reducing sodium intake by 89.3mmol/day was associated with 2.84% (CI0.51-5.08) reduction in PWV.
 
 D'Elia's results show that BP is less accurately predicted than arterial stiffness.
 This may be a cause of the equivocal results found by studies looking at BP.
 
 Graudal et al.
 Studied cohort studies as there were no RCTs of increased sodium intake.
-
-"*Data from 23 cohort studies and 2 follow-up studies of RCTs (n = 274,683) showed that the risks of ACM and CVDEs were.... increased in high sodium vs. usual sodium intake (ACM: HR = 1.16, 95% CI = 1.03-1.30; CVDEs: HR = 1.12, 95% CI = 1.02-1.24)."*
+They found data from 23 cohort studies (n=274,683).
+They showed acute cardiac events (ACM) and cerebrovascular events CVDE were increased in high sodium intake compared with usual sodium intake *(ACM: HR = 1.16, 95% CI = 1.03-1.30; CVDEs: HR = 1.12, 95% CI = 1.02-1.24)*.
 
 Their findings identify that there might be 'too much' salt reduction possible.
 They provide an explanation as to how low sodium levels may causes issues.
@@ -435,14 +427,44 @@ Straluzzo et al identifies He et al @hefjm as a source for hypertension and salt
 Of the identified papers the majority describe 2/3 elements, UPF or salt intake or BP/ CVD .
 
 They show an odds ratio for cvd with raised sodium intake and hypertension with high UPF intake.
-The qualification is that BP is an uncertain outcome measurement.
+They suggests BP is an uncertain outcome measurement.
 Papers often look to CVD outcomes as stronger endpoints.
 
-Where UPF exposure has been studied with hypertension as an endpoint the cross sectional studies have identified a link in adults, but sometimes their is an inverse gradient.
+Where UPF exposure has been studied with hypertension as an endpoint the cross-sectional studies have identified a link in adults, but sometimes there is an inverse gradient.
+The cohort studies are consistent in showing a small but measurable positive effect.
+This is also identified in the meta-analyses.
 
-This study aims to identify these two effects within a large represntative cross sectional population.
+This study aims to identify these two effects within a large representative cross-sectional population.
 The relationship between these two effects can be shown by studying both in the same population.
 This study also gives the opportunity to consider if there are associated factors.
+
+## Research Question
+
+Using PICO @bruce2018 approach,
+
+In adults and children across the four home nations of the UK between 2008 and 2019, did exposure to high sodium dietary intake, and or high UPF dietary intake, compared to lower exposure, increase the odds of having a mean systolic blood pressure of over 140mmHg?
+
+This primary question can be split into parts,
+
+For a representative population across the UK What was dietary intake of UPF between 2008 and 2019?
+What was dietary intake of salt between 2008 and 2019?
+What was BP between 2008 and 2019?
+What was the correlation between these?
+
+In addition it may be possible to consider, How did each of these change over that time?
+Is there evidence of interaction between these?
+Was UPF or Na most important in these changes?
+
+## Objectives
+
+1 Literature Review of UPF and BP, and Sodium and BP
+
+2 Descriptive analysis of participants from NDNS with amalgamation of data across the rolling programme.
+
+3 Analysis of exposure to UPF and sodium, and prevalence of BP \>140mmHg using regression models with associated data analysis.
+
+4 Discussion of implications of results in answer to the research question, Public health implications and actions.
+Also in relation to limitations of cross- sectional studies, and available data, as well as suggestions for further research
 
 \newpage
 
@@ -462,6 +484,12 @@ NDNS is a rolling cross-sectional study, in each year a new cross section of par
 Questionnaires, food diaries, and nurse assessments are used to gather data.
 It has been running since 2008.
 The most recent data is available from 2019.
+
+## University Research Governance and Ethical Review
+
+The ethics process for the University of Liverpool was followed and confirmation of compliance is attached at [Appendix 2 Ethics Certificate]
+
+The storage of the data is in keeping with the research governance agreements of the University and the Data set owners.
 
 ## Participants, Inclusion and Exclusion
 
@@ -549,25 +577,6 @@ IMD is included to identify socio-economic patterns in the data.
 This UK- nation based data is used consistently in UK studies, but has no analogue across the world.
 Instead age at completion of education, or income are often used internationally.
 
-## Bias
-
-Selection bias was approached by using random selection of participants using a carefully constructed stratification model.
-Addresses were selected by postal units to ensure geographic spread of participants.
-This ensured that whilst random the sample remained representative.
-
-Take up and Drop out bias was approached by ensuring that sample sizing included scope for this to enable comparable sample sizes across annual waves.
-
-Social desirability bias acknowledges that participants remember and record intake framed by their beliefs about the needs of the study, and their beliefs about what is perceived as being healthy.
-To examine this, in the first wave a double labelled water study was incorporated.
-This compared reported energy intake with measured values @lennox .
-
-Finally bias at the analysis stage used weighting to standardise the sample for several variables.
-Those selected were Age, Sex, region and IMD.
-Weights are available for different levels of analysis as participants who did not complete the initial interview were not selected for subsequent blood analysis.
-
-Sensitivity analysis looked to see how the variables changed over the survey years after weighting.
-This is intended to assess changes in sampling over the course of the study.
-
 ## Study Size
 
 A sample size calculation for this secondary analysis is available in appendix 1 the initial proposal from OpenEpi @openepi2021 .
@@ -583,15 +592,22 @@ In particular the package 'survey' @survey2004 was used to manage weighted data.
 Generated weighting values account for differences uptake and drop out across the annual cohorts.
 'Survey' also accounts for sample stratification.
 
-Data was analysed for correlation by regression.
-Categorical data was analysed using chi-squared.
+### Analysis Plan
+
+Descriptive data was tabulated to enumerate the outline structure.
+
+The sensitivity of the data to changes in the annual cohorts was assessed.
+
+Then the data was analysed for correlation by regression.
+AIC statistics were used to assess 'goodness of fit'.
+
 In all analysis P.values and confidence intervals were calculated and a value of p \< 0.05 was taken as the threshold of statistical significance.
+
 Multivariable regression models were constructed to manage variables which might have confounding effects on the outcome of the analysis.
 Sample stratification was also used to reduce potential confounding.
 Tables of results were produced to best demonstrate the data.
 For the main results a set of multivariable logistic regression models was developed.
 Each exposure variable was modelled separately, the final model included both of the exposure variables.
-AIC was used to understand the relative importance of variables.
 
 
 
@@ -808,15 +824,12 @@ the additional effect of UPF is in proportion to this.
 
 ## Key Results
 
-The chi squared test shows a statistically significant correlation between UPF and hypertension.
-This simple model does not allow for confounding or additional variables to be taken into account.
-
+This analysis shows a statistically significant correlation between high Na intake and hypertension , and between high UPF and hypertension.
+This is present with each variable independently and with a combined model.
 Multivariable logistic regression controls a number of additional variables.
 Sex and age probably contribute the largest effects.
-These models show a statistically significant correlation between high Na intake and hypertension , and between high UPF and hypertension.
-This is present with each variable independently and with both in the model.
 
-The univariable regression of UPF with sodium identifies no correlation.
+Univariable regression of UPF with sodium identifies no correlation.
 There are strong correlations between age and BP, hypertension, sodium intake and UPF intake.
 
 There is a reduction in reported sodium intake over time.
@@ -829,7 +842,6 @@ There is a slight reduction in UPF % over time, this might be reporting, or asse
 This is a cross-sectional study, and so has the limitations of this design.
 In particular the study measures exposure and outcome at the same time.
 Causal relationships cannot be understood from this data.
-Here participants aware of their BP might have chosen to reduce their UPF intake.
 
 Time and age have particular effects in cross sectional studies.
 Researchers in aging, and learning have identified this clearly, separating the effects of experiential learning, from cohort effects and duration effects.
@@ -838,11 +850,32 @@ Prospective studies such as Cohort or RCT studies have less of this affect somet
 This study was organised by government departments connected with food and farming alongside the Department of Health.
 The sample was designed to monitor relevant outputs.
 Funding and commissioning processes affect design structure and might also affect participant engagement and expectation.
+The study was not powered sufficiently for in-depth subgroup analysis.
+
+### The data
+
 In particular this might affect social desirability bias.
 Social desirability and other participant reporting bias may well be significant within dietary diaries.
 Double labelled water studies on the first wave showed some significant differences between measured energy intake, and reported energy intake with differences between different age groups.
 
-### The data
+## Bias
+
+Selection bias was approached by using random selection of participants using a carefully constructed stratification model.
+Addresses were selected by postal units to ensure geographic spread of participants.
+This ensured that whilst random the sample remained representative.
+
+Take up and Drop out bias was approached by ensuring that sample sizing included scope for this to enable comparable sample sizes across annual waves.
+
+Social desirability bias acknowledges that participants remember and record intake framed by their beliefs about the needs of the study, and their beliefs about what is perceived as being healthy.
+To examine this, in the first wave a double labelled water study was incorporated.
+This compared reported energy intake with measured values @lennox .
+
+Finally bias at the analysis stage used weighting to standardise the sample for several variables.
+Those selected were Age, Sex, region and IMD.
+Weights are available for different levels of analysis as participants who did not complete the initial interview were not selected for subsequent blood analysis.
+
+Sensitivity analysis looked to see how the variables changed over the survey years after weighting.
+This is intended to assess changes in sampling over the course of the study.
 
 The result depends on participants recording foods in the same way as time goes on.
 Exposure of the whole population to a stimulus to change their diet or the recording of their diet may result in systematic changes in results.
