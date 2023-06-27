@@ -1,13 +1,11 @@
 ---
 title: "Exposure to High Ultra-processed Food and Sodium Intake and its effect on Hypertension from a Cross-sectional study  UK National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
-  word_document: 
+  html_notebook: 
     toc: yes
     fig_caption: yes
-    keep_md: yes
-    toc_depth: 4
-    fig_width: 5
-    fig_height: 5
+    number_sections: yes
+    code_folding: hide
   pdf_document: 
     toc: yes
     fig_caption: yes
@@ -16,11 +14,13 @@ output:
     latex_engine: xelatex
     fig_width: 5
     fig_height: 5
-  html_notebook: 
+  word_document: 
     toc: yes
     fig_caption: yes
-    number_sections: yes
-    code_folding: hide
+    keep_md: yes
+    toc_depth: 4
+    fig_width: 5
+    fig_height: 5
   html_document: 
     toc: yes
     fig_caption: yes
