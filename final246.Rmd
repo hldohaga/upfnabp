@@ -65,7 +65,7 @@ for your loving patience and support
 
 # Abstract {.unnumbered}
 
-Hypertension is associated with exposure to high intake of 'industrialy produced edible substances' or UPF, and high Sodium intake.
+Hypertension is associated with exposure to high intake of 'industrially produced edible substances' or UPF, and high Sodium intake.
 This research examines assumptions about salt and UPF.
 What contributes to 'unhealthiness'?
 Will 'reformulation' generate 'healthy UPF'?
@@ -76,17 +76,17 @@ Can this help reduce BP in one part of the the UK?
 This research uses cross-sectional data with a stratified sample representative of the UK population.
 It is secondary data analysis of the National Dietary and Nutrition Survey (NDNS 2008-2019).
 
-Using multivariable logistic regression analysis of high sodium intake and high UPF intake against hypertension, secondary end points included regression of Sodium intake against UPF intake, age against BP, sodium intake and UPF intake.
+Using multivariable logistic regression analysis of high sodium intake and high UPF intake against hypertension, secondary end points included regression of sodium intake against UPF intake, age against BP, sodium intake and UPF intake.
 
 ### Results
 
 There was an increased odds ratio of hypertension with higher sodium intake (OR=5.57(1.47,21.2)).
 
-There was a lower odds ratio of hypertension with high upf intake (OR=0.57(0.34,0.94)).
+There was a lower odds ratio of hypertension with high UPF intake (OR=0.57(0.34,0.94)).
 
 There was no correlation between UPF intake and sodium intake (beta=0).
 
-There is a strong correlation between age and BP (beta =0.43 (CI 0.41,0.45)), as well as age and Sodium intake.
+There is a strong correlation between age and BP (beta =0.43 (CI 0.41,0.45)), as well as age and sodium intake.
 
 There is a strong age gradient of UPF intake (beta= -0.25 (CI -0.26,-0.23)).
 
@@ -155,7 +155,7 @@ library(RefManageR)
 #| tab-id: "table 1"
 #| caption: "Table of abbreviations used"
 
-table1 <- data.table("Abbreviation "=c("AIC","BMI","BP","CI","CHAMPs","CVD","HR","IMD","Na","NCD","NDNS","NOVA","OR","UPF" ),"Term"=c("Akaike Information Criterion","Body Mass Index","Blood Pressure","Confidence intervals 95% level","Cheshire and Merseyside public health  collaborative","Cardiovascular Disease", "Hazard ratio","Index of Multiple Deprivation","Sodium intake in mg",  "Non communicable Disease","National Dietary and Nutrition Survey","NOVA is a classification system, it is not an acronym","Odds Ratio","Ultra Processed Foods"))
+table1 <- data.table("Abbreviation "=c("AIC","BMI","BP","CHAMPs","CI","CVD","HR","IMD","Na","NCD","NDNS","NOVA","OR","UPF" ),"Term"=c("Akaike Information Criterion","Body Mass Index","Blood Pressure","Cheshire and Merseyside public health  collaborative","Confidence intervals 95% level","Cardiovascular Disease", "Hazard ratio","Index of Multiple Deprivation","Sodium intake in mg",  "Non communicable Disease","National Dietary and Nutrition Survey","NOVA is a classification system, it is not an acronym","Odds Ratio","Ultra Processed Foods"))
 table1 <- width(autofit(flextable(table1)), width=5)
 table1 <- set_caption(table1, "Table of Abbreviations used", 
   autonum = run_autonum(seq_id = "tab", bkm = "table1"))
@@ -179,12 +179,11 @@ Local food policies such as that of Liverpool @liverpoo2018 can make a significa
 Byker-Shanks @bykershanks2022 identify the effect it can have on UPF intake, and so might be a way of reducing hypertension at a population level.
 
 Marmot @marmot2022 identifies the external influences in Cheshire and Merseyside which need to be improved to permit individual action to be effective.
-Using a better understanding of the role of UPF, and the interaction with sodium, might give a mechanism of action of some of Marmot's categories of influence.
+A better understanding of the mechanisms of UPF, such as the interaction with sodium, might help understand one way that Marmot's categories of influence work.
 
 This study assessed prevalence of exposure to sodium and UPF, and hypertension using a nationally representative cross-sectional study, the National Dietary and Nutrition Survey (NDNS) @universityofcambridge2022 .This study has data from the UK from 2008 to 2019.
 It is stratified to be representative of the population of the UK by sex, age, region and index of multiple deprivation (IMD).
-BP, UPF and Sodium intake were recorded.
-Age and sex remain important background factors.
+BP, UPF and Sodium intake were recorded, with Age and sex as important background factors.
 
 I have used STROBE guidance @elm2007 in producing this report.
 This study explored this complex web pulling out strands within it, [diagram 1](fig:diagram%201) shows a possible arrangement of this.
@@ -226,15 +225,17 @@ The commercial and social determinants of health are models which have a great d
 ## Positionality
 
 In a positivist paradigm the observer is external to the experiment.
-Acknowledging the constructivist aspects to this study admits that the observer is closer to the model making my positionality of interest.
+That there are constructivist aspects to this subject admits that the observer is closer to the model.
+Hence, my positionality is of interest.
 Jafar @jafar2018 argues that understanding the position of the investigator is of interest to understanding quantitative study.
 
 I bring an attachment to positivist ideals from my biomedical background.
 As an older physician I am aware of social factors impacting health of participants as Evans and Trotter @evans discuss.
 I also understand that my perception of the world is from a position of significant privilege.
-To proceed, I need to be aware of the limitations of the positivist approach, and of these aspects of my view of the world.
+I have resources and knowledge which make my position atypical.
+In proceeding, I must be aware of the limitations of the positivist approach, and of this atypical view of the world.
 
-These constructed ideas, social expectations, income, or geography affect food and health 'choices'.
+Ideas, social expectations, income, or geography affect food and health 'choices'.
 They also impact on 'hard' clinical measurements such as BP, through physical position and room temperature as well as by the relationship between the observer and the participant.
 
 This work is primarily to complete requirements for an MPH degree which means that it is influenced by factors around health equity and classic epidemiology as taught on the course.
@@ -246,14 +247,7 @@ It is produced in collaboration with a research group with a long established re
 
 ## Rationale
 
--   1 develop search
--   2 review search and confirm inclusion
--   3 describe literature
--   4 synthesise literature
--   5 critique literature
--   6 explain role of study within context
-
-This literature review was intended as a systematic search, to identify papers with information about UPF, sodium and blood pressure informed by PRISMA @page2021.
+This systematic search, aims to identify papers with information about UPF, sodium and blood pressure informed by PRISMA @page2021.
 
 The rationale for this review is to contribute background and to answering the research question;
 
