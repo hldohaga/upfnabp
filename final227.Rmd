@@ -1134,12 +1134,12 @@ ndns_1_11hyp <- subset(ndns_1_11dd, BP >= 140)
 
 ## Participants
 
-Considering participants who opted in and completed questionnaires, the whole NDNS population was 15,655.
+Considering participants who opted in and completed questionnaires, the whole NDNS population, n= 15,655.
 The median age was 40.
-Categorising age shows that 22% of the population was between 19 and 35.
-There were 49% male participants.
+Categorising age shows that 22% (n=3544) of the population was between 19 and 35.
+There were 49% male participants (n=7699).
 
-After excluding those on medication, the population was 14217 participants.
+After excluding those on medication, the population was n=14217 participants.
 
 This table [table 31](tab:table3) shows descriptive data.
 
@@ -1173,30 +1173,29 @@ table3
 
 ## Descriptive Data
 
-The study population median age was 38.
-The largest age group was 18-35.
-49% of the participants were male.
+The study population (n=14217) median age was 38.
+The largest age group was 18-35 (n=3529/25%).
+49% (n=6992) of the participants were male.
 
-The population exposed to UPF \>63% of their calories is made up of 4793 from a total of 14217 participants.
-This compares with 9424 participants with lower exposure.
+The population exposed to UPF \>63% of their calories is made up of n=4793.
+This compares with n=9424 participants with lower exposure.
 That is an exposure prevalence of 34%.
 
 High UPF is more common in younger males than in the overall population or those not on medication.
-37% are 0-16 years old.
-There is a gradient in deprivation with more exposure in the most deprived group.
-England's South East has 13% of those with high UPF intake.
-With 11% in the North West.
+41% are 0-18 years old (n= 1970).
+There is a gradient in deprivation with more exposure, 24% (n=1139),in the most deprived group.
+England's South has 39% (n=1861) of those with high UPF intake.
+There is 26% (n=1231) in the North.
 
 The population exposed to Sodium \>5000mg has only 73 out of 14217 participants.
 An exposure frequency of 0.5%.
-61% are 18-35, and 80% male .
-The least deprived makes up 5.2% of the participants compared with 39% of the most deprived.
-The north has 46% of those with high Sodium intake, much the highest.
+61% (n=44) are 18-35, and 80% (n=58) male.
+The least deprived makes up 5.2% (n=4) of the participants compared with 39% (n=28) of the most deprived.
+The north has 46% (n=34) of those with high Sodium intake, much the highest.
 
-### Sensitivity to Survey Year
+### Data consistency across yearly waves
 
 Internal consistency was examined by comparing background data across survey years.
-This might also be called sensitivity analysis by survey year.
 Wave 1 was a comparator for analysis of the other waves.
 
 ```{r tblVariablesbySurveyyear, echo=FALSE}
@@ -1316,14 +1315,14 @@ svyplot(BP~SurveyYear,ndns_1_11dd, na.rm = TRUE,main = "BP in mmHg by survey yea
 
 [figure 6](fig:fig-BP-and-survey-year) shows that the mean BP is consistent across the waves.
 
-The population with BP \> 140 mmHg is 876 participants.
-This gives a prevalence of 6%.Men are once again overrepresented.
-These participants are older than the population median, 44% of these participants are over 65.
+The population with BP \>140 mmHg is n=876 participants.
+This gives a prevalence of 6%.Men are once again overrepresented (n=505).
+These participants are older than the population median, 44% (n=307) of these participants are over 65.
 This group are statistically significantly different from the populations with high Na, or high UPF.
 There is a reverse gradient with IMD in this population.
 The most deprived are least represented in this population.
 The largest proportion are in the least deprived category.
-The north is second highest in raised BP after the south east.
+The North (n=238) is second highest in raised BP after the South (n=329).
 The BP was highest in year one with 125 mmHg, and the lowest 120 mmHg in year 6.
 BP rose through life to a mean of 134 mm Hg in the over 65 age category.
 
@@ -1352,7 +1351,7 @@ Mathematical models containing explanatory variables are constructed and compare
 
 In the simplest model, by calculation using a Chi squared 2\*2 table, the odds ratio for hypertension in participants exposed to UPF \>63% is 0.5.
 The odds ratio for hypertension in participants exposed to Sodium \>5000mg is 1.45.
-These results take no account of weighting, or confounding.
+These results take no account of weighting, or confounding, biut give an indication of the expected result.
 
 ```{r chisq, echo=FALSE, message=FALSE, warning=FALSE}
 hyp1chi <- svychisq(~hyp+ hiNa2 , ndns_1_11dd, na.rm=TRUE)
@@ -1391,7 +1390,7 @@ lmNaAt <- tbl_regression(lmNaA)
 
 #row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Sodium"))
 #row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Sodium"))
-#as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt),group_header = c("BP/Sodium","UPF/Sodium","UPF/bp","UPF/Age","Age/BP","Age/Sodium")))
+#as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt),group_header = c("BP/Sodium","UPF/Sodium","UPF/BP","UPF/Age","Age/BP","Age/Sodium")))
 ```
 
 Univariable regression is adjusted for weighted survey samples.
@@ -1450,7 +1449,7 @@ lmzPFIt <- tbl_regression(lmzPFI)
 
 lmBPI <- svyglm(BP ~ IMD, ndns_1_11dd)
 lmBPIt <- tbl_regression(lmBPI)
-#row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Na"))
+#row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Sodium"))
 #row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Sodium"))
 univariablesUPF <-tbl_stack(list(lmEnat,lmEAt,lmEst,lmEbmit,lmzPFIt) )
 univariablesNa <- tbl_stack(list(lmNaAt,lmNaAgt,lmNabmt, lmNaIt))
@@ -1458,7 +1457,7 @@ univariablesBP <- tbl_stack(list(lm1Et,lm1nat,lmAt,lm1Ag1t,lm1bmit, lmBPIt))
 
 univariables2 <- tbl_merge(list(univariablesBP,univariablesUPF,univariablesNa),tab_spanner = c("**BP**","**UPF**", "**Sodium**"))
 univariables2 <- as_flex_table(univariables2)
-#univariables <- as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt,lm1bmit,lm1Ag1t,lmedt,lmEbmit,lmEst,lmEedt,lmNabmt,lmNaAgt,lmNaedt),group_header = c("BP/Sodium","UPF/Sodium","UPF/bp","UPF/Age","Age/BP","Age/Sodium","BP/bmi","BP/Agg1","BP/ed","UPF/bmi","UPF/age","UPF/ed","Sodium/bmi","Sodium/Agg","Sodium/ed")))
+#univariables <- as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt,lm1bmit,lm1Ag1t,lmedt,lmEbmit,lmEst,lmEedt,lmNabmt,lmNaAgt,lmNaedt),group_header = c("BP/Sodium","UPF/Sodium","UPF/BP","UPF/Age","Age/BP","Age/Sodium","BP/BMI","BP/Age","BP/ed","UPF/BMI","UPF/Age","UPF/ed","Sodium/BMI","Sodium/Age","Sodium/ed")))
 univariables2<- set_caption(univariables2, "Univariable Regression (NDNS data 2008-2019)", autonum = run_autonum(seq_id = "tab", bkm = "tab8"))
 univariables2
 #png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/univariables.png")
@@ -1476,7 +1475,7 @@ There is an odds ratio of 5.20 (CI 1.39,19.5) for this group.
 "UPF only" shows a significant difference in odds ratio 0.60(CI 0.36,0.99) for the group 63-80%.
 
 The last model, "Sodium and UPF", shows that when combined the effect remains.
-The odds ratio for 5000-6000mg of Na remains statistically significant 5.57(1.47,21.2).
+The odds ratio for 5000-6000mg of Sodium remains statistically significant 5.57(1.47,21.2).
 The odds ratio for UPF also remains 0.57(0.34,0.94).
 These are both changed from the separate models.
 The Akaike Information Criterion (AIC), a measure of 'goodness of fit', is lower for this combined model, 3590.81, indicating it is a better fit for the data also.
@@ -1508,9 +1507,9 @@ lmME <- svyglm( hyp~ zPF3 +agegad3+Sex + BMI +educfinh + IMD +SurveyYear,family 
 lmnat <- tbl_regression(lmna,include=hiNa,exponentiate = TRUE, label = list( hiNa ~ "Sodium Intake mg"))
 #lmnat$model_obj$R
 #lmnat <- add_glance_table(lmnat,include = c( AIC))
-lmnaEt <- tbl_regression(lmnaE,include=c(hiNa,zPF3),exponentiate = TRUE, label = list(zPF3 ~  "Ultraprocessed Food %", hiNa ~ "Sodium Intake mg"))
+lmnaEt <- tbl_regression(lmnaE,include=c(hiNa,zPF3),exponentiate = TRUE, label = list(zPF3 ~  "UpF %", hiNa ~ "Sodium Intake mg"))
 #lmnaEt <- add_glance_table(lmnaEt,include = c( AIC))
-lmMEt <- tbl_regression(lmME,include=zPF3,exponentiate = TRUE, label = list(zPF3 ~ "Ultraprocessed Food %"))
+lmMEt <- tbl_regression(lmME,include=zPF3,exponentiate = TRUE, label = list(zPF3 ~ "UPF %"))
 #lmMEt <- add_glance_table(lmMEt,include = c( AIC))
 
 multivariables <- tbl_merge(list(lmnat,lmMEt,lmnaEt), tab_spanner = c("Sodium only","UPF only","Sodium and UPF"))
@@ -1534,11 +1533,11 @@ multivariables
 
 Using the AIC statistic assessing goodness of fit for each model gives another way of understanding the comparative effects between variables.
 The lowest scored model is the optimal model.
-The 'best' of these models is that with only Sodium included "Sodium only".
-The UPF models both being further away from the lowest value.
+The 'best' of these models is "Sodium and UPF" AIC= 3590.81.
+The other models (Sodium only (AIC = 3594.65), and UPF only (AIC=3598.17)) both being further away from the lowest value.
 
-Of the difference between the lowest scoring model and the highest 70/30 is due to the Sodium.
-the additional effect of UPF is in proportion to this.
+The lower difference in values suggests the Sodium only model is the next best model.
+The UPF only value suggests that this is the least good model.
 
 \newpage
 
