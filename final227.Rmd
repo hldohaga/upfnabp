@@ -410,9 +410,9 @@ Scaranni used Brazil's ELSA study, in middle aged civil servants, finding that h
 They measured Sodium 24 hour urinary excretion, but found no difference between UPF consumption groups.
 They include Sodium in some multivariable models, but the discussion only considers the general cases 'UPF is high in Sodium' and 'People in Brazil eat lots of UPF'.
 
-Monge found no association between categories of UPF, from ≤20% to \>45% energy/d and incident hypertension.
+Monge found no association between categories of UPF, from ≤20% to \>45% energy/day and incident hypertension.
 This study used mexican female teachers, this group may have a different exposure and outcome profile to a more general population.
-Sodium intake was included in their table 1 but they made no comment on how it might relate to hypertension or UPF consumption.
+Sodium intake showed no difference across UPF groups, they made no comment on how it might relate to hypertension or UPF consumption.
 
 Mendonça in Spain found an affect on hypertension (HR = 1.21, 95% CI: 1.06, 1.37, Ptrend = 0.004) in adults.
 This sample had a strong effect on Wang's meta analysis with a weighting of 16.72 from 9 studies.
@@ -1553,13 +1553,11 @@ These relationships need to be viewed with caution as the values are intended to
 
 This analysis shows a statistically significant correlation between high Sodium intake and hypertension .
 There was an increased odds ratio of hypertension with higher Sodium intake (OR=5.57(1.47,21.2)).
-Between high UPF and hypertension there was a lower odds ratio of hypertension with high upf intake (OR=0.57(0.34,0.94)).
-This is present in a combined multivariable logistic regression model.
-This technique helps control explanatory variables.
+Between high UPF and hypertension there was a lower odds ratio of hypertension with high UPF intake (OR=0.57(0.34,0.94)).
+This is present in a combined multivariable logistic regression model which includes age, sex, BMI, IMD, age at leaving education, and survey year.
 
 The effect is also present in the multivariable logistic regression model of each individual variable, for Sodium this is OR=5.20(CI 1.39,19.5), and for UPF OR=0.60(CI 0.36,0.99).
-
-Sex and age contribute the largest effects.
+These use the same explanatory variables.
 
 In univariable analysis with no controlling for confounding or explanatory variables, there was no correlation between UPF intake and Sodium intake (beta=0).
 There was a strong correlation between age and BP (beta =0.43 (CI 0.41,0.45)), as well as age and Sodium intake.
@@ -1567,23 +1565,20 @@ There was a strong age gradient of UPF intake (beta= -0.25 (CI -0.26,-0.23)).
 
 The descriptive analysis does show the size of different groups.
 It also shows how they differ from the overall population.
-The size of some of these subgroups is a reason for caution over the overall results.
+These factors are reasons for caution over the overall results.
 
 ## Limitations
 
-This is a cross-sectional study, and so has the limitations of this design.
-In particular, exposure and outcome are measured at the same time.
-Causal relationships cannot be understood from this data.
+The data is from a cross-sectional study, and so has the limitations of this design.
+Exposure and outcome are measured at the same time, so causal relationships can be confusing or reversed.
+This 'reverse causation' would be appropriate to describe the idea that the high UPF exposure is something which applies to young age groups and has not yet had time to have an effect.
+If older participants were not exposed when they were younger, their levels of BP would not be increased but instead represent a baseline measurement.
+This results in inverting the relationships in the values.Prospective and longitudinal studies, such as cohort or RCT studies do not have this issue.
 
-Time and age have particular effects in cross sectional studies.
-Prospective and longitudinal studies, such as cohort or RCT studies have less of this affect.
-This sometimes results in inverting relationships between variables.
-
-This study was organised by government departments connected with food and farming alongside the Department of Health.
-The sample was designed to monitor relevant outputs.
-Funding and commissioning processes affect design structure and might also affect participant engagement and expectation.
-The study was not powered sufficiently for in-depth subgroup analysis.
+This study was organised by government departments connected with food and farming alongside the Department of Health and is supervised by the standing committee on clinical nutrition (SACN).
+The sample was designed to monitor relevant outputs not for in-depth subgroup analysis.
 It was powered for monitoring of food intake across the UK population.
+Funding and commissioning processes affect design structure and might also affect participant engagement and expectation.
 
 ### Bias
 
@@ -1594,16 +1589,15 @@ This ensured that whilst random the sample remained representative.
 Uptake and Drop out bias was approached by ensuring that sample sizing included scope for this to enable comparable sample sizes across annual waves.
 
 Social desirability bias acknowledges that participants remember and record intake framed by their beliefs about the needs of the study, and their beliefs about what is perceived as being healthy.
-To examine this, in the first wave, Lennox et al @lennox conducted a double labelled water study.
+To examine this in the first wave, Lennox et al @lennox conducted a double labelled water study.
 They compared reported energy intake with measured values.
 They showed some significant differences between measured energy intake, and reported energy intake with differences between different age groups.
 
 At the analysis stage weighting was used to standardise the sample for several variables.
-Those selected were Age, Sex, region and IMD.
-Weights are available for different levels of analysis as participants who did not complete the initial interview were not selected for subsequent blood analysis.
+Those selected were age, sex, region and IMD.
+Weights are available for different levels of analysis.
 
-Sensitivity analysis looked to see how the variables changed over the survey years after weighting.
-This is intended to assess changes in sampling over the course of the study.
+The variables' changes over the survey years after weighting were assessed to understand changes in sampling over the course of the study.
 
 The result depends on participants recording foods in the same way as time goes on.
 Exposure of the whole population to a stimulus to change their diet or the recording of their diet may result in systematic changes in results.
@@ -1611,27 +1605,21 @@ Exposure of the whole population to a stimulus to change their diet or the recor
 In years 9-11 a slight difference for identifying foods for analysis as researchers have started to become aware of the need to understand 'processing'.
 This may account for the apparent lower exposure in the last three years.
 
-These changes would affect the outcome variable less.
-However BP measurement technology has changed over ten years.
+Changes might affect the outcome variable less, though, BP measurement technology has changed over ten years.
 BP machines derive their results from the changes in pressure detected in the arm of the participant, the algorithm used by the sphygmomanometer may have changed.
 
-Weighting maintains age, sex, IMD, and government region across the waves.
-BMI is no different, and educational attainment is also unaffected.
-
-The populations do change over time as some of the added variables do show statistical significant changes.
-
-In populations with exclusions the careful sample selection and weighting are overcome by the biasing effect of different selections.
-Selecting for BP, UPF or Sodium changes the cohort sex balance, age range and IMD pattern making these samples less representative.
+Subgroup analysis overcomes careful sample selection and stratification reintroducing bias.
+Selection for BP, UPF or Sodium changes the cohort sex balance, age range and IMD pattern.
+Future studies will consider these at the planning stage to introduce sampling methods to avoid this bias.
 
 ## Interpretation
 
 Participants with high Sodium \>5000mg are more likely to have hypertension.
 He @hefjm , Graudal @graudal2014 , Strazzullo @strazzullo2009 , inform us that high Sodium intake is contributing to high BP.
-However, causation cannot be identified in this study.
-This seems to be the larger effect with the change in AIC being greater than the change for UPF.
+However, causation cannot be identified in NDNS as it is cross-sectional.
 
 Low UPF intake is correlated with high BP.
-Only correlation is certain, and reverse correlation may be an issue.
+Only correlation is certain, and 'reverse correlation' may be an issue.
 Wang @wangAssociationUltraprocessedFood2022 , Barbosa @barbosa2022 , and Mambrini @mambrini2023 all find a positive correlation using longitudinal studies such as those of Scaranni @ScaranniPatriciadeOliveiradaSilva2021Ufci and Mendonça @mendoncaUltraProcessedFoodConsumption2017 .
 The descriptive data shows that those with \>63% UPF are a peculiar subgroup.
 They are different in age from those with high Sodium or high BP.
@@ -1643,6 +1631,7 @@ The USA, Canada and Australia have similarly high levels.
 Other European countries are still fighting to retain a different food culture, Touvier et al with Nutrinet @srour2019 @touvier2020 .
 
 Colombet @ColombetZoé2021Dass highlights countries in the rest of the world at differing levels of 'nutrition transition'.
+This is where increasing amounts of the diet comes from UPF instead of traditional diets.
 This might be influenced by the degree of 'westernisation'/'internationalization'/ or 'capitalist colonialisation' into local culture, as well as by more general socio-economic factors @colombet2022 .
 
 ### UPF and Sodium
@@ -1651,15 +1640,13 @@ One of the odd findings is that there is no relationship between % UPF and Sodiu
 Webster et al @websterSystematicSurveySodium2010 in Australia, and Ni Murchu @nimhurchu2011 looking at 44,000 foods in the UK, show that UPF are high in salt.
 If UPF is 'high in salt' then high UPF should be correlated with Sodium and BP.
 This contradictory finding that there is no correlation suggests that UPF varies in quality.
+Monge @monge2021 has no change in Sodium intake with UPF intake.
+Mendonça @DeDeusMendonçaRaquel2017Ufca adjusts Sodium intake by Energy intake to identify a change with the highest levels of exposure to UPF.
 
-The highest salt intakes are amongst the group with the highest UPF intakes, but there may be a qualitative difference in the intake.
-Rauber et al @rauber2019 and @rauber2020 using this dataset identified high free sugar intake leading to obesity and type 2 diabetes, from drinking large quantities of artificially sweetened beverages.
-As Hall @hall2019 demonstrated in a randomised controlled trial, UPF intake is affecting the choice to eat.
-Therefore, it is not as simple as high UPF leads to high Sodium leads to hypertension.
-Hence, simple reformulation, to reduce salt intake, will not be effective.
-
-The effect of Sodium is augmented by that of UPF.
-The two together is greater than either individually
+The highest salt intakes are amongst the age group with the highest UPF intakes.
+There is a potential ecological fallacy here, they may be different people.
+The finding identifies it is not as simple as high UPF leads to high Sodium leads to hypertension.
+This suggests that reformulation, reducing Sodium content, will not be effective in changing risk.
 
 ### A synergistic effect
 
@@ -1667,8 +1654,9 @@ The regression model including both exposure variables had a better fit of data 
 This finding suggests that the effect of each variable is not the whole effect, but that there is a synergistic effect.
 This would fit with the idea that Monteiro's concept of UPF @monteiro2010 is wider than being simply a nutritional effect.
 
-This effect might be due to broader biologic effects, structural, or energy density as Rauber explains @rauber2020 .
-Alternatively, it could relate to the non-biologic, the wider economic and cultural aspects of UPF.
+This effect might be due to broader biologic effects.
+These might be presence or absence of other chemicals, structural 'food matrix' effects, or energy density as Rauber explains @rauber2020 .
+Alternatively, it could relate to the non-biologic, the wider economic and cultural aspects of UPF, such as Dimbleby's 'food system' @dimbleby2023 .
 
 Bourdieu @bourdieu2002 studied how food and culture are intertwined.
 Humphries' @humphries2016 editorial and Martinez's @martínez2021 deconstruction update these wider aspects with international and epistemological distinctions.
@@ -1702,11 +1690,11 @@ Policy is an 'upstream' approach.
 Katikreddi @katikireddi2021 recently showed how Diderichson's model @diderichsen2019 for policy intervention can be used to understand exposure indirectly or directly when there are health inequalities.
 
 Reformulation is a policy suggestion, where UPF is further processed to remove the salt.
-By demonstrating that UPF is not just high in salt this study supports the argument of avoiding further formulation as a policy for reducing BP.
+By demonstrating that UPF is not just high in salt this study supports the argument that further formulation may not be effective policy for reducing BP.
 Pearson-Stuttard et al @pearson-stuttard2018 model the effects of salt reformulation, and identify economic and social benefits.
-They make no mention of negative effects of UPF that might not be due to salt, which might reduce the overall benefit of their model.
+Including negative effects of UPF that might not be due to salt, which might improve their model.
 
-Dietary approaches to improving public health are able to deliver proportionate and universal interventions to populations @marmot2010 to reduce the incidence of NCD.
+Dietary approaches to improving public health are able to deliver proportionate and universal interventions to populations @marmot2010 to reduce the incidence of non- communicable disease (NCD).
 When delivered up stream at the policy level they are effective and efficient and minimise cost.
 These approaches offer significant benefits over actions targeted at individuals.
 
