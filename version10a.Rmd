@@ -12,6 +12,7 @@ output:
 ---
 
 # Dissertation calculation and results
+
 ## Salt and Hypertension in NDNS
 
 ```{r include=FALSE}
@@ -34,16 +35,19 @@ sav11r <- as.data.table(read_sav(sav11))
 sav11br <- as.data.table(read_sav(sav11b))
 
 ```
+
 ### Data Source
 
-The dataset is from NDNS @universityofcambridgeNDNSRPNationalDiet2022. This is a rolling annual survey which aims to collect a sample spread between children and adults, across the four countries of the UK, and to maintain representative sizes when analysed by age sex and ethnicity.
+The dataset is from NDNS @universityofcambridgeNDNSRPNationalDiet2022.
+This is a rolling annual survey which aims to collect a sample spread between children and adults, across the four countries of the UK, and to maintain representative sizes when analysed by age sex and ethnicity.
 
+Provided in tables in various formats.
+The dataset is large and covers a great deal.
+This study only requires a subset of the data.The data include more categories than needed so subsets are taken.
+I use all the samples, but only some of the data categories directly related to this project.
 
-Provided in tables in various formats. The dataset is large and covers a great deal. This study only requires a subset of the data.The data include more categories than needed so subsets are taken. I use all the samples, but only some of the data categories directly related to this project.
-
-
-The data are weighted by the research group to ensure representative sizes based on sex and age groupings and response. This allows for differences in uptake and dropout in each annual sample.
-
+The data are weighted by the research group to ensure representative sizes based on sex and age groupings and response.
+This allows for differences in uptake and dropout in each annual sample.
 
 ```{r include=FALSE}
 #this identifies the variables wanted from the person level data sets
@@ -54,8 +58,6 @@ perslevdat11 <- c("seriali","AgeR", "Sex","Country","Sodiummg","Calciummg","Vita
 
 
 ```
-
-
 
 ```{r 4setup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr1-4a_indiv_uk 
@@ -69,7 +71,6 @@ incset4 <- sav4br[,c("seriali","eqvinc","nssec8","hhinc","gor","region")]
 measset4 <- sav4br[,c("seriali","htval","wtval","bmival")]
 ageset4 <- sav4br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1","age")]
 ```
-
 
 ```{r 11setup variables, message=FALSE, warning=FALSE, include=FALSE}
  #measured and recorded data yr9-11a_indiv_uk 
@@ -87,12 +88,9 @@ ageset11 <- sav11br[,c("seriali","agegad1", "agegad2", "agegch1","agegr1")]
 ### Data preparation
 
 The data is then arranged into a format which allows processing.
-This includes identifying continuous and categorical variables. 
+This includes identifying continuous and categorical variables.
 It also includes naming the categories of the categorical variables.
 
- 
- 
- 
 ```{r include=FALSE}
  #define factors for 1-4 
 #saltset
@@ -123,8 +121,7 @@ It also includes naming the categories of the categorical variables.
  
  saltset4[, vegetarn := factor(vegetarn, levels = 1:3, labels = c("vegetarian","vegan","not vegetarian"))]
 ```
- 
- 
+
 ```{r include=FALSE}
 #medset
   medsset4[, bpmedc := factor(bpmedc,levels = 0:1,	labels = c("Not taking drug"
@@ -305,8 +302,6 @@ saltset4$Na_g_24h_4_10CLAIM_Corrected <- saltset4$Na_mmol_24h_4_10CLAIM_Correcte
  
 ```
 
-
-
 ```{r rearrange 11, message=FALSE, warning=FALSE, include=FALSE}
 
  
@@ -438,10 +433,7 @@ ageset11[,agegr1 := factor(agegr1, levels = 1:5, labels = c("1.5-3 years","4-10 
 
 ```
 
-
-
 The data is then combined into two comprehensive tables.
-
 
 ```{r echo=FALSE}
 #building the tables
@@ -457,9 +449,6 @@ sav4rp <- sav4rp[ medsset4, on = "seriali"]
 
 
 ```
-
-
-
 
 ```{r include=FALSE}
 
@@ -477,7 +466,6 @@ sav11rp <- sav11rp[ medsset11, on = "seriali"]
 
 ```
 
-
 ```{r echo=FALSE}
 
 sav4rp[, Sex := factor(Sex, levels = 1:2, labels = c("Male", "Female"))]
@@ -490,11 +478,13 @@ sav11rp[, Country := factor(Country)]
 
 ```
 
-###  Exclusions 
+### Exclusions
+
 eg hypertensives and pregnant/breastfeeding
 
-I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs. There are no participants who are pregnant or breastfeeding. 
-I have included normotensive untreated individuals. 
+I have excluded those who are taking diuretics, bblockers, ace inhibitors, calcium channel blockers and other bp drugs.
+There are no participants who are pregnant or breastfeeding.
+I have included normotensive untreated individuals.
 
 ```{r echo=FALSE}
 #first remove from years 1-4
@@ -527,21 +517,16 @@ sav11rp <-sav11rp[obpdrug2 =="Not taking drug"]
 saveRDS(sav11rp, file ="sav11rp.rds")
 saveRDS(sav11rp, file ="sav4rp.rds")
 ```
- 
-
-
 
 ## Descriptive data analysis
 
-Here the data is summarised. Mean median, and range for continuous variables. 
+Here the data is summarised.
+Mean median, and range for continuous variables.
 Counts for categorical variables.
 First for years 1-4 then for 9-11.
 
-
-
-Summary Description of the key variables of sodium intake, Total energy intake, and BP
-Show the data. This is the whole dataset.
-
+Summary Description of the key variables of sodium intake, Total energy intake, and BP Show the data.
+This is the whole dataset.
 
 ```{r echo=FALSE, warning=FALSE}
 keydata <- rbind(summary(sav4rp[,Sodiummg]), summary(sav11rp[,Sodiummg]),summary(sav4rp[,TotalEMJ]), summary(sav11rp[,TotalEMJ]),summary(sav4rp[,omsysval]), summary(sav11rp[,omsysval]),summary(sav4rp[,omdiaval]), summary(sav11rp[,omdiaval]))
@@ -568,10 +553,8 @@ boxplot(bpOD, main = "omdiaval 2010 vs 2019", xlab = "year", ylab = "omdiaval")
 
 ```
 
+This is just adults \>18
 
-
-
-This is just adults >18
 ```{r echo=FALSE, warning=FALSE}
 keydataA <- rbind(summary(sav4rp[Age >= 18 ,Sodiummg]), summary(sav11rp[AgeR >= 18,Sodiummg]),summary(sav4rp[Age >= 18,TotalEMJ]), summary(sav11rp[AgeR >= 18,TotalEMJ]),summary(sav4rp[Age >= 18,omsysval]), summary(sav11rp[AgeR >= 18,omsysval]), summary(sav4rp[Age >= 18,omdiaval]), summary(sav11rp[AgeR >= 18,omdiaval]))
 keydataA <- as.data.table(keydataA)
@@ -582,6 +565,7 @@ keydataA
 ```
 
 This is just Male participants
+
 ```{r echo=FALSE}
 keydataM <- rbind(summary(sav4rp[Sex == "Male" ,Sodiummg]), summary(sav11rp[Sex == "Male",Sodiummg]),summary(sav4rp[Sex == "Male" ,TotalEMJ]), summary(sav11rp[Sex == "Male" ,TotalEMJ]),summary(sav4rp[Sex == "Male" ,omsysval]), summary(sav11rp[Sex == "Male" ,omsysval]),summary(sav4rp[Sex == "Male" ,omdiaval]), summary(sav11rp[Sex == "Male" ,omdiaval]))
 
@@ -592,15 +576,9 @@ keydataM
 
 ```
 
-
-
-
-
-
 ### Confounding variables
-are confounders consistent or are they different between the two datasets
-The NDNS dataset was weighted to keep many of these the same between datasets. 
 
+are confounders consistent or are they different between the two datasets The NDNS dataset was weighted to keep many of these the same between datasets.
 
 ```{r echo=FALSE}
 #from pers data
@@ -622,11 +600,15 @@ confounders <- data.table("name" = c("Age","Calciummg","Totalsugarsg","Glucoseg"
 confounders
 
 ```
-They seem to all be significantly different between the datasets! (except calciummg, and lactose)
 
-There is a difference of 9 years in the mean ages. The change in Age might be explained by more younger people being on anti-hypertensive meds. or hypertension being diagnosed earlier
+They seem to all be significantly different between the datasets!
+(except calciummg, and lactose)
 
-There has been a change in the intake of total sugars sucrose, glucose and fructose. 
+There is a difference of 9 years in the mean ages.
+The change in Age might be explained by more younger people being on anti-hypertensive meds.
+or hypertension being diagnosed earlier
+
+There has been a change in the intake of total sugars sucrose, glucose and fructose.
 There has been a change in the intake of soft drinks, tea coffee and water.
 
 ```{r echo=FALSE, warning=FALSE}
@@ -652,15 +634,15 @@ plot(sav11rp[,Country], main = "2019")
 plot(sav4rp[,Country], main = "2010")
 
 ```
-Again significant differences
-Are there time differences in diagnosis of hypertension/treatment between sexes 
-ie are more women now on meds compared with the number of men than previously?
-There appears to be more men excluded in the 1-4 population compared to females, when this is compared to the 2017-19 population. This supports the idea of greater equality in prescribing more recently.
+
+Again significant differences Are there time differences in diagnosis of hypertension/treatment between sexes ie are more women now on meds compared with the number of men than previously?
+There appears to be more men excluded in the 1-4 population compared to females, when this is compared to the 2017-19 population.
+This supports the idea of greater equality in prescribing more recently.
 
 Are people in the diffeernt parts of teh UK more or less likely to be diagnosed in 2019 than in 2008?
 
-
 comparing individual data sets looking for similarity in two
+
 ```{r echo=FALSE}
 #ttests for continuous data
 ttestht <- t.test(sav11rp[,"htval2"],sav4rp[,"htval"])
@@ -674,12 +656,11 @@ confounders2
 
 
 ```
-This table suggests that there is a significant difference between the height, weight, and bmi of the groups.
-The 11 population is shorter by 4 cm and 7 kilos lighter 
-The mean bmi has dropped from 25.86 which is overweight. 
-It is now 23.48 which is in the normal range. 
-This would also highlight a preferential detection of high BP in those overweight.
 
+This table suggests that there is a significant difference between the height, weight, and bmi of the groups.
+The 11 population is shorter by 4 cm and 7 kilos lighter The mean bmi has dropped from 25.86 which is overweight.
+It is now 23.48 which is in the normal range.
+This would also highlight a preferential detection of high BP in those overweight.
 
 ```{r echo=FALSE, warning=FALSE}
 
@@ -706,6 +687,7 @@ catconfounders2 <- data.table("name" = c("vegetarn","SaltChk","SalHowC","SltShow
 catconfounders2
 
 ```
+
 These values identify a significant difference in the number of vegetarians
 
 ```{r echo=FALSE, warning=FALSE}
@@ -737,6 +719,7 @@ catconfounders3 <- data.table("name" = c("ethgrp5","ethgrp2","nssec8","GOR","reg
 
 catconfounders3
 ```
+
 There are differences in ethnicity and regional makeup
 
 ```{r echo=FALSE, warning=FALSE}
@@ -782,7 +765,8 @@ catconfounders4 <- data.table("name" = c("hyper1","hyper140","highbp1","hibp140"
 catconfounders4
 
 ```
-The age groups sh w some discrepency 
+
+The age groups sh w some discrepency
 
 ```{r echo=FALSE, warning=FALSE}
 
@@ -826,11 +810,9 @@ catconfounders5
 
 ```
 
-
 ## Comparison of key variables
+
 ### comparing Na intake calculated from diet
-
-
 
 So has there been a change in intake?
 
@@ -842,9 +824,11 @@ data.table("Var" = c("Na","TEMJ"),"statistic" = signif(c(ttestNa$statistic,ttest
 
 
 ```
+
 It seems that the EMJ intake change is not statistically significant though the sodium intake change is statistically significant
 
-### what about outcome  BP?
+### what about outcome BP?
+
 ```{r echo=FALSE}
 
 
@@ -856,17 +840,16 @@ data.table("Var" = c("Sys","Dia"),"statistic" = signif(c(ttestOS$statistic,ttest
 
 There is a reduction in systolic, with a less significant reduction in diastolic
 
-At first look it would seem that the reduction in sodium intake has resulted in a reduction in systolic blood pressure. Though it may be the EMJ change. 
+At first look it would seem that the reduction in sodium intake has resulted in a reduction in systolic blood pressure.
+Though it may be the EMJ change.
 
-Such a reduction in Na should be accompanied by a reduction if it has any affect on BP. Has something another factor affected the BP change ?
-
-
-
-
+Such a reduction in Na should be accompanied by a reduction if it has any affect on BP.
+Has something another factor affected the BP change ?
 
 ### Linear regression
 
 Simple linear regression equations look for the relationship between the dependant variable, and the independant variable.
+
 ```{r echo=FALSE}
 #linear regression models
 #sodium only
@@ -881,8 +864,10 @@ lm1na11 <- lm(omsysval ~ Sodiummg, sav11rp)
 #plot(lm1na4)
 #plot(lm1na11)
 ```
-There is a  relationship between Na and omsysval. There is a weakly positive gradiant. This appears greater in the more recent data.
 
+There is a relationship between Na and omsysval.
+There is a weakly positive gradiant.
+This appears greater in the more recent data.
 
 ```{r echo=FALSE}
 #linear regression models
@@ -896,11 +881,14 @@ lm1E11
 
 
 ```
-There is a relationship between Total EMJ and omsysval. The positive gradiant appears stronger in 9-11.
 
-### multi variable regression 
+There is a relationship between Total EMJ and omsysval.
+The positive gradiant appears stronger in 9-11.
 
-This uses a model of variables. It can highlight the contributions of each.
+### multi variable regression
+
+This uses a model of variables.
+It can highlight the contributions of each.
 
 ```{r echo=FALSE}
 lm4 <- lm(omsysval ~ Age +Sex +Sodiummg + TotalEMJ + ethgr2 + VitaminDµg, sav4rp)
@@ -915,18 +903,16 @@ lm11
 
 #anova(lm1,lm1a)
 ```
-There are differences in coefficients in the two sets of data. 
+
+There are differences in coefficients in the two sets of data.
 This is not indicative.
-
-
 
 ## Conclusion
 
-There is a significant change to the data due to excluding those on antihypertensives 
-This makes it difficult to infer the meaning of the result of the comparison testing.
+There is a significant change to the data due to excluding those on antihypertensives This makes it difficult to infer the meaning of the result of the comparison testing.
 
-In particular there are changes to sex, age, region, ethnicity on removing those treated with antihypertensives. This suggests there have been changes in the rate of prescribing. It also identifies that these differences have been applied differently across the groups.
+In particular there are changes to sex, age, region, ethnicity on removing those treated with antihypertensives.
+This suggests there have been changes in the rate of prescribing.
+It also identifies that these differences have been applied differently across the groups.
 
-Linear regression identifies a mathematical model which fits to the data. 
-
-
+Linear regression identifies a mathematical model which fits to the data.

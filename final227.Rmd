@@ -1300,7 +1300,7 @@ svyboxplot(zPF~SurveyYear,ndns_1_11dd, na.rm = TRUE,main = "UPF% by survey year"
 
 ```{r figNaandsurveyyear, echo=FALSE, message=FALSE, warning=FALSE}
 #| fig-id: "fig-Na-and-survey-year"
-#| fig-cap: "Na in mg in each annual cohort NDNS(2008-2019)"
+#| fig-cap: "Sodium in mg in each annual cohort NDNS(2008-2019)"
 svyboxplot(Na~SurveyYear,ndns_1_11dd,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
 
 ```
