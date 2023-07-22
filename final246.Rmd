@@ -57,7 +57,7 @@ Signature
 
 ## Dedication {.unnumbered}
 
-To Julie Andrew and Sophie
+To Julie, Andrew and Sophie
 
 for your loving patience and support
 
@@ -67,44 +67,45 @@ for your loving patience and support
 
 Hypertension is associated with exposure to high intake of 'industrially produced edible substances' or UPF, and high Sodium intake.
 This research examines assumptions about salt and UPF.
-What contributes to 'unhealthiness'?
-Will 'reformulation' generate 'healthy UPF'?
-Can this help reduce BP in one part of the the UK?
+Is Sodium the sole cause of this 'unhealthiness'?
+Will 'reformulation' for Sodium generate 'healthy UPF'?
+Can this help reduce BP in one part of the UK?
 
 ### Method
 
-This research uses cross-sectional data with a stratified sample representative of the UK population.
-It is secondary data analysis of the National Dietary and Nutrition Survey (NDNS 2008-2019).
+Cross-sectional data with a stratified sample representative of the UK population is used.
+Data from the National Dietary and Nutrition Survey (NDNS 2008-2019) is analysed.
 
-Using multivariable logistic regression analysis of high sodium intake and high UPF intake against hypertension, secondary end points included regression of sodium intake against UPF intake, age against BP, sodium intake and UPF intake.
+Multivariable logistic regression is used for analysis of high Sodium intake and high UPF intake against hypertension.
+Secondary end points included univariable regression of Sodium intake against UPF intake, and age against BP, Sodium intake and UPF intake.
 
 ### Results
 
-There was an increased odds ratio of hypertension with higher sodium intake (OR=5.57(1.47,21.2)).
+There was an increased odds ratio of hypertension with higher Sodium intake (OR=5.57(1.47,21.2)).
 
 There was a lower odds ratio of hypertension with high UPF intake (OR=0.57(0.34,0.94)).
 
-There was no correlation between UPF intake and sodium intake (beta=0).
+There was no correlation between UPF intake and Sodium intake (beta=0).
 
-There is a strong correlation between age and BP (beta =0.43 (CI 0.41,0.45)), as well as age and sodium intake.
+There is a strong correlation between age and BP (beta =0.43 (CI 0.41,0.45)), as well as age and Sodium intake (beta =1.5 (CI 0.77,2.3)).
 
-There is a strong age gradient of UPF intake (beta= -0.25 (CI -0.26,-0.23)).
+There is a strong negative age gradient of UPF intake (beta= -0.25 (CI -0.26,-0.23)).
 
 ### Conclusion
 
-This study shows that high Na intake is associated with hypertension.
-Reduction of sodium intake may be effective at reducing the overall risk.
+This study shows that high Sodium intake is associated with hypertension.
+Reduction of Sodium intake may be effective at reducing the overall risk of hypertension.
 
-UPF intake is also associated with hypertension.
-This may show reverse causation in this cross-sectional study.
+UPF intake shows negative correlation with hypertension, which may be 'reverse causation' in this cross-sectional study.
 
-Policy should aim to reduce intake of sodium, longitudinal studies may be more effective at identifying the causal relationship between UPF and BP.
+Policy should aim to reduce intake of Sodium.
+Longitudinal studies may be more effective at identifying the causal relationship between UPF and BP.
 
-The lack of association between UPF and sodium intake is odd.
-Most UPF contains more sodium.
-Some UPF contains less sodium.
-This result suggests that the mix of UPF consumed by this population has no net increase in sodium content.
-If this is true, reformulation for low salt would not eliminate the association identified in the main results.
+The lack of association between UPF and Sodium intake is odd.
+Most UPF contains more Sodium.
+Some UPF contains less Sodium.
+The mix of UPF consumed by this population has no net increase in Sodium content.
+Generalising this result, reformulation for low salt would not eliminate the risk of hypertension.
 Public health policy will need to reduce UPF, not simply reformulate.
 
 ### Keywords
@@ -119,7 +120,12 @@ UPF, Sodium, hypertension, reformulation, Nutrition
 
 ## Acknowledgments {.unnumbered}
 
-Thanks to Zoe and Martin
+This dissertation has come about through the hard work of Zoe and Martin.
+Their clear vision has been turned upside down and back to front, by my contorted logic and confused ideas.
+That it is in any way coherent is entirely down to their support, comments and intervention.
+
+The positivity and welcoming engagement has been ennervating for this old cynic.
+It has been such a pleasure that I almost regret coming to the end.
 
 Thanks to Paul for the project which didn't quite come together
 
@@ -155,7 +161,7 @@ library(RefManageR)
 #| tab-id: "table 1"
 #| caption: "Table of abbreviations used"
 
-table1 <- data.table("Abbreviation "=c("AIC","BMI","BP","CHAMPs","CI","CVD","HR","IMD","Na","NCD","NDNS","NOVA","OR","UPF" ),"Term"=c("Akaike Information Criterion","Body Mass Index","Blood Pressure","Cheshire and Merseyside public health  collaborative","Confidence intervals 95% level","Cardiovascular Disease", "Hazard ratio","Index of Multiple Deprivation","Sodium intake in mg",  "Non communicable Disease","National Dietary and Nutrition Survey","NOVA is a classification system, it is not an acronym","Odds Ratio","Ultra Processed Foods"))
+table1 <- data.table("Abbreviation "=c("AIC","BMI","BP","CI","CHAMPs","CVD","HR","IMD","Na","NCD","NDNS","NOVA","OR","UPF" ),"Term"=c("Akaike Information Criterion","Body Mass Index","Blood Pressure","Confidence intervals 95% level","Cheshire and Merseyside public health  collaborative","Cardiovascular Disease", "Hazard ratio","Index of Multiple Deprivation","Sodium intake in mg",  "Non communicable Disease","National Dietary and Nutrition Survey","NOVA is a classification system, it is not an acronym","Odds Ratio","Ultra Processed Foods"))
 table1 <- width(autofit(flextable(table1)), width=5)
 table1 <- set_caption(table1, "Table of Abbreviations used", 
   autonum = run_autonum(seq_id = "tab", bkm = "table1"))
@@ -169,21 +175,28 @@ table1
 417482 people, 15.4% of the population, have hypertension in Cheshire and Merseyside @cardiova.
 Cheshire and Merseyside public health collaborative (CHAMPs) have a plan to reduce blood pressure (BP) by 2029 @highblo2020 .
 The strategy aims to increase 'awareness'.
-This is intended to increase individual compliance with testing and treatment of raised BP.
+This is intended to increase individual compliance with testing and treatment of hypertension (BP \>140).
 This study intends to offer additional opportunities for improving outcomes.
 
+Nutrition has long been identified as a contributor to hypertension and so non communicable disease.
+Sodium is known to be important in the physiology of BP and so is a key target of drug treatment as Rang and Dale @rang1987 describe.
+Monteiro in 2010 @monteiro2009 argues that there is more to food than its food group, or identified macro/micro nutrients.
+He identifies this epidemologically demonstrating that the sum of effects identified from breaking food up into its constituents leaves a gap in the overall effect.
+This gap he calls 'processing'.
+His initial three part food classification was not conclusive, but demonstrated better matching when the 'processed food' catagory was divided in two @monteiro2010 .
+The new category 'Ultra-processed' (UPF) has caused controversy since, but has proven to be effective for study, and discussion.
+
 UPF makes up up to 60% diet in UK especially in the North West of England.
-There is evidence of an association between hypertension and intake of Ultra-processed Foods (UPF) @du2014 and hypertension and Salt intake @cappuccio2015 from studies of different types in multiple countries.
+There is evidence of an association between hypertension and intake of Ultra-processed Foods (UPF) @du2014 @wang2022 @barbosa2022 @mambrini2023 and hypertension and Salt intake @cappuccio2015 @he2010 @strazzullo2009 @graudal2014 @ma2022 from studies of different types in multiple countries.
 Moreira et al @moreira2015 model a scenario where "halving intake of (NOVA) group 3 foods could result in approximately 22,055 fewer deaths" across the UK in 2030.
-Local food policies such as that of Liverpool @liverpoo2018 can make a significant public health impact.
-Byker-Shanks @bykershanks2022 identify the effect it can have on UPF intake, and so might be a way of reducing hypertension at a population level.
 
-Marmot @marmot2022 identifies the external influences in Cheshire and Merseyside which need to be improved to permit individual action to be effective.
-A better understanding of the mechanisms of UPF, such as the interaction with sodium, might help understand one way that Marmot's categories of influence work.
+This might explain why food strategy, such as in Liverpool @liverpoo2018, can make a significant public health impact.
+Byker-Shanks @bykershanks2022 identify the effect of policy reducing UPF intake, potentially reducing hypertension at a population level.
 
-This study assessed prevalence of exposure to sodium and UPF, and hypertension using a nationally representative cross-sectional study, the National Dietary and Nutrition Survey (NDNS) @universityofcambridge2022 .This study has data from the UK from 2008 to 2019.
+This analysis considered exposure to Sodium and UPF, and prevalance of hypertension using a nationally representative cross-sectional study, the National Dietary and Nutrition Survey (NDNS) @universityofcambridge2022 .
+This study has data from the UK from 2008 to 2019.
 It is stratified to be representative of the population of the UK by sex, age, region and index of multiple deprivation (IMD).
-BP, UPF and Sodium intake were recorded, with Age and sex as important background factors.
+BP, UPF and Sodium intake were recorded, with age and sex as important background factors.
 
 I have used STROBE guidance @elm2007 in producing this report.
 This study explored this complex web pulling out strands within it, [diagram 1](fig:diagram%201) shows a possible arrangement of this.
@@ -216,21 +229,23 @@ plot(graphLayout(bp1))
 The epistemological approach of this study is positivist.
 I use a quantitative approach in a mechanistic and deterministic model.
 However, I am aware that this model is incomplete.
-Positivism encourages experimental isolation, control of the experimental environment.
+Using this lens UPF might be identified as comprising of aspects outside a purely biological nutrition model, though it has enough complexity even within its positivist aspects.
 
-Real world dietary change requires understanding interaction with cultural,social and economic factors, not isolation.
-Critical realist and social constructionist studies are needed to complement the information from this study.
-The commercial and social determinants of health are models which have a great deal of impact on exposure to UPF and sodium, and on dietary effects on BP.
+Dietary change requires understanding interaction with cultural,social and economic factors, not positivist experimental isolation.
+Critical realist and social constructionist research complements this research.
+Dahlgren and Whitehead's @dahlgren2021 @dahlgreen2007 @marmot2022 commercial and social determinants of health are models which have a great deal to add to understanding the impact of exposure to UPF and Sodium, and of dietary effects on BP.
 
 ## Positionality
 
-In a positivist paradigm the observer is external to the experiment.
-That there are constructivist aspects to this subject admits that the observer is closer to the model.
-Hence, my positionality is of interest.
-Jafar @jafar2018 argues that understanding the position of the investigator is of interest to understanding quantitative study.
+Food, and diet have constructivist aspects.
+Hence, the observer cannot be isolated from their experiment.
+My positionality, therefore, is of interest.
+Jafar @jafar2018 argues that understanding the position of the investigator is of interest to understanding quantitative study as well as qualitative study.
 
-I bring an attachment to positivist ideals from my biomedical background.
-As an older physician I am aware of social factors impacting health of participants as Evans and Trotter @evans discuss.
+Positivist ideals match from my biomedical background.
+Illich @illich1990 is one of many who have identified that this misunderstands the whole of the effect of medicine.
+Foucault @foucault1976makes clear, and as an older physician I am aware, that social factors impact health of participants as Evans and Trotter @evans also discuss.
+
 I also understand that my perception of the world is from a position of significant privilege.
 I have resources and knowledge which make my position atypical.
 In proceeding, I must be aware of the limitations of the positivist approach, and of this atypical view of the world.
@@ -247,11 +262,11 @@ It is produced in collaboration with a research group with a long established re
 
 ## Rationale
 
-This systematic search, aims to identify papers with information about UPF, sodium and blood pressure informed by PRISMA @page2021.
+This systematic search, aims to identify papers with information about UPF, Sodium and blood pressure informed by PRISMA @page2021.
 
 The rationale for this review is to contribute background and to answering the research question;
 
-What is the evidence that in adults and children across the four home nations of the UK between 2008 and 2019, would exposure to high sodium dietary intake, and or high UPF dietary intake, compared to lower exposure, increase the odds of having a mean systolic blood pressure of over 140mmHg?
+What is the evidence that in adults and children across the four home nations of the UK between 2008 and 2019, would exposure to high Sodium dietary intake, and or high UPF dietary intake, compared to lower exposure, increase the odds of having a mean systolic blood pressure of over 140mmHg?
 
 ## Method
 
@@ -260,8 +275,9 @@ Papers were excluded where the population was specifically of one type, or had a
 Another exclusion criterion was where specific foods were considered.
 
 Scopus @scopus2 , Pubmed , Web of Science and Medline(ovid) @ovid:se were searched.
-Grey literature, especially government reports around NDNS were studied, but they did not fit the inclusion criteria for this literature review.
-The Cochrane database of systematic reviews was accessed.
+Grey literature, especially government reports around NDNS were studied.
+This identified a report from SACN @sacnsta .
+The Cochrane database of systematic reviews was accessed but no additional reviews were found.
 
 The search strategy is included in [table 1](#tab:table2) below.
 The search concentrated on systematic reviews, these identified high quality primary research.
@@ -278,9 +294,9 @@ My search terms
 search1 <- data.table("Name"=c("Date of Search","Number of results" ),
                       "Scopus search"=c("18/6/23","240"),
                       "Medline(Ovid)Search" =c("18/6/23","202"),"Pubmed search"=c("18/6/23","103"),"Web of Science Search" =c("18/6/23","48"),"Total"=c("18/6/23","593"))
-                                                                                                     # ((sodium or salt or "sodium intake") OR ("ultraprocessed food*" OR "ultra-processed food*" OR "ultra processed food*" OR "NOVA food*")) AND ( "blood pressure" OR hypertension OR "cardiovascular disease" OR "cardiovascular risk")AND(cohort OR cross-section* OR prospective or meta-analysis or "systematic review" )                                                  
+                                                                                                     # ((Sodium or salt or "Sodium intake") OR ("ultraprocessed food*" OR "ultra-processed food*" OR "ultra processed food*" OR "NOVA food*")) AND ( "blood pressure" OR hypertension OR "cardiovascular disease" OR "cardiovascular risk")AND(cohort OR cross-section* OR prospective or meta-analysis or "systematic review" )                                                  
 table2 <-flextable(search1)
-table2 <- add_header_lines(table2, values = c("search terms ((\"ultraprocessed food*\" OR \"ultra-processed food*\" OR \"ultra processed food*\" OR \"NOVA food*\")OR (salt OR sodium OR \"sodium intake\")) AND ( \"blood pressure\" OR hypertension OR \"cardiovascular disease\" OR \"cardiovascular risk\")AND(cohort OR cross-section* OR prospective OR meta-analysis OR \"systematic review\")", "Inclusion prospective and observational studies and systematic reviews specifically on hypertension with relevant exposures","Exclusions (\"renal cell cancer\" OR \"gastric cancer\" OR \"multiple sclerosis\" OR dialysis OR DHA OR auto-immunity OR autoimmunity OR diarrhoea OR telomere OR crp OR \"c-reactive\" OR CKD OR \"chronic kidney disease\" OR autosomal OR geneti* OR \"Inflammatory bowel disease\" OR diabetes OR atherosclerosis OR osteoporosis OR angiotensin*  OR aldosteron* OR covid-19 OR gestation* OR stroke OR \"birth weight\" OR hypertensive OR \"immune mechanisms\" OR \"heart failure\"OR taste OR \"cognitive decline\" OR dementia OR mortality OR validation)"))
+table2 <- add_header_lines(table2, values = c("search terms ((\"ultraprocessed food*\" OR \"ultra-processed food*\" OR \"ultra processed food*\" OR \"NOVA food*\")OR (salt OR Sodium OR \"Sodium intake\")) AND ( \"blood pressure\" OR hypertension OR \"cardiovascular disease\" OR \"cardiovascular risk\")AND(cohort OR cross-section* OR prospective OR meta-analysis OR \"systematic review\")", "Inclusion prospective and observational studies and systematic reviews specifically on hypertension with relevant exposures","Exclusions (\"renal cell cancer\" OR \"gastric cancer\" OR \"multiple sclerosis\" OR dialysis OR DHA OR auto-immunity OR autoimmunity OR diarrhoea OR telomere OR crp OR \"c-reactive\" OR CKD OR \"chronic kidney disease\" OR autosomal OR geneti* OR \"Inflammatory bowel disease\" OR diabetes OR atherosclerosis OR osteoporosis OR angiotensin*  OR aldosteron* OR covid-19 OR gestation* OR stroke OR \"birth weight\" OR hypertensive OR \"immune mechanisms\" OR \"heart failure\"OR taste OR \"cognitive decline\" OR dementia OR mortality OR validation)"))
 
 table2 <- set_caption(table2, "Description of Search ", 
   autonum = run_autonum(seq_id = "tab", bkm = "tab2"))
@@ -297,7 +313,7 @@ No time limits, language limits or availability limits were included in the sear
 
 The papers were reviewed by the author only.
 
-The data sought were odds ratios for the effect of UPF or sodium on blood pressure and outcomes of systematic reviews.
+The data sought were odds ratios for the effect of UPF or Sodium on blood pressure and outcomes of systematic reviews.
 
 There is risk of bias due to the single reviewer approach.
 
@@ -329,15 +345,16 @@ searchcht <- grViz(diagram = "digraph flowchart {
   [2]: 'adjusting for overlap 348'    
   [3]: 'comparing with exclusion criteria 56'  
   [4]: 'Systematic Review and UPF 2' 
-  [5]: 'Systematic Review and sodium 4' 
+  [5]: 'Systematic Review and Sodium 4' 
   [6]: 'Cohort Studies 11'
   ")
 print(searchcht)
 ```
 
 These were then reviewed by comparing the titles against the inclusion and exclusion criteria leaving 56.
-6 systematic reviews were identified, one which considered both UPF and sodium intake.
+6 systematic reviews were identified, one which considered both UPF and Sodium intake.
 Some of these calculated odds ratios using meta-analysis.
+The SACN report identified papers within its broader remit.
 
 ## Discussion of literature
 
@@ -360,11 +377,11 @@ Some of these calculated odds ratios using meta-analysis.
 |                                             |                                     |                                 |                                                                                                                  |
 |                                             |                                     |                                 | *a 2.84% (95% CI 0.51--5.08) reduction in PWV*                                                                   |
 +---------------------------------------------+-------------------------------------+---------------------------------+------------------------------------------------------------------------------------------------------------------+
-| Leyvraz @leyvraz2018                        | meta-analysis                       | sodium blood pressure           | 13/18 studies                                                                                                    |
+| Leyvraz @leyvraz2018                        | meta-analysis                       | Sodium blood pressure           | 13/18 studies                                                                                                    |
 |                                             |                                     |                                 |                                                                                                                  |
-|                                             | children                            |                                 | every additional gram of sodium intake per day, systolic blood pressure increased by 0.8 mmHg (95% CI: 0.4, 1.3) |
+|                                             | children                            |                                 | every additional gram of Sodium intake per day, systolic blood pressure increased by 0.8 mmHg (95% CI: 0.4, 1.3) |
 +---------------------------------------------+-------------------------------------+---------------------------------+------------------------------------------------------------------------------------------------------------------+
-| Frias @frías2023                            | systematic review of cohorts        | sodium and BP                   | 2 studies BP                                                                                                     |
+| Frias @frías2023                            | systematic review of cohorts        | Sodium and BP                   | 2 studies BP                                                                                                     |
 |                                             |                                     |                                 |                                                                                                                  |
 |                                             | children                            |                                 | no association systolic BP                                                                                       |
 +---------------------------------------------+-------------------------------------+---------------------------------+------------------------------------------------------------------------------------------------------------------+
@@ -377,36 +394,48 @@ Some of these calculated odds ratios using meta-analysis.
 
 ### UPF and BP
 
-Three systematic reviews, those of Mambrini et al,Barbosa et al, and Wang et al highlight the risk of hypertension with high UPF.
+Three systematic reviews, those of Mambrini et al @mambrini2023 ,Barbosa et al @barbosa2022 , and Wang et al @wang2022 highlight the risk of hypertension with high UPF.
 They also identify that the effect is not always evident.
 Wang's meta-analysis was used to calculate the sample size for this study.
 All these reviews appeared of good quality following guidance.
+Mambrini and Barbosa were restricted to a narrative description of the results, both identified broader cardiovascular outcomes.
+They identified heterogeneity in definitions of UPF and of differences in populations as a difficulty for comparison.
 
 Mambrini et al, in their systematic review, identify that few papers attempt to link UPF with hypertension.
 They identify a positive correlation.
-Their systematic review identifies Monge, Scaranni, and Mendonça, whose three cohort studies of middle aged adults were followed up for between 2.2 and 9.1 years.
+Their systematic review identifies Monge et al @monge2021 , Scaranni @ScaranniPatriciadeOliveiradaSilva2021Ufci , and Mendonça @DeDeusMendonçaRaquel2017Ufca , whose three cohort studies of middle aged adults were followed up for between 2.2 and 9.1 years.
+This was a well described study which appears to comply with best guidance for systemic review.
 
 Scaranni used Brazil's ELSA study, in middle aged civil servants, finding that higher UPF had a marginally greater risk of developing hypertension (OR = 1.17; 95% CI: 1.00, 1.37) compared with lower intake.
+They measured Sodium 24 hour urinary excretion, but found no difference between UPF consumption groups.
+They include Sodium in some multivariable models, but the discussion only considers the general cases 'UPF is high in Sodium' and 'People in Brazil eat lots of UPF'.
 
 Monge found no association between categories of UPF, from ≤20% to \>45% energy/d and incident hypertension.
 This study used mexican female teachers, this group may have a different exposure and outcome profile to a more general population.
+Sodium intake was included in their table 1 but they made no comment on how it might relate to hypertension or UPF consumption.
 
 Mendonça in Spain found an affect on hypertension (HR = 1.21, 95% CI: 1.06, 1.37, Ptrend = 0.004) in adults.
 This sample had a strong effect on Wang's meta analysis with a weighting of 16.72 from 9 studies.
+Mendonça identified that young men have high UPF intakes, and young men have high Sodium intakes based on reports of their diet.
+Their Sodium intake values were adjusted for total energy intake.
+Their key finding was that the same tertile for UPF intake also had a raised BP also had a raised Sodium intake.
+Having adjusted for energy they did not include it in their multi-variate analysis.
 
-Wang's meta analysis included six more studies; Ivancovsky-Wajcman OR = 1.53, (1.07- 2.19) in the USA, Levigne-Robichaud OR =0·99 (0·59, 1·68) in Canada, Martinez-Steele OR =1.19 (1.03,1.38) in the USA, Nardocci OR = 1.60, (1.26--2.03) in Canada, Nasreddine OR =3.10, (0.84,16.66)in Lebanon, Rezende-Alves OR =1.35 (1.01,1.81) in Brazil.
+Wang's meta analysis included six more studies; Ivancovsky-Wajcman @IvancovskyWajcmanDana2021Ufia OR = 1.53, (1.07- 2.19) in the USA, Lavigne-Robichaud @Lavigne-RobichaudMathilde2018Dqii OR =0·99 (0·59, 1·68) in Canada, Martinez-Steele @martinezsteele2022 OR =1.19 (1.03,1.38) in the USA, Nardocci @nardocci2021 OR = 1.60, (1.26--2.03) in Canada, Nasreddine @NasreddineLara2018Ampd OR =3.10, (0.84,16.66)in Lebanon, Rezende-Alves @rezende-alves2021 OR =1.35 (1.01,1.81) in Brazil.
 
 Of these studies, the study by Nasreddine was a very small localised study, as shown by the wide confidence interval.
-Monge and Levigne-Robichaud also had equivocal results.
-Levigne-Robichaud's sample was a specific population in Canada.
+Monge and Lavigne-Robichaud also had equivocal results.
+Lavigne-Robichaud's sample was a very specific sub-population in Canada.
 
 Barbosa identified a different group of studies.
-Conceiacao had a population of 64, Martinez-Peres 5636, Martinez-Steele 6385,and Smiljanec 40.
+Da Conceição @DaConceição2019512 (n= 64) states that individuals with higher minimally processed diet had higher sodium intakes, but there was no association of hypertension with UPF.
+Martinez-Peres @martinez-perez2021 (n=5636) found no statistical significant change in BP with UPF and considered Sodium only in comparison across other classification systems.
+Martinez-Steele @martinez-steele2023 6385,and Smiljanec @smiljanec2020 40.
 No meta-analysis was done.
 The studies included a wider range of outcomes making it hard to compare results.
-The narrative outcome was a similar positive correlation, reportedly for salt and UPF.
+The narrative outcome was a similar positive correlation.
 
-Shim demonstrated the effect on hypertension in Korea, despite the highest tertile percentage UPF being only \>28.55%.
+Shim @shimConsumptionUltraProcessedFood2022 demonstrated the effect on hypertension in Korea, despite the highest tertile percentage UPF being only \>28.55% much less than in European and US studies.
 
 +------------------------------------------------------+------------------------------------+---------------------------------------+---------------------------------------------------------------------------------------------+
 | First Author                                         | Study Type                         | Subject                               | Results                                                                                     |
@@ -463,9 +492,9 @@ Shim demonstrated the effect on hypertension in Korea, despite the highest terti
 |                            |                               |                              |                                                                                                                                                                       |
 |                            | Adults                        |                              | *ACM: HR = 1.16, 95% CI = 1.03-1.30; CVDEs: HR = 1.12, 95% CI = 1.02-1.24*                                                                                            |
 +----------------------------+-------------------------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Ma @ma2022                 | meta-analysis                 | urinary sodium and CVD       | 6 prospective studies                                                                                                                                                 |
+| Ma @ma2022                 | meta-analysis                 | urinary Sodium and CVD       | 6 prospective studies                                                                                                                                                 |
 |                            |                               |                              |                                                                                                                                                                       |
-|                            | Healthy adults                |                              | Each daily increment of 1000 mg in sodium excretion was associated with an 18% increase in cardiovascular risk (hazard ratio, 1.18; 95% CI, 1.08 to 1.29),            |
+|                            | Healthy adults                |                              | Each daily increment of 1000 mg in Sodium excretion was associated with an 18% increase in cardiovascular risk (hazard ratio, 1.18; 95% CI, 1.08 to 1.29),            |
 +----------------------------+-------------------------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |                            | nb BP is Blood Pressure       | nb CI is confidence interval | nb CVD is cardiovascular disease                                                                                                                                      |
 |                            |                               |                              |                                                                                                                                                                       |
@@ -474,29 +503,29 @@ Shim demonstrated the effect on hypertension in Korea, despite the highest terti
 
 : Review papers Sodium and BP
 
-The systematic reviews identified in the search include Barbosa, and D'Elia.
-Leyvraz and Frias concentrate on effects in children where the effects were equivocal.
+The systematic reviews identified in the search include Barbosa @barbosa2022 , and D'Elia @delia2018 .
+Leyvraz @leyvraz2018 and Frias @frías2023 concentrate on effects in children where the effects were equivocal.
 These reviews appeared of good quality with appropriate inclusion and exclusion criteria.
 
-He, Graudal and Strazzullo were not identified in this search but were referenced in the other papers.
+He @he2010 , Graudal @graudal2014 and Strazzullo @strazzullo2009 were not identified in this search but were referenced in the other papers.
 
-He in a meta-analysis of 11 papers, identifies reduction in BP with reduction in sodium intake.
-Graudal reports that sodium reduction can go too far, identifying a 'j'-shaped curve.
-He identifies the inclusion of papers with big effect sizes, and short follow up in Graudal as contributing to their identification of a negative effect of very low sodium intakes.
+He in a meta-analysis of 11 papers, identifies reduction in BP with reduction in Sodium intake.
+Graudal reports that Sodium reduction can go too far, identifying a 'j'-shaped curve.
+He identifies the inclusion of papers with big effect sizes, and short follow up in Graudal as contributing to their identification of a negative effect of very low Sodium intakes.
 
 \
 Graudal et al.
-Studied cohort studies as there were no RCTs of increased sodium intake.
+Studied cohort studies as there were no RCTs of increased Sodium intake.
 They found data from 23 cohort studies (n=274,683).
-They showed acute cardiac events (ACM) and cerebrovascular events CVDE were increased in high sodium intake compared with usual sodium intake *(ACM: HR = 1.16, 95% CI = 1.03-1.30; CVDEs: HR = 1.12, 95% CI = 1.02-1.24)*.
+They showed all cause mortality (ACM) and cerebrovascular events (CVDE) were increased in high Sodium intake compared with usual Sodium intake *(ACM: HR = 1.16, 95% CI = 1.03-1.30; CVDEs: HR = 1.12, 95% CI = 1.02-1.24)*.
 
 Their findings identify that there might be 'too much' salt reduction possible.
-They provide an explanation as to how low sodium levels may causes issues.
+They provide an explanation as to how low Sodium levels may causes issues.
 
-D'Elia et al, in their systematic review, look at arterial stiffness pressure wave velocity 'PWV' and show that this increases with salt intake.
-This arterial stiffness is potentially more sensitive to sodium intake than BP.
+D'Elia et al, in their systematic review, look at arterial stiffness pressure wave velocity (PWV) and show that this increases with salt intake.
+This arterial stiffness is potentially more sensitive to Sodium intake than BP.
 They included 11 studies, of 14 cohorts and 431 participants studied over 1-6 weeks.
-Reducing sodium intake by 89.3mmol/day was associated with 2.84% (CI0.51-5.08) reduction in PWV.
+Reducing Sodium intake by 89.3mmol/day was associated with 2.84% (CI0.51-5.08) reduction in PWV.
 
 D'Elia's results show that BP is less accurately predicted than arterial stiffness.
 This may be a cause of the equivocal results found by studies looking at BP.
@@ -504,18 +533,18 @@ This may be a cause of the equivocal results found by studies looking at BP.
 Straluzzo et al identified 19 cohort samples, with 117025 participants followed for 3.5-19 years, resulting in over 11000 vascular events.
 Identifying small, but statistically significant relative risk values.
 
-Ma et al studied 24 hour sodium excretion.
+Ma et al studied 24 hour Sodium excretion.
 This is more reliable than reported intake, or intake calculated from food values.
 Their older group was studied for 8.8 years.
-An increase of 1000 mg/day in sodium excretion was associated with an 18% increase in cardiovascular risk (hazard ratio, 1.18; 95% CI, 1.08 to 1.29).
+An increase of 1000 mg/day in Sodium excretion was associated with an 18% increase in cardiovascular risk (hazard ratio, 1.18; 95% CI, 1.08 to 1.29).
 
-These papers agree that sodium intake is associated with increased BP and cardiovascular issues.
+These papers agree that Sodium intake is associated with increased BP and cardiovascular issues.
 
 ## Literature review Conclusion
 
 Of the identified papers the majority describe 2 elements out of the 3 , UPF or salt intake or BP/ CVD, this is the gap in the literature which the current is intended to address.
 
-They show an odds ratio for CVD with raised sodium intake and hypertension with high UPF intake.
+They show an odds ratio for CVD with raised Sodium intake and hypertension with high UPF intake.
 They suggests BP is an uncertain outcome measurement.
 Papers often look to CVD outcomes as stronger endpoints.
 
@@ -531,9 +560,9 @@ This study also gives the opportunity to consider if there are associated factor
 
 Using PICO @bruce2018 approach,
 
-In adults and children across the four home nations of the UK between 2008 and 2019, how much exposure to high sodium dietary intake, and or high UPF dietary intake, compared to lower exposure, increased the odds of having a mean systolic blood pressure of over 140mmHg?
+In adults and children across the four home nations of the UK between 2008 and 2019, how much exposure to high Sodium dietary intake, and or high UPF dietary intake, compared to lower exposure, increased the odds of having a mean systolic blood pressure of over 140mmHg?
 
-In addition it may be possible to consider, if there is evidence of interaction between these and is UPF or sodium most important in these changes?
+In addition it may be possible to consider, if there is evidence of interaction between these and is UPF or Sodium most important in these changes?
 
 ## Objectives
 
@@ -541,7 +570,7 @@ In addition it may be possible to consider, if there is evidence of interaction 
 
 2 Descriptive analysis of participants from NDNS with amalgamation of data across the rolling programme.
 
-3 Analysis of exposure to UPF and sodium, and prevalence of BP \>140mmHg using regression models with associated data analysis.
+3 Analysis of exposure to UPF and Sodium, and prevalence of BP \>140mmHg using regression models with associated data analysis.
 
 4 Discussion of implications of results in answer to the research question, Public health implications and actions.
 Also in relation to limitations of cross- sectional studies, and available data, as well as suggestions for further research
@@ -552,7 +581,7 @@ Also in relation to limitations of cross- sectional studies, and available data,
 
 ## Study Setting and Design
 
-This analysis intends to analyse the association between sodium intake, UPF intake and BP.
+This analysis intends to analyse the association between Sodium intake, UPF intake and BP.
 This is a secondary data analysis of national cross sectional data from the National Dietary and Nutritional Survey (NDNS @universityofcambridge2022).
 
 The NDNS was commissioned in collaboration between government departments responsible for health and for food production.
@@ -584,7 +613,7 @@ Each year the sample is slightly different due to differential uptake.
 Oversampling is used to control this.
 
 The relationship between salt and systolic blood pressure may be different in individuals with pathologically high BP.
-Those taking BP controlling medications may have a different relationship to sodium and UPF and so were excluded for analysis.
+Those taking BP controlling medications may have a different relationship to Sodium and UPF and so were excluded for analysis.
 
 ## Exposure Variables
 
@@ -592,17 +621,17 @@ The participants recorded their food intake as a food diary.
 Four days of the diary including a weekend day are used for each participant.
 They record food and portion size as well as where food was eaten.
 
-Based on the food and drink intake reported and with a composition data table, the NDNS team have estimated the daily intake of food by group, and large range of nutrients including sodium.
+Based on the food and drink intake reported and with a composition data table, the NDNS team have estimated the daily intake of food by group, and large range of nutrients including Sodium.
 
 ### Sodium estimation
 
-This analysis used the daily sodium intake in mg from NDNS.
+This analysis used the daily Sodium intake in mg from NDNS.
 This value reflects the expected content of standard foods calculated from the diary entry.
 
-Serum sodium values are available for the early dataset, but not the later one.
-24 urinary sodium is a better indicator of dietary sodium but values are not available across the whole time period.
+Serum Sodium values are available for the early dataset, but not the later one.
+24 urinary Sodium is a better indicator of dietary Sodium but values are not available across the whole time period.
 
-WHO recommended sodium intake is less than 3000mg sodium and Du et al @du2014 used categories of moderate and high intake at 5000mg and 6000mg, these categories were used for sodium.
+WHO recommended Sodium intake is less than 3000mg Sodium and Du et al @du2014 used categories of moderate and high intake at 5000mg and 6000mg, these categories were used for Sodium.
 
 ### UPF
 
@@ -1154,11 +1183,11 @@ There is a gradient in deprivation with more exposure in the most deprived group
 England's South East has 13% of those with high UPF intake.
 With 11% in the North West.
 
-The population exposed to Na \>5000mg has only 73 out of 14217 participants.
+The population exposed to Sodium \>5000mg has only 73 out of 14217 participants.
 An exposure frequency of 0.5%.
 61% are 18-35, and 80% male .
 The least deprived makes up 5.2% of the participants compared with 39% of the most deprived.
-The north has 46% of those with high Na intake, much the highest.
+The north has 46% of those with high Sodium intake, much the highest.
 
 ### Sensitivity to Survey Year
 
@@ -1232,7 +1261,7 @@ tablecat
 ```
 
 The exposure variables were compared across annual waves.
-Most people have sodium exposure less than 3000mg.
+Most people have Sodium exposure less than 3000mg.
 In year one this was 81%, with only 0.9% exposed to more than 5000mg.
 By year eleven 92% are reporting less than 3000mg, and 0.5% over 500mg.
 
@@ -1255,7 +1284,7 @@ tblkeydata <- set_caption(tblkeydata, "Exposure by survey year from National Die
 
 ```
 
-Results were illustrated by plots against survey year, [figure 4](fig:fig-upf-and-survey-year) showed similarity between the waves for UPF intake and [figure 5](fig:fig-Na-and-survey-year) showed sodium exposure similarity between waves.
+Results were illustrated by plots against survey year, [figure 4](fig:fig-upf-and-survey-year) showed similarity between the waves for UPF intake and [figure 5](fig:fig-Na-and-survey-year) showed Sodium exposure similarity between waves.
 
 ```{r figupfandsurveyyear, echo=FALSE, message=FALSE, warning=FALSE}
 #| fig-id: "fig-upf-and-survey-year"
@@ -1318,7 +1347,7 @@ Then multivariable regression is used.
 Mathematical models containing explanatory variables are constructed and compared using 'goodness of fit' statistics.
 
 In the simplest model, by calculation using a Chi squared 2\*2 table, the odds ratio for hypertension in participants exposed to UPF \>63% is 0.5.
-The odds ratio for hypertension in participants exposed to Na \>5000mg is 1.45.
+The odds ratio for hypertension in participants exposed to Sodium \>5000mg is 1.45.
 These results take no account of weighting, or confounding.
 
 ```{r chisq, echo=FALSE, message=FALSE, warning=FALSE}
@@ -1340,7 +1369,7 @@ hyp2chi <- svychisq(~hyp+ zPF2, ndns_1_11dd, na.rm=TRUE)
 lm1E <- svyglm(BP ~ zPF, ndns_1_11dd)
 lm1Et <- tbl_regression(lm1E)
 #univariable regression models
-#sodium only
+#Sodium only
 lm1na <- svyglm(BP ~ Na, ndns_1_11dd)
 lm1nat <- tbl_regression(lm1na)
 
@@ -1356,9 +1385,9 @@ lmEAt <- tbl_regression(lmEA)
 lmNaA <- svyglm(Na ~ Age, ndns_1_11dd)
 lmNaAt <- tbl_regression(lmNaA)
 
-#row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Na"))
-#row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Na"))
-#as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt),group_header = c("BP/Na","UPF/Na","UPF/bp","UPF/Age","Age/BP","Age/Na")))
+#row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Sodium"))
+#row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Sodium"))
+#as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt),group_header = c("BP/Sodium","UPF/Sodium","UPF/bp","UPF/Age","Age/BP","Age/Sodium")))
 ```
 
 Univariable regression is adjusted for weighted survey samples.
@@ -1366,7 +1395,7 @@ Identified important relationships within the data.
 Confounding plays a part in these results.
 
 The result for Sodium against UPF shows that there is no linear relationship between Sodium and UPF, in this table [Table 4.4.1](tab:tbl-univariable-regressions).
-UPF compared to Na also shows a zero beta value indicating no linear relationship.
+UPF compared to Sodium also shows a zero beta value indicating no linear relationship.
 
 UPF does show a negative relationship with BP, which is statistically significant, beta = -0.19 (CI -0.22,-0.15).
 
@@ -1374,7 +1403,7 @@ There is also a negative relationship for UPF with Age, again statistically sign
 
 Age has a relationship with BP with a statistically significant positive gradient beta= 0.43 (CI 0.41,0.45).
 
-There is also a positive relationship with Na, which is also statistically significant 1.5 (CI 0.77,2.3).
+There is also a positive relationship with Sodium, which is also statistically significant 1.5 (CI 0.77,2.3).
 
 ```{r tblunivariableregressions, echo=FALSE, message=FALSE, warning=FALSE}
 #| tab-id: "tbl-more-univariable-regressions"
@@ -1384,7 +1413,7 @@ There is also a positive relationship with Na, which is also statistically signi
 lm1bmi <- svyglm(BP ~ bmival, ndns_1_11dd)
 lm1bmit <- tbl_regression(lm1bmi)
 #univariable regression models
-#sodium only
+#Sodium only
 lm1Ag1 <- svyglm(BP ~ agegad3, ndns_1_11dd)
 lm1Ag1t <- tbl_regression(lm1Ag1)
 
@@ -1418,14 +1447,14 @@ lmzPFIt <- tbl_regression(lmzPFI)
 lmBPI <- svyglm(BP ~ IMD, ndns_1_11dd)
 lmBPIt <- tbl_regression(lmBPI)
 #row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Na"))
-#row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Na"))
+#row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Sodium"))
 univariablesUPF <-tbl_stack(list(lmEnat,lmEAt,lmEst,lmEbmit,lmzPFIt) )
 univariablesNa <- tbl_stack(list(lmNaAt,lmNaAgt,lmNabmt, lmNaIt))
 univariablesBP <- tbl_stack(list(lm1Et,lm1nat,lmAt,lm1Ag1t,lm1bmit, lmBPIt))
 
 univariables2 <- tbl_merge(list(univariablesBP,univariablesUPF,univariablesNa),tab_spanner = c("**BP**","**UPF**", "**Sodium**"))
 univariables2 <- as_flex_table(univariables2)
-#univariables <- as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt,lm1bmit,lm1Ag1t,lmedt,lmEbmit,lmEst,lmEedt,lmNabmt,lmNaAgt,lmNaedt),group_header = c("BP/Na","UPF/Na","UPF/bp","UPF/Age","Age/BP","Age/Na","BP/bmi","BP/Agg1","BP/ed","UPF/bmi","UPF/age","UPF/ed","Na/bmi","Na/Agg","Na/ed")))
+#univariables <- as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt,lm1bmit,lm1Ag1t,lmedt,lmEbmit,lmEst,lmEedt,lmNabmt,lmNaAgt,lmNaedt),group_header = c("BP/Sodium","UPF/Sodium","UPF/bp","UPF/Age","Age/BP","Age/Sodium","BP/bmi","BP/Agg1","BP/ed","UPF/bmi","UPF/age","UPF/ed","Sodium/bmi","Sodium/Agg","Sodium/ed")))
 univariables2<- set_caption(univariables2, "Univariable Regression (NDNS data 2008-2019)", autonum = run_autonum(seq_id = "tab", bkm = "tab8"))
 univariables2
 #png("/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/univariables.png")
@@ -1436,7 +1465,7 @@ univariables2
 Multivariable regression models were constructed.
 They are regressed against hypertension in patients who are not on BP reducing medication.
 
-The model, "Sodium Only", includes sodium as the exposure variable.
+The model, "Sodium Only", includes Sodium as the exposure variable.
 The odds ratio for the group taking between 5000mg and 6000mg per day is statistically significantly different from those taking less than 3000mg per day.
 There is an odds ratio of 5.20 (CI 1.39,19.5) for this group.
 
@@ -1456,7 +1485,7 @@ lm1AS <- svyglm(hyp ~  Sex +BMI +agegad3+educfinh + IMD +SurveyYear,family = bin
 
 theme_gtsummary_mean_sd()
 
-#sodium only
+#Sodium only
 lmna <- svyglm( hyp ~ hiNa  +Sex +agegad3 + BMI+educfinh+  IMD+SurveyYear ,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
 
 lmnaE <- svyglm(hyp ~ hiNa +Sex +agegad3+ zPF3 + BMI +educfinh+ IMD +SurveyYear,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
@@ -1470,7 +1499,7 @@ lmME <- svyglm( hyp~ zPF3 +agegad3+Sex + BMI +educfinh + IMD +SurveyYear,family 
 
 ```{r tblmultivariableoutputsbp, echo=FALSE, message=FALSE, warning=FALSE}
 #| tab-id: "tbl-multivariable-outputs-bp"
-#| tbl-cap: "Table of multivariable regression against BP to identify the effects relating to Na and UPF NDNS data 2008-2019"
+#| tbl-cap: "Table of multivariable regression against BP to identify the effects relating to Sodium and UPF NDNS data 2008-2019"
 #lm1ASt <-tbl_regression(lm1AS,include=c(hiNa,NOVA_Epct_opti_4) ,exponentiate = TRUE)
 lmnat <- tbl_regression(lmna,include=hiNa,exponentiate = TRUE, label = list( hiNa ~ "Sodium Intake mg"))
 #lmnat$model_obj$R
@@ -1480,10 +1509,10 @@ lmnaEt <- tbl_regression(lmnaE,include=c(hiNa,zPF3),exponentiate = TRUE, label =
 lmMEt <- tbl_regression(lmME,include=zPF3,exponentiate = TRUE, label = list(zPF3 ~ "Ultraprocessed Food %"))
 #lmMEt <- add_glance_table(lmMEt,include = c( AIC))
 
-multivariables <- tbl_merge(list(lmnat,lmMEt,lmnaEt), tab_spanner = c("Na only","UPF only","Na and UPF"))
+multivariables <- tbl_merge(list(lmnat,lmMEt,lmnaEt), tab_spanner = c("Sodium only","UPF only","Sodium and UPF"))
 #multivariables <- tbl_stack(multivariables)    
 multivariables <- as_flex_table( multivariables )
-multivariables<- set_caption(multivariables , caption = "Table of multivariable regression against BP to identify the effects relating to Na and UPF NDNS data 2008-2019", autonum = run_autonum(seq_id = "tab", bkm = "tab9"))
+multivariables<- set_caption(multivariables , caption = "Table of multivariable regression against BP to identify the effects relating to Sodium and UPF NDNS data 2008-2019", autonum = run_autonum(seq_id = "tab", bkm = "tab9"))
 
  #multivariables <- tbl_stack(multivariables,AICt)
 multivariables <- add_footer_row(multivariables, values = c("AIC",round(lmna$aic,2),round(lmME$aic,2),round(lmnaE$aic,2)), colwidths = c(1,3,3,3))
@@ -1501,10 +1530,10 @@ multivariables
 
 Using the AIC statistic assessing goodness of fit for each model gives another way of understanding the comparative effects between variables.
 The lowest scored model is the optimal model.
-The 'best' of these models is that with only sodium included "Na only".
+The 'best' of these models is that with only Sodium included "Sodium only".
 The UPF models both being further away from the lowest value.
 
-Of the difference between the lowest scoring model and the highest 70/30 is due to the sodium.
+Of the difference between the lowest scoring model and the highest 70/30 is due to the Sodium.
 the additional effect of UPF is in proportion to this.
 
 \newpage
@@ -1513,17 +1542,17 @@ the additional effect of UPF is in proportion to this.
 
 ## Key Results
 
-This analysis shows a statistically significant correlation between high Na intake and hypertension .
-There was an increased odds ratio of hypertension with higher sodium intake (OR=5.57(1.47,21.2)).
+This analysis shows a statistically significant correlation between high Sodium intake and hypertension .
+There was an increased odds ratio of hypertension with higher Sodium intake (OR=5.57(1.47,21.2)).
 Between high UPF and hypertension there was a lower odds ratio of hypertension with high upf intake (OR=0.57(0.34,0.94)).
 This is present in a combined multivariable logistic regression model.
 This technique helps control explanatory variables.
 
-The effect is also present in the multivariable logistic regression model of each individual variable, for sodium this is OR=5.20(CI 1.39,19.5), and for UPF OR=0.60(CI 0.36,0.99).
+The effect is also present in the multivariable logistic regression model of each individual variable, for Sodium this is OR=5.20(CI 1.39,19.5), and for UPF OR=0.60(CI 0.36,0.99).
 
 Sex and age contribute the largest effects.
 
-In univariable analysis with no controlling for confounding or explanatory variables, there was no correlation between UPF intake and sodium intake (beta=0).
+In univariable analysis with no controlling for confounding or explanatory variables, there was no correlation between UPF intake and Sodium intake (beta=0).
 There was a strong correlation between age and BP (beta =0.43 (CI 0.41,0.45)), as well as age and Sodium intake.
 There was a strong age gradient of UPF intake (beta= -0.25 (CI -0.26,-0.23)).
 
@@ -1583,12 +1612,12 @@ BMI is no different, and educational attainment is also unaffected.
 The populations do change over time as some of the added variables do show statistical significant changes.
 
 In populations with exclusions the careful sample selection and weighting are overcome by the biasing effect of different selections.
-Selecting for BP, UPF or sodium changes the cohort sex balance, age range and IMD pattern making these samples less representative.
+Selecting for BP, UPF or Sodium changes the cohort sex balance, age range and IMD pattern making these samples less representative.
 
 ## Interpretation
 
-Participants with high Na \>5000mg are more likely to have hypertension.
-He @hefjm , Graudal @graudal2014 , Strazzullo @strazzullo2009 , inform us that high Na intake is contributing to high BP.
+Participants with high Sodium \>5000mg are more likely to have hypertension.
+He @hefjm , Graudal @graudal2014 , Strazzullo @strazzullo2009 , inform us that high Sodium intake is contributing to high BP.
 However, causation cannot be identified in this study.
 This seems to be the larger effect with the change in AIC being greater than the change for UPF.
 
@@ -1596,7 +1625,7 @@ Low UPF intake is correlated with high BP.
 Only correlation is certain, and reverse correlation may be an issue.
 Wang @wangAssociationUltraprocessedFood2022 , Barbosa @barbosa2022 , and Mambrini @mambrini2023 all find a positive correlation using longitudinal studies such as those of Scaranni @ScaranniPatriciadeOliveiradaSilva2021Ufci and Mendonça @mendoncaUltraProcessedFoodConsumption2017 .
 The descriptive data shows that those with \>63% UPF are a peculiar subgroup.
-They are different in age from those with high sodium or high BP.
+They are different in age from those with high Sodium or high BP.
 
 ### High UPF intake
 
@@ -1607,20 +1636,20 @@ Other European countries are still fighting to retain a different food culture, 
 Colombet @ColombetZoé2021Dass highlights countries in the rest of the world at differing levels of 'nutrition transition'.
 This might be influenced by the degree of 'westernisation'/'internationalization'/ or 'capitalist colonialisation' into local culture, as well as by more general socio-economic factors @colombet2022 .
 
-### UPF and sodium
+### UPF and Sodium
 
-One of the odd findings is that there is no relationship between % UPF and sodium intake.
+One of the odd findings is that there is no relationship between % UPF and Sodium intake.
 Webster et al @websterSystematicSurveySodium2010 in Australia, and Ni Murchu @nimhurchu2011 looking at 44,000 foods in the UK, show that UPF are high in salt.
-If UPF is 'high in salt' then high UPF should be correlated with sodium and BP.
+If UPF is 'high in salt' then high UPF should be correlated with Sodium and BP.
 This contradictory finding that there is no correlation suggests that UPF varies in quality.
 
 The highest salt intakes are amongst the group with the highest UPF intakes, but there may be a qualitative difference in the intake.
 Rauber et al @rauber2019 and @rauber2020 using this dataset identified high free sugar intake leading to obesity and type 2 diabetes, from drinking large quantities of artificially sweetened beverages.
 As Hall @hall2019 demonstrated in a randomised controlled trial, UPF intake is affecting the choice to eat.
-Therefore, it is not as simple as high UPF leads to high sodium leads to hypertension.
+Therefore, it is not as simple as high UPF leads to high Sodium leads to hypertension.
 Hence, simple reformulation, to reduce salt intake, will not be effective.
 
-The effect of sodium is augmented by that of UPF.
+The effect of Sodium is augmented by that of UPF.
 The two together is greater than either individually
 
 ### A synergistic effect
@@ -1657,7 +1686,7 @@ Qualitative approaches might also be engaged, perhaps in a mixed methods approac
 #### Public Health Policy ideas
 
 This study aims to inform local policy to reduce BP and so Non-Communicable Disease.
-If UPF and sodium intake increase the risk of hypertension then policy to reduce exposure might deliver change at a population level.
+If UPF and Sodium intake increase the risk of hypertension then policy to reduce exposure might deliver change at a population level.
 This study supports the case for a place based food strategy approach @liverpoo2018 .
 
 Policy is an 'upstream' approach.
@@ -1699,12 +1728,12 @@ IMD differences are harder to control.
 
 In summary,
 
-In this representative sample of adults and children across the four home nations of the UK between 2008 and 2019, exposure to higher sodium dietary intake, and lower UPF dietary intake, increased the odds of having a mean systolic blood pressure of over 140mmHg.
+In this representative sample of adults and children across the four home nations of the UK between 2008 and 2019, exposure to higher Sodium dietary intake, and lower UPF dietary intake, increased the odds of having a mean systolic blood pressure of over 140mmHg.
 
 Combining the two exposures had a larger than expected effect on the 'goodness of fit' of the model.
 This suggests a broader effect than nutrition alone, possibly measuring some of the economic and cultural aspects of UPF.
 
-UPF intake in this study was not correlated with high sodium intake, suggesting caution around models proposing reformulation as an effective approach to reducing BP.
+UPF intake in this study was not correlated with high Sodium intake, suggesting caution around models proposing reformulation as an effective approach to reducing BP.
 
 ### Further Recommendations
 
