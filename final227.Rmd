@@ -1507,7 +1507,7 @@ lmME <- svyglm( hyp~ zPF3 +agegad3+Sex + BMI +educfinh + IMD +SurveyYear,family 
 lmnat <- tbl_regression(lmna,include=hiNa,exponentiate = TRUE, label = list( hiNa ~ "Sodium Intake mg"))
 #lmnat$model_obj$R
 #lmnat <- add_glance_table(lmnat,include = c( AIC))
-lmnaEt <- tbl_regression(lmnaE,include=c(hiNa,zPF3),exponentiate = TRUE, label = list(zPF3 ~  "UpF %", hiNa ~ "Sodium Intake mg"))
+lmnaEt <- tbl_regression(lmnaE,include=c(hiNa,zPF3),exponentiate = TRUE, label = list(zPF3 ~  "UPF %", hiNa ~ "Sodium Intake mg"))
 #lmnaEt <- add_glance_table(lmnaEt,include = c( AIC))
 lmMEt <- tbl_regression(lmME,include=zPF3,exponentiate = TRUE, label = list(zPF3 ~ "UPF %"))
 #lmMEt <- add_glance_table(lmMEt,include = c( AIC))
@@ -1529,7 +1529,7 @@ multivariables
 #save_as_docx(multivariables, width=5, path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/multivariables.docx")
 ```
 
-### Relative Effect SIze calculation
+### Relative Effect Size calculation
 
 Using the AIC statistic assessing goodness of fit for each model gives another way of understanding the comparative effects between variables.
 The lowest scored model is the optimal model.
@@ -1538,6 +1538,12 @@ The other models (Sodium only (AIC = 3594.65), and UPF only (AIC=3598.17)) both 
 
 The lower difference in values suggests the Sodium only model is the next best model.
 The UPF only value suggests that this is the least good model.
+That is the combined effect of UPF and Sodium is not the same as either of these separately.
+
+Odds ratios also change in the combined model.
+This adds to the impression that the relationship between Sodium intake and UPF is not a simple one.
+
+These relationships need to be viewed with caution as the values are intended to described 'goodness of fit' which is already an abstraction.
 
 \newpage
 
