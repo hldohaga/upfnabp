@@ -105,6 +105,7 @@ The lack of association between UPF and Sodium intake is odd.
 Most UPF contains more Sodium.
 Some UPF contains less Sodium.
 The mix of UPF consumed by this population has no net increase in Sodium content.
+
 Generalising this result, reformulation for low salt would not eliminate the risk of hypertension.
 Public health policy will need to reduce UPF, not simply reformulate.
 
@@ -124,7 +125,7 @@ This dissertation has come about through the hard work of Zoe and Martin.
 Their clear vision has been turned upside down and back to front, by my contorted logic and confused ideas.
 That it is in any way coherent is entirely down to their support, comments and intervention.
 
-The positivity and welcoming engagement has been ennervating for this old cynic.
+The positivity and welcoming engagement has been refreshing for this old cynic.
 It has been such a pleasure that I almost regret coming to the end.
 
 Thanks to Paul for the project which didn't quite come together
@@ -155,12 +156,12 @@ The strategy aims to increase 'awareness'.
 This is intended to increase individual compliance with testing and treatment of hypertension (BP \>140).
 This study intends to offer additional opportunities for improving outcomes.
 
-Nutrition has long been identified as a contributor to hypertension and so non communicable disease.
+Nutrition has long been identified as a contributor to hypertension and so non communicable disease (NCD).
 Sodium is known to be important in the physiology of BP and so is a key target of drug treatment as Rang and Dale @rang1987 describe.
 Monteiro in 2010 @monteiro2009 argues that there is more to food than its food group, or identified macro/micro nutrients.
 He identifies this epidemologically demonstrating that the sum of effects identified from breaking food up into its constituents leaves a gap in the overall effect.
 This gap he calls 'processing'.
-His initial three part food classification was not conclusive, but demonstrated better matching when the 'processed food' catagory was divided in two @monteiro2010 .
+His initial three part food classification was not conclusive, but demonstrated better matching when the 'processed food' category was divided in two @monteiro2010 .
 The new category 'Ultra-processed' (UPF) has caused controversy since, but has proven to be effective for study, and discussion.
 
 UPF makes up up to 60% diet in UK especially in the North West of England.
@@ -199,8 +200,9 @@ My positionality, therefore, is of interest.
 Jafar @jafar2018 argues that understanding the position of the investigator is of interest to understanding quantitative study as well as qualitative study.
 
 Positivist ideals match from my biomedical background.
-Illich @illich1990 is one of many who have identified that this misunderstands the whole of the effect of medicine.
-Foucault @foucault1976makes clear, and as an older physician I am aware, that social factors impact health of participants as Evans and Trotter @evans also discuss.
+Illich @illich1990 is one of many who have identified that medicine was never about science.
+Foucault @foucault2003 is clear that medicine is not a simple biologic scientific relationship.
+As an older physician I am aware, that social factors impact health of participants as Evans and Trotter @evans also discuss.
 
 I also understand that my perception of the world is from a position of significant privilege.
 I have resources and knowledge which make my position atypical.
@@ -479,7 +481,7 @@ They often report broader outcome measures and alternative methods of assessing 
 
 The relationship between these two effects, UPF and Sodium, can be shown by studying both in the same population.
 This research aims to identify these two effects at the same time within a large representative cross-sectional population thereby answering this gap.
-This study also gives the opportunity to consider if there are associated factors and to understand the public health implications.
+This study also gives the opportunity to consider if there are associated factors and to understand the public health implications in response to the challenge set by SACN's statement on processed foods and health @sacnsta .
 
 ## Research Question
 
@@ -795,7 +797,7 @@ Results were illustrated by plots against survey year, [figure 4](fig:fig-upf-an
 
 [figure 6](fig:fig-BP-and-survey-year) shows that the mean BP is consistent across the waves.
 
-The population with BP \>140 mmHg is n=876 participants.
+The population with hypertension (measured BP \>140 mmHg) is n=876 participants.
 This gives a prevalence of 6%.Men are once again overrepresented (n=505).
 These participants are older than the population median, 44% (n=307) of these participants are over 65.
 This group are statistically significantly different from the populations with high Na, or high UPF.
@@ -817,7 +819,7 @@ Mathematical models containing explanatory variables are constructed and compare
 
 In the simplest model, by calculation using a Chi squared 2\*2 table, the odds ratio for hypertension in participants exposed to UPF \>63% is 0.5.
 The odds ratio for hypertension in participants exposed to Sodium \>5000mg is 1.45.
-These results take no account of weighting, or confounding, biut give an indication of the expected result.
+These results take no account of weighting, or confounding, but give an indication of the expected result.
 
 
 
@@ -925,10 +927,21 @@ This 'reverse causation' would be appropriate to describe the idea that the high
 If older participants were not exposed when they were younger, their levels of BP would not be increased but instead represent a baseline measurement.
 This results in inverting the relationships in the values.Prospective and longitudinal studies, such as cohort or RCT studies do not have this issue.
 
-This study was organised by government departments connected with food and farming alongside the Department of Health and is supervised by the standing committee on clinical nutrition (SACN).
+This study was organised by government departments connected with food and farming alongside the Department of Health and is supervised by the Scientific Advisory Committee on Nutrition (SACN).
 The sample was designed to monitor relevant outputs not for in-depth subgroup analysis.
 It was powered for monitoring of food intake across the UK population.
 Funding and commissioning processes affect design structure and might also affect participant engagement and expectation.
+
+#### Age
+
+Age is a particular feature in this outcome.
+BP is very strongly affected by age as is exposure to Sodium and UPF.
+
+In cross sectional studies Age has several dimensions.
+Age identifies cohorts of people with particular experiences, it identifies duration of experience, it represents physiologically different states, and it also identifies access to resources financial, material, and experiential.
+
+Prospective, longitudinal studies, and case matching can help reduce some of these effects.
+However longitudinal studies have reported similarly equivocal results, identifying a potentially more complex interaction.
 
 ### Bias
 
@@ -969,71 +982,31 @@ might reduce the risk of non-communicable disease specifically by
 reducing BP.
 
 In trying to introduce public health policy it is important to be
-guided by evidence, but also to be aware of real world influences
+guided by evidence, and also to be aware of real world influences
 which affect policy delivery, outputs and outcomes.
 Positivist
 science needs to be integrated with social, economic and political
 aspects to deliver solutions.
 
-This research suggests that Monteiro\'s model @monteiro2010 might have
-something to complement the established nutritional model.
-It is a
-model which is a macro level description, and explains the situation
-epidemiologically.
-Other models have subsequently taken more of this
-approach Martinez Perez?
-examined the relative merits of the models.
+This research agrees that Monteiro\'s model @monteiro2010 might complement the established nutritional model.
+It is a model which is a macro level description, and explains the situation epidemiologically.
+Other models have subsequently taken more of this approach Martinez-Perez @martinez-perez2021 examined the relative merits of the models.
 
-+----+-------------+----+--------------------------+-----+-----------------------------------+----------+
-|    |             |    |                          |     |                                   |          |
-| 	   |             |    |                          |     |                                   |          |
-|    |             |    |                          |     |                                   |          |
-| 	   |             |    |                          |     |                                   |          |
-|    |             |    |                          |     |                                   |          |
-| 	   |             |    |                          |     |                                   |          |
-|    |             |    |                          |     |                                   |          |
-+----+-------------+----+--------------------------+-----+-----------------------------------+----------+
-|    | Population  |    | Food                     |     | Health                            |          |
-|    | 			level       |    | 			Issue                    |     | 			Outcomes                          |          |
-|    |             |    |                          |     |                                   |          |
-+----+-------------+----+--------------------------+-----+-----------------------------------+----------+
-|    |             |    |                          |     |                                   |          |
-+----+-------------+----+--------------------------+-----+-----------------------------------+----------+
-|    | Nations,    |    | Biology,                 |     | Increased                         |          |
-|    | 			Cities      |    | 			Economics and Culture    |     | 			Health needs and costs to society |          |
-|    | 			            |    |                          |     |                                   |          |
-|    |             |    | 			                         |     |                                   |          |
-|    |             |    |                          |     |                                   |          |
-|    |             |    | Producers,               |     |                                   |          |
-|    |             |    | 			Retailers                |     |                                   |          |
-|    |             |    |                          |     |                                   |          |
-+----+-------------+----+--------------------------+-----+-----------------------------------+----------+
-|    |             |    |                          |     |                                   |          |
-+----+-------------+----+--------------------------+-----+-----------------------------------+----------+
-|    | Families    |    | Gender                   |     | Ill                               |          |
-|    |             |    | 			Roles, Resources, Skills |     | 			health burden, increasing         |          |
-|    |             |    |                          |     | 			                                  |          |
-|    |             |    |                          |     |                                   |          |
-+----+-------------+----+--------------------------+-----+-----------------------------------+----------+
-|    |             |    |                          |     |                                   |          |
-+----+-------------+----+--------------------------+-----+-----------------------------------+----------+
-|    | Individuals |    | Time,                    |     | Medical                           |          |
-|    |             |    | 			Satiety, Overeating,     |     | 			needs                             |          |
-|    |             |    |                          |     |                                   |          |
-|    |             |    | 			                         |     | 			                                  |          |
-|    |             |    |                          |     |                                   |          |
-|    |             |    | Medication,              |     | NCD,                              |          |
-|    |             |    | 			                         |     | 			CVD, BP                           |          |
-|    |             |    | 			                         |     |                                   |          |
-|    |             |    |                          |     |                                   |          |
-+----+-------------+----+--------------------------+-----+-----------------------------------+----------+
-|    |             |    |                          |     |                                   |          |
-+----+-------------+----+--------------------------+-----+-----------------------------------+----------+
++------------------+-----------------------------------------------------+---------------------------------------------+
+| Population level | Food Issue                                          | Health Outcomes                             |
+|                  |                                                     |                                             |
++------------------+-----------------------------------------------------+---------------------------------------------+
+| Nations, Cities  | Biology, Economics and Culture Producers, Retailers | Increased Health needs and costs to society |
+| 			                 |                                                     |                                             |
+|                  |                                                     |                                             |
++------------------+-----------------------------------------------------+---------------------------------------------+
+| Individuals      | Time, Satiety, Overeating, Medication,              | Medical needs NCD, CVD, BP                  |
+|                  | 			                                                    |                                             |
+|                  | 			                                                    |                                             |
+|                  |                                                     |                                             |
++------------------+-----------------------------------------------------+---------------------------------------------+
 
-### Situating the research
-
-Whitehead, Diderichson and Marmot; Policy in
-public health
+### Policy in public health
 
 From a population level there are clear indicators that high level
 factors have effects.
@@ -1041,12 +1014,11 @@ Whitehead and Dahlgren\'s @dahlgreen2007 rainbow of social determinants of healt
 population effects.
 Diderichson\'s @diderichsen2019 explanation of the differential expression of effects identifies targets for policy intervention.
 
-Marmot\'s model @marmot2010a @marmot2022, like Healthy Cities @healthy2017 previously,
-attempts to bring a set of policies to Diderichson\'s policy points
+Marmot\'s model @marmot2010a @marmot2022, like Healthy Cities @healthy2017 previously, identifies a set of policies for Diderichson\'s policy points
 to enable improvement at a political and civic level.
 These are all
 at a high level and remain largely theoretical until given specific
-examples such as Karikredi showed for Covid @katikireddi2021.
+examples such as Katikireddi showed for Covid-19 @katikireddi2021.
 
 Dimbleby\'s Food system @dimbleby thinking is an example which fits an
 example within these civic structures.
@@ -1055,41 +1027,34 @@ high level systems approaches to more specific realisable actions.
 It
 helps to tell us what can be done and how to do it.
 
-### Theorizing Food Martinez. Bordieu ; what is food?
+### Theorizing Food
 
 Food in biological terms is fuel, and raw materials for bodily
 processes.
 It is sometimes toxic, and then needs careful handling.
-However for every person there is a relationship with food which
-combines these biological aspects with likes and dislikes.
-These are
-based on aesthetic considerations.
-There are memories, special
-occasions, and cultural events which describe our food.
-Each of these
-appears personal and individual.
+However, for every person there is a relationship with food which
+combines these biological aspects with likes and dislikes, 'like apple pie', 'a land of milk and honey' .
+These are based on aesthetic considerations.
+There are memories, special occasions, and cultural events which describe our food.
+Each of these appears personal and individual.
 These are cultural considerations.
-There are menus and recipes, restaurants, chefs and cooks as well as
-supermarkets, producers all part of the economic facet of food.
+There are menus and recipes, restaurants, chefs and cooks as well as supermarkets, producers all part of the economic facet of food.
 
 Martinez @martínez2021 posits a theoretical epistemology of food with three key aspects, the biological, the economic, and the cultural.
 In this
 theory we can explain that lack of food is not just a lack of fuel or
 building material, it is social isolation and cultural isolation, it
 is about economic deprivation.
+This model has the benefit of simplicity, but must be interpreted flexibly to understand how it can be best used.
 
 Austerity has identified the economic background to food
 economics.
 Barr @barr2014 has described the socio-biologic effect of this
 policy.
+Bordieu\'s @bourdieu2002 constructionist model of the sociology of food would fit into the cultural domain, but with some economic aspects.
 
-Bordieu\'s @bourdieu2002 constructionist model of the sociology of food would
-fit into the cultural domain, but with some economic aspects.
-
-Monteiro seems to fit in with this more complex theory of food.
-\'Processing\' might include biological addition and subtraction of
-chemicals which affect satiety, or the gut biome, in which case we
-remain in the biologic.
+Monteiro, and similar systems IARC, UNC, IFIC, seem to fit in with this more complex theory of food.
+\'Processing\' might include biological addition and subtraction of chemicals which affect satiety, or the gut biome, in which case we remain in the biologic.
 Even theories which consider the \'food
 matrix\' as the whole food being more than the sum of its parts
 retain a biology preference.
@@ -1109,8 +1074,8 @@ This occurs because UPF makes it possible, but then
 makes UPF more inevitable due to changes to arrangements for
 meals,equipment, resources and skills.
 
-### Political social and economic Dimbleby, Tulleken
-Food System and regulation Colombet nutrition transition
+### 
+Food System, Regulation Politics and Economics
 
 The mid operational level is where systems thinking enables
 construction of a socially and politically aware system.
@@ -1158,8 +1123,7 @@ The idea that the nutrition transition @popkin2022 occurs in relation to
 industrialisation, or to more women working outside of the home links
 UPF to feminism and power relations inside and around families.
 
-### Explanatory mechanisms  Rauber, Monteiro,
-Touvier, Srour, ?reformulation
+### Explanatory mechanisms and Reformulation
 
 Many studies have looked at how individuals respond to the
 challenges of UPF.
@@ -1169,13 +1133,18 @@ to individuals and sometimes further away.
 They look at individual disorders, and collections of disorders
 
 They look at biological, socioeconomic and cultural mechanisms.
-This study follows those which have looked at BP, and follows those
+This research follows those which have looked at BP, and follows those
 who have used NDNS.
 
 Reformulation is a policy suggestion which is partly at this level
 and partly about the biological /physiological level.
+Reformulation is a policy suggestion, where UPF is further processed to remove the salt.
 
-###  BP mechanisms Shim, Scaranni, Mendonca 
+By demonstrating that UPF is not just high in salt this research supports the argument that further formulation may not be effective policy for reducing BP.
+Pearson-Stuttard et al @pearson-stuttard2018 model the effects of salt reformulation, and identify economic and social benefits.
+Including negative effects of UPF that might not be due to salt, which might improve their model.
+
+### BP mechanisms Is it Sodium?
 
 At the individual level of physiological mechanisms BP seems to be
 a measurable outcome.
@@ -1218,8 +1187,7 @@ Mertens @mertens2022 identifies that the UK has one of the highest % intake of U
 The USA, Canada and Australia have similarly high levels.
 Other European countries are still fighting to retain a different food culture, Touvier et al with Nutrinet @srour2019 @touvier2020 .
 
-Colombet @ColombetZoé2021Dass highlights countries in the rest of the world at differing levels of 'nutrition transition'.
-This is where increasing amounts of the diet comes from UPF instead of traditional diets.
+Colombet @ColombetZoé2021Dass highlights countries in the rest of the world at differing levels of 'nutrition transition', where increasing amounts of the diet comes from UPF instead of traditional diets.
 This might be influenced by the degree of 'westernisation'/'internationalization'/ or 'capitalist colonialisation' into local culture, as well as by more general socio-economic factors @colombet2022 .
 
 ### UPF and Sodium
@@ -1244,20 +1212,7 @@ This would fit with the idea that Monteiro's concept of UPF @monteiro2010 is wid
 
 This effect might be due to broader biologic effects.
 These might be presence or absence of other chemicals, structural 'food matrix' effects, or energy density as Rauber explains @rauber2020 .
-Alternatively, it could relate to the non-biologic, the wider economic and cultural aspects of UPF, such as Dimbleby's 'food system' @dimbleby2023 .
-
-Bourdieu @bourdieu2002 studied how food and culture are intertwined.
-Humphries' @humphries2016 editorial and Martinez's @martínez2021 deconstruction update these wider aspects with international and epistemological distinctions.
-These explanatory papers help to develop our understanding and provide a framework for further study.
-
-### Age
-
-Age is a particular feature in this outcome.
-BP is very strongly affected by age.
-In cross sectional studies Age has several dimensions.
-Age identifies cohorts of people with particular experiences, it identifies duration of experience, it represents physiologically different states, and it also identifies access to resources financial, material, and experiential.
-Prospective, longitudinal studies, and case matching can help reduce some of the effects.
-However longitudinal studies have reported similarly equivocal results, identifying a potentially more complex interaction.
+Alternatively, it could relate to the wider economic and cultural aspects of UPF.
 
 ### Ideas for further research
 
@@ -1272,27 +1227,14 @@ Qualitative approaches might also be engaged, perhaps in a mixed methods approac
 
 This study aims to inform local policy to reduce BP and so Non-Communicable Disease.
 If UPF and Sodium intake increase the risk of hypertension then policy to reduce exposure might deliver change at a population level.
-This study supports the case for a place based food strategy approach @liverpoo2018 .
+This study supports the case for a place based food strategy approach such as in Liverpool @liverpoo2018 .
 
-Policy is an 'upstream' approach.
-Katikreddi @katikireddi2021 recently showed how Diderichson's model @diderichsen2019 for policy intervention can be used to understand exposure indirectly or directly when there are health inequalities.
-
-Reformulation is a policy suggestion, where UPF is further processed to remove the salt.
-By demonstrating that UPF is not just high in salt this study supports the argument that further formulation may not be effective policy for reducing BP.
-Pearson-Stuttard et al @pearson-stuttard2018 model the effects of salt reformulation, and identify economic and social benefits.
-Including negative effects of UPF that might not be due to salt, which might improve their model.
-
-Dietary approaches to improving public health are able to deliver proportionate and universal interventions to populations @marmot2010 to reduce the incidence of non- communicable disease (NCD).
+Dietary approaches to improving public health are able to deliver proportionate and universal interventions to populations to reduce the incidence of non- communicable disease (NCD).
 When delivered up stream at the policy level they are effective and efficient and minimise cost.
 These approaches offer significant benefits over actions targeted at individuals.
 
 Dietary and 'awareness' approaches can be used by individuals.
 These approaches risk the development of a culture of blame of individuals and of sub-groups in society.
-The commercial and social determinants of health @diderichsen2001 @whitehead1988 play out a significant role in research, and delivery of public health improvements around food.
-
-Dimbleby @dimbleby proposes a much broader strategic approach to the whole economy of food.
-Tulleken @tulleken2023 identifies that we need greater care in licencing ingredients, and helps health promotion.
-People who know that UPF is bad, are more likely to accept policy limiting availability.
 
 ## Generalisability
 
