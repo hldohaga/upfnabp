@@ -1,11 +1,13 @@
 ---
 title: "Exposure to High Ultra-processed Food and Sodium Intake and its effect on Hypertension from a Cross-sectional study  UK National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
-  html_notebook: 
+  word_document: 
     toc: yes
     fig_caption: yes
-    number_sections: yes
-    code_folding: hide
+    keep_md: yes
+    toc_depth: 4
+    fig_width: 5
+    fig_height: 5
   pdf_document: 
     toc: yes
     fig_caption: yes
@@ -14,13 +16,11 @@ output:
     latex_engine: xelatex
     fig_width: 5
     fig_height: 5
-  word_document: 
+  html_notebook: 
     toc: yes
     fig_caption: yes
-    keep_md: yes
-    toc_depth: 4
-    fig_width: 5
-    fig_height: 5
+    number_sections: yes
+    code_folding: hide
   html_document: 
     toc: yes
     fig_caption: yes
@@ -421,11 +421,11 @@ Their Sodium intake values were adjusted for total energy intake.
 Their key finding was that the same tertile for UPF intake also had a raised BP also had a raised Sodium intake.
 Having adjusted for energy they did not include it in their multi-variate analysis.
 
-Wang's meta analysis included six more studies; Ivancovsky-Wajcman @IvancovskyWajcmanDana2021Ufia OR = 1.53, (1.07- 2.19) in the USA, Lavigne-Robichaud @Lavigne-RobichaudMathilde2018Dqii OR =0·99 (0·59, 1·68) in Canada, Martinez-Steele @martinezsteele2022 OR =1.19 (1.03,1.38) in the USA, Nardocci @nardocci2021 OR = 1.60, (1.26--2.03) in Canada, Nasreddine @NasreddineLara2018Ampd OR =3.10, (0.84,16.66)in Lebanon, Rezende-Alves @rezende-alves2021 OR =1.35 (1.01,1.81) in Brazil.
+Wang's meta analysis included six more studies; Ivancovsky-Wajcman @IvancovskyWajcmanDana2021Ufia OR = 1.53, (1.07- 2.19) in the USA, Lavigne-Robichaud @Lavigne-RobichaudMathilde2018Dqii OR =0·99 (0·59, 1·68) in Canada, Martinez-Steele @martinezsteele2022 OR =1.19 (1.03,1.38) in the USA, Nardocci @nardocci2021 OR = 1.60, (1.26--2.03) in Canada, Nasreddine @NasreddineLara2018Ampd OR =3.10, (0.84,16.66)in Lebanon, Rezende-Alves @rezende-alves2021 OR =1.35 (1.01,1.81) in Brazil and includes nothing about Sodium.
 
 Of these studies, the study by Nasreddine was a very small localised study, as shown by the wide confidence interval.
 Monge and Lavigne-Robichaud also had equivocal results.
-Lavigne-Robichaud's sample was a very specific sub-population in Canada.
+Lavigne-Robichaud's sample was a very specific sub-population in Canada and Sodium is mentioned only briefly.
 
 Barbosa identified a different group of studies.
 No meta-analysis was done.
@@ -548,15 +548,20 @@ Papers often look to CVD outcomes as stronger endpoints.
 
 ## Literature review Conclusion
 
-Of the identified papers there is little evidence to back up the often repeated conjecture that increased Sodium intake simple follows from increased UPF intake, and that this is the mechanism by which UPF 'causes' hypertension.
-This is the gap in the literature which the current is intended to address.
-
-Where UPF exposure has been studied with hypertension as an endpoint the cross-sectional studies have identified a link in adults, less in women or children.
+Where UPF exposure has been studied with hypertension as an endpoint the cross-sectional studies have identified a link between UPF and hypertension in adults, less in women or children.
 The cohort studies are consistent in showing a small but measurable positive effect.
 This is also identified in the meta-analyses.
 
-This study aims to identify these two effects at the same time within a large representative cross-sectional population thereby answering this gap.
+These studies rarely reported on Sodium, and never tried to understand how the relationship between Sodium UPF and hypertension might work.
+
+Of the identified papers there is little evidence to back up the often repeated conjecture that increased Sodium intake simple follows from increased UPF intake, and that this is the mechanism by which UPF 'causes' hypertension.
+This is the gap in the literature which the current is intended to address.
+
+The papers looking at Sodium and hypertension identify a significant effect.
+They often report broader outcome measures and alternative methods of assessing hypertension as being more representative or reproducible.
+
 The relationship between these two effects, UPF and Sodium, can be shown by studying both in the same population.
+This research aims to identify these two effects at the same time within a large representative cross-sectional population thereby answering this gap.
 This study also gives the opportunity to consider if there are associated factors and to understand the public health implications.
 
 ## Research Question
@@ -573,7 +578,7 @@ In addition it may be possible to consider, if there is evidence of interaction 
 
 2 Descriptive analysis of participants from NDNS with amalgamation of data across the rolling programme.
 
-3 Analysis of exposure to UPF and Sodium, and prevalence of BP \>140mmHg using regression models with associated data analysis.
+3 Analysis of exposure to UPF and Sodium, and prevalence of hypertension (BP \>140mmHg) using regression models with associated data analysis.
 
 4 Discussion of implications of results in answer to the research question, Public health implications and actions.
 Also in relation to limitations of cross- sectional studies, and available data, as well as suggestions for further research
@@ -671,8 +676,10 @@ These conditions controlled for the effects of exercise, temperature and ill hea
 The data on all these is in the dataset.
 Raw BP values are also present in the dataset to allow quality review.
 
-Other studies have used ambulatory BP, or Pulse wave stiffness to assess the effect of UPF and Sodium on the body.
+Other studies have used ambulatory BP, or Pulse Wave Velocity (PWV) to assess the effect of UPF and Sodium on the body.
 There is a much longer history and literature around the effect of clinician administered measurements.
+Many studies use patient reported diagnosis or clinician diagnosis, or even evidence of treatment to identify hypertensive participants.
+In this research only the measured values have been used, and participants on medication affecting the BP have been excluded from the analysis.
 
 Hypertension is BP over 140 mmHg, categorised to enable logistic regression.
 This value is identified by Du et al (@du2014) and others, though some use lower values such as 120mmHg ( @shimConsumptionUltraProcessedFood2022 )
