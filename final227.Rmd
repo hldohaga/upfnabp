@@ -585,12 +585,12 @@ Also in relation to limitations of cross- sectional studies, and available data,
 ## Study Setting and Design
 
 This analysis intends to analyse the association between Sodium intake, UPF intake and BP.
-This is a secondary data analysis of national cross sectional data from the National Dietary and Nutritional Survey (NDNS @universityofcambridge2022).
+This is secondary data analysis of national cross-sectional data from the National Dietary and Nutritional Survey (NDNS @universityofcambridge2022).
 
-The NDNS was commissioned in collaboration between government departments responsible for health and for food production.
+NDNS was commissioned in collaboration between government departments responsible for health and for food production.
 Academic partners delivered reports on diet and nutrition across the United Kingdom.
 The study is designed to be representative across the four home nations, and across age with balanced representation for children.
-NDNS data are available via the UK national Data service for research purposes.
+NDNS data are available via the UK National Data Service for research purposes.
 
 NDNS is a rolling cross-sectional study, in each year a new cross section of participants is enrolled from the wider population.
 Questionnaires, food diaries, and nurse assessments are used to gather data.
@@ -609,7 +609,9 @@ The storage of the data is in keeping with the research governance agreements of
 Participants were identified by random selection across postal units.
 The sample is stratified to ensure a representative sample across the four nations (England, Wales, Scotland, and Northern Ireland) and across regions in England (North, Central/Midlands, South(including London)).
 The sample is also stratified for age and sex and Index of multiple deprivation (IMD).
-Participants gave informed consent, the study was conducted within ethics committee guidance.
+Invitiations were sent out to households across the four nations.
+Participants who agreed to take part were visited by a research nurse.
+Participants gave informed consent and were able to withdraw consent at any time, the study was conducted within ethics committee guidance.
 
 For NDNS the intended sample is 1000 per year with 50% adults.
 Each year the sample is slightly different due to differential uptake.
@@ -623,18 +625,26 @@ Those taking BP controlling medications may have a different relationship to Sod
 The participants recorded their food intake as a food diary.
 Four days of the diary including a weekend day are used for each participant.
 They record food and portion size as well as where food was eaten.
+Other information is collected by a structured interview, and by clinical assessment by a research nurse.
+The consent, interview and diary documents are available within the NDNS dataset.
 
-Based on the food and drink intake reported and with a composition data table, the NDNS team have estimated the daily intake of food by group, and large range of nutrients including Sodium.
+The NDNS analysis team use the the food and drink intake reported.
+The food reported is entered into a growing database which has details of constituent nutrients.
+The foods are divided into food groups and in the last three years some more analysis of how constituents of dishes are assembled.
+That is a dish might be examined as a 'stew' in the past, but more recently be described as meat, and 'stew mix' or meat and potatoes and onion and celery.
 
 ### Sodium estimation
 
 This analysis used the daily Sodium intake in mg from NDNS.
 This value reflects the expected content of standard foods calculated from the diary entry.
 
+24 urinary Sodium is considered the best indicator of dietary Sodium but values are not available across the whole time period.
 Serum Sodium values are available for the early dataset, but not the later one.
-24 urinary Sodium is a better indicator of dietary Sodium but values are not available across the whole time period.
+Each of these values has slightly diffeernt patterns in relation to quantities ingested.
+Some of these differences may reflect polymorphism in physiological handling of Sodium, and this might reflect some salt sensitivity syndromes.
 
-WHO recommended Sodium intake is less than 3000mg Sodium and Du et al @du2014 used categories of moderate and high intake at 5000mg and 6000mg, these categories were used for Sodium.
+WHO recommended Sodium intake is less than 3000mg Sodium.
+Du et al @du2014 used categories of moderate and high intake at 5000mg and 6000mg, these categories were used for Sodium in this research.
 
 ### UPF
 
@@ -649,7 +659,8 @@ The percentage of the total intake of energy was then calculated for each of the
 Nova group 4 or UPF intake (UPF) is used for this study, this dataset was provided by Dr Colombet (personal communication).
 
 Categories of UPF intake used in other papers eg Wang @WangMei2022UFCI are low for the UK.
-Centre-weighted categories were used, the central category is the mean with one standard deviation above and below.
+Centre-weighted categories were used.
+The central category is the mean with one standard deviation above and below.
 This effectively identifies 67% in the centre of the distribution.
 
 ## Outcome Variable
@@ -659,6 +670,9 @@ It was measured in mmHg using a calibrated automatic sphygmomanometer by a study
 These conditions controlled for the effects of exercise, temperature and ill health.
 The data on all these is in the dataset.
 Raw BP values are also present in the dataset to allow quality review.
+
+Other studies have used ambulatory BP, or Pulse wave stiffness to assess the effect of UPF and Sodium on the body.
+There is a much longer history and literature around the effect of clinician administered measurements.
 
 Hypertension is BP over 140 mmHg, categorised to enable logistic regression.
 This value is identified by Du et al (@du2014) and others, though some use lower values such as 120mmHg ( @shimConsumptionUltraProcessedFood2022 )
@@ -674,18 +688,31 @@ Stratification is used in the design and sampling stage to modify for these.
 Including them in multivariable regression attempts to prevent them confounding the analysis.
 
 Age is used as continuous and categorised data for the analysis.
-It has a complex role in cross-sectional analysis.
-It is complicated further by the stratification which ensures a large enough sample of 50/50 children and adults.
+It has a complex role in cross-sectional analysis.This will be considered in the discussion.
+Stratification ensures a large enough sample with 50/50 children and adults.
 
 The sex of participants is identified, as an important explanatory variable.
+I have not analysed women separately from men, as Criado-Perez @criado-perezInvisibleWomenExposing2020 requests.
+There are single sex studies.
+These identify that reporting, diet, and effects all follow different patterns in men and women.
+My reason is to maintain sample size, but the significant differences in physiology are clearly important.
 
-BMI is identified as a potential explanatory variable.
+Body Mass Index (BMI) is identified as a potential explanatory variable.
+It is a calculated variable based on weight and height.
 There is also a known association with BP.
+Preliminary analysis was performed with weight and height separately, there was no additional information gained.
 
-IMD is included to identify socio-economic patterns in the data.
-This UK- nation based data is used consistently in UK studies, but has no analogue internationally.
-Instead age at completion of education, or income are often used.
-The income data is reported inconsistently through the survey years and so is not used in this analysis.
+Index of Multiple Deprivation (IMD) is included to identify socio-economic patterns in the data.
+This UK based data is used consistently in UK studies, but has no analogue internationally.
+It is calculated at nation level with a different value for England, Wales, Scotland and Northern Ireland and a different update frequency.
+The index is built of scores for a small locality (lower-layer super output areas).
+The deprivations relate to income, employment, education, health, crime, housing and living environment.
+Including it does to some extent duplicate the effect of health deprivation on the analysis.
+
+Internationally age at completion of education, or income are often used.
+Income data is reported inconsistently through the survey years and so is not used in this analysis.
+Age at leaving education is included.
+Its use is complicated by the large child population.
 
 ## Study Size
 
