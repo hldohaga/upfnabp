@@ -1581,6 +1581,9 @@ This adds to the impression that the relationship between Sodium intake and UPF 
 
 These relationships need to be viewed with caution as the values are intended to described 'goodness of fit' which is already an abstraction.
 
+```         
+```
+
 \newpage
 
 # Discussion
@@ -1671,63 +1674,39 @@ Future studies will consider these at the planning stage to introduce sampling m
 
 ## Interpretation
 
-This research intended to find out if a policy of improving diet
-might reduce the risk of non-communicable disease specifically by
-reducing BP.
+This research intended to find out if a policy of improving diet might reduce the risk of non-communicable disease specifically by reducing BP.
 
-In trying to introduce public health policy it is important to be
-guided by evidence, and also to be aware of real world influences
-which affect policy delivery, outputs and outcomes.
-Positivist
-science needs to be integrated with social, economic and political
-aspects to deliver solutions.
+In trying to introduce public health policy it is important to be guided by evidence, and also to be aware of real world influences which affect policy delivery, outputs and outcomes.
+Positivist science needs to be integrated with social, economic and political aspects to deliver solutions.
 
-This research agrees that Monteiro\'s model @monteiro2010 might complement the established nutritional model.
+This research agrees that Monteiro's model @monteiro2010 might complement the established nutritional model.
 It is a model which is a macro level description, and explains the situation epidemiologically.
 Other models have subsequently taken more of this approach Martinez-Perez @martinez-perez2021 examined the relative merits of the models.
 
-+------------------+-----------------------------------------------------+---------------------------------------------+
-| Population level | Food Issue                                          | Health Outcomes                             |
-|                  |                                                     |                                             |
-+------------------+-----------------------------------------------------+---------------------------------------------+
-| Nations, Cities  | Biology, Economics and Culture Producers, Retailers | Increased Health needs and costs to society |
-| 			                 |                                                     |                                             |
-|                  |                                                     |                                             |
-+------------------+-----------------------------------------------------+---------------------------------------------+
-| Individuals      | Time, Satiety, Overeating, Medication,              | Medical needs NCD, CVD, BP                  |
-|                  | 			                                                    |                                             |
-|                  | 			                                                    |                                             |
-|                  |                                                     |                                             |
-+------------------+-----------------------------------------------------+---------------------------------------------+
+|                                                                                                                                            |                                                                                     |                 |     |
+|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|-----------------|-----|
+| Population level                                                                                                                           | Food Issue                                                                          | Health Outcomes |     |
+| Nations, Cities \| Biology, Economics and Culture Producers, Retailers \| Increased Health needs and costs to society \| \| \| \| \| \| \| |                                                                                     |                 |     |
+| Individuals                                                                                                                                | Time, Satiety, Overeating, Medication, \| Medical needs NCD, CVD, BP \| \| \| \| \| |                 |     |
 
 ### Policy in public health
 
-From a population level there are clear indicators that high level
-factors have effects.
-Whitehead and Dahlgren\'s @dahlgreen2007 rainbow of social determinants of health is a model which explains the highest level
-population effects.
-Diderichson\'s @diderichsen2019 explanation of the differential expression of effects identifies targets for policy intervention.
+From a population level there are clear indicators that high level factors have effects.
+Whitehead and Dahlgren's @dahlgreen2007 rainbow of social determinants of health is a model which explains the highest level population effects.
+Diderichson's @diderichsen2019 explanation of the differential expression of effects identifies targets for policy intervention.
 
-Marmot\'s model @marmot2010a @marmot2022, like Healthy Cities @healthy2017 previously, identifies a set of policies for Diderichson\'s policy points
-to enable improvement at a political and civic level.
-These are all
-at a high level and remain largely theoretical until given specific
-examples such as Katikireddi showed for Covid-19 @katikireddi2021.
+Marmot's model @marmot2010a @marmot2022, like Healthy Cities @healthy2017 previously, identifies a set of policies for Diderichson's policy points to enable improvement at a political and civic level.
+These are all at a high level and remain largely theoretical until given specific examples such as Katikireddi showed for Covid-19 @katikireddi2021.
 
-Dimbleby\'s Food system @dimbleby thinking is an example which fits an
-example within these civic structures.
-It is a way of tying these
-high level systems approaches to more specific realisable actions.
-It
-helps to tell us what can be done and how to do it.
+Dimbleby's Food system @dimbleby thinking is an example which fits an example within these civic structures.
+It is a way of tying these high level systems approaches to more specific realisable actions.
+It helps to tell us what can be done and how to do it.
 
 ### Theorizing Food
 
-Food in biological terms is fuel, and raw materials for bodily
-processes.
+Food in biological terms is fuel, and raw materials for bodily processes.
 It is sometimes toxic, and then needs careful handling.
-However, for every person there is a relationship with food which
-combines these biological aspects with likes and dislikes, 'like apple pie', 'a land of milk and honey' .
+However, for every person there is a relationship with food which combines these biological aspects with likes and dislikes, 'like apple pie', 'a land of milk and honey' .
 These are based on aesthetic considerations.
 There are memories, special occasions, and cultural events which describe our food.
 Each of these appears personal and individual.
@@ -1735,103 +1714,65 @@ These are cultural considerations.
 There are menus and recipes, restaurants, chefs and cooks as well as supermarkets, producers all part of the economic facet of food.
 
 Martinez @martínez2021 posits a theoretical epistemology of food with three key aspects, the biological, the economic, and the cultural.
-In this
-theory we can explain that lack of food is not just a lack of fuel or
-building material, it is social isolation and cultural isolation, it
-is about economic deprivation.
+In this theory we can explain that lack of food is not just a lack of fuel or building material, it is social isolation and cultural isolation, it is about economic deprivation.
 This model has the benefit of simplicity, but must be interpreted flexibly to understand how it can be best used.
 
-Austerity has identified the economic background to food
-economics.
-Barr @barr2014 has described the socio-biologic effect of this
-policy.
-Bordieu\'s @bourdieu2002 constructionist model of the sociology of food would fit into the cultural domain, but with some economic aspects.
+Austerity has identified the economic background to food economics.
+Barr @barr2014 has described the socio-biologic effect of this policy.
+Bordieu's @bourdieu2002 constructionist model of the sociology of food would fit into the cultural domain, but with some economic aspects.
 
 Monteiro, and similar systems IARC, UNC, IFIC, seem to fit in with this more complex theory of food.
-\'Processing\' might include biological addition and subtraction of chemicals which affect satiety, or the gut biome, in which case we remain in the biologic.
-Even theories which consider the \'food
-matrix\' as the whole food being more than the sum of its parts
-retain a biology preference.
+'Processing' might include biological addition and subtraction of chemicals which affect satiety, or the gut biome, in which case we remain in the biologic.
+Even theories which consider the 'food matrix' as the whole food being more than the sum of its parts retain a biology preference.
 
 Other theories around UPF though move into the economic.
-These
-include those which identify the economics of UPF, the cheaper
-production or transport cost, the greater profits, the ease of
-access, the reduced need for skills or equipment, or time to deliver
-\'meals\'.
+These include those which identify the economics of UPF, the cheaper production or transport cost, the greater profits, the ease of access, the reduced need for skills or equipment, or time to deliver 'meals'.
 
-The cultural aspects of the nutrition transition relate to changes
-in the family and home.
-Gender issues around mother, and wife roles
-being altered.
-This occurs because UPF makes it possible, but then
-makes UPF more inevitable due to changes to arrangements for
-meals,equipment, resources and skills.
+The cultural aspects of the nutrition transition relate to changes in the family and home.
+Gender issues around mother, and wife roles being altered.
+This occurs because UPF makes it possible, but then makes UPF more inevitable due to changes to arrangements for meals,equipment, resources and skills.
 
 ### 
+
 Food System, Regulation Politics and Economics
 
-The mid operational level is where systems thinking enables
-construction of a socially and politically aware system.
-Dimbleby\'s
-government report took into account the important realities of
-political deliverability, but this was not enough for to persuade at
-this time.
+The mid operational level is where systems thinking enables construction of a socially and politically aware system.
+Dimbleby's government report took into account the important realities of political deliverability, but this was not enough for to persuade at this time.
 His book @dimbleby2023 adds a publicly accessible layer to the report, and disseminates the ideas to a broader audience.
 
-The picture is largely that of the economics of production, and
-distribution are affected by a market which lacks appropriate
-regulation.
+The picture is largely that of the economics of production, and distribution are affected by a market which lacks appropriate regulation.
 This results in malfunctioning at many levels.
-This
-damages all participants, producers, distributors, regulators, and
-the public.
+This damages all participants, producers, distributors, regulators, and the public.
 
 He also describes a future of engineered food.
-Without regulation
-this will be a dystopia leading to a need for significant health
-intervention to balance the harms done.
+Without regulation this will be a dystopia leading to a need for significant health intervention to balance the harms done.
 
 In his complementary description, Tulleken @tulleken2023 concentrates on how UPF is a part of this food economic system.
-In his account the lack of
-safety regulation enables a natural economic process of deterioration
-of the quality of food.
-UPF is simply the expected result of
-producers not having to demonstrate the safety of the additives they
-use.
-This leads to progressive deterioration of the quality of
-products.
-These cease to be nutritious and are simply units of
-financial exchange.
+In his account the lack of safety regulation enables a natural economic process of deterioration of the quality of food.
+UPF is simply the expected result of producers not having to demonstrate the safety of the additives they use.
+This leads to progressive deterioration of the quality of products.
+These cease to be nutritious and are simply units of financial exchange.
 
-Both of these take the idea that UPF is an economic and biological
-description of food as central to their model of the real world.
+Both of these take the idea that UPF is an economic and biological description of food as central to their model of the real world.
 
-The \'nutrition transition\' is an economic and cultural concept.
-Colombet\'s @ColombetZoé2021Dass identification of UPF use with socio-economic status in developing economies situates the UPF concept across these domains.
+The 'nutrition transition' is an economic and cultural concept.
+Colombet's @ColombetZoé2021Dass identification of UPF use with socio-economic status in developing economies situates the UPF concept across these domains.
 That UPF is more predominant in families with more poverty clearly makes the economic case.
-The cultural case relates to how
-this changes family activities, interactions, and choices.
+The cultural case relates to how this changes family activities, interactions, and choices.
 
-The idea that the nutrition transition @popkin2022 occurs in relation to
-industrialisation, or to more women working outside of the home links
-UPF to feminism and power relations inside and around families.
+The idea that the nutrition transition @popkin2022 occurs in relation to industrialisation, or to more women working outside of the home links UPF to feminism and power relations inside and around families.
 
 ### Explanatory mechanisms and Reformulation
 
-Many studies have looked at how individuals respond to the
-challenges of UPF.
-These take approaches which are sometimes closer
-to individuals and sometimes further away.
+Many studies have looked at how individuals respond to the challenges of UPF.
+These take approaches which are sometimes closer to individuals and sometimes further away.
 
 They look at individual disorders, and collections of disorders
 
 They look at biological, socioeconomic and cultural mechanisms.
-This research follows those which have looked at BP, and follows those
-who have used NDNS.
+This research follows those which have looked at BP, and follows those who have used NDNS.
 
-Reformulation is a policy suggestion which is partly at this level
-and partly about the biological /physiological level.
+Reformulation is a policy suggestion which is partly at this level and partly about the biological /physiological level.
 Reformulation is a policy suggestion, where UPF is further processed to remove the salt.
 
 By demonstrating that UPF is not just high in salt this research supports the argument that further formulation may not be effective policy for reducing BP.
@@ -1840,40 +1781,29 @@ Including negative effects of UPF that might not be due to salt, which might imp
 
 ### BP mechanisms Is it Sodium?
 
-At the individual level of physiological mechanisms BP seems to be
-a measurable outcome.
+At the individual level of physiological mechanisms BP seems to be a measurable outcome.
 
 **BP** is not so simple though.
-It has been studied for some
-time.
+It has been studied for some time.
 There are competing or possibly contributory mechanisms.
 
 **UPF and BP** Study is still early for this concept.
 Notwithstanding a recent flurry of publicity.
-there is not a large
-literature.
+there is not a large literature.
 There is little consistency in approach.
-Much of the work
-relies on already collected data.
-There are few papers and they are
-difficult to compare.
+Much of the work relies on already collected data.
+There are few papers and they are difficult to compare.
 
 **This research tests one assumption**.
-That high UPF intake
-leads to high salt intake and so to hypertension.
-This would appear
-to be a positivist assumption, tested using quantitative methods.
+That high UPF intake leads to high salt intake and so to hypertension.
+This would appear to be a positivist assumption, tested using quantitative methods.
 
-The interpretation of the results is that this is not as simple as
-assumed.
+The interpretation of the results is that this is not as simple as assumed.
 
-This research shows that UPF and Sodium have different effect
-sizes and that combining them in one model results in an effect which
-is not replacement, addition or subtraction.
+This research shows that UPF and Sodium have different effect sizes and that combining them in one model results in an effect which is not replacement, addition or subtraction.
 
-This result is further complicated by \'reverse causation\'.
-Also the finding that there is no relationship between the amount
-of UPF and the amount of Sodium confuses the simple case.
+This result is further complicated by 'reverse causation'.
+Also the finding that there is no relationship between the amount of UPF and the amount of Sodium confuses the simple case.
 
 ### High UPF intake
 
