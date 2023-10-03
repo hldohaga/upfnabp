@@ -1,12 +1,12 @@
+#mediation for males of adult ages
 
-
-df <-data.frame(ndns_1_11[c(Na,Age,zPF,omsysval,SurveyYear,educfinh),])
+df <-data.frame(ndns_1_11dd$variables[c(Na,Age,zPF,omsysval,SurveyYear,educfinh),])
 str(df)
 
-process(model = 7,y= "omsysval",x="Age", m=c("zPF"),w="Na",boot=1000,seed = 12345,conf=95,data = df )
+process(model = 7,y= "omsysval",x="zPF", m=c("Na"),w="Age",boot=1000,seed = 12345,conf=95,data = df )
 
-process(model = 7,y= "Na",x="zPF", m="omsysval",w="Age",boot=1000,seed = 12345,conf=95,data = df, centre = 2,)
-
+process(model = 7,y= "omsysval",x="Age", m="Na",w="zPF",boot=1000,seed = 12345,conf=95,data = df)
+process(model = 7,y= "omsysval",x="Age", m="zPF",w="Na",boot=1000,seed = 12345,conf=95,data = df)
 
 library(rosetta)
 gmod<-gemm(data=df,xvar="Age",yvar="omsysval",mvars = c("zPF","Na"), mymod = "Sex",nboot = 1000)

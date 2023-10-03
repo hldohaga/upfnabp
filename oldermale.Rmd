@@ -1,5 +1,5 @@
 ---
-title: "Exposure to High Ultra-processed Food and Sodium Intake and its effect on Hypertension from a Cross-sectional study  UK National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
+title: "Exposure to High Ultra-processed Food (UPF) and Sodium Intake and its effect on Hypertension from a Cross-sectional study  UK National Dietary and Nutritional Survey (NDNS) in England 2008-2019"
 output:
   word_document: 
     toc: yes
@@ -1155,10 +1155,13 @@ ndns_1_11d <- svydesign(ids = ~area, weights = ~ wti_UKY1to11, strata=~astrata1,
 #medication affecting bp
 ndns_1_11dd <- subset(ndns_1_11d, bpd == "not taking drug")
 ndns_1_11f <- subset(ndns_1_11dd, Sex == "Female")
-ndns_1_11na <- subset(ndns_1_11dd, Na >= 5000)
+ndns_1_11m <- subset(ndns_1_11dd, Sex=="Male")
+ndns_1_11m <- subset(ndns_1_11m, Age <=18)
+ndns_1_11f <- subset(ndns_1_11f, Age <= 18)
+ndns_1_11na <- subset(ndns_1_11m, Na >= 5000)
 #ndns_1_11upf<- subset(ndns_1_11dd, UPF >= 63)
-ndns_1_11zpf<- subset(ndns_1_11dd, NOVA_Epct_opti_4 >= 63)
-ndns_1_11hyp <- subset(ndns_1_11dd, BP >= 140)
+ndns_1_11zpf<- subset(ndns_1_11m, NOVA_Epct_opti_4 >= 63)
+ndns_1_11hyp <- subset(ndns_1_11m, BP >= 140)
 #ndns_1_11bp <- subset(ndns_1_11d, omsysval== is.na(NA))
 #ndns_1_11bp
 
@@ -1187,9 +1190,9 @@ Categorical variables give the number of participants and the percentage of the 
 #| tbl-cap: "Characteristics of the sample population from National Dietary and Nutrition Study (2008-2019)"
 
 
-keydatw1 <-tbl_svysummary(ndns_1_11d, include= c(Sex,Age, agegad3,   educfinh, IMD,region,SurveyYear ))
+keydatw1 <-tbl_svysummary(ndns_1_11m, include= c(Sex,Age, agegad3,   educfinh, IMD,region,SurveyYear ))
 #keydatw1
-keydatwdd <-tbl_svysummary(ndns_1_11dd, include= c(Sex,Age, agegad3, educfinh, IMD,region,SurveyYear ) )
+keydatwdd <-tbl_svysummary(ndns_1_11m, include= c(Sex,Age, agegad3, educfinh, IMD,region,SurveyYear ) )
 
 keydatwzpf <-tbl_svysummary(ndns_1_11zpf, include= c(Sex,Age, agegad3,  educfinh, IMD,region,SurveyYear) )
 keydatwna <-tbl_svysummary(ndns_1_11na, include= c(Sex,Age, agegad3,   educfinh, IMD,region,SurveyYear ) )
@@ -1244,9 +1247,9 @@ Wave 1 was a comparator for analysis of the other waves.
 #ttestEpcntt <- add_global_p(tbl_regression(ttestEpcnt))
 #ttestOS <- svyglm(BP~SurveyYear, ndns_1_11dd)
 #ttestOSt <- add_global_p(tbl_regression(ttestOS))
-ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11dd)
+ttestage <- svyglm(Age ~ SurveyYear, ndns_1_11m)
 ttestages<-  add_global_p(tbl_regression(ttestage))
-ttestbmi <- svyglm(bmival~SurveyYear, ndns_1_11dd)
+ttestbmi <- svyglm(bmival~SurveyYear, ndns_1_11m)
 ttestbmis <- add_global_p(tbl_regression(ttestbmi))
 kvsearchyr <- as_flex_table(tbl_stack(list(ttestages,ttestbmis),group_header =  c("Age","BMI")))
 
@@ -1267,16 +1270,16 @@ UK region is part of the weighting, but this sample showed variation with p.valu
 #| tab-id: "tbl-Categorical-variables-year"
 #| tbl-cap: "Key categorical variables by survey year from NDNS 2008-2018"
 
-sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11dd)
-educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11dd[,"SurveyYear" !=5])
-imdchi <- svychisq(~IMD+SurveyYear , ndns_1_11dd)
-vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11dd)
-UPF3chi <- svychisq(~zPF3+ SurveyYear , ndns_1_11dd)
-agegad3chi <- svychisq(~agegad3+ SurveyYear , ndns_1_11dd)
-hypchi <- svychisq(~hyp+ SurveyYear , ndns_1_11dd)
-BMIchi <- svychisq(~BMI+ SurveyYear, ndns_1_11dd)
-gorchi <- svychisq(~region+ SurveyYear, ndns_1_11dd)
-tablecat<- data.table("Variable"=c( "Sex", "IMD","Age","BMI","Region"),"p.value"= c(sexchi$p.value,imdchi$p.value,agegad3chi$p.value,BMIchi$p.value,gorchi$p.value ))
+#sexchi <- svychisq(~Sex +SurveyYear , ndns_1_11m)
+educhi <- svychisq(~educfinh+SurveyYear , ndns_1_11m[,"SurveyYear" !=5])
+imdchi <- svychisq(~IMD+SurveyYear , ndns_1_11m)
+vegchi <- svychisq(~vegetarn+ SurveyYear , ndns_1_11m)
+UPF3chi <- svychisq(~zPF3+ SurveyYear , ndns_1_11m)
+agegad3chi <- svychisq(~agegad3+ SurveyYear , ndns_1_11m)
+hypchi <- svychisq(~hyp+ SurveyYear , ndns_1_11m)
+BMIchi <- svychisq(~BMI+ SurveyYear, ndns_1_11m)
+gorchi <- svychisq(~region+ SurveyYear, ndns_1_11m)
+tablecat<- data.table("Variable"=c(  "IMD","Age","BMI","Region"),"p.value"= c(imdchi$p.value,agegad3chi$p.value,BMIchi$p.value,gorchi$p.value ))
 tablecat <- flextable(tablecat)
 tablecat <- colformat_double(tablecat, digits = 2)
 
@@ -1311,7 +1314,7 @@ Up to 38.2% of the participants were exposed to levels of more than 63%, the pea
 #| tab-id: "tbl-keydata"
 #| tbl-cap: "Exposure by survey year from National Dietary and Nutrition Study (2008-2019) "
 
-keydatw <-tbl_svysummary(ndns_1_11dd,by =SurveyYear , include = c(hiNa,zPF3))
+keydatw <-tbl_svysummary(ndns_1_11m,by =SurveyYear , include = c(hiNa,zPF3))
 keydatw <- add_p(keydatw)
 tblkeydata <-as_flex_table( keydatw)
 tblkeydata <- set_caption(tblkeydata, "Exposure by survey year from National Dietary and Nutrition Study (2008-2019) ", autonum = run_autonum(seq_id = "tab", bkm = "tab6"))
@@ -1330,13 +1333,13 @@ Results were illustrated by plots against survey year, [figure 4](fig:fig-upf-an
 #| fig-cap: "Energy from UPF% in each annual cohorts NDNS (2008-2019)"
 
 
-svyboxplot(zPF~SurveyYear,ndns_1_11dd, na.rm = TRUE,main = "UPF% by survey year", ylab = "UPF%" ,xlab ="Survey Year")
+svyboxplot(zPF~SurveyYear,ndns_1_11m, na.rm = TRUE,main = "UPF% by survey year", ylab = "UPF%" ,xlab ="Survey Year")
 ```
 
 ```{r figNaandsurveyyear, echo=FALSE, message=FALSE, warning=FALSE}
 #| fig-id: "fig-Na-and-survey-year"
 #| fig-cap: "Sodium in mg in each annual cohort NDNS(2008-2019)"
-svyboxplot(Na~SurveyYear,ndns_1_11dd,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
+svyboxplot(Na~SurveyYear,ndns_1_11m,main = "Sodium Intake in mg by survey year", ylab = "Sodium intake in mg" ,xlab ="Survey Year")
 
 ```
 
@@ -1346,7 +1349,7 @@ svyboxplot(Na~SurveyYear,ndns_1_11dd,main = "Sodium Intake in mg by survey year"
 #| fig-id: "fig-BP-and-survey-year"
 #| fig-cap: "Plot of the BP in mmHg by year from NDNS (2008-2018)"
 
-svyplot(BP~SurveyYear,ndns_1_11dd, na.rm = TRUE,main = "BP in mmHg by survey year", ylab = "BP in mmHg" ,xlab ="Survey Year")
+svyplot(BP~SurveyYear,ndns_1_11m, na.rm = TRUE,main = "BP in mmHg by survey year", ylab = "BP in mmHg" ,xlab ="Survey Year")
 ```
 
 [figure 6](fig:fig-BP-and-survey-year) shows that the mean BP is consistent across the waves.
@@ -1366,7 +1369,7 @@ BP rose through life to a mean of 134 mm Hg in the over 65 age category.
 #| tab-id: "tbl-bpdata"
 #| tbl-cap: "BP by survey year from National Dietary and Nutrition Study (2008-2019) "
 
-tblbpdata <-tbl_svysummary(ndns_1_11dd,by =SurveyYear ,include = c(hyp))
+tblbpdata <-tbl_svysummary(ndns_1_11m,by =SurveyYear ,include = c(hyp))
 tblbpdata <- add_p(tblbpdata)
 tblbpdata <-as_flex_table( tblbpdata)
 tblbpdata <- set_caption(tblbpdata, "BP by survey year from National Dietary and Nutrition Study (2008-2019) ", autonum = run_autonum(seq_id = "tab", bkm = "tab7"))
@@ -1390,12 +1393,12 @@ The odds ratio for hypertension in participants exposed to Sodium \>5000mg is 1.
 These results take no account of weighting, or confounding, but give an indication of the expected result.
 
 ```{r chisq, echo=FALSE, message=FALSE, warning=FALSE}
-hyp1chi <- svychisq(~hyp+ hiNa2 , ndns_1_11dd, na.rm=TRUE)
+hyp1chi <- svychisq(~hyp+ hiNa2 , ndns_1_11m, na.rm=TRUE)
 #hyp1chi$p.value
 #round(ftable(hyp1chi$observed),2)
 
 
-hyp2chi <- svychisq(~hyp+ zPF2, ndns_1_11dd, na.rm=TRUE)
+hyp2chi <- svychisq(~hyp+ zPF2, ndns_1_11m, na.rm=TRUE)
 #hyp2chi$p.value
 #round(ftable(hyp2chi$observed),2)
 ```
@@ -1405,23 +1408,23 @@ hyp2chi <- svychisq(~hyp+ zPF2, ndns_1_11dd, na.rm=TRUE)
 #| tbl-cap: "regressions in pairs between key variables full population showing direction and strength of relationships NDNS data 2008-2019"
 #univariable regression models
 #UPF Energy % only
-lm1E <- svyglm(BP ~ zPF, ndns_1_11dd)
+lm1E <- svyglm(BP ~ zPF, ndns_1_11m)
 lm1Et <- tbl_regression(lm1E)
 #univariable regression models
 #Sodium only
-lm1na <- svyglm(BP ~ Na, ndns_1_11dd)
+lm1na <- svyglm(BP ~ Na, ndns_1_11m)
 lm1nat <- tbl_regression(lm1na)
 
-lmEna <- svyglm(zPF ~ Na, ndns_1_11dd)
+lmEna <- svyglm(zPF ~ Na, ndns_1_11m)
 lmEnat <- tbl_regression(lmEna)
 
-lmA <- svyglm(BP ~ Age, ndns_1_11dd)
+lmA <- svyglm(BP ~ Age, ndns_1_11m)
 lmAt <- tbl_regression(lmA)
 
-lmEA <- svyglm(zPF ~ Age, ndns_1_11dd)
+lmEA <- svyglm(zPF ~ Age, ndns_1_11m)
 lmEAt <- tbl_regression(lmEA)
 
-lmNaA <- svyglm(Na ~ Age, ndns_1_11dd)
+lmNaA <- svyglm(Na ~ Age, ndns_1_11m)
 lmNaAt <- tbl_regression(lmNaA)
 
 #row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Sodium"))
@@ -1449,41 +1452,41 @@ There is also a positive relationship with Sodium, which is also statistically s
 #| tbl-cap: "Univariable Regression NDNS data 2008-2019"
 #univariable regression models
 #UPF Energy % only
-lm1bmi <- svyglm(BP ~ bmival, ndns_1_11dd)
+lm1bmi <- svyglm(BP ~ bmival, ndns_1_11m)
 lm1bmit <- tbl_regression(lm1bmi)
 #univariable regression models
 #Sodium only
-lm1Ag1 <- svyglm(BP ~ agegad3, ndns_1_11dd)
+lm1Ag1 <- svyglm(BP ~ agegad3, ndns_1_11m)
 lm1Ag1t <- tbl_regression(lm1Ag1)
 
-lmEbmi <- svyglm(zPF ~ bmival, ndns_1_11dd)
+lmEbmi <- svyglm(zPF ~ bmival, ndns_1_11m)
 lmEbmit <- tbl_regression(lmEbmi)
 
 #lmed <- svyglm(BP ~ educfinh, ndns_1_11dd)
 #lmedt <- tbl_regression(lmed)
 
-lmEs <- svyglm(zPF ~ agegad3, ndns_1_11dd)
+lmEs <- svyglm(zPF ~ agegad3, ndns_1_11m)
 lmEst <- tbl_regression(lmEs)
 
 #lmEed <- svyglm(zPF ~ educfinh, ndns_1_11dd)
 #lmEedt <- tbl_regression(lmEed)
 
-lmNabm <- svyglm(Na ~ bmival, ndns_1_11dd)
+lmNabm <- svyglm(Na ~ bmival, ndns_1_11m)
 lmNabmt <- tbl_regression(lmNabm)
 
 #lmNaed <- svyglm(Na ~ educfinh, ndns_1_11dd)
 #lmNaedt <- tbl_regression(lmNaed)
 
-lmNaAg <- svyglm(Na ~ agegad3, ndns_1_11dd)
+lmNaAg <- svyglm(Na ~ agegad3, ndns_1_11m)
 lmNaAgt <- tbl_regression(lmNaAg)
 
-lmNaI <- svyglm(Na ~ IMD, ndns_1_11dd)
+lmNaI <- svyglm(Na ~ IMD, ndns_1_11m)
 lmNaIt <- tbl_regression(lmNaI)
 
-lmzPFI <- svyglm(zPF ~ IMD, ndns_1_11dd)
+lmzPFI <- svyglm(zPF ~ IMD, ndns_1_11m)
 lmzPFIt <- tbl_regression(lmzPFI)
 
-lmBPI <- svyglm(BP ~ IMD, ndns_1_11dd)
+lmBPI <- svyglm(BP ~ IMD, ndns_1_11m)
 lmBPIt <- tbl_regression(lmBPI)
 #row1<- tbl_merge(list(lm1nat,lm1Et,lmEnat),tab_spanner = c("BP","UPF","Sodium"))
 #row2 <- tbl_merge(list(lmAt,lmEAt,lmNaAt),tab_spanner = c("BP","UPF","Sodium"))
@@ -1520,16 +1523,16 @@ The Akaike Information Criterion (AIC), a measure of 'goodness of fit', is lower
 
 ```{r bpmultivariablemodels, echo=FALSE, warning=FALSE}
 
-lm1AS <- svyglm(hyp ~  Sex +BMI +agegad3+educfinh + IMD +SurveyYear,family = binomial(link = "logit"), ndns_1_11dd , na.action = na.exclude)
+lm1AS <- svyglm(hyp ~  BMI +agegad3+educfinh + IMD +SurveyYear,family = binomial(link = "logit"), ndns_1_11m , na.action = na.exclude)
 
 theme_gtsummary_mean_sd()
 
 #Sodium only
-lmna <- svyglm( hyp ~ hiNa  +Sex +agegad3 + BMI+educfinh+  IMD+SurveyYear ,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
+lmna <- svyglm( hyp ~ hiNa  +agegad3 + BMI+educfinh+  IMD+SurveyYear ,family = binomial(link = "logit"), ndns_1_11m,na.action = na.exclude)
 
-lmnaE <- svyglm(hyp ~ hiNa +Sex +agegad3+ zPF3 + BMI +educfinh+ IMD +SurveyYear,family = binomial(link = "logit"), ndns_1_11dd,na.action = na.exclude)
+lmnaE <- svyglm(hyp ~ hiNa  +agegad3+ zPF3 + BMI +educfinh+ IMD +SurveyYear,family = binomial(link = "logit"), ndns_1_11m,na.action = na.exclude)
 
-lmME <- svyglm( hyp~ zPF3 +agegad3+Sex + BMI +educfinh + IMD +SurveyYear,family = binomial(link = "logit"), ndns_1_11dd,na.action =na.exclude)
+lmME <- svyglm( hyp~ zPF3 +agegad3+ BMI +educfinh + IMD +SurveyYear,family = binomial(link = "logit"), ndns_1_11m,na.action =na.exclude)
 
 #lmME2 <- svy_vglm(UPF3 ~ hyp+hiNa +agegad3+Sex + bmival +educfinh + EIMD_2010_quintile +bpd,family = multinomial(refLevel=1),design= ndns_1_11d,na.action =na.exclude)
 #tbl_regression(lmME2)
@@ -1683,11 +1686,13 @@ This research agrees that Monteiro's model @monteiro2010 might complement the es
 It is a model which is a macro level description, and explains the situation epidemiologically.
 Other models have subsequently taken more of this approach Martinez-Perez @martinez-perez2021 examined the relative merits of the models.
 
-|                                                                                                                                            |                                                                                     |                 |     |
-|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|-----------------|-----|
-| Population level                                                                                                                           | Food Issue                                                                          | Health Outcomes |     |
-| Nations, Cities \| Biology, Economics and Culture Producers, Retailers \| Increased Health needs and costs to society \| \| \| \| \| \| \| |                                                                                     |                 |     |
-| Individuals                                                                                                                                | Time, Satiety, Overeating, Medication, \| Medical needs NCD, CVD, BP \| \| \| \| \| |                 |     |
++--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+-----------------+---------+
+| Population level                                                                                                                           | Food Issue                                                                          | Health Outcomes |         |
++--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+-----------------+---------+
+| Nations, Cities \| Biology, Economics and Culture Producers, Retailers \| Increased Health needs and costs to society \| \| \| \| \| \| \| |                                                                                     |                 |         |
++--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+-----------------+---------+
+| Individuals                                                                                                                                | Time, Satiety, Overeating, Medication, \| Medical needs NCD, CVD, BP \| \| \| \| \| |                 |         |
++--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+-----------------+---------+
 
 ### Policy in public health
 
