@@ -274,9 +274,14 @@ Eligible studies were observational and prospective studies, with meta analysis 
 
 Studies were included with a population, intervention, comparison, and outcome (PICO) similar to the research question.
 
+search terms (("ultraprocessed food*" OR "ultra-processed food*" OR "ultra processed food*" OR "NOVA food*")OR (salt OR Sodium OR "Sodium intake")) AND ( "blood pressure" OR hypertension OR "cardiovascular disease" OR "cardiovascular risk")AND(cohort OR cross-section\* OR prospective OR meta-analysis OR "systematic review")
+
+Inclusion prospective and observational studies and systematic reviews specifically on hypertension with relevant exposures"
+
 Papers were excluded where the population was specifically of one type, or had a specified health condition.
 Studies were excluded where specific foods were considered, or the comparison was not similar.
 Studies with outcomes such as cancer, obesity, or diabetes were excluded.
+Exclusions ("renal cell cancer" OR "gastric cancer" OR "multiple sclerosis" OR dialysis OR DHA OR auto-immunity OR autoimmunity OR diarrhoea OR telomere OR crp OR "c-reactive" OR CKD OR "chronic kidney disease" OR autosomal OR geneti\* OR "Inflammatory bowel disease" OR diabetes OR atherosclerosis OR osteoporosis OR angiotensin\* OR aldosteron\* OR covid-19 OR gestation\* OR stroke OR "birth weight" OR hypertensive OR "immune mechanisms" OR "heart failure"OR taste OR "cognitive decline" OR dementia OR mortality OR validation)
 
 Scopus @scopus2 , Pubmed , Web of Science and Medline(ovid) @ovid:se were searched.
 Grey literature, especially government reports around NDNS were studied.
@@ -284,6 +289,7 @@ This identified a report from SACN @sacnsta .
 The Cochrane database of systematic reviews was accessed but no additional reviews were found.
 
 The search strategy is included in [table 1](#tab:table2) below.
+"Scopus search"=c("18/6/23","240"), "Medline(Ovid)Search" =c("18/6/23","202"),"Pubmed search"=c("18/6/23","103"),"Web of Science Search" =c("18/6/23","48"),"Total"=c("18/6/23","593")
 
 Other sources were identified by cross referencing bibliographies particularly from the systematic reviews.
 Colleagues identified further relevant literature.
@@ -551,13 +557,17 @@ Participants were identified by random selection across postal units.
 The sample is stratified to ensure a representative sample across the four nations (England, Wales, Scotland, and Northern Ireland) and across regions in England (North, Central/Midlands, South(including London)).
 The sample is also stratified for age and sex and Index of multiple deprivation (IMD).
 Invitiations were sent out to households across the four nations.
+
+All participants who responded were included.
 Participants who agreed to take part were visited by a research nurse.
 Participants gave informed consent and were able to withdraw consent at any time, the study was conducted within ethics committee guidance.
-All were included, none excluded.
+All were included.
+There were no exclusions.
 
 For NDNS the intended sample is 1000 per year with 50% adults.
 Each year the sample is slightly different due to differential uptake.
 Oversampling is used to control this.
+Weighting values are then used to standardise the sample for age, sex, IMD, and nation.
 
 Those taking BP controlling medications were excluded for analysis.
 The relationship between salt and systolic blood pressure may be different in individuals with pathologically high BP who are on treatment.
@@ -587,23 +597,22 @@ Some of these differences may reflect polymorphism in physiological handling of 
 
 WHO recommended Sodium intake is less than 3000mg Sodium.
 Du et al @du2014 used categories of moderate and high intake at 5000mg and 6000mg, these categories were used for Sodium in this research.
+The cut off values were therefore 0-3g, 3-5g, 5-6g, and over 6g.
 
 ### UPF
 
 The NOVA classification, developed by Monteiro et al. @monteiro2010, was used to estimate the intake of UPF.
 There is no record of NOVA classification in NDNS.
-This data was developed by comparing every food level entry in NDNS against NOVA.
-A standard methodology described by Colombet and Chavez-Ugalde @colombet2023 the approach used has been published by Martinez-Steele et al. @martinez-steele2023 .
+The value for each NOVA group was developed by comparing every food level entry in NDNS against NOVA using standard methodology described by Colombet and Chavez-Ugalde @colombet2023. Another approach has been published by Martinez-Steele et al. @martinez-steele2023 .
 
 The energy content of the day's food was calculated by NOVA group.
 This was added to the intake for the other 3 days and the total intake by NOVA group established.
 The percentage of the total intake of energy was then calculated for each of the 4 Nova categories.
 Nova group 4 or UPF intake (UPF) is used for this study, this dataset was provided by Dr Colombet (personal communication).
 
-Categories of UPF intake used in other papers eg Wang @WangMei2022UFCI are low for the UK.
-Centre-weighted categories were used.
-The central category is the mean with one standard deviation above and below.
-This effectively identifies 67% in the centre of the distribution.
+Wang @WangMei2022UFCI used cut off values which are low for the UK.
+I used centre-weighted categories, plus/minus 1 standard deviations from the mean.
+This effectively identifies 67% in the central category.
 
 ## Outcome Variable
 
@@ -618,8 +627,9 @@ There is a much longer history and literature around the effect of clinician adm
 Many studies use patient reported diagnosis or clinician diagnosis, or even evidence of treatment to identify hypertensive participants.
 In this research only the measured values have been used, and participants on medication affecting the BP have been excluded from the analysis.
 
-Hypertension is BP over 140 mmHg, categorised to enable logistic regression.
-This value is identified by Du et al (@du2014) and others, though some use lower values such as 120mmHg ( @shimConsumptionUltraProcessedFood2022 )
+Hypertension is BP over 140 mmHg @williams2018 , categorised to enable logistic regression.
+This value is identified by Du et al (@du2014) and others, though some use lower values such as 120mmHg ( @shimConsumptionUltraProcessedFood2022 ).
+Categorizing into two categories enables a comparison to be made using logistic regression generating an odds ratio describing the relationship between the hypertension and not hypertension.
 
 ## Other Variables
 
@@ -653,6 +663,9 @@ The index is built of scores for a small locality (lower-layer super output area
 The deprivations relate to income, employment, education, health, crime, housing and living environment.
 Including it does to some extent duplicate the effect of health deprivation on the analysis.
 
+In the analysis I have used the quintile categories of IMD with each nations IMD categories treated as comparable.
+This may introduce some inaccuracy as the four nations use different baselines at different cut off dates, but should be accurate enough for the purpose of this analysis.
+
 Internationally age at completion of education, or income are often used.
 Income data is reported inconsistently through the survey years and so is not used in this analysis.
 Age at leaving education is included.
@@ -677,23 +690,28 @@ In particular the package 'survey' @survey2004 was used to manage weighted data.
 Generated weighting values account for differences uptake and drop out across the annual cohorts.
 'Survey' also accounts for sample stratification.
 
-### Analysis Plan
+## Analysis Plan
 
-Descriptive data was tabulated to enumerate the outline structure.
+The whole population and the analysed population were described.
+The populations in each sub group were described.
 
-The sensitivity of the data to changes in the annual cohorts was assessed.
+The exposure and outcome variables were mapped across the years.
+Non-standardised values from different years were compared to identify differences between the years.
 
-Then the data was analysed for correlation by regression.
-Akaike index statistics(AIC) were used to assess 'goodness of fit'.
-(R squared does not work for logistic regression).
+For the main results a set of multivariable logistic regression models was developed.
+Each exposure variable was modelled separately, the final model included both of the exposure variables.
 
-In all analysis P.values and confidence intervals were calculated and a value of p = 0.05 was taken as the threshold of statistical significance.
-
-For the main results univariable regression and a set of multivariable logistic regression models was developed.
-Each exposure variable was modelled separately, the final model included both of the exposure variables.Multivariable regression models were constructed to manage explanatory variables which might have confounding effects on the outcome of the analysis.
+Multivariable regression models were constructed to manage explanatory variables which might have confounding effects on the outcome of the analysis.
+These variables were Age, Sex, IMD, BMI, age at completion of education and year of survey.
 
 Logistic regression was used as the outcome variable is dichotomous.
 This gives an effect variable which is the inverse log(base 10) this result is exponentiated to give and odds ratio for the outcome compared with a zero outcome.
+
+Akaike index statistics(AIC) were used to assess 'goodness of fit' of logistic models.
+R squared does not work for logistic regression.
+A relative effect size was calculated by comparison of AIC statistics.
+
+In all analysis P.values and confidence intervals were calculated and a value of p = 0.05 was taken as the threshold of statistical significance.
 
 ```{r readdata, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -1124,13 +1142,13 @@ Categorical variables give the number of participants and the percentage of the 
 #| tbl-cap: "Characteristics of the sample population from National Dietary and Nutrition Study (2008-2019)"
 
 
-keydatw1 <-tbl_svysummary(ndns_1_11d, include= c(Sex,Age, agegad3,   educfinh, IMD,region,SurveyYear ))
+keydatw1 <-tbl_svysummary(ndns_1_11d, include= c(Sex,Age ))
 #keydatw1
-keydatwdd <-tbl_svysummary(ndns_1_11dd, include= c(Sex,Age, agegad3, educfinh, IMD,region,SurveyYear ) )
+keydatwdd <-tbl_svysummary(ndns_1_11dd, include= c(Sex,Age  ) )
 
-keydatwzpf <-tbl_svysummary(ndns_1_11zpf, include= c(Sex,Age, agegad3,  educfinh, IMD,region,SurveyYear) )
-keydatwna <-tbl_svysummary(ndns_1_11na, include= c(Sex,Age, agegad3,   educfinh, IMD,region,SurveyYear ) )
-keydatwhyp <-tbl_svysummary(ndns_1_11hyp, include= c(Sex,Age, agegad3,    educfinh, IMD,region,SurveyYear) )
+keydatwzpf <-tbl_svysummary(ndns_1_11zpf, include= c(Sex,Age) )
+keydatwna <-tbl_svysummary(ndns_1_11na, include= c(Sex,Age ) )
+keydatwhyp <-tbl_svysummary(ndns_1_11hyp, include= c(Sex,Age) )
 
 keydatwT <- tbl_merge(list(keydatw1,keydatwdd,keydatwzpf,keydatwna,keydatwhyp),tab_spanner = c("Whole Population", "Population not on BP medication","UPF >63%","Na >5000mg","hyp >140mmHg"))
 table3 <- as_flex_table( keydatwT)
@@ -1322,21 +1340,6 @@ Univariable regression demonstrates the interaction with other explanatory varia
 Then multivariable regression is used.
 Mathematical models containing explanatory variables are constructed and compared using 'goodness of fit' statistics.
 
-In the simplest model, by calculation using a Chi squared 2\*2 table, the odds ratio for hypertension in participants exposed to UPF \>63% is 0.5.
-The odds ratio for hypertension in participants exposed to Sodium \>5000mg is 1.45.
-These results take no account of weighting, or confounding, but give an indication of the expected result.
-
-```{r chisq, echo=FALSE, message=FALSE, warning=FALSE}
-hyp1chi <- svychisq(~hyp+ hiNa2 , ndns_1_11dd, na.rm=TRUE)
-#hyp1chi$p.value
-#round(ftable(hyp1chi$observed),2)
-
-
-hyp2chi <- svychisq(~hyp+ zPF2, ndns_1_11dd, na.rm=TRUE)
-#hyp2chi$p.value
-#round(ftable(hyp2chi$observed),2)
-```
-
 ```{r tblunivariableregressionsb, echo=FALSE, message=FALSE, warning=FALSE}
 #| tab-id: "tbl-univariable-regressionsb"
 #| tbl-cap: "regressions in pairs between key variables full population showing direction and strength of relationships NDNS data 2008-2019"
@@ -1366,20 +1369,20 @@ lmNaAt <- tbl_regression(lmNaA)
 #as_flex_table(tbl_stack(list(lm1nat,lmEnat,lm1Et,lmEAt,lmAt,lmNaAt),group_header = c("BP/Sodium","UPF/Sodium","UPF/BP","UPF/Age","Age/BP","Age/Sodium")))
 ```
 
-Univariable regression is adjusted for weighted survey samples.
+Univariable linear regression is adjusted for weighted survey samples.
 Identified important relationships within the data.
-Confounding plays a part in these results.
 
-The result for Sodium against UPF shows that there is no linear relationship between Sodium and UPF, in this table [Table 4.4.1](tab:tbl-univariable-regressions).
-UPF compared to Sodium also shows a zero beta value indicating no linear relationship.
+Understanding these results may help explain confounding relationships in the data.
 
-UPF does show a negative relationship with BP, which is statistically significant, beta = -0.19 (CI -0.22,-0.15).
+UPF compared to Sodium shows a zero beta value indicating no linear relationship.
+
+Linear regression of UPF shows a negative relationship with BP, which is statistically significant, beta = -0.19 (CI -0.22,-0.15).
 
 There is also a negative relationship for UPF with Age, again statistically significant beta = -0.25 (CI -0.26,-0.23).
 
 Age has a relationship with BP with a statistically significant positive gradient beta= 0.43 (CI 0.41,0.45).
 
-There is also a positive relationship with Sodium, which is also statistically significant 1.5 (CI 0.77,2.3).
+There is also a positive relationship of age with Sodium, which is also statistically significant 1.5 (CI 0.77,2.3).
 
 ```{r tblunivariableregressions, echo=FALSE, message=FALSE, warning=FALSE}
 #| tab-id: "tbl-more-univariable-regressions"
@@ -1438,8 +1441,8 @@ univariables2
 #save_as_docx(univariables, width=5, path = "/media/david/Elements1/contents/DOHmed/MPH/MPHModules/dissertation/alternativequant/upfnabp/data/univariables.docx")
 ```
 
-Multivariable regression models were constructed.
-They are regressed against hypertension in patients who are not on BP reducing medication.
+Multivariable logistic regression models were constructed.
+They were regressed against hypertension in participants.
 
 The model, "Sodium Only", includes Sodium as the exposure variable.
 The odds ratio for the group taking between 5000mg and 6000mg per day is statistically significantly different from those taking less than 3000mg per day.
@@ -1451,7 +1454,8 @@ The last model, "Sodium and UPF", shows that when combined the effect remains.
 The odds ratio for 5000-6000mg of Sodium remains statistically significant 5.57(1.47,21.2).
 The odds ratio for UPF also remains 0.57(0.34,0.94).
 These are both changed from the separate models.
-The Akaike Information Criterion (AIC), a measure of 'goodness of fit', is lower for this combined model, 3590.81, indicating it is a better fit for the data also.
+
+The Akaike Information Criterion (AIC), a measure of 'goodness of fit', is lower for this combined model, 3590.81, indicating that it better fits the data.
 
 [Table 4.5.1](tab:tbl-multivariable-outputs-bp) follows below.
 
@@ -1524,21 +1528,20 @@ These relationships need to be viewed with caution as the values are intended to
 
 ## Key Results
 
-This analysis shows a statistically significant correlation between high Sodium intake and hypertension .
-There was an increased odds ratio of hypertension with higher Sodium intake (OR=5.57(1.47,21.2)).
-Between high UPF and hypertension there was a lower odds ratio of hypertension with high UPF intake (OR=0.57(0.34,0.94)).
-This is present in a combined multivariable logistic regression model which includes age, sex, BMI, IMD, age at leaving education, and survey year.
+In a combined model the analysis shows a statistically significant odds ratio of 5.57(1.47,21.2) for hypertension with Sodium intake between 5g and 6g.
+Between high UPF and hypertension there was an odds ratio of 0.57(0.34,0.94) hypertension with high UPF intake .
+Multivariable logistic regression models all included age, sex, BMI, IMD, age at leaving education, and survey year.
 
-The effect is also present in the multivariable logistic regression model of each individual variable, for Sodium this is OR=5.20(CI 1.39,19.5), and for UPF OR=0.60(CI 0.36,0.99).
+The effect is also present in the multivariable logistic regression model for separate variables, for Sodium this is OR=5.20(CI 1.39,19.5), and for UPF OR=0.60(CI 0.36,0.99).
 These use the same explanatory variables.
 
 In univariable analysis with no controlling for confounding or explanatory variables, there was no correlation between UPF intake and Sodium intake (beta=0).
 There was a strong correlation between age and BP (beta =0.43 (CI 0.41,0.45)), as well as age and Sodium intake.
 There was a strong age gradient of UPF intake (beta= -0.25 (CI -0.26,-0.23)).
 
-The descriptive analysis does show the size of different groups.
-It also shows how they differ from the overall population.
-These factors are reasons for caution over the overall results.
+These results show statistical significance because of the statistical power due to the large sample size.
+
+Sub-group size and heterogeneity are reasons for caution over the overall results.
 
 Participants with high Sodium \>5000mg are more likely to have hypertension.
 He @hefjm , Graudal @graudal2014 , Strazzullo @strazzullo2009 , inform us that high Sodium intake is contributing to high BP.
@@ -1554,6 +1557,7 @@ They are different in age from those with high Sodium or high BP.
 
 The data is from a cross-sectional study, and so has the limitations of this design.
 Exposure and outcome are measured at the same time, so causal relationships can be confusing or reversed.
+
 This 'reverse causation' would be appropriate to describe the idea that the high UPF exposure is something which applies to young age groups and has not yet had time to have an effect.
 If older participants were not exposed when they were younger, their levels of BP would not be increased but instead represent a baseline measurement.
 This results in inverting the relationships in the values.Prospective and longitudinal studies, such as cohort or RCT studies do not have this issue.
@@ -1659,10 +1663,10 @@ There is a potential ecological fallacy here, they may be different people.
 The finding identifies it is not as simple as high UPF leads to high Sodium leads to hypertension.
 This suggests that reformulation, reducing Sodium content, will not be effective in changing risk.
 
-### A synergistic effect
+### Not simply additive effect
 
 The regression model including both exposure variables had a better fit of data than either individually.
-This finding suggests that the effect of each variable is not the whole effect, but that there is a synergistic effect.
+This finding suggests that the effect of each variable is not the whole effect.
 This would fit with the idea that Monteiro's concept of UPF @monteiro2010 is wider than being simply a nutritional effect.
 
 This effect might be due to broader biologic effects.
@@ -1672,7 +1676,7 @@ Alternatively, it could relate to the wider economic and cultural aspects of UPF
 ### Ideas for further research
 
 Further research based on the findings is needed for confirmation by further review and analysis.
-The finding of a synergistic effect, and to understand the types of UPF ingested in this population would be priorities.
+The finding of a supplementary effect, and to understand the types of UPF ingested in this population would be priorities.
 
 This further study might also include attempts to better map Martinez's putative epistemological framework.
 This could be by looking quantitatively for more specific economic and cultural markers in the data.
